@@ -1,15 +1,17 @@
 import About from './pages/About'
 import Home from './pages/Home'
 import Header from './components/reusables/Header'
+import { Navigate, Route, Routes } from 'react-router-dom'
 
 function App() {
-  const pathname = typeof window !== 'undefined' ? window.location.pathname : '/'
-  const isAboutPage = pathname === '/about'
-
   return (
     <main className="min-h-screen bg-[#eef7fb] text-[#16324f]">
-      <Header activePage={isAboutPage ? 'about' : 'home'} />
-      {isAboutPage ? <About /> : <Home />}
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="*" element={<Navigate replace to="/" />} />
+      </Routes>
     </main>
   )
 }

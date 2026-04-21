@@ -1,30 +1,28 @@
-type HeaderProps = {
-  activePage: 'home' | 'about'
-}
+import { NavLink } from 'react-router-dom'
 
-function Header({ activePage }: HeaderProps) {
-  const linkClass = (page: 'home' | 'about') =>
-    activePage === page
+function Header() {
+  const linkClass = ({ isActive }: { isActive: boolean }) =>
+    isActive
       ? 'border-b-[3px] border-[#115b82] pb-2 text-[0.98rem] font-semibold text-[#115b82]'
       : 'pb-2 text-[0.98rem] font-medium text-[#587189]'
 
   return (
     <header className="border-b border-[#c5d8e5] bg-[#f7fcff] px-8 py-3 shadow-[0_1px_0_rgba(15,23,42,0.03)]">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-6">
-        <a
+        <NavLink
           className="font-serif text-[1.75rem] font-semibold leading-none tracking-[-0.03em] text-[#115b82]"
-          href="/"
+          to="/"
         >
           Alokayon
-        </a>
+        </NavLink>
 
         <nav className="hidden items-center gap-11 md:flex">
-          <a className={linkClass('home')} href="/">
+          <NavLink className={linkClass} to="/">
             Home
-          </a>
-          <a className={linkClass('about')} href="/about">
+          </NavLink>
+          <NavLink className={linkClass} to="/about">
             About
-          </a>
+          </NavLink>
           <a className="pb-2 text-[0.98rem] font-medium text-[#587189]" href="#">
             Programs
           </a>
