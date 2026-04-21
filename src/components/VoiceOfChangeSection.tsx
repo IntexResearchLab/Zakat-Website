@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import Reveal from './Reveal'
 
 const testimonials = [
   {
@@ -51,16 +52,19 @@ function VoiceOfChangeSection() {
   return (
     <section className="bg-[#f9fdff] py-20 sm:py-24">
       <div className="mx-auto max-w-5xl px-6">
-        <div className="text-center">
+        <Reveal className="text-center">
           <p className="mb-4 text-sm font-bold uppercase tracking-[0.22em] text-[#115b82]">
             Voices of Impact
           </p>
           <h2 className="mx-auto max-w-3xl font-serif text-[2.5rem] leading-[1.02] tracking-[-0.04em] text-[#14324d] sm:text-[3rem]">
             Real stories from our community
           </h2>
-        </div>
+        </Reveal>
 
-        <div className="mt-10 rounded-[1.35rem] border border-[#d7e4ed] bg-white p-7 shadow-[0_16px_40px_rgba(15,23,42,0.05)] sm:p-8">
+        <Reveal
+          className="mt-10 rounded-[1.35rem] border border-[#d7e4ed] bg-white p-7 shadow-[0_16px_40px_rgba(15,23,42,0.05)] sm:p-8"
+          delay={120}
+        >
           <div className="flex flex-col gap-8">
             <div className="flex items-center justify-between gap-4">
               <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#115b82]">
@@ -101,7 +105,7 @@ function VoiceOfChangeSection() {
               <div className="flex items-center gap-3 self-start sm:self-auto">
                 <button
                   aria-label="Previous voice"
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-[#d8e5ee] bg-[#fbfdff] text-[#7b8b96] transition hover:border-[#c4d8e6] hover:text-[#14324d]"
+                  className="hover-lift-soft flex h-9 w-9 items-center justify-center rounded-full border border-[#d8e5ee] bg-[#fbfdff] text-[#7b8b96] transition hover:border-[#c4d8e6] hover:text-[#14324d]"
                   onClick={handlePrevious}
                   type="button"
                 >
@@ -109,7 +113,7 @@ function VoiceOfChangeSection() {
                 </button>
                 <button
                   aria-label="Next voice"
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-[#d8e5ee] bg-[#fbfdff] text-[#7b8b96] transition hover:border-[#c4d8e6] hover:text-[#14324d]"
+                  className="hover-lift-soft flex h-9 w-9 items-center justify-center rounded-full border border-[#d8e5ee] bg-[#fbfdff] text-[#7b8b96] transition hover:border-[#c4d8e6] hover:text-[#14324d]"
                   onClick={handleNext}
                   type="button"
                 >
@@ -128,7 +132,7 @@ function VoiceOfChangeSection() {
               </span>
             </a>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   )

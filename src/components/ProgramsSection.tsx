@@ -1,3 +1,5 @@
+import Reveal from './Reveal'
+
 const programCards = [
   {
     title: 'Education',
@@ -52,7 +54,7 @@ function ProgramsSection() {
   return (
     <section className="bg-[#f9fdff] pt-14 pb-24 sm:pt-16 sm:pb-28">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="mb-12 flex flex-col gap-6 sm:mb-14 sm:flex-row sm:items-end sm:justify-between">
+        <Reveal className="mb-12 flex flex-col gap-6 sm:mb-14 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-2xl">
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.22em] text-[#115b82]">
               Our Focus Areas
@@ -68,13 +70,13 @@ function ProgramsSection() {
           >
             View All Programs
           </a>
-        </div>
+        </Reveal>
 
-        <div className="overflow-hidden">
+        <Reveal className="overflow-hidden" delay={120}>
           <div className="programs-marquee-track flex w-max gap-6">
             {scrollingCards.map((card, index) => (
               <article
-                className="group relative h-[18rem] w-[15rem] shrink-0 overflow-hidden rounded-[1.35rem] bg-[#173852] shadow-[0_12px_32px_rgba(15,23,42,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(15,23,42,0.14)]"
+                className="group hover-lift-soft relative h-[18rem] w-[15rem] shrink-0 overflow-hidden rounded-[1.35rem] bg-[#173852] shadow-[0_12px_32px_rgba(15,23,42,0.08)] duration-300 hover:shadow-[0_18px_40px_rgba(15,23,42,0.14)]"
                 key={`${card.title}-${index}`}
               >
                 <img
@@ -95,7 +97,7 @@ function ProgramsSection() {
               </article>
             ))}
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   )
