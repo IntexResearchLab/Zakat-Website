@@ -1,9 +1,11 @@
+import Reveal from '../reusables/Reveal'
+
 function SupportOptionsSection() {
   return (
     <section className="bg-[#f9fdff] py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid gap-8 lg:grid-cols-[1.02fr_0.98fr] lg:items-stretch">
-          <div className="rounded-[1.35rem] bg-white p-8 shadow-[0_16px_40px_rgba(15,23,42,0.06)] sm:p-10 lg:p-12">
+          <Reveal className="rounded-[1.35rem] bg-white p-8 shadow-[0_16px_40px_rgba(15,23,42,0.06)] sm:p-10 lg:p-12">
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.22em] text-[#115b82]">
               Stay Connected
             </p>
@@ -32,15 +34,18 @@ function SupportOptionsSection() {
                 type="tel"
               />
               <button
-                className="mt-2 inline-flex items-center justify-center rounded-full bg-[#f3be84] px-8 py-3.5 text-base font-bold text-[#3a2a1f] transition hover:bg-[#edb16d]"
+                className="hover-lift-soft mt-2 inline-flex items-center justify-center rounded-full bg-[#f3be84] px-8 py-3.5 text-base font-bold text-[#3a2a1f] transition hover:bg-[#edb16d]"
                 type="button"
               >
                 Share My Contact
               </button>
             </form>
-          </div>
+          </Reveal>
 
-          <div className="overflow-hidden rounded-[1.35rem] bg-white shadow-[0_16px_40px_rgba(15,23,42,0.06)]">
+          <Reveal
+            className="overflow-hidden rounded-[1.35rem] bg-white shadow-[0_16px_40px_rgba(15,23,42,0.06)]"
+            delay={140}
+          >
             <div className="relative h-full min-h-[28rem]">
               <img
                 alt="Support donation"
@@ -62,7 +67,7 @@ function SupportOptionsSection() {
                     $ Other amount
                   </div>
 
-                  <button className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-[#1d621f] px-8 py-4 text-sm font-bold uppercase tracking-[0.16em] text-white transition hover:bg-[#174f19]">
+                  <button className="hover-lift-soft mt-6 inline-flex w-full items-center justify-center rounded-full bg-[#1d621f] px-8 py-4 text-sm font-bold uppercase tracking-[0.16em] text-white transition hover:bg-[#174f19]">
                     Complete Donation
                   </button>
 
@@ -72,7 +77,7 @@ function SupportOptionsSection() {
                 </div>
               </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

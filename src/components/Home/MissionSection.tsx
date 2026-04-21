@@ -1,24 +1,26 @@
+import Reveal from '../reusables/Reveal'
+
 function MissionSection() {
   return (
     <section className="bg-[#f9fdff] py-24 sm:py-28">
       <div className="mx-auto grid max-w-7xl gap-14 px-6 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:gap-20">
-        <div className="relative">
-          <div className="overflow-hidden rounded-[1.75rem] shadow-[0_18px_48px_rgba(15,23,42,0.12)]">
+        <Reveal className="relative">
+          <div className="overflow-hidden rounded-[1.75rem] shadow-[0_18px_48px_rgba(15,23,42,0.12)] transition-transform duration-500 hover:translate-y-[-4px]">
             <img
               alt="Alokayon mission"
-              className="aspect-[4/5] w-full object-cover"
+              className="aspect-[4/5] w-full object-cover transition duration-700 hover:scale-[1.03]"
               src="/assets/home/carousel-2.jpg"
             />
           </div>
 
-          <div className="absolute bottom-[-1.25rem] right-4 max-w-[16.5rem] rounded-[1.2rem] bg-[#ffe39a] px-7 py-6 shadow-[0_18px_40px_rgba(245,158,11,0.14)] sm:bottom-[-1.5rem] sm:right-6">
+          <div className="absolute bottom-[-1.25rem] right-4 max-w-[16.5rem] rounded-[1.2rem] bg-[#ffe39a] px-7 py-6 shadow-[0_18px_40px_rgba(245,158,11,0.14)] transition-transform duration-500 hover:translate-y-[-3px] sm:bottom-[-1.5rem] sm:right-6">
             <p className="font-serif text-[1.05rem] italic leading-[1.45] text-[#7d6620] sm:text-[1.15rem]">
               &quot;The best of people are those who are most useful to others.&quot;
             </p>
           </div>
-        </div>
+        </Reveal>
 
-        <div className="max-w-[40rem]">
+        <Reveal className="max-w-[40rem]" delay={140}>
           <p className="mb-5 text-sm font-bold uppercase tracking-[0.22em] text-[#115b82]">
             Our Sacred Mission
           </p>
@@ -40,7 +42,7 @@ function MissionSection() {
           </div>
 
           <a
-            className="mt-12 inline-flex items-center gap-4 rounded-full border border-[#c8dcea] bg-[#f3fbff] px-5 py-2.5 text-sm font-bold uppercase tracking-[0.2em] text-[#115b82] transition hover:gap-5 hover:border-[#abcbe0] hover:bg-[#e8f5fc]"
+            className="hover-lift-soft mt-12 inline-flex items-center gap-4 rounded-full border border-[#c8dcea] bg-[#f3fbff] px-5 py-2.5 text-sm font-bold uppercase tracking-[0.2em] text-[#115b82] transition hover:gap-5 hover:border-[#abcbe0] hover:bg-[#e8f5fc]"
             href="#"
           >
             Learn More About Us
@@ -48,7 +50,7 @@ function MissionSection() {
               →
             </span>
           </a>
-        </div>
+        </Reveal>
       </div>
     </section>
   )

@@ -8,6 +8,10 @@ body,
   margin: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .material-symbols-outlined {
   font-variation-settings:
     "FILL" 0,
@@ -33,4 +37,130 @@ body,
 
 .programs-marquee-track:hover {
   animation-play-state: paused;
+}
+
+@keyframes fade-up-soft {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-soft {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.reveal-up {
+  animation: fade-up-soft 720ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  will-change: transform, opacity;
+}
+
+.reveal-up-delay-1 {
+  animation-delay: 120ms;
+}
+
+.reveal-up-delay-2 {
+  animation-delay: 220ms;
+}
+
+.reveal-up-delay-3 {
+  animation-delay: 320ms;
+}
+
+.reveal-fade {
+  animation: fade-in-soft 680ms ease both;
+}
+
+.reveal-scroll {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 760ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 760ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform, opacity;
+}
+
+.reveal-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hover-lift-soft {
+  transition:
+    transform 280ms ease,
+    box-shadow 280ms ease,
+    border-color 280ms ease,
+    background-color 280ms ease;
+}
+
+.hover-lift-soft:hover {
+  transform: translateY(-4px);
+}
+
+@keyframes hero-drift {
+  from {
+    transform: scale(1.08);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes hero-copy-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-image-active {
+  animation: hero-drift 6.2s ease-out both;
+}
+
+.hero-copy-animate {
+  animation: hero-copy-in 760ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .programs-marquee-track,
+  .reveal-up,
+  .reveal-fade,
+  .hero-image-active,
+  .hero-copy-animate {
+    animation: none !important;
+  }
+
+  .reveal-scroll,
+  .reveal-scroll.is-visible {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .hover-lift-soft,
+  .hover-lift-soft:hover {
+    transform: none !important;
+    transition: none !important;
+  }
 }

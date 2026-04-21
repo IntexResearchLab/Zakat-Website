@@ -1,27 +1,37 @@
+import { NavLink } from 'react-router-dom'
+
 function Header() {
+  const linkClass = ({ isActive }: { isActive: boolean }) =>
+    isActive
+      ? 'border-b-[3px] border-[#115b82] pb-2 text-[0.98rem] font-semibold text-[#115b82]'
+      : 'pb-2 text-[0.98rem] font-medium text-[#587189]'
+
   return (
     <header className="border-b border-[#c5d8e5] bg-[#f7fcff] px-8 py-3 shadow-[0_1px_0_rgba(15,23,42,0.03)]">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-6">
-        <a
+        <NavLink
           className="font-serif text-[1.75rem] font-semibold leading-none tracking-[-0.03em] text-[#115b82]"
-          href="#"
+          to="/"
         >
           Alokayon
-        </a>
+        </NavLink>
 
         <nav className="hidden items-center gap-11 md:flex">
-          <a
-            className="border-b-[3px] border-[#115b82] pb-2 text-[0.98rem] font-semibold text-[#115b82]"
-            href="#"
-          >
+          <NavLink className={linkClass} to="/">
             Home
-          </a>
-          <a className="pb-2 text-[0.98rem] font-medium text-[#587189]" href="#">
+          </NavLink>
+          <NavLink className={linkClass} to="/about">
             About
-          </a>
-          <a className="pb-2 text-[0.98rem] font-medium text-[#587189]" href="#">
+          </NavLink>
+          <NavLink className={linkClass} to="/programs/alokayon-school">
+            School
+          </NavLink>
+          <NavLink className={linkClass} to="/programs/madrasa">
+            Madrasah
+          </NavLink>
+          <NavLink className={linkClass} to="/programs">
             Programs
-          </a>
+          </NavLink>
           <a className="pb-2 text-[0.98rem] font-medium text-[#587189]" href="#">
             Transparency
           </a>

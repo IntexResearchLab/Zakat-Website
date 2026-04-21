@@ -52,7 +52,9 @@ function HeroCarousel() {
           >
             <img
               alt={slide.titleTop}
-              className="h-full w-full object-cover"
+              className={`h-full w-full object-cover ${
+                index === activeSlide ? 'hero-image-active' : ''
+              }`}
               src={slide.image}
             />
             <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(12,76,109,0.88),rgba(17,91,130,0.62),rgba(10,35,54,0.48))]" />
@@ -61,7 +63,10 @@ function HeroCarousel() {
 
         <div className="absolute inset-0 flex items-center">
           <div className="mx-auto w-full max-w-7xl px-6 md:px-10">
-            <div className="max-w-2xl pl-2 md:pl-10">
+            <div
+              className="hero-copy-animate max-w-2xl pl-2 md:pl-10"
+              key={currentSlide.image}
+            >
               <p className="mb-6 text-sm font-bold uppercase tracking-[0.32em] text-[#ffd86b]">
                 {currentSlide.eyebrow}
               </p>
@@ -74,10 +79,10 @@ function HeroCarousel() {
               </p>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <button className="rounded-full bg-[#f5fbff] px-8 py-3.5 text-sm font-bold uppercase tracking-[0.14em] text-[#115b82] transition hover:bg-[#dceef8]">
+                <button className="hover-lift-soft rounded-full bg-[#f5fbff] px-8 py-3.5 text-sm font-bold uppercase tracking-[0.14em] text-[#115b82] shadow-[0_10px_28px_rgba(6,31,47,0.12)] transition hover:bg-[#dceef8]">
                   Donate Now
                 </button>
-                <button className="rounded-full border border-white/18 bg-[#8fc7e8]/18 px-8 py-3.5 text-sm font-bold uppercase tracking-[0.14em] text-white backdrop-blur-sm transition hover:bg-[#8fc7e8]/28">
+                <button className="hover-lift-soft rounded-full border border-white/18 bg-[#8fc7e8]/18 px-8 py-3.5 text-sm font-bold uppercase tracking-[0.14em] text-white backdrop-blur-sm transition hover:bg-[#8fc7e8]/28">
                   Our Impact
                 </button>
               </div>
@@ -101,7 +106,7 @@ function HeroCarousel() {
 
         <button
           aria-label="Previous slide"
-          className="absolute left-5 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-[#0c4c6d]/45 text-2xl text-white backdrop-blur-sm transition hover:bg-[#0c4c6d]/70"
+          className="hover-lift-soft absolute left-5 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-[#0c4c6d]/45 text-2xl text-white backdrop-blur-sm transition hover:bg-[#0c4c6d]/70"
           onClick={() =>
             setActiveSlide((current) => (current - 1 + slides.length) % slides.length)
           }
@@ -112,7 +117,7 @@ function HeroCarousel() {
 
         <button
           aria-label="Next slide"
-          className="absolute right-5 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-[#0c4c6d]/45 text-2xl text-white backdrop-blur-sm transition hover:bg-[#0c4c6d]/70"
+          className="hover-lift-soft absolute right-5 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-[#0c4c6d]/45 text-2xl text-white backdrop-blur-sm transition hover:bg-[#0c4c6d]/70"
           onClick={() => setActiveSlide((current) => (current + 1) % slides.length)}
           type="button"
         >
