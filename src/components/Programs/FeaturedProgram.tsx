@@ -1,4 +1,5 @@
 import Reveal from '../reusables/Reveal'
+import { Link } from 'react-router-dom'
 import { featuredProgram } from './data'
 
 function FeaturedProgram() {
@@ -52,6 +53,16 @@ function FeaturedProgram() {
               </div>
             ))}
           </div>
+
+          <Link
+            className="mt-8 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.16em] text-[#115b82] transition hover:text-[#0d4f72]"
+            to="/programs/alokayon-school"
+          >
+            View school story
+            <span className="material-symbols-outlined text-[1.15rem]">
+              arrow_forward
+            </span>
+          </Link>
         </Reveal>
       </div>
     </section>

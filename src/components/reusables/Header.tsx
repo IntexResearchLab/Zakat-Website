@@ -23,6 +23,12 @@ function Header() {
           <NavLink className={linkClass} to="/about">
             About
           </NavLink>
+          <NavLink className={linkClass} to="/programs/alokayon-school">
+            School
+          </NavLink>
+          <NavLink className={linkClass} to="/programs/madrasa">
+            Madrasah
+          </NavLink>
           <NavLink className={linkClass} to="/programs">
             Programs
           </NavLink>
