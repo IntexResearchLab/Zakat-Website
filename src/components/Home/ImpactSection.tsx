@@ -1,4 +1,4 @@
-import Reveal from './Reveal'
+import Reveal from '../reusables/Reveal'
 
 const primaryImpactStats = [
   { value: '200+', label: 'Students Supported' },

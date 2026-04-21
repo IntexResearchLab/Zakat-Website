@@ -1,25 +1,28 @@
-function Header() {
+type HeaderProps = {
+  activePage: 'home' | 'about'
+}
+
+function Header({ activePage }: HeaderProps) {
+  const linkClass = (page: 'home' | 'about') =>
+    activePage === page
+      ? 'border-b-[3px] border-[#115b82] pb-2 text-[0.98rem] font-semibold text-[#115b82]'
+      : 'pb-2 text-[0.98rem] font-medium text-[#587189]'
+
   return (
     <header className="border-b border-[#c5d8e5] bg-[#f7fcff] px-8 py-3 shadow-[0_1px_0_rgba(15,23,42,0.03)]">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-6">
         <a
           className="font-serif text-[1.75rem] font-semibold leading-none tracking-[-0.03em] text-[#115b82]"
-          href="#"
+          href="/"
         >
           Alokayon
         </a>
 
         <nav className="hidden items-center gap-11 md:flex">
-          <a
-            className="pb-2 text-[0.98rem] font-medium text-[#587189]"
-            href="#"
-          >
+          <a className={linkClass('home')} href="/">
             Home
           </a>
-          <a
-            className="border-b-[3px] border-[#115b82] pb-2 text-[0.98rem] font-semibold text-[#115b82]"
-            href="#"
-          >
+          <a className={linkClass('about')} href="/about">
             About
           </a>
           <a className="pb-2 text-[0.98rem] font-medium text-[#587189]" href="#">

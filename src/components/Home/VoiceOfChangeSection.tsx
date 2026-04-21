@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import Reveal from './Reveal'
+import Reveal from '../reusables/Reveal'
 
 const testimonials = [
   {

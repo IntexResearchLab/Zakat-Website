@@ -1,4 +1,4 @@
-import Reveal from './Reveal'
+import Reveal from '../reusables/Reveal'
 
 function MissionSection() {
   return (
