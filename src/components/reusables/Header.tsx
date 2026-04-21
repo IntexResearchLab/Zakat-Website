@@ -23,9 +23,9 @@ function Header() {
           <NavLink className={linkClass} to="/about">
             About
           </NavLink>
-          <a className="pb-2 text-[0.98rem] font-medium text-[#587189]" href="#">
+          <NavLink className={linkClass} to="/programs">
             Programs
-          </a>
+          </NavLink>
           <a className="pb-2 text-[0.98rem] font-medium text-[#587189]" href="#">
             Transparency
           </a>
