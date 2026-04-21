@@ -11,12 +11,15 @@ function Header() {
 
         <nav className="hidden items-center gap-11 md:flex">
           <a
-            className="border-b-[3px] border-[#115b82] pb-2 text-[0.98rem] font-semibold text-[#115b82]"
+            className="pb-2 text-[0.98rem] font-medium text-[#587189]"
             href="#"
           >
             Home
           </a>
-          <a className="pb-2 text-[0.98rem] font-medium text-[#587189]" href="#">
+          <a
+            className="border-b-[3px] border-[#115b82] pb-2 text-[0.98rem] font-semibold text-[#115b82]"
+            href="#"
+          >
             About
           </a>
           <a className="pb-2 text-[0.98rem] font-medium text-[#587189]" href="#">
