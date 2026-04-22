@@ -1,68 +1,38 @@
-export const impactStats = [
-  { value: '2011', label: 'Established' },
-  { value: '100+', label: 'Students Supported' },
-  { value: '100+', label: 'Families Assisted' },
-  { value: '6+', label: 'Programs Running' },
-]
+import type { TFunction } from 'i18next'
 
-export const programs = [
-  {
-    icon: 'school',
-    title: 'Education Support',
-    description: 'Scholarships, school supplies, and free education programs.',
-  },
-  {
-    icon: 'medical_services',
-    title: 'Medical Assistance',
-    description: 'Financial aid for treatment and emergency care.',
-  },
-  {
-    icon: 'family_restroom',
-    title: 'Widow & Family Support',
-    description: 'Financial help and livelihood opportunities.',
-  },
-  {
-    icon: 'volunteer_activism',
-    title: 'Food & Relief',
-    description: 'Emergency aid during crises and disasters.',
-  },
-  {
-    icon: 'content_cut',
-    title: 'Livelihood Programs',
-    description: 'Sewing machines, livestock, and small business support.',
-  },
-  {
-    icon: 'ac_unit',
-    title: 'Seasonal Support',
-    description: 'Winter clothing and essential supplies.',
-  },
-]
+type ImpactStat = {
+  value: string
+  label: string
+}
 
-export const timeline = [
-  { year: '2011', title: 'Started as a small initiative' },
-  { year: '2019', title: 'Officially registered as Alokayon' },
-  { year: 'Today', title: 'Supporting communities across Bangladesh' },
-]
+type Program = {
+  icon: string
+  title: string
+  description: string
+}
 
-export const testimonials = [
-  {
-    quote:
-      'Alokayon supported my family during difficult times — from education to medical help. Their support changed our lives.',
-    author: 'Former student & beneficiary',
-  },
-  {
-    quote:
-      'This organization ensures transparency and truly helps those in need without bias.',
-    author: 'Supporter & donor',
-  },
-]
+type TimelineItem = {
+  year: string
+  title: string
+}
 
-export const trustPoints = [
-  'Transparent donation process',
-  'Direct support to beneficiaries',
-  'No external funding dependency',
-  'Community-driven initiatives',
-]
+type Testimonial = {
+  quote: string
+  author: string
+}
+
+type PurposeSection = {
+  eyebrow: string
+  title: string
+  text: string
+  bullets: string[]
+  imageAlt: string
+}
+
+type CommitteeMember = {
+  name: string
+  role: string
+}
 
 const committeeImages = [
   '/assets/about/person-1.jpg',
@@ -71,58 +41,53 @@ const committeeImages = [
   '/assets/about/person-4.jpg',
 ]
 
-export const committeeMembers = Array.from({ length: 14 }, (_, index) => ({
-  name: `Executive Member ${String(index + 1).padStart(2, '0')}`,
-  role:
-    index === 0
-      ? 'Committee Chair'
-      : index === 1
-        ? 'Executive Advisor'
-        : 'Executive Committee',
-  image: committeeImages[index % committeeImages.length],
-}))
-
-export const purposeSections = [
+const purposeImages = [
   {
-    eyebrow: 'Our Mission',
-    title: 'To serve vulnerable people through compassionate, direct support.',
-    text:
-      'Alokayon exists to stand beside hard-core poor communities through zakat- and donation-funded support in education, healthcare, widow and elderly care, disability assistance, and dignified relief.',
-    bullets: [
-      'Education support for underprivileged and meritorious students',
-      'Healthcare and urgent financial assistance',
-      'Support for widows, elderly people, and persons with disabilities',
-    ],
     image: '/assets/home/volunteers-1.jpg',
     secondaryImage: '/assets/about/Donation.jpg',
-    imageAlt: 'Volunteers and community support work',
   },
   {
-    eyebrow: 'Our Vision',
-    title: 'A more dignified future for families living through hardship.',
-    text:
-      'The long-term vision is a society where poverty does not force children out of school, widows are not left without support, and vulnerable families can move toward stability with dignity and hope.',
-    bullets: [
-      'No one left behind in hardship',
-      'Education, care, and shelter within reach',
-      'A stronger culture of collective responsibility',
-    ],
     image: '/assets/about/Donation.jpg',
     secondaryImage: '/assets/home/carousel-1.jpg',
-    imageAlt: 'Support being delivered to communities',
   },
   {
-    eyebrow: 'Our Objective',
-    title: 'To turn limited resources into meaningful, practical impact.',
-    text:
-      'With support from compassionate donors, Alokayon focuses on direct educational support, slum-school assistance in Dhaka, help for needy elderly people and widows, support for Hifz students, and relief during disasters such as floods, winter hardship, refugee crises, and public-health emergencies.',
-    bullets: [
-      'Support where the need is immediate and real',
-      'Respond within limited means but with consistency',
-      'Keep charity rooted in accountability and care',
-    ],
     image: '/assets/home/carousel-2.jpg',
     secondaryImage: '/assets/home/carousel-3.jpg',
-    imageAlt: 'Aid and long-term support programs',
   },
 ]
+
+export const getImpactStats = (t: TFunction) =>
+  t('about.purpose.stats', { returnObjects: true }) as ImpactStat[]
+
+export const getPrograms = (t: TFunction) =>
+  t('about.programs.items', { returnObjects: true }) as Program[]
+
+export const getTimeline = (t: TFunction) =>
+  t('about.journey.timeline', { returnObjects: true }) as TimelineItem[]
+
+export const getTestimonials = (t: TFunction) =>
+  t('about.voices.testimonials', { returnObjects: true }) as Testimonial[]
+
+export const getTrustPoints = (t: TFunction) =>
+  t('about.trust.points', { returnObjects: true }) as string[]
+
+export const getCommitteeMembers = (t: TFunction) => {
+  const members = t('about.executive.members', { returnObjects: true }) as CommitteeMember[]
+
+  return members.map((member, index) => ({
+    ...member,
+    image: committeeImages[index % committeeImages.length],
+  }))
+}
+
+export const getPurposeSections = (t: TFunction) => {
+  const sections = t('about.purposeSections.items', {
+    returnObjects: true,
+  }) as PurposeSection[]
+
+  return sections.map((section, index) => ({
+    ...section,
+    image: purposeImages[index].image,
+    secondaryImage: purposeImages[index].secondaryImage,
+  }))
+}

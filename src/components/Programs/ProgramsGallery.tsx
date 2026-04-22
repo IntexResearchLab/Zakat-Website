@@ -1,12 +1,16 @@
 import { useMemo, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import Reveal from '../reusables/Reveal'
-import { galleryFilters, galleryItems } from './data'
+import { getGalleryFilters, getGalleryItems } from './data'
 
 function ProgramsGallery() {
-  const [activeFilter, setActiveFilter] = useState('All')
+  const { t } = useTranslation()
+  const galleryFilters = getGalleryFilters(t)
+  const galleryItems = getGalleryItems(t)
+  const [activeFilter, setActiveFilter] = useState('all')
 
   const filteredItems = useMemo(() => {
-    if (activeFilter === 'All') {
+    if (activeFilter === 'all') {
       return galleryItems
     }
 
@@ -19,10 +23,10 @@ function ProgramsGallery() {
         <Reveal className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">
             <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#115b82]">
-              Real Moments, Real Impact
+              {t('programs.gallery.eyebrow')}
             </p>
             <h2 className="mt-5 font-serif text-[2.55rem] leading-[0.98] tracking-[-0.04em] text-[#14324d] sm:text-[3rem]">
-              A glimpse into the lives we support and the communities we serve.
+              {t('programs.gallery.title')}
             </h2>
           </div>
 
@@ -30,15 +34,15 @@ function ProgramsGallery() {
             {galleryFilters.map((filter) => (
               <button
                 className={`rounded-full border px-4 py-2 text-[0.78rem] font-bold uppercase tracking-[0.16em] transition ${
-                  filter === activeFilter
+                  filter.id === activeFilter
                     ? 'border-[#115b82] bg-[#115b82] text-white'
                     : 'border-[#dce7ee] bg-white text-[#627581] hover:border-[#bdd6e4] hover:bg-[#f5fafe]'
                 }`}
-                key={filter}
-                onClick={() => setActiveFilter(filter)}
+                key={filter.id}
+                onClick={() => setActiveFilter(filter.id)}
                 type="button"
               >
-                {filter}
+                {filter.label}
               </button>
             ))}
           </div>
@@ -95,8 +99,7 @@ function ProgramsGallery() {
           delay={180}
         >
           <p className="max-w-2xl text-[0.98rem] leading-[1.7] text-[#647783]">
-            These moments reflect the programs documented across Alokayon&apos;s
-            published reporting and field activities.
+            {t('programs.gallery.footer')}
           </p>
 
           <div className="flex flex-col gap-3 sm:flex-row">
@@ -104,13 +107,13 @@ function ProgramsGallery() {
               className="inline-flex items-center justify-center rounded-full border border-[#cfe0ea] bg-white px-6 py-3 text-sm font-bold uppercase tracking-[0.16em] text-[#115b82] shadow-[0_8px_22px_rgba(15,23,42,0.04)] transition hover:border-[#bdd6e4] hover:bg-[#f7fbfd]"
               href="#"
             >
-              View Full Gallery
+              {t('common.actions.viewFullGallery')}
             </a>
             <a
               className="inline-flex items-center justify-center rounded-full border border-[#cfe0ea] bg-white px-6 py-3 text-sm font-bold uppercase tracking-[0.16em] text-[#115b82] shadow-[0_8px_22px_rgba(15,23,42,0.04)] transition hover:border-[#bdd6e4] hover:bg-[#f7fbfd]"
               href="#"
             >
-              Read Magazine
+              {t('common.actions.readMagazine')}
             </a>
           </div>
         </Reveal>

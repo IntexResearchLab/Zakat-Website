@@ -1,8 +1,11 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { NavLink } from 'react-router-dom'
+import LanguageSwitcher from './LanguageSwitcher'
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const { t } = useTranslation()
 
   const linkClass = ({ isActive }: { isActive: boolean }) =>
     isActive
@@ -22,37 +25,40 @@ function Header() {
           to="/"
           onClick={() => setIsMenuOpen(false)}
         >
-          Alokayon
+          {t('nav.brand')}
         </NavLink>
 
         <nav className="hidden items-center gap-11 md:flex">
           <NavLink className={linkClass} to="/">
-            Home
+            {t('nav.home')}
           </NavLink>
           <NavLink className={linkClass} to="/about">
-            About
+            {t('nav.about')}
           </NavLink>
           <NavLink className={linkClass} to="/programs/alokayon-school">
-            School
+            {t('nav.school')}
           </NavLink>
           <NavLink className={linkClass} to="/programs/madrasa">
-            Madrasah
+            {t('nav.madrasah')}
           </NavLink>
           <NavLink className={linkClass} to="/opinions-of-beneficiaries">
-            Voices
+            {t('nav.voices')}
           </NavLink>
           <NavLink className={linkClass} to="/programs">
-            Programs
+            {t('nav.programs')}
           </NavLink>
           <a className="pb-2 text-[0.98rem] font-medium text-[#587189]" href="#">
-            Transparency
+            {t('nav.transparency')}
           </a>
         </nav>
 
         <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+          <div className="hidden md:block">
+            <LanguageSwitcher />
+          </div>
           <button
             aria-expanded={isMenuOpen}
-            aria-label="Toggle navigation menu"
+            aria-label={t('common.aria.toggleNavigationMenu')}
             className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#cfe0ea] bg-white text-[#115b82] transition hover:bg-[#eef7fb] md:hidden"
             type="button"
             onClick={() => setIsMenuOpen((open) => !open)}
@@ -64,9 +70,9 @@ function Header() {
 
           <NavLink
             className="rounded-full bg-[#115b82] px-4 py-2.5 text-[0.72rem] font-bold uppercase tracking-[0.12em] text-white transition hover:bg-[#0c4c6d] sm:px-8 sm:text-sm sm:tracking-[0.16em]"
-            to="/donate"
+            to="/"
           >
-            Donate
+            {t('common.actions.donate')}
           </NavLink>
         </div>
       </div>
@@ -74,42 +80,45 @@ function Header() {
       {isMenuOpen ? (
         <div className="mx-auto mt-4 max-w-7xl md:hidden">
           <nav className="grid gap-2 rounded-[1.3rem] border border-[#d8e5ec] bg-white p-3 shadow-[0_18px_40px_rgba(15,23,42,0.08)]">
+            <div className="px-1 pb-2">
+              <LanguageSwitcher />
+            </div>
             <NavLink className={mobileLinkClass} to="/" onClick={() => setIsMenuOpen(false)}>
-              Home
+              {t('nav.home')}
             </NavLink>
             <NavLink className={mobileLinkClass} to="/about" onClick={() => setIsMenuOpen(false)}>
-              About
+              {t('nav.about')}
             </NavLink>
             <NavLink
               className={mobileLinkClass}
               to="/programs/alokayon-school"
               onClick={() => setIsMenuOpen(false)}
             >
-              School
+              {t('nav.school')}
             </NavLink>
             <NavLink
               className={mobileLinkClass}
               to="/programs/madrasa"
               onClick={() => setIsMenuOpen(false)}
             >
-              Madrasah
+              {t('nav.madrasah')}
             </NavLink>
             <NavLink
               className={mobileLinkClass}
               to="/opinions-of-beneficiaries"
               onClick={() => setIsMenuOpen(false)}
             >
-              Voices
+              {t('nav.voices')}
             </NavLink>
             <NavLink
               className={mobileLinkClass}
               to="/programs"
               onClick={() => setIsMenuOpen(false)}
             >
-              Programs
+              {t('nav.programs')}
             </NavLink>
             <a className="rounded-xl px-4 py-3 text-[1rem] font-medium text-[#587189]" href="#">
-              Transparency
+              {t('nav.transparency')}
             </a>
           </nav>
         </div>

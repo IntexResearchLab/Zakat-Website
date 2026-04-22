@@ -1,7 +1,11 @@
 import Reveal from '../reusables/Reveal'
-import { caseStudy } from './data'
+import { useTranslation } from 'react-i18next'
+import { getCaseStudy } from './data'
 
 function ProgramsCaseStudy() {
+  const { t } = useTranslation()
+  const caseStudy = getCaseStudy(t)
+
   return (
     <section className="bg-[#fbfdfe] py-20 sm:py-24">
       <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[0.94fr_1.06fr] lg:items-center lg:gap-18">
@@ -25,19 +29,19 @@ function ProgramsCaseStudy() {
 
           <div className="mt-7 space-y-5 text-[1rem] leading-[1.8] text-[#5d6f7b] sm:text-[1.04rem]">
             <p>
-              <span className="font-semibold text-[#14324d]">Problem: </span>
+              <span className="font-semibold text-[#14324d]">{t('programs.caseStudy.problemLabel')} </span>
               {caseStudy.problem}
             </p>
             <p>
-              <span className="font-semibold text-[#14324d]">Reality: </span>
+              <span className="font-semibold text-[#14324d]">{t('programs.caseStudy.realityLabel')} </span>
               {caseStudy.reality}
             </p>
             <p>
-              <span className="font-semibold text-[#14324d]">Intervention: </span>
+              <span className="font-semibold text-[#14324d]">{t('programs.caseStudy.interventionLabel')} </span>
               {caseStudy.intervention}
             </p>
             <p>
-              <span className="font-semibold text-[#14324d]">Impact: </span>
+              <span className="font-semibold text-[#14324d]">{t('programs.caseStudy.impactLabel')} </span>
               {caseStudy.impact}
             </p>
           </div>

@@ -1,16 +1,20 @@
 import Reveal from '../reusables/Reveal'
-import { impactHighlights } from './data'
+import { useTranslation } from 'react-i18next'
+import { getImpactHighlights } from './data'
 
 function ProgramsImpact() {
+  const { t } = useTranslation()
+  const impactHighlights = getImpactHighlights(t)
+
   return (
     <section className="bg-white py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal className="max-w-3xl">
-          <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#115b82]">
-            Impact Numbers
-          </p>
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#115b82]">
+              {t('programs.impact.eyebrow')}
+            </p>
           <h2 className="mt-5 font-serif text-[2.55rem] leading-[0.98] tracking-[-0.04em] text-[#14324d] sm:text-[3rem]">
-            Measurable support across education, care, and dignity.
+              {t('programs.impact.title')}
           </h2>
         </Reveal>
 

@@ -1,10 +1,13 @@
 import { useEffect, useMemo, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import Reveal from '../reusables/Reveal'
-import { committeeMembers } from './data'
+import { getCommitteeMembers } from './data'
 
 function AboutExecutiveCommittee() {
+  const { t } = useTranslation()
   const [committeeSlide, setCommitteeSlide] = useState(0)
   const [committeeVisibleCount, setCommitteeVisibleCount] = useState(4)
+  const committeeMembers = getCommitteeMembers(t)
 
   useEffect(() => {
     const updateVisibleCount = () => {
@@ -56,21 +59,18 @@ function AboutExecutiveCommittee() {
         <Reveal className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">
             <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#115b82]">
-              Alokayon&apos;s Executive Committee
+              {t('about.executive.eyebrow')}
             </p>
             <h2 className="mt-5 font-serif text-[2.55rem] leading-[0.98] tracking-[-0.04em] text-[#14324d] sm:text-[3rem]">
-              A trusted leadership team guiding Alokayon&apos;s service and
-              direction.
+              {t('about.executive.title')}
             </h2>
             <p className="mt-5 max-w-2xl text-[1rem] leading-[1.8] text-[#5d6f7b] sm:text-[1.04rem]">
-              Alokayon is supported by a 14-member executive committee that
-              helps steer the organization with accountability, continuity, and
-              care for the communities it serves.
+              {t('about.executive.description')}
             </p>
           </div>
 
           <div className="inline-flex items-center rounded-full border border-[#dce7ee] bg-[#f8fbfd] px-4 py-2 text-[0.78rem] font-bold uppercase tracking-[0.16em] text-[#115b82]">
-            14-member committee
+            {t('about.executive.badge')}
           </div>
         </Reveal>
 
@@ -119,13 +119,12 @@ function AboutExecutiveCommittee() {
 
           <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <p className="text-[0.95rem] leading-[1.7] text-[#627581]">
-              Browse through the committee members guiding Alokayon&apos;s
-              direction and long-term service.
+              {t('about.executive.footer')}
             </p>
 
             <div className="flex items-center gap-3">
               <button
-                aria-label="Previous committee members"
+                aria-label={t('about.executive.previous')}
                 className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#dce7ee] bg-white text-[#115b82] transition hover:border-[#bdd6e4] hover:bg-[#f5fafe]"
                 onClick={() =>
                   setCommitteeSlide((current) =>
@@ -140,7 +139,7 @@ function AboutExecutiveCommittee() {
               <div className="flex items-center gap-2">
                 {committeeSlides.map((_, index) => (
                   <button
-                    aria-label={`Show committee slide ${index + 1}`}
+                    aria-label={t('about.executive.showSlide', { index: index + 1 })}
                     className={`h-2.5 rounded-full transition-all ${
                       index === currentCommitteeSlide
                         ? 'w-8 bg-[#115b82]'
@@ -154,7 +153,7 @@ function AboutExecutiveCommittee() {
               </div>
 
               <button
-                aria-label="Next committee members"
+                aria-label={t('about.executive.next')}
                 className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#dce7ee] bg-white text-[#115b82] transition hover:border-[#bdd6e4] hover:bg-[#f5fafe]"
                 onClick={() =>
                   setCommitteeSlide((current) => (current + 1) % committeeTotalSlides)

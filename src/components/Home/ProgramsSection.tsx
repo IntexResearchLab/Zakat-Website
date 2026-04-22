@@ -1,54 +1,13 @@
 import Reveal from '../reusables/Reveal'
-
-const programCards = [
-  {
-    title: 'Education',
-    subtitle: 'Scholarships and learning support.',
-    image: '/assets/home/carousel-1.jpg',
-  },
-  {
-    title: 'Medical',
-    subtitle: 'Care for vulnerable communities.',
-    image: '/assets/home/carousel-2.jpg',
-  },
-  {
-    title: 'Widows',
-    subtitle: 'Dignified support and livelihood help.',
-    image: '/assets/home/carousel-3.jpg',
-  },
-  {
-    title: 'Relief',
-    subtitle: 'Emergency response with compassion.',
-    image: '/assets/home/carousel-1.jpg',
-  },
-  {
-    title: 'Slum School',
-    subtitle: 'Learning access for underserved children.',
-    image: '/assets/home/carousel-2.jpg',
-  },
-  {
-    title: 'Livelihood',
-    subtitle: 'Assets that help families rebuild.',
-    image: '/assets/home/carousel-3.jpg',
-  },
-  {
-    title: 'Elderly Care',
-    subtitle: 'Regular support for older people.',
-    image: '/assets/home/carousel-1.jpg',
-  },
-  {
-    title: 'Women Support',
-    subtitle: 'Practical assistance rooted in dignity.',
-    image: '/assets/home/carousel-2.jpg',
-  },
-  {
-    title: 'Community Aid',
-    subtitle: 'Long-term care across local programs.',
-    image: '/assets/home/carousel-3.jpg',
-  },
-]
+import { useTranslation } from 'react-i18next'
 
 function ProgramsSection() {
+  const { t } = useTranslation()
+  const programCards = t('home.programs.cards', { returnObjects: true }) as Array<{
+    title: string
+    subtitle: string
+    image: string
+  }>
   const scrollingCards = [...programCards, ...programCards]
 
   return (
@@ -57,10 +16,10 @@ function ProgramsSection() {
         <Reveal className="mb-12 flex flex-col gap-6 sm:mb-14 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-2xl">
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.22em] text-[#115b82]">
-              Our Focus Areas
+              {t('home.programs.eyebrow')}
             </p>
             <h2 className="max-w-xl font-serif text-[2.8rem] leading-[0.96] tracking-[-0.04em] text-[#14324d] sm:text-[3.5rem]">
-              Programs Rooted in Dignity
+              {t('home.programs.title')}
             </h2>
           </div>
 
@@ -68,7 +27,7 @@ function ProgramsSection() {
             className="inline-flex items-center justify-center rounded-full border border-[#d7e6ef] bg-[#f6fbff] px-5 py-2.5 text-xs font-bold uppercase tracking-[0.18em] text-[#14324d] transition hover:border-[#bdd6e4] hover:bg-[#edf7fc]"
             href="#"
           >
-            View All Programs
+            {t('common.actions.viewAllPrograms')}
           </a>
         </Reveal>
 

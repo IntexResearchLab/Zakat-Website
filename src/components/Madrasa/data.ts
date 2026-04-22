@@ -1,95 +1,54 @@
-export const madrasaImpactStats = [
-  { value: '100+', label: 'Students enrolled' },
-  { value: '80%', label: 'From underprivileged backgrounds' },
-  { value: '31', label: 'Students memorizing Qur’an' },
-  { value: 'Arabic + Bengali', label: 'Integrated learning model' },
+import type { TFunction } from 'i18next'
+
+type Stat = {
+  value: string
+  label: string
+}
+
+type Feature = {
+  icon: string
+  title: string
+  text: string
+}
+
+type PathwayItem = {
+  label: string
+  title: string
+  text: string
+}
+
+type GalleryItem = {
+  title: string
+}
+
+const madrasaGalleryImages = [
+  '/assets/home/carousel-2.jpg',
+  '/assets/home/carousel-1.jpg',
+  '/assets/home/volunteers-1.jpg',
+  '/assets/home/carousel-3.jpg',
+  '/assets/about/Donation.jpg',
 ]
 
-export const madrasaFeatures = [
-  {
-    icon: 'auto_stories',
-    title: 'Integrated Curriculum',
-    text: 'Arabic, Bengali, English, and Mathematics are taught together with balanced attention.',
-  },
-  {
-    icon: 'school',
-    title: 'No Coaching Dependency',
-    text: 'Lessons are completed in class so students are not pushed toward outside tutoring.',
-  },
-  {
-    icon: 'checklist',
-    title: 'Structured Learning System',
-    text: 'Daily monitoring, teacher supervision, and regular counseling help keep learning on track.',
-  },
-  {
-    icon: 'menu_book',
-    title: 'Moral & Spiritual Development',
-    text: 'Qur’an memorization, discipline, and a respectful environment shape both mind and character.',
-  },
-  {
-    icon: 'verified',
-    title: 'Transparent Management',
-    text: 'Operations are run with accountability, careful oversight, and an unusual commitment to integrity.',
-  },
-  {
-    icon: 'groups',
-    title: 'Support for the Poor',
-    text: 'Special care is given to orphaned and extremely poor children who need structured educational access.',
-  },
-]
+export const getMadrasaImpactStats = (t: TFunction) =>
+  t('madrasa.impact.items', { returnObjects: true }) as Stat[]
 
-export const madrasaPathway = [
-  {
-    label: 'Hifz',
-    title: 'Qur’an memorization',
-    text: 'Students begin with strong religious grounding and memorization support.',
-  },
-  {
-    label: 'Ebtedayee',
-    title: 'Academic learning up to Grade 6',
-    text: 'General subjects are taught alongside Arabic learning in a disciplined academic environment.',
-  },
-  {
-    label: 'Next step',
-    title: 'Transition to Grade 7',
-    text: 'Students move forward with both religious and academic foundations for mainstream continuation.',
-  },
-]
+export const getMadrasaFeatures = (t: TFunction) =>
+  t('madrasa.features.items', { returnObjects: true }) as Feature[]
 
-export const madrasaSupportItems = [
-  'Free or low-cost education for underprivileged students',
-  'Books, notebooks, pens, and learning materials',
-  'Two meals per day for students',
-  'A safe and supervised learning environment',
-  'Teacher guidance and regular monitoring',
-  'Focused support for children from poor families',
-]
+export const getMadrasaPathway = (t: TFunction) =>
+  t('madrasa.pathway.items', { returnObjects: true }) as PathwayItem[]
 
-export const madrasaGallery = [
-  {
-    image: '/assets/home/carousel-2.jpg',
-    title: 'Qur’an study and guided learning',
-  },
-  {
-    image: '/assets/home/carousel-1.jpg',
-    title: 'Structured classroom teaching',
-  },
-  {
-    image: '/assets/home/volunteers-1.jpg',
-    title: 'Teacher interaction and supervision',
-  },
-  {
-    image: '/assets/home/carousel-3.jpg',
-    title: 'Students learning in a disciplined environment',
-  },
-  {
-    image: '/assets/about/Donation.jpg',
-    title: 'Supportive daily systems around student life',
-  },
-]
+export const getMadrasaSupportItems = (t: TFunction) =>
+  t('madrasa.support.items', { returnObjects: true }) as string[]
 
-export const madrasaTrustPoints = [
-  'Director takes no salary or honorarium',
-  'A portion of personal pension is donated to support operations',
-  'Operational spending is personally supervised with transparency',
-]
+export const getMadrasaGallery = (t: TFunction) => {
+  const items = t('madrasa.gallery.items', { returnObjects: true }) as GalleryItem[]
+
+  return items.map((item, index) => ({
+    ...item,
+    image: madrasaGalleryImages[index],
+  }))
+}
+
+export const getMadrasaTrustPoints = (t: TFunction) =>
+  t('madrasa.leadership.points', { returnObjects: true }) as string[]

@@ -1,28 +1,26 @@
 import Reveal from '../reusables/Reveal'
-import { schoolTimeline } from './data'
+import { useTranslation } from 'react-i18next'
+import { getSchoolTimeline } from './data'
 
 function SchoolFoundingStory() {
+  const { t } = useTranslation()
+  const schoolTimeline = getSchoolTimeline(t)
+
   return (
     <section className="bg-[#fbfdfe] py-18 sm:py-22">
       <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[0.96fr_1.04fr] lg:items-center lg:gap-18">
         <Reveal className="max-w-2xl">
           <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#115b82]">
-            How Alokayon School began
+            {t('school.founding.eyebrow')}
           </p>
           <h2 className="mt-5 font-serif text-[2.4rem] leading-[1.02] tracking-[-0.04em] text-[#14324d] sm:text-[3.1rem]">
-            From a veranda lesson to a formal learning space.
+            {t('school.founding.title')}
           </h2>
           <p className="mt-7 text-[1.02rem] leading-[1.9] text-[#5f7280]">
-            For a long time, Alokayon wanted to create educational opportunities
-            for underprivileged children but lacked the facilities and resources
-            to begin. That changed when Jesmin Akter, who had been teaching slum
-            children on the veranda of her house, came into contact with the
-            organization.
+            {t('school.founding.paragraphOne')}
           </p>
           <p className="mt-5 text-[1.02rem] leading-[1.9] text-[#5f7280]">
-            Alokayon responded by renting a small tin-shed room, arranging
-            seating, and providing books, notebooks, and pens. The school was
-            then formally inaugurated as Alokayon Pathshala on 13 February 2023.
+            {t('school.founding.paragraphTwo')}
           </p>
         </Reveal>
 

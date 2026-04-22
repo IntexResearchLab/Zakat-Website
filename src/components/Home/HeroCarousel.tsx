@@ -1,34 +1,17 @@
 import { useEffect, useState } from 'react'
-
-const slides = [
-  {
-    image: '/assets/home/carousel-1.jpg',
-    eyebrow: 'Faith in Action',
-    titleTop: 'Give Your Zakat.',
-    titleBottom: 'Transform Lives.',
-    description:
-      'Alokayon facilitates direct, transparent spiritual responsibility, ensuring your charity reaches those who need it most with dignity.',
-  },
-  {
-    image: '/assets/home/carousel-2.jpg',
-    eyebrow: 'Trusted Giving',
-    titleTop: 'Support With Care.',
-    titleBottom: 'Strengthen Families.',
-    description:
-      'Every contribution helps deliver relief, education, and hope through a process rooted in compassion and accountability.',
-  },
-  {
-    image: '/assets/home/carousel-3.jpg',
-    eyebrow: 'Transparent Impact',
-    titleTop: 'Give With Trust.',
-    titleBottom: 'Reach Real People.',
-    description:
-      'Your zakat is handled with purpose, helping vulnerable communities through clear programs and dignified support.',
-  },
-]
+import { useTranslation } from 'react-i18next'
 
 function HeroCarousel() {
+  const { t } = useTranslation()
   const [activeSlide, setActiveSlide] = useState(0)
+  const slides = t('home.hero.slides', { returnObjects: true }) as Array<{
+    image: string
+    eyebrow: string
+    titleTop: string
+    titleBottom: string
+    description: string
+    alt: string
+  }>
 
   useEffect(() => {
     const interval = window.setInterval(() => {
@@ -51,7 +34,7 @@ function HeroCarousel() {
             key={slide.image}
           >
             <img
-              alt={slide.titleTop}
+              alt={slide.alt}
               className={`h-full w-full object-cover ${
                 index === activeSlide ? 'hero-image-active' : ''
               }`}
@@ -80,10 +63,10 @@ function HeroCarousel() {
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <button className="hover-lift-soft rounded-full bg-[#f5fbff] px-8 py-3.5 text-sm font-bold uppercase tracking-[0.14em] text-[#115b82] shadow-[0_10px_28px_rgba(6,31,47,0.12)] transition hover:bg-[#dceef8]">
-                  Donate Now
+                  {t('common.actions.donateNow')}
                 </button>
                 <button className="hover-lift-soft rounded-full border border-white/18 bg-[#8fc7e8]/18 px-8 py-3.5 text-sm font-bold uppercase tracking-[0.14em] text-white backdrop-blur-sm transition hover:bg-[#8fc7e8]/28">
-                  Our Impact
+                  {t('home.hero.secondaryCta')}
                 </button>
               </div>
             </div>
@@ -93,7 +76,7 @@ function HeroCarousel() {
         <div className="absolute bottom-8 left-1/2 flex -translate-x-1/2 gap-3">
           {slides.map((slide, index) => (
             <button
-              aria-label={`Go to slide ${index + 1}`}
+              aria-label={t('home.hero.goToSlide', { index: index + 1 })}
               className={`h-2.5 rounded-full transition-all ${
                   index === activeSlide ? 'w-10 bg-[#d8f0ff]' : 'w-2.5 bg-white/45 hover:bg-[#d8f0ff]'
                 }`}
@@ -105,7 +88,7 @@ function HeroCarousel() {
         </div>
 
         <button
-          aria-label="Previous slide"
+          aria-label={t('home.hero.previousSlide')}
           className="hover-lift-soft absolute left-5 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-[#0c4c6d]/45 text-2xl text-white backdrop-blur-sm transition hover:bg-[#0c4c6d]/70"
           onClick={() =>
             setActiveSlide((current) => (current - 1 + slides.length) % slides.length)
@@ -116,7 +99,7 @@ function HeroCarousel() {
         </button>
 
         <button
-          aria-label="Next slide"
+          aria-label={t('home.hero.nextSlide')}
           className="hover-lift-soft absolute right-5 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-[#0c4c6d]/45 text-2xl text-white backdrop-blur-sm transition hover:bg-[#0c4c6d]/70"
           onClick={() => setActiveSlide((current) => (current + 1) % slides.length)}
           type="button"

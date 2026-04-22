@@ -1,16 +1,20 @@
 import Reveal from '../reusables/Reveal'
-import { initiatives } from './data'
+import { useTranslation } from 'react-i18next'
+import { getInitiatives } from './data'
 
 function ProgramsInitiatives() {
+  const { t } = useTranslation()
+  const initiatives = getInitiatives(t)
+
   return (
     <section className="bg-white py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal className="max-w-3xl">
-          <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#115b82]">
-            Our Key Initiatives
-          </p>
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#115b82]">
+              {t('programs.initiatives.eyebrow')}
+            </p>
           <h2 className="mt-5 font-serif text-[2.55rem] leading-[0.98] tracking-[-0.04em] text-[#14324d] sm:text-[3rem]">
-            Practical actions that turn support into everyday dignity.
+              {t('programs.initiatives.title')}
           </h2>
         </Reveal>
 

@@ -1,0 +1,56 @@
+{
+  "app": {
+    "languages": {
+      "en": "EN",
+      "bn": "বাংলা"
+    }
+  },
+  "nav": {
+    "brand": "আলোকায়ন",
+    "home": "হোম",
+    "about": "আমাদের সম্পর্কে",
+    "school": "স্কুল",
+    "madrasah": "মাদরাসা",
+    "voices": "গল্পসমূহ",
+    "programs": "কার্যক্রম",
+    "transparency": "স্বচ্ছতা"
+  },
+  "common": {
+    "aria": {
+      "toggleNavigationMenu": "নেভিগেশন মেনু চালু বা বন্ধ করুন"
+    },
+    "breadcrumb": {
+      "home": "হোম",
+      "aboutUs": "আমাদের সম্পর্কে",
+      "programs": "কার্যক্রম",
+      "school": "আলোকায়ন স্কুল",
+      "madrasah": "মাদরাসা",
+      "opinions": "উপকারভোগীদের মতামত"
+    },
+    "actions": {
+      "donate": "ডোনেট",
+      "donateNow": "এখনই ডোনেট করুন",
+      "readOurMagazine": "আমাদের ম্যাগাজিন পড়ুন",
+      "readMagazine": "ম্যাগাজিন পড়ুন",
+      "learnMoreAboutUs": "আরও জানুন",
+      "viewAllPrograms": "সব কার্যক্রম দেখুন",
+      "completeDonation": "ডোনেশন সম্পন্ন করুন",
+      "supportAChild": "একটি শিশুকে সহায়তা করুন",
+      "supportAStudent": "একজন শিক্ষার্থীকে সহায়তা করুন",
+      "sponsorAStudent": "একজন শিক্ষার্থীর দায়িত্ব নিন",
+      "viewPrograms": "কার্যক্রম দেখুন",
+      "readOurStory": "আমাদের গল্প পড়ুন",
+      "learnMore": "আরও জানুন",
+      "viewSchoolGallery": "স্কুল গ্যালারি দেখুন",
+      "viewFullGallery": "সম্পূর্ণ গ্যালারি দেখুন"
+    },
+    "payments": {
+      "accepted": "গৃহীত: ভিসা, মাস্টারকার্ড, পেপাল, অ্যাপল পে"
+    },
+    "form": {
+      "namePlaceholder": "আপনার নাম লিখুন",
+      "emailPlaceholder": "আপনার ইমেইল লিখুন",
+      "phonePlaceholder": "আপনার ফোন নম্বর লিখুন"
+    }
+  }
+}

@@ -1,0 +1,856 @@
+{
+  "app": {
+    "languages": {
+      "en": "EN",
+      "bn": "বাং"
+    }
+  },
+  "nav": {
+    "brand": "Alokayon",
+    "home": "Home",
+    "about": "About",
+    "school": "School",
+    "madrasah": "Madrasah",
+    "voices": "Voices",
+    "programs": "Programs",
+    "transparency": "Transparency"
+  },
+  "common": {
+    "aria": {
+      "toggleNavigationMenu": "Toggle navigation menu"
+    },
+    "breadcrumb": {
+      "home": "Home",
+      "aboutUs": "About Us",
+      "programs": "Programs",
+      "school": "Alokayon School",
+      "madrasah": "Madrasah",
+      "opinions": "Opinions of Beneficiaries"
+    },
+    "actions": {
+      "donate": "Donate",
+      "donateNow": "Donate Now",
+      "readOurMagazine": "Read Our Magazine",
+      "readMagazine": "Read Magazine",
+      "learnMoreAboutUs": "Learn More About Us",
+      "viewAllPrograms": "View All Programs",
+      "completeDonation": "Complete Donation",
+      "supportAChild": "Support a Child",
+      "supportAStudent": "Support a Student",
+      "sponsorAStudent": "Sponsor a Student",
+      "viewPrograms": "View Programs",
+      "readOurStory": "Read Our Story",
+      "learnMore": "Learn More",
+      "viewSchoolGallery": "View School Gallery",
+      "viewFullGallery": "View Full Gallery"
+    },
+    "payments": {
+      "accepted": "Accepted: Visa, Mastercard, PayPal, Apple Pay"
+    },
+    "form": {
+      "namePlaceholder": "Enter your name",
+      "emailPlaceholder": "Enter your email",
+      "phonePlaceholder": "Enter your phone number"
+    }
+  },
+  "home": {
+    "hero": {
+      "secondaryCta": "Our Impact",
+      "previousSlide": "Previous slide",
+      "nextSlide": "Next slide",
+      "goToSlide": "Go to slide {{index}}",
+      "slides": [
+        {
+          "image": "/assets/home/carousel-1.jpg",
+          "alt": "Children receiving support through Alokayon",
+          "eyebrow": "Faith in Action",
+          "titleTop": "Give Your Zakat.",
+          "titleBottom": "Transform Lives.",
+          "description": "Alokayon facilitates direct, transparent spiritual responsibility, ensuring your charity reaches those who need it most with dignity."
+        },
+        {
+          "image": "/assets/home/carousel-2.jpg",
+          "alt": "Volunteers and community support work",
+          "eyebrow": "Trusted Giving",
+          "titleTop": "Support With Care.",
+          "titleBottom": "Strengthen Families.",
+          "description": "Every contribution helps deliver relief, education, and hope through a process rooted in compassion and accountability."
+        },
+        {
+          "image": "/assets/home/carousel-3.jpg",
+          "alt": "Direct field support and community aid",
+          "eyebrow": "Transparent Impact",
+          "titleTop": "Give With Trust.",
+          "titleBottom": "Reach Real People.",
+          "description": "Your zakat is handled with purpose, helping vulnerable communities through clear programs and dignified support."
+        }
+      ]
+    },
+    "impact": {
+      "title": "A trusted record of impact.",
+      "description": "Verified figures from Alokayon’s magazine, showing a clear snapshot of support across education, care, and long-term service.",
+      "stats": [
+        { "value": "200+", "label": "Students Supported" },
+        { "value": "50+", "label": "Children in Slum School" },
+        { "value": "1.3M+ BDT", "label": "Distributed Annually" },
+        { "value": "60", "label": "Elderly Supported" },
+        { "value": "Since 2011", "label": "Serving Communities" },
+        { "value": "70+", "label": "Widows Supported" },
+        { "value": "500+", "label": "Livelihood Assets Distributed" }
+      ]
+    },
+    "mission": {
+      "imageAlt": "Alokayon mission",
+      "eyebrow": "Our Sacred Mission",
+      "title": "Empowering Communities Through Spiritual Responsibility",
+      "paragraphOne": "At Alokayon, we believe charity is more than just a transaction; it is a profound act of stewardship. We bridge the gap between those with the means to give and those with the capacity to thrive.",
+      "paragraphTwo": "Our model prioritizes sustainable change, from direct community support to long-term educational opportunity, all grounded in the principles of equity, dignity, and transparency.",
+      "quote": "The best of people are those who are most useful to others."
+    },
+    "programs": {
+      "eyebrow": "Our Focus Areas",
+      "title": "Programs Rooted in Dignity",
+      "cards": [
+        { "title": "Education", "subtitle": "Scholarships and learning support.", "image": "/assets/home/carousel-1.jpg" },
+        { "title": "Medical", "subtitle": "Care for vulnerable communities.", "image": "/assets/home/carousel-2.jpg" },
+        { "title": "Widows", "subtitle": "Dignified support and livelihood help.", "image": "/assets/home/carousel-3.jpg" },
+        { "title": "Relief", "subtitle": "Emergency response with compassion.", "image": "/assets/home/carousel-1.jpg" },
+        { "title": "Slum School", "subtitle": "Learning access for underserved children.", "image": "/assets/home/carousel-2.jpg" },
+        { "title": "Livelihood", "subtitle": "Assets that help families rebuild.", "image": "/assets/home/carousel-3.jpg" },
+        { "title": "Elderly Care", "subtitle": "Regular support for older people.", "image": "/assets/home/carousel-1.jpg" },
+        { "title": "Women Support", "subtitle": "Practical assistance rooted in dignity.", "image": "/assets/home/carousel-2.jpg" },
+        { "title": "Community Aid", "subtitle": "Long-term care across local programs.", "image": "/assets/home/carousel-3.jpg" }
+      ]
+    },
+    "donation": {
+      "eyebrow": "Support A Life With Dignity",
+      "title": "Your donation can become relief, education, and hope.",
+      "description": "Stand with Alokayon in supporting students, widows, elderly people, and families in hardship through trusted and transparent charitable work."
+    },
+    "supportOptions": {
+      "contact": {
+        "eyebrow": "Stay Connected",
+        "title": "Join with us to help others",
+        "description": "Leave your contact information and we’ll reach out about ways to support Alokayon through giving, volunteering, or community work.",
+        "cta": "Share My Contact"
+      },
+      "donation": {
+        "imageAlt": "Support donation",
+        "eyebrow": "Give Directly",
+        "title": "Choose an amount to donate",
+        "otherAmount": "$ Other amount"
+      }
+    },
+    "voices": {
+      "eyebrow": "Voices of Impact",
+      "title": "Real stories from our community",
+      "cta": "Read more real stories in our magazine",
+      "showTestimonial": "Show testimonial {{index}}",
+      "previous": "Previous voice",
+      "next": "Next voice",
+      "testimonials": [
+        {
+          "category": "Impact Story",
+          "quote": "As a beneficiary, my family and I are deeply grateful to Alokayon. During difficult times, they supported us with education, medical care, and food assistance.",
+          "name": "Md. Omar Faruque",
+          "role": "Assistant Manager, BRAC",
+          "location": ""
+        },
+        {
+          "category": "Credibility",
+          "quote": "I was inspired by the transparency and accountability of Alokayon. Seeing how donations are used sincerely for those in need made me stay connected with their work.",
+          "name": "Monitoring & Evaluation Specialist",
+          "role": "World Bank",
+          "location": ""
+        },
+        {
+          "category": "Education Impact",
+          "quote": "The financial support I received from Alokayon made my educational journey possible. Their help reduced the burden on my family and allowed me to continue my studies.",
+          "name": "Student",
+          "role": "Chittagong University",
+          "location": ""
+        }
+      ]
+    }
+  },
+  "about": {
+    "hero": {
+      "eyebrow": "About Alokayon",
+      "title": "Serving people with care, trust, and dignity.",
+      "description": "Alokayon is a non-profit, non-political charity in Bangladesh working to support underprivileged communities through education, healthcare, and compassionate relief.",
+      "imageAlt": "Alokayon donation support",
+      "logoAlt": "Alokayon logo"
+    },
+    "journey": {
+      "eyebrow": "Our Journey",
+      "title": "A quiet beginning, a formal foundation, and a growing commitment to service.",
+      "description": "From a small initiative to a trusted charitable organization.",
+      "badge": "Registered NGO (2019)",
+      "registrationTitle": "Official Registration",
+      "registrationDescription": "Formal registration completed in 2019 under the Department of Social Services.",
+      "certificateAlt": "Alokayon registration certificate",
+      "timeline": [
+        { "year": "2011", "title": "Started as a small initiative" },
+        { "year": "2019", "title": "Officially registered as Alokayon" },
+        { "year": "Today", "title": "Supporting communities across Bangladesh" }
+      ]
+    },
+    "purpose": {
+      "eyebrow": "Our Purpose",
+      "title": "Compassion shaped into steady action.",
+      "paragraphOne": "Alokayon was founded on the belief that no one should be left behind in hardship.",
+      "paragraphTwoPrefix": "Since 2011, we have supported orphans, widows, and vulnerable families through compassion and collective effort, helping them build independent,",
+      "paragraphTwoEmphasis": "dignified lives.",
+      "stats": [
+        { "value": "2011", "label": "Established" },
+        { "value": "100+", "label": "Students Supported" },
+        { "value": "100+", "label": "Families Assisted" },
+        { "value": "6+", "label": "Programs Running" }
+      ]
+    },
+    "purposeSections": {
+      "items": [
+        {
+          "eyebrow": "Our Mission",
+          "title": "To serve vulnerable people through compassionate, direct support.",
+          "text": "Alokayon exists to stand beside hard-core poor communities through zakat- and donation-funded support in education, healthcare, widow and elderly care, disability assistance, and dignified relief.",
+          "bullets": [
+            "Education support for underprivileged and meritorious students",
+            "Healthcare and urgent financial assistance",
+            "Support for widows, elderly people, and persons with disabilities"
+          ],
+          "imageAlt": "Volunteers and community support work"
+        },
+        {
+          "eyebrow": "Our Vision",
+          "title": "A more dignified future for families living through hardship.",
+          "text": "The long-term vision is a society where poverty does not force children out of school, widows are not left without support, and vulnerable families can move toward stability with dignity and hope.",
+          "bullets": [
+            "No one left behind in hardship",
+            "Education, care, and shelter within reach",
+            "A stronger culture of collective responsibility"
+          ],
+          "imageAlt": "Support being delivered to communities"
+        },
+        {
+          "eyebrow": "Our Objective",
+          "title": "To turn limited resources into meaningful, practical impact.",
+          "text": "With support from compassionate donors, Alokayon focuses on direct educational support, slum-school assistance in Dhaka, help for needy elderly people and widows, support for Hifz students, and relief during disasters such as floods, winter hardship, refugee crises, and public-health emergencies.",
+          "bullets": [
+            "Support where the need is immediate and real",
+            "Respond within limited means but with consistency",
+            "Keep charity rooted in accountability and care"
+          ],
+          "imageAlt": "Aid and long-term support programs"
+        }
+      ]
+    },
+    "executive": {
+      "eyebrow": "Alokayon's Executive Committee",
+      "title": "A trusted leadership team guiding Alokayon's service and direction.",
+      "description": "Alokayon is supported by a 14-member executive committee that helps steer the organization with accountability, continuity, and care for the communities it serves.",
+      "badge": "14-member committee",
+      "footer": "Browse through the committee members guiding Alokayon's direction and long-term service.",
+      "previous": "Previous committee members",
+      "next": "Next committee members",
+      "showSlide": "Show committee slide {{index}}",
+      "members": [
+        { "name": "Executive Member 01", "role": "Committee Chair" },
+        { "name": "Executive Member 02", "role": "Executive Advisor" },
+        { "name": "Executive Member 03", "role": "Executive Committee" },
+        { "name": "Executive Member 04", "role": "Executive Committee" },
+        { "name": "Executive Member 05", "role": "Executive Committee" },
+        { "name": "Executive Member 06", "role": "Executive Committee" },
+        { "name": "Executive Member 07", "role": "Executive Committee" },
+        { "name": "Executive Member 08", "role": "Executive Committee" },
+        { "name": "Executive Member 09", "role": "Executive Committee" },
+        { "name": "Executive Member 10", "role": "Executive Committee" },
+        { "name": "Executive Member 11", "role": "Executive Committee" },
+        { "name": "Executive Member 12", "role": "Executive Committee" },
+        { "name": "Executive Member 13", "role": "Executive Committee" },
+        { "name": "Executive Member 14", "role": "Executive Committee" }
+      ]
+    },
+    "programs": {
+      "items": [
+        { "icon": "school", "title": "Education Support", "description": "Scholarships, school supplies, and free education programs." },
+        { "icon": "medical_services", "title": "Medical Assistance", "description": "Financial aid for treatment and emergency care." },
+        { "icon": "family_restroom", "title": "Widow & Family Support", "description": "Financial help and livelihood opportunities." },
+        { "icon": "volunteer_activism", "title": "Food & Relief", "description": "Emergency aid during crises and disasters." },
+        { "icon": "content_cut", "title": "Livelihood Programs", "description": "Sewing machines, livestock, and small business support." },
+        { "icon": "ac_unit", "title": "Seasonal Support", "description": "Winter clothing and essential supplies." }
+      ]
+    },
+    "trust": {
+      "points": [
+        "Transparent donation process",
+        "Direct support to beneficiaries",
+        "No external funding dependency",
+        "Community-driven initiatives"
+      ]
+    },
+    "voices": {
+      "testimonials": [
+        {
+          "quote": "Alokayon supported my family during difficult times — from education to medical help. Their support changed our lives.",
+          "author": "Former student & beneficiary"
+        },
+        {
+          "quote": "This organization ensures transparency and truly helps those in need without bias.",
+          "author": "Supporter & donor"
+        }
+      ]
+    },
+    "cta": {
+      "eyebrow": "Be Part of the Change",
+      "title": "Your support helps bring education, relief, and dignity to those who need it most.",
+      "description": "Verified through real programs documented in Alokayon's published magazine and community reporting.",
+      "trustPrimary": "Trusted since 2011",
+      "trustSecondary": "Supporting hundreds of families with direct care"
+    }
+  },
+  "programs": {
+    "hero": {
+      "eyebrow": "Our Programs",
+      "title": "Transforming lives through education, care, and sustainable support.",
+      "description": "Alokayon's programs focus on practical support that protects dignity: helping students continue learning, families rebuild stability, and vulnerable communities receive timely care.",
+      "imageAlt": "Alokayon program activities",
+      "logoAlt": "Alokayon logo",
+      "stats": [
+        { "value": "200+", "label": "Students Supported" },
+        { "value": "70+", "label": "Widows Supported" },
+        { "value": "25+", "label": "Medical Cases Yearly" },
+        { "value": "Since 2011", "label": "Serving Communities" }
+      ]
+    },
+    "categories": {
+      "eyebrow": "Program Categories",
+      "title": "Modern support programs shaped around real need.",
+      "filters": [
+        { "id": "all", "label": "All" },
+        { "id": "education", "label": "Education" },
+        { "id": "livelihood", "label": "Livelihood" },
+        { "id": "healthcare", "label": "Healthcare" },
+        { "id": "relief", "label": "Relief" },
+        { "id": "community", "label": "Community" }
+      ],
+      "items": [
+        {
+          "id": "education",
+          "icon": "school",
+          "title": "Education",
+          "description": "Supporting 200+ students with tuition, books, stipends, and scholarships across Bangladesh.",
+          "highlights": [
+            "Alokayon Pathshala for underprivileged children",
+            "School, college, university, and Hifz support",
+            "Books, khatas, pens, tuition, and exam fees"
+          ]
+        },
+        {
+          "id": "livelihood",
+          "icon": "trending_up",
+          "title": "Livelihood Support",
+          "description": "Helping widows and families become self-reliant through poultry, livestock, sewing machines, and small business support.",
+          "highlights": [
+            "IGA support for young widows",
+            "Interest-free loans for livelihood work",
+            "Goats, dairy cows, ducks, chicks, and small business cash support"
+          ]
+        },
+        {
+          "id": "healthcare",
+          "icon": "medical_services",
+          "title": "Healthcare",
+          "description": "Providing treatment support to people who cannot afford medical care, benefiting around 25 people each year.",
+          "highlights": [
+            "Medical allowance for needy patients",
+            "Support for elderly and persons with disabilities",
+            "COVID masks and sanitary supply distribution"
+          ]
+        },
+        {
+          "id": "relief",
+          "icon": "volunteer_activism",
+          "title": "Relief & Food Aid",
+          "description": "Delivering food, winter clothing, and emergency relief during hardship, floods, and seasonal crises.",
+          "highlights": [
+            "Winter cloth distribution in slums and northern districts",
+            "Iftar support for 120–150 poor elderly families",
+            "Flood, refugee, and emergency relief response"
+          ]
+        },
+        {
+          "id": "community",
+          "icon": "groups",
+          "title": "Community Support",
+          "description": "Strengthening vulnerable families through marriage support, widow allowance, and community-based care.",
+          "highlights": [
+            "Allowance for 50 widows and 10 elderly men",
+            "Marriage support for poor and orphan families",
+            "Awareness and care for persons with disabilities"
+          ]
+        }
+      ]
+    },
+    "featured": {
+      "eyebrow": "Featured Program",
+      "title": "Alokayon Pathshala",
+      "description": "Alokayon Pathshala is a free school established in Rasulbag Slum, Nakhalpara, Dhaka, to bring educational opportunity to underprivileged children living where hardship is most visible. It reflects Alokayon’s belief that education should reach children where the need is immediate, not only where systems are already strong.",
+      "points": [
+        "Free learning support for children in slum communities",
+        "A bridge into regular education, dignity, and long-term opportunity",
+        "Part of a wider commitment to school, college, university, and Hifz support"
+      ],
+      "stats": [
+        { "value": "50+", "label": "Children Learning" },
+        { "value": "1", "label": "Slum School Established" },
+        { "value": "200+", "label": "Students Supported Overall" }
+      ],
+      "cta": "View school story"
+    },
+    "caseStudy": {
+      "eyebrow": "Case Study",
+      "title": "Real Impact: A family’s journey from crisis to stability.",
+      "problemLabel": "Problem:",
+      "realityLabel": "Reality:",
+      "interventionLabel": "Intervention:",
+      "impactLabel": "Impact:",
+      "problem": "Many vulnerable families survive on modest daily earnings. When the primary breadwinner dies, that fragile stability often disappears at once, leaving widowed mothers and children without direction or protection.",
+      "reality": "In these moments, many fall into debt traps through installment-based loans that deepen poverty instead of solving it. Families can lose assets, housing, and even dignity while trying to survive.",
+      "intervention": "Alokayon identifies such families and responds through educational support, direct financial help, livelihood tools, and continued attention to the root causes of hardship.",
+      "impact": "With timely support, families begin to regain stability, children continue their education, and dependence on exploitative debt is reduced.",
+      "timeline": [
+        { "label": "Problem", "text": "Loss of income and immediate family hardship" },
+        { "label": "Crisis", "text": "Debt pressure, insecurity, and interrupted education" },
+        { "label": "Support", "text": "Education aid, cash support, and livelihood tools" },
+        { "label": "Recovery", "text": "Greater stability, dignity, and reduced dependency" }
+      ]
+    },
+    "gallery": {
+      "eyebrow": "Real Moments, Real Impact",
+      "title": "A glimpse into the lives we support and the communities we serve.",
+      "footer": "These moments reflect the programs documented across Alokayon's published reporting and field activities.",
+      "filters": [
+        { "id": "all", "label": "All" },
+        { "id": "education", "label": "Education" },
+        { "id": "relief", "label": "Relief" },
+        { "id": "healthcare", "label": "Healthcare" },
+        { "id": "livelihood", "label": "Livelihood" }
+      ],
+      "items": [
+        { "title": "Children learning at Alokayon Pathshala", "location": "Nakhalpara, Dhaka", "program": "education" },
+        { "title": "Support reaching vulnerable families", "location": "Community outreach", "program": "relief" },
+        { "title": "Medical support for vulnerable people", "location": "Program support", "program": "healthcare" },
+        { "title": "Relief and direct assistance in action", "location": "Field distribution", "program": "relief" },
+        { "title": "Livelihood support helping families rebuild", "location": "Income-generating support", "program": "livelihood" },
+        { "title": "Compassionate work with community members", "location": "Local support visit", "program": "healthcare" },
+        { "title": "Education and community dignity at the center", "location": "Learning support", "program": "education" },
+        { "title": "Fieldwork that turns donations into direct care", "location": "Program delivery", "program": "livelihood" }
+      ]
+    },
+    "initiatives": {
+      "eyebrow": "Our Key Initiatives",
+      "title": "Practical actions that turn support into everyday dignity.",
+      "items": [
+        { "icon": "content_cut", "title": "Sewing Machine Distribution" },
+        { "icon": "pets", "title": "Livestock Support" },
+        { "icon": "egg_alt", "title": "Poultry Support" },
+        { "icon": "ac_unit", "title": "Winter Clothing Distribution" },
+        { "icon": "forest", "title": "Tree Plantation Program" },
+        { "icon": "menu_book", "title": "Library & Islamic Education" },
+        { "icon": "diamond", "title": "Marriage Support for Orphan Girls" },
+        { "icon": "restaurant", "title": "Iftar Distribution" }
+      ]
+    },
+    "impact": {
+      "eyebrow": "Impact Numbers",
+      "title": "Measurable support across education, care, and dignity.",
+      "items": [
+        { "value": "200+", "label": "Students Supported" },
+        { "value": "60+", "label": "Elderly Receiving Allowance" },
+        { "value": "70+", "label": "Widows Supported" },
+        { "value": "25+", "label": "Medical Cases Supported Yearly" }
+      ]
+    },
+    "stories": {
+      "eyebrow": "Real Stories",
+      "title": "Human outcomes behind every program.",
+      "items": [
+        {
+          "quote": "The financial support I received from Alokayon made my educational journey possible and reduced the burden on my family.",
+          "person": "Student beneficiary",
+          "context": "Education support"
+        },
+        {
+          "quote": "The assistance and training I received helped me stand on my own again and support my family with dignity.",
+          "person": "Widow support recipient",
+          "context": "IGA livelihood program"
+        },
+        {
+          "quote": "What stands out most is the transparency. Real support reaches real people with sincerity and care.",
+          "person": "Supporter & donor",
+          "context": "Transparency and trust"
+        }
+      ]
+    },
+    "cta": {
+      "eyebrow": "Be Part of the Change",
+      "title": "Your support helps bring education, relief, and dignity to those who need it most.",
+      "description": "Support documented programs that respond to hardship with care, accountability, and practical help."
+    }
+  },
+  "school": {
+    "hero": {
+      "eyebrow": "Alokayon School",
+      "title": "A free educational institution for underprivileged children.",
+      "description": "Alokayon School was created to bring education, structure, and hope to children growing up in deprivation. What began with one teacher teaching slum children in a veranda became a formal learning space supported by Alokayon.",
+      "imageAlt": "Children learning at Alokayon School",
+      "floatingStat": {
+        "value": "50+",
+        "label": "Children learning free of cost"
+      }
+    },
+    "impact": {
+      "items": [
+        { "value": "50+", "label": "Children learning free of cost" },
+        { "value": "13 Feb 2023", "label": "Formal inauguration of Alokayon Pathshala" },
+        { "value": "45", "label": "Children admitted to government primary schools" },
+        { "value": "Arabic + Bengali", "label": "Learning model with moral instruction" }
+      ]
+    },
+    "whyMatters": {
+      "eyebrow": "Why this school matters",
+      "title": "Education as an interruption to neglect.",
+      "paragraphOne": "Children carry the potential of tomorrow’s poets, artists, scientists, teachers, and leaders. Yet many underprivileged children grow up without access to food, shelter, healthcare, or education.",
+      "paragraphTwo": "Alokayon School exists to interrupt that cycle early so children are not pushed toward neglect, illiteracy, or harmful environments, but instead grow with dignity, discipline, and possibility."
+    },
+    "founding": {
+      "eyebrow": "How Alokayon School began",
+      "title": "From a veranda lesson to a formal learning space.",
+      "paragraphOne": "For a long time, Alokayon wanted to create educational opportunities for underprivileged children but lacked the facilities and resources to begin. That changed when Jesmin Akter, who had been teaching slum children on the veranda of her house, came into contact with the organization.",
+      "paragraphTwo": "Alokayon responded by renting a small tin-shed room, arranging seating, and providing books, notebooks, and pens. The school was then formally inaugurated as Alokayon Pathshala on 13 February 2023.",
+      "timeline": [
+        { "label": "Veranda teaching", "title": "Jesmin Akter began teaching children informally at her home." },
+        { "label": "Shared support", "title": "Alokayon rented a small tin-shed room and arranged supplies and seating." },
+        { "label": "Formal launch", "title": "Alokayon Pathshala was officially inaugurated on 13 February 2023." }
+      ]
+    },
+    "teacher": {
+      "eyebrow": "Meet the teacher behind the school",
+      "title": "One person’s persistence became a place of learning.",
+      "paragraphOne": "Jesmin Akter’s story gives the page its heart. After losing her father as a child, facing financial hardship, and being pushed into a difficult early marriage, she still held onto her dream of teaching. She began by inviting neighborhood children to study, even using unused pages from her sons’ old notebooks.",
+      "paragraphTwo": "Later, with Alokayon’s support, that small effort became a proper school for children who otherwise might never have stepped into a classroom.",
+      "quote": "With Alokayon’s support, I now believe I can bring underprivileged children into the light of education, Insha’Allah.",
+      "name": "Jesmin Akter",
+      "role": "Teacher, Alokayon School–1",
+      "imageAlt": "Jesmin Akter teaching children"
+    },
+    "support": {
+      "eyebrow": "What students receive",
+      "title": "Practical support that keeps children learning.",
+      "items": [
+        "Free classroom learning",
+        "Books, notebooks, pens, and school materials",
+        "Seating, lights, electricity, and fans",
+        "Arabic and moral instruction",
+        "A safe and supportive learning environment",
+        "A pathway into government primary schools"
+      ]
+    },
+    "gallery": {
+      "eyebrow": "Moments from Alokayon School",
+      "title": "Real learning, real care, real possibility.",
+      "items": [
+        { "title": "Classroom learning in Rasulbag" },
+        { "title": "Books and supplies for underprivileged children" },
+        { "title": "Arabic and moral instruction alongside regular learning" },
+        { "title": "Community support around the school" },
+        { "title": "A learning environment built with care" },
+        { "title": "Children growing with dignity and structure" }
+      ]
+    },
+    "outcomes": {
+      "eyebrow": "From classroom support to school admission",
+      "title": "Outcomes that show the classroom is opening real doors.",
+      "summary": "45 underprivileged children moved into formal primary education in three years.",
+      "items": [
+        { "year": "2023", "value": "10", "label": "Children enrolled in government primary schools" },
+        { "year": "2024", "value": "10", "label": "Children enrolled in government primary schools" },
+        { "year": "2025", "value": "25", "label": "Children enrolled in government primary schools" }
+      ]
+    },
+    "trust": {
+      "eyebrow": "Built with care, backed by action",
+      "description": "The magazine states that Alokayon Pathshala was set up in Rasulbag slum near Tejgaon Police Station in Dhaka, where more than fifty underprivileged children receive free education and school materials. It also notes that educational support is a wider Alokayon priority, with around 200 children benefiting from support programs overall.",
+      "badges": [
+        "Free educational support",
+        "More than 50 children learning",
+        "Connected to Alokayon’s wider education work"
+      ]
+    },
+    "cta": {
+      "eyebrow": "Support Alokayon School",
+      "title": "Help a child step into a classroom, not into neglect.",
+      "primary": "Support Alokayon School",
+      "secondary": "Read the School Story"
+    }
+  },
+  "madrasa": {
+    "hero": {
+      "eyebrow": "Alokayon Madrasa Initiative",
+      "title": "Abdul Karim Miazi Hafezi Madrasa",
+      "description": "A distinctive educational institution integrating Arabic and Bengali education to shape students in faith, discipline, and practical academic readiness.",
+      "location": "Sompara, Chatkhil, Noakhali",
+      "imageAlt": "Students studying at the madrasa",
+      "floatingStat": {
+        "value": "31",
+        "label": "Students currently memorizing Qur’an"
+      }
+    },
+    "impact": {
+      "items": [
+        { "value": "100+", "label": "Students enrolled" },
+        { "value": "80%", "label": "From underprivileged backgrounds" },
+        { "value": "31", "label": "Students memorizing Qur’an" },
+        { "value": "Arabic + Bengali", "label": "Integrated learning model" }
+      ]
+    },
+    "vision": {
+      "eyebrow": "A New Model of Madrasa Education",
+      "title": "Rooted in deen, prepared for the modern world.",
+      "paragraphOne": "This madrasa was established to move beyond the conventional system and introduce a modern, time-appropriate curriculum that integrates Arabic and Bengali education.",
+      "paragraphTwo": "The goal is not only to produce students with strong religious foundations, but also to equip them with essential academic knowledge needed for the modern world."
+    },
+    "leadership": {
+      "eyebrow": "Leadership Built on Sacrifice and Integrity",
+      "title": "A rare model of accountability in educational service.",
+      "description": "The institution is led under the supervision of Mr. Abdul Matin (B.Sc.), Vice President of Alokayon. What makes this madrasa truly distinctive is not only its structure, but the integrity behind how it is sustained.",
+      "imageAlt": "Leadership and supervision at the madrasa",
+      "cardOneLabel": "Director",
+      "cardOneTitle": "Takes zero salary",
+      "cardTwoLabel": "Oversight",
+      "cardTwoTitle": "Personally supports operations",
+      "points": [
+        "Director takes no salary or honorarium",
+        "A portion of personal pension is donated to support operations",
+        "Operational spending is personally supervised with transparency"
+      ]
+    },
+    "features": {
+      "eyebrow": "What makes this madrasa different",
+      "title": "Structured learning with spiritual and academic balance.",
+      "items": [
+        { "icon": "auto_stories", "title": "Integrated Curriculum", "text": "Arabic, Bengali, English, and Mathematics are taught together with balanced attention." },
+        { "icon": "school", "title": "No Coaching Dependency", "text": "Lessons are completed in class so students are not pushed toward outside tutoring." },
+        { "icon": "checklist", "title": "Structured Learning System", "text": "Daily monitoring, teacher supervision, and regular counseling help keep learning on track." },
+        { "icon": "menu_book", "title": "Moral & Spiritual Development", "text": "Qur’an memorization, discipline, and a respectful environment shape both mind and character." },
+        { "icon": "verified", "title": "Transparent Management", "text": "Operations are run with accountability, careful oversight, and an unusual commitment to integrity." },
+        { "icon": "groups", "title": "Support for the Poor", "text": "Special care is given to orphaned and extremely poor children who need structured educational access." }
+      ]
+    },
+    "pathway": {
+      "eyebrow": "A Complete Educational Path",
+      "title": "From memorization to mainstream continuation.",
+      "summary": "Students graduate with both religious and academic foundations, allowing them to continue in mainstream education with confidence.",
+      "items": [
+        { "label": "Hifz", "title": "Qur’an memorization", "text": "Students begin with strong religious grounding and memorization support." },
+        { "label": "Ebtedayee", "title": "Academic learning up to Grade 6", "text": "General subjects are taught alongside Arabic learning in a disciplined academic environment." },
+        { "label": "Next step", "title": "Transition to Grade 7", "text": "Students move forward with both religious and academic foundations for mainstream continuation." }
+      ]
+    },
+    "support": {
+      "eyebrow": "More Than Education — A Support System",
+      "title": "Daily care that protects learning and dignity.",
+      "items": [
+        "Free or low-cost education for underprivileged students",
+        "Books, notebooks, pens, and learning materials",
+        "Two meals per day for students",
+        "A safe and supervised learning environment",
+        "Teacher guidance and regular monitoring",
+        "Focused support for children from poor families"
+      ]
+    },
+    "hifz": {
+      "eyebrow": "Qur’an Memorization Program (Hifz)",
+      "title": "A focused path of memorization and character formation.",
+      "statOne": {
+        "value": "31",
+        "label": "Students currently memorizing Qur’an"
+      },
+      "statTwo": {
+        "value": "Boys + Girls",
+        "label": "Participation across both groups"
+      },
+      "statThree": {
+        "value": "2",
+        "label": "Recent graduates: 1 male and 1 female Hafiz"
+      }
+    },
+    "gallery": {
+      "eyebrow": "Inside the Madrasa",
+      "title": "Real moments of study, discipline, and care.",
+      "items": [
+        { "title": "Qur’an study and guided learning" },
+        { "title": "Structured classroom teaching" },
+        { "title": "Teacher interaction and supervision" },
+        { "title": "Students learning in a disciplined environment" },
+        { "title": "Supportive daily systems around student life" }
+      ]
+    },
+    "trust": {
+      "eyebrow": "Transparency You Can Trust",
+      "description": "Alokayon supports this madrasa after observing its disciplined management, quality of education, balanced curriculum, and full transparency in operations. The magazine also describes the madrasa’s structured Arabic and Bengali teaching system and its organized use of multiple teachers.",
+      "badges": [
+        "Integrated curriculum",
+        "Transparent operations",
+        "Structured teaching system"
+      ]
+    },
+    "cta": {
+      "eyebrow": "Be part of a lasting impact",
+      "title": "Help knowledge, faith, and dignity grow together.",
+      "description": "Support this institution through zakat and donations, and help build a future where disciplined learning and spiritual growth remain accessible to children from underprivileged backgrounds."
+    }
+  },
+  "opinions": {
+    "hero": {
+      "eyebrow": "Voices of Impact",
+      "title": "Real stories from the lives transformed through Alokayon.",
+      "description": "From education to survival, these are not just testimonials. They are journeys shaped by hardship, support, dignity, and human care."
+    },
+    "featuredStory": {
+      "eyebrow": "Featured Story",
+      "title": "From struggle to stability",
+      "cardEyebrow": "Featured case study",
+      "cardDescription": "A long journey from uncertainty and hunger to education, employment, and service.",
+      "readFullStory": "Read Full Story",
+      "hideFullStory": "Hide Full Story",
+      "badges": [
+        "GPA 5 student",
+        "Completed Honors & Master’s",
+        "46th BCS candidate",
+        "Now Senior Teacher at Alokayon School"
+      ],
+      "summary": "Nasim Uddin grew up in financial hardship, often struggling to afford food, housing, and education. Despite strong academic results, continuing his studies in Dhaka felt uncertain and painfully fragile.",
+      "summaryTwo": "Through Alokayon’s support covering tuition, books, examination fees, and wider family needs, he was able to complete higher education. Today, he gives back as a teacher serving the same kind of children he once stood among.",
+      "fullStory": [
+        "Md. Nasim Uddin came from a lower middle-class family in Maheshpur Upazila of Jhenaidah. His father could not afford the cost of his education, so he worked in the fields and tutored others while trying to continue his own studies.",
+        "After passing HSC with a GPA-5, he moved to Dhaka and enrolled in the Economics Department at Titumir College. There he struggled to pay mess rent, food costs, and academic expenses, often going hungry while trying to support his parents at home.",
+        "In 2019, after being introduced through his cousin Imran Hossain, Alokayon stepped in with support for examination fees, tuition, books, and broader academic expenses. The organization also supported his parents medically, repaired their house after cyclone damage, and extended other forms of assistance including Qard Hasanah.",
+        "He later completed both Honors and Master’s degrees, passed the preliminary stage of the 46th BCS examination in 2024, and is now serving as a Senior Teacher at Alokayon Pathshala-1 in Nakhalpara, Dhaka."
+      ]
+    },
+    "grid": {
+      "eyebrow": "More Voices",
+      "title": "Short stories, lasting proof.",
+      "cards": [
+        {
+          "title": "A name of humanity",
+          "quote": "Alokayon supported my family in our hardest times with scholarship support, medical help, food assistance, and practical care.",
+          "tags": ["Scholarship support", "Family assistance", "Medical help"],
+          "name": "Md. Omar Faruque",
+          "role": "Assistant Manager, BRAC",
+          "location": "Comilla"
+        },
+        {
+          "title": "A smoother educational journey",
+          "quote": "The financial support I received made the difficult path of higher education much more possible and gave me strength to continue.",
+          "tags": ["Education", "Student support"],
+          "name": "Tumpa",
+          "role": "Department of Philosophy",
+          "location": "University of Chittagong"
+        },
+        {
+          "title": "A torch of light",
+          "quote": "The scholarship and educational support from Alokayon eased the burden on my family and helped me continue toward higher education.",
+          "tags": ["Scholarship", "Higher education"],
+          "name": "Tahmina Akter",
+          "role": "Department of Economics",
+          "location": "University of Chittagong"
+        },
+        {
+          "title": "Standing by poor students",
+          "quote": "With support for tuition fees and encouragement at the right time, I was able to continue my university education despite severe hardship.",
+          "tags": ["Education", "Tuition support"],
+          "name": "Akheruzzaman",
+          "role": "Student beneficiary",
+          "location": "Rajshahi University"
+        },
+        {
+          "title": "Relief that reached the forgotten",
+          "quote": "Seeing winter clothing reach extremely poor families in Kurigram showed me how real compassion can restore comfort and dignity.",
+          "tags": ["Winter relief", "Kurigram"],
+          "name": "Md. Maruf Hossain",
+          "role": "Community witness",
+          "location": "Ulipur, Kurigram"
+        }
+      ]
+    },
+    "themes": {
+      "education": {
+        "title": "Education Support",
+        "intro": "Helping students continue their education despite financial hardship and the constant pressure to stop learning.",
+        "items": [
+          {
+            "quote": "The support provided by Alokayon made my educational path smoother and strengthened my belief in what I can achieve.",
+            "name": "Tumpa",
+            "role": "University of Chittagong"
+          },
+          {
+            "quote": "Through Alokayon’s educational support, I was able to cover academic expenses and continue building my future.",
+            "name": "Tahmina Akter",
+            "role": "University of Chittagong"
+          },
+          {
+            "quote": "Even a modest yearly contribution was enough to keep my studies alive when everything else felt uncertain.",
+            "name": "Akheruzzaman",
+            "role": "Rajshahi University"
+          }
+        ]
+      },
+      "family": {
+        "title": "Family & Financial Support",
+        "intro": "Supporting families when hardship affects education, medical care, food security, and the ability to stay afloat.",
+        "items": [
+          {
+            "quote": "Alokayon supported my family with education, marriage assistance, medicines, and food when our resources were dangerously limited.",
+            "name": "Md. Omar Faruque",
+            "role": "Assistant Manager, BRAC"
+          }
+        ]
+      },
+      "relief": {
+        "title": "Emergency & Relief Work",
+        "heading": "Compassion reaching the forgotten.",
+        "description": "Winter relief in Kurigram became more than a distribution event. It became a visible reminder that forgotten people can still be seen, comforted, and protected with dignity.",
+        "imageAlt": "Emergency and relief work",
+        "items": [
+          {
+            "quote": "Seeing smiles replace the tired faces of winter-affected families in Kurigram filled my heart with gratitude and hope.",
+            "name": "Md. Maruf Hossain",
+            "role": "Ulipur, Kurigram"
+          }
+        ]
+      }
+    },
+    "quote": {
+      "text": "Alokayon has appeared in my life like a beacon of light.",
+      "author": "Md. Nasim Uddin"
+    },
+    "impactSummary": {
+      "eyebrow": "What These Stories Tell Us",
+      "title": "Emotion grounded in evidence.",
+      "points": [
+        "Education support can change the direction of a life, not just a school year.",
+        "Small financial assistance often creates long-term stability and self-reliance.",
+        "Transparent, compassionate support builds lasting trust with both beneficiaries and donors.",
+        "Community-based intervention multiplies impact because it responds to real needs early."
+      ]
+    },
+    "cta": {
+      "eyebrow": "Your Support Can Create the Next Story",
+      "title": "Turn compassion into someone’s next turning point.",
+      "description": "Support a student, protect a family, or help relief reach people at the moment it matters most."
+    }
+  }
+}

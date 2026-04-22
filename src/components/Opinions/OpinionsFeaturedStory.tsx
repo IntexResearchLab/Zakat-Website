@@ -1,9 +1,12 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import Reveal from '../reusables/Reveal'
-import { featuredStory } from './data'
+import { getFeaturedStory } from './data'
 
 function OpinionsFeaturedStory() {
+  const { t } = useTranslation()
   const [isExpanded, setIsExpanded] = useState(false)
+  const featuredStory = getFeaturedStory(t)
 
   return (
     <section className="bg-[#fbfdfe] py-18 sm:py-22">
@@ -16,12 +19,9 @@ function OpinionsFeaturedStory() {
               src="/assets/about/person-1.jpg"
             />
             <div className="mt-6 rounded-[1.2rem] border border-white/80 bg-white/82 p-5 backdrop-blur-sm">
-              <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#115b82]">
-                Featured case study
-              </p>
+              <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#115b82]">{t('opinions.featuredStory.cardEyebrow')}</p>
               <p className="mt-3 text-[1rem] leading-[1.75] text-[#586b78]">
-                A long journey from uncertainty and hunger to education,
-                employment, and service.
+                {t('opinions.featuredStory.cardDescription')}
               </p>
             </div>
           </div>
@@ -68,7 +68,7 @@ function OpinionsFeaturedStory() {
             type="button"
             onClick={() => setIsExpanded((value) => !value)}
           >
-            {isExpanded ? 'Hide Full Story' : 'Read Full Story'}
+            {isExpanded ? t('opinions.featuredStory.hideFullStory') : t('opinions.featuredStory.readFullStory')}
             <span className="material-symbols-outlined text-[1.15rem]">
               {isExpanded ? 'expand_less' : 'arrow_forward'}
             </span>

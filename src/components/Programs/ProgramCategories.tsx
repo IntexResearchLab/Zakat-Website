@@ -1,31 +1,20 @@
 import { useMemo, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import Reveal from '../reusables/Reveal'
-import { filterTabs, programCategories } from './data'
+import { getFilterTabs, getProgramCategories } from './data'
 
 function ProgramCategories() {
-  const [activeFilter, setActiveFilter] = useState('All')
+  const { t } = useTranslation()
+  const filterTabs = getFilterTabs(t)
+  const programCategories = getProgramCategories(t)
+  const [activeFilter, setActiveFilter] = useState('all')
 
   const filteredPrograms = useMemo(() => {
-    if (activeFilter === 'All') {
+    if (activeFilter === 'all') {
       return programCategories
     }
 
-    if (activeFilter === 'Education') {
-      return programCategories.filter((item) => item.title === 'Education')
-    }
-
-    if (activeFilter === 'Healthcare') {
-      return programCategories.filter((item) => item.title === 'Healthcare')
-    }
-
-    if (activeFilter === 'Relief') {
-      return programCategories.filter(
-        (item) =>
-          item.title === 'Relief & Food Aid' || item.title === 'Community Support'
-      )
-    }
-
-    return programCategories.filter((item) => item.title === 'Livelihood Support')
+    return programCategories.filter((item) => item.id === activeFilter)
   }, [activeFilter])
 
   return (
@@ -34,10 +23,10 @@ function ProgramCategories() {
         <Reveal className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">
             <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#115b82]">
-              Program Categories
+              {t('programs.categories.eyebrow')}
             </p>
             <h2 className="mt-5 font-serif text-[2.55rem] leading-[0.98] tracking-[-0.04em] text-[#14324d] sm:text-[3rem]">
-              Modern support programs shaped around real need.
+              {t('programs.categories.title')}
             </h2>
           </div>
 
@@ -45,15 +34,15 @@ function ProgramCategories() {
             {filterTabs.map((tab) => (
               <button
                 className={`rounded-full border px-4 py-2 text-[0.78rem] font-bold uppercase tracking-[0.16em] transition ${
-                  tab === activeFilter
+                  tab.id === activeFilter
                     ? 'border-[#115b82] bg-[#115b82] text-white'
                     : 'border-[#dce7ee] bg-white text-[#627581] hover:border-[#bdd6e4] hover:bg-[#f5fafe]'
                 }`}
-                key={tab}
-                onClick={() => setActiveFilter(tab)}
+                key={tab.id}
+                onClick={() => setActiveFilter(tab.id)}
                 type="button"
               >
-                {tab}
+                {tab.label}
               </button>
             ))}
           </div>
@@ -94,7 +83,7 @@ function ProgramCategories() {
                 className="mt-6 inline-flex items-center gap-3 text-[0.82rem] font-bold uppercase tracking-[0.16em] text-[#115b82] transition hover:gap-4"
                 href="#"
               >
-                Learn More
+                {t('common.actions.learnMore')}
                 <span aria-hidden="true" className="text-lg leading-none">
                   →
                 </span>

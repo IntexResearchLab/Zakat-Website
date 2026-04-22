@@ -1,32 +1,27 @@
 import Reveal from '../reusables/Reveal'
-
-const primaryImpactStats = [
-  { value: '200+', label: 'Students Supported' },
-  { value: '50+', label: 'Children in Slum School' },
-  { value: '1.3M+ BDT', label: 'Distributed Annually' },
-  { value: '60', label: 'Elderly Supported' },
-  { value: 'Since 2011', label: 'Serving Communities' },
-  { value: '70+', label: 'Widows Supported' },
-  { value: '500+', label: 'Livelihood Assets Distributed' },
-]
+import { useTranslation } from 'react-i18next'
 
 function ImpactSection() {
+  const { t } = useTranslation()
+  const primaryImpactStats = t('home.impact.stats', {
+    returnObjects: true,
+  }) as Array<{ value: string; label: string }>
+
   return (
     <section className="bg-[#f4f7f2] py-12 sm:py-14">
       <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6 lg:flex-row lg:items-start lg:justify-between lg:gap-24">
         <Reveal className="max-w-md">
           <h2 className="text-[2.15rem] font-black leading-[1.05] tracking-[-0.04em] text-[#14324d] sm:text-[2.65rem]">
-            A trusted record of impact.
+            {t('home.impact.title')}
           </h2>
           <p className="mt-5 max-w-[26rem] text-[0.98rem] leading-[1.65] text-[#6a786e]">
-            Verified figures from Alokayon’s magazine, showing a clear snapshot
-            of support across education, care, and long-term service.
+            {t('home.impact.description')}
           </p>
           <a
             className="mt-6 inline-flex items-center gap-3 text-sm font-bold uppercase tracking-[0.18em] text-[#115b82] transition hover:gap-4"
             href="#"
           >
-            Read Our Magazine
+            {t('common.actions.readOurMagazine')}
             <span aria-hidden="true" className="text-xl leading-none">
               →
             </span>

@@ -1,6 +1,9 @@
 import Reveal from '../reusables/Reveal'
+import { useTranslation } from 'react-i18next'
 
 function MadrasaHifz() {
+  const { t } = useTranslation()
+
   return (
     <section className="bg-[#fafbf8] py-18 sm:py-22">
       <div className="mx-auto max-w-7xl px-6">
@@ -8,36 +11,36 @@ function MadrasaHifz() {
           <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <div>
               <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#2f6a52]">
-                Qur’an Memorization Program (Hifz)
+                {t('madrasa.hifz.eyebrow')}
               </p>
               <h2 className="mt-5 font-serif text-[2.35rem] leading-[1.02] tracking-[-0.04em] text-[#1f382a] sm:text-[3rem]">
-                A focused path of memorization and character formation.
+                {t('madrasa.hifz.title')}
               </h2>
             </div>
 
             <div className="grid gap-5 sm:grid-cols-3">
               <div>
                 <p className="font-serif text-[2.6rem] leading-none tracking-[-0.05em] text-[#1f382a]">
-                  31
+                  {t('madrasa.hifz.statOne.value')}
                 </p>
                 <p className="mt-2 text-[0.95rem] leading-[1.6] text-[#5f6d64]">
-                  Students currently memorizing Qur’an
+                  {t('madrasa.hifz.statOne.label')}
                 </p>
               </div>
               <div>
                 <p className="font-serif text-[2.6rem] leading-none tracking-[-0.05em] text-[#1f382a]">
-                  Boys + Girls
+                  {t('madrasa.hifz.statTwo.value')}
                 </p>
                 <p className="mt-2 text-[0.95rem] leading-[1.6] text-[#5f6d64]">
-                  Participation across both groups
+                  {t('madrasa.hifz.statTwo.label')}
                 </p>
               </div>
               <div>
                 <p className="font-serif text-[2.6rem] leading-none tracking-[-0.05em] text-[#1f382a]">
-                  2
+                  {t('madrasa.hifz.statThree.value')}
                 </p>
                 <p className="mt-2 text-[0.95rem] leading-[1.6] text-[#5f6d64]">
-                  Recent graduates: 1 male and 1 female Hafiz
+                  {t('madrasa.hifz.statThree.label')}
                 </p>
               </div>
             </div>

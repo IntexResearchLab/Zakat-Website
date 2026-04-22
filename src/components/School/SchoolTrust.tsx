@@ -1,7 +1,11 @@
 import Reveal from '../reusables/Reveal'
-import { schoolTrustBadges } from './data'
+import { useTranslation } from 'react-i18next'
+import { getSchoolTrustBadges } from './data'
 
 function SchoolTrust() {
+  const { t } = useTranslation()
+  const schoolTrustBadges = getSchoolTrustBadges(t)
+
   return (
     <section className="bg-white py-18 sm:py-22">
       <div className="mx-auto max-w-7xl px-6">
@@ -9,15 +13,10 @@ function SchoolTrust() {
           <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
             <div className="max-w-3xl">
               <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#115b82]">
-                Built with care, backed by action
+                {t('school.trust.eyebrow')}
               </p>
               <p className="mt-5 text-[1.03rem] leading-[1.9] text-[#5f7280]">
-                The magazine states that Alokayon Pathshala was set up in
-                Rasulbag slum near Tejgaon Police Station in Dhaka, where more
-                than fifty underprivileged children receive free education and
-                school materials. It also notes that educational support is a
-                wider Alokayon priority, with around 200 children benefiting
-                from support programs overall.
+                {t('school.trust.description')}
               </p>
             </div>
 

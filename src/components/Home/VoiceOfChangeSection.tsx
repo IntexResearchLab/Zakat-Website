@@ -1,35 +1,13 @@
 import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import Reveal from '../reusables/Reveal'
 
-const testimonials = [
-  {
-    category: 'Impact Story',
-    quote:
-      'As a beneficiary, my family and I are deeply grateful to Alokayon. During difficult times, they supported us with education, medical care, and food assistance.',
-    name: 'Md. Omar Faruque',
-    role: 'Assistant Manager, BRAC',
-    location: '',
-  },
-  {
-    category: 'Credibility',
-    quote:
-      'I was inspired by the transparency and accountability of Alokayon. Seeing how donations are used sincerely for those in need made me stay connected with their work.',
-    name: 'Monitoring & Evaluation Specialist',
-    role: 'World Bank',
-    location: '',
-  },
-  {
-    category: 'Education Impact',
-    quote:
-      'The financial support I received from Alokayon made my educational journey possible. Their help reduced the burden on my family and allowed me to continue my studies.',
-    name: 'Student',
-    role: 'Chittagong University',
-    location: '',
-  },
-]
-
 function VoiceOfChangeSection() {
+  const { t } = useTranslation()
   const [activeIndex, setActiveIndex] = useState(0)
+  const testimonials = t('home.voices.testimonials', {
+    returnObjects: true,
+  }) as Array<{ category: string; quote: string; name: string; role: string; location: string }>
 
   useEffect(() => {
     const interval = window.setInterval(() => {
@@ -54,10 +32,10 @@ function VoiceOfChangeSection() {
       <div className="mx-auto max-w-5xl px-6">
         <Reveal className="text-center">
           <p className="mb-4 text-sm font-bold uppercase tracking-[0.22em] text-[#115b82]">
-            Voices of Impact
+            {t('home.voices.eyebrow')}
           </p>
           <h2 className="mx-auto max-w-3xl font-serif text-[2.5rem] leading-[1.02] tracking-[-0.04em] text-[#14324d] sm:text-[3rem]">
-            Real stories from our community
+            {t('home.voices.title')}
           </h2>
         </Reveal>
 
@@ -73,7 +51,7 @@ function VoiceOfChangeSection() {
               <div className="hidden items-center gap-2 sm:flex">
                 {testimonials.map((testimonial, index) => (
                   <button
-                    aria-label={`Show testimonial ${index + 1}`}
+                    aria-label={t('home.voices.showTestimonial', { index: index + 1 })}
                     className={`h-2.5 rounded-full transition-all ${
                       index === activeIndex
                         ? 'w-8 bg-[#115b82]'
@@ -104,7 +82,7 @@ function VoiceOfChangeSection() {
 
               <div className="flex items-center gap-3 self-start sm:self-auto">
                 <button
-                  aria-label="Previous voice"
+                  aria-label={t('home.voices.previous')}
                   className="hover-lift-soft flex h-9 w-9 items-center justify-center rounded-full border border-[#d8e5ee] bg-[#fbfdff] text-[#7b8b96] transition hover:border-[#c4d8e6] hover:text-[#14324d]"
                   onClick={handlePrevious}
                   type="button"
@@ -112,7 +90,7 @@ function VoiceOfChangeSection() {
                   ←
                 </button>
                 <button
-                  aria-label="Next voice"
+                  aria-label={t('home.voices.next')}
                   className="hover-lift-soft flex h-9 w-9 items-center justify-center rounded-full border border-[#d8e5ee] bg-[#fbfdff] text-[#7b8b96] transition hover:border-[#c4d8e6] hover:text-[#14324d]"
                   onClick={handleNext}
                   type="button"
@@ -126,7 +104,7 @@ function VoiceOfChangeSection() {
               className="inline-flex items-center gap-3 self-start text-sm font-bold uppercase tracking-[0.18em] text-[#115b82] transition hover:gap-4"
               href="#"
             >
-              Read more real stories in our magazine
+              {t('home.voices.cta')}
               <span aria-hidden="true" className="text-xl leading-none">
                 →
               </span>

@@ -1,21 +1,24 @@
 import Reveal from '../reusables/Reveal'
-import { timeline } from './data'
+import { useTranslation } from 'react-i18next'
+import { getTimeline } from './data'
 
 function AboutJourney() {
+  const { t } = useTranslation()
+  const timeline = getTimeline(t)
+
   return (
     <section className="bg-[#fbfdfe] py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal>
           <div className="max-w-4xl">
             <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#115b82]">
-              Our Journey
+              {t('about.journey.eyebrow')}
             </p>
             <h2 className="mt-5 font-serif text-[2.55rem] leading-[0.98] tracking-[-0.04em] text-[#14324d] sm:text-[3.1rem]">
-              A quiet beginning, a formal foundation, and a growing commitment
-              to service.
+              {t('about.journey.title')}
             </h2>
             <p className="mt-5 max-w-2xl text-[1rem] leading-[1.8] text-[#647783] sm:text-[1.04rem]">
-              From a small initiative to a trusted charitable organization.
+              {t('about.journey.description')}
             </p>
           </div>
         </Reveal>
@@ -46,20 +49,19 @@ function AboutJourney() {
               <span className="material-symbols-outlined text-[1rem]">
                 verified
               </span>
-              Registered NGO (2019)
+              {t('about.journey.badge')}
             </div>
             <p className="mt-4 text-[0.8rem] font-bold uppercase tracking-[0.18em] text-[#14324d]">
-              Official Registration
+              {t('about.journey.registrationTitle')}
             </p>
             <p className="mt-2 max-w-[22rem] text-[0.92rem] leading-[1.65] text-[#657783]">
-              Formal registration completed in 2019 under the Department of
-              Social Services.
+              {t('about.journey.registrationDescription')}
             </p>
 
             <div className="mt-4 rounded-[0.9rem] border border-[#e2ebf1] bg-[linear-gradient(180deg,#f8fbfd_0%,#f4f8fb_100%)] px-3 py-3">
               <div className="mx-auto max-w-[15rem] rotate-[-4deg] overflow-hidden rounded-[0.75rem] border border-[#d9e5ec] bg-white shadow-[0_14px_28px_rgba(15,23,42,0.12)] transition-transform duration-300 hover:rotate-0">
                 <img
-                  alt="Alokayon registration certificate"
+                  alt={t('about.journey.certificateAlt')}
                   className="max-h-[9rem] w-full object-contain"
                   src="/assets/about/Certificate.png"
                 />

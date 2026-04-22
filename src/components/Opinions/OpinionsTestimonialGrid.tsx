@@ -1,16 +1,20 @@
 import Reveal from '../reusables/Reveal'
-import { testimonialCards } from './data'
+import { useTranslation } from 'react-i18next'
+import { getTestimonialCards } from './data'
 
 function OpinionsTestimonialGrid() {
+  const { t } = useTranslation()
+  const testimonialCards = getTestimonialCards(t)
+
   return (
     <section className="bg-white py-18 sm:py-22">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal className="max-w-3xl">
           <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#115b82]">
-            More Voices
+            {t('opinions.grid.eyebrow')}
           </p>
           <h2 className="mt-5 font-serif text-[2.4rem] leading-[1.02] tracking-[-0.04em] text-[#14324d] sm:text-[3rem]">
-            Short stories, lasting proof.
+            {t('opinions.grid.title')}
           </h2>
         </Reveal>
 

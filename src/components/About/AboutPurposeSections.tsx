@@ -1,7 +1,11 @@
 import Reveal from '../reusables/Reveal'
-import { purposeSections } from './data'
+import { useTranslation } from 'react-i18next'
+import { getPurposeSections } from './data'
 
 function AboutPurposeSections() {
+  const { t } = useTranslation()
+  const purposeSections = getPurposeSections(t)
+
   return (
     <section className="bg-white py-18 sm:py-22">
       <div className="mx-auto max-w-7xl space-y-18 px-6 sm:space-y-22">

@@ -1,8 +1,9 @@
 import Reveal from '../reusables/Reveal'
+import { useTranslation } from 'react-i18next'
 import {
-  educationStories,
-  familySupportStories,
-  reliefStories,
+  getEducationStories,
+  getFamilySupportStories,
+  getReliefStories,
 } from './data'
 
 function StoryList({
@@ -37,19 +38,24 @@ function StoryList({
 }
 
 function OpinionsThemes() {
+  const { t } = useTranslation()
+  const educationStories = getEducationStories(t)
+  const familySupportStories = getFamilySupportStories(t)
+  const reliefStories = getReliefStories(t)
+
   return (
     <section className="bg-[#fbfdfe] py-18 sm:py-22">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal className="grid gap-12 lg:grid-cols-2">
           <StoryList
-            title="Education Support"
-            intro="Helping students continue their education despite financial hardship and the constant pressure to stop learning."
+            title={t('opinions.themes.education.title')}
+            intro={t('opinions.themes.education.intro')}
             items={educationStories}
           />
 
           <StoryList
-            title="Family & Financial Support"
-            intro="Supporting families when hardship affects education, medical care, food security, and the ability to stay afloat."
+            title={t('opinions.themes.family.title')}
+            intro={t('opinions.themes.family.intro')}
             items={familySupportStories}
           />
         </Reveal>
@@ -61,15 +67,13 @@ function OpinionsThemes() {
           <div className="grid gap-0 lg:grid-cols-[1.1fr_0.9fr]">
             <div className="p-8 sm:p-10">
               <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#ffd266]">
-                Emergency & Relief Work
+                {t('opinions.themes.relief.title')}
               </p>
               <h3 className="mt-5 font-serif text-[2.2rem] leading-[1.02] tracking-[-0.04em] text-white sm:text-[2.8rem]">
-                Compassion reaching the forgotten.
+                {t('opinions.themes.relief.heading')}
               </h3>
               <p className="mt-6 max-w-2xl text-[1rem] leading-[1.85] text-white/82">
-                Winter relief in Kurigram became more than a distribution event.
-                It became a visible reminder that forgotten people can still be
-                seen, comforted, and protected with dignity.
+                {t('opinions.themes.relief.description')}
               </p>
               <div className="mt-6 rounded-[1.25rem] border border-white/14 bg-white/8 p-5 backdrop-blur-sm">
                 <p className="text-[1rem] leading-[1.8] text-white/90">
@@ -84,7 +88,7 @@ function OpinionsThemes() {
 
             <div className="min-h-[20rem]">
               <img
-                alt="Emergency and relief work"
+                alt={t('opinions.themes.relief.imageAlt')}
                 className="h-full w-full object-cover"
                 src={reliefStories[0].image}
               />
