@@ -15,7 +15,7 @@ function VoiceOfChangeSection() {
     }, 5000)
 
     return () => window.clearInterval(interval)
-  }, [])
+  }, [testimonials.length])
 
   const activeTestimonial = testimonials[activeIndex]
 

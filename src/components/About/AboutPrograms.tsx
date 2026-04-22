@@ -1,17 +1,24 @@
+import { useTranslation } from 'react-i18next'
 import Reveal from '../reusables/Reveal'
-import { programs } from './data'
+import { getPrograms } from './data'
 
 function AboutPrograms() {
+  const { t } = useTranslation()
+  const programs = getPrograms(t)
+
   return (
     <section className="bg-white py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal>
           <div className="max-w-3xl">
             <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#115b82]">
-              What We Do
+              {t('about.programs.eyebrow', 'What We Do')}
             </p>
             <h2 className="mt-5 font-serif text-[2.65rem] leading-[0.98] tracking-[-0.04em] text-[#14324d] sm:text-[3.2rem]">
-              Practical programs shaped around education, care, and relief.
+              {t(
+                'about.programs.title',
+                'Practical programs shaped around education, care, and relief.'
+              )}
             </h2>
           </div>
         </Reveal>

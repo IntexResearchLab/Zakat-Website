@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import Reveal from '../reusables/Reveal'
 import { getFilterTabs, getProgramCategories } from './data'
@@ -9,13 +9,13 @@ function ProgramCategories() {
   const programCategories = getProgramCategories(t)
   const [activeFilter, setActiveFilter] = useState('all')
 
-  const filteredPrograms = useMemo(() => {
+  const filteredPrograms = (() => {
     if (activeFilter === 'all') {
       return programCategories
     }
 
     return programCategories.filter((item) => item.id === activeFilter)
-  }, [activeFilter])
+  })()
 
   return (
     <section className="bg-[#fbfdfe] py-20 sm:py-24">

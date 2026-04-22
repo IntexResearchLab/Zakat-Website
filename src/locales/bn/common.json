@@ -6,51 +6,50 @@
     }
   },
   "nav": {
-    "brand": "আলোকায়ন",
+    "brand": "Alokayon",
     "home": "হোম",
     "about": "আমাদের সম্পর্কে",
     "school": "স্কুল",
     "madrasah": "মাদরাসা",
-    "voices": "গল্পসমূহ",
     "programs": "কার্যক্রম",
-    "transparency": "স্বচ্ছতা"
+    "transparency": "স্বচ্ছতা",
+    "voices": "অভিমত"
   },
   "common": {
-    "aria": {
-      "toggleNavigationMenu": "নেভিগেশন মেনু চালু বা বন্ধ করুন"
-    },
-    "breadcrumb": {
-      "home": "হোম",
-      "aboutUs": "আমাদের সম্পর্কে",
-      "programs": "কার্যক্রম",
-      "school": "আলোকায়ন স্কুল",
-      "madrasah": "মাদরাসা",
-      "opinions": "উপকারভোগীদের মতামত"
-    },
     "actions": {
+      "completeDonation": "ডোনেশন সম্পন্ন করুন",
       "donate": "ডোনেট",
       "donateNow": "এখনই ডোনেট করুন",
-      "readOurMagazine": "আমাদের ম্যাগাজিন পড়ুন",
+      "learnMore": "আরও জানুন",
+      "learnMoreAboutUs": "আমাদের সম্পর্কে আরও জানুন",
       "readMagazine": "ম্যাগাজিন পড়ুন",
-      "learnMoreAboutUs": "আরও জানুন",
-      "viewAllPrograms": "সব কার্যক্রম দেখুন",
-      "completeDonation": "ডোনেশন সম্পন্ন করুন",
+      "readOurMagazine": "আমাদের ম্যাগাজিন পড়ুন",
+      "readOurStory": "আমাদের গল্প পড়ুন",
+      "sponsorAStudent": "একজন শিক্ষার্থীকে সহায়তা করুন",
       "supportAChild": "একটি শিশুকে সহায়তা করুন",
       "supportAStudent": "একজন শিক্ষার্থীকে সহায়তা করুন",
-      "sponsorAStudent": "একজন শিক্ষার্থীর দায়িত্ব নিন",
+      "viewAllPrograms": "সব কার্যক্রম দেখুন",
+      "viewFullGallery": "সম্পূর্ণ গ্যালারি দেখুন",
       "viewPrograms": "কার্যক্রম দেখুন",
-      "readOurStory": "আমাদের গল্প পড়ুন",
-      "learnMore": "আরও জানুন",
-      "viewSchoolGallery": "স্কুল গ্যালারি দেখুন",
-      "viewFullGallery": "সম্পূর্ণ গ্যালারি দেখুন"
+      "viewSchoolGallery": "স্কুল গ্যালারি দেখুন"
     },
-    "payments": {
-      "accepted": "গৃহীত: ভিসা, মাস্টারকার্ড, পেপাল, অ্যাপল পে"
+    "aria": {
+      "toggleNavigationMenu": "নেভিগেশন মেনু খুলুন বা বন্ধ করুন"
+    },
+    "breadcrumb": {
+      "aboutUs": "আমাদের সম্পর্কে",
+      "madrasah": "মাদরাসা",
+      "opinions": "উপকারভোগীদের মতামত",
+      "programs": "কার্যক্রম",
+      "school": "স্কুল"
     },
     "form": {
-      "namePlaceholder": "আপনার নাম লিখুন",
       "emailPlaceholder": "আপনার ইমেইল লিখুন",
+      "namePlaceholder": "আপনার নাম লিখুন",
       "phonePlaceholder": "আপনার ফোন নম্বর লিখুন"
+    },
+    "payments": {
+      "accepted": "গৃহীত: বিকাশ, নগদ, ভিসা, মাস্টারকার্ড"
     }
   }
 }

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import Reveal from '../reusables/Reveal'
 import { getCommitteeMembers } from './data'
@@ -42,15 +42,11 @@ function AboutExecutiveCommittee() {
     return () => window.clearInterval(interval)
   }, [committeeTotalSlides])
 
-  const committeeSlides = useMemo(
-    () =>
-      Array.from({ length: committeeTotalSlides }, (_, slideIndex) =>
-        committeeMembers.slice(
-          slideIndex * committeeVisibleCount,
-          slideIndex * committeeVisibleCount + committeeVisibleCount
-        )
-      ),
-    [committeeTotalSlides, committeeVisibleCount]
+  const committeeSlides = Array.from({ length: committeeTotalSlides }, (_, slideIndex) =>
+    committeeMembers.slice(
+      slideIndex * committeeVisibleCount,
+      slideIndex * committeeVisibleCount + committeeVisibleCount
+    )
   )
 
   return (

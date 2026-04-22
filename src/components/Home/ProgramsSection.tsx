@@ -1,14 +1,28 @@
 import Reveal from '../reusables/Reveal'
 import { useTranslation } from 'react-i18next'
 
+const programCardImages = [
+  '/assets/home/carousel-1.jpg',
+  '/assets/home/carousel-2.jpg',
+  '/assets/home/carousel-3.jpg',
+  '/assets/about/Donation.jpg',
+  '/assets/home/volunteers-1.jpg',
+  '/assets/about/about-us.webp',
+  '/assets/home/volunteer-2.jpg',
+  '/assets/home/carousel-2.jpg',
+  '/assets/home/carousel-1.jpg',
+]
+
 function ProgramsSection() {
   const { t } = useTranslation()
   const programCards = t('home.programs.cards', { returnObjects: true }) as Array<{
     title: string
-    subtitle: string
-    image: string
+    description: string
   }>
-  const scrollingCards = [...programCards, ...programCards]
+  const scrollingCards = [...programCards, ...programCards].map((card, index) => ({
+    ...card,
+    image: programCardImages[index % programCardImages.length],
+  }))
 
   return (
     <section className="bg-[#f9fdff] pt-14 pb-24 sm:pt-16 sm:pb-28">
@@ -50,7 +64,7 @@ function ProgramsSection() {
                     {card.title}
                   </h3>
                   <p className="mt-3 max-w-[12rem] text-sm leading-[1.4] text-white/78">
-                    {card.subtitle}
+                    {card.description}
                   </p>
                 </div>
               </article>

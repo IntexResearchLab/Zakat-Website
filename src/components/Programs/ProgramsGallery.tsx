@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import Reveal from '../reusables/Reveal'
 import { getGalleryFilters, getGalleryItems } from './data'
@@ -9,13 +9,13 @@ function ProgramsGallery() {
   const galleryItems = getGalleryItems(t)
   const [activeFilter, setActiveFilter] = useState('all')
 
-  const filteredItems = useMemo(() => {
+  const filteredItems = (() => {
     if (activeFilter === 'all') {
       return galleryItems
     }
 
     return galleryItems.filter((item) => item.program === activeFilter)
-  }, [activeFilter])
+  })()
 
   return (
     <section className="bg-white py-20 sm:py-24">

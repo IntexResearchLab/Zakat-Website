@@ -19,7 +19,7 @@ function HeroCarousel() {
     }, 5000)
 
     return () => window.clearInterval(interval)
-  }, [])
+  }, [slides.length])
 
   const currentSlide = slides[activeSlide]
 
