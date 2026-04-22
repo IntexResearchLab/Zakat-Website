@@ -38,6 +38,9 @@ function Header() {
           <NavLink className={linkClass} to="/programs/madrasa">
             Madrasah
           </NavLink>
+          <NavLink className={linkClass} to="/opinions-of-beneficiaries">
+            Voices
+          </NavLink>
           <NavLink className={linkClass} to="/programs">
             Programs
           </NavLink>
@@ -90,6 +93,13 @@ function Header() {
               onClick={() => setIsMenuOpen(false)}
             >
               Madrasah
+            </NavLink>
+            <NavLink
+              className={mobileLinkClass}
+              to="/opinions-of-beneficiaries"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Voices
             </NavLink>
             <NavLink
               className={mobileLinkClass}

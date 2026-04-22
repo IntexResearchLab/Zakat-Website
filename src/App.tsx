@@ -2,6 +2,7 @@ import About from './pages/About'
 import AlokayonSchool from './pages/AlokayonSchool'
 import Home from './pages/Home'
 import Madrasa from './pages/Madrasa'
+import OpinionsOfBeneficiaries from './pages/OpinionsOfBeneficiaries'
 import Programs from './pages/Programs'
 import Header from './components/reusables/Header'
 import { Navigate, Route, Routes } from 'react-router-dom'
@@ -13,6 +14,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route
+          path="/opinions-of-beneficiaries"
+          element={<OpinionsOfBeneficiaries />}
+        />
         <Route path="/programs/alokayon-school" element={<AlokayonSchool />} />
         <Route path="/programs/madrasa" element={<Madrasa />} />
         <Route path="/programs" element={<Programs />} />
