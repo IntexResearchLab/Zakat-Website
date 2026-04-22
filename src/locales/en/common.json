@@ -38,6 +38,7 @@
       "toggleNavigationMenu": "Toggle navigation menu"
     },
     "breadcrumb": {
+      "home": "Home",
       "aboutUs": "About Us",
       "madrasah": "Madrasah",
       "donors": "Our Donors",
@@ -52,6 +53,109 @@
     },
     "payments": {
       "accepted": "Accepted: bKash, Nagad, Visa, Mastercard"
+    }
+  },
+  "footer": {
+    "brand": {
+      "description": "Serving underprivileged communities through education, relief, healthcare, and dignified support.",
+      "trustLine": "Registered charity • Transparent giving • Since 2011"
+    },
+    "navigation": {
+      "title": "Navigation",
+      "links": [
+        {
+          "label": "Home",
+          "href": "/"
+        },
+        {
+          "label": "About",
+          "href": "/about"
+        },
+        {
+          "label": "Programs",
+          "href": "/programs"
+        },
+        {
+          "label": "Donate",
+          "href": "/"
+        },
+        {
+          "label": "Magazine",
+          "href": "#",
+          "external": true
+        },
+        {
+          "label": "Contact",
+          "href": "mailto:info@alokayon.org",
+          "external": true
+        }
+      ]
+    },
+    "programs": {
+      "title": "Programs",
+      "links": [
+        {
+          "label": "Alokayon School",
+          "href": "/programs/alokayon-school"
+        },
+        {
+          "label": "Madrasah",
+          "href": "/programs/madrasa"
+        },
+        {
+          "label": "Education Support",
+          "href": "/programs"
+        },
+        {
+          "label": "Relief Programs",
+          "href": "/programs"
+        },
+        {
+          "label": "Livelihood Support",
+          "href": "/programs"
+        },
+        {
+          "label": "Beneficiary Stories",
+          "href": "/opinions-of-beneficiaries"
+        },
+        {
+          "label": "Our Donors",
+          "href": "/our-donors"
+        }
+      ]
+    },
+    "contact": {
+      "title": "Contact",
+      "address": "Dhaka, Bangladesh",
+      "note": "For zakat, donation, and partnership inquiries",
+      "links": [
+        {
+          "label": "info@alokayon.org",
+          "href": "mailto:info@alokayon.org",
+          "external": true
+        },
+        {
+          "label": "+880 0000 000000",
+          "href": "tel:+8800000000000",
+          "external": true
+        },
+        {
+          "label": "Facebook",
+          "href": "#",
+          "external": true
+        },
+        {
+          "label": "YouTube",
+          "href": "#",
+          "external": true
+        }
+      ]
+    },
+    "bottom": {
+      "copyright": "© 2025 Alokayon",
+      "privacy": "Privacy Policy",
+      "terms": "Terms",
+      "designed": "Designed with care"
     }
   },
   "home": {

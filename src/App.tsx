@@ -5,6 +5,7 @@ import Madrasa from './pages/Madrasa'
 import OpinionsOfBeneficiaries from './pages/OpinionsOfBeneficiaries'
 import OurDonors from './pages/OurDonors'
 import Programs from './pages/Programs'
+import Footer from './components/reusables/Footer'
 import Header from './components/reusables/Header'
 import { Navigate, Route, Routes } from 'react-router-dom'
 
@@ -25,6 +26,7 @@ function App() {
         <Route path="/programs" element={<Programs />} />
         <Route path="*" element={<Navigate replace to="/" />} />
       </Routes>
+      <Footer />
     </main>
   )
 }
