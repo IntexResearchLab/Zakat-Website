@@ -11,6 +11,7 @@
     "about": "আমাদের সম্পর্কে",
     "school": "স্কুল",
     "madrasah": "মাদরাসা",
+    "donors": "দাতাগণ",
     "programs": "কার্যক্রম",
     "transparency": "স্বচ্ছতা",
     "voices": "অভিমত"
@@ -39,6 +40,7 @@
     "breadcrumb": {
       "aboutUs": "আমাদের সম্পর্কে",
       "madrasah": "মাদরাসা",
+      "donors": "আমাদের দাতাগণ",
       "opinions": "উপকারভোগীদের মতামত",
       "programs": "কার্যক্রম",
       "school": "স্কুল"

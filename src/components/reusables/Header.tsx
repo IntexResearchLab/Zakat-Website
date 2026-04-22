@@ -44,6 +44,9 @@ function Header() {
           <NavLink className={linkClass} to="/opinions-of-beneficiaries">
             {t('nav.voices')}
           </NavLink>
+          <NavLink className={linkClass} to="/our-donors">
+            {t('nav.donors')}
+          </NavLink>
           <NavLink className={linkClass} to="/programs">
             {t('nav.programs')}
           </NavLink>
@@ -109,6 +112,13 @@ function Header() {
               onClick={() => setIsMenuOpen(false)}
             >
               {t('nav.voices')}
+            </NavLink>
+            <NavLink
+              className={mobileLinkClass}
+              to="/our-donors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              {t('nav.donors')}
             </NavLink>
             <NavLink
               className={mobileLinkClass}

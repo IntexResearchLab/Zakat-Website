@@ -11,6 +11,7 @@
     "about": "About",
     "school": "School",
     "madrasah": "Madrasah",
+    "donors": "Donors",
     "programs": "Programs",
     "transparency": "Transparency",
     "voices": "Voices"
@@ -39,6 +40,7 @@
     "breadcrumb": {
       "aboutUs": "About Us",
       "madrasah": "Madrasah",
+      "donors": "Our Donors",
       "opinions": "Voices of Impact",
       "programs": "Programs",
       "school": "School"
@@ -1245,6 +1247,155 @@
       "eyebrow": "Create the Next Story",
       "title": "Your support can help shape the next journey of dignity and hope.",
       "description": "Stand beside students, families, and vulnerable communities through practical, transparent support."
+    }
+  },
+  "donors": {
+    "hero": {
+      "eyebrow": "Voices of Trust",
+      "title": "Voices of trust from our donors",
+      "description": "Individuals across the world support Alokayon with confidence — guided by transparency, impact, and faith.",
+      "secondaryCta": "See Our Impact",
+      "imageAlt": "Alokayon donor-supported community activity",
+      "floatingCard": {
+        "eyebrow": "Global Support",
+        "value": "3 Countries",
+        "label": "Donors from Bangladesh, India, and the United States"
+      }
+    },
+    "trustIndicators": {
+      "items": [
+        {
+          "icon": "verified",
+          "label": "Registered NGO (2019)"
+        },
+        {
+          "icon": "monitoring",
+          "label": "100% Transparency Policy"
+        },
+        {
+          "icon": "volunteer_activism",
+          "label": "Zakat & Donation Based"
+        },
+        {
+          "icon": "public_off",
+          "label": "No Foreign Funding"
+        }
+      ]
+    },
+    "featured": {
+      "eyebrow": "Featured Donor Voice",
+      "title": "Trust shaped through transparency",
+      "quote": "Observing the transparency and accountability in Alokayon's operations, I felt inspired to become associated with the organization.",
+      "name": "Professor Harunur Rashid Sikder",
+      "role": "Freedom Fighter, Former Chairman, Dhaka Education Board",
+      "location": "Dallas, USA"
+    },
+    "cards": {
+      "items": [
+        {
+          "quote": "Collective effort creates greater opportunities to support the underprivileged, and Alokayon makes that effort meaningful.",
+          "name": "Professor Dr. Md. Tohor Ali",
+          "role": "Former Head, Department of Community Medicine, Sir Salimullah Medical College & Mitford Hospital",
+          "location": "Dhaka"
+        },
+        {
+          "quote": "I felt assured that my zakat and donations would be properly utilized through Alokayon and genuinely reach those in need.",
+          "name": "Md. Abdul Momen",
+          "role": "Monitoring & Evaluation Specialist, World Bank",
+          "location": "Dhaka"
+        },
+        {
+          "quote": "Even from abroad, I continue supporting Alokayon financially because I trust its purpose, structure, and sincerity.",
+          "name": "Md. Mohiuddin Babu",
+          "role": "Monthly donor and supporter",
+          "location": "New York, USA"
+        },
+        {
+          "quote": "Social service is not optional for those who are able; it is a responsibility, and Alokayon carries that responsibility with care.",
+          "name": "Kamrul Hasan",
+          "role": "Retired Defense Secretary",
+          "location": "Bangladesh"
+        }
+      ]
+    },
+    "globalSupport": {
+      "eyebrow": "Supported Across the World",
+      "title": "A growing community of trust across borders",
+      "description": "Alokayon's supporters include donors and well-wishers from Bangladesh, India, and the United States — people connected by trust in transparent, faith-aligned impact.",
+      "points": [
+        {
+          "country": "USA",
+          "label": "USA",
+          "top": "38%",
+          "left": "24%"
+        },
+        {
+          "country": "India",
+          "label": "India",
+          "top": "49%",
+          "left": "72%"
+        },
+        {
+          "country": "Bangladesh",
+          "label": "Bangladesh",
+          "top": "52%",
+          "left": "78%"
+        }
+      ]
+    },
+    "stories": {
+      "eyebrow": "How Donors Became Involved",
+      "title": "Longer reflections behind the trust",
+      "items": [
+        {
+          "title": "How I became associated with Alokayon",
+          "summary": "A donor's relationship with Alokayon often begins with trust in the people behind the work and grows through seeing its sincerity in action.",
+          "paragraphs": [
+            "Md. Mohiuddin Babu described learning about Alokayon directly from Fazlul Kader and choosing to become involved after understanding that it was a registered, non-political, non-profit organization built to support vulnerable people.",
+            "From the United States, he continues to contribute financially on a monthly basis while also offering guidance and advice, motivated by confidence in the organization's educational and poverty-alleviation work."
+          ],
+          "name": "Md. Mohiuddin Babu",
+          "role": "Supporter from New York, USA"
+        },
+        {
+          "title": "My coordination with Alokayon Charity",
+          "summary": "Even from abroad, donors remain connected to Alokayon through regular communication, zakat, and yearly contributions.",
+          "paragraphs": [
+            "Mumtaz Meher shared that her family remained in regular contact with Alokayon's founder and became convinced by the organization's service-oriented mission and formal government approval.",
+            "She and her children continue supporting Alokayon from North Carolina through zakat and donations, especially because of its work for helpless families and educational initiatives for slum children."
+          ],
+          "name": "Mumtaz Meher",
+          "role": "Supporter from North Carolina, USA"
+        },
+        {
+          "title": "Trust from beyond Bangladesh",
+          "summary": "Some donors support Alokayon from other countries because they trust both the organization and the people behind it.",
+          "paragraphs": [
+            "Affan Abbasi explained that his trust in Alokayon was shaped by the reputation of its founders and the clarity of its work for widows, orphans, and underprivileged families.",
+            "He emphasized that in charitable giving, people first seek trust before offering their hard-earned income — and that this trust is what makes Alokayon stand out even from abroad."
+          ],
+          "name": "Affan Abbasi",
+          "role": "Supporter from New Delhi, India"
+        }
+      ]
+    },
+    "whyTrust": {
+      "eyebrow": "Why Donors Choose Alokayon",
+      "title": "Trust grows when sincerity is backed by structure.",
+      "description": "Across these donor reflections, the same themes appear again and again: transparency, zakat accountability, visible impact, and faith-driven service without political or commercial motives.",
+      "points": [
+        "Transparent financial practices and visible accountability",
+        "Direct support to real beneficiaries in genuine hardship",
+        "Faith-aligned charitable work grounded in sincerity",
+        "No political or commercial agenda",
+        "Proven impact across education, healthcare, and relief"
+      ]
+    },
+    "cta": {
+      "eyebrow": "Be Part of This Trust",
+      "title": "Join a growing community of donors who believe in meaningful, transparent impact.",
+      "description": "Support work that is trusted by donors across countries and rooted in sincere service to vulnerable people.",
+      "secondary": "Contact Us"
     }
   }
 }

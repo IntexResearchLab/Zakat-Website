@@ -3,6 +3,7 @@ import AlokayonSchool from './pages/AlokayonSchool'
 import Home from './pages/Home'
 import Madrasa from './pages/Madrasa'
 import OpinionsOfBeneficiaries from './pages/OpinionsOfBeneficiaries'
+import OurDonors from './pages/OurDonors'
 import Programs from './pages/Programs'
 import Header from './components/reusables/Header'
 import { Navigate, Route, Routes } from 'react-router-dom'
@@ -18,6 +19,7 @@ function App() {
           path="/opinions-of-beneficiaries"
           element={<OpinionsOfBeneficiaries />}
         />
+        <Route path="/our-donors" element={<OurDonors />} />
         <Route path="/programs/alokayon-school" element={<AlokayonSchool />} />
         <Route path="/programs/madrasa" element={<Madrasa />} />
         <Route path="/programs" element={<Programs />} />
