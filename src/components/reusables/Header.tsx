@@ -73,7 +73,7 @@ function Header() {
 
           <NavLink
             className="rounded-full bg-[#115b82] px-4 py-2.5 text-[0.72rem] font-bold uppercase tracking-[0.12em] text-white transition hover:bg-[#0c4c6d] sm:px-8 sm:text-sm sm:tracking-[0.16em]"
-            to="/"
+            to="/donate"
           >
             {t('common.actions.donate')}
           </NavLink>

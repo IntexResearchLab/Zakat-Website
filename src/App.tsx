@@ -1,5 +1,6 @@
 import About from './pages/About'
 import AlokayonSchool from './pages/AlokayonSchool'
+import Donate from './pages/Donate'
 import Home from './pages/Home'
 import Madrasa from './pages/Madrasa'
 import OpinionsOfBeneficiaries from './pages/OpinionsOfBeneficiaries'
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/donate" element={<Donate />} />
         <Route
           path="/opinions-of-beneficiaries"
           element={<OpinionsOfBeneficiaries />}

@@ -1,0 +1,36 @@
+import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
+import Reveal from '../reusables/Reveal'
+
+function DonateCta() {
+  const { t } = useTranslation()
+
+  return (
+    <section className="border-t border-[#dfe8ee] bg-[linear-gradient(180deg,#ffffff_0%,#fbfdfe_55%,#f8fbfd_100%)] py-20 sm:py-24">
+      <div className="mx-auto max-w-5xl px-6 text-center">
+        <Reveal>
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#115b82]">
+            {t('donate.cta.eyebrow')}
+          </p>
+          <h2 className="mt-5 font-serif text-[2.7rem] leading-[0.93] tracking-[-0.045em] text-[#14324d] sm:text-[3.4rem]">
+            {t('donate.cta.title')}
+          </h2>
+          <p className="mx-auto mt-6 max-w-2xl text-[1rem] leading-[1.8] text-[#647783] sm:text-[1.04rem]">
+            {t('donate.cta.description')}
+          </p>
+          <div className="mx-auto mt-8 h-px w-28 bg-[#d9e6ee]" />
+          <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <Link
+              className="hover-lift-soft inline-flex items-center justify-center rounded-full bg-[#13703e] px-8 py-3.5 text-sm font-bold uppercase tracking-[0.16em] text-white shadow-[0_12px_30px_rgba(19,112,62,0.18)] transition hover:bg-[#105f35]"
+              to="/donate"
+            >
+              {t('common.actions.donateNow')}
+            </Link>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  )
+}
+
+export default DonateCta

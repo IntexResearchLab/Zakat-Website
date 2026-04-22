@@ -55,7 +55,7 @@ function Footer() {
 
             <Link
               className="mt-7 inline-flex items-center justify-center rounded-full bg-[#1b6b96] px-6 py-3 text-sm font-bold uppercase tracking-[0.16em] text-white transition hover:bg-[#155a80]"
-              to="/"
+              to="/donate"
             >
               {t('common.actions.donateNow')}
             </Link>

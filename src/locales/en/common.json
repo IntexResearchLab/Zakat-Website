@@ -40,6 +40,7 @@
     "breadcrumb": {
       "home": "Home",
       "aboutUs": "About Us",
+      "donate": "Donate",
       "madrasah": "Madrasah",
       "donors": "Our Donors",
       "opinions": "Voices of Impact",
@@ -77,7 +78,7 @@
         },
         {
           "label": "Donate",
-          "href": "/"
+          "href": "/donate"
         },
         {
           "label": "Magazine",
@@ -324,6 +325,301 @@
           "location": "Chattogram"
         }
       ]
+    }
+  },
+  "donate": {
+    "hero": {
+      "eyebrow": "Give with Purpose",
+      "title": "Empower lives with your zakat and donations",
+      "description": "100% transparent. Direct impact. Supporting education, healthcare, and livelihoods for underprivileged communities through sincere, accountable service.",
+      "secondaryCta": "View Transparency",
+      "imageAlt": "An Alokayon support moment with a family receiving direct care",
+      "logoAlt": "Alokayon logo",
+      "floatingCard": {
+        "eyebrow": "Direct Impact",
+        "value": "100+",
+        "text": "Beneficiaries reached through support shaped by care, trust, and accountability."
+      },
+      "trustItems": [
+        "Registered NGO",
+        "100+ beneficiaries",
+        "100% transparent operations",
+        "Since 2011"
+      ]
+    },
+    "main": {
+      "formEyebrow": "Make a Donation",
+      "formTitle": "Give once. Change a life.",
+      "impactEyebrow": "Your Donation in Action",
+      "impactTitle": "See how a one-time gift becomes practical support.",
+      "reportLink": "Read our impact report",
+      "amounts": [
+        {
+          "amount": "৳500",
+          "label": "Feed a family"
+        },
+        {
+          "amount": "৳1000",
+          "label": "Support education"
+        },
+        {
+          "amount": "৳2000",
+          "label": "Help a widow"
+        },
+        {
+          "amount": "৳5000",
+          "label": "Full support package"
+        },
+        {
+          "amount": "Custom",
+          "label": "Choose another amount"
+        }
+      ],
+      "categories": {
+        "default": "Where most needed",
+        "education": "Education",
+        "healthcare": "Healthcare",
+        "livelihood": "Livelihood"
+      },
+      "paymentMethods": [
+        "bKash",
+        "Nagad",
+        "Visa / Mastercard"
+      ],
+      "impactItems": [
+        {
+          "amount": "৳1000",
+          "text": "supports a child's education with fees and materials"
+        },
+        {
+          "amount": "৳2000",
+          "text": "helps a widow with practical livelihood support"
+        },
+        {
+          "amount": "৳3000",
+          "text": "provides food and essentials for a vulnerable family"
+        },
+        {
+          "amount": "৳5000",
+          "text": "contributes to urgent medical assistance"
+        }
+      ],
+      "trustItems": [
+        "Established in 2011",
+        "Verified programs",
+        "Transparent reporting"
+      ]
+    },
+    "transparency": {
+      "eyebrow": "Transparency",
+      "title": "Where your donation goes",
+      "breakdownTitle": "Program allocation snapshot",
+      "summary": [
+        {
+          "value": "1.02M BDT",
+          "label": "Received in 2024–25"
+        },
+        {
+          "value": "1.13M BDT",
+          "label": "Distributed in 2024–25"
+        },
+        {
+          "value": "100+",
+          "label": "Beneficiaries reached"
+        },
+        {
+          "value": "200+",
+          "label": "Students supported"
+        }
+      ],
+      "breakdown": [
+        {
+          "label": "Education support",
+          "value": "32%",
+          "width": "32%"
+        },
+        {
+          "label": "Medical support",
+          "value": "22%",
+          "width": "22%"
+        },
+        {
+          "label": "Food and relief",
+          "value": "20%",
+          "width": "20%"
+        },
+        {
+          "label": "Livelihood support",
+          "value": "18%",
+          "width": "18%"
+        },
+        {
+          "label": "Emergency and family support",
+          "value": "8%",
+          "width": "8%"
+        }
+      ]
+    },
+    "programs": {
+      "eyebrow": "What Your Donation Supports",
+      "title": "Support translated into education, care, and dignity.",
+      "items": [
+        {
+          "icon": "school",
+          "title": "Education",
+          "text": "Schools, madrasa, Pathshala, and university support for underprivileged learners."
+        },
+        {
+          "icon": "medical_services",
+          "title": "Medical Assistance",
+          "text": "Urgent treatment help for people who cannot afford healthcare."
+        },
+        {
+          "icon": "restaurant",
+          "title": "Food & Relief",
+          "text": "Food distribution, iftar support, and emergency relief in times of hardship."
+        },
+        {
+          "icon": "content_cut",
+          "title": "Livelihood",
+          "text": "Sewing machines, livestock, and interest-free support for self-reliance."
+        },
+        {
+          "icon": "ac_unit",
+          "title": "Winter Aid",
+          "text": "Blankets, shawls, and seasonal support for communities facing severe cold."
+        },
+        {
+          "icon": "home_repair_service",
+          "title": "Home & Family Support",
+          "text": "House repair, family care, and timely practical help in distress."
+        }
+      ]
+    },
+    "stories": {
+      "eyebrow": "Real Stories. Real Impact.",
+      "title": "Behind every donation is a human story.",
+      "description": "These stories reflect the practical, life-shaping outcomes that become possible when support reaches the right person at the right time.",
+      "items": [
+        {
+          "quote": "There were days I went hungry while studying. With Alokayon's support, I completed my Honors and Master's, and now I am preparing for BCS.",
+          "name": "Md. Nasim Uddin",
+          "role": "Teacher and beneficiary"
+        },
+        {
+          "quote": "Alokayon's scholarship reduced my father's burden and allowed me to continue my education with hope.",
+          "name": "Tahmina Akter",
+          "role": "Student beneficiary"
+        },
+        {
+          "quote": "Observing the transparency and accountability of Alokayon, I felt assured that my donations are properly utilized.",
+          "name": "Md. Abdul Momen",
+          "role": "World Bank professional and donor"
+        }
+      ]
+    },
+    "donorTrust": {
+      "eyebrow": "Trusted by Donors Worldwide",
+      "title": "Confidence grows when generosity is matched with accountability.",
+      "items": [
+        {
+          "quote": "Observing the transparency and accountability of Alokayon, I felt assured that my zakat and donations would be properly utilized.",
+          "name": "Md. Abdul Momen",
+          "role": "Monitoring & Evaluation Specialist, World Bank, Dhaka"
+        },
+        {
+          "quote": "Even from abroad, I continue to support Alokayon because I trust its sincerity and the way it serves underprivileged people.",
+          "name": "Md. Mohiuddin Babu",
+          "role": "Donor, New York, USA"
+        },
+        {
+          "quote": "Collective effort creates far greater opportunity to serve those in need, and Alokayon is striving to do exactly that.",
+          "name": "Professor Dr. Md. Tohor Ali",
+          "role": "Former Head, Department of Community Medicine, Dhaka"
+        }
+      ]
+    },
+    "gallery": {
+      "eyebrow": "Visual Trust",
+      "title": "Real moments behind every act of giving.",
+      "items": [
+        {
+          "image": "/assets/home/carousel-1.jpg",
+          "title": "Education Support",
+          "caption": "Helping children stay connected to learning with direct, practical support."
+        },
+        {
+          "image": "/assets/home/volunteers-1.jpg",
+          "title": "Community Care",
+          "caption": "Moments of face-to-face service that turn donations into visible impact."
+        },
+        {
+          "image": "/assets/home/carousel-3.jpg",
+          "title": "Relief & Dignity",
+          "caption": "Relief reaches families through quiet, accountable distribution on the ground."
+        }
+      ]
+    },
+    "methods": {
+      "eyebrow": "Donation Methods",
+      "title": "Make a donation through the channel that works best for you.",
+      "mobile": [
+        {
+          "title": "bKash",
+          "value": "01925124019"
+        },
+        {
+          "title": "Nagad",
+          "value": "01779577828"
+        },
+        {
+          "title": "Email",
+          "value": "alokayon2019@gmail.com"
+        }
+      ],
+      "bank": {
+        "title": "Bank Transfer",
+        "items": [
+          {
+            "label": "Bank",
+            "value": "Islami Bank Bangladesh PLC"
+          },
+          {
+            "label": "Account Name",
+            "value": "Alokayon"
+          },
+          {
+            "label": "Account Number",
+            "value": "Available on request"
+          },
+          {
+            "label": "Branch",
+            "value": "Dhaka Branch"
+          }
+        ]
+      },
+      "trust": [
+        "Registered under the Social Welfare Department (2019)",
+        "No external funding — fully donor-supported",
+        "Direct distribution to beneficiaries",
+        "Full accountability and transparent reporting"
+      ]
+    },
+    "trustBlock": {
+      "eyebrow": "Why Trust Alokayon?",
+      "title": "Built on accountability, sustained by sincere giving.",
+      "description": "Alokayon combines donor-funded service, transparent reporting, and careful beneficiary selection so that support reaches people with dignity and without waste.",
+      "points": [
+        "Registered under the Social Welfare Department in 2019",
+        "No external funding — fully supported through zakat and donations",
+        "Direct support to beneficiaries across education, healthcare, and relief",
+        "Transparent operations rooted in accountability and community trust"
+      ]
+    },
+    "cta": {
+      "eyebrow": "Final Step",
+      "title": "Be the reason someone smiles today.",
+      "description": "Your zakat and donation can transform a life through timely, transparent, and dignity-centered support."
     }
   },
   "about": {
