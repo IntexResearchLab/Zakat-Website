@@ -1,16 +1,20 @@
 import Reveal from '../reusables/Reveal'
-import { schoolGallery } from './data'
+import { useTranslation } from 'react-i18next'
+import { getSchoolGallery } from './data'
 
 function SchoolGallery() {
+  const { t } = useTranslation()
+  const schoolGallery = getSchoolGallery(t)
+
   return (
     <section className="bg-white py-18 sm:py-22" id="school-gallery">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal className="max-w-3xl">
           <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#115b82]">
-            Moments from Alokayon School
+            {t('school.gallery.eyebrow')}
           </p>
           <h2 className="mt-5 font-serif text-[2.4rem] leading-[1.02] tracking-[-0.04em] text-[#14324d] sm:text-[3.1rem]">
-            Real learning, real care, real possibility.
+            {t('school.gallery.title')}
           </h2>
         </Reveal>
 

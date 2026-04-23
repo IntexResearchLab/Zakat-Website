@@ -1,7 +1,11 @@
 import Reveal from '../reusables/Reveal'
-import { schoolImpactStats } from './data'
+import { useTranslation } from 'react-i18next'
+import { getSchoolImpactStats } from './data'
 
 function SchoolImpactStrip() {
+  const { t } = useTranslation()
+  const schoolImpactStats = getSchoolImpactStats(t)
+
   return (
     <section className="border-b border-[#dbe7ee] bg-[#fbfdfe]">
       <div className="mx-auto max-w-7xl px-6 py-8">

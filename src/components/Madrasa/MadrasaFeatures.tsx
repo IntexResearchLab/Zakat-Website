@@ -1,16 +1,20 @@
 import Reveal from '../reusables/Reveal'
-import { madrasaFeatures } from './data'
+import { useTranslation } from 'react-i18next'
+import { getMadrasaFeatures } from './data'
 
 function MadrasaFeatures() {
+  const { t } = useTranslation()
+  const madrasaFeatures = getMadrasaFeatures(t)
+
   return (
     <section className="bg-white py-18 sm:py-22">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal className="max-w-3xl">
           <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#2f6a52]">
-            What makes this madrasa different
+            {t('madrasa.features.eyebrow')}
           </p>
           <h2 className="mt-5 font-serif text-[2.4rem] leading-[1.02] tracking-[-0.04em] text-[#1f382a] sm:text-[3.1rem]">
-            Structured learning with spiritual and academic balance.
+            {t('madrasa.features.title')}
           </h2>
         </Reveal>
 

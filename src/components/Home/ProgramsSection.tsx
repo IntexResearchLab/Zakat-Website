@@ -1,55 +1,29 @@
 import Reveal from '../reusables/Reveal'
+import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 
-const programCards = [
-  {
-    title: 'Education',
-    subtitle: 'Scholarships and learning support.',
-    image: '/assets/home/carousel-1.jpg',
-  },
-  {
-    title: 'Medical',
-    subtitle: 'Care for vulnerable communities.',
-    image: '/assets/home/carousel-2.jpg',
-  },
-  {
-    title: 'Widows',
-    subtitle: 'Dignified support and livelihood help.',
-    image: '/assets/home/carousel-3.jpg',
-  },
-  {
-    title: 'Relief',
-    subtitle: 'Emergency response with compassion.',
-    image: '/assets/home/carousel-1.jpg',
-  },
-  {
-    title: 'Slum School',
-    subtitle: 'Learning access for underserved children.',
-    image: '/assets/home/carousel-2.jpg',
-  },
-  {
-    title: 'Livelihood',
-    subtitle: 'Assets that help families rebuild.',
-    image: '/assets/home/carousel-3.jpg',
-  },
-  {
-    title: 'Elderly Care',
-    subtitle: 'Regular support for older people.',
-    image: '/assets/home/carousel-1.jpg',
-  },
-  {
-    title: 'Women Support',
-    subtitle: 'Practical assistance rooted in dignity.',
-    image: '/assets/home/carousel-2.jpg',
-  },
-  {
-    title: 'Community Aid',
-    subtitle: 'Long-term care across local programs.',
-    image: '/assets/home/carousel-3.jpg',
-  },
+const programCardImages = [
+  '/assets/home/carousel-1.jpg',
+  '/assets/home/carousel-2.jpg',
+  '/assets/home/carousel-3.jpg',
+  '/assets/about/Donation.jpg',
+  '/assets/home/volunteers-1.jpg',
+  '/assets/about/about-us.webp',
+  '/assets/home/volunteer-2.jpg',
+  '/assets/home/carousel-2.jpg',
+  '/assets/home/carousel-1.jpg',
 ]
 
 function ProgramsSection() {
-  const scrollingCards = [...programCards, ...programCards]
+  const { t } = useTranslation()
+  const programCards = t('home.programs.cards', { returnObjects: true }) as Array<{
+    title: string
+    description: string
+  }>
+  const scrollingCards = [...programCards, ...programCards].map((card, index) => ({
+    ...card,
+    image: programCardImages[index % programCardImages.length],
+  }))
 
   return (
     <section className="bg-[#f9fdff] pt-14 pb-24 sm:pt-16 sm:pb-28">
@@ -57,19 +31,19 @@ function ProgramsSection() {
         <Reveal className="mb-12 flex flex-col gap-6 sm:mb-14 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-2xl">
             <p className="mb-4 text-sm font-bold uppercase tracking-[0.22em] text-[#115b82]">
-              Our Focus Areas
+              {t('home.programs.eyebrow')}
             </p>
             <h2 className="max-w-xl font-serif text-[2.8rem] leading-[0.96] tracking-[-0.04em] text-[#14324d] sm:text-[3.5rem]">
-              Programs Rooted in Dignity
+              {t('home.programs.title')}
             </h2>
           </div>
 
-          <a
+          <Link
             className="inline-flex items-center justify-center rounded-full border border-[#d7e6ef] bg-[#f6fbff] px-5 py-2.5 text-xs font-bold uppercase tracking-[0.18em] text-[#14324d] transition hover:border-[#bdd6e4] hover:bg-[#edf7fc]"
-            href="#"
+            to="/programs"
           >
-            View All Programs
-          </a>
+            {t('common.actions.viewAllPrograms')}
+          </Link>
         </Reveal>
 
         <Reveal className="overflow-hidden" delay={120}>
@@ -91,7 +65,7 @@ function ProgramsSection() {
                     {card.title}
                   </h3>
                   <p className="mt-3 max-w-[12rem] text-sm leading-[1.4] text-white/78">
-                    {card.subtitle}
+                    {card.description}
                   </p>
                 </div>
               </article>

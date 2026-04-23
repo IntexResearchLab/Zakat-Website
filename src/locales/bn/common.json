@@ -1,0 +1,170 @@
+{
+  "app": {
+    "languages": {
+      "en": "EN",
+      "bn": "বাংলা"
+    }
+  },
+  "nav": {
+    "brand": "Alokayon",
+    "home": "হোম",
+    "about": "আমাদের সম্পর্কে",
+    "gallery": "গ্যালারি",
+    "impact": "প্রভাব",
+    "school": "স্কুল",
+    "madrasah": "মাদরাসা",
+    "donors": "দাতাগণ",
+    "programs": "কার্যক্রম",
+    "programsOverview": "সব কার্যক্রম",
+    "transparency": "ম্যাগাজিন",
+    "voices": "অভিমত"
+  },
+  "common": {
+    "actions": {
+      "completeDonation": "ডোনেশন সম্পন্ন করুন",
+      "donate": "ডোনেট",
+      "donateNow": "এখনই ডোনেট করুন",
+      "learnMore": "আরও জানুন",
+      "learnMoreAboutUs": "আমাদের সম্পর্কে আরও জানুন",
+      "readMagazine": "ম্যাগাজিন পড়ুন",
+      "readOurMagazine": "আমাদের ম্যাগাজিন পড়ুন",
+      "readOurStory": "আমাদের গল্প পড়ুন",
+      "sponsorAStudent": "একজন শিক্ষার্থীকে সহায়তা করুন",
+      "supportAChild": "একটি শিশুকে সহায়তা করুন",
+      "supportAStudent": "একজন শিক্ষার্থীকে সহায়তা করুন",
+      "viewAllPrograms": "সব কার্যক্রম দেখুন",
+      "viewFullGallery": "সম্পূর্ণ গ্যালারি দেখুন",
+      "viewPrograms": "কার্যক্রম দেখুন",
+      "viewSchoolGallery": "স্কুল গ্যালারি দেখুন"
+    },
+    "aria": {
+      "toggleNavigationMenu": "নেভিগেশন মেনু খুলুন বা বন্ধ করুন"
+    },
+    "breadcrumb": {
+      "home": "হোম",
+      "aboutUs": "আমাদের সম্পর্কে",
+      "donate": "ডোনেট",
+      "gallery": "গ্যালারি",
+      "madrasah": "মাদরাসা",
+      "donors": "আমাদের দাতাগণ",
+      "opinions": "উপকারভোগীদের মতামত",
+      "programs": "কার্যক্রম",
+      "school": "স্কুল",
+      "transparency": "ম্যাগাজিন"
+    },
+    "form": {
+      "emailPlaceholder": "আপনার ইমেইল লিখুন",
+      "namePlaceholder": "আপনার নাম লিখুন",
+      "phonePlaceholder": "আপনার ফোন নম্বর লিখুন"
+    },
+    "payments": {
+      "accepted": "গৃহীত: বিকাশ, নগদ, ভিসা, মাস্টারকার্ড"
+    }
+  },
+  "footer": {
+    "brand": {
+      "description": "শিক্ষা, ত্রাণ, স্বাস্থ্যসেবা এবং মর্যাদাপূর্ণ সহায়তার মাধ্যমে সুবিধাবঞ্চিত মানুষের পাশে Alokayon কাজ করে।",
+      "trustLine": "নিবন্ধিত সংস্থা • স্বচ্ছ সহায়তা • ২০১১ সাল থেকে"
+    },
+    "navigation": {
+      "title": "নেভিগেশন",
+      "links": [
+        {
+          "label": "হোম",
+          "href": "/"
+        },
+        {
+          "label": "আমাদের সম্পর্কে",
+          "href": "/about"
+        },
+        {
+          "label": "গ্যালারি",
+          "href": "/gallery"
+        },
+        {
+          "label": "কার্যক্রম",
+          "href": "/programs"
+        },
+        {
+          "label": "ডোনেট",
+          "href": "/donate"
+        },
+        {
+          "label": "ম্যাগাজিন",
+          "href": "/transparency"
+        },
+        {
+          "label": "যোগাযোগ",
+          "href": "mailto:info@alokayon.org",
+          "external": true
+        }
+      ]
+    },
+    "programs": {
+      "title": "কার্যক্রম",
+      "links": [
+        {
+          "label": "Alokayon School",
+          "href": "/programs/alokayon-school"
+        },
+        {
+          "label": "মাদরাসা",
+          "href": "/programs/madrasa"
+        },
+        {
+          "label": "শিক্ষা সহায়তা",
+          "href": "/programs"
+        },
+        {
+          "label": "ত্রাণ কার্যক্রম",
+          "href": "/programs"
+        },
+        {
+          "label": "জীবিকা সহায়তা",
+          "href": "/programs"
+        },
+        {
+          "label": "উপকারভোগীদের গল্প",
+          "href": "/opinions-of-beneficiaries"
+        },
+        {
+          "label": "আমাদের দাতাগণ",
+          "href": "/our-donors"
+        }
+      ]
+    },
+    "contact": {
+      "title": "যোগাযোগ",
+      "address": "ঢাকা, বাংলাদেশ",
+      "note": "যাকাত, ডোনেশন এবং অংশীদারিত্ব সংক্রান্ত যোগাযোগের জন্য",
+      "links": [
+        {
+          "label": "info@alokayon.org",
+          "href": "mailto:info@alokayon.org",
+          "external": true
+        },
+        {
+          "label": "+880 0000 000000",
+          "href": "tel:+8800000000000",
+          "external": true
+        },
+        {
+          "label": "Facebook",
+          "href": "#",
+          "external": true
+        },
+        {
+          "label": "YouTube",
+          "href": "#",
+          "external": true
+        }
+      ]
+    },
+    "bottom": {
+      "copyright": "© 2025 Alokayon",
+      "privacy": "প্রাইভেসি পলিসি",
+      "terms": "শর্তাবলি",
+      "designed": "যত্নের সাথে নির্মিত"
+    }
+  }
+}

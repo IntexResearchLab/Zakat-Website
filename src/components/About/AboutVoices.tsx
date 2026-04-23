@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import Reveal from '../reusables/Reveal'
-import { testimonials } from './data'
+import { getTestimonials } from './data'
 
 function AboutVoices() {
+  const { t } = useTranslation()
   const [activeTestimonial, setActiveTestimonial] = useState(0)
+  const testimonials = getTestimonials(t)
 
   useEffect(() => {
     const interval = window.setInterval(() => {
@@ -11,17 +14,17 @@ function AboutVoices() {
     }, 5000)
 
     return () => window.clearInterval(interval)
-  }, [])
+  }, [testimonials.length])
 
   return (
     <section className="bg-white py-20 sm:py-24">
       <div className="mx-auto max-w-5xl px-6">
         <Reveal className="text-center">
           <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#115b82]">
-            Voices of Impact
+            {t('about.voices.eyebrow', 'Voices of Impact')}
           </p>
           <h2 className="mt-5 font-serif text-[2.55rem] leading-[1] tracking-[-0.04em] text-[#14324d] sm:text-[3rem]">
-            Real stories behind the work.
+            {t('about.voices.title', 'Real stories behind the work.')}
           </h2>
         </Reveal>
 
@@ -41,7 +44,10 @@ function AboutVoices() {
             <div className="flex items-center gap-3">
               {testimonials.map((item, index) => (
                 <button
-                  aria-label={`Show testimonial ${index + 1}`}
+                  aria-label={t('about.voices.showTestimonial', {
+                    defaultValue: 'Show testimonial {{index}}',
+                    index: index + 1,
+                  })}
                   className={`h-2.5 rounded-full transition-all ${
                     index === activeTestimonial
                       ? 'w-8 bg-[#115b82]'

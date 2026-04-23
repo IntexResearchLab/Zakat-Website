@@ -1,16 +1,20 @@
 import Reveal from '../reusables/Reveal'
-import { madrasaGallery } from './data'
+import { useTranslation } from 'react-i18next'
+import { getMadrasaGallery } from './data'
 
 function MadrasaGallery() {
+  const { t } = useTranslation()
+  const madrasaGallery = getMadrasaGallery(t)
+
   return (
     <section className="bg-white py-18 sm:py-22">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal className="max-w-3xl">
           <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#2f6a52]">
-            Inside the Madrasa
+            {t('madrasa.gallery.eyebrow')}
           </p>
           <h2 className="mt-5 font-serif text-[2.4rem] leading-[1.02] tracking-[-0.04em] text-[#1f382a] sm:text-[3.1rem]">
-            Real moments of study, discipline, and care.
+            {t('madrasa.gallery.title')}
           </h2>
         </Reveal>
 

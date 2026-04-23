@@ -1,8 +1,12 @@
 import Reveal from '../reusables/Reveal'
+import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
-import { featuredProgram } from './data'
+import { getFeaturedProgram } from './data'
 
 function FeaturedProgram() {
+  const { t } = useTranslation()
+  const featuredProgram = getFeaturedProgram(t)
+
   return (
     <section className="bg-white py-20 sm:py-24">
       <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:gap-18">
@@ -58,7 +62,7 @@ function FeaturedProgram() {
             className="mt-8 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.16em] text-[#115b82] transition hover:text-[#0d4f72]"
             to="/programs/alokayon-school"
           >
-            View school story
+            {t('programs.featured.cta')}
             <span className="material-symbols-outlined text-[1.15rem]">
               arrow_forward
             </span>

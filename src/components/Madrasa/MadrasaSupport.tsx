@@ -1,16 +1,20 @@
 import Reveal from '../reusables/Reveal'
-import { madrasaSupportItems } from './data'
+import { useTranslation } from 'react-i18next'
+import { getMadrasaSupportItems } from './data'
 
 function MadrasaSupport() {
+  const { t } = useTranslation()
+  const madrasaSupportItems = getMadrasaSupportItems(t)
+
   return (
     <section className="bg-white py-18 sm:py-22">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal className="max-w-3xl">
           <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#2f6a52]">
-            More Than Education — A Support System
+            {t('madrasa.support.eyebrow')}
           </p>
           <h2 className="mt-5 font-serif text-[2.4rem] leading-[1.02] tracking-[-0.04em] text-[#1f382a] sm:text-[3.1rem]">
-            Daily care that protects learning and dignity.
+            {t('madrasa.support.title')}
           </h2>
         </Reveal>
 

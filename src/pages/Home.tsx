@@ -1,4 +1,5 @@
 import DonationSection from '../components/Home/DonationSection'
+import FounderMessageSection from '../components/Home/FounderMessageSection'
 import HeroCarousel from '../components/Home/HeroCarousel'
 import ImpactSection from '../components/Home/ImpactSection'
 import MissionSection from '../components/Home/MissionSection'
@@ -12,6 +13,7 @@ function Home() {
       <HeroCarousel />
       <ImpactSection />
       <MissionSection />
+      <FounderMessageSection />
       <ProgramsSection />
       <DonationSection />
       <SupportOptionsSection />

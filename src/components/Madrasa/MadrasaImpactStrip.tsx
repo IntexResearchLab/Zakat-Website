@@ -1,7 +1,11 @@
 import Reveal from '../reusables/Reveal'
-import { madrasaImpactStats } from './data'
+import { useTranslation } from 'react-i18next'
+import { getMadrasaImpactStats } from './data'
 
 function MadrasaImpactStrip() {
+  const { t } = useTranslation()
+  const madrasaImpactStats = getMadrasaImpactStats(t)
+
   return (
     <section className="border-b border-[#dfe6dc] bg-[#fafbf8]">
       <div className="mx-auto max-w-7xl px-6 py-8">

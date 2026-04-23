@@ -12,6 +12,23 @@ html {
   scroll-behavior: smooth;
 }
 
+html[lang='bn'] body {
+  font-family:
+    "Noto Sans Bengali",
+    "Hind Siliguri",
+    "Bangla Sangam MN",
+    "Arial Unicode MS",
+    sans-serif;
+}
+
+html[lang='bn'] .font-serif {
+  font-family:
+    "Noto Serif Bengali",
+    "Noto Sans Bengali",
+    "Hind Siliguri",
+    serif;
+}
+
 .material-symbols-outlined {
   font-variation-settings:
     "FILL" 0,

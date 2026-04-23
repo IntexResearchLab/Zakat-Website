@@ -1,16 +1,20 @@
 import Reveal from '../reusables/Reveal'
-import { madrasaPathway } from './data'
+import { useTranslation } from 'react-i18next'
+import { getMadrasaPathway } from './data'
 
 function MadrasaPathway() {
+  const { t } = useTranslation()
+  const madrasaPathway = getMadrasaPathway(t)
+
   return (
     <section className="bg-[#fafbf8] py-18 sm:py-22">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal className="max-w-3xl">
           <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#2f6a52]">
-            A Complete Educational Path
+            {t('madrasa.pathway.eyebrow')}
           </p>
           <h2 className="mt-5 font-serif text-[2.4rem] leading-[1.02] tracking-[-0.04em] text-[#1f382a] sm:text-[3.1rem]">
-            From memorization to mainstream continuation.
+            {t('madrasa.pathway.title')}
           </h2>
         </Reveal>
 
@@ -38,8 +42,7 @@ function MadrasaPathway() {
 
         <Reveal delay={180}>
           <p className="mt-8 max-w-3xl text-[1rem] leading-[1.8] text-[#5f6d64]">
-            Students graduate with both religious and academic foundations,
-            allowing them to continue in mainstream education with confidence.
+            {t('madrasa.pathway.summary')}
           </p>
         </Reveal>
       </div>

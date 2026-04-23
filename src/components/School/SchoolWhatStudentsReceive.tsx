@@ -1,16 +1,20 @@
 import Reveal from '../reusables/Reveal'
-import { studentSupportItems } from './data'
+import { useTranslation } from 'react-i18next'
+import { getStudentSupportItems } from './data'
 
 function SchoolWhatStudentsReceive() {
+  const { t } = useTranslation()
+  const studentSupportItems = getStudentSupportItems(t)
+
   return (
     <section className="bg-[#fbfdfe] py-18 sm:py-22">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal className="max-w-3xl">
           <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#115b82]">
-            What students receive
+            {t('school.support.eyebrow')}
           </p>
           <h2 className="mt-5 font-serif text-[2.4rem] leading-[1.02] tracking-[-0.04em] text-[#14324d] sm:text-[3.1rem]">
-            Practical support that keeps children learning.
+            {t('school.support.title')}
           </h2>
         </Reveal>
 

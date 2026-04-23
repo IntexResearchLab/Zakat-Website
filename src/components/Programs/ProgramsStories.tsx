@@ -1,16 +1,20 @@
 import Reveal from '../reusables/Reveal'
-import { programStories } from './data'
+import { useTranslation } from 'react-i18next'
+import { getProgramStories } from './data'
 
 function ProgramsStories() {
+  const { t } = useTranslation()
+  const programStories = getProgramStories(t)
+
   return (
     <section className="bg-[#fbfdfe] py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal className="max-w-3xl">
-          <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#115b82]">
-            Real Stories
-          </p>
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#115b82]">
+              {t('programs.stories.eyebrow')}
+            </p>
           <h2 className="mt-5 font-serif text-[2.55rem] leading-[0.98] tracking-[-0.04em] text-[#14324d] sm:text-[3rem]">
-            Human outcomes behind every program.
+              {t('programs.stories.title')}
           </h2>
         </Reveal>
 
