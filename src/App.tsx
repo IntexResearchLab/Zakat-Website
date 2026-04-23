@@ -8,12 +8,14 @@ import OurDonors from './pages/OurDonors'
 import Programs from './pages/Programs'
 import Footer from './components/reusables/Footer'
 import Header from './components/reusables/Header'
+import ScrollToTop from './components/reusables/ScrollToTop'
 import { Navigate, Route, Routes } from 'react-router-dom'
 
 function App() {
   return (
     <main className="min-h-screen bg-[#eef7fb] text-[#16324f]">
       <Header />
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
