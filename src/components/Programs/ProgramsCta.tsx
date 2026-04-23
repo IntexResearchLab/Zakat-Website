@@ -26,15 +26,15 @@ function ProgramsCta() {
             >
               {t('common.actions.donateNow')}
             </Link>
-            <a
+            <Link
               className="inline-flex items-center justify-center rounded-full border border-[#cfe0ea] bg-white/80 px-6 py-3 text-sm font-bold uppercase tracking-[0.16em] text-[#115b82] shadow-[0_8px_22px_rgba(15,23,42,0.04)] transition hover:border-[#bdd6e4] hover:bg-white"
-              href="#"
+              to="/transparency"
             >
               {t('common.actions.readMagazine')}
               <span aria-hidden="true" className="ml-3 text-lg leading-none">
                 →
               </span>
-            </a>
+            </Link>
           </div>
         </Reveal>
       </div>

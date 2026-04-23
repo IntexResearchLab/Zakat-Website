@@ -28,13 +28,13 @@ function DonationSection() {
               >
                 {t('common.actions.donateNow')}
               </Link>
-              <a
+              <Link
                 className="inline-flex items-center justify-center gap-2 text-sm font-bold uppercase tracking-[0.16em] text-[#e8f6ff] transition hover:gap-3 hover:text-white"
-                href="#"
+                to="/transparency"
               >
                 {t('common.actions.readOurMagazine')}
                 <span aria-hidden="true">→</span>
-              </a>
+              </Link>
               <p className="text-[0.72rem] tracking-[0.06em] text-white/62">
                 {t('common.payments.accepted')}
               </p>

@@ -20,7 +20,7 @@ function ImpactSection() {
           </p>
           <Link
             className="mt-6 inline-flex items-center gap-3 text-sm font-bold uppercase tracking-[0.18em] text-[#115b82] transition hover:gap-4"
-            to="/our-donors"
+            to="/transparency"
           >
             {t('common.actions.readOurMagazine')}
             <span aria-hidden="true" className="text-xl leading-none">

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 import Reveal from '../reusables/Reveal'
 import { getGalleryFilters, getGalleryItems } from './data'
 
@@ -18,7 +19,7 @@ function ProgramsGallery() {
   })()
 
   return (
-    <section className="bg-white py-20 sm:py-24">
+    <section className="bg-white py-20 sm:py-24" id="programs-gallery">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">
@@ -103,18 +104,18 @@ function ProgramsGallery() {
           </p>
 
           <div className="flex flex-col gap-3 sm:flex-row">
-            <a
+            <Link
               className="inline-flex items-center justify-center rounded-full border border-[#cfe0ea] bg-white px-6 py-3 text-sm font-bold uppercase tracking-[0.16em] text-[#115b82] shadow-[0_8px_22px_rgba(15,23,42,0.04)] transition hover:border-[#bdd6e4] hover:bg-[#f7fbfd]"
-              href="#"
+              to="/programs#programs-gallery"
             >
               {t('common.actions.viewFullGallery')}
-            </a>
-            <a
+            </Link>
+            <Link
               className="inline-flex items-center justify-center rounded-full border border-[#cfe0ea] bg-white px-6 py-3 text-sm font-bold uppercase tracking-[0.16em] text-[#115b82] shadow-[0_8px_22px_rgba(15,23,42,0.04)] transition hover:border-[#bdd6e4] hover:bg-[#f7fbfd]"
-              href="#"
+              to="/transparency"
             >
               {t('common.actions.readMagazine')}
-            </a>
+            </Link>
           </div>
         </Reveal>
       </div>
