@@ -7,7 +7,7 @@ function ProgramsInitiatives() {
   const initiatives = getInitiatives(t)
 
   return (
-    <section className="bg-white py-20 sm:py-24">
+    <section className="bg-white py-20 sm:py-24" id="programs-initiatives">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal className="max-w-3xl">
             <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#115b82]">

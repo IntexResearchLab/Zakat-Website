@@ -1,5 +1,6 @@
 import Reveal from '../reusables/Reveal'
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 
 function SupportOptionsSection() {
   const { t } = useTranslation()
@@ -69,9 +70,12 @@ function SupportOptionsSection() {
                     {t('home.supportOptions.donation.otherAmount')}
                   </div>
 
-                  <button className="hover-lift-soft mt-6 inline-flex w-full items-center justify-center rounded-full bg-[#1d621f] px-8 py-4 text-sm font-bold uppercase tracking-[0.16em] text-white transition hover:bg-[#174f19]">
+                  <Link
+                    className="hover-lift-soft mt-6 inline-flex w-full items-center justify-center rounded-full bg-[#1d621f] px-8 py-4 text-sm font-bold uppercase tracking-[0.16em] text-white transition hover:bg-[#174f19]"
+                    to="/donate"
+                  >
                     {t('common.actions.completeDonation')}
-                  </button>
+                  </Link>
 
                   <p className="mt-4 text-center text-[0.72rem] tracking-[0.06em] text-[#8a96a0]">
                     {t('common.payments.accepted')}

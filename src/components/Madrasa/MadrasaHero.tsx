@@ -1,5 +1,6 @@
 import Reveal from '../reusables/Reveal'
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 
 function MadrasaHero() {
   const { t } = useTranslation()
@@ -25,18 +26,18 @@ function MadrasaHero() {
             {t('madrasa.hero.location')}
           </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <a
+            <Link
               className="inline-flex items-center justify-center rounded-full bg-[#2f6a52] px-7 py-3 text-sm font-bold uppercase tracking-[0.16em] text-white shadow-[0_12px_30px_rgba(47,106,82,0.18)] transition hover:bg-[#275843]"
-              href="#"
+              to="/donate"
             >
               {t('common.actions.donateNow')}
-            </a>
-            <a
+            </Link>
+            <Link
               className="inline-flex items-center justify-center rounded-full border border-[#d8dfd8] bg-white px-7 py-3 text-sm font-bold uppercase tracking-[0.16em] text-[#2f6a52] transition hover:border-[#c4d2ca] hover:bg-[#f8fbf8]"
-              href="#"
+              to="/donate"
             >
               {t('common.actions.supportAStudent')}
-            </a>
+            </Link>
           </div>
         </Reveal>
 

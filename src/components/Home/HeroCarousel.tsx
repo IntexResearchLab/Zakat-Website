@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 
 function HeroCarousel() {
   const { t } = useTranslation()
@@ -62,12 +63,18 @@ function HeroCarousel() {
               </p>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <button className="hover-lift-soft rounded-full bg-[#f5fbff] px-8 py-3.5 text-sm font-bold uppercase tracking-[0.14em] text-[#115b82] shadow-[0_10px_28px_rgba(6,31,47,0.12)] transition hover:bg-[#dceef8]">
+                <Link
+                  className="hover-lift-soft inline-flex items-center justify-center rounded-full bg-[#f5fbff] px-8 py-3.5 text-sm font-bold uppercase tracking-[0.14em] text-[#115b82] shadow-[0_10px_28px_rgba(6,31,47,0.12)] transition hover:bg-[#dceef8]"
+                  to="/donate"
+                >
                   {t('common.actions.donateNow')}
-                </button>
-                <button className="hover-lift-soft rounded-full border border-white/18 bg-[#8fc7e8]/18 px-8 py-3.5 text-sm font-bold uppercase tracking-[0.14em] text-white backdrop-blur-sm transition hover:bg-[#8fc7e8]/28">
+                </Link>
+                <a
+                  className="hover-lift-soft inline-flex items-center justify-center rounded-full border border-white/18 bg-[#8fc7e8]/18 px-8 py-3.5 text-sm font-bold uppercase tracking-[0.14em] text-white backdrop-blur-sm transition hover:bg-[#8fc7e8]/28"
+                  href="#home-impact"
+                >
                   {t('home.hero.secondaryCta')}
-                </button>
+                </a>
               </div>
             </div>
           </div>

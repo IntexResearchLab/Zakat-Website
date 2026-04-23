@@ -1,5 +1,6 @@
 import Reveal from '../reusables/Reveal'
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 
 const programCardImages = [
   '/assets/home/carousel-1.jpg',
@@ -37,12 +38,12 @@ function ProgramsSection() {
             </h2>
           </div>
 
-          <a
+          <Link
             className="inline-flex items-center justify-center rounded-full border border-[#d7e6ef] bg-[#f6fbff] px-5 py-2.5 text-xs font-bold uppercase tracking-[0.18em] text-[#14324d] transition hover:border-[#bdd6e4] hover:bg-[#edf7fc]"
-            href="#"
+            to="/programs"
           >
             {t('common.actions.viewAllPrograms')}
-          </a>
+          </Link>
         </Reveal>
 
         <Reveal className="overflow-hidden" delay={120}>

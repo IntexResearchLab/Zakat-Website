@@ -1,5 +1,6 @@
 import Reveal from '../reusables/Reveal'
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 
 function OpinionsCta() {
   const { t } = useTranslation()
@@ -18,18 +19,18 @@ function OpinionsCta() {
             {t('opinions.cta.description')}
           </p>
           <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <a
+            <Link
               className="inline-flex items-center justify-center rounded-full bg-[#115b82] px-8 py-3.5 text-sm font-bold uppercase tracking-[0.16em] text-white shadow-[0_16px_34px_rgba(17,91,130,0.18)] transition hover:bg-[#0d4f72]"
-              href="#"
+              to="/donate"
             >
               {t('common.actions.donateNow')}
-            </a>
-            <a
+            </Link>
+            <Link
               className="inline-flex items-center justify-center rounded-full border border-[#d7e6ef] bg-white px-8 py-3.5 text-sm font-bold uppercase tracking-[0.16em] text-[#115b82] transition hover:border-[#bdd6e4] hover:bg-[#f6fbff]"
-              href="#"
+              to="/donate"
             >
               {t('common.actions.supportAStudent')}
-            </a>
+            </Link>
           </div>
         </Reveal>
       </div>

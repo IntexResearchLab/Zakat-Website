@@ -1,5 +1,6 @@
 import Reveal from '../reusables/Reveal'
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 
 function MissionSection() {
   const { t } = useTranslation()
@@ -40,15 +41,15 @@ function MissionSection() {
             </p>
           </div>
 
-          <a
+          <Link
             className="hover-lift-soft mt-12 inline-flex items-center gap-4 rounded-full border border-[#c8dcea] bg-[#f3fbff] px-5 py-2.5 text-sm font-bold uppercase tracking-[0.2em] text-[#115b82] transition hover:gap-5 hover:border-[#abcbe0] hover:bg-[#e8f5fc]"
-            href="#"
+            to="/about"
           >
             {t('common.actions.learnMoreAboutUs')}
             <span aria-hidden="true" className="text-3xl leading-none">
               →
             </span>
-          </a>
+          </Link>
         </Reveal>
       </div>
     </section>

@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 
 function DonationSection() {
   const { t } = useTranslation()
@@ -21,12 +22,12 @@ function DonationSection() {
             </div>
 
             <div className="flex flex-col gap-4 lg:min-w-[16rem] lg:items-start">
-              <a
+              <Link
                 className="inline-flex items-center justify-center self-start rounded-full bg-[#1d621f] px-7 py-3.5 text-sm font-bold uppercase tracking-[0.16em] text-white transition hover:bg-[#174f19]"
-                href="#"
+                to="/donate"
               >
                 {t('common.actions.donateNow')}
-              </a>
+              </Link>
               <a
                 className="inline-flex items-center justify-center gap-2 text-sm font-bold uppercase tracking-[0.16em] text-[#e8f6ff] transition hover:gap-3 hover:text-white"
                 href="#"

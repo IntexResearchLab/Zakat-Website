@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 import Reveal from '../reusables/Reveal'
 
 function VoiceOfChangeSection() {
@@ -100,15 +101,15 @@ function VoiceOfChangeSection() {
               </div>
             </div>
 
-            <a
+            <Link
               className="inline-flex items-center gap-3 self-start text-sm font-bold uppercase tracking-[0.18em] text-[#115b82] transition hover:gap-4"
-              href="#"
+              to="/opinions-of-beneficiaries"
             >
               {t('home.voices.cta')}
               <span aria-hidden="true" className="text-xl leading-none">
                 →
               </span>
-            </a>
+            </Link>
           </div>
         </Reveal>
       </div>

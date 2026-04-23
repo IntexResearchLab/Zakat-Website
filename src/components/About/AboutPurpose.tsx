@@ -1,5 +1,6 @@
 import Reveal from '../reusables/Reveal'
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 import { getImpactStats } from './data'
 
 function AboutPurpose() {
@@ -25,15 +26,15 @@ function AboutPurpose() {
               <span className="text-[#8b9aa5]">{t('about.purpose.paragraphTwoEmphasis')}</span>
             </p>
           </div>
-          <a
+          <Link
             className="mt-8 inline-flex items-center gap-3 text-[0.95rem] font-bold uppercase tracking-[0.16em] text-[#115b82] underline decoration-[#b8d0de] decoration-1 underline-offset-[6px] transition hover:gap-4"
-            href="#"
+            to="/about#about-journey"
           >
             {t('common.actions.readOurStory')}
             <span aria-hidden="true" className="text-xl leading-none">
               →
             </span>
-          </a>
+          </Link>
         </Reveal>
         <Reveal className="mt-14" delay={100}>
           <div className="mx-auto max-w-5xl border-t border-[#d9e6ee] pt-10">

@@ -1,5 +1,6 @@
 import Reveal from '../reusables/Reveal'
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 
 function ImpactSection() {
   const { t } = useTranslation()
@@ -8,7 +9,7 @@ function ImpactSection() {
   }) as Array<{ value: string; label: string }>
 
   return (
-    <section className="bg-[#f4f7f2] py-12 sm:py-14">
+    <section className="bg-[#f4f7f2] py-12 sm:py-14" id="home-impact">
       <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6 lg:flex-row lg:items-start lg:justify-between lg:gap-24">
         <Reveal className="max-w-md">
           <h2 className="text-[2.15rem] font-black leading-[1.05] tracking-[-0.04em] text-[#14324d] sm:text-[2.65rem]">
@@ -17,15 +18,15 @@ function ImpactSection() {
           <p className="mt-5 max-w-[26rem] text-[0.98rem] leading-[1.65] text-[#6a786e]">
             {t('home.impact.description')}
           </p>
-          <a
+          <Link
             className="mt-6 inline-flex items-center gap-3 text-sm font-bold uppercase tracking-[0.18em] text-[#115b82] transition hover:gap-4"
-            href="#"
+            to="/our-donors"
           >
             {t('common.actions.readOurMagazine')}
             <span aria-hidden="true" className="text-xl leading-none">
               →
             </span>
-          </a>
+          </Link>
         </Reveal>
 
         <Reveal

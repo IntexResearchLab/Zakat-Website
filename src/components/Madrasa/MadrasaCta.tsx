@@ -1,5 +1,6 @@
 import Reveal from '../reusables/Reveal'
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 
 function MadrasaCta() {
   const { t } = useTranslation()
@@ -18,18 +19,18 @@ function MadrasaCta() {
             {t('madrasa.cta.description')}
           </p>
           <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <a
+            <Link
               className="inline-flex items-center justify-center rounded-full bg-[#2f6a52] px-8 py-3.5 text-sm font-bold uppercase tracking-[0.16em] text-white shadow-[0_16px_34px_rgba(47,106,82,0.18)] transition hover:bg-[#275843]"
-              href="#"
+              to="/donate"
             >
               {t('common.actions.donateNow')}
-            </a>
-            <a
+            </Link>
+            <Link
               className="inline-flex items-center justify-center rounded-full border border-[#d6ddd7] bg-white px-8 py-3.5 text-sm font-bold uppercase tracking-[0.16em] text-[#2f6a52] transition hover:border-[#c4d2ca] hover:bg-[#f8fbf8]"
-              href="#"
+              to="/donate"
             >
               {t('common.actions.sponsorAStudent')}
-            </a>
+            </Link>
           </div>
         </Reveal>
       </div>

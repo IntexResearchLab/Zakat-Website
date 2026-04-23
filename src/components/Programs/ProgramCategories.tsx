@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 import Reveal from '../reusables/Reveal'
 import { getFilterTabs, getProgramCategories } from './data'
 
@@ -8,6 +9,16 @@ function ProgramCategories() {
   const filterTabs = getFilterTabs(t)
   const programCategories = getProgramCategories(t)
   const [activeFilter, setActiveFilter] = useState('all')
+  const programLinks = useMemo(
+    () => ({
+      education: '/programs/alokayon-school',
+      healthcare: '#programs-initiatives',
+      livelihood: '#programs-initiatives',
+      relief: '#programs-initiatives',
+      community: '#programs-initiatives',
+    }),
+    [],
+  )
 
   const filteredPrograms = (() => {
     if (activeFilter === 'all') {
@@ -79,15 +90,15 @@ function ProgramCategories() {
                 ))}
               </div>
 
-              <a
+              <Link
                 className="mt-6 inline-flex items-center gap-3 text-[0.82rem] font-bold uppercase tracking-[0.16em] text-[#115b82] transition hover:gap-4"
-                href="#"
+                to={programLinks[program.id as keyof typeof programLinks] ?? '#programs-initiatives'}
               >
                 {t('common.actions.learnMore')}
                 <span aria-hidden="true" className="text-lg leading-none">
                   →
                 </span>
-              </a>
+              </Link>
             </article>
           ))}
         </Reveal>

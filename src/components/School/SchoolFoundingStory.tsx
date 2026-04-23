@@ -7,7 +7,7 @@ function SchoolFoundingStory() {
   const schoolTimeline = getSchoolTimeline(t)
 
   return (
-    <section className="bg-[#fbfdfe] py-18 sm:py-22">
+    <section className="bg-[#fbfdfe] py-18 sm:py-22" id="school-founding-story">
       <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[0.96fr_1.04fr] lg:items-center lg:gap-18">
         <Reveal className="max-w-2xl">
           <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#115b82]">

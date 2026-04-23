@@ -7,7 +7,7 @@ function AboutJourney() {
   const timeline = getTimeline(t)
 
   return (
-    <section className="bg-[#fbfdfe] py-20 sm:py-24">
+    <section className="bg-[#fbfdfe] py-20 sm:py-24" id="about-journey">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal>
           <div className="max-w-4xl">
