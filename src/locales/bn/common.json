@@ -15,7 +15,7 @@
     "donors": "দাতাগণ",
     "programs": "কার্যক্রম",
     "programsOverview": "সব কার্যক্রম",
-    "transparency": "স্বচ্ছতা",
+    "transparency": "ম্যাগাজিন",
     "voices": "অভিমত"
   },
   "common": {
@@ -47,7 +47,8 @@
       "donors": "আমাদের দাতাগণ",
       "opinions": "উপকারভোগীদের মতামত",
       "programs": "কার্যক্রম",
-      "school": "স্কুল"
+      "school": "স্কুল",
+      "transparency": "ম্যাগাজিন"
     },
     "form": {
       "emailPlaceholder": "আপনার ইমেইল লিখুন",
@@ -84,8 +85,7 @@
         },
         {
           "label": "ম্যাগাজিন",
-          "href": "#",
-          "external": true
+          "href": "/transparency"
         },
         {
           "label": "যোগাযোগ",

@@ -15,7 +15,7 @@
     "donors": "Donors",
     "programs": "Programs",
     "programsOverview": "All Programs",
-    "transparency": "Transparency",
+    "transparency": "Magazine",
     "voices": "Voices"
   },
   "common": {
@@ -47,7 +47,8 @@
       "donors": "Our Donors",
       "opinions": "Voices of Impact",
       "programs": "Programs",
-      "school": "School"
+      "school": "School",
+      "transparency": "Magazine"
     },
     "form": {
       "emailPlaceholder": "Enter your email",
@@ -84,8 +85,7 @@
         },
         {
           "label": "Magazine",
-          "href": "#",
-          "external": true
+          "href": "/transparency"
         },
         {
           "label": "Contact",
@@ -1649,6 +1649,196 @@
       "eyebrow": "Create the Next Story",
       "title": "Your support can help shape the next journey of dignity and hope.",
       "description": "Stand beside students, families, and vulnerable communities through practical, transparent support."
+    }
+  },
+  "transparency": {
+    "issues": [
+      {
+        "year": "2025",
+        "title": "Alokayon Magazine 2025",
+        "description": "Includes organizational profile, program highlights, donor and beneficiary reflections, financial statement, audit report, registration certificate, and visual activity reporting.",
+        "pdfUrl": "/assets/magazine/Magazine.pdf",
+        "sections": [
+          "Founder's message",
+          "Activity summary",
+          "Distinguished comments",
+          "Student reflections",
+          "Alokayon profile",
+          "Poverty alleviation case study",
+          "Alokayon School",
+          "Hafezi Madrasa",
+          "Financial statement",
+          "Audit report",
+          "Registration certificate"
+        ]
+      }
+    ],
+    "hero": {
+      "eyebrow": "Transparency & Publications",
+      "title": "Transparency, reports and magazine",
+      "description": "Explore Alokayon's annual publications, financial statements, and key documents with full transparency.",
+      "trustLine": "Registered organization • Donor-supported • Published reporting",
+      "primaryCta": "Read Latest Magazine",
+      "secondaryCta": "Download PDF",
+      "floatingLabel": "Latest Issue",
+      "floatingText": "Magazine, audit, profile and reporting in one place"
+    },
+    "highlights": {
+      "items": [
+        {
+          "icon": "auto_stories",
+          "title": "Latest magazine published",
+          "description": "The annual magazine brings together Alokayon's profile, work, stories, and reporting."
+        },
+        {
+          "icon": "account_balance",
+          "title": "Financial statement included",
+          "description": "Donation receipts and expenditure details are included for donor confidence."
+        },
+        {
+          "icon": "fact_check",
+          "title": "Audit report included",
+          "description": "Published documentation supports accountability and transparent operations."
+        },
+        {
+          "icon": "verified",
+          "title": "Registration documents available",
+          "description": "Formal registration proof is included alongside the organizational profile."
+        }
+      ]
+    },
+    "atAGlance": {
+      "eyebrow": "Magazine at a Glance",
+      "title": "Proof that Alokayon is real, transparent and active",
+      "description": "The magazine brings together the evidence donors look for: registration, program details, financial reporting, audit records, and real voices from beneficiaries and supporters.",
+      "cta": "Read Full Magazine",
+      "items": [
+        {
+          "icon": "verified",
+          "title": "Established and registered",
+          "description": "Started in 2011 and formally registered in 2019 as a non-political, non-profit organization."
+        },
+        {
+          "icon": "volunteer_activism",
+          "title": "Donation-based and independent",
+          "description": "Supported by zakat and individual donations, with activities designed to keep operational overhead low."
+        },
+        {
+          "icon": "groups",
+          "title": "Focused on real vulnerability",
+          "description": "Serving orphans, widows, elderly people, persons with disabilities, and extremely poor families."
+        },
+        {
+          "icon": "school",
+          "title": "Strong education impact",
+          "description": "Student support, Alokayon Pathshala, and madrasa education help children continue learning."
+        },
+        {
+          "icon": "medical_services",
+          "title": "Healthcare and relief programs",
+          "description": "Medical aid, food support, winter clothing, disaster relief, and emergency assistance are documented."
+        },
+        {
+          "icon": "handshake",
+          "title": "Economic empowerment",
+          "description": "Livelihood support includes cows, goats, ducks, sewing machines, loans, and small business assistance."
+        },
+        {
+          "icon": "account_balance",
+          "title": "Transparent financial reporting",
+          "description": "Annual income, expenditure, and category-wise distribution are published for donor review."
+        },
+        {
+          "icon": "fact_check",
+          "title": "Audit and certification",
+          "description": "The publication includes audit reporting, registration proof, and organizational documentation."
+        },
+        {
+          "icon": "map",
+          "title": "Nationwide reach",
+          "description": "Activities reach Dhaka slums, Kurigram, Sylhet flood-affected areas, and refugee support contexts."
+        }
+      ]
+    },
+    "library": {
+      "eyebrow": "Publication Library",
+      "title": "Read and download annual publications",
+      "featuredLabel": "Selected Issue",
+      "readOnline": "Read Online",
+      "downloadPdf": "Download PDF"
+    },
+    "contents": {
+      "eyebrow": "Inside This Issue",
+      "title": "A curated look at the work, people and proof behind Alokayon"
+    },
+    "documents": {
+      "eyebrow": "Transparency Documents",
+      "title": "Key records donors can review quickly",
+      "description": "Some readers need direct access to proof documents without reading the full magazine. These records are available inside the published issue.",
+      "view": "View",
+      "download": "Download",
+      "items": [
+        {
+          "icon": "receipt_long",
+          "title": "Financial Statement",
+          "description": "Summary of received funds, distributed support, and program expenditure."
+        },
+        {
+          "icon": "fact_check",
+          "title": "Audit Report",
+          "description": "Independent reporting and verification included in the annual publication."
+        },
+        {
+          "icon": "workspace_premium",
+          "title": "Registration Certificate",
+          "description": "Formal registration proof supporting Alokayon's legal and organizational identity."
+        }
+      ]
+    },
+    "financial": {
+      "eyebrow": "Financial Snapshot",
+      "title": "A quick view before opening the full statement",
+      "description": "Detailed financial statements are available in the annual magazine and downloadable records. These figures help visitors understand the scale of giving and distribution.",
+      "numbers": [
+        {
+          "value": "1.02M BDT",
+          "label": "Approximate receipts for 2024–25"
+        },
+        {
+          "value": "1.13M BDT",
+          "label": "Approximate expenditure and distribution"
+        }
+      ],
+      "breakdown": [
+        {
+          "label": "Education and student support",
+          "width": "42%"
+        },
+        {
+          "label": "Medical and emergency help",
+          "width": "24%"
+        },
+        {
+          "label": "Relief, food and winter support",
+          "width": "20%"
+        },
+        {
+          "label": "Livelihood and family assistance",
+          "width": "14%"
+        }
+      ]
+    },
+    "cta": {
+      "eyebrow": "Prefer Reading Offline?",
+      "title": "Download the latest magazine and review Alokayon's transparency records.",
+      "description": "Keep the annual publication for offline reading, donor review, or sharing with family and friends.",
+      "downloadMagazine": "Download 2025 Magazine",
+      "readOnline": "Read Online"
+    },
+    "reader": {
+      "description": "Read the selected Alokayon publication directly in your browser, or download it for offline review.",
+      "back": "Back to Transparency",
+      "download": "Download PDF"
     }
   },
   "donors": {

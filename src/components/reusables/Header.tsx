@@ -112,12 +112,9 @@ function Header() {
             label={t('nav.programs')}
           />
           <DesktopDropdown isActive={impactActive} items={impactItems} label={t('nav.impact')} />
-          <a
-            className="border-b-[3px] border-transparent pb-2 text-[0.98rem] font-medium text-[#587189] transition hover:text-[#115b82]"
-            href="#"
-          >
+          <NavLink className={linkClass} to="/transparency">
             {t('nav.transparency')}
-          </a>
+          </NavLink>
         </nav>
 
         <div className="flex shrink-0 items-center gap-3">
@@ -202,9 +199,13 @@ function Header() {
               </div>
             </div>
 
-            <a className="rounded-xl px-4 py-3 text-[1rem] font-medium text-[#587189]" href="#">
+            <NavLink
+              className={mobileLinkClass}
+              to="/transparency"
+              onClick={() => setIsMenuOpen(false)}
+            >
               {t('nav.transparency')}
-            </a>
+            </NavLink>
           </nav>
         </div>
       ) : null}
