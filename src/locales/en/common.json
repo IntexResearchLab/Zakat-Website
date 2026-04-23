@@ -9,6 +9,7 @@
     "brand": "Alokayon",
     "home": "Home",
     "about": "About",
+    "gallery": "Gallery",
     "impact": "Impact",
     "school": "School",
     "madrasah": "Madrasah",
@@ -25,6 +26,7 @@
       "donateNow": "Donate Now",
       "learnMore": "Learn More",
       "learnMoreAboutUs": "Learn More About Us",
+      "readFullMessage": "Read Full Message",
       "readMagazine": "Read Magazine",
       "readOurMagazine": "Read Our Magazine",
       "readOurStory": "Read Our Story",
@@ -43,6 +45,7 @@
       "home": "Home",
       "aboutUs": "About Us",
       "donate": "Donate",
+      "gallery": "Gallery",
       "madrasah": "Madrasah",
       "donors": "Our Donors",
       "opinions": "Voices of Impact",
@@ -74,6 +77,10 @@
         {
           "label": "About",
           "href": "/about"
+        },
+        {
+          "label": "Gallery",
+          "href": "/gallery"
         },
         {
           "label": "Programs",
@@ -216,20 +223,8 @@
           "label": "Students Supported"
         },
         {
-          "value": "50+",
-          "label": "Children in Slum School"
-        },
-        {
           "value": "1.3M+ BDT",
           "label": "Distributed Annually"
-        },
-        {
-          "value": "60",
-          "label": "Elderly Supported"
-        },
-        {
-          "value": "Since 2011",
-          "label": "Serving Communities"
         },
         {
           "value": "70+",
@@ -238,6 +233,25 @@
         {
           "value": "500+",
           "label": "Livelihood Assets Distributed"
+        }
+      ],
+      "programsTitle": "Signature programs",
+      "programCards": [
+        {
+          "title": "Alokayon Pathshala",
+          "description": "Free education for underprivileged children in Dhaka's slum communities.",
+          "microStat": "50+ children learning",
+          "cta": "Explore School",
+          "href": "/programs/alokayon-school",
+          "icon": "school"
+        },
+        {
+          "title": "Abdul Karim Miazi Hafezi Madrasa",
+          "description": "A distinctive institution integrating Qur'anic, Arabic, and Bengali education.",
+          "microStat": "100+ students enrolled",
+          "cta": "Explore Madrasa",
+          "href": "/programs/madrasa",
+          "icon": "menu_book"
         }
       ]
     },
@@ -254,6 +268,52 @@
       "quoteAttribution": "— Prophet Muhammad ﷺ",
       "quoteSource": "Sahih al-Bukhari & Sahih Muslim",
       "imageAlt": "A documentary-style image representing Alokayon's mission in the community"
+    },
+    "founder": {
+      "eyebrow": "A Message from the Founder Chairman",
+      "context": "Since 2011 • Community-driven • Faith-guided",
+      "title": "A Message from the Founder Chairman",
+      "excerptOne": "Alokayon began with a simple but urgent realization: despite national progress, many people in our society still remain deprived of basic necessities such as food, education, healthcare, and secure shelter.",
+      "excerptTwo": "What started in 2011 as a small effort under the name Dushtho Sheba later became Alokayon, formally registered in 2019. With zakat and donations from compassionate individuals, we continue—within our limited capacity—to stand beside widows, orphans, elderly people, students, and vulnerable families with sincerity, dignity, and accountability.",
+      "name": "A.K.M. Fazlul Kader",
+      "role": "Founder Chairman, Alokayon",
+      "imageAlt": "Founder Chairman of Alokayon",
+      "modal": {
+        "title": "A Message from the Founder Chairman",
+        "intro": "A fuller reflection on why Alokayon began, what continues to drive it, and why small acts of sincere service still matter deeply.",
+        "sections": [
+          {
+            "title": "A Nation's Progress, and a Persistent Reality",
+            "paragraphs": [
+              "December 16, 1971, is an unforgettable day in the history of Bangladesh. On this day, in exchange for the sacrifice of three million martyrs and the honor of countless mothers and sisters, we achieved independence from the occupation of the Pakistani invading forces.",
+              "However, even after 54 years of independence, the people of this country have yet to attain full economic prosperity. Many remain deprived of basic necessities such as food, clothing, education, healthcare, and shelter. Over these decades, the nation has made significant progress and the GDP growth rate has increased. In the fiscal year 1972–73, the national budget amounted to 786 crore taka, and GDP growth stood at only 2.75%. In the fiscal year 2025–2026, the budget reached 7 lakh 90 thousand crore taka, with a GDP growth target set at 5.5 percent.",
+              "Nevertheless, the reality is that a large portion of the population still lives below the poverty line. A glance at those residing on the footpaths, in slums, and at bus and railway stations in Dhaka clearly reflects how distressing life remains for many, despite a reported 5.50% growth rate. The situation in rural areas is even more heartbreaking. Even when there is a small dwelling to live in, employment opportunities are scarce. Although schools may exist, orphaned children are often unable to continue their studies due to financial crisis, and adequate healthcare facilities are lacking."
+            ]
+          },
+          {
+            "title": "Why This Work Began",
+            "paragraphs": [
+              "When a daily wage earner—or someone surviving on daily income—passes away, leaving behind three or four children, the condition of his young widow becomes comparable to that of a person drowning in a vast ocean without knowing how to swim. Out of modesty, concern for family honor, and fear of harassment, many widowed women are unable even to seek help. In many cases, their circumstances are more severe than those of urban slum dwellers.",
+              "With the objective of serving these hard-core poor individuals, this organization began its journey informally in 2011 under the name “Dushtho Sheba” on a very small scale. After a long journey, in 2019, it was formally registered with the Department of Social Services, Ministry of Social welfare under the name “Alokayon.”"
+            ]
+          },
+          {
+            "title": "Sustained by Trust and Sincerity",
+            "paragraphs": [
+              "The primary sources of income for the organization are zakat and donations provided by compassionate individuals committed to serving the underprivileged. Alokayon does not receive financial assistance from any local or foreign organization. With the limited funds collected from its members, the organization provides educational support to children living in slums in Dhaka, as well as limited financial assistance to helpless elderly individuals, widows, persons with disabilities, and poor yet meritorious students studying at universities, schools, colleges, and madrasas across the country. Additionally, we extend support to students memorizing the Holy Qur’an at a Hifz madrasa in Chatkhil Upazila of Noakhali District.",
+              "Furthermore, whenever natural disasters occur anywhere in the country, Alokayon strives, within its limited capacity, to stand beside the affected communities. The organization provided relief assistance to Rohingya refugees in 2017; distributed health-awareness masks and leaflets and offered financial support to daily wage earners during the COVID-19 pandemic in 2020 and 2021; extended financial assistance to flood-affected people in Sunamganj in 2022 and again in 2024 in Noakhali. In the year 2025 we donated some financial support to Palestinian Muslim brothers oppressed by the Israeli occupation forces. Besides this we distributed winter clothing in the northern region of the country. These initiatives have been widely appreciated."
+            ]
+          },
+          {
+            "title": "A Limited Capacity, A Lasting Intention",
+            "paragraphs": [
+              "Compared to the immense needs of the underprivileged, our contributions remain modest. Nevertheless, we believe that even limited assistance can make a meaningful difference. Without collective effort, we might not have been able to accomplish even this much.",
+              "We express our sincere gratitude to all who are associated with our activities. Four individuals who regularly contributed financially to Alokayon have already passed away. We pray that their contributions become a means of salvation in the hereafter.",
+              "Let us join hands with Alokayon and stand beside the underprivileged. May our sincere efforts serve as a source of welfare in this world and salvation in the hereafter, Insha’Allah."
+            ]
+          }
+        ]
+      }
     },
     "programs": {
       "eyebrow": "Our Focus Areas",
@@ -850,6 +910,15 @@
       "description": "A team of committed people guiding Alokayon's direction, accountability, and long-term service to the community.",
       "badge": "14-member committee",
       "footer": "Browse through the committee members guiding Alokayon's direction and long-term service.",
+      "viewAll": "View All Executives",
+      "modalTitle": "All Executive Committee Members",
+      "modalDescription": "A complete view of the committee members currently guiding Alokayon's accountability, service, and long-term direction.",
+      "closeModal": "Close executive committee view",
+      "officeContactLabel": "Contact via Alokayon office",
+      "emailLabel": "Email",
+      "phoneLabel": "Phone",
+      "officeEmail": "info@alokayon.org",
+      "officePhone": "+880 0000 000000",
       "previous": "Previous committee members",
       "next": "Next committee members",
       "showSlide": "Show committee slide {{index}}",
@@ -2057,6 +2126,134 @@
       "title": "Join a growing community of donors who believe in meaningful, transparent impact.",
       "description": "Support work that is trusted by donors across countries and rooted in sincere service to vulnerable people.",
       "secondary": "Contact Us"
+    }
+  },
+  "galleryPage": {
+    "hero": {
+      "eyebrow": "Impact Gallery",
+      "title": "Moments of Impact",
+      "description": "A glimpse into the lives, communities, and stories your support touches through Alokayon's work.",
+      "note": "Real photographs. Real programs. Real people."
+    },
+    "filters": [
+      { "id": "all", "label": "All" },
+      { "id": "education", "label": "Education" },
+      { "id": "relief", "label": "Relief" },
+      { "id": "livelihood", "label": "Livelihood" },
+      { "id": "healthcare", "label": "Healthcare" },
+      { "id": "madrasa", "label": "Madrasa" },
+      { "id": "pathshala", "label": "Pathshala" }
+    ],
+    "grid": {
+      "eyebrow": "Browse by Program",
+      "title": "A visual record of care, learning, and recovery",
+      "description": "Browse the work through education spaces, relief moments, livelihood support, and community-centered programs.",
+      "locationLabel": "Location",
+      "yearLabel": "Year / Program",
+      "closeImage": "Close gallery image",
+      "items": [
+        {
+          "category": "Education",
+          "title": "Children learning together",
+          "description": "Classroom moments that reflect care, routine, and possibility.",
+          "story": "Learning spaces like these help children move from uncertainty toward structure, dignity, and future opportunity.",
+          "location": "Dhaka",
+          "year": "2025"
+        },
+        {
+          "category": "Relief",
+          "title": "Food and dignity in community support",
+          "description": "Support reaching families in moments of real need.",
+          "story": "Relief is not only about supplies. It is about showing up with sincerity when hardship becomes visible.",
+          "location": "Bangladesh",
+          "year": "2025"
+        },
+        {
+          "category": "Livelihood",
+          "title": "Practical tools for self-reliance",
+          "description": "Programs that help families rebuild with steady income sources.",
+          "story": "Livelihood support is designed to restore independence through practical tools and dignified opportunity.",
+          "location": "Community Program",
+          "year": "2025"
+        },
+        {
+          "category": "Healthcare",
+          "title": "Care that reaches vulnerable families",
+          "description": "Direct support when treatment and stability matter most.",
+          "story": "Medical support often arrives at critical moments, helping families face illness without being left entirely alone.",
+          "location": "Community Support",
+          "year": "2025"
+        },
+        {
+          "category": "Madrasa",
+          "title": "Qur'anic and general learning together",
+          "description": "A disciplined environment for both deen and education.",
+          "story": "The madrasa reflects a calm, accountable learning environment where character and knowledge grow together.",
+          "location": "Chatkhil, Noakhali",
+          "year": "2025"
+        },
+        {
+          "category": "Pathshala",
+          "title": "A free learning space in the city",
+          "description": "Children in underprivileged communities gaining access to education.",
+          "story": "Alokayon Pathshala creates a steady place of learning for children who might otherwise remain outside formal education.",
+          "location": "Rasulbag, Dhaka",
+          "year": "2025"
+        },
+        {
+          "category": "Education",
+          "title": "Volunteers in action",
+          "description": "Community support shaped by people who show up consistently.",
+          "story": "Meaningful service is sustained not only by donations, but by volunteers and committed supporters working close to the ground.",
+          "location": "Field Activity",
+          "year": "2025"
+        },
+        {
+          "category": "Relief",
+          "title": "Support that reaches where it is needed",
+          "description": "Visible care in places often ignored by others.",
+          "story": "When support reaches people in overlooked places, it becomes proof that compassion can still move outward in practical ways.",
+          "location": "Bangladesh",
+          "year": "2025"
+        }
+      ]
+    },
+    "featured": {
+      "eyebrow": "Featured Stories",
+      "title": "Images that carry deeper stories",
+      "items": [
+        {
+          "title": "Alokayon Pathshala in daily life",
+          "description": "A closer look at how learning, routine, and encouragement take shape for children in underprivileged communities.",
+          "linkLabel": "Explore School"
+        },
+        {
+          "title": "Learning with discipline in the madrasa",
+          "description": "A focused educational environment where Qur'anic learning and academic structure sit side by side.",
+          "linkLabel": "Explore Madrasa"
+        },
+        {
+          "title": "Livelihood support with lasting value",
+          "description": "Support that goes beyond relief by helping families rebuild through practical income-generating tools.",
+          "linkLabel": "View Programs"
+        }
+      ]
+    },
+    "impact": {
+      "eyebrow": "Impact in View",
+      "title": "What these images point toward",
+      "stats": [
+        { "value": "200+", "label": "Students Supported" },
+        { "value": "1.3M+ BDT", "label": "Distributed Annually" },
+        { "value": "500+", "label": "Livelihood Assets Distributed" },
+        { "value": "Since 2011", "label": "Serving Communities" }
+      ]
+    },
+    "cta": {
+      "eyebrow": "Every Image Tells a Story",
+      "title": "Be part of the next one.",
+      "description": "The work continues because people choose to turn trust into action.",
+      "secondary": "View Programs"
     }
   }
 }

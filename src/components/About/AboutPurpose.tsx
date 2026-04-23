@@ -1,11 +1,9 @@
 import { useEffect, useState } from 'react'
 import Reveal from '../reusables/Reveal'
 import { useTranslation } from 'react-i18next'
-import { getImpactStats } from './data'
 
 function AboutPurpose() {
   const { t } = useTranslation()
-  const impactStats = getImpactStats(t)
   const [isStoryOpen, setIsStoryOpen] = useState(false)
   const storySections = t('about.purpose.story.sections', {
     returnObjects: true,
@@ -62,22 +60,6 @@ function AboutPurpose() {
                 →
               </span>
             </button>
-          </Reveal>
-          <Reveal className="mt-14" delay={100}>
-            <div className="mx-auto max-w-5xl border-t border-[#d9e6ee] pt-10">
-              <div className="grid gap-y-10 text-left md:grid-cols-2 md:gap-x-12 xl:grid-cols-4 xl:gap-x-16">
-                {impactStats.map((stat) => (
-                  <div key={stat.label}>
-                    <p className="font-serif text-[2.7rem] leading-none tracking-[-0.05em] text-[#14324d] sm:text-[3.3rem]">
-                      {stat.value}
-                    </p>
-                    <p className="mt-2 text-[0.9rem] font-semibold tracking-[0.02em] text-[#697b86]">
-                      {stat.label}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
           </Reveal>
         </div>
       </section>

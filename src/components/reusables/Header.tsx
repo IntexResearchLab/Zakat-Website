@@ -106,6 +106,9 @@ function Header() {
           <NavLink className={linkClass} to="/about">
             {t('nav.about')}
           </NavLink>
+          <NavLink className={linkClass} to="/gallery">
+            {t('nav.gallery')}
+          </NavLink>
           <DesktopDropdown
             isActive={programsActive}
             items={programItems}
@@ -155,6 +158,13 @@ function Header() {
             </NavLink>
             <NavLink className={mobileLinkClass} to="/about" onClick={() => setIsMenuOpen(false)}>
               {t('nav.about')}
+            </NavLink>
+            <NavLink
+              className={mobileLinkClass}
+              to="/gallery"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              {t('nav.gallery')}
             </NavLink>
 
             <div className="rounded-xl border border-[#e2ebf0] bg-[#fbfdfe] p-2">
