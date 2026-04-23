@@ -17,9 +17,25 @@ function MissionSection() {
             />
           </div>
 
-          <div className="absolute bottom-[-1.25rem] right-4 max-w-[16.5rem] rounded-[1.2rem] bg-[#ffe39a] px-7 py-6 shadow-[0_18px_40px_rgba(245,158,11,0.14)] transition-transform duration-500 hover:translate-y-[-3px] sm:bottom-[-1.5rem] sm:right-6">
-            <p className="font-serif text-[1.05rem] italic leading-[1.45] text-[#7d6620] sm:text-[1.15rem]">
-              &quot;{t('home.mission.quote')}&quot;
+          <div className="absolute bottom-[-2rem] right-4 max-w-[21rem] overflow-hidden rounded-[1.15rem] border border-[#ead8a8] bg-[linear-gradient(135deg,#fff8df,#f7e7b6)] px-6 py-6 shadow-[0_18px_40px_rgba(120,87,24,0.13)] transition-transform duration-500 hover:translate-y-[-3px] sm:bottom-[-2.25rem] sm:right-6 sm:px-7">
+            <div className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full border border-[#d7b765]/40" />
+            <div className="pointer-events-none absolute -bottom-12 -left-10 h-36 w-36 rotate-45 border border-[#d7b765]/20" />
+            <p className="relative text-[0.72rem] font-bold uppercase tracking-[0.18em] text-[#2f6a52]">
+              {t('home.mission.quoteReminder')}
+            </p>
+            <div className="relative my-4 h-px w-16 bg-[#cfa94a]" />
+            <p className="relative font-serif text-[1.02rem] italic leading-[1.55] text-[#5c4a1c] sm:text-[1.12rem]">
+              “{t('home.mission.quotePrefix')}{' '}
+              <span className="font-semibold text-[#2f6a52]">
+                {t('home.mission.quoteHighlight')}
+              </span>{' '}
+              {t('home.mission.quoteSuffix')}”
+            </p>
+            <p className="relative mt-4 text-[0.82rem] font-semibold leading-[1.55] text-[#725f2c]">
+              {t('home.mission.quoteAttribution')}
+            </p>
+            <p className="relative mt-1 text-[0.76rem] leading-[1.5] text-[#8a783f]">
+              {t('home.mission.quoteSource')}
             </p>
           </div>
         </Reveal>

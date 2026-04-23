@@ -167,6 +167,7 @@
       "previousSlide": "Show previous slide",
       "nextSlide": "Show next slide",
       "goToSlide": "Go to slide {{index}}",
+      "verseLabel": "Qur'anic Reminder",
       "slides": [
         {
           "image": "/assets/home/carousel-1.jpg",
@@ -174,6 +175,10 @@
           "titleTop": "Give Your Zakat.",
           "titleBottom": "Transform Lives.",
           "description": "Alokayon helps your giving reach students, widows, elderly people, and vulnerable families with dignity, transparency, and care.",
+          "versePrefix": "Establish prayer and give zakat, and whatever good you put forward for yourselves",
+          "verseHighlight": "you will find it with Allah.",
+          "verseSuffix": "",
+          "verseReference": "Surah Al-Baqarah (2:110)",
           "alt": "Children gathered during an Alokayon support activity"
         },
         {
@@ -182,6 +187,10 @@
           "titleTop": "Give With Trust.",
           "titleBottom": "Reach Real People.",
           "description": "Your support is channeled into practical community programs, from education and relief to medical care and livelihood assistance.",
+          "versePrefix": "Those who spend their wealth in the way of Allah will have",
+          "verseHighlight": "their reward with their Lord.",
+          "verseSuffix": "No fear will there be concerning them, nor will they grieve.",
+          "verseReference": "Surah Al-Baqarah (2:262)",
           "alt": "Community members receiving support through Alokayon"
         },
         {
@@ -190,6 +199,10 @@
           "titleTop": "Stand Beside",
           "titleBottom": "Those In Need.",
           "description": "We work to support underprivileged communities through small, sincere interventions that create long-term stability and hope.",
+          "versePrefix": "And they give food, in spite of love for it, to",
+          "verseHighlight": "the needy, the orphan, and the captive.",
+          "verseSuffix": "",
+          "verseReference": "Surah Al-Insan (76:8)",
           "alt": "An Alokayon program moment with children and families"
         }
       ]
@@ -231,9 +244,15 @@
     "mission": {
       "eyebrow": "Our Sacred Mission",
       "title": "Empowering communities through spiritual responsibility",
-      "paragraphOne": "At Alokayon, we believe charity is more than a transaction; it is a form of stewardship that connects those with the means to give and those seeking the chance to live with dignity.",
+      "paragraphOne": "At Alokayon, we believe charity does not end with giving. Rather it must be used with responsibility and integrity, creating sustainable impact and helping individuals live with dignity",
       "paragraphTwo": "Our work supports sustainable change through education, relief, healthcare, and livelihood assistance rooted in compassion, accountability, and care.",
-      "quote": "The best of people are those who are most useful to others.",
+      "quote": "Protect yourselves from the Fire, even if it is with half a date in charity.",
+      "quoteReminder": "A reminder from Islam",
+      "quotePrefix": "Protect yourselves from the Fire, even if it is with",
+      "quoteHighlight": "half a date",
+      "quoteSuffix": "in charity.",
+      "quoteAttribution": "— Prophet Muhammad ﷺ",
+      "quoteSource": "Sahih al-Bukhari & Sahih Muslim",
       "imageAlt": "A documentary-style image representing Alokayon's mission in the community"
     },
     "programs": {
@@ -635,7 +654,7 @@
     "journey": {
       "eyebrow": "Our Journey",
       "title": "A quiet beginning, a formal foundation, and a growing commitment to service.",
-      "description": "From a small initiative to a trusted charitable organization.",
+      "description": "From a small initiative to a trusted charitable organization. We are now a Registered NGO",
       "badge": "Registered NGO (2019)",
       "registrationTitle": "Official Registration",
       "registrationDescription": "Formal registration completed in 2019 under the Department of Social Services.",
@@ -661,6 +680,56 @@
       "paragraphOne": "Alokayon was founded on the belief that no one should be left behind in hardship.",
       "paragraphTwoPrefix": "Since 2011, we have worked to support orphans, widows, and vulnerable families, helping them build independent, dignified",
       "paragraphTwoEmphasis": "lives through compassion and collective effort.",
+      "story": {
+        "eyebrow": "Our Story",
+        "title": "The Story of Alokayon",
+        "intro": "What began as a small act of compassion has grown into a structured movement of dignity-centered support for vulnerable communities across Bangladesh.",
+        "sections": [
+          {
+            "title": "A Beginning Rooted in Compassion",
+            "paragraphs": [
+              "Alokayon was born from a simple but powerful realization: even as Bangladesh has progressed over the decades, countless people still live without access to basic necessities such as food, shelter, education, and healthcare.",
+              "Behind growth statistics are real lives — widows struggling in silence, orphaned children unable to continue their education, elderly individuals without support, and families living in extreme hardship. Many of them, bound by dignity and circumstance, cannot even ask for help.",
+              "In 2011, with this reality in mind, a small initiative began under the name “Dustho Seba” (Service for the Needy). It started with a handful of individuals, limited resources, and a shared commitment to serve those most in need."
+            ]
+          },
+          {
+            "title": "From Humble Effort to Formal Foundation",
+            "paragraphs": [
+              "Inspired by community-driven development and guided by the values of compassion and collective responsibility, this humble effort gradually grew through trust, consistency, and service.",
+              "After years of dedication and trust-building, the organization was formally registered in 2019 under the name Alokayon — marking the beginning of its structured journey."
+            ]
+          },
+          {
+            "title": "A Community-Powered Mission",
+            "paragraphs": [
+              "What makes Alokayon unique is its foundation: it is non-political and non-profit, it receives no major institutional or foreign funding, and it is sustained by zakat, donations, and contributions from individuals.",
+              "Every contribution — no matter how small — is treated as a trust, to be delivered to those who need it most, with sincerity and accountability."
+            ]
+          },
+          {
+            "title": "From Small Efforts to Real Impact",
+            "paragraphs": [
+              "Over the years, Alokayon has transformed compassion into meaningful action: supporting widows and unemployed individuals to become self-reliant, providing medical assistance to the elderly and disabled, funding education for underprivileged students, establishing schools for children in slum communities, distributing food, clothing, and emergency aid during crises, and offering interest-free financial support to help rebuild lives.",
+              "Each initiative is guided by one principle: not just to give, but to empower."
+            ]
+          },
+          {
+            "title": "A Vision Beyond Charity",
+            "paragraphs": [
+              "Alokayon believes that charity is not merely about short-term relief — it is about restoring dignity, creating opportunity, and building a more just society.",
+              "It is about ensuring that a child continues their education, a widow regains independence, a family finds stability, and a community moves forward together."
+            ]
+          },
+          {
+            "title": "Lighting the Path Forward",
+            "paragraphs": [
+              "Today, Alokayon stands as a growing movement of individuals united by faith, responsibility, and humanity.",
+              "What began as a small act of compassion has become a source of hope for many — and a reminder that when people come together with sincerity, even limited means can create lasting change."
+            ]
+          }
+        ]
+      },
       "stats": [
         {
           "value": "2011",

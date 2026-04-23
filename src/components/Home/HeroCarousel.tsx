@@ -11,13 +11,17 @@ function HeroCarousel() {
     titleTop: string
     titleBottom: string
     description: string
+    versePrefix: string
+    verseHighlight: string
+    verseSuffix: string
+    verseReference: string
     alt: string
   }>
 
   useEffect(() => {
     const interval = window.setInterval(() => {
       setActiveSlide((current) => (current + 1) % slides.length)
-    }, 5000)
+    }, 9000)
 
     return () => window.clearInterval(interval)
   }, [slides.length])
@@ -51,9 +55,29 @@ function HeroCarousel() {
               className="hero-copy-animate max-w-2xl pl-2 md:pl-10"
               key={currentSlide.image}
             >
-              <p className="mb-6 text-sm font-bold uppercase tracking-[0.32em] text-[#ffd86b]">
+              <p className="mb-5 text-sm font-bold uppercase tracking-[0.32em] text-[#ffd86b]">
                 {currentSlide.eyebrow}
               </p>
+              <div className="mb-7 max-w-[38rem] border-l border-[#f2d46f]/60 pl-5">
+                <div className="mb-3 flex items-center gap-3 text-[#f2d46f]">
+                  <span className="material-symbols-outlined text-[1.1rem]">
+                    auto_stories
+                  </span>
+                  <span className="text-[0.72rem] font-bold uppercase tracking-[0.18em]">
+                    {t('home.hero.verseLabel')}
+                  </span>
+                </div>
+                <p className="font-serif text-[0.98rem] italic leading-[1.65] text-white/86 md:text-[1.06rem]">
+                  “{currentSlide.versePrefix}{' '}
+                  <span className="font-semibold text-[#f2d46f]">
+                    {currentSlide.verseHighlight}
+                  </span>
+                  {currentSlide.verseSuffix ? ` ${currentSlide.verseSuffix}` : ''}”
+                </p>
+                <p className="mt-2 text-[0.78rem] font-semibold tracking-[0.04em] text-white/66">
+                  — {currentSlide.verseReference}
+                </p>
+              </div>
               <h1 className="font-serif text-[2.9rem] font-semibold leading-[0.96] tracking-[-0.04em] text-white md:text-[4.6rem]">
                 <span className="block">{currentSlide.titleTop}</span>
                 <span className="block italic">{currentSlide.titleBottom}</span>
