@@ -1119,6 +1119,31 @@
       ],
       "cta": "Explore the school story"
     },
+    "featuredMadrasa": {
+      "eyebrow": "Featured Institution",
+      "title": "Abdul Karim Miazi Hafezi Madrasa",
+      "description": "A structured madrasa initiative integrating Qur'anic, Arabic, and Bengali education in a disciplined, accountable learning environment.",
+      "points": [
+        "More than 100 students enrolled from underprivileged backgrounds",
+        "Integrated Arabic, Bengali, English, and Mathematics instruction",
+        "Meals, materials, and guided supervision for vulnerable learners"
+      ],
+      "stats": [
+        {
+          "value": "100+",
+          "label": "Students Enrolled"
+        },
+        {
+          "value": "31",
+          "label": "Hifz Students"
+        },
+        {
+          "value": "2019",
+          "label": "Registered Support Era"
+        }
+      ],
+      "cta": "Explore the madrasa story"
+    },
     "caseStudy": {
       "eyebrow": "Real Impact",
       "title": "A family's journey from crisis to stability",

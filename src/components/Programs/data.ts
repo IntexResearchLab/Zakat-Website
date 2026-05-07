@@ -24,6 +24,7 @@ type FeaturedProgram = {
   description: string
   points: string[]
   stats: Stat[]
+  cta: string
 }
 
 type CaseStudy = {
@@ -77,6 +78,11 @@ export const getFilterTabs = (t: TFunction) =>
 export const getFeaturedProgram = (t: TFunction) => ({
   ...(t('programs.featured', { returnObjects: true }) as FeaturedProgram),
   image: '/assets/home/carousel-1.jpg',
+})
+
+export const getFeaturedMadrasa = (t: TFunction) => ({
+  ...(t('programs.featuredMadrasa', { returnObjects: true }) as FeaturedProgram),
+  image: '/assets/about/about-us.webp',
 })
 
 export const getCaseStudy = (t: TFunction) => ({

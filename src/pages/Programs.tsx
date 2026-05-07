@@ -1,4 +1,5 @@
 import FeaturedProgram from '../components/Programs/FeaturedProgram'
+import FeaturedMadrasa from '../components/Programs/FeaturedMadrasa'
 import ProgramsCaseStudy from '../components/Programs/ProgramsCaseStudy'
 import ProgramCategories from '../components/Programs/ProgramCategories'
 import ProgramsCta from '../components/Programs/ProgramsCta'
@@ -14,6 +15,7 @@ function Programs() {
       <ProgramsHero />
       <ProgramCategories />
       <FeaturedProgram />
+      <FeaturedMadrasa />
       <ProgramsCaseStudy />
       <ProgramsGallery />
       <ProgramsInitiatives />
