@@ -1,6 +1,7 @@
 import About from './pages/About'
 import AdminAuth from './pages/AdminAuth'
 import AdminDashboard from './pages/AdminDashboard'
+import AdminMagazines from './pages/AdminMagazines'
 import AlokayonSchool from './pages/AlokayonSchool'
 import AdminRouteGuard from './components/Admin/AdminRouteGuard'
 import Donate from './pages/Donate'
@@ -39,6 +40,14 @@ function App() {
           element={
             <AdminRouteGuard mode="protected">
               <AdminDashboard />
+            </AdminRouteGuard>
+          }
+        />
+        <Route
+          path="/admin/magazines"
+          element={
+            <AdminRouteGuard mode="protected">
+              <AdminMagazines />
             </AdminRouteGuard>
           }
         />

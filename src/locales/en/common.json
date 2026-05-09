@@ -2282,6 +2282,53 @@
     }
   },
   "admin": {
+    "navigation": [
+      {
+        "label": "Overview",
+        "href": "/admin/dashboard",
+        "icon": "overview"
+      },
+      {
+        "label": "Magazines",
+        "href": "/admin/magazines",
+        "icon": "magazines"
+      },
+      {
+        "label": "Pages",
+        "href": "/admin/pages",
+        "icon": "pages"
+      },
+      {
+        "label": "Programs",
+        "href": "/admin/programs",
+        "icon": "programs"
+      },
+      {
+        "label": "Stories",
+        "href": "/admin/stories",
+        "icon": "stories"
+      },
+      {
+        "label": "Gallery",
+        "href": "/admin/gallery",
+        "icon": "gallery"
+      },
+      {
+        "label": "Transparency",
+        "href": "/admin/transparency",
+        "icon": "transparency"
+      },
+      {
+        "label": "Donations",
+        "href": "/admin/donations",
+        "icon": "donations"
+      },
+      {
+        "label": "Settings",
+        "href": "/admin/settings",
+        "icon": "settings"
+      }
+    ],
     "auth": {
       "eyebrow": "Admin Access",
       "title": "Welcome back to Alokayon Charity",
@@ -2385,17 +2432,56 @@
       },
       "sidebar": {
         "brandNote": "Alokayon Charity Admin",
-        "nav": [
-          "Overview",
-          "Pages",
-          "Programs",
-          "Stories",
-          "Gallery",
-          "Transparency",
-          "Donations",
-          "Settings"
-        ],
         "footer": "Authentication and permissions will be connected with Supabase next."
+      }
+    },
+    "magazines": {
+      "eyebrow": "Magazine Manager",
+      "title": "Manage magazines and publications",
+      "description": "Create, update, and remove annual magazines from one place, with direct links to PDFs and cover images.",
+      "headerCardLabel": "Published records",
+      "headerCardContext": "Magazine issues currently stored in Supabase",
+      "createTitle": "Add a new magazine",
+      "editTitle": "Edit magazine entry",
+      "formIntro": "Keep each issue cleanly documented so the public transparency page stays current and trustworthy.",
+      "cancelEdit": "Cancel Edit",
+      "saveChanges": "Save Changes",
+      "createButton": "Create Magazine",
+      "saving": "Saving...",
+      "resetForm": "Reset Form",
+      "validationError": "Please complete the title and year before saving.",
+      "pdfRequired": "Please upload a PDF for this magazine.",
+      "createSuccess": "Magazine created successfully.",
+      "updateSuccess": "Magazine updated successfully.",
+      "deleteSuccess": "Magazine deleted successfully.",
+      "deleteConfirmation": "Delete \"{{title}}\" from the magazine library?",
+      "libraryTitle": "Magazine library",
+      "libraryIntro": "Review all stored issues, open their files, or jump into editing when content needs refreshing.",
+      "refresh": "Refresh",
+      "loading": "Loading magazines from Supabase...",
+      "emptyState": "No magazines have been added yet.",
+      "editButton": "Edit",
+      "deleteButton": "Delete",
+      "deleting": "Deleting...",
+      "openPdf": "Open PDF",
+      "pdfHelp": "Upload the magazine PDF. This file is required.",
+      "coverHelp": "Upload a cover image if you have one. This is optional.",
+      "currentPdf": "Current PDF on record: {{fileName}}",
+      "newPdfSelected": "New PDF selected: {{fileName}}",
+      "currentCover": "Current cover image will stay unless you replace it.",
+      "newCoverSelected": "New cover image selected: {{fileName}}",
+      "fileOnRecord": "file on record",
+      "fields": {
+        "title": "Title",
+        "year": "Year",
+        "description": "Description",
+        "pdfFile": "Magazine PDF",
+        "coverImageFile": "Cover image"
+      },
+      "placeholders": {
+        "title": "Alokayon Magazine 2025",
+        "year": "2025",
+        "description": "A concise summary of what readers will find in this issue."
       }
     }
   }
