@@ -1,5 +1,8 @@
 import About from './pages/About'
+import AdminAuth from './pages/AdminAuth'
+import AdminDashboard from './pages/AdminDashboard'
 import AlokayonSchool from './pages/AlokayonSchool'
+import AdminRouteGuard from './components/Admin/AdminRouteGuard'
 import Donate from './pages/Donate'
 import Gallery from './pages/Gallery'
 import Home from './pages/Home'
@@ -12,14 +15,33 @@ import TransparencyReader from './pages/TransparencyReader'
 import Footer from './components/reusables/Footer'
 import Header from './components/reusables/Header'
 import ScrollToTop from './components/reusables/ScrollToTop'
-import { Navigate, Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 
 function App() {
+  const location = useLocation()
+  const isAdminRoute = location.pathname.startsWith('/admin')
+
   return (
-    <main className="min-h-screen bg-[#eef7fb] text-[#16324f]">
-      <Header />
+    <main className={`min-h-screen ${isAdminRoute ? 'bg-[#f4f8fb] text-[#16324f]' : 'bg-[#eef7fb] text-[#16324f]'}`}>
+      {!isAdminRoute ? <Header /> : null}
       <ScrollToTop />
       <Routes>
+        <Route
+          path="/admin"
+          element={
+            <AdminRouteGuard mode="guest">
+              <AdminAuth />
+            </AdminRouteGuard>
+          }
+        />
+        <Route
+          path="/admin/dashboard"
+          element={
+            <AdminRouteGuard mode="protected">
+              <AdminDashboard />
+            </AdminRouteGuard>
+          }
+        />
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/donate" element={<Donate />} />
@@ -36,7 +58,7 @@ function App() {
         <Route path="/transparency/:year" element={<TransparencyReader />} />
         <Route path="*" element={<Navigate replace to="/" />} />
       </Routes>
-      <Footer />
+      {!isAdminRoute ? <Footer /> : null}
     </main>
   )
 }

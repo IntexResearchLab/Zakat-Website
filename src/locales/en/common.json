@@ -2280,5 +2280,123 @@
       "description": "The work continues because people choose to turn trust into action.",
       "secondary": "View Programs"
     }
+  },
+  "admin": {
+    "auth": {
+      "eyebrow": "Admin Access",
+      "title": "Welcome back to Alokayon Charity",
+      "description": "A calm, secure workspace for managing stories, pages, donations, and reporting.",
+      "trust": [
+        "Role-based admin access",
+        "Supabase authentication ready",
+        "Built for secure content management"
+      ],
+      "formTitle": "Sign in to the admin dashboard",
+      "formDescription": "Use your admin credentials to continue into the secure dashboard.",
+      "checkingAccess": "Checking secure access...",
+      "emailLabel": "Email address",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "showPassword": "Show password",
+      "hidePassword": "Hide password",
+      "rememberMe": "Keep me signed in",
+      "forgotPassword": "Forgot password?",
+      "signIn": "Sign In",
+      "signingIn": "Signing In...",
+      "genericError": "We couldn't sign you in. Please check your credentials and try again.",
+      "previewDashboard": "Preview Dashboard",
+      "helpText": "Only authorized Alokayon administrators should use this area."
+    },
+    "dashboard": {
+      "eyebrow": "Admin Dashboard",
+      "title": "Operational overview",
+      "description": "A central place to track content, trust materials, donations, and community-facing updates.",
+      "signOut": "Sign Out",
+      "signingOut": "Signing Out...",
+      "welcome": "Assalamu Alaikum, Admin",
+      "dateLabel": "Today",
+      "searchPlaceholder": "Search pages, stories, or donations",
+      "stats": [
+        {
+          "label": "Published Pages",
+          "value": "11",
+          "context": "Public-facing pages currently live"
+        },
+        {
+          "label": "Pending Stories",
+          "value": "08",
+          "context": "Beneficiary and donor stories awaiting review"
+        },
+        {
+          "label": "Gallery Assets",
+          "value": "46",
+          "context": "Images available across programs and reports"
+        },
+        {
+          "label": "Monthly Inquiries",
+          "value": "17",
+          "context": "Messages from supporters and partners"
+        }
+      ],
+      "quickActionsTitle": "Quick Actions",
+      "quickActions": [
+        "Add beneficiary story",
+        "Upload magazine issue",
+        "Review donor messages",
+        "Update transparency figures"
+      ],
+      "sections": {
+        "contentTitle": "Content pipeline",
+        "contentItems": [
+          {
+            "title": "Homepage founder message",
+            "status": "Ready for review",
+            "meta": "Last updated by content team"
+          },
+          {
+            "title": "Gallery page captions",
+            "status": "Needs localization",
+            "meta": "Bangla version still pending"
+          },
+          {
+            "title": "Madrasa page updates",
+            "status": "Draft saved",
+            "meta": "Awaiting final photographs"
+          }
+        ],
+        "donationsTitle": "Donation & trust overview",
+        "donationItems": [
+          {
+            "title": "Transparency documents",
+            "value": "Up to date",
+            "meta": "Latest magazine and financial files uploaded"
+          },
+          {
+            "title": "Donor inbox",
+            "value": "5 new",
+            "meta": "Unread supporter messages"
+          },
+          {
+            "title": "Beneficiary verification",
+            "value": "12 pending",
+            "meta": "Stories and images awaiting confirmation"
+          }
+        ]
+      },
+      "sidebar": {
+        "brandNote": "Alokayon Charity Admin",
+        "nav": [
+          "Overview",
+          "Pages",
+          "Programs",
+          "Stories",
+          "Gallery",
+          "Transparency",
+          "Donations",
+          "Settings"
+        ],
+        "footer": "Authentication and permissions will be connected with Supabase next."
+      }
+    }
   }
 }
