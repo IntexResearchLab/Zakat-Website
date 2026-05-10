@@ -14,6 +14,7 @@ type AdminShellLayoutProps = {
 const navIconMap = {
   overview: 'space_dashboard',
   magazines: 'menu_book',
+  executives: 'groups',
   stats: 'monitoring',
   pages: 'article',
   programs: 'volunteer_activism',

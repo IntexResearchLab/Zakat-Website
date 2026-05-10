@@ -908,13 +908,14 @@
       "eyebrow": "Executive Committee",
       "title": "Alokayon's Executive Committee",
       "description": "A team of committed people guiding Alokayon's direction, accountability, and long-term service to the community.",
-      "badge": "14-member committee",
+      "badge": "{{count}}-member committee",
       "footer": "Browse through the committee members guiding Alokayon's direction and long-term service.",
       "viewAll": "View All Executives",
       "modalTitle": "All Executive Committee Members",
       "modalDescription": "A complete view of the committee members currently guiding Alokayon's accountability, service, and long-term direction.",
       "closeModal": "Close executive committee view",
       "officeContactLabel": "Contact via Alokayon office",
+      "contactLabel": "Direct contact",
       "emailLabel": "Email",
       "phoneLabel": "Phone",
       "officeEmail": "info@alokayon.org",
@@ -2293,6 +2294,11 @@
         "icon": "magazines"
       },
       {
+        "label": "Executives",
+        "href": "/admin/executives",
+        "icon": "executives"
+      },
+      {
         "label": "Public Stats",
         "href": "/admin/stats",
         "icon": "stats"
@@ -2486,6 +2492,53 @@
         "title": "Alokayon Magazine 2025",
         "year": "2025",
         "description": "A concise summary of what readers will find in this issue."
+      }
+    },
+    "executives": {
+      "eyebrow": "Executive Directory",
+      "title": "Manage executive committee members",
+      "description": "Add, update, reorder, and remove the executive members shown on the About page, complete with their public contact details.",
+      "headerCardLabel": "Directory members",
+      "headerCardContext": "Executive profiles currently available for the public committee section.",
+      "createTitle": "Add a new executive member",
+      "editTitle": "Edit executive member",
+      "formIntro": "Use this directory to keep committee names, roles, contact details, and profile images current.",
+      "cancelEdit": "Cancel Edit",
+      "saveChanges": "Save Changes",
+      "createButton": "Create Member",
+      "saving": "Saving...",
+      "resetForm": "Reset Form",
+      "validationError": "Please complete the name and role before saving.",
+      "imageRequired": "Please upload a profile image for this member.",
+      "createSuccess": "Executive member created successfully.",
+      "updateSuccess": "Executive member updated successfully.",
+      "deleteSuccess": "Executive member deleted successfully.",
+      "deleteConfirmation": "Delete \"{{name}}\" from the executive directory?",
+      "libraryTitle": "Executive directory",
+      "libraryIntro": "Review the members currently visible on the About page, then edit or remove them whenever the committee changes.",
+      "refresh": "Refresh",
+      "loading": "Loading executive members from Supabase...",
+      "emptyState": "No executive members have been added yet.",
+      "editButton": "Edit",
+      "deleteButton": "Delete",
+      "deleting": "Deleting...",
+      "imageHelp": "Upload a portrait or profile image. This image is required for new members.",
+      "currentImage": "Current image will stay unless you replace it.",
+      "newImageSelected": "New image selected: {{fileName}}",
+      "fields": {
+        "name": "Name",
+        "role": "Role",
+        "email": "Email",
+        "phone": "Phone",
+        "image": "Profile image",
+        "sortOrder": "Sort order"
+      },
+      "placeholders": {
+        "name": "A.K.M. Fazlul Kader",
+        "role": "Founder Chairman",
+        "email": "chairman@alokayon.org",
+        "phone": "+880 1712 345678",
+        "sortOrder": "1"
       }
     },
     "stats": {

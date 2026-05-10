@@ -2,13 +2,77 @@ import { useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import Reveal from '../reusables/Reveal'
 import { getCommitteeMembers } from './data'
+import {
+  getCachedExecutiveMembers,
+  loadExecutiveMembers,
+  type ExecutiveMember,
+} from '../../lib/executives'
+
+type DisplayExecutiveMember = {
+  id: string
+  name: string
+  role: string
+  image: string
+  email: string
+  phone: string
+}
 
 function AboutExecutiveCommittee() {
   const { t } = useTranslation()
   const [committeePage, setCommitteePage] = useState(0)
   const [committeeVisibleCount, setCommitteeVisibleCount] = useState(3)
   const [isDirectoryOpen, setIsDirectoryOpen] = useState(false)
-  const committeeMembers = getCommitteeMembers(t)
+  const [remoteMembers, setRemoteMembers] = useState<ExecutiveMember[]>(
+    () => getCachedExecutiveMembers() ?? [],
+  )
+
+  const fallbackMembers = getCommitteeMembers(t)
+  const officeEmail = t('about.executive.officeEmail')
+  const officePhone = t('about.executive.officePhone')
+
+  useEffect(() => {
+    let isMounted = true
+
+    const syncExecutiveMembers = async () => {
+      try {
+        const rows = await loadExecutiveMembers()
+        if (isMounted) {
+          setRemoteMembers(rows)
+        }
+      } catch {
+        // The public fallback content is kept in translations, so we stay quiet here.
+      }
+    }
+
+    void syncExecutiveMembers()
+
+    return () => {
+      isMounted = false
+    }
+  }, [])
+
+  const committeeMembers = useMemo<DisplayExecutiveMember[]>(
+    () =>
+      remoteMembers.length
+        ? remoteMembers.map((member, index) => ({
+            id: member.id,
+            name: member.name,
+            role: member.role,
+            image:
+              member.image_url || fallbackMembers[index % fallbackMembers.length]?.image || '/assets/about/person-1.jpg',
+            email: member.email || officeEmail,
+            phone: member.phone || officePhone,
+          }))
+        : fallbackMembers.map((member, index) => ({
+            id: `fallback-${index + 1}`,
+            name: member.name,
+            role: member.role,
+            image: member.image || '/assets/about/person-1.jpg',
+            email: member.email || officeEmail,
+            phone: member.phone || officePhone,
+          })),
+    [fallbackMembers, officeEmail, officePhone, remoteMembers],
+  )
 
   useEffect(() => {
     const updateVisibleCount = () => {
@@ -30,7 +94,7 @@ function AboutExecutiveCommittee() {
 
   const committeeTotalPages = Math.max(
     1,
-    Math.ceil(committeeMembers.length / committeeVisibleCount)
+    Math.ceil(committeeMembers.length / committeeVisibleCount),
   )
   const currentCommitteePage = Math.min(committeePage, committeeTotalPages - 1)
 
@@ -71,13 +135,10 @@ function AboutExecutiveCommittee() {
     () =>
       committeeMembers.slice(
         currentCommitteePage * committeeVisibleCount,
-        currentCommitteePage * committeeVisibleCount + committeeVisibleCount
+        currentCommitteePage * committeeVisibleCount + committeeVisibleCount,
       ),
-    [committeeMembers, currentCommitteePage, committeeVisibleCount]
+    [committeeMembers, currentCommitteePage, committeeVisibleCount],
   )
-
-  const officeEmail = t('about.executive.officeEmail')
-  const officePhone = t('about.executive.officePhone')
 
   return (
     <>
@@ -98,7 +159,7 @@ function AboutExecutiveCommittee() {
 
             <div className="flex flex-wrap items-center gap-3">
               <div className="inline-flex items-center rounded-full border border-[#dce7ee] bg-[#f8fbfd] px-4 py-2 text-[0.78rem] font-bold uppercase tracking-[0.16em] text-[#115b82]">
-                {t('about.executive.badge')}
+                {t('about.executive.badge', { count: committeeMembers.length })}
               </div>
               <button
                 className="inline-flex items-center justify-center rounded-full bg-[#14324d] px-5 py-2.5 text-xs font-bold uppercase tracking-[0.18em] text-white transition hover:bg-[#115b82]"
@@ -115,7 +176,7 @@ function AboutExecutiveCommittee() {
               {currentMembers.map((member) => (
                 <article
                   className="group rounded-[1.15rem] border border-[#dbe7ee] bg-white p-3.5 shadow-[0_12px_30px_rgba(15,23,42,0.04)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_42px_rgba(15,23,42,0.08)]"
-                  key={member.name}
+                  key={member.id}
                 >
                   <div className="overflow-hidden rounded-[0.95rem] bg-[#f2f7fa]">
                     <img
@@ -132,22 +193,22 @@ function AboutExecutiveCommittee() {
                   </p>
                   <div className="mt-3 rounded-[0.9rem] bg-[#f7fbfd] px-3.5 py-3 ring-1 ring-[#dce7ee]">
                     <p className="text-[0.74rem] font-bold uppercase tracking-[0.16em] text-[#115b82]">
-                      {t('about.executive.officeContactLabel')}
+                      {t('about.executive.contactLabel')}
                     </p>
                     <div className="mt-2.5 space-y-2 text-[0.85rem] text-[#5d6f7b]">
                       <a
                         className="flex items-center gap-2 transition hover:text-[#115b82]"
-                        href={`mailto:${officeEmail}`}
+                        href={`mailto:${member.email}`}
                       >
                         <span className="material-symbols-outlined text-[1rem]">mail</span>
-                        <span>{officeEmail}</span>
+                        <span>{member.email}</span>
                       </a>
                       <a
                         className="flex items-center gap-2 transition hover:text-[#115b82]"
-                        href={`tel:${officePhone.replace(/\s+/g, '')}`}
+                        href={`tel:${member.phone.replace(/\s+/g, '')}`}
                       >
                         <span className="material-symbols-outlined text-[1rem]">call</span>
-                        <span>{officePhone}</span>
+                        <span>{member.phone}</span>
                       </a>
                     </div>
                   </div>
@@ -166,7 +227,7 @@ function AboutExecutiveCommittee() {
                   className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#dce7ee] bg-white text-[#115b82] transition hover:border-[#bdd6e4] hover:bg-[#f5fafe]"
                   onClick={() =>
                     setCommitteePage((current) =>
-                      current === 0 ? committeeTotalPages - 1 : current - 1
+                      current === 0 ? committeeTotalPages - 1 : current - 1,
                     )
                   }
                   type="button"
@@ -213,10 +274,7 @@ function AboutExecutiveCommittee() {
           onClick={() => setIsDirectoryOpen(false)}
           role="dialog"
         >
-          <div
-            className="relative w-full max-w-6xl"
-            onClick={(event) => event.stopPropagation()}
-          >
+          <div className="relative w-full max-w-6xl" onClick={(event) => event.stopPropagation()}>
             <button
               aria-label={t('about.executive.closeModal')}
               className="absolute right-3 top-3 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/92 text-[#14324d] shadow-[0_12px_24px_rgba(15,23,42,0.14)] transition hover:bg-white"
@@ -241,7 +299,7 @@ function AboutExecutiveCommittee() {
                 {committeeMembers.map((member) => (
                   <article
                     className="rounded-[1.15rem] border border-[#dbe7ee] bg-[#fbfdff] p-4"
-                    key={`directory-${member.name}`}
+                    key={`directory-${member.id}`}
                   >
                     <div className="flex items-start gap-4">
                       <img
@@ -257,22 +315,17 @@ function AboutExecutiveCommittee() {
                           {member.role}
                         </p>
                         <p className="mt-3 text-[0.72rem] font-bold uppercase tracking-[0.16em] text-[#115b82]">
-                          {t('about.executive.officeContactLabel')}
+                          {t('about.executive.contactLabel')}
                         </p>
-                        <div className="mt-2 space-y-2 text-[0.88rem] text-[#5d6f7b]">
-                          <a
-                            className="flex items-center gap-2 transition hover:text-[#115b82]"
-                            href={`mailto:${officeEmail}`}
-                          >
-                            <span className="material-symbols-outlined text-[1rem]">mail</span>
-                            <span className="truncate">{officeEmail}</span>
+                        <div className="mt-2 space-y-1.5 text-[0.85rem] text-[#5d6f7b]">
+                          <a className="block transition hover:text-[#115b82]" href={`mailto:${member.email}`}>
+                            {member.email}
                           </a>
                           <a
-                            className="flex items-center gap-2 transition hover:text-[#115b82]"
-                            href={`tel:${officePhone.replace(/\s+/g, '')}`}
+                            className="block transition hover:text-[#115b82]"
+                            href={`tel:${member.phone.replace(/\s+/g, '')}`}
                           >
-                            <span className="material-symbols-outlined text-[1rem]">call</span>
-                            <span>{officePhone}</span>
+                            {member.phone}
                           </a>
                         </div>
                       </div>

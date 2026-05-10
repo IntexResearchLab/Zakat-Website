@@ -1,6 +1,7 @@
 import About from './pages/About'
 import AdminAuth from './pages/AdminAuth'
 import AdminDashboard from './pages/AdminDashboard'
+import AdminExecutives from './pages/AdminExecutives'
 import AdminMagazines from './pages/AdminMagazines'
 import AdminStats from './pages/AdminStats'
 import AlokayonSchool from './pages/AlokayonSchool'
@@ -51,6 +52,14 @@ function App() {
             element={
               <AdminRouteGuard mode="protected">
                 <AdminMagazines />
+              </AdminRouteGuard>
+            }
+          />
+          <Route
+            path="/admin/executives"
+            element={
+              <AdminRouteGuard mode="protected">
+                <AdminExecutives />
               </AdminRouteGuard>
             }
           />

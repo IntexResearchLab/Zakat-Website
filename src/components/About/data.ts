@@ -32,6 +32,9 @@ type PurposeSection = {
 type CommitteeMember = {
   name: string
   role: string
+  email?: string
+  phone?: string
+  image?: string
 }
 
 const committeeImages = [
@@ -76,7 +79,7 @@ export const getCommitteeMembers = (t: TFunction) => {
 
   return members.map((member, index) => ({
     ...member,
-    image: committeeImages[index % committeeImages.length],
+    image: member.image ?? committeeImages[index % committeeImages.length],
   }))
 }
 
