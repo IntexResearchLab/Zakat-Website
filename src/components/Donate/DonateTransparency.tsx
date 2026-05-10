@@ -1,9 +1,11 @@
 import { useTranslation } from 'react-i18next'
 import Reveal from '../reusables/Reveal'
 import { getDonateTransparencySummary } from '../../content/stats'
+import { usePublicStats } from '../../lib/publicStats'
 
 function DonateTransparency() {
   const { t } = useTranslation()
+  usePublicStats()
   const summary = getDonateTransparencySummary(t)
   const breakdown = t('donate.transparency.breakdown', {
     returnObjects: true,

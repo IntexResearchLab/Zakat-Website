@@ -1,9 +1,11 @@
 import Reveal from '../reusables/Reveal'
 import { useTranslation } from 'react-i18next'
 import { getMadrasaImpactStats } from './data'
+import { usePublicStats } from '../../lib/publicStats'
 
 function MadrasaImpactStrip() {
   const { t } = useTranslation()
+  usePublicStats()
   const madrasaImpactStats = getMadrasaImpactStats(t)
 
   return (

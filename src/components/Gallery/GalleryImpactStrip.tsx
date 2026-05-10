@@ -1,9 +1,11 @@
 import { useTranslation } from 'react-i18next'
 import Reveal from '../reusables/Reveal'
 import { getGalleryImpactStats } from '../../content/stats'
+import { usePublicStats } from '../../lib/publicStats'
 
 function GalleryImpactStrip() {
   const { t } = useTranslation()
+  usePublicStats()
   const stats = getGalleryImpactStats(t)
 
   return (

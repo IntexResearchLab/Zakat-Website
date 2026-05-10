@@ -1,9 +1,11 @@
 import Reveal from '../reusables/Reveal'
 import { useTranslation } from 'react-i18next'
 import { getProgramStats } from './data'
+import { usePublicStats } from '../../lib/publicStats'
 
 function ProgramsHero() {
   const { t } = useTranslation()
+  usePublicStats()
   const programStats = getProgramStats(t)
 
   return (

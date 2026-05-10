@@ -2293,6 +2293,11 @@
         "icon": "magazines"
       },
       {
+        "label": "Public Stats",
+        "href": "/admin/stats",
+        "icon": "stats"
+      },
+      {
         "label": "Pages",
         "href": "/admin/pages",
         "icon": "pages"
@@ -2481,6 +2486,45 @@
         "title": "Alokayon Magazine 2025",
         "year": "2025",
         "description": "A concise summary of what readers will find in this issue."
+      }
+    },
+    "stats": {
+      "eyebrow": "Public Statistics",
+      "title": "Manage website impact figures",
+      "description": "Update the public-facing numbers shown across the website, then let the live pages refresh from Supabase with the latest values.",
+      "headerCardLabel": "Tracked figures",
+      "headerCardContext": "Statistics currently managed for the public website experience.",
+      "libraryTitle": "Statistics inventory",
+      "libraryIntro": "Each figure below maps to one of the public impact sections across Home, Programs, School, Madrasa, Donate, Gallery, and Magazine.",
+      "refresh": "Refresh",
+      "loading": "Loading public stats from Supabase...",
+      "validationError": "Please enter a value before saving this stat.",
+      "saveSuccess": "{{count}} statistic updated successfully.",
+      "valueLabel": "Display value",
+      "notUpdatedYet": "Not updated yet",
+      "unsavedChanges": "{{count}} unsaved change",
+      "unsavedChanges_other": "{{count}} unsaved changes",
+      "pendingChange": "Pending change",
+      "resetButton": "Reset Changes",
+      "savingAll": "Saving...",
+      "saveAllButton": "Save All Changes",
+      "groups": {
+        "organization": {
+          "eyebrow": "Core Organization",
+          "title": "Organization-wide figures"
+        },
+        "school": {
+          "eyebrow": "Pathshala",
+          "title": "Alokayon School figures"
+        },
+        "madrasa": {
+          "eyebrow": "Madrasa",
+          "title": "Madrasa figures"
+        },
+        "finance": {
+          "eyebrow": "Finance",
+          "title": "Financial snapshot"
+        }
       }
     }
   }

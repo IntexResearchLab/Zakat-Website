@@ -1,9 +1,11 @@
 import Reveal from '../reusables/Reveal'
 import { useTranslation } from 'react-i18next'
 import { getImpactHighlights } from './data'
+import { usePublicStats } from '../../lib/publicStats'
 
 function ProgramsImpact() {
   const { t } = useTranslation()
+  usePublicStats()
   const impactHighlights = getImpactHighlights(t)
 
   return (

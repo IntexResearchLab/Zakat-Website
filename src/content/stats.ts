@@ -17,6 +17,17 @@ type ProgramCardTranslation = {
   icon: string
 }
 
+type UiStat = {
+  value: string
+  label: string
+}
+
+type UiOutcome = {
+  year: string
+  value: string
+  label: string
+}
+
 export const statsInventory = {
   organization: {
     foundedYear: {
@@ -53,7 +64,8 @@ export const statsInventory = {
     },
     livelihoodsDistributed: {
       value: '500+',
-      description: 'Livelihood assets distributed, including ducks, goats, sewing machines, and similar tools.',
+      description:
+        'Livelihood assets distributed, including ducks, goats, sewing machines, and similar tools.',
     },
     annualDistribution: {
       value: '1.3M+ BDT',
@@ -120,30 +132,74 @@ export const statsInventory = {
   },
 } as const satisfies Record<string, Record<string, StatInventoryEntry>>
 
-type UiStat = {
-  value: string
-  label: string
+export type PublicStatsKey = {
+  [Group in keyof typeof statsInventory]: keyof (typeof statsInventory)[Group]
+}[keyof typeof statsInventory]
+
+export type PublicStatsGroup = keyof typeof statsInventory
+
+export type PublicStatsRecord = Record<PublicStatsKey, string>
+
+const defaultStatsMap = Object.entries(statsInventory).reduce((accumulator, [, entries]) => {
+  Object.entries(entries).forEach(([key, entry]) => {
+    accumulator[key as PublicStatsKey] = entry.value
+  })
+  return accumulator
+}, {} as PublicStatsRecord)
+
+let currentStatsMap: PublicStatsRecord = { ...defaultStatsMap }
+
+export const getDefaultStatsMap = () => ({ ...defaultStatsMap })
+
+export const getCurrentStatsMap = () => ({ ...currentStatsMap })
+
+export const setCurrentStatsMap = (nextMap: Partial<Record<PublicStatsKey, string>>) => {
+  currentStatsMap = {
+    ...defaultStatsMap,
+    ...nextMap,
+  }
 }
 
-type UiOutcome = {
-  year: string
-  value: string
-  label: string
+export const resetCurrentStatsMap = () => {
+  currentStatsMap = { ...defaultStatsMap }
 }
 
-export const getHomeImpactStats = (t: TFunction): UiStat[] => [
-  ...(
-    t('home.impact.stats', { returnObjects: true }) as LabelItem[]
-  ).map((item, index) => ({
+export const getStatValue = (key: PublicStatsKey) =>
+  currentStatsMap[key] ?? defaultStatsMap[key]
+
+export type PublicStatAdminRow = {
+  key: PublicStatsKey
+  value: string
+  description: string
+  groupName: PublicStatsGroup
+  sortOrder: number
+  isActive: boolean
+}
+
+export const getStatsInventoryRows = (): PublicStatAdminRow[] =>
+  (Object.entries(statsInventory) as Array<
+    [PublicStatsGroup, Record<string, StatInventoryEntry>]
+  >).flatMap(([groupName, entries]) =>
+    Object.entries(entries).map(([key, entry], index) => ({
+      key: key as PublicStatsKey,
+      value: entry.value,
+      description: entry.description,
+      groupName,
+      sortOrder: index + 1,
+      isActive: true,
+    })),
+  )
+
+export const getHomeImpactStats = (t: TFunction): UiStat[] =>
+  (t('home.impact.stats', { returnObjects: true }) as LabelItem[]).map((item, index) => ({
     value: [
-      statsInventory.organization.studentsSupported.value,
-      statsInventory.organization.annualDistribution.value,
-      statsInventory.organization.widowsSupported.value,
-      statsInventory.organization.livelihoodsDistributed.value,
+      getStatValue('studentsSupported'),
+      getStatValue('annualDistribution'),
+      getStatValue('widowsSupported'),
+      getStatValue('livelihoodsDistributed'),
     ][index],
     label: item.label,
-  })),
-]
+  }))
 
 export const getHomeSignatureProgramStats = (t: TFunction) => {
   const cards = t('home.impact.programCards', { returnObjects: true }) as ProgramCardTranslation[]
@@ -152,155 +208,110 @@ export const getHomeSignatureProgramStats = (t: TFunction) => {
     ...card,
     microStat:
       index === 0
-        ? `${statsInventory.school.childrenLearning.value} children learning`
-        : `${statsInventory.madrasa.studentsEnrolled.value} students enrolled`,
+        ? `${getStatValue('childrenLearning')} children learning`
+        : `${getStatValue('studentsEnrolled')} students enrolled`,
   }))
 }
 
-export const getAboutOverviewStats = (t: TFunction): UiStat[] => [
-  ...(
-    t('about.stats', { returnObjects: true }) as LabelItem[]
-  ).map((item, index) => ({
+export const getAboutOverviewStats = (t: TFunction): UiStat[] =>
+  (t('about.stats', { returnObjects: true }) as LabelItem[]).map((item, index) => ({
     value: [
-      statsInventory.organization.foundedYear.value,
-      statsInventory.organization.studentsSupported.value,
-      statsInventory.organization.familiesAssisted.value,
-      statsInventory.organization.programsRunning.value,
+      getStatValue('foundedYear'),
+      getStatValue('studentsSupported'),
+      getStatValue('familiesAssisted'),
+      getStatValue('programsRunning'),
     ][index],
     label: item.label,
-  })),
-]
+  }))
 
-export const getProgramHeroStats = (t: TFunction): UiStat[] => [
-  ...(
-    t('programs.hero.stats', { returnObjects: true }) as LabelItem[]
-  ).map((item, index) => ({
-    value: [
-      statsInventory.organization.studentsSupported.value,
-      statsInventory.organization.familiesAssisted.value,
-    ][index],
+export const getProgramHeroStats = (t: TFunction): UiStat[] =>
+  (t('programs.hero.stats', { returnObjects: true }) as LabelItem[]).map((item, index) => ({
+    value: [getStatValue('studentsSupported'), getStatValue('familiesAssisted')][index],
     label: item.label,
-  })),
-]
+  }))
 
-export const getFeaturedSchoolStats = (t: TFunction): UiStat[] => [
-  ...(
-    t('programs.featured.stats', { returnObjects: true }) as LabelItem[]
-  ).map((item, index) => ({
-    value: [
-      statsInventory.school.childrenLearning.value,
-      statsInventory.school.formalLaunchYear.value,
-      statsInventory.school.totalAdmissions.value,
-    ][index],
+export const getFeaturedSchoolStats = (t: TFunction): UiStat[] =>
+  (t('programs.featured.stats', { returnObjects: true }) as LabelItem[]).map((item, index) => ({
+    value: [getStatValue('childrenLearning'), getStatValue('formalLaunchYear'), getStatValue('totalAdmissions')][index],
     label: item.label,
-  })),
-]
+  }))
 
-export const getFeaturedMadrasaStats = (t: TFunction): UiStat[] => [
-  ...(
-    t('programs.featuredMadrasa.stats', { returnObjects: true }) as LabelItem[]
-  ).map((item, index) => ({
-    value: [
-      statsInventory.madrasa.studentsEnrolled.value,
-      statsInventory.madrasa.hifzStudents.value,
-      statsInventory.organization.registeredYear.value,
-    ][index],
-    label: item.label,
-  })),
-]
+export const getFeaturedMadrasaStats = (t: TFunction): UiStat[] =>
+  (t('programs.featuredMadrasa.stats', { returnObjects: true }) as LabelItem[]).map(
+    (item, index) => ({
+      value: [getStatValue('studentsEnrolled'), getStatValue('hifzStudents'), getStatValue('registeredYear')][index],
+      label: item.label,
+    }),
+  )
 
-export const getProgramsImpactStats = (t: TFunction): UiStat[] => [
-  ...(
-    t('programs.impact.items', { returnObjects: true }) as LabelItem[]
-  ).map((item, index) => ({
+export const getProgramsImpactStats = (t: TFunction): UiStat[] =>
+  (t('programs.impact.items', { returnObjects: true }) as LabelItem[]).map((item, index) => ({
     value: [
-      statsInventory.organization.studentsSupported.value,
-      statsInventory.organization.elderlySupported.value,
-      statsInventory.organization.widowsSupported.value,
+      getStatValue('studentsSupported'),
+      getStatValue('elderlySupported'),
+      getStatValue('widowsSupported'),
       '25+',
     ][index],
     label: item.label,
-  })),
-]
+  }))
 
-export const getSchoolImpactStatsFromInventory = (t: TFunction): UiStat[] => [
-  ...(
-    t('school.impact.items', { returnObjects: true }) as LabelItem[]
-  ).map((item, index) => ({
+export const getSchoolImpactStatsFromInventory = (t: TFunction): UiStat[] =>
+  (t('school.impact.items', { returnObjects: true }) as LabelItem[]).map((item, index) => ({
     value: [
-      statsInventory.school.childrenLearning.value,
-      statsInventory.school.formalLaunchDate.value,
-      statsInventory.school.totalAdmissions.value,
+      getStatValue('childrenLearning'),
+      getStatValue('formalLaunchDate'),
+      getStatValue('totalAdmissions'),
       'Arabic + Bengali',
     ][index],
     label: item.label,
-  })),
-]
+  }))
 
-export const getSchoolOutcomesFromInventory = (t: TFunction): UiOutcome[] => [
-  ...(
-    t('school.outcomes.items', { returnObjects: true }) as LabelItem[]
-  ).map((item, index) => ({
+export const getSchoolOutcomesFromInventory = (t: TFunction): UiOutcome[] =>
+  (t('school.outcomes.items', { returnObjects: true }) as LabelItem[]).map((item, index) => ({
     year: ['2023', '2024', '2025'][index],
-    value: [
-      statsInventory.school.admissions2023.value,
-      statsInventory.school.admissions2024.value,
-      statsInventory.school.admissions2025.value,
-    ][index],
+    value: [getStatValue('admissions2023'), getStatValue('admissions2024'), getStatValue('admissions2025')][index],
     label: item.label,
-  })),
-]
+  }))
 
-export const getMadrasaImpactStatsFromInventory = (t: TFunction): UiStat[] => [
-  ...(
-    t('madrasa.impact.items', { returnObjects: true }) as LabelItem[]
-  ).map((item, index) => ({
+export const getMadrasaImpactStatsFromInventory = (t: TFunction): UiStat[] =>
+  (t('madrasa.impact.items', { returnObjects: true }) as LabelItem[]).map((item, index) => ({
     value: [
-      statsInventory.madrasa.studentsEnrolled.value,
-      statsInventory.madrasa.underprivilegedBackground.value,
-      statsInventory.madrasa.hifzStudents.value,
+      getStatValue('studentsEnrolled'),
+      getStatValue('underprivilegedBackground'),
+      getStatValue('hifzStudents'),
       'Arabic + Bengali',
     ][index],
     label: item.label,
-  })),
-]
+  }))
 
-export const getTransparencyFinancialNumbers = (t: TFunction): UiStat[] => [
-  ...(
-    t('transparency.financial.numbers', { returnObjects: true }) as LabelItem[]
-  ).map((item, index) => ({
+export const getTransparencyFinancialNumbers = (t: TFunction): UiStat[] =>
+  (t('transparency.financial.numbers', { returnObjects: true }) as LabelItem[]).map(
+    (item, index) => ({
+      value: [getStatValue('receipts2024to2025'), getStatValue('distribution2024to2025')][index],
+      label: item.label,
+    }),
+  )
+
+export const getGalleryImpactStats = (t: TFunction): UiStat[] =>
+  (t('galleryPage.impact.stats', { returnObjects: true }) as LabelItem[]).map((item, index) => ({
     value: [
-      statsInventory.finance.receipts2024to2025.value,
-      statsInventory.finance.distribution2024to2025.value,
+      getStatValue('studentsSupported'),
+      getStatValue('annualDistribution'),
+      getStatValue('livelihoodsDistributed'),
+      `Since ${getStatValue('foundedYear')}`,
     ][index],
     label: item.label,
-  })),
-]
+  }))
 
-export const getGalleryImpactStats = (t: TFunction): UiStat[] => [
-  ...(
-    t('galleryPage.impact.stats', { returnObjects: true }) as LabelItem[]
-  ).map((item, index) => ({
-    value: [
-      statsInventory.organization.studentsSupported.value,
-      statsInventory.organization.annualDistribution.value,
-      statsInventory.organization.livelihoodsDistributed.value,
-      `Since ${statsInventory.organization.foundedYear.value}`,
-    ][index],
-    label: item.label,
-  })),
-]
-
-export const getDonateTransparencySummary = (t: TFunction): UiStat[] => [
-  ...(
-    t('donate.transparency.summary', { returnObjects: true }) as LabelItem[]
-  ).map((item, index) => ({
-    value: [
-      statsInventory.finance.receipts2024to2025.value,
-      statsInventory.finance.distribution2024to2025.value,
-      statsInventory.organization.beneficiariesReached.value,
-      statsInventory.organization.studentsSupported.value,
-    ][index],
-    label: item.label,
-  })),
-]
+export const getDonateTransparencySummary = (t: TFunction): UiStat[] =>
+  (t('donate.transparency.summary', { returnObjects: true }) as LabelItem[]).map(
+    (item, index) => ({
+      value: [
+        getStatValue('receipts2024to2025'),
+        getStatValue('distribution2024to2025'),
+        getStatValue('beneficiariesReached'),
+        getStatValue('studentsSupported'),
+      ][index],
+      label: item.label,
+    }),
+  )

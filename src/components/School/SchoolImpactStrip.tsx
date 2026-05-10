@@ -1,9 +1,11 @@
 import Reveal from '../reusables/Reveal'
 import { useTranslation } from 'react-i18next'
 import { getSchoolImpactStats } from './data'
+import { usePublicStats } from '../../lib/publicStats'
 
 function SchoolImpactStrip() {
   const { t } = useTranslation()
+  usePublicStats()
   const schoolImpactStats = getSchoolImpactStats(t)
 
   return (

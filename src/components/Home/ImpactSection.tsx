@@ -2,9 +2,11 @@ import Reveal from '../reusables/Reveal'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { getHomeImpactStats, getHomeSignatureProgramStats } from '../../content/stats'
+import { usePublicStats } from '../../lib/publicStats'
 
 function ImpactSection() {
   const { t } = useTranslation()
+  usePublicStats()
   const primaryImpactStats = getHomeImpactStats(t)
   const signaturePrograms = getHomeSignatureProgramStats(t)
 

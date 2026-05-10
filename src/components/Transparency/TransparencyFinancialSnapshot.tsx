@@ -1,9 +1,11 @@
 import { useTranslation } from 'react-i18next'
 import Reveal from '../reusables/Reveal'
 import { getTransparencyFinancialNumbers } from '../../content/stats'
+import { usePublicStats } from '../../lib/publicStats'
 
 function TransparencyFinancialSnapshot() {
   const { t } = useTranslation()
+  usePublicStats()
   const numbers = getTransparencyFinancialNumbers(t)
   const breakdown = t('transparency.financial.breakdown', {
     returnObjects: true,
