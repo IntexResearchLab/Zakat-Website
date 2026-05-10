@@ -1,11 +1,10 @@
 import { useTranslation } from 'react-i18next'
 import Reveal from '../reusables/Reveal'
+import { getGalleryImpactStats } from '../../content/stats'
 
 function GalleryImpactStrip() {
   const { t } = useTranslation()
-  const stats = t('galleryPage.impact.stats', {
-    returnObjects: true,
-  }) as Array<{ value: string; label: string }>
+  const stats = getGalleryImpactStats(t)
 
   return (
     <section className="bg-white py-18 sm:py-22">

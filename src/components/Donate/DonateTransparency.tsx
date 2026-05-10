@@ -1,11 +1,10 @@
 import { useTranslation } from 'react-i18next'
 import Reveal from '../reusables/Reveal'
+import { getDonateTransparencySummary } from '../../content/stats'
 
 function DonateTransparency() {
   const { t } = useTranslation()
-  const summary = t('donate.transparency.summary', {
-    returnObjects: true,
-  }) as Array<{ value: string; label: string }>
+  const summary = getDonateTransparencySummary(t)
   const breakdown = t('donate.transparency.breakdown', {
     returnObjects: true,
   }) as Array<{ label: string; value: string; width: string }>

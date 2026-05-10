@@ -1815,26 +1815,18 @@
     }
   },
   "transparency": {
-    "issues": [
-      {
-        "year": "2025",
-        "title": "Alokayon Magazine 2025",
-        "description": "Includes organizational profile, program highlights, donor and beneficiary reflections, financial statement, audit report, registration certificate, and visual activity reporting.",
-        "pdfUrl": "/assets/magazine/Magazine.pdf",
-        "sections": [
-          "Founder's message",
-          "Activity summary",
-          "Distinguished comments",
-          "Student reflections",
-          "Alokayon profile",
-          "Poverty alleviation case study",
-          "Alokayon School",
-          "Hafezi Madrasa",
-          "Financial statement",
-          "Audit report",
-          "Registration certificate"
-        ]
-      }
+    "defaultSections": [
+      "Founder's message",
+      "Activity summary",
+      "Distinguished comments",
+      "Student reflections",
+      "Alokayon profile",
+      "Poverty alleviation case study",
+      "Alokayon School",
+      "Hafezi Madrasa",
+      "Financial statement",
+      "Audit report",
+      "Registration certificate"
     ],
     "hero": {
       "eyebrow": "Transparency & Publications",
@@ -2002,6 +1994,13 @@
       "description": "Read the selected Alokayon publication directly in your browser, or download it for offline review.",
       "back": "Back to Transparency",
       "download": "Download PDF"
+    },
+    "states": {
+      "loading": "Loading published magazines...",
+      "errorTitle": "We couldn't load the magazine library",
+      "errorDescription": "Please try again in a moment, or come back after checking the public access settings for the magazines table.",
+      "emptyTitle": "No magazines published yet",
+      "emptyDescription": "Once issues are added in the admin dashboard, they will appear here automatically."
     }
   },
   "donors": {

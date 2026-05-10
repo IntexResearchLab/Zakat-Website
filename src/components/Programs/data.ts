@@ -1,4 +1,10 @@
 import type { TFunction } from 'i18next'
+import {
+  getFeaturedMadrasaStats,
+  getFeaturedSchoolStats,
+  getProgramHeroStats,
+  getProgramsImpactStats,
+} from '../../content/stats'
 
 type Stat = {
   value: string
@@ -66,8 +72,7 @@ const galleryImageMap = [
 
 const gallerySpanMap = ['large', 'small', 'medium', 'medium', 'small', 'small', 'medium', 'small']
 
-export const getProgramStats = (t: TFunction) =>
-  t('programs.hero.stats', { returnObjects: true }) as Stat[]
+export const getProgramStats = (t: TFunction) => getProgramHeroStats(t)
 
 export const getProgramCategories = (t: TFunction) =>
   t('programs.categories.items', { returnObjects: true }) as ProgramCategory[]
@@ -77,11 +82,13 @@ export const getFilterTabs = (t: TFunction) =>
 
 export const getFeaturedProgram = (t: TFunction) => ({
   ...(t('programs.featured', { returnObjects: true }) as FeaturedProgram),
+  stats: getFeaturedSchoolStats(t),
   image: '/assets/home/carousel-1.jpg',
 })
 
 export const getFeaturedMadrasa = (t: TFunction) => ({
   ...(t('programs.featuredMadrasa', { returnObjects: true }) as FeaturedProgram),
+  stats: getFeaturedMadrasaStats(t),
   image: '/assets/about/about-us.webp',
 })
 
@@ -108,8 +115,7 @@ export const getGalleryItems = (t: TFunction) => {
   }))
 }
 
-export const getImpactHighlights = (t: TFunction) =>
-  t('programs.impact.items', { returnObjects: true }) as Stat[]
+export const getImpactHighlights = (t: TFunction) => getProgramsImpactStats(t)
 
 export const getProgramStories = (t: TFunction) =>
   t('programs.stories.items', { returnObjects: true }) as Story[]

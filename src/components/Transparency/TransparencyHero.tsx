@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import Reveal from '../reusables/Reveal'
 import type { MagazineIssue } from './types'
+import { downloadFile } from '../../lib/download'
 
 type TransparencyHeroProps = {
   latestIssue: MagazineIssue
@@ -38,13 +39,18 @@ function TransparencyHero({ latestIssue }: TransparencyHeroProps) {
             >
               {t('transparency.hero.primaryCta')}
             </Link>
-            <a
+            <button
               className="hover-lift-soft inline-flex items-center justify-center rounded-full border border-[#d7e6ef] bg-white px-7 py-3 text-sm font-bold uppercase tracking-[0.16em] text-[#115b82] transition hover:border-[#bdd6e4] hover:bg-[#f6fbff]"
-              download
-              href={latestIssue.pdfUrl}
+              onClick={() =>
+                void downloadFile(
+                  latestIssue.pdfUrl,
+                  `${latestIssue.title} ${latestIssue.year}.pdf`,
+                )
+              }
+              type="button"
             >
               {t('transparency.hero.secondaryCta')}
-            </a>
+            </button>
           </div>
         </Reveal>
 
@@ -52,17 +58,25 @@ function TransparencyHero({ latestIssue }: TransparencyHeroProps) {
           <div className="relative rounded-[1.7rem] border border-[#d8e5ec] bg-white p-6 shadow-[0_24px_60px_rgba(15,23,42,0.1)] sm:p-8">
             <div className="rounded-[1.25rem] bg-[#f4f9fc] p-6">
               <div className="flex aspect-[4/3] items-center justify-center rounded-[1rem] border border-[#dbe8ef] bg-white shadow-inner">
-                <div className="text-center">
-                  <span className="material-symbols-outlined text-[4rem] text-[#115b82]">
-                    picture_as_pdf
-                  </span>
-                  <p className="mt-4 text-sm font-bold uppercase tracking-[0.18em] text-[#115b82]">
-                    {latestIssue.year}
-                  </p>
-                  <p className="mx-auto mt-3 max-w-xs font-serif text-[2rem] leading-[1.05] tracking-[-0.04em] text-[#14324d]">
-                    {latestIssue.title}
-                  </p>
-                </div>
+                {latestIssue.coverImageUrl ? (
+                  <img
+                    alt={latestIssue.title}
+                    className="h-full w-full rounded-[1rem] object-cover"
+                    src={latestIssue.coverImageUrl}
+                  />
+                ) : (
+                  <div className="text-center">
+                    <span className="material-symbols-outlined text-[4rem] text-[#115b82]">
+                      picture_as_pdf
+                    </span>
+                    <p className="mt-4 text-sm font-bold uppercase tracking-[0.18em] text-[#115b82]">
+                      {latestIssue.year}
+                    </p>
+                    <p className="mx-auto mt-3 max-w-xs font-serif text-[2rem] leading-[1.05] tracking-[-0.04em] text-[#14324d]">
+                      {latestIssue.title}
+                    </p>
+                  </div>
+                )}
               </div>
             </div>
             <div className="absolute bottom-5 right-5 rounded-[1rem] border border-white/80 bg-white/92 px-5 py-4 shadow-[0_16px_34px_rgba(15,23,42,0.12)] backdrop-blur-sm">

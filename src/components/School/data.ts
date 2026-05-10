@@ -1,9 +1,8 @@
 import type { TFunction } from 'i18next'
-
-type Stat = {
-  value: string
-  label: string
-}
+import {
+  getSchoolImpactStatsFromInventory,
+  getSchoolOutcomesFromInventory,
+} from '../../content/stats'
 
 type TimelineItem = {
   label: string
@@ -12,12 +11,6 @@ type TimelineItem = {
 
 type GalleryItem = {
   title: string
-}
-
-type Outcome = {
-  year: string
-  value: string
-  label: string
 }
 
 const schoolGalleryImages = [
@@ -29,8 +22,7 @@ const schoolGalleryImages = [
   '/assets/about/about-us.webp',
 ]
 
-export const getSchoolImpactStats = (t: TFunction) =>
-  t('school.impact.items', { returnObjects: true }) as Stat[]
+export const getSchoolImpactStats = (t: TFunction) => getSchoolImpactStatsFromInventory(t)
 
 export const getSchoolTimeline = (t: TFunction) =>
   t('school.founding.timeline', { returnObjects: true }) as TimelineItem[]
@@ -47,8 +39,7 @@ export const getSchoolGallery = (t: TFunction) => {
   }))
 }
 
-export const getSchoolOutcomes = (t: TFunction) =>
-  t('school.outcomes.items', { returnObjects: true }) as Outcome[]
+export const getSchoolOutcomes = (t: TFunction) => getSchoolOutcomesFromInventory(t)
 
 export const getSchoolTrustBadges = (t: TFunction) =>
   t('school.trust.badges', { returnObjects: true }) as string[]

@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import Reveal from '../reusables/Reveal'
 import type { MagazineIssue, TransparencyDocument } from './types'
+import { downloadFile } from '../../lib/download'
 
 type TransparencyDocumentsProps = {
   selectedIssue: MagazineIssue
@@ -51,13 +52,18 @@ function TransparencyDocuments({ selectedIssue }: TransparencyDocumentsProps) {
                 >
                   {t('transparency.documents.view')}
                 </a>
-                <a
+                <button
                   className="text-[0.78rem] font-bold uppercase tracking-[0.16em] text-[#647783] transition hover:text-[#14324d]"
-                  download
-                  href={selectedIssue.pdfUrl}
+                  onClick={() =>
+                    void downloadFile(
+                      selectedIssue.pdfUrl,
+                      `${selectedIssue.title} ${selectedIssue.year}.pdf`,
+                    )
+                  }
+                  type="button"
                 >
                   {t('transparency.documents.download')}
-                </a>
+                </button>
               </div>
             </article>
           ))}

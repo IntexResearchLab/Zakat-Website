@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import AdminShellLayout from '../components/Admin/AdminShellLayout'
+import { invalidateMagazineRowsCache } from '../lib/magazines'
 import { supabase } from '../utils/supabase'
 
 type Magazine = {
@@ -215,6 +216,7 @@ function AdminMagazines() {
       resetForm()
     }
 
+    invalidateMagazineRowsCache()
     setSuccessMessage(t('admin.magazines.deleteSuccess'))
     setDeletingId(null)
     await loadMagazines()
@@ -329,6 +331,7 @@ function AdminMagazines() {
         ? t('admin.magazines.updateSuccess')
         : t('admin.magazines.createSuccess'),
     )
+    invalidateMagazineRowsCache()
     resetForm()
     setIsSaving(false)
     await loadMagazines()

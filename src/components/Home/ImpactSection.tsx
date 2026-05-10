@@ -1,22 +1,12 @@
 import Reveal from '../reusables/Reveal'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
+import { getHomeImpactStats, getHomeSignatureProgramStats } from '../../content/stats'
 
 function ImpactSection() {
   const { t } = useTranslation()
-  const primaryImpactStats = t('home.impact.stats', {
-    returnObjects: true,
-  }) as Array<{ value: string; label: string }>
-  const signaturePrograms = t('home.impact.programCards', {
-    returnObjects: true,
-  }) as Array<{
-    title: string
-    description: string
-    microStat: string
-    cta: string
-    href: string
-    icon: string
-  }>
+  const primaryImpactStats = getHomeImpactStats(t)
+  const signaturePrograms = getHomeSignatureProgramStats(t)
 
   return (
     <section className="bg-[#f4f7f2] py-12 sm:py-14" id="home-impact">
