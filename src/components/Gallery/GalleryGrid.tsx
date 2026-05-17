@@ -1,7 +1,17 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import Reveal from '../reusables/Reveal'
-import { getGalleryFilters, getGalleryItems, type GalleryItem } from './data'
+import {
+  getGalleryCategoryLabel,
+  getGalleryFilters,
+  getGalleryItems,
+  type GalleryItem,
+} from './data'
+import {
+  getCachedGalleryItems,
+  loadGalleryItems,
+  type GalleryRecord,
+} from '../../lib/galleryItems'
 
 function getSpanClass(span: GalleryItem['span']) {
   if (span === 'large') {
@@ -16,9 +26,49 @@ function getSpanClass(span: GalleryItem['span']) {
 function GalleryGrid() {
   const { t } = useTranslation()
   const filters = getGalleryFilters(t)
-  const items = getGalleryItems(t)
+  const fallbackItems = getGalleryItems(t)
+  const [remoteItems, setRemoteItems] = useState<GalleryRecord[]>(() => getCachedGalleryItems() ?? [])
   const [activeFilter, setActiveFilter] = useState('all')
   const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null)
+
+  useEffect(() => {
+    let isMounted = true
+
+    const syncGalleryItems = async () => {
+      try {
+        const rows = await loadGalleryItems()
+        if (isMounted) {
+          setRemoteItems(rows)
+        }
+      } catch {
+        // The fallback gallery content is intentionally kept in code.
+      }
+    }
+
+    void syncGalleryItems()
+
+    return () => {
+      isMounted = false
+    }
+  }, [])
+
+  const items = useMemo<GalleryItem[]>(
+    () =>
+      remoteItems.length
+        ? remoteItems.map((item) => ({
+            category: getGalleryCategoryLabel(t, item.filter_id),
+            title: item.title,
+            description: item.description,
+            story: item.story,
+            location: item.location,
+            year: item.year,
+            image: item.image_url,
+            filterId: item.filter_id,
+            span: item.span,
+          }))
+        : fallbackItems,
+    [fallbackItems, remoteItems, t],
+  )
 
   useEffect(() => {
     if (!selectedItem) {

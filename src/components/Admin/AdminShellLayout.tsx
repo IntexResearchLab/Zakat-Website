@@ -84,10 +84,36 @@ function AdminShellLayout({
             })}
           </nav>
 
-          <div className="mt-auto rounded-[1.2rem] border border-white/10 bg-white/6 p-5">
-            <p className="text-[0.9rem] leading-[1.7] text-[#d8e4eb]">
-              {t('admin.dashboard.sidebar.footer')}
-            </p>
+          <div className="mt-auto space-y-4">
+            <div className="rounded-[1rem] border border-white/10 bg-white/6 px-4 py-4">
+              <p className="text-[0.72rem] font-bold uppercase tracking-[0.16em] text-[#9fc2d7]">
+                {t('admin.dashboard.dateLabel')}
+              </p>
+              <p className="mt-2 text-[0.98rem] font-semibold text-white">
+                {new Date().toLocaleDateString('en-GB', {
+                  day: '2-digit',
+                  month: 'long',
+                  year: 'numeric',
+                })}
+              </p>
+            </div>
+
+            <button
+              className="w-full rounded-full border border-white/12 bg-white/8 px-5 py-3 text-sm font-bold uppercase tracking-[0.16em] text-white transition hover:bg-white/12 disabled:cursor-not-allowed disabled:opacity-70"
+              disabled={isSigningOut}
+              onClick={handleSignOut}
+              type="button"
+            >
+              {isSigningOut
+                ? t('admin.dashboard.signingOut')
+                : t('admin.dashboard.signOut')}
+            </button>
+
+            <div className="rounded-[1.2rem] border border-white/10 bg-white/6 p-5">
+              <p className="text-[0.9rem] leading-[1.7] text-[#d8e4eb]">
+                {t('admin.dashboard.sidebar.footer')}
+              </p>
+            </div>
           </div>
         </aside>
 
@@ -105,31 +131,11 @@ function AdminShellLayout({
               </p>
             </div>
 
-            <div className="flex w-full max-w-sm flex-col gap-3 sm:w-auto sm:min-w-[18rem]">
-              {headerActions}
-              <div className="rounded-[1rem] border border-[#dbe7ee] bg-white px-4 py-3 shadow-[0_10px_28px_rgba(15,23,42,0.04)]">
-                <p className="text-[0.72rem] font-bold uppercase tracking-[0.16em] text-[#115b82]">
-                  {t('admin.dashboard.dateLabel')}
-                </p>
-                <p className="mt-2 text-[0.98rem] font-semibold text-[#14324d]">
-                  {new Date().toLocaleDateString('en-GB', {
-                    day: '2-digit',
-                    month: 'long',
-                    year: 'numeric',
-                  })}
-                </p>
+            {headerActions ? (
+              <div className="flex w-full max-w-sm flex-col gap-3 sm:w-auto sm:min-w-[18rem]">
+                {headerActions}
               </div>
-              <button
-                className="rounded-full border border-[#dbe7ee] bg-white px-5 py-3 text-sm font-bold uppercase tracking-[0.16em] text-[#14324d] shadow-[0_10px_28px_rgba(15,23,42,0.04)] transition hover:border-[#c2d7e6] hover:bg-[#f9fcfe] disabled:cursor-not-allowed disabled:opacity-70"
-                disabled={isSigningOut}
-                onClick={handleSignOut}
-                type="button"
-              >
-                {isSigningOut
-                  ? t('admin.dashboard.signingOut')
-                  : t('admin.dashboard.signOut')}
-              </button>
-            </div>
+            ) : null}
           </div>
 
           {children}

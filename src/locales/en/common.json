@@ -2541,6 +2541,62 @@
         "sortOrder": "1"
       }
     },
+    "gallery": {
+      "eyebrow": "Gallery Manager",
+      "title": "Manage gallery items",
+      "description": "Upload impact images, arrange their layout, and keep the public gallery aligned with real programs and real stories.",
+      "headerCardLabel": "Gallery items",
+      "headerCardContext": "Visual stories currently available on the public gallery page.",
+      "createTitle": "Add a new gallery item",
+      "editTitle": "Edit gallery item",
+      "formIntro": "Each gallery item powers a card and lightbox story on the public gallery page.",
+      "cancelEdit": "Cancel Edit",
+      "saveChanges": "Save Changes",
+      "createButton": "Create Item",
+      "saving": "Saving...",
+      "resetForm": "Reset Form",
+      "validationError": "Please complete the title, description, story, location, and year before saving.",
+      "imageRequired": "Please upload an image for this gallery item.",
+      "createSuccess": "Gallery item created successfully.",
+      "updateSuccess": "Gallery item updated successfully.",
+      "deleteSuccess": "Gallery item deleted successfully.",
+      "deleteConfirmation": "Delete \"{{title}}\" from the gallery?",
+      "libraryTitle": "Gallery library",
+      "libraryIntro": "Review the live gallery items, update their stories, and remove anything that no longer belongs in the public archive.",
+      "refresh": "Refresh",
+      "loading": "Loading gallery items from Supabase...",
+      "emptyState": "No gallery items have been added yet.",
+      "editButton": "Edit",
+      "deleteButton": "Delete",
+      "deleting": "Deleting...",
+      "imageHelp": "Upload the gallery image shown on the public card and lightbox.",
+      "currentImage": "Current image will stay unless you replace it.",
+      "newImageSelected": "New image selected: {{fileName}}",
+      "fields": {
+        "category": "Category",
+        "span": "Card size",
+        "title": "Title",
+        "description": "Card description",
+        "story": "Lightbox story",
+        "location": "Location",
+        "year": "Year / Program",
+        "sortOrder": "Sort order",
+        "image": "Gallery image"
+      },
+      "spans": {
+        "large": "Large",
+        "medium": "Medium",
+        "small": "Small"
+      },
+      "placeholders": {
+        "title": "Children learning together",
+        "description": "Classroom moments that reflect care, routine, and possibility.",
+        "story": "Learning spaces like these help children move from uncertainty toward structure, dignity, and future opportunity.",
+        "location": "Dhaka",
+        "year": "2025",
+        "sortOrder": "1"
+      }
+    },
     "stats": {
       "eyebrow": "Public Statistics",
       "title": "Manage website impact figures",

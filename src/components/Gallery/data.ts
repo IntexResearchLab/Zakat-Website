@@ -80,6 +80,11 @@ export const getGalleryItems = (t: TFunction) => {
   }))
 }
 
+export const getGalleryCategoryLabel = (t: TFunction, filterId: string) => {
+  const filters = getGalleryFilters(t)
+  return filters.find((filter) => filter.id === filterId)?.label ?? filterId
+}
+
 export const getFeaturedStories = (t: TFunction) => {
   const items = t('galleryPage.featured.items', {
     returnObjects: true,
