@@ -3,15 +3,15 @@ import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 
 const programCardImages = [
-  '/assets/home/carousel-1.jpg',
-  '/assets/home/carousel-2.jpg',
-  '/assets/home/carousel-3.jpg',
-  '/assets/about/Donation.jpg',
-  '/assets/home/volunteers-1.jpg',
-  '/assets/about/about-us.webp',
-  '/assets/home/volunteer-2.jpg',
-  '/assets/home/carousel-2.jpg',
-  '/assets/home/carousel-1.jpg',
+  '/assets/programs/School.jpeg',
+  '/assets/programs/Elderly_Care.jpg',
+  '/assets/programs/Widow.jpg',
+  '/assets/programs/Relief.jpg',
+  '/assets/programs/Livelihood.jpeg',
+  '/assets/programs/Elderly_Care.jpg',
+  '/assets/programs/Community.jpg',
+  '/assets/programs/School.jpeg',
+  '/assets/programs/Education.jpeg',
 ]
 
 function ProgramsSection() {

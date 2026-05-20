@@ -43,7 +43,7 @@ function AboutHero() {
               <img
                 alt={t('about.hero.imageAlt')}
                 className="aspect-[5/4] w-full object-cover"
-                src="/assets/about/Donation.jpg"
+                src="/assets/about/Giving.jpg"
               />
             </div>
 

@@ -4,18 +4,12 @@ import AdminShellLayout from './AdminShellLayout'
 
 function AdminDashboardShell() {
   const { t } = useTranslation()
-  const stats = t('admin.dashboard.stats', {
+  const modules = t('admin.dashboard.modules', {
     returnObjects: true,
-  }) as Array<{ label: string; value: string; context: string }>
-  const quickActions = t('admin.dashboard.quickActions', {
+  }) as Array<{ title: string; description: string; href: string; cta: string }>
+  const nextSteps = t('admin.dashboard.nextSteps', {
     returnObjects: true,
   }) as string[]
-  const contentItems = t('admin.dashboard.sections.contentItems', {
-    returnObjects: true,
-  }) as Array<{ title: string; status: string; meta: string }>
-  const donationItems = t('admin.dashboard.sections.donationItems', {
-    returnObjects: true,
-  }) as Array<{ title: string; value: string; meta: string }>
 
   return (
     <AdminShellLayout
@@ -23,132 +17,49 @@ function AdminDashboardShell() {
       eyebrow={t('admin.dashboard.eyebrow')}
       title={t('admin.dashboard.title')}
     >
-          <div className="mt-8">
-            <div className="rounded-[1rem] border border-[#dbe7ee] bg-white px-4 py-3 shadow-[0_10px_28px_rgba(15,23,42,0.04)]">
-              <div className="flex items-center gap-3">
-                <span className="material-symbols-outlined text-[#78909e]">search</span>
-                <input
-                  className="w-full border-none bg-transparent text-[0.98rem] text-[#14324d] outline-none placeholder:text-[#90a3af]"
-                  placeholder={t('admin.dashboard.searchPlaceholder')}
-                  type="text"
-                />
-              </div>
-            </div>
-          </div>
+      <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+        {modules.map((module) => (
+          <article
+            className="rounded-[1.25rem] border border-[#dbe7ee] bg-white p-5 shadow-[0_16px_36px_rgba(15,23,42,0.05)]"
+            key={module.title}
+          >
+            <h2 className="font-serif text-[1.6rem] leading-[1.02] tracking-[-0.03em] text-[#14324d]">
+              {module.title}
+            </h2>
+            <p className="mt-4 text-[0.94rem] leading-[1.7] text-[#6a7c87]">
+              {module.description}
+            </p>
+            <Link
+              className="mt-5 inline-flex items-center gap-2 text-[0.82rem] font-bold uppercase tracking-[0.16em] text-[#115b82] transition hover:gap-3"
+              to={module.href}
+            >
+              {module.cta}
+              <span className="material-symbols-outlined text-[1rem]">arrow_forward</span>
+            </Link>
+          </article>
+        ))}
+      </div>
 
-          <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-            {stats.map((stat) => (
-              <article
-                className="rounded-[1.25rem] border border-[#dbe7ee] bg-white p-5 shadow-[0_16px_36px_rgba(15,23,42,0.05)]"
-                key={stat.label}
+      <div className="mt-8">
+        <section className="rounded-[1.35rem] border border-[#dbe7ee] bg-white p-6 shadow-[0_18px_42px_rgba(15,23,42,0.05)]">
+          <h2 className="font-serif text-[1.8rem] leading-none tracking-[-0.03em] text-[#14324d]">
+            {t('admin.dashboard.nextStepsTitle')}
+          </h2>
+          <div className="mt-6 space-y-4">
+            {nextSteps.map((step) => (
+              <div
+                className="flex items-start gap-3 rounded-[1rem] border border-[#edf3f7] bg-[#fbfdff] px-4 py-4"
+                key={step}
               >
-                <p className="text-[0.8rem] font-bold uppercase tracking-[0.16em] text-[#115b82]">
-                  {stat.label}
-                </p>
-                <p className="mt-4 font-serif text-[2.4rem] leading-none tracking-[-0.05em] text-[#14324d]">
-                  {stat.value}
-                </p>
-                <p className="mt-3 text-[0.9rem] leading-[1.65] text-[#6a7c87]">
-                  {stat.context}
-                </p>
-              </article>
+                <span className="material-symbols-outlined mt-0.5 text-[1rem] text-[#2d8a57]">
+                  task_alt
+                </span>
+                <p className="text-[0.96rem] leading-[1.7] text-[#5f7280]">{step}</p>
+              </div>
             ))}
           </div>
-
-          <div className="mt-8 grid gap-6 xl:grid-cols-[1.1fr_0.9fr]">
-            <section className="rounded-[1.35rem] border border-[#dbe7ee] bg-white p-6 shadow-[0_18px_42px_rgba(15,23,42,0.05)]">
-              <h2 className="font-serif text-[1.8rem] leading-none tracking-[-0.03em] text-[#14324d]">
-                {t('admin.dashboard.sections.contentTitle')}
-              </h2>
-              <div className="mt-6 space-y-4">
-                {contentItems.map((item) => (
-                  <article
-                    className="rounded-[1rem] border border-[#edf3f7] bg-[#fbfdff] px-4 py-4"
-                    key={item.title}
-                  >
-                    <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                      <div>
-                        <h3 className="text-[1rem] font-semibold text-[#14324d]">{item.title}</h3>
-                        <p className="mt-2 text-[0.9rem] leading-[1.65] text-[#6a7c87]">
-                          {item.meta}
-                        </p>
-                      </div>
-                      <span className="inline-flex rounded-full bg-[#edf7fc] px-3 py-1 text-[0.72rem] font-bold uppercase tracking-[0.14em] text-[#115b82]">
-                        {item.status}
-                      </span>
-                    </div>
-                  </article>
-                ))}
-              </div>
-            </section>
-
-            <div className="space-y-6">
-              <section className="rounded-[1.35rem] border border-[#dbe7ee] bg-white p-6 shadow-[0_18px_42px_rgba(15,23,42,0.05)]">
-                <h2 className="font-serif text-[1.8rem] leading-none tracking-[-0.03em] text-[#14324d]">
-                  {t('admin.dashboard.quickActionsTitle')}
-                </h2>
-                <div className="mt-6 grid gap-3">
-                  {quickActions.map((item, index) => {
-                    const isMagazineAction = index === 1
-
-                    if (isMagazineAction) {
-                      return (
-                        <Link
-                          className="flex items-center justify-between rounded-[1rem] border border-[#dbe7ee] bg-[#fbfdff] px-4 py-4 text-left transition hover:border-[#c6dae7] hover:bg-white"
-                          key={item}
-                          to="/admin/magazines"
-                        >
-                          <span className="text-[0.96rem] font-medium text-[#14324d]">{item}</span>
-                          <span className="material-symbols-outlined text-[#115b82]">
-                            arrow_forward
-                          </span>
-                        </Link>
-                      )
-                    }
-
-                    return (
-                      <button
-                      className="flex items-center justify-between rounded-[1rem] border border-[#dbe7ee] bg-[#fbfdff] px-4 py-4 text-left transition hover:border-[#c6dae7] hover:bg-white"
-                      key={item}
-                      type="button"
-                    >
-                      <span className="text-[0.96rem] font-medium text-[#14324d]">{item}</span>
-                      <span className="material-symbols-outlined text-[#115b82]">
-                        arrow_forward
-                      </span>
-                    </button>
-                    )
-                  })}
-                </div>
-              </section>
-
-              <section className="rounded-[1.35rem] border border-[#dbe7ee] bg-white p-6 shadow-[0_18px_42px_rgba(15,23,42,0.05)]">
-                <h2 className="font-serif text-[1.8rem] leading-none tracking-[-0.03em] text-[#14324d]">
-                  {t('admin.dashboard.sections.donationsTitle')}
-                </h2>
-                <div className="mt-6 space-y-4">
-                  {donationItems.map((item) => (
-                    <article
-                      className="rounded-[1rem] border border-[#edf3f7] bg-[#fbfdff] px-4 py-4"
-                      key={item.title}
-                    >
-                      <div className="flex items-start justify-between gap-4">
-                        <div>
-                          <h3 className="text-[1rem] font-semibold text-[#14324d]">{item.title}</h3>
-                          <p className="mt-2 text-[0.9rem] leading-[1.65] text-[#6a7c87]">
-                            {item.meta}
-                          </p>
-                        </div>
-                        <span className="text-[0.84rem] font-bold uppercase tracking-[0.14em] text-[#115b82]">
-                          {item.value}
-                        </span>
-                      </div>
-                    </article>
-                  ))}
-                </div>
-              </section>
-            </div>
-          </div>
+        </section>
+      </div>
     </AdminShellLayout>
   )
 }

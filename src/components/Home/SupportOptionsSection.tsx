@@ -53,7 +53,7 @@ function SupportOptionsSection() {
               <img
                 alt={t('home.supportOptions.donation.imageAlt')}
                 className="absolute inset-0 h-full w-full object-cover"
-                src="/assets/home/carousel-3.jpg"
+                src="/assets/home/celebration.jpg"
               />
               <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(11,35,53,0.78),rgba(11,35,53,0.18))]" />
 

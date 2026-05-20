@@ -44,7 +44,7 @@ function SchoolHero() {
               <img
                 alt={t('school.hero.imageAlt')}
                 className="aspect-[5/4] w-full object-cover"
-                src="/assets/home/carousel-1.jpg"
+                src="/assets/school/School_1.jpg"
               />
             </div>
 

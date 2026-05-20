@@ -89,8 +89,12 @@ function AdminMagazines() {
     [editingId, magazines],
   )
 
-  const loadMagazines = async () => {
-    setIsLoading(true)
+  const loadMagazines = async (options?: { showLoader?: boolean }) => {
+    const showLoader = options?.showLoader ?? true
+
+    if (showLoader) {
+      setIsLoading(true)
+    }
     setErrorMessage('')
 
     const { data, error } = await supabase
@@ -101,12 +105,16 @@ function AdminMagazines() {
 
     if (error) {
       setErrorMessage(error.message)
-      setIsLoading(false)
+      if (showLoader) {
+        setIsLoading(false)
+      }
       return
     }
 
     setMagazines((data ?? []) as Magazine[])
-    setIsLoading(false)
+    if (showLoader) {
+      setIsLoading(false)
+    }
   }
 
   useEffect(() => {
@@ -216,10 +224,10 @@ function AdminMagazines() {
       resetForm()
     }
 
+    setMagazines((current) => current.filter((item) => item.id !== magazine.id))
     invalidateMagazineRowsCache()
     setSuccessMessage(t('admin.magazines.deleteSuccess'))
     setDeletingId(null)
-    await loadMagazines()
   }
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -334,7 +342,7 @@ function AdminMagazines() {
     invalidateMagazineRowsCache()
     resetForm()
     setIsSaving(false)
-    await loadMagazines()
+    await loadMagazines({ showLoader: false })
   }
 
   return (
@@ -523,7 +531,7 @@ function AdminMagazines() {
             </div>
             <button
               className="inline-flex items-center gap-2 rounded-full border border-[#dbe7ee] px-4 py-2 text-[0.78rem] font-bold uppercase tracking-[0.14em] text-[#115b82] transition hover:border-[#bfd5e4] hover:bg-[#f7fbfd]"
-              onClick={loadMagazines}
+              onClick={() => void loadMagazines()}
               type="button"
             >
               <span className="material-symbols-outlined text-[1rem]">refresh</span>

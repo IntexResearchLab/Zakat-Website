@@ -14,12 +14,12 @@ type GalleryItem = {
 }
 
 const schoolGalleryImages = [
-  '/assets/home/carousel-1.jpg',
-  '/assets/home/carousel-2.jpg',
-  '/assets/home/carousel-3.jpg',
-  '/assets/home/volunteers-1.jpg',
-  '/assets/about/Donation.jpg',
-  '/assets/about/about-us.webp',
+  '/assets/school/School_2.jpg',
+  '/assets/school/School_3.jpg',
+  '/assets/school/School_4.jpg',
+  '/assets/school/School_5.jpeg',
+  '/assets/school/School_6.jpg',
+  '/assets/school/School_7.jpeg',
 ]
 
 export const getSchoolImpactStats = (t: TFunction) => getSchoolImpactStatsFromInventory(t)
