@@ -1,9 +1,11 @@
 import Reveal from '../reusables/Reveal'
 import { useTranslation } from 'react-i18next'
 import { getSchoolOutcomes } from './data'
+import { usePublicStats } from '../../lib/publicStats'
 
 function SchoolOutcomes() {
   const { t } = useTranslation()
+  usePublicStats()
   const schoolOutcomes = getSchoolOutcomes(t)
 
   return (

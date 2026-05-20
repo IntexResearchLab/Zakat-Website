@@ -32,6 +32,9 @@ type PurposeSection = {
 type CommitteeMember = {
   name: string
   role: string
+  email?: string
+  phone?: string
+  image?: string
 }
 
 const committeeImages = [
@@ -43,16 +46,16 @@ const committeeImages = [
 
 const purposeImages = [
   {
-    image: '/assets/home/volunteers-1.jpg',
-    secondaryImage: '/assets/about/Donation.jpg',
+    image: '/assets/about/Donating.jpg',
+    secondaryImage: '/assets/about/Donating_4.jpg',
   },
   {
-    image: '/assets/about/Donation.jpg',
-    secondaryImage: '/assets/home/carousel-1.jpg',
+    image: '/assets/about/Donating_2.jpg',
+    secondaryImage: '/assets/about/Donation_5.jpeg',
   },
   {
-    image: '/assets/home/carousel-2.jpg',
-    secondaryImage: '/assets/home/carousel-3.jpg',
+    image: '/assets/about/Donating_3.jpeg',
+    secondaryImage: '/assets/about/Donation_6.jpeg',
   },
 ]
 
@@ -76,7 +79,7 @@ export const getCommitteeMembers = (t: TFunction) => {
 
   return members.map((member, index) => ({
     ...member,
-    image: committeeImages[index % committeeImages.length],
+    image: member.image ?? committeeImages[index % committeeImages.length],
   }))
 }
 

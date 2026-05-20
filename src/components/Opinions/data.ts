@@ -41,7 +41,7 @@ export const getReliefStories = (t: TFunction) => {
 
   return items.map((item) => ({
     ...item,
-    image: '/assets/home/volunteers-1.jpg',
+    image: '/assets/about/Donating_4.jpg',
   }))
 }
 

@@ -1,15 +1,86 @@
+import { useEffect, useState } from 'react'
 import { Link, Navigate, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import Reveal from '../components/reusables/Reveal'
 import type { MagazineIssue } from '../components/Transparency/types'
+import { downloadFile } from '../lib/download'
+import {
+  fetchMagazineRows,
+  getCachedMagazineIssues,
+  mapMagazineRowsToIssues,
+} from '../lib/magazines'
 
 function TransparencyReader() {
   const { year } = useParams()
   const { t } = useTranslation()
-  const issues = t('transparency.issues', {
-    returnObjects: true,
-  }) as MagazineIssue[]
+  const [defaultSections] = useState(
+    () =>
+      t('transparency.defaultSections', {
+        returnObjects: true,
+      }) as string[],
+  )
+  const [issues, setIssues] = useState<MagazineIssue[]>(
+    () => getCachedMagazineIssues(defaultSections) ?? [],
+  )
+  const [isLoading, setIsLoading] = useState(issues.length === 0)
+  const [hasError, setHasError] = useState(false)
+
+  useEffect(() => {
+    let isMounted = true
+    const hasCachedIssues = issues.length > 0
+
+    const loadIssues = async () => {
+      if (!hasCachedIssues) {
+        setIsLoading(true)
+      }
+      setHasError(false)
+
+      const { data, error } = await fetchMagazineRows({
+        forceRefresh: hasCachedIssues,
+      })
+
+      if (!isMounted) {
+        return
+      }
+
+      if (error) {
+        setHasError(true)
+        setIsLoading(false)
+        return
+      }
+
+      setIssues(mapMagazineRowsToIssues(data ?? [], defaultSections))
+      setIsLoading(false)
+    }
+
+    loadIssues()
+
+    return () => {
+      isMounted = false
+    }
+    // We intentionally load once here.
+    // If cached data exists, we render it immediately and refresh quietly in the background.
+    // Re-running this effect on derived values was causing visible loading flicker.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   const issue = issues.find((item) => item.year === year)
+
+  if (isLoading) {
+    return (
+      <section className="bg-[#fbfdfe] py-24">
+        <div className="mx-auto max-w-5xl px-6 text-center">
+          <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#115b82]">
+            {t('transparency.states.loading')}
+          </p>
+        </div>
+      </section>
+    )
+  }
+
+  if (hasError) {
+    return <Navigate replace to="/transparency" />
+  }
 
   if (!issue) {
     return <Navigate replace to="/transparency" />
@@ -40,13 +111,15 @@ function TransparencyReader() {
             >
               {t('transparency.reader.back')}
             </Link>
-            <a
+            <button
               className="inline-flex items-center justify-center rounded-full bg-[#115b82] px-6 py-3 text-sm font-bold uppercase tracking-[0.16em] text-white transition hover:bg-[#0d4f72]"
-              download
-              href={issue.pdfUrl}
+              onClick={() =>
+                void downloadFile(issue.pdfUrl, `${issue.title} ${issue.year}.pdf`)
+              }
+              type="button"
             >
               {t('transparency.reader.download')}
-            </a>
+            </button>
           </div>
         </Reveal>
 

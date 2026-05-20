@@ -4,10 +4,7 @@ import LanguageSwitcher from './LanguageSwitcher'
 
 function Footer() {
   const { t } = useTranslation()
-  const navLinks = t('footer.navigation.links', {
-    returnObjects: true,
-  }) as Array<{ label: string; href: string; external?: boolean }>
-  const programLinks = t('footer.programs.links', {
+  const exploreLinks = t('footer.explore.links', {
     returnObjects: true,
   }) as Array<{ label: string; href: string; external?: boolean }>
   const contactLinks = t('footer.contact.links', {
@@ -41,7 +38,7 @@ function Footer() {
   return (
     <footer className="mt-0 border-t border-white/5 bg-[#0f2740] text-white">
       <div className="mx-auto max-w-7xl px-6 py-16 sm:py-20">
-        <div className="grid gap-12 lg:grid-cols-[1.25fr_0.8fr_0.95fr_1fr] lg:gap-10">
+        <div className="grid gap-12 lg:grid-cols-[1.3fr_0.9fr_1fr] lg:gap-12">
           <div className="max-w-sm">
             <p className="font-serif text-[2rem] font-semibold tracking-[-0.04em] text-white">
               {t('nav.brand')}
@@ -63,19 +60,10 @@ function Footer() {
 
           <div>
             <p className="text-[0.82rem] font-bold uppercase tracking-[0.18em] text-white">
-              {t('footer.navigation.title')}
+              {t('footer.explore.title')}
             </p>
-            <div className="mt-5 flex flex-col gap-3">
-              {navLinks.map((link) => renderLink(link, `nav-${link.label}`))}
-            </div>
-          </div>
-
-          <div>
-            <p className="text-[0.82rem] font-bold uppercase tracking-[0.18em] text-white">
-              {t('footer.programs.title')}
-            </p>
-            <div className="mt-5 flex flex-col gap-3">
-              {programLinks.map((link) => renderLink(link, `program-${link.label}`))}
+            <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
+              {exploreLinks.map((link) => renderLink(link, `explore-${link.label}`))}
             </div>
           </div>
 
@@ -99,13 +87,14 @@ function Footer() {
               {t('footer.bottom.copyright')}
             </p>
             <div className="flex flex-wrap items-center gap-4">
-              <a className="text-[0.82rem] text-[#9ab3c1] transition hover:text-white" href="#">
-                {t('footer.bottom.privacy')}
+              <a
+                className="text-[0.82rem] text-[#9ab3c1] transition hover:text-white"
+                href="https://www.intexlab.net/"
+                rel="noreferrer"
+                target="_blank"
+              >
+                {t('footer.bottom.designed')}
               </a>
-              <a className="text-[0.82rem] text-[#9ab3c1] transition hover:text-white" href="#">
-                {t('footer.bottom.terms')}
-              </a>
-              <p className="text-[0.82rem] text-[#9ab3c1]">{t('footer.bottom.designed')}</p>
             </div>
           </div>
 

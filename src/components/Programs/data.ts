@@ -1,4 +1,10 @@
 import type { TFunction } from 'i18next'
+import {
+  getFeaturedMadrasaStats,
+  getFeaturedSchoolStats,
+  getProgramHeroStats,
+  getProgramsImpactStats,
+} from '../../content/stats'
 
 type Stat = {
   value: string
@@ -24,6 +30,7 @@ type FeaturedProgram = {
   description: string
   points: string[]
   stats: Stat[]
+  cta: string
 }
 
 type CaseStudy = {
@@ -53,20 +60,19 @@ type Story = {
 }
 
 const galleryImageMap = [
-  '/assets/home/carousel-1.jpg',
-  '/assets/home/volunteers-1.jpg',
-  '/assets/home/carousel-2.jpg',
-  '/assets/about/Donation.jpg',
-  '/assets/home/carousel-3.jpg',
-  '/assets/home/volunteer-2.jpg',
-  '/assets/about/about-us.webp',
-  '/assets/home/volunteers-1.jpg',
+  '/assets/programs/Education.jpeg',
+  '/assets/programs/Relief.jpg',
+  '/assets/programs/Livelihood.jpeg',
+  '/assets/programs/Elderly_Care.jpg',
+  '/assets/programs/School.jpeg',
+  '/assets/programs/Relief.jpg',
+  '/assets/programs/Community.jpg',
+  '/assets/programs/School.jpeg',
 ]
 
 const gallerySpanMap = ['large', 'small', 'medium', 'medium', 'small', 'small', 'medium', 'small']
 
-export const getProgramStats = (t: TFunction) =>
-  t('programs.hero.stats', { returnObjects: true }) as Stat[]
+export const getProgramStats = (t: TFunction) => getProgramHeroStats(t)
 
 export const getProgramCategories = (t: TFunction) =>
   t('programs.categories.items', { returnObjects: true }) as ProgramCategory[]
@@ -76,12 +82,19 @@ export const getFilterTabs = (t: TFunction) =>
 
 export const getFeaturedProgram = (t: TFunction) => ({
   ...(t('programs.featured', { returnObjects: true }) as FeaturedProgram),
-  image: '/assets/home/carousel-1.jpg',
+  stats: getFeaturedSchoolStats(t),
+  image: '/assets/programs/School.jpeg',
+})
+
+export const getFeaturedMadrasa = (t: TFunction) => ({
+  ...(t('programs.featuredMadrasa', { returnObjects: true }) as FeaturedProgram),
+  stats: getFeaturedMadrasaStats(t),
+  image: '/assets/programs/Education.jpeg',
 })
 
 export const getCaseStudy = (t: TFunction) => ({
   ...(t('programs.caseStudy', { returnObjects: true }) as CaseStudy),
-  image: '/assets/home/volunteers-1.jpg',
+  image: '/assets/programs/Community.jpg',
 })
 
 export const getInitiatives = (t: TFunction) =>
@@ -102,8 +115,7 @@ export const getGalleryItems = (t: TFunction) => {
   }))
 }
 
-export const getImpactHighlights = (t: TFunction) =>
-  t('programs.impact.items', { returnObjects: true }) as Stat[]
+export const getImpactHighlights = (t: TFunction) => getProgramsImpactStats(t)
 
 export const getProgramStories = (t: TFunction) =>
   t('programs.stories.items', { returnObjects: true }) as Story[]

@@ -1,9 +1,5 @@
 import type { TFunction } from 'i18next'
-
-type Stat = {
-  value: string
-  label: string
-}
+import { getMadrasaImpactStatsFromInventory } from '../../content/stats'
 
 type Feature = {
   icon: string
@@ -29,8 +25,7 @@ const madrasaGalleryImages = [
   '/assets/about/Donation.jpg',
 ]
 
-export const getMadrasaImpactStats = (t: TFunction) =>
-  t('madrasa.impact.items', { returnObjects: true }) as Stat[]
+export const getMadrasaImpactStats = (t: TFunction) => getMadrasaImpactStatsFromInventory(t)
 
 export const getMadrasaFeatures = (t: TFunction) =>
   t('madrasa.features.items', { returnObjects: true }) as Feature[]

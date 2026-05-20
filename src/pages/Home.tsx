@@ -13,9 +13,9 @@ function Home() {
       <HeroCarousel />
       <ImpactSection />
       <MissionSection />
+      <DonationSection />
       <FounderMessageSection />
       <ProgramsSection />
-      <DonationSection />
       <SupportOptionsSection />
       <VoiceOfChangeSection />
     </>

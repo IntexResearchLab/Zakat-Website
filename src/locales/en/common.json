@@ -67,43 +67,17 @@
       "description": "Serving underprivileged communities through education, relief, healthcare, and dignified support.",
       "trustLine": "Registered charity • Transparent giving • Since 2011"
     },
-    "navigation": {
-      "title": "Navigation",
+    "explore": {
+      "title": "Explore",
       "links": [
-        {
-          "label": "Home",
-          "href": "/"
-        },
         {
           "label": "About",
           "href": "/about"
         },
         {
-          "label": "Gallery",
-          "href": "/gallery"
-        },
-        {
           "label": "Programs",
           "href": "/programs"
         },
-        {
-          "label": "Donate",
-          "href": "/donate"
-        },
-        {
-          "label": "Magazine",
-          "href": "/transparency"
-        },
-        {
-          "label": "Contact",
-          "href": "mailto:info@alokayon.org",
-          "external": true
-        }
-      ]
-    },
-    "programs": {
-      "title": "Programs",
-      "links": [
         {
           "label": "Alokayon School",
           "href": "/programs/alokayon-school"
@@ -113,59 +87,52 @@
           "href": "/programs/madrasa"
         },
         {
-          "label": "Education Support",
-          "href": "/programs"
+          "label": "Gallery",
+          "href": "/gallery"
         },
         {
-          "label": "Relief Programs",
-          "href": "/programs"
+          "label": "Magazine",
+          "href": "/transparency"
         },
         {
-          "label": "Livelihood Support",
-          "href": "/programs"
-        },
-        {
-          "label": "Beneficiary Stories",
+          "label": "Voices of Impact",
           "href": "/opinions-of-beneficiaries"
         },
         {
           "label": "Our Donors",
           "href": "/our-donors"
+        },
+        {
+          "label": "Donate",
+          "href": "/donate"
         }
       ]
     },
     "contact": {
       "title": "Contact",
-      "address": "Dhaka, Bangladesh",
-      "note": "For zakat, donation, and partnership inquiries",
+      "address": "Holding No. 02, Road No. 10/1, Avenue 07, Block G, Ward 02, P.S. Khilgaon, Dhaka South City Corporation, Dhaka.",
+      "note": "For zakat, donation, partnership, and direct payment inquiries",
       "links": [
         {
-          "label": "info@alokayon.org",
-          "href": "mailto:info@alokayon.org",
+          "label": "alokayon2019@gmail.com",
+          "href": "mailto:alokayon2019@gmail.com",
           "external": true
         },
         {
-          "label": "+880 0000 000000",
-          "href": "tel:+8800000000000",
+          "label": "bKash: 01925124019",
+          "href": "tel:01925124019",
           "external": true
         },
         {
-          "label": "Facebook",
-          "href": "#",
-          "external": true
-        },
-        {
-          "label": "YouTube",
-          "href": "#",
+          "label": "Nagad: 01779577828",
+          "href": "tel:01779577828",
           "external": true
         }
       ]
     },
     "bottom": {
       "copyright": "© 2025 Alokayon",
-      "privacy": "Privacy Policy",
-      "terms": "Terms",
-      "designed": "Designed with care"
+      "designed": "Intex Research Lab, Development Unit"
     }
   },
   "home": {
@@ -177,7 +144,7 @@
       "verseLabel": "Qur'anic Reminder",
       "slides": [
         {
-          "image": "/assets/home/carousel-1.jpg",
+          "image": "/assets/home/celebration.jpg",
           "eyebrow": "Faith in Action",
           "titleTop": "Give Your Zakat.",
           "titleBottom": "Transform Lives.",
@@ -189,7 +156,7 @@
           "alt": "Children gathered during an Alokayon support activity"
         },
         {
-          "image": "/assets/home/carousel-2.jpg",
+          "image": "/assets/about/Donating.jpg",
           "eyebrow": "Transparent Impact",
           "titleTop": "Give With Trust.",
           "titleBottom": "Reach Real People.",
@@ -201,7 +168,7 @@
           "alt": "Community members receiving support through Alokayon"
         },
         {
-          "image": "/assets/home/carousel-3.jpg",
+          "image": "/assets/school/School_3.jpg",
           "eyebrow": "Compassion That Lasts",
           "titleTop": "Stand Beside",
           "titleBottom": "Those In Need.",
@@ -364,10 +331,27 @@
     },
     "supportOptions": {
       "contact": {
-        "eyebrow": "Stay Connected",
-        "title": "Leave your details and we will reach out.",
-        "description": "If you want to support Alokayon, volunteer, or learn more, we can contact you directly.",
-        "cta": "Send Details"
+        "eyebrow": "Contact Alokayon",
+        "title": "Reach us directly for zakat, donations, and partnership support.",
+        "description": "You can contact Alokayon by email or call the same bKash and Nagad numbers used for direct giving.",
+        "note": "Bank support is available through Islami Bank Bangladesh PLC, Banasree Branch.",
+        "methods": [
+          {
+            "label": "Email",
+            "value": "alokayon2019@gmail.com",
+            "href": "mailto:alokayon2019@gmail.com"
+          },
+          {
+            "label": "bKash / Contact",
+            "value": "01925124019",
+            "href": "tel:01925124019"
+          },
+          {
+            "label": "Nagad / Contact",
+            "value": "01779577828",
+            "href": "tel:01779577828"
+          }
+        ]
       },
       "donation": {
         "eyebrow": "Quick Donation",
@@ -671,11 +655,23 @@
           },
           {
             "label": "Account Number",
-            "value": "Available on request"
+            "value": "20504160200857404"
+          },
+          {
+            "label": "Routing Number",
+            "value": "125270599"
+          },
+          {
+            "label": "SWIFT Code",
+            "value": "IBBLBDDH"
           },
           {
             "label": "Branch",
-            "value": "Dhaka Branch"
+            "value": "Banasree"
+          },
+          {
+            "label": "Branch Address",
+            "value": "Holding No. 02, Road No. 10/1, Avenue 07, Block G, Ward 02, P.S. Khilgaon, Dhaka South City Corporation, Dhaka."
           }
         ]
       },
@@ -908,17 +904,18 @@
       "eyebrow": "Executive Committee",
       "title": "Alokayon's Executive Committee",
       "description": "A team of committed people guiding Alokayon's direction, accountability, and long-term service to the community.",
-      "badge": "14-member committee",
+      "badge": "{{count}}-member committee",
       "footer": "Browse through the committee members guiding Alokayon's direction and long-term service.",
       "viewAll": "View All Executives",
       "modalTitle": "All Executive Committee Members",
       "modalDescription": "A complete view of the committee members currently guiding Alokayon's accountability, service, and long-term direction.",
       "closeModal": "Close executive committee view",
       "officeContactLabel": "Contact via Alokayon office",
+      "contactLabel": "Direct contact",
       "emailLabel": "Email",
       "phoneLabel": "Phone",
-      "officeEmail": "info@alokayon.org",
-      "officePhone": "+880 0000 000000",
+      "officeEmail": "alokayon2019@gmail.com",
+      "officePhone": "01925124019",
       "previous": "Previous committee members",
       "next": "Next committee members",
       "showSlide": "Show committee slide {{index}}",
@@ -1119,6 +1116,31 @@
       ],
       "cta": "Explore the school story"
     },
+    "featuredMadrasa": {
+      "eyebrow": "Featured Institution",
+      "title": "Abdul Karim Miazi Hafezi Madrasa",
+      "description": "A structured madrasa initiative integrating Qur'anic, Arabic, and Bengali education in a disciplined, accountable learning environment.",
+      "points": [
+        "More than 100 students enrolled from underprivileged backgrounds",
+        "Integrated Arabic, Bengali, English, and Mathematics instruction",
+        "Meals, materials, and guided supervision for vulnerable learners"
+      ],
+      "stats": [
+        {
+          "value": "100+",
+          "label": "Students Enrolled"
+        },
+        {
+          "value": "31",
+          "label": "Hifz Students"
+        },
+        {
+          "value": "2019",
+          "label": "Registered Support Era"
+        }
+      ],
+      "cta": "Explore the madrasa story"
+    },
     "caseStudy": {
       "eyebrow": "Real Impact",
       "title": "A family's journey from crisis to stability",
@@ -1254,7 +1276,8 @@
           "title": "School environments that create hope",
           "location": "Pathways into structured learning"
         }
-      ]
+      ],
+      "modalContext": "Program snapshot"
     },
     "impact": {
       "eyebrow": "Impact at a Glance",
@@ -1790,26 +1813,18 @@
     }
   },
   "transparency": {
-    "issues": [
-      {
-        "year": "2025",
-        "title": "Alokayon Magazine 2025",
-        "description": "Includes organizational profile, program highlights, donor and beneficiary reflections, financial statement, audit report, registration certificate, and visual activity reporting.",
-        "pdfUrl": "/assets/magazine/Magazine.pdf",
-        "sections": [
-          "Founder's message",
-          "Activity summary",
-          "Distinguished comments",
-          "Student reflections",
-          "Alokayon profile",
-          "Poverty alleviation case study",
-          "Alokayon School",
-          "Hafezi Madrasa",
-          "Financial statement",
-          "Audit report",
-          "Registration certificate"
-        ]
-      }
+    "defaultSections": [
+      "Founder's message",
+      "Activity summary",
+      "Distinguished comments",
+      "Student reflections",
+      "Alokayon profile",
+      "Poverty alleviation case study",
+      "Alokayon School",
+      "Hafezi Madrasa",
+      "Financial statement",
+      "Audit report",
+      "Registration certificate"
     ],
     "hero": {
       "eyebrow": "Transparency & Publications",
@@ -1977,6 +1992,13 @@
       "description": "Read the selected Alokayon publication directly in your browser, or download it for offline review.",
       "back": "Back to Transparency",
       "download": "Download PDF"
+    },
+    "states": {
+      "loading": "Loading published magazines...",
+      "errorTitle": "We couldn't load the magazine library",
+      "errorDescription": "Please try again in a moment, or come back after checking the public access settings for the magazines table.",
+      "emptyTitle": "No magazines published yet",
+      "emptyDescription": "Once issues are added in the admin dashboard, they will appear here automatically."
     }
   },
   "donors": {
@@ -2254,6 +2276,311 @@
       "title": "Be part of the next one.",
       "description": "The work continues because people choose to turn trust into action.",
       "secondary": "View Programs"
+    }
+  },
+  "admin": {
+    "navigation": [
+      {
+        "label": "Overview",
+        "href": "/admin/dashboard",
+        "icon": "overview"
+      },
+      {
+        "label": "Magazines",
+        "href": "/admin/magazines",
+        "icon": "magazines"
+      },
+      {
+        "label": "Gallery",
+        "href": "/admin/gallery",
+        "icon": "gallery"
+      },
+      {
+        "label": "Executives",
+        "href": "/admin/executives",
+        "icon": "executives"
+      },
+      {
+        "label": "Public Stats",
+        "href": "/admin/stats",
+        "icon": "stats"
+      }
+    ],
+    "auth": {
+      "eyebrow": "Admin Access",
+      "title": "Welcome back to Alokayon Charity",
+      "description": "A calm, secure workspace for managing stories, pages, donations, and reporting.",
+      "trust": [
+        "Role-based admin access",
+        "Supabase authentication ready",
+        "Built for secure content management"
+      ],
+      "formTitle": "Sign in to the admin dashboard",
+      "formDescription": "Use your admin credentials to continue into the secure dashboard.",
+      "checkingAccess": "Checking secure access...",
+      "emailLabel": "Email address",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "showPassword": "Show password",
+      "hidePassword": "Hide password",
+      "rememberMe": "Keep me signed in",
+      "forgotPassword": "Forgot password?",
+      "signIn": "Sign In",
+      "signingIn": "Signing In...",
+      "genericError": "We couldn't sign you in. Please check your credentials and try again.",
+      "previewDashboard": "Preview Dashboard",
+      "helpText": "Only authorized Alokayon administrators should use this area."
+    },
+    "dashboard": {
+      "eyebrow": "Admin Dashboard",
+      "title": "Content management overview",
+      "description": "A focused workspace for the parts of the public website that are already connected and ready to manage.",
+      "signOut": "Sign Out",
+      "signingOut": "Signing Out...",
+      "dateLabel": "Today",
+      "modules": [
+        {
+          "title": "Magazines",
+          "description": "Upload annual magazines, update descriptions, and keep the public archive current.",
+          "href": "/admin/magazines",
+          "cta": "Manage Magazines"
+        },
+        {
+          "title": "Gallery",
+          "description": "Manage impact images, card sizes, categories, and lightbox story details.",
+          "href": "/admin/gallery",
+          "cta": "Manage Gallery"
+        },
+        {
+          "title": "Executives",
+          "description": "Update committee member names, roles, contact details, and profile photos.",
+          "href": "/admin/executives",
+          "cta": "Manage Executives"
+        },
+        {
+          "title": "Public Stats",
+          "description": "Edit the impact figures that appear across Home, Programs, Donate, and Magazine.",
+          "href": "/admin/stats",
+          "cta": "Manage Stats"
+        }
+      ],
+      "nextStepsTitle": "What You Can Manage Now",
+      "nextSteps": [
+        "Upload new magazine issues and keep the public archive current.",
+        "Add or remove executive members with photos and contact details.",
+        "Refresh public-facing impact figures from one connected stats page.",
+        "Build the image gallery with categorized visuals and lightbox stories."
+      ],
+      "notesTitle": "Current Scope",
+      "notes": [
+        {
+          "title": "Cleaned to live modules",
+          "detail": "This dashboard now shows only the admin areas that are already built and usable."
+        },
+        {
+          "title": "Supabase-backed sections",
+          "detail": "Magazines, gallery items, executive members, and public stats are connected to Supabase."
+        },
+        {
+          "title": "Good next additions",
+          "detail": "If we expand later, the next natural admin modules would be donors, beneficiary stories, and program content."
+        }
+      ],
+      "sidebar": {
+        "brandNote": "Alokayon Charity Admin",
+        "footer": "A focused admin for the live content modules already connected to the website."
+      }
+    },
+    "magazines": {
+      "eyebrow": "Magazine Manager",
+      "title": "Manage magazines and publications",
+      "description": "Create, update, and remove annual magazines from one place, with direct links to PDFs and cover images.",
+      "headerCardLabel": "Published records",
+      "headerCardContext": "Magazine issues currently stored in Supabase",
+      "createTitle": "Add a new magazine",
+      "editTitle": "Edit magazine entry",
+      "formIntro": "Keep each issue cleanly documented so the public transparency page stays current and trustworthy.",
+      "cancelEdit": "Cancel Edit",
+      "saveChanges": "Save Changes",
+      "createButton": "Create Magazine",
+      "saving": "Saving...",
+      "resetForm": "Reset Form",
+      "validationError": "Please complete the title and year before saving.",
+      "pdfRequired": "Please upload a PDF for this magazine.",
+      "createSuccess": "Magazine created successfully.",
+      "updateSuccess": "Magazine updated successfully.",
+      "deleteSuccess": "Magazine deleted successfully.",
+      "deleteConfirmation": "Delete \"{{title}}\" from the magazine library?",
+      "libraryTitle": "Magazine library",
+      "libraryIntro": "Review all stored issues, open their files, or jump into editing when content needs refreshing.",
+      "refresh": "Refresh",
+      "loading": "Loading magazines from Supabase...",
+      "emptyState": "No magazines have been added yet.",
+      "editButton": "Edit",
+      "deleteButton": "Delete",
+      "deleting": "Deleting...",
+      "openPdf": "Open PDF",
+      "pdfHelp": "Upload the magazine PDF. This file is required.",
+      "coverHelp": "Upload a cover image if you have one. This is optional.",
+      "currentPdf": "Current PDF on record: {{fileName}}",
+      "newPdfSelected": "New PDF selected: {{fileName}}",
+      "currentCover": "Current cover image will stay unless you replace it.",
+      "newCoverSelected": "New cover image selected: {{fileName}}",
+      "fileOnRecord": "file on record",
+      "fields": {
+        "title": "Title",
+        "year": "Year",
+        "description": "Description",
+        "pdfFile": "Magazine PDF",
+        "coverImageFile": "Cover image"
+      },
+      "placeholders": {
+        "title": "Alokayon Magazine 2025",
+        "year": "2025",
+        "description": "A concise summary of what readers will find in this issue."
+      }
+    },
+    "executives": {
+      "eyebrow": "Executive Directory",
+      "title": "Manage executive committee members",
+      "description": "Add, update, reorder, and remove the executive members shown on the About page, complete with their public contact details.",
+      "headerCardLabel": "Directory members",
+      "headerCardContext": "Executive profiles currently available for the public committee section.",
+      "createTitle": "Add a new executive member",
+      "editTitle": "Edit executive member",
+      "formIntro": "Use this directory to keep committee names, roles, contact details, and profile images current.",
+      "cancelEdit": "Cancel Edit",
+      "saveChanges": "Save Changes",
+      "createButton": "Create Member",
+      "saving": "Saving...",
+      "resetForm": "Reset Form",
+      "validationError": "Please complete the name and role before saving.",
+      "imageRequired": "Please upload a profile image for this member.",
+      "createSuccess": "Executive member created successfully.",
+      "updateSuccess": "Executive member updated successfully.",
+      "deleteSuccess": "Executive member deleted successfully.",
+      "deleteConfirmation": "Delete \"{{name}}\" from the executive directory?",
+      "libraryTitle": "Executive directory",
+      "libraryIntro": "Review the members currently visible on the About page, then edit or remove them whenever the committee changes.",
+      "refresh": "Refresh",
+      "loading": "Loading executive members from Supabase...",
+      "emptyState": "No executive members have been added yet.",
+      "editButton": "Edit",
+      "deleteButton": "Delete",
+      "deleting": "Deleting...",
+      "imageHelp": "Upload a portrait or profile image. This image is required for new members.",
+      "currentImage": "Current image will stay unless you replace it.",
+      "newImageSelected": "New image selected: {{fileName}}",
+      "fields": {
+        "name": "Name",
+        "role": "Role",
+        "email": "Email",
+        "phone": "Phone",
+        "image": "Profile image",
+        "sortOrder": "Sort order"
+      },
+      "placeholders": {
+        "name": "A.K.M. Fazlul Kader",
+        "role": "Founder Chairman",
+        "email": "chairman@alokayon.org",
+        "phone": "+880 1712 345678",
+        "sortOrder": "1"
+      }
+    },
+    "gallery": {
+      "eyebrow": "Gallery Manager",
+      "title": "Manage gallery items",
+      "description": "Upload impact images, arrange their layout, and keep the public gallery aligned with real programs and real stories.",
+      "headerCardLabel": "Gallery items",
+      "headerCardContext": "Visual stories currently available on the public gallery page.",
+      "createTitle": "Add a new gallery item",
+      "editTitle": "Edit gallery item",
+      "formIntro": "Each gallery item powers a card and lightbox story on the public gallery page.",
+      "cancelEdit": "Cancel Edit",
+      "saveChanges": "Save Changes",
+      "createButton": "Create Item",
+      "saving": "Saving...",
+      "resetForm": "Reset Form",
+      "validationError": "Please complete the title, description, story, location, and year before saving.",
+      "imageRequired": "Please upload an image for this gallery item.",
+      "createSuccess": "Gallery item created successfully.",
+      "updateSuccess": "Gallery item updated successfully.",
+      "deleteSuccess": "Gallery item deleted successfully.",
+      "deleteConfirmation": "Delete \"{{title}}\" from the gallery?",
+      "libraryTitle": "Gallery library",
+      "libraryIntro": "Review the live gallery items, update their stories, and remove anything that no longer belongs in the public archive.",
+      "refresh": "Refresh",
+      "loading": "Loading gallery items from Supabase...",
+      "emptyState": "No gallery items have been added yet.",
+      "editButton": "Edit",
+      "deleteButton": "Delete",
+      "deleting": "Deleting...",
+      "imageHelp": "Upload the gallery image shown on the public card and lightbox.",
+      "currentImage": "Current image will stay unless you replace it.",
+      "newImageSelected": "New image selected: {{fileName}}",
+      "fields": {
+        "category": "Category",
+        "span": "Card size",
+        "title": "Title",
+        "description": "Card description",
+        "story": "Lightbox story",
+        "location": "Location",
+        "year": "Year / Program",
+        "sortOrder": "Sort order",
+        "image": "Gallery image"
+      },
+      "spans": {
+        "large": "Large",
+        "medium": "Medium",
+        "small": "Small"
+      },
+      "placeholders": {
+        "title": "Children learning together",
+        "description": "Classroom moments that reflect care, routine, and possibility.",
+        "story": "Learning spaces like these help children move from uncertainty toward structure, dignity, and future opportunity.",
+        "location": "Dhaka",
+        "year": "2025",
+        "sortOrder": "1"
+      }
+    },
+    "stats": {
+      "eyebrow": "Public Statistics",
+      "title": "Manage website impact figures",
+      "description": "Update the public-facing numbers shown across the website, then let the live pages refresh from Supabase with the latest values.",
+      "headerCardLabel": "Tracked figures",
+      "headerCardContext": "Statistics currently managed for the public website experience.",
+      "libraryTitle": "Statistics inventory",
+      "libraryIntro": "Each figure below maps to one of the public impact sections across Home, Programs, School, Madrasa, Donate, Gallery, and Magazine.",
+      "refresh": "Refresh",
+      "loading": "Loading public stats from Supabase...",
+      "validationError": "Please enter a value before saving this stat.",
+      "saveSuccess": "{{count}} statistic updated successfully.",
+      "valueLabel": "Display value",
+      "notUpdatedYet": "Not updated yet",
+      "unsavedChanges": "{{count}} unsaved change",
+      "unsavedChanges_other": "{{count}} unsaved changes",
+      "pendingChange": "Pending change",
+      "resetButton": "Reset Changes",
+      "savingAll": "Saving...",
+      "saveAllButton": "Save All Changes",
+      "groups": {
+        "organization": {
+          "eyebrow": "Core Organization",
+          "title": "Organization-wide figures"
+        },
+        "school": {
+          "eyebrow": "Pathshala",
+          "title": "Alokayon School figures"
+        },
+        "madrasa": {
+          "eyebrow": "Madrasa",
+          "title": "Madrasa figures"
+        },
+        "finance": {
+          "eyebrow": "Finance",
+          "title": "Financial snapshot"
+        }
+      }
     }
   }
 }

@@ -1,9 +1,11 @@
 import Reveal from '../reusables/Reveal'
 import { useTranslation } from 'react-i18next'
 import { getProgramStats } from './data'
+import { usePublicStats } from '../../lib/publicStats'
 
 function ProgramsHero() {
   const { t } = useTranslation()
+  usePublicStats()
   const programStats = getProgramStats(t)
 
   return (
@@ -28,11 +30,11 @@ function ProgramsHero() {
           <Reveal delay={140}>
             <div className="relative">
               <div className="overflow-hidden rounded-[1.8rem] shadow-[0_24px_60px_rgba(15,23,42,0.12)]">
-                <img
-                  alt={t('programs.hero.imageAlt')}
-                  className="aspect-[5/4] w-full object-cover"
-                  src="/assets/home/volunteers-1.jpg"
-                />
+              <img
+                alt={t('programs.hero.imageAlt')}
+                className="aspect-[5/4] w-full object-cover"
+                src="/assets/about/Donating.jpg"
+              />
               </div>
 
               <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6">

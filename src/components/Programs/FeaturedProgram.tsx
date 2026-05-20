@@ -2,9 +2,11 @@ import Reveal from '../reusables/Reveal'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { getFeaturedProgram } from './data'
+import { usePublicStats } from '../../lib/publicStats'
 
 function FeaturedProgram() {
   const { t } = useTranslation()
+  usePublicStats()
   const featuredProgram = getFeaturedProgram(t)
 
   return (
