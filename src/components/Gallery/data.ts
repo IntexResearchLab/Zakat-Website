@@ -57,9 +57,9 @@ const gallerySpanMap: GalleryItem['span'][] = [
 ]
 
 const featuredImageMap = [
-  '/assets/home/volunteer-2.jpg',
-  '/assets/about/about-us.webp',
-  '/assets/home/volunteers-1.jpg',
+  '/assets/school/School_2.jpg',
+  '/assets/school/School_3.jpg',
+  '/assets/programs/Livelihood.jpeg',
 ]
 
 const featuredLinkMap = ['/programs/alokayon-school', '/programs/madrasa', '/programs']

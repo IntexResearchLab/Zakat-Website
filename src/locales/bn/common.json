@@ -66,43 +66,17 @@
       "description": "শিক্ষা, ত্রাণ, স্বাস্থ্যসেবা এবং মর্যাদাপূর্ণ সহায়তার মাধ্যমে সুবিধাবঞ্চিত মানুষের পাশে Alokayon কাজ করে।",
       "trustLine": "নিবন্ধিত সংস্থা • স্বচ্ছ সহায়তা • ২০১১ সাল থেকে"
     },
-    "navigation": {
-      "title": "নেভিগেশন",
+    "explore": {
+      "title": "এক্সপ্লোর",
       "links": [
-        {
-          "label": "হোম",
-          "href": "/"
-        },
         {
           "label": "আমাদের সম্পর্কে",
           "href": "/about"
         },
         {
-          "label": "গ্যালারি",
-          "href": "/gallery"
-        },
-        {
           "label": "কার্যক্রম",
           "href": "/programs"
         },
-        {
-          "label": "ডোনেট",
-          "href": "/donate"
-        },
-        {
-          "label": "ম্যাগাজিন",
-          "href": "/transparency"
-        },
-        {
-          "label": "যোগাযোগ",
-          "href": "mailto:info@alokayon.org",
-          "external": true
-        }
-      ]
-    },
-    "programs": {
-      "title": "কার্যক্রম",
-      "links": [
         {
           "label": "Alokayon School",
           "href": "/programs/alokayon-school"
@@ -112,59 +86,52 @@
           "href": "/programs/madrasa"
         },
         {
-          "label": "শিক্ষা সহায়তা",
-          "href": "/programs"
+          "label": "গ্যালারি",
+          "href": "/gallery"
         },
         {
-          "label": "ত্রাণ কার্যক্রম",
-          "href": "/programs"
+          "label": "ম্যাগাজিন",
+          "href": "/transparency"
         },
         {
-          "label": "জীবিকা সহায়তা",
-          "href": "/programs"
-        },
-        {
-          "label": "উপকারভোগীদের গল্প",
+          "label": "উপকারের কণ্ঠস্বর",
           "href": "/opinions-of-beneficiaries"
         },
         {
           "label": "আমাদের দাতাগণ",
           "href": "/our-donors"
+        },
+        {
+          "label": "ডোনেট",
+          "href": "/donate"
         }
       ]
     },
     "contact": {
       "title": "যোগাযোগ",
-      "address": "ঢাকা, বাংলাদেশ",
-      "note": "যাকাত, ডোনেশন এবং অংশীদারিত্ব সংক্রান্ত যোগাযোগের জন্য",
+      "address": "Holding No. 02, Road No. 10/1, Avenue 07, Block G, Ward 02, P.S. Khilgaon, Dhaka South City Corporation, Dhaka.",
+      "note": "যাকাত, ডোনেশন, অংশীদারিত্ব এবং সরাসরি পেমেন্ট সংক্রান্ত যোগাযোগের জন্য",
       "links": [
         {
-          "label": "info@alokayon.org",
-          "href": "mailto:info@alokayon.org",
+          "label": "alokayon2019@gmail.com",
+          "href": "mailto:alokayon2019@gmail.com",
           "external": true
         },
         {
-          "label": "+880 0000 000000",
-          "href": "tel:+8800000000000",
+          "label": "bKash: 01925124019",
+          "href": "tel:01925124019",
           "external": true
         },
         {
-          "label": "Facebook",
-          "href": "#",
-          "external": true
-        },
-        {
-          "label": "YouTube",
-          "href": "#",
+          "label": "Nagad: 01779577828",
+          "href": "tel:01779577828",
           "external": true
         }
       ]
     },
     "bottom": {
       "copyright": "© 2025 Alokayon",
-      "privacy": "প্রাইভেসি পলিসি",
-      "terms": "শর্তাবলি",
-      "designed": "যত্নের সাথে নির্মিত"
+      "designed": "Intex Research Lab, Development Unit"
     }
   },
   "admin": {

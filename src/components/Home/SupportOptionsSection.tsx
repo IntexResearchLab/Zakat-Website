@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom'
 
 function SupportOptionsSection() {
   const { t } = useTranslation()
+  const contactMethods = t('home.supportOptions.contact.methods', {
+    returnObjects: true,
+  }) as Array<{ label: string; value: string; href: string }>
 
   return (
     <section className="bg-[#f9fdff] py-20 sm:py-24">
@@ -20,29 +23,27 @@ function SupportOptionsSection() {
               {t('home.supportOptions.contact.description')}
             </p>
 
-            <form className="mt-8 space-y-4">
-              <input
-                className="w-full rounded-[1rem] border border-[#dbe6ee] bg-[#fcfeff] px-5 py-4 text-[1rem] text-[#14324d] outline-none transition placeholder:text-[#7e8d99] focus:border-[#98c1da] focus:ring-2 focus:ring-[#d9edf8]"
-                placeholder={t('common.form.namePlaceholder')}
-                type="text"
-              />
-              <input
-                className="w-full rounded-[1rem] border border-[#dbe6ee] bg-[#fcfeff] px-5 py-4 text-[1rem] text-[#14324d] outline-none transition placeholder:text-[#7e8d99] focus:border-[#98c1da] focus:ring-2 focus:ring-[#d9edf8]"
-                placeholder={t('common.form.emailPlaceholder')}
-                type="email"
-              />
-              <input
-                className="w-full rounded-[1rem] border border-[#dbe6ee] bg-[#fcfeff] px-5 py-4 text-[1rem] text-[#14324d] outline-none transition placeholder:text-[#7e8d99] focus:border-[#98c1da] focus:ring-2 focus:ring-[#d9edf8]"
-                placeholder={t('common.form.phonePlaceholder')}
-                type="tel"
-              />
-              <button
-                className="hover-lift-soft mt-2 inline-flex items-center justify-center rounded-full bg-[#f3be84] px-8 py-3.5 text-base font-bold text-[#3a2a1f] transition hover:bg-[#edb16d]"
-                type="button"
-              >
-                {t('home.supportOptions.contact.cta')}
-              </button>
-            </form>
+            <div className="mt-8 space-y-4">
+              {contactMethods.map((method) => (
+                <a
+                  className="flex items-center justify-between gap-4 rounded-[1rem] border border-[#dbe6ee] bg-[#fcfeff] px-5 py-4 transition hover:border-[#bdd6e4] hover:bg-white"
+                  href={method.href}
+                  key={method.label}
+                >
+                  <div>
+                    <p className="text-[0.78rem] font-bold uppercase tracking-[0.16em] text-[#115b82]">
+                      {method.label}
+                    </p>
+                    <p className="mt-1 text-[1rem] leading-[1.6] text-[#14324d]">{method.value}</p>
+                  </div>
+                  <span className="material-symbols-outlined text-[#115b82]">arrow_outward</span>
+                </a>
+              ))}
+
+              <p className="pt-2 text-[0.9rem] leading-[1.7] text-[#738592]">
+                {t('home.supportOptions.contact.note')}
+              </p>
+            </div>
           </Reveal>
 
           <Reveal

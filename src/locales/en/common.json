@@ -67,43 +67,17 @@
       "description": "Serving underprivileged communities through education, relief, healthcare, and dignified support.",
       "trustLine": "Registered charity • Transparent giving • Since 2011"
     },
-    "navigation": {
-      "title": "Navigation",
+    "explore": {
+      "title": "Explore",
       "links": [
-        {
-          "label": "Home",
-          "href": "/"
-        },
         {
           "label": "About",
           "href": "/about"
         },
         {
-          "label": "Gallery",
-          "href": "/gallery"
-        },
-        {
           "label": "Programs",
           "href": "/programs"
         },
-        {
-          "label": "Donate",
-          "href": "/donate"
-        },
-        {
-          "label": "Magazine",
-          "href": "/transparency"
-        },
-        {
-          "label": "Contact",
-          "href": "mailto:info@alokayon.org",
-          "external": true
-        }
-      ]
-    },
-    "programs": {
-      "title": "Programs",
-      "links": [
         {
           "label": "Alokayon School",
           "href": "/programs/alokayon-school"
@@ -113,59 +87,52 @@
           "href": "/programs/madrasa"
         },
         {
-          "label": "Education Support",
-          "href": "/programs"
+          "label": "Gallery",
+          "href": "/gallery"
         },
         {
-          "label": "Relief Programs",
-          "href": "/programs"
+          "label": "Magazine",
+          "href": "/transparency"
         },
         {
-          "label": "Livelihood Support",
-          "href": "/programs"
-        },
-        {
-          "label": "Beneficiary Stories",
+          "label": "Voices of Impact",
           "href": "/opinions-of-beneficiaries"
         },
         {
           "label": "Our Donors",
           "href": "/our-donors"
+        },
+        {
+          "label": "Donate",
+          "href": "/donate"
         }
       ]
     },
     "contact": {
       "title": "Contact",
-      "address": "Dhaka, Bangladesh",
-      "note": "For zakat, donation, and partnership inquiries",
+      "address": "Holding No. 02, Road No. 10/1, Avenue 07, Block G, Ward 02, P.S. Khilgaon, Dhaka South City Corporation, Dhaka.",
+      "note": "For zakat, donation, partnership, and direct payment inquiries",
       "links": [
         {
-          "label": "info@alokayon.org",
-          "href": "mailto:info@alokayon.org",
+          "label": "alokayon2019@gmail.com",
+          "href": "mailto:alokayon2019@gmail.com",
           "external": true
         },
         {
-          "label": "+880 0000 000000",
-          "href": "tel:+8800000000000",
+          "label": "bKash: 01925124019",
+          "href": "tel:01925124019",
           "external": true
         },
         {
-          "label": "Facebook",
-          "href": "#",
-          "external": true
-        },
-        {
-          "label": "YouTube",
-          "href": "#",
+          "label": "Nagad: 01779577828",
+          "href": "tel:01779577828",
           "external": true
         }
       ]
     },
     "bottom": {
       "copyright": "© 2025 Alokayon",
-      "privacy": "Privacy Policy",
-      "terms": "Terms",
-      "designed": "Designed with care"
+      "designed": "Intex Research Lab, Development Unit"
     }
   },
   "home": {
@@ -364,10 +331,27 @@
     },
     "supportOptions": {
       "contact": {
-        "eyebrow": "Stay Connected",
-        "title": "Leave your details and we will reach out.",
-        "description": "If you want to support Alokayon, volunteer, or learn more, we can contact you directly.",
-        "cta": "Send Details"
+        "eyebrow": "Contact Alokayon",
+        "title": "Reach us directly for zakat, donations, and partnership support.",
+        "description": "You can contact Alokayon by email or call the same bKash and Nagad numbers used for direct giving.",
+        "note": "Bank support is available through Islami Bank Bangladesh PLC, Banasree Branch.",
+        "methods": [
+          {
+            "label": "Email",
+            "value": "alokayon2019@gmail.com",
+            "href": "mailto:alokayon2019@gmail.com"
+          },
+          {
+            "label": "bKash / Contact",
+            "value": "01925124019",
+            "href": "tel:01925124019"
+          },
+          {
+            "label": "Nagad / Contact",
+            "value": "01779577828",
+            "href": "tel:01779577828"
+          }
+        ]
       },
       "donation": {
         "eyebrow": "Quick Donation",
@@ -671,11 +655,23 @@
           },
           {
             "label": "Account Number",
-            "value": "Available on request"
+            "value": "20504160200857404"
+          },
+          {
+            "label": "Routing Number",
+            "value": "125270599"
+          },
+          {
+            "label": "SWIFT Code",
+            "value": "IBBLBDDH"
           },
           {
             "label": "Branch",
-            "value": "Dhaka Branch"
+            "value": "Banasree"
+          },
+          {
+            "label": "Branch Address",
+            "value": "Holding No. 02, Road No. 10/1, Avenue 07, Block G, Ward 02, P.S. Khilgaon, Dhaka South City Corporation, Dhaka."
           }
         ]
       },
@@ -918,8 +914,8 @@
       "contactLabel": "Direct contact",
       "emailLabel": "Email",
       "phoneLabel": "Phone",
-      "officeEmail": "info@alokayon.org",
-      "officePhone": "+880 0000 000000",
+      "officeEmail": "alokayon2019@gmail.com",
+      "officePhone": "01925124019",
       "previous": "Previous committee members",
       "next": "Next committee members",
       "showSlide": "Show committee slide {{index}}",
