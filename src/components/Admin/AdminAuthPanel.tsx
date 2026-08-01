@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { supabase } from '../../utils/supabase'
 
 function AdminAuthPanel() {
@@ -14,6 +14,8 @@ function AdminAuthPanel() {
   const [showPassword, setShowPassword] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
+  const [isSendingReset, setIsSendingReset] = useState(false)
+  const [resetMessage, setResetMessage] = useState('')
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -33,6 +35,24 @@ function AdminAuthPanel() {
     }
 
     navigate('/admin/dashboard')
+  }
+
+  const handleForgotPassword = async () => {
+    setResetMessage('')
+
+    if (!email.trim()) {
+      setResetMessage(t('admin.auth.forgotPasswordEmailRequired'))
+      return
+    }
+
+    setIsSendingReset(true)
+
+    const { error } = await supabase.auth.resetPasswordForEmail(email.trim(), {
+      redirectTo: `${window.location.origin}/admin/reset-password`,
+    })
+
+    setIsSendingReset(false)
+    setResetMessage(error ? t('admin.auth.resetEmailError') : t('admin.auth.resetEmailSent'))
   }
 
   return (
@@ -124,10 +144,21 @@ function AdminAuthPanel() {
                 <input className="h-4 w-4 rounded border-[#cfe0ea]" type="checkbox" />
                 <span>{t('admin.auth.rememberMe')}</span>
               </label>
-              <button className="font-semibold text-[#115b82]" type="button">
-                {t('admin.auth.forgotPassword')}
+              <button
+                className="font-semibold text-[#115b82] disabled:cursor-not-allowed disabled:text-[#8fa8b6]"
+                disabled={isSendingReset}
+                type="button"
+                onClick={handleForgotPassword}
+              >
+                {isSendingReset ? t('admin.auth.sendingResetEmail') : t('admin.auth.forgotPassword')}
               </button>
             </div>
+
+            {resetMessage ? (
+              <p className="rounded-[1rem] border border-[#d8e5ec] bg-[#f7fbfd] px-4 py-3 text-sm leading-[1.7] text-[#4f6473]">
+                {resetMessage}
+              </p>
+            ) : null}
 
             <button
               className="w-full rounded-full bg-[#13703e] px-6 py-3.5 text-sm font-bold uppercase tracking-[0.18em] text-white shadow-[0_14px_32px_rgba(19,112,62,0.18)] transition hover:bg-[#105f35] disabled:cursor-not-allowed disabled:bg-[#74a889]"
@@ -142,13 +173,6 @@ function AdminAuthPanel() {
                 {errorMessage}
               </p>
             ) : null}
-
-            <Link
-              className="flex w-full items-center justify-center rounded-full border border-[#d8e5ec] bg-white px-6 py-3.5 text-sm font-bold uppercase tracking-[0.16em] text-[#115b82] transition hover:border-[#abcbe0] hover:bg-[#edf7fc]"
-              to="/admin/dashboard"
-            >
-              {t('admin.auth.previewDashboard')}
-            </Link>
           </form>
 
           <p className="mt-6 text-center text-[0.84rem] leading-[1.7] text-[#7b909d]">

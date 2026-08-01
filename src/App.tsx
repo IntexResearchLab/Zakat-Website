@@ -4,6 +4,7 @@ import AdminDashboard from './pages/AdminDashboard'
 import AdminExecutives from './pages/AdminExecutives'
 import AdminGallery from './pages/AdminGallery'
 import AdminMagazines from './pages/AdminMagazines'
+import AdminResetPassword from './pages/AdminResetPassword'
 import AdminStats from './pages/AdminStats'
 import AlokayonSchool from './pages/AlokayonSchool'
 import AdminRouteGuard from './components/Admin/AdminRouteGuard'
@@ -40,6 +41,7 @@ function App() {
               </AdminRouteGuard>
             }
           />
+          <Route path="/admin/reset-password" element={<AdminResetPassword />} />
           <Route
             path="/admin/dashboard"
             element={
