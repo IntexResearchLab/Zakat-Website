@@ -7,6 +7,7 @@ export type MosaicGalleryFilter = {
 }
 
 export type MosaicGalleryItem = {
+  id: string
   category: string
   title: string
   description: string
@@ -127,7 +128,7 @@ function MosaicGallerySection({
                   className={`group relative overflow-hidden rounded-[1.15rem] bg-[#14324d] text-left shadow-[0_18px_42px_rgba(15,23,42,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_50px_rgba(15,23,42,0.12)] ${getSpanClass(
                     item.span,
                   )}`}
-                  key={`${item.title}-${item.location}`}
+                  key={item.id}
                   onClick={() => setSelectedItem(item)}
                   type="button"
                 >

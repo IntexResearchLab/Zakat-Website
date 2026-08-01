@@ -1,6 +1,7 @@
 import type { TFunction } from 'i18next'
 
 export type GalleryItem = {
+  id: string
   category: string
   title: string
   description: string
@@ -70,10 +71,11 @@ export const getGalleryFilters = (t: TFunction) =>
 export const getGalleryItems = (t: TFunction) => {
   const items = t('galleryPage.grid.items', {
     returnObjects: true,
-  }) as Array<Omit<GalleryItem, 'image' | 'filterId' | 'span'>>
+  }) as Array<Omit<GalleryItem, 'id' | 'image' | 'filterId' | 'span'>>
 
   return items.map((item, index) => ({
     ...item,
+    id: `fallback-${index}`,
     image: galleryImageMap[index % galleryImageMap.length],
     filterId: galleryCategoryMap[index % galleryCategoryMap.length],
     span: gallerySpanMap[index % gallerySpanMap.length],

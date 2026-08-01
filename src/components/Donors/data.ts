@@ -34,6 +34,11 @@ type Story = {
   paragraphs: string[]
   name: string
   role: string
+  image?: string
+}
+
+const storyPortraits: Record<string, string> = {
+  'Affan Abbasi': '/assets/about/affan-abbasi.jpeg',
 }
 
 const donorPortraits = [
@@ -63,8 +68,14 @@ export const getDonorCards = (t: TFunction) => {
 export const getMapPoints = (t: TFunction) =>
   t('donors.globalSupport.points', { returnObjects: true }) as MapPoint[]
 
-export const getDonorStories = (t: TFunction) =>
-  t('donors.stories.items', { returnObjects: true }) as Story[]
+export const getDonorStories = (t: TFunction) => {
+  const stories = t('donors.stories.items', { returnObjects: true }) as Story[]
+
+  return stories.map((story) => ({
+    ...story,
+    image: storyPortraits[story.name],
+  }))
+}
 
 export const getWhyTrustPoints = (t: TFunction) =>
   t('donors.whyTrust.points', { returnObjects: true }) as string[]

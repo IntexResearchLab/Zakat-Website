@@ -44,6 +44,7 @@ function GalleryGrid() {
     () =>
       remoteItems.length
         ? remoteItems.map((item) => ({
+            id: item.id,
             category: getGalleryCategoryLabel(t, item.filter_id),
             title: item.title,
             description: item.description,

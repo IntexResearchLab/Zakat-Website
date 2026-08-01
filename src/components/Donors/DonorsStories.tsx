@@ -32,16 +32,25 @@ function DonorsStories() {
                     type="button"
                     onClick={() => setOpenStory((current) => (current === index ? null : index))}
                   >
-                    <div>
-                      <p className="text-[0.78rem] font-bold uppercase tracking-[0.16em] text-[#115b82]">
-                        {story.title}
-                      </p>
-                      <p className="mt-3 text-[1rem] leading-[1.75] text-[#5f7280]">
-                        {story.summary}
-                      </p>
-                      <div className="mt-4">
-                        <p className="text-[0.96rem] font-bold text-[#14324d]">{story.name}</p>
-                        <p className="mt-1 text-[0.88rem] text-[#677986]">{story.role}</p>
+                    <div className="flex items-start gap-4">
+                      {story.image ? (
+                        <img
+                          alt={story.name}
+                          className="h-14 w-14 shrink-0 rounded-full object-cover"
+                          src={story.image}
+                        />
+                      ) : null}
+                      <div>
+                        <p className="text-[0.78rem] font-bold uppercase tracking-[0.16em] text-[#115b82]">
+                          {story.title}
+                        </p>
+                        <p className="mt-3 text-[1rem] leading-[1.75] text-[#5f7280]">
+                          {story.summary}
+                        </p>
+                        <div className="mt-4">
+                          <p className="text-[0.96rem] font-bold text-[#14324d]">{story.name}</p>
+                          <p className="mt-1 text-[0.88rem] text-[#677986]">{story.role}</p>
+                        </div>
                       </div>
                     </div>
                     <span className="material-symbols-outlined mt-1 text-[#115b82]">
