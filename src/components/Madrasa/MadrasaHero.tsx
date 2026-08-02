@@ -47,7 +47,7 @@ function MadrasaHero() {
               <img
                 alt={t('madrasa.hero.imageAlt')}
                 className="aspect-[5/4] w-full object-cover"
-                src="/assets/home/carousel-2.jpg"
+                src="/assets/about/madrasa-students.jpg"
               />
             </div>
 

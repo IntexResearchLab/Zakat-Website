@@ -18,11 +18,11 @@ type GalleryItem = {
 }
 
 const madrasaGalleryImages = [
-  '/assets/home/carousel-2.jpg',
-  '/assets/home/carousel-1.jpg',
-  '/assets/home/volunteers-1.jpg',
-  '/assets/home/carousel-3.jpg',
-  '/assets/about/Donation.jpg',
+  '/assets/about/madrasa-classroom.jpg',
+  '/assets/school/School_4.jpg',
+  '/assets/about/book-distribution.jpg',
+  '/assets/about/donors-community.jpg',
+  '/assets/about/bangla-english-teacher.jpg',
 ]
 
 export const getMadrasaImpactStats = (t: TFunction) => getMadrasaImpactStatsFromInventory(t)

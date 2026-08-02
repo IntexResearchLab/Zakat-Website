@@ -62,7 +62,7 @@ function AdminAuthPanel() {
           <img
             alt=""
             className="h-full w-full object-cover"
-            src="/assets/home/carousel-3.jpg"
+            src="/assets/home/Alokayon_School_1.jpg"
           />
         </div>
         <div className="relative mx-auto flex h-full max-w-2xl flex-col justify-between">

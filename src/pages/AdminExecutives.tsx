@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import AdminShellLayout from '../components/Admin/AdminShellLayout'
+import InitialsAvatar from '../components/reusables/InitialsAvatar'
 import {
   invalidateExecutiveRowsCache,
   type ExecutiveMember,
@@ -516,11 +517,15 @@ function AdminExecutives() {
                   key={member.id}
                 >
                   <div className="flex items-start gap-4">
-                    <img
-                      alt={member.name}
-                      className="h-24 w-20 rounded-[0.85rem] bg-[#eef6fb] object-cover"
-                      src={member.image_url || '/assets/about/person-1.jpg'}
-                    />
+                    {member.image_url ? (
+                      <img
+                        alt={member.name}
+                        className="h-24 w-20 rounded-[0.85rem] bg-[#eef6fb] object-cover"
+                        src={member.image_url}
+                      />
+                    ) : (
+                      <InitialsAvatar className="h-24 w-20 rounded-[0.85rem]" name={member.name} />
+                    )}
                     <div className="min-w-0 flex-1">
                       <div className="flex items-start justify-between gap-4">
                         <div>

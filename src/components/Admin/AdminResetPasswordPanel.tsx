@@ -78,7 +78,7 @@ function AdminResetPasswordPanel() {
     <div className="grid min-h-screen lg:grid-cols-[1.08fr_0.92fr]">
       <div className="relative overflow-hidden bg-[linear-gradient(145deg,#14324d,#0d2236)] px-6 py-16 text-white sm:px-10 lg:px-14">
         <div className="absolute inset-0 opacity-10">
-          <img alt="" className="h-full w-full object-cover" src="/assets/home/carousel-3.jpg" />
+          <img alt="" className="h-full w-full object-cover" src="/assets/home/Alokayon_School_1.jpg" />
         </div>
         <div className="relative mx-auto flex h-full max-w-2xl flex-col justify-between">
           <div>

@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import Reveal from '../reusables/Reveal'
+import InitialsAvatar from '../reusables/InitialsAvatar'
 import { getDonorCards, getFeaturedDonor } from './data'
 
 function DonorsFeaturedTestimonials() {
@@ -14,11 +15,7 @@ function DonorsFeaturedTestimonials() {
           <article className="overflow-hidden rounded-[1.6rem] border border-[#dbe7ee] bg-white shadow-[0_18px_40px_rgba(15,23,42,0.06)]">
             <div className="grid gap-8 p-8 sm:p-10 lg:grid-cols-[0.52fr_0.48fr] lg:items-center">
               <div className="relative overflow-hidden rounded-[1.35rem] bg-[radial-gradient(circle_at_top,rgba(245,250,254,1),rgba(231,241,248,1))] p-4">
-                <img
-                  alt={featuredDonor.name}
-                  className="aspect-[4/5] w-full rounded-[1.15rem] object-cover"
-                  src={featuredDonor.image}
-                />
+                <InitialsAvatar className="aspect-[4/5] w-full rounded-[1.15rem]" name={featuredDonor.name} />
               </div>
 
               <div>
@@ -52,11 +49,7 @@ function DonorsFeaturedTestimonials() {
                 delay={90}
               >
                 <div className="flex items-start gap-4">
-                  <img
-                    alt={card.name}
-                    className="h-14 w-14 shrink-0 rounded-full object-cover"
-                    src={card.image}
-                  />
+                  <InitialsAvatar className="h-14 w-14 rounded-full text-[1.1rem]" name={card.name} variant="circle" />
                   <div>
                     <p className="font-serif text-[1.12rem] italic leading-[1.7] text-[#27465f]">
                       “{card.quote}”
