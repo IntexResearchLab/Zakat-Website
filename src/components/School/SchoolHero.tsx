@@ -1,6 +1,7 @@
 import Reveal from '../reusables/Reveal'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
+import Breadcrumb from '../reusables/Breadcrumb'
 
 function SchoolHero() {
   const { t } = useTranslation()
@@ -9,10 +10,12 @@ function SchoolHero() {
     <section className="border-b border-[#d8e5ec] bg-white">
       <div className="mx-auto grid max-w-7xl gap-12 px-6 py-14 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:gap-20 lg:py-20">
         <Reveal className="max-w-2xl">
-          <p className="text-[1rem] font-medium tracking-[-0.01em] text-[#5f7280]">
-            [{t('common.breadcrumb.home')} / <span className="text-[#c58b16]">{t('common.breadcrumb.programs')}</span> /{' '}
-            <span className="text-[#c58b16]">{t('common.breadcrumb.school')}</span>]
-          </p>
+          <Breadcrumb
+            items={[
+              { label: t('common.breadcrumb.programs'), to: '/programs' },
+              { label: t('common.breadcrumb.school') },
+            ]}
+          />
           <p className="mt-8 text-sm font-bold uppercase tracking-[0.2em] text-[#115b82]">
             {t('school.hero.eyebrow')}
           </p>

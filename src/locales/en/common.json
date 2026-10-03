@@ -136,7 +136,7 @@
       ]
     },
     "bottom": {
-      "copyright": "© 2025 Alokayon",
+      "copyright": "© {{year}} Alokayon",
       "designed": "Intex Research Lab, Development Unit"
     }
   },

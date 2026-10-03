@@ -30,7 +30,7 @@ function HeroCarousel() {
 
   return (
     <section className="relative overflow-hidden">
-      <div className="relative h-[calc(100vh-74px)] min-h-[640px] w-full">
+      <div className="relative min-h-[640px] w-full md:h-[calc(100vh-74px)]">
         {slides.map((slide, index) => (
           <div
             className={`absolute inset-0 transition-opacity duration-700 ${
@@ -49,7 +49,7 @@ function HeroCarousel() {
           </div>
         ))}
 
-        <div className="absolute inset-0 flex items-center">
+        <div className="relative flex min-h-[640px] items-center pb-20 pt-14 md:absolute md:inset-0 md:min-h-0 md:py-0">
           <div className="mx-auto w-full max-w-7xl px-6 md:px-10">
             <div
               className="hero-copy-animate max-w-2xl pl-2 md:pl-10"
@@ -120,7 +120,7 @@ function HeroCarousel() {
 
         <button
           aria-label={t('home.hero.previousSlide')}
-          className="hover-lift-soft absolute left-5 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-[#0c4c6d]/45 text-2xl text-white backdrop-blur-sm transition hover:bg-[#0c4c6d]/70"
+          className="hover-lift-soft absolute left-5 top-1/2 hidden h-11 w-11 -translate-y-1/2 items-center md:flex justify-center rounded-full border border-white/20 bg-[#0c4c6d]/45 text-2xl text-white backdrop-blur-sm transition hover:bg-[#0c4c6d]/70"
           onClick={() =>
             setActiveSlide((current) => (current - 1 + slides.length) % slides.length)
           }
@@ -131,7 +131,7 @@ function HeroCarousel() {
 
         <button
           aria-label={t('home.hero.nextSlide')}
-          className="hover-lift-soft absolute right-5 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-[#0c4c6d]/45 text-2xl text-white backdrop-blur-sm transition hover:bg-[#0c4c6d]/70"
+          className="hover-lift-soft absolute right-5 top-1/2 hidden h-11 w-11 -translate-y-1/2 items-center md:flex justify-center rounded-full border border-white/20 bg-[#0c4c6d]/45 text-2xl text-white backdrop-blur-sm transition hover:bg-[#0c4c6d]/70"
           onClick={() => setActiveSlide((current) => (current + 1) % slides.length)}
           type="button"
         >

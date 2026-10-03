@@ -1,6 +1,7 @@
 import Reveal from '../reusables/Reveal'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
+import Breadcrumb from '../reusables/Breadcrumb'
 
 function MadrasaHero() {
   const { t } = useTranslation()
@@ -9,10 +10,13 @@ function MadrasaHero() {
     <section className="border-b border-[#d9dfd5] bg-[linear-gradient(180deg,#fcfcf9_0%,#f6f7f1_100%)]">
       <div className="mx-auto grid max-w-7xl gap-12 px-6 py-14 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:gap-20 lg:py-20">
         <Reveal className="max-w-2xl">
-          <p className="text-[1rem] font-medium tracking-[-0.01em] text-[#69756b]">
-            [{t('common.breadcrumb.home')} / <span className="text-[#b38a2f]">{t('common.breadcrumb.programs')}</span> /{' '}
-            <span className="text-[#b38a2f]">{t('common.breadcrumb.madrasah')}</span>]
-          </p>
+          <Breadcrumb
+            accentClassName="text-[#b38a2f]"
+            items={[
+              { label: t('common.breadcrumb.programs'), to: '/programs' },
+              { label: t('common.breadcrumb.madrasah') },
+            ]}
+          />
           <p className="mt-8 text-sm font-bold uppercase tracking-[0.2em] text-[#2f6a52]">
             {t('madrasa.hero.eyebrow')}
           </p>

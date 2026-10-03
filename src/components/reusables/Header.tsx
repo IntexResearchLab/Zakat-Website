@@ -99,7 +99,7 @@ function Header() {
           <span className="max-w-[8.5rem] truncate sm:max-w-none">{t('nav.brand')}</span>
         </NavLink>
 
-        <nav className="hidden items-center gap-8 lg:flex xl:gap-9">
+        <nav className="hidden items-center gap-8 xl:flex xl:gap-9">
           <NavLink className={linkClass} to="/">
             {t('nav.home')}
           </NavLink>
@@ -121,14 +121,14 @@ function Header() {
         </nav>
 
         <div className="flex shrink-0 items-center gap-3">
-          <div className="hidden lg:block">
+          <div className="hidden xl:block">
             <LanguageSwitcher />
           </div>
 
           <button
             aria-expanded={isMenuOpen}
             aria-label={t('common.aria.toggleNavigationMenu')}
-            className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#cfe0ea] bg-white text-[#115b82] transition hover:bg-[#eef7fb] lg:hidden"
+            className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#cfe0ea] bg-white text-[#115b82] transition hover:bg-[#eef7fb] xl:hidden"
             type="button"
             onClick={() => setIsMenuOpen((open) => !open)}
           >
@@ -147,7 +147,7 @@ function Header() {
       </div>
 
       {isMenuOpen ? (
-        <div className="mx-auto mt-4 max-w-7xl lg:hidden">
+        <div className="mx-auto mt-4 max-w-7xl xl:hidden">
           <nav className="grid gap-2 rounded-[1.3rem] border border-[#d8e5ec] bg-white p-3 shadow-[0_18px_40px_rgba(15,23,42,0.08)]">
             <div className="px-1 pb-2">
               <LanguageSwitcher />

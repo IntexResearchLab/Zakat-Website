@@ -19,6 +19,7 @@ import Transparency from './pages/Transparency'
 import TransparencyReader from './pages/TransparencyReader'
 import Footer from './components/reusables/Footer'
 import Header from './components/reusables/Header'
+import PageTitle from './components/reusables/PageTitle'
 import ScrollToTop from './components/reusables/ScrollToTop'
 import { PublicStatsProvider } from './lib/publicStats'
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
@@ -31,6 +32,7 @@ function App() {
     <PublicStatsProvider>
       <main className={`min-h-screen ${isAdminRoute ? 'bg-[#f4f8fb] text-[#16324f]' : 'bg-[#eef7fb] text-[#16324f]'}`}>
         {!isAdminRoute ? <Header /> : null}
+        <PageTitle />
         <ScrollToTop />
         <Routes>
           <Route

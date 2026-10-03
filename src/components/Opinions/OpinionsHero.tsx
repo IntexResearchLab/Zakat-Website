@@ -1,5 +1,6 @@
 import Reveal from '../reusables/Reveal'
 import { useTranslation } from 'react-i18next'
+import Breadcrumb from '../reusables/Breadcrumb'
 
 function OpinionsHero() {
   const { t } = useTranslation()
@@ -8,9 +9,7 @@ function OpinionsHero() {
     <section className="border-b border-[#d8e5ec] bg-white">
       <div className="mx-auto max-w-7xl px-6 py-16 sm:py-20">
         <Reveal className="max-w-4xl">
-          <p className="text-[1rem] font-medium tracking-[-0.01em] text-[#5f7280]">
-            [{t('common.breadcrumb.home')} / <span className="text-[#c58b16]">{t('common.breadcrumb.opinions')}</span>]
-          </p>
+          <Breadcrumb items={[{ label: t('common.breadcrumb.opinions') }]} />
           <p className="mt-8 text-sm font-bold uppercase tracking-[0.2em] text-[#115b82]">
             {t('opinions.hero.eyebrow')}
           </p>

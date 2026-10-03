@@ -2,6 +2,7 @@ import Reveal from '../reusables/Reveal'
 import { useTranslation } from 'react-i18next'
 import { getProgramStats } from './data'
 import { usePublicStats } from '../../lib/publicStats'
+import Breadcrumb from '../reusables/Breadcrumb'
 
 function ProgramsHero() {
   const { t } = useTranslation()
@@ -13,9 +14,7 @@ function ProgramsHero() {
       <div className="mx-auto max-w-7xl px-6 py-14 sm:py-20">
         <div className="grid gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:gap-20">
           <Reveal className="max-w-2xl">
-            <p className="text-[1rem] font-medium tracking-[-0.01em] text-[#5f7280]">
-              [{t('common.breadcrumb.home')} / <span className="text-[#c58b16]">{t('common.breadcrumb.programs')}</span>]
-            </p>
+            <Breadcrumb items={[{ label: t('common.breadcrumb.programs') }]} />
             <p className="mt-8 text-sm font-bold uppercase tracking-[0.2em] text-[#115b82]">
               {t('programs.hero.eyebrow')}
             </p>

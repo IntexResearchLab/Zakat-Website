@@ -84,7 +84,7 @@ function Footer() {
         <div className="mt-12 flex flex-col gap-5 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
             <p className="text-[0.82rem] leading-[1.7] text-[#9ab3c1]">
-              {t('footer.bottom.copyright')}
+              {t('footer.bottom.copyright', { year: new Date().getFullYear() })}
             </p>
             <div className="flex flex-wrap items-center gap-4">
               <a

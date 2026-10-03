@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import Reveal from '../reusables/Reveal'
 import type { MagazineIssue } from './types'
 import { downloadFile } from '../../lib/download'
+import Breadcrumb from '../reusables/Breadcrumb'
 
 type TransparencyHeroProps = {
   latestIssue: MagazineIssue
@@ -15,10 +16,7 @@ function TransparencyHero({ latestIssue }: TransparencyHeroProps) {
     <section className="border-b border-[#d8e5ec] bg-[radial-gradient(circle_at_top_left,rgba(225,240,249,0.85),rgba(250,253,255,1)_48%,rgba(255,255,255,1)_100%)]">
       <div className="mx-auto grid max-w-7xl gap-12 px-6 py-14 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:gap-20 lg:py-20">
         <Reveal className="max-w-2xl">
-          <p className="text-[1rem] font-medium tracking-[-0.01em] text-[#5f7280]">
-            [{t('common.breadcrumb.home')} /{' '}
-            <span className="text-[#c58b16]">{t('common.breadcrumb.transparency')}</span>]
-          </p>
+          <Breadcrumb items={[{ label: t('common.breadcrumb.transparency') }]} />
           <p className="mt-8 text-sm font-bold uppercase tracking-[0.2em] text-[#115b82]">
             {t('transparency.hero.eyebrow')}
           </p>
