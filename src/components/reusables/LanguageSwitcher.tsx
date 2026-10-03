@@ -5,12 +5,12 @@ function LanguageSwitcher() {
 
   return (
     <div className="inline-flex items-center gap-2 text-[0.82rem] font-semibold text-[#627786] sm:text-[0.88rem]">
-      {(['en', 'bn'] as const).map((language) => {
+      {(['en', 'bn', 'de'] as const).map((language) => {
         const isActive = i18n.language === language
 
         return (
           <div className="contents" key={language}>
-            {language === 'bn' ? (
+            {language !== 'en' ? (
               <span aria-hidden="true" className="text-[#b2c3cf]">
                 |
               </span>

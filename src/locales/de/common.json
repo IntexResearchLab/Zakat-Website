@@ -1,0 +1,2321 @@
+{
+  "app": {
+    "languages": {
+      "en": "EN",
+      "bn": "বাংলা",
+      "de": "Deutsch"
+    }
+  },
+  "nav": {
+    "brand": "Alokayon",
+    "home": "Startseite",
+    "about": "Über uns",
+    "gallery": "Galerie",
+    "impact": "Wirkung",
+    "school": "Schule",
+    "madrasah": "Madrasa",
+    "donors": "Spender",
+    "programs": "Programme",
+    "programsOverview": "Alle Programme",
+    "transparency": "Magazin",
+    "voices": "Stimmen"
+  },
+  "common": {
+    "actions": {
+      "completeDonation": "Spende abschließen",
+      "donate": "Spenden",
+      "donateNow": "Jetzt spenden",
+      "learnMore": "Mehr erfahren",
+      "learnMoreAboutUs": "Mehr über uns erfahren",
+      "readFullMessage": "Vollständige Botschaft lesen",
+      "readMagazine": "Magazin lesen",
+      "readOurMagazine": "Unser Magazin lesen",
+      "readOurStory": "Unsere Geschichte lesen",
+      "sponsorAStudent": "Einen Schüler unterstützen",
+      "supportAChild": "Ein Kind unterstützen",
+      "supportAStudent": "Einen Schüler unterstützen",
+      "viewAllPrograms": "Alle Programme ansehen",
+      "viewFullGallery": "Vollständige Galerie ansehen",
+      "viewPrograms": "Programme ansehen",
+      "viewSchoolGallery": "Schulgalerie ansehen"
+    },
+    "aria": {
+      "toggleNavigationMenu": "Navigationsmenü ein-/ausblenden"
+    },
+    "breadcrumb": {
+      "home": "Startseite",
+      "aboutUs": "Über uns",
+      "donate": "Spenden",
+      "gallery": "Galerie",
+      "madrasah": "Madrasa",
+      "donors": "Unsere Spender",
+      "opinions": "Stimmen der Wirkung",
+      "programs": "Programme",
+      "school": "Schule",
+      "transparency": "Magazin"
+    },
+    "form": {
+      "emailPlaceholder": "E-Mail-Adresse eingeben",
+      "namePlaceholder": "Namen eingeben",
+      "phonePlaceholder": "Telefonnummer eingeben"
+    },
+    "payments": {
+      "accepted": "Akzeptiert: bKash, Nagad, Visa, Mastercard"
+    },
+    "labels": {
+      "arabicAndBengali": "Arabisch + Bengalisch",
+      "sinceYear": "Seit {{year}}"
+    }
+  },
+  "footer": {
+    "brand": {
+      "description": "Alokayon unterstützt benachteiligte Gemeinschaften durch Bildung, Nothilfe, Gesundheitsversorgung und würdevolle Unterstützung.",
+      "trustLine": "Eingetragene Wohltätigkeitsorganisation • Transparentes Spenden • Seit 2011"
+    },
+    "explore": {
+      "title": "Entdecken",
+      "links": [
+        {
+          "label": "Über uns",
+          "href": "/about"
+        },
+        {
+          "label": "Programme",
+          "href": "/programs"
+        },
+        {
+          "label": "Alokayon Schule",
+          "href": "/programs/alokayon-school"
+        },
+        {
+          "label": "Madrasa",
+          "href": "/programs/madrasa"
+        },
+        {
+          "label": "Galerie",
+          "href": "/gallery"
+        },
+        {
+          "label": "Magazin",
+          "href": "/transparency"
+        },
+        {
+          "label": "Stimmen der Wirkung",
+          "href": "/opinions-of-beneficiaries"
+        },
+        {
+          "label": "Unsere Spender",
+          "href": "/our-donors"
+        },
+        {
+          "label": "Spenden",
+          "href": "/donate"
+        }
+      ]
+    },
+    "contact": {
+      "title": "Kontakt",
+      "address": "Holding No. 02, Road No. 10/1, Avenue 07, Block G, Ward 02, P.S. Khilgaon, Dhaka South City Corporation, Dhaka.",
+      "note": "Für Anfragen zu Zakat, Spenden, Partnerschaften und Direktzahlungen",
+      "links": [
+        {
+          "label": "alokayon2019@gmail.com",
+          "href": "mailto:alokayon2019@gmail.com",
+          "external": true
+        },
+        {
+          "label": "bKash: 01925124019",
+          "href": "tel:01925124019",
+          "external": true
+        },
+        {
+          "label": "Nagad: 01779577828",
+          "href": "tel:01779577828",
+          "external": true
+        }
+      ]
+    },
+    "bottom": {
+      "copyright": "© 2025 Alokayon",
+      "designed": "Intex Research Lab, Development Unit"
+    }
+  },
+  "home": {
+    "hero": {
+      "secondaryCta": "Unsere Wirkung",
+      "previousSlide": "Vorherige Folie anzeigen",
+      "nextSlide": "Nächste Folie anzeigen",
+      "goToSlide": "Zu Folie {{index}} gehen",
+      "verseLabel": "Erinnerung aus dem Koran",
+      "slides": [
+        {
+          "image": "/assets/home/celebration.jpg",
+          "eyebrow": "Glaube in Aktion",
+          "titleTop": "Geben Sie Ihre Zakat.",
+          "titleBottom": "Verändern Sie Leben.",
+          "description": "Alokayon sorgt dafür, dass Ihre Spende mit Würde, Transparenz und Fürsorge Studierende, Witwen, ältere Menschen und bedürftige Familien erreicht.",
+          "versePrefix": "Verrichtet das Gebet und entrichtet die Zakat, und was ihr Gutes für euch vorausschickt,",
+          "verseHighlight": "das werdet ihr bei Allah wiederfinden.",
+          "verseSuffix": "",
+          "verseReference": "Sure Al-Baqara (2:110)",
+          "alt": "Kinder versammelt während einer Alokayon-Hilfsaktion"
+        },
+        {
+          "image": "/assets/about/Donating.jpg",
+          "eyebrow": "Transparente Wirkung",
+          "titleTop": "Geben Sie mit Vertrauen.",
+          "titleBottom": "Erreichen Sie echte Menschen.",
+          "description": "Ihre Unterstützung fließt in praxisnahe Gemeinschaftsprogramme – von Bildung und Nothilfe bis hin zu medizinischer Versorgung und Existenzsicherung.",
+          "versePrefix": "Diejenigen, die ihr Vermögen auf dem Weg Allahs ausgeben, werden",
+          "verseHighlight": "ihren Lohn bei ihrem Herrn erhalten.",
+          "verseSuffix": "Sie werden weder Furcht empfinden noch traurig sein.",
+          "verseReference": "Sure Al-Baqara (2:262)",
+          "alt": "Gemeindemitglieder erhalten Unterstützung durch Alokayon"
+        },
+        {
+          "image": "/assets/school/School_3.jpg",
+          "eyebrow": "Mitgefühl, das bleibt",
+          "titleTop": "Stehen Sie an der Seite",
+          "titleBottom": "derer, die in Not sind.",
+          "description": "Wir unterstützen benachteiligte Gemeinschaften durch kleine, aufrichtige Maßnahmen, die langfristige Stabilität und Hoffnung schaffen.",
+          "versePrefix": "Und sie geben Speise, so lieb sie ihnen auch ist, an",
+          "verseHighlight": "den Bedürftigen, die Waise und den Gefangenen.",
+          "verseSuffix": "",
+          "verseReference": "Sure Al-Insan (76:8)",
+          "alt": "Ein Moment aus einem Alokayon-Programm mit Kindern und Familien"
+        }
+      ]
+    },
+    "impact": {
+      "title": "Verifizierte Wirkung aus Gemeinschaftsprogrammen",
+      "description": "Veröffentlichte Zahlen aus der Arbeit von Alokayon, die Unterstützung in den Bereichen Bildung, Fürsorge und langfristigem Dienst zeigen.",
+      "stats": [
+        {
+          "value": "200+",
+          "label": "Unterstützte Schüler"
+        },
+        {
+          "value": "1.3M+ BDT",
+          "label": "Jährlich verteilt"
+        },
+        {
+          "value": "70+",
+          "label": "Unterstützte Witwen"
+        },
+        {
+          "value": "500+",
+          "label": "Verteilte Existenzgrundlagen"
+        }
+      ],
+      "programsTitle": "Leitprogramme",
+      "childrenLearningLabel": "lernende Kinder",
+      "studentsEnrolledLabel": "eingeschriebene Schüler",
+      "programCards": [
+        {
+          "title": "Alokayon Pathshala",
+          "description": "Kostenlose Bildung für benachteiligte Kinder in den Slumgemeinden Dhakas.",
+          "microStat": "50+ lernende Kinder",
+          "cta": "Schule entdecken",
+          "href": "/programs/alokayon-school",
+          "icon": "school"
+        },
+        {
+          "title": "Abdul Karim Miazi Hafezi Madrasa",
+          "description": "Eine besondere Einrichtung, die koranische, arabische und bengalische Bildung vereint.",
+          "microStat": "100+ eingeschriebene Schüler",
+          "cta": "Madrasa entdecken",
+          "href": "/programs/madrasa",
+          "icon": "menu_book"
+        }
+      ]
+    },
+    "mission": {
+      "eyebrow": "Unsere heilige Mission",
+      "title": "Gemeinschaften stärken durch spirituelle Verantwortung",
+      "paragraphOne": "Bei Alokayon glauben wir, dass Wohltätigkeit nicht mit dem Geben endet. Sie muss vielmehr verantwortungsvoll und mit Integrität eingesetzt werden, um nachhaltige Wirkung zu schaffen und Menschen zu einem Leben in Würde zu verhelfen",
+      "paragraphTwo": "Unsere Arbeit unterstützt nachhaltigen Wandel durch Bildung, Nothilfe, Gesundheitsversorgung und Existenzsicherung, verwurzelt in Mitgefühl, Rechenschaftspflicht und Fürsorge.",
+      "quote": "Schützt euch vor dem Feuer, und sei es mit einer halben Dattel als Spende.",
+      "quoteReminder": "Eine Erinnerung aus dem Islam",
+      "quotePrefix": "Schützt euch vor dem Feuer, und sei es mit",
+      "quoteHighlight": "einer halben Dattel",
+      "quoteSuffix": "als Spende.",
+      "quoteAttribution": "— Prophet Muhammad ﷺ",
+      "quoteSource": "Sahih al-Buchari & Sahih Muslim",
+      "imageAlt": "Ein dokumentarisch anmutendes Bild, das die Mission von Alokayon in der Gemeinschaft zeigt"
+    },
+    "founder": {
+      "eyebrow": "Eine Botschaft des Gründungsvorsitzenden",
+      "context": "Seit 2011 • Von der Gemeinschaft getragen • Glaubensgeleitet",
+      "title": "Eine Botschaft des Gründungsvorsitzenden",
+      "excerptOne": "Alokayon begann mit einer einfachen, aber dringenden Erkenntnis: Trotz nationalen Fortschritts sind viele Menschen in unserer Gesellschaft weiterhin ohne grundlegende Dinge wie Nahrung, Bildung, Gesundheitsversorgung und sicheres Obdach.",
+      "excerptTwo": "Was 2011 als kleine Initiative unter dem Namen „Dushtho Sheba“ begann, wurde später zu Alokayon und 2019 offiziell eingetragen. Mit Zakat und Spenden mitfühlender Menschen stehen wir – im Rahmen unserer begrenzten Möglichkeiten – weiterhin Witwen, Waisen, älteren Menschen, Studierenden und bedürftigen Familien mit Aufrichtigkeit, Würde und Rechenschaftspflicht zur Seite.",
+      "name": "A.K.M. Fazlul Kader",
+      "role": "Gründungsvorsitzender, Alokayon",
+      "imageAlt": "Gründungsvorsitzender von Alokayon",
+      "modal": {
+        "title": "Eine Botschaft des Gründungsvorsitzenden",
+        "intro": "Eine ausführlichere Reflexion darüber, warum Alokayon begann, was die Arbeit weiterhin antreibt und warum kleine Akte aufrichtigen Dienstes noch immer von großer Bedeutung sind.",
+        "sections": [
+          {
+            "title": "Der Fortschritt einer Nation und eine anhaltende Realität",
+            "paragraphs": [
+              "Der 16. Dezember 1971 ist ein unvergesslicher Tag in der Geschichte Bangladeschs. An diesem Tag erlangten wir, im Austausch für das Opfer von drei Millionen Märtyrern und die Ehre unzähliger Mütter und Schwestern, die Unabhängigkeit von der Besatzung durch die pakistanischen Invasionstruppen.",
+              "Doch auch 54 Jahre nach der Unabhängigkeit hat die Bevölkerung dieses Landes noch keinen vollständigen wirtschaftlichen Wohlstand erreicht. Viele sind weiterhin ohne grundlegende Dinge wie Nahrung, Kleidung, Bildung, Gesundheitsversorgung und Unterkunft. In diesen Jahrzehnten hat die Nation bedeutende Fortschritte gemacht, und die BIP-Wachstumsrate ist gestiegen. Im Haushaltsjahr 1972–73 betrug der nationale Haushalt 786 Crore Taka, bei einem BIP-Wachstum von nur 2,75 %. Im Haushaltsjahr 2025–2026 erreichte der Haushalt 7,9 Lakh Crore Taka, mit einem angestrebten BIP-Wachstum von 5,5 Prozent.",
+              "Dennoch bleibt die Realität, dass ein großer Teil der Bevölkerung weiterhin unterhalb der Armutsgrenze lebt. Ein Blick auf die Menschen, die auf den Gehwegen, in Slums sowie an Bus- und Bahnhöfen Dhakas leben, zeigt deutlich, wie belastend das Leben für viele trotz einer gemeldeten Wachstumsrate von 5,50 % bleibt. Die Situation in ländlichen Gebieten ist noch bedrückender. Selbst wenn eine kleine Unterkunft vorhanden ist, sind Beschäftigungsmöglichkeiten rar. Obwohl Schulen existieren, können verwaiste Kinder ihre Ausbildung wegen finanzieller Not oft nicht fortsetzen, und angemessene Gesundheitsversorgung fehlt."
+            ]
+          },
+          {
+            "title": "Warum diese Arbeit begann",
+            "paragraphs": [
+              "Wenn ein Tagelöhner – oder jemand, der von Tageseinkommen lebt – verstirbt und drei oder vier Kinder hinterlässt, gleicht die Lage seiner jungen Witwe der eines Menschen, der in einem weiten Ozean ertrinkt, ohne schwimmen zu können. Aus Scham, Sorge um die Familienehre und Angst vor Belästigung können viele Witwen nicht einmal um Hilfe bitten. In vielen Fällen ist ihre Lage noch schwieriger als die städtischer Slumbewohner.",
+              "Mit dem Ziel, diesen bitterarmen Menschen zu dienen, begann diese Organisation ihre Reise 2011 informell und in sehr kleinem Rahmen unter dem Namen „Dushtho Sheba“. Nach einem langen Weg wurde sie 2019 offiziell beim Department of Social Services des Ministeriums für Soziales unter dem Namen „Alokayon“ eingetragen."
+            ]
+          },
+          {
+            "title": "Getragen von Vertrauen und Aufrichtigkeit",
+            "paragraphs": [
+              "Die wichtigsten Einnahmequellen der Organisation sind Zakat und Spenden mitfühlender Menschen, die sich dem Dienst an Benachteiligten verschrieben haben. Alokayon erhält keine finanzielle Unterstützung von einer lokalen oder ausländischen Organisation. Mit den begrenzten Mitteln, die von ihren Mitgliedern gesammelt werden, bietet die Organisation Bildungsunterstützung für Kinder in den Slums Dhakas sowie begrenzte finanzielle Hilfe für hilflose ältere Menschen, Witwen, Menschen mit Behinderung und arme, aber leistungsstarke Studierende an Universitäten, Schulen, Colleges und Madrasas im ganzen Land. Zusätzlich unterstützen wir Schüler, die den Heiligen Koran an einer Hifz-Madrasa im Bezirk Chatkhil, Noakhali, auswendig lernen.",
+              "Wann immer im Land eine Naturkatastrophe eintritt, bemüht sich Alokayon zudem im Rahmen seiner begrenzten Möglichkeiten, den betroffenen Gemeinschaften beizustehen. Die Organisation leistete 2017 Nothilfe für Rohingya-Flüchtlinge; verteilte 2020 und 2021 während der COVID-19-Pandemie Masken und Aufklärungsblätter zur Gesundheitsvorsorge und unterstützte Tagelöhner finanziell; leistete 2022 finanzielle Hilfe für Hochwasseropfer in Sunamganj und erneut 2024 in Noakhali. Im Jahr 2025 spendeten wir finanzielle Unterstützung für palästinensische muslimische Brüder und Schwestern, die unter der israelischen Besatzung leiden. Außerdem verteilten wir Winterkleidung in der nördlichen Region des Landes. Diese Initiativen wurden vielfach gewürdigt."
+            ]
+          },
+          {
+            "title": "Begrenzte Möglichkeiten, bleibende Absicht",
+            "paragraphs": [
+              "Im Vergleich zu den immensen Bedürfnissen der Benachteiligten bleibt unser Beitrag bescheiden. Dennoch glauben wir, dass auch begrenzte Hilfe einen bedeutsamen Unterschied machen kann. Ohne gemeinsame Anstrengung hätten wir vielleicht nicht einmal so viel erreichen können.",
+              "Wir danken allen, die mit unserer Arbeit verbunden sind, von Herzen. Vier Menschen, die regelmäßig finanziell zu Alokayon beigetragen haben, sind bereits verstorben. Wir beten, dass ihre Beiträge im Jenseits zu einem Mittel der Erlösung werden.",
+              "Lasst uns gemeinsam mit Alokayon den Benachteiligten zur Seite stehen. Möge unser aufrichtiges Bemühen, so Allah will, eine Quelle des Wohlergehens in dieser Welt und der Erlösung im Jenseits sein."
+            ]
+          }
+        ]
+      }
+    },
+    "programs": {
+      "eyebrow": "Unsere Schwerpunkte",
+      "title": "Programme, verwurzelt in Würde",
+      "cards": [
+        {
+          "title": "Bildung",
+          "description": "Stipendien, Schulunterstützung und Lernmöglichkeiten für benachteiligte Schüler."
+        },
+        {
+          "title": "Gesundheitsversorgung",
+          "description": "Unterstützung bei medizinischer Behandlung und dringende Hilfe für gefährdete Patienten."
+        },
+        {
+          "title": "Witwenunterstützung",
+          "description": "Zuwendungen, Existenzgrundlagen und praktische Fürsorge für verwitwete Frauen."
+        },
+        {
+          "title": "Nothilfe",
+          "description": "Nahrung, Kleidung und Nothilfe bei Krisen und Katastrophen."
+        },
+        {
+          "title": "Existenzsicherung",
+          "description": "Enten, Ziegen, Nähmaschinen und Kleinunternehmenshilfe für Selbstständigkeit."
+        },
+        {
+          "title": "Altenpflege",
+          "description": "Direkte Unterstützung für ältere Männer und Frauen ohne festes Einkommen."
+        },
+        {
+          "title": "Gemeinschaftshilfe",
+          "description": "Heiratshilfe, Aufklärung und familienorientierte Unterstützung, wenn sie am dringendsten gebraucht wird."
+        },
+        {
+          "title": "Madrasa",
+          "description": "Integrierte arabische und allgemeine Bildung durch disziplinierten, rechenschaftspflichtigen Unterricht."
+        },
+        {
+          "title": "Schule",
+          "description": "Kostenlose Lernräume für benachteiligte Kinder durch Alokayon Pathshala."
+        }
+      ]
+    },
+    "donation": {
+      "eyebrow": "Werden Sie Teil des Wandels",
+      "title": "Ihre Unterstützung bringt Bildung, Nothilfe und Würde zu denen, die sie am meisten brauchen.",
+      "description": "Jeder Beitrag unterstützt reale Gemeinschaftsprogramme, die in den veröffentlichten Berichten von Alokayon dokumentiert sind."
+    },
+    "supportOptions": {
+      "contact": {
+        "eyebrow": "Kontaktieren Sie Alokayon",
+        "title": "Kontaktieren Sie uns direkt für Zakat, Spenden und Partnerschaftsanfragen.",
+        "description": "Sie können Alokayon per E-Mail kontaktieren oder dieselben bKash- und Nagad-Nummern anrufen, die auch für Direktspenden verwendet werden.",
+        "note": "Bankunterstützung ist über die Islami Bank Bangladesh PLC, Filiale Banasree, verfügbar.",
+        "methods": [
+          {
+            "label": "E-Mail",
+            "value": "alokayon2019@gmail.com",
+            "href": "mailto:alokayon2019@gmail.com"
+          },
+          {
+            "label": "bKash / Kontakt",
+            "value": "01925124019",
+            "href": "tel:01925124019"
+          },
+          {
+            "label": "Nagad / Kontakt",
+            "value": "01779577828",
+            "href": "tel:01779577828"
+          }
+        ]
+      },
+      "donation": {
+        "eyebrow": "Schnelle Spende",
+        "title": "Wählen Sie einen Betrag und spenden Sie ganz einfach.",
+        "otherAmount": "Anderer Betrag",
+        "imageAlt": "Ein Unterstützer mit einer Spendenbox"
+      }
+    },
+    "voices": {
+      "eyebrow": "Stimmen der Wirkung",
+      "title": "Echte Geschichten aus unserer Gemeinschaft",
+      "cta": "Lesen Sie weitere echte Geschichten in unserem Magazin →",
+      "previous": "Vorheriges Zeugnis anzeigen",
+      "next": "Nächstes Zeugnis anzeigen",
+      "showTestimonial": "Zeugnis {{index}} anzeigen",
+      "testimonials": [
+        {
+          "category": "Wirkungsgeschichte",
+          "quote": "Als Begünstigter sind meine Familie und ich Alokayon zutiefst dankbar. In unseren schwersten Tagen stand die Organisation mit Stipendienhilfe, Familienunterstützung, medizinischer Hilfe und Nahrungsmittelunterstützung an unserer Seite.",
+          "name": "Md. Omar Faruque",
+          "role": "Assistant Manager, BRAC",
+          "location": "Comilla"
+        },
+        {
+          "category": "Transparenz",
+          "quote": "Ich war von der Transparenz und Rechenschaftspflicht von Alokayon beeindruckt. Zu sehen, wie Spenden aufrichtig für Bedürftige eingesetzt werden, hat mich ermutigt, mit ihrer Arbeit verbunden zu bleiben.",
+          "name": "Spezialist für Monitoring und Evaluation",
+          "role": "Weltbank",
+          "location": ""
+        },
+        {
+          "category": "Bildung",
+          "quote": "Die finanzielle Unterstützung, die ich von Alokayon erhielt, machte meinen Bildungsweg möglich. Ihre Hilfe verringerte die Belastung meiner Familie und ermöglichte mir, mein Studium fortzusetzen.",
+          "name": "Student",
+          "role": "Universität Chittagong",
+          "location": "Chattogram"
+        }
+      ]
+    }
+  },
+  "about": {
+    "hero": {
+      "eyebrow": "Über Alokayon",
+      "title": "Eine Wohltätigkeitsorganisation, verwurzelt in Mitgefühl, Würde und verantwortungsvollem Geben.",
+      "description": "Alokayon ist eine gemeinnützige, unpolitische Wohltätigkeitsorganisation in Bangladesch, die benachteiligte Gemeinschaften durch Bildung, Gesundheitsversorgung und mitfühlende Nothilfe unterstützt.",
+      "imageAlt": "Über Alokayon durchgeführte Hilfsaktivitäten",
+      "logoAlt": "Alokayon-Logo"
+    },
+    "journey": {
+      "eyebrow": "Unser Werdegang",
+      "title": "Ein stiller Anfang, eine offizielle Gründung und ein wachsendes Engagement für den Dienst.",
+      "description": "Von einer kleinen Initiative zu einer vertrauenswürdigen Wohltätigkeitsorganisation. Wir sind heute eine eingetragene NGO",
+      "badge": "Eingetragene NGO (2019)",
+      "registrationTitle": "Offizielle Registrierung",
+      "registrationDescription": "Die offizielle Registrierung wurde 2019 beim Department of Social Services abgeschlossen.",
+      "certificateAlt": "Registrierungsurkunde von Alokayon",
+      "timeline": [
+        {
+          "year": "2011",
+          "title": "Begann als kleine Initiative"
+        },
+        {
+          "year": "2019",
+          "title": "Offiziell als Alokayon eingetragen"
+        },
+        {
+          "year": "Heute",
+          "title": "Unterstützt Gemeinschaften in ganz Bangladesch"
+        }
+      ]
+    },
+    "purpose": {
+      "eyebrow": "Unser Zweck",
+      "title": "Mitgefühl, geformt zu beständigem Handeln.",
+      "paragraphOne": "Alokayon wurde in dem Glauben gegründet, dass niemand in Not zurückgelassen werden sollte.",
+      "paragraphTwoPrefix": "Seit 2011 unterstützen wir Waisen, Witwen und bedürftige Familien dabei, ein unabhängiges, würdevolles",
+      "paragraphTwoEmphasis": "Leben durch Mitgefühl und gemeinsame Anstrengung aufzubauen.",
+      "story": {
+        "eyebrow": "Unsere Geschichte",
+        "title": "Die Geschichte von Alokayon",
+        "intro": "Was als kleiner Akt des Mitgefühls begann, ist zu einer strukturierten Bewegung würdezentrierter Unterstützung für bedürftige Gemeinschaften in ganz Bangladesch herangewachsen.",
+        "sections": [
+          {
+            "title": "Ein in Mitgefühl verwurzelter Anfang",
+            "paragraphs": [
+              "Alokayon entstand aus einer einfachen, aber kraftvollen Erkenntnis: Obwohl Bangladesch sich über die Jahrzehnte weiterentwickelt hat, leben unzählige Menschen weiterhin ohne Zugang zu grundlegenden Dingen wie Nahrung, Unterkunft, Bildung und Gesundheitsversorgung.",
+              "Hinter den Wachstumsstatistiken stehen reale Leben – Witwen, die still ums Überleben kämpfen, verwaiste Kinder, die ihre Ausbildung nicht fortsetzen können, ältere Menschen ohne Unterstützung und Familien in extremer Not. Viele von ihnen können, gebunden durch Würde und Umstände, nicht einmal um Hilfe bitten.",
+              "Im Jahr 2011 begann, mit dieser Realität vor Augen, eine kleine Initiative unter dem Namen „Dustho Seba“ (Dienst für die Bedürftigen). Sie begann mit einer Handvoll Menschen, begrenzten Mitteln und dem gemeinsamen Engagement, denen zu dienen, die es am meisten brauchen."
+            ]
+          },
+          {
+            "title": "Von bescheidenem Einsatz zur offiziellen Gründung",
+            "paragraphs": [
+              "Inspiriert von gemeinschaftsgetriebener Entwicklung und geleitet von den Werten des Mitgefühls und der gemeinsamen Verantwortung, wuchs dieser bescheidene Einsatz allmählich durch Vertrauen, Beständigkeit und Dienst.",
+              "Nach Jahren der Hingabe und des Vertrauensaufbaus wurde die Organisation 2019 offiziell unter dem Namen Alokayon eingetragen – der Beginn ihres strukturierten Weges."
+            ]
+          },
+          {
+            "title": "Eine von der Gemeinschaft getragene Mission",
+            "paragraphs": [
+              "Was Alokayon einzigartig macht, ist sein Fundament: Es ist unpolitisch und gemeinnützig, erhält keine bedeutende institutionelle oder ausländische Finanzierung und wird durch Zakat, Spenden und Beiträge Einzelner getragen.",
+              "Jeder Beitrag – so klein er auch sein mag – wird als anvertrautes Gut behandelt, das mit Aufrichtigkeit und Rechenschaftspflicht an diejenigen weitergegeben wird, die es am dringendsten benötigen."
+            ]
+          },
+          {
+            "title": "Von kleinen Bemühungen zu echter Wirkung",
+            "paragraphs": [
+              "Im Laufe der Jahre hat Alokayon Mitgefühl in bedeutungsvolles Handeln verwandelt: Witwen und Arbeitslose dabei zu unterstützen, selbstständig zu werden, medizinische Hilfe für ältere und behinderte Menschen zu leisten, Bildung für benachteiligte Schüler zu finanzieren, Schulen für Kinder in Slumgemeinden zu gründen, Nahrung, Kleidung und Nothilfe in Krisenzeiten zu verteilen und zinsfreie finanzielle Unterstützung beim Wiederaufbau von Leben anzubieten.",
+              "Jede Initiative folgt einem Grundsatz: nicht nur zu geben, sondern zu stärken."
+            ]
+          },
+          {
+            "title": "Eine Vision jenseits der Wohltätigkeit",
+            "paragraphs": [
+              "Alokayon glaubt, dass es bei Wohltätigkeit nicht nur um kurzfristige Hilfe geht – es geht darum, Würde wiederherzustellen, Chancen zu schaffen und eine gerechtere Gesellschaft aufzubauen.",
+              "Es geht darum sicherzustellen, dass ein Kind seine Ausbildung fortsetzt, eine Witwe ihre Unabhängigkeit zurückgewinnt, eine Familie Stabilität findet und eine Gemeinschaft gemeinsam vorankommt."
+            ]
+          },
+          {
+            "title": "Den Weg nach vorne erhellen",
+            "paragraphs": [
+              "Heute steht Alokayon als eine wachsende Bewegung von Menschen, die durch Glauben, Verantwortung und Menschlichkeit vereint sind.",
+              "Was als kleiner Akt des Mitgefühls begann, ist für viele zu einer Quelle der Hoffnung geworden – und zu einer Erinnerung daran, dass selbst begrenzte Mittel dauerhaften Wandel bewirken können, wenn Menschen aufrichtig zusammenkommen."
+            ]
+          }
+        ]
+      },
+      "stats": [
+        {
+          "value": "2011",
+          "label": "Gegründet"
+        },
+        {
+          "value": "100+",
+          "label": "Unterstützte Schüler"
+        },
+        {
+          "value": "100+",
+          "label": "Unterstützte Familien"
+        },
+        {
+          "value": "6+",
+          "label": "Laufende Programme"
+        }
+      ]
+    },
+    "programs": {
+      "items": [
+        {
+          "icon": "school",
+          "title": "Bildungsunterstützung",
+          "description": "Stipendien, Schulmaterialien und direkte Unterstützung für benachteiligte Schüler."
+        },
+        {
+          "icon": "medical_services",
+          "title": "Medizinische Hilfe",
+          "description": "Finanzielle Hilfe für Behandlungen und dringende Gesundheitsbedürfnisse."
+        },
+        {
+          "icon": "favorite",
+          "title": "Witwen- und Familienhilfe",
+          "description": "Praktische Unterstützung für Familien in Not, bei Arbeitslosigkeit oder Verlust."
+        },
+        {
+          "icon": "emergency_home",
+          "title": "Nothilfe & Fürsorge",
+          "description": "Nahrungsmittelhilfe, Winterkleidung und Unterstützung bei Katastrophen und Notfällen."
+        },
+        {
+          "icon": "storefront",
+          "title": "Existenzsicherungsprogramme",
+          "description": "Einkommensschaffende Unterstützung durch Tiere, Nähmaschinen und Kleinunternehmenshilfe."
+        },
+        {
+          "icon": "menu_book",
+          "title": "Moralische & religiöse Bildung",
+          "description": "Bücher, Schulinitiativen und fundierter Unterricht, die Gemeinschaften stärken."
+        }
+      ]
+    },
+    "purposeSections": {
+      "items": [
+        {
+          "eyebrow": "Unsere Mission",
+          "title": "Bedürftigen Menschen durch mitfühlende, direkte Unterstützung zu dienen.",
+          "text": "Alokayon steht bitterarmen Gemeinschaften durch Zakat- und spendenfinanzierte Unterstützung in den Bereichen Bildung, Gesundheitsversorgung, Witwen- und Altenpflege, Behindertenhilfe und würdevolle Nothilfe zur Seite.",
+          "bullets": [
+            "Bildungsunterstützung für benachteiligte und leistungsstarke Schüler",
+            "Gesundheitsversorgung und dringende finanzielle Hilfe",
+            "Unterstützung für Witwen, ältere Menschen und Menschen mit Behinderung"
+          ],
+          "imageAlt": "Alokayon-Missionsaktivität"
+        },
+        {
+          "eyebrow": "Unsere Vision",
+          "title": "Eine menschliche Gesellschaft, in der niemand in Not im Stich gelassen wird.",
+          "text": "Wir stellen uns Gemeinschaften vor, in denen bedürftige Familien Zugang zu Bildung, Fürsorge und einem Weg zur Stabilität haben – und in denen wohltätige Unterstützung mit Vertrauen, Aufrichtigkeit und Rechenschaftspflicht geleistet wird.",
+          "bullets": [
+            "Eine Gesellschaft, verwurzelt in Würde und Mitgefühl",
+            "Langfristige Bildungschancen für die Armen",
+            "Gemeinschaftsbasierte Unterstützung mit Transparenz"
+          ],
+          "imageAlt": "Alokayons Vision im Gemeinschaftsleben"
+        },
+        {
+          "eyebrow": "Unser Ziel",
+          "title": "Praktische Unterstützung, die Würde schützt und dauerhaften Wandel schafft.",
+          "text": "Alokayon arbeitet daran, unmittelbare Not zu lindern und gleichzeitig Menschen dabei zu helfen, ein unabhängiges Leben wiederaufzubauen. Unser Ansatz konzentriert sich auf echte Bedürfnisse, sorgfältige Auswahl und Unterstützung, die Selbstständigkeit statt Abhängigkeit fördert.",
+          "bullets": [
+            "Die wirklich Bedürftigen unvoreingenommen erreichen",
+            "Nothilfe, Bildung und Existenzsicherung bieten",
+            "Selbstständigkeit durch menschliche Hilfe fördern"
+          ],
+          "imageAlt": "Alokayons zielorientierte Unterstützung"
+        }
+      ]
+    },
+    "voices": {
+      "testimonials": [
+        {
+          "quote": "Alokayon stand meiner Familie in einer schwierigen Zeit bei und machte meinen Bildungsweg möglich.",
+          "author": "Begünstigter Student"
+        },
+        {
+          "quote": "Die Aufrichtigkeit und Transparenz von Alokayon ließ mich der Arbeit sofort vertrauen.",
+          "author": "Unterstützer"
+        },
+        {
+          "quote": "Diese Organisation dient den Menschen still, doch ihre Wirkung ist tief spürbar.",
+          "author": "Wohlgesinnter der Gemeinschaft"
+        }
+      ]
+    },
+    "trust": {
+      "points": [
+        "Transparenter Spendenprozess und dokumentierte Berichterstattung",
+        "Direkte Unterstützung für Begünstigte und bedürftige Familien",
+        "Gemeinschaftsgetriebene Initiativen, verwurzelt in echter Not",
+        "Diszipliniertes Management, geprägt von Fürsorge und Rechenschaftspflicht"
+      ]
+    },
+    "executive": {
+      "eyebrow": "Vorstand",
+      "title": "Der Vorstand von Alokayon",
+      "description": "Ein Team engagierter Menschen, das die Ausrichtung, Rechenschaftspflicht und den langfristigen Dienst von Alokayon für die Gemeinschaft leitet.",
+      "badge": "{{count}}-köpfiges Komitee",
+      "footer": "Durchsuchen Sie die Komiteemitglieder, die die Ausrichtung und den langfristigen Dienst von Alokayon leiten.",
+      "viewAll": "Alle Vorstandsmitglieder ansehen",
+      "modalTitle": "Alle Vorstandsmitglieder",
+      "modalDescription": "Eine vollständige Übersicht der Komiteemitglieder, die derzeit die Rechenschaftspflicht, den Dienst und die langfristige Ausrichtung von Alokayon leiten.",
+      "closeModal": "Vorstandsansicht schließen",
+      "officeContactLabel": "Kontakt über das Alokayon-Büro",
+      "contactLabel": "Direkter Kontakt",
+      "emailLabel": "E-Mail",
+      "phoneLabel": "Telefon",
+      "officeEmail": "alokayon2019@gmail.com",
+      "officePhone": "01925124019",
+      "previous": "Vorherige Komiteemitglieder",
+      "next": "Nächste Komiteemitglieder",
+      "showSlide": "Komitee-Folie {{index}} anzeigen",
+      "members": [
+        {
+          "name": "Vorstandsmitglied 01",
+          "role": "Komiteevorsitzender"
+        },
+        {
+          "name": "Vorstandsmitglied 02",
+          "role": "Exekutivberater"
+        },
+        {
+          "name": "Vorstandsmitglied 03",
+          "role": "Vorstandsmitglied"
+        },
+        {
+          "name": "Vorstandsmitglied 04",
+          "role": "Vorstandsmitglied"
+        },
+        {
+          "name": "Vorstandsmitglied 05",
+          "role": "Vorstandsmitglied"
+        },
+        {
+          "name": "Vorstandsmitglied 06",
+          "role": "Vorstandsmitglied"
+        },
+        {
+          "name": "Vorstandsmitglied 07",
+          "role": "Vorstandsmitglied"
+        },
+        {
+          "name": "Vorstandsmitglied 08",
+          "role": "Vorstandsmitglied"
+        },
+        {
+          "name": "Vorstandsmitglied 09",
+          "role": "Vorstandsmitglied"
+        },
+        {
+          "name": "Vorstandsmitglied 10",
+          "role": "Vorstandsmitglied"
+        },
+        {
+          "name": "Vorstandsmitglied 11",
+          "role": "Vorstandsmitglied"
+        },
+        {
+          "name": "Vorstandsmitglied 12",
+          "role": "Vorstandsmitglied"
+        },
+        {
+          "name": "Vorstandsmitglied 13",
+          "role": "Vorstandsmitglied"
+        },
+        {
+          "name": "Vorstandsmitglied 14",
+          "role": "Vorstandsmitglied"
+        }
+      ]
+    },
+    "cta": {
+      "eyebrow": "Werden Sie Teil des Wandels",
+      "title": "Ihre Unterstützung bringt Bildung, Nothilfe und Würde zu denen, die sie am meisten brauchen.",
+      "description": "Verifiziert durch reale Programme, dokumentiert im veröffentlichten Magazin und den Gemeinschaftsberichten von Alokayon.",
+      "trustPrimary": "Vertrauenswürdig seit 2011",
+      "trustSecondary": "Unterstützt Hunderte von Familien mit direkter Fürsorge"
+    }
+  },
+  "donate": {
+    "hero": {
+      "eyebrow": "Mit einem Zweck geben",
+      "title": "Stärken Sie Leben mit Ihrer Zakat und Ihren Spenden",
+      "description": "100 % transparent. Direkte Wirkung. Unterstützung für Bildung, Gesundheitsversorgung und Existenzgrundlagen benachteiligter Gemeinschaften durch aufrichtigen, rechenschaftspflichtigen Dienst.",
+      "secondaryCta": "Transparenz ansehen",
+      "imageAlt": "Ein Alokayon-Hilfsmoment mit einer Familie, die direkte Fürsorge erhält",
+      "logoAlt": "Alokayon-Logo",
+      "floatingCard": {
+        "eyebrow": "Direkte Wirkung",
+        "value": "100+",
+        "text": "Begünstigte, erreicht durch Unterstützung, geprägt von Fürsorge, Vertrauen und Rechenschaftspflicht."
+      },
+      "trustItems": [
+        "Eingetragene NGO",
+        "100+ Begünstigte",
+        "100 % transparente Abläufe",
+        "Seit 2011"
+      ]
+    },
+    "main": {
+      "formEyebrow": "Eine Spende tätigen",
+      "formTitle": "Einmal geben. Ein Leben verändern.",
+      "impactEyebrow": "Ihre Spende in Aktion",
+      "impactTitle": "Sehen Sie, wie eine einmalige Gabe zu praktischer Unterstützung wird.",
+      "reportLink": "Unseren Wirkungsbericht lesen",
+      "amounts": [
+        {
+          "amount": "৳500",
+          "label": "Eine Familie ernähren"
+        },
+        {
+          "amount": "৳1000",
+          "label": "Bildung unterstützen"
+        },
+        {
+          "amount": "৳2000",
+          "label": "Einer Witwe helfen"
+        },
+        {
+          "amount": "৳5000",
+          "label": "Komplettes Unterstützungspaket"
+        },
+        {
+          "amount": "Custom",
+          "label": "Anderen Betrag wählen"
+        }
+      ],
+      "categories": {
+        "default": "Wo am dringendsten benötigt",
+        "education": "Bildung",
+        "healthcare": "Gesundheitsversorgung",
+        "livelihood": "Existenzsicherung"
+      },
+      "paymentMethods": [
+        "bKash",
+        "Nagad",
+        "Visa / Mastercard"
+      ],
+      "impactItems": [
+        {
+          "amount": "৳1000",
+          "text": "unterstützt die Bildung eines Kindes mit Gebühren und Materialien"
+        },
+        {
+          "amount": "৳2000",
+          "text": "hilft einer Witwe mit praktischer Existenzsicherung"
+        },
+        {
+          "amount": "৳3000",
+          "text": "versorgt eine bedürftige Familie mit Nahrung und lebenswichtigen Dingen"
+        },
+        {
+          "amount": "৳5000",
+          "text": "trägt zu dringender medizinischer Hilfe bei"
+        }
+      ],
+      "trustItems": [
+        "Gegründet 2011",
+        "Verifizierte Programme",
+        "Transparente Berichterstattung"
+      ]
+    },
+    "transparency": {
+      "eyebrow": "Transparenz",
+      "title": "Wohin Ihre Spende fließt",
+      "breakdownTitle": "Momentaufnahme der Programmzuweisung",
+      "summary": [
+        {
+          "value": "1.02M BDT",
+          "label": "Erhalten 2024–25"
+        },
+        {
+          "value": "1.13M BDT",
+          "label": "Verteilt 2024–25"
+        },
+        {
+          "value": "100+",
+          "label": "Erreichte Begünstigte"
+        },
+        {
+          "value": "200+",
+          "label": "Unterstützte Schüler"
+        }
+      ],
+      "breakdown": [
+        {
+          "label": "Bildungsunterstützung",
+          "value": "32%",
+          "width": "32%"
+        },
+        {
+          "label": "Medizinische Unterstützung",
+          "value": "22%",
+          "width": "22%"
+        },
+        {
+          "label": "Nahrung und Nothilfe",
+          "value": "20%",
+          "width": "20%"
+        },
+        {
+          "label": "Existenzsicherung",
+          "value": "18%",
+          "width": "18%"
+        },
+        {
+          "label": "Notfall- und Familienhilfe",
+          "value": "8%",
+          "width": "8%"
+        }
+      ]
+    },
+    "programs": {
+      "eyebrow": "Was Ihre Spende unterstützt",
+      "title": "Unterstützung, die sich in Bildung, Fürsorge und Würde verwandelt.",
+      "items": [
+        {
+          "icon": "school",
+          "title": "Bildung",
+          "text": "Schul-, Madrasa-, Pathshala- und Universitätsunterstützung für benachteiligte Lernende."
+        },
+        {
+          "icon": "medical_services",
+          "title": "Medizinische Hilfe",
+          "text": "Dringende Behandlungshilfe für Menschen, die sich Gesundheitsversorgung nicht leisten können."
+        },
+        {
+          "icon": "restaurant",
+          "title": "Nahrung & Nothilfe",
+          "text": "Nahrungsmittelverteilung, Iftar-Unterstützung und Nothilfe in schwierigen Zeiten."
+        },
+        {
+          "icon": "content_cut",
+          "title": "Existenzsicherung",
+          "text": "Nähmaschinen, Vieh und zinsfreie Unterstützung für Selbstständigkeit."
+        },
+        {
+          "icon": "ac_unit",
+          "title": "Winterhilfe",
+          "text": "Decken, Schals und saisonale Unterstützung für Gemeinschaften bei starker Kälte."
+        },
+        {
+          "icon": "home_repair_service",
+          "title": "Haus- und Familienhilfe",
+          "text": "Hausreparaturen, Familienfürsorge und rechtzeitige praktische Hilfe in Notlagen."
+        }
+      ]
+    },
+    "stories": {
+      "eyebrow": "Echte Geschichten. Echte Wirkung.",
+      "title": "Hinter jeder Spende steht eine menschliche Geschichte.",
+      "description": "Diese Geschichten spiegeln die praktischen, lebensverändernden Ergebnisse wider, die möglich werden, wenn Unterstützung die richtige Person zur richtigen Zeit erreicht.",
+      "items": [
+        {
+          "quote": "Es gab Tage, an denen ich während des Studiums hungerte. Mit der Unterstützung von Alokayon habe ich meinen Honours- und Master-Abschluss gemacht, und jetzt bereite ich mich auf den BCS vor.",
+          "name": "Md. Nasim Uddin",
+          "role": "Lehrer und Begünstigter"
+        },
+        {
+          "quote": "Das Stipendium von Alokayon verringerte die Last meines Vaters und ermöglichte mir, meine Ausbildung hoffnungsvoll fortzusetzen.",
+          "name": "Tahmina Akter",
+          "role": "Begünstigte Schülerin"
+        },
+        {
+          "quote": "Als ich die Transparenz und Rechenschaftspflicht von Alokayon beobachtete, fühlte ich mich versichert, dass meine Spenden richtig eingesetzt werden.",
+          "name": "Md. Abdul Momen",
+          "role": "Weltbank-Fachmann und Spender"
+        }
+      ]
+    },
+    "donorTrust": {
+      "eyebrow": "Weltweit von Spendern vertraut",
+      "title": "Vertrauen wächst, wenn Großzügigkeit auf Rechenschaftspflicht trifft.",
+      "items": [
+        {
+          "quote": "Als ich die Transparenz und Rechenschaftspflicht von Alokayon beobachtete, fühlte ich mich versichert, dass meine Zakat und Spenden richtig eingesetzt würden.",
+          "name": "Md. Abdul Momen",
+          "role": "Spezialist für Monitoring und Evaluation, Weltbank, Dhaka"
+        },
+        {
+          "quote": "Selbst aus dem Ausland unterstütze ich Alokayon weiterhin, weil ich seiner Aufrichtigkeit und der Art, wie es benachteiligten Menschen dient, vertraue.",
+          "name": "Md. Mohiuddin Babu",
+          "role": "Spender, New York, USA"
+        },
+        {
+          "quote": "Gemeinsame Anstrengung schafft weit größere Möglichkeiten, Bedürftigen zu dienen, und genau das strebt Alokayon an.",
+          "name": "Professor Dr. Md. Tohor Ali",
+          "role": "Ehemaliger Abteilungsleiter, Fachbereich Gemeindemedizin, Dhaka"
+        }
+      ]
+    },
+    "gallery": {
+      "eyebrow": "Visuelles Vertrauen",
+      "title": "Echte Momente hinter jeder Spendenhandlung.",
+      "items": [
+        {
+          "image": "/assets/about/book-distribution.jpg",
+          "title": "Bildungsunterstützung",
+          "caption": "Kindern helfen, mit direkter, praktischer Unterstützung am Lernen teilzuhaben."
+        },
+        {
+          "image": "/assets/about/community-support.jpg",
+          "title": "Gemeinschaftsfürsorge",
+          "caption": "Momente persönlichen Dienstes, die Spenden in sichtbare Wirkung verwandeln."
+        },
+        {
+          "image": "/assets/about/winter-relief-sunamganj.jpg",
+          "title": "Nothilfe & Würde",
+          "caption": "Nothilfe erreicht Familien durch stille, rechenschaftspflichtige Verteilung vor Ort."
+        }
+      ]
+    },
+    "methods": {
+      "eyebrow": "Spendenmethoden",
+      "title": "Spenden Sie über den für Sie passendsten Kanal.",
+      "mobile": [
+        {
+          "title": "bKash",
+          "value": "01925124019"
+        },
+        {
+          "title": "Nagad",
+          "value": "01779577828"
+        },
+        {
+          "title": "E-Mail",
+          "value": "alokayon2019@gmail.com"
+        }
+      ],
+      "bank": {
+        "title": "Banküberweisung",
+        "items": [
+          {
+            "label": "Bank",
+            "value": "Islami Bank Bangladesh PLC"
+          },
+          {
+            "label": "Kontoname",
+            "value": "Alokayon"
+          },
+          {
+            "label": "Kontonummer",
+            "value": "20504160200857404"
+          },
+          {
+            "label": "Bankleitzahl",
+            "value": "125270599"
+          },
+          {
+            "label": "SWIFT-Code",
+            "value": "IBBLBDDH"
+          },
+          {
+            "label": "Filiale",
+            "value": "Banasree"
+          },
+          {
+            "label": "Filialadresse",
+            "value": "Holding No. 02, Road No. 10/1, Avenue 07, Block G, Ward 02, P.S. Khilgaon, Dhaka South City Corporation, Dhaka."
+          }
+        ]
+      },
+      "trust": [
+        "Eingetragen beim Department of Social Services (2019)",
+        "Keine externe Finanzierung — vollständig spendenfinanziert",
+        "Direkte Verteilung an Begünstigte",
+        "Volle Rechenschaftspflicht und transparente Berichterstattung"
+      ]
+    },
+    "trustBlock": {
+      "eyebrow": "Warum Alokayon vertrauen?",
+      "title": "Aufgebaut auf Rechenschaftspflicht, getragen von aufrichtigem Geben.",
+      "description": "Alokayon verbindet spendenfinanzierten Dienst, transparente Berichterstattung und sorgfältige Auswahl der Begünstigten, damit Unterstützung Menschen mit Würde und ohne Verschwendung erreicht.",
+      "points": [
+        "2019 beim Department of Social Services eingetragen",
+        "Keine externe Finanzierung — vollständig durch Zakat und Spenden getragen",
+        "Direkte Unterstützung für Begünstigte in Bildung, Gesundheitsversorgung und Nothilfe",
+        "Transparente Abläufe, verwurzelt in Rechenschaftspflicht und Gemeinschaftsvertrauen"
+      ]
+    },
+    "cta": {
+      "eyebrow": "Letzter Schritt",
+      "title": "Seien Sie heute der Grund für jemandes Lächeln.",
+      "description": "Ihre Zakat und Spende können durch rechtzeitige, transparente und würdezentrierte Unterstützung ein Leben verändern."
+    }
+  },
+  "programs": {
+    "hero": {
+      "eyebrow": "Unsere Programme",
+      "title": "Leben verändern durch Bildung, Fürsorge und nachhaltige Unterstützung.",
+      "description": "Die Programme von Alokayon konzentrieren sich auf praktische, würdeschützende Unterstützung: Schülern zu helfen, weiter zu lernen, Familien beim Wiederaufbau von Stabilität zu unterstützen und bedürftigen Gemeinschaften rechtzeitige Fürsorge zukommen zu lassen.",
+      "imageAlt": "Alokayon-Programmarbeit in der Gemeinschaft",
+      "logoAlt": "Alokayon-Logo",
+      "stats": [
+        {
+          "value": "200+",
+          "label": "Unterstützte Schüler"
+        },
+        {
+          "value": "100+",
+          "label": "Unterstützte Familien"
+        }
+      ]
+    },
+    "categories": {
+      "eyebrow": "Programmkategorien",
+      "title": "Strukturiert um echte Bedürfnisse, nicht um allgemeine Hilfe.",
+      "filters": [
+        {
+          "id": "all",
+          "label": "Alle"
+        },
+        {
+          "id": "education",
+          "label": "Bildung"
+        },
+        {
+          "id": "livelihood",
+          "label": "Existenzsicherung"
+        },
+        {
+          "id": "healthcare",
+          "label": "Gesundheitsversorgung"
+        },
+        {
+          "id": "relief",
+          "label": "Nothilfe"
+        },
+        {
+          "id": "community",
+          "label": "Gemeinschaft"
+        }
+      ],
+      "items": [
+        {
+          "id": "education",
+          "icon": "school",
+          "title": "Bildung",
+          "description": "Unterstützung von 200+ Schülern mit Schulgeld, Büchern, Stipendien und kostenlosen Lernmöglichkeiten.",
+          "highlights": [
+            "Alokayon Pathshala für Slumkinder",
+            "Madrasa mit arabischer und allgemeiner Bildung",
+            "Unterstützung von der Schule bis zur Universität"
+          ]
+        },
+        {
+          "id": "livelihood",
+          "icon": "trending_up",
+          "title": "Existenzsicherung",
+          "description": "Witwen und bedürftigen Familien helfen, durch praktische einkommensschaffende Unterstützung selbstständig zu werden.",
+          "highlights": [
+            "Enten-, Ziegen-, Kuh- und Geflügelunterstützung",
+            "Nähmaschinen für Witwen",
+            "Bargeld und Werkzeuge für Kleinunternehmen"
+          ]
+        },
+        {
+          "id": "healthcare",
+          "icon": "medical_services",
+          "title": "Gesundheitsversorgung",
+          "description": "Medizinische Unterstützung für Menschen, die sich Behandlung nicht leisten können, einschließlich dringender und schwerer Fälle.",
+          "highlights": [
+            "Jährliche medizinische Zuwendung",
+            "Unterstützung für ältere und behinderte Menschen",
+            "Nothilfe bei Behandlungen"
+          ]
+        },
+        {
+          "id": "relief",
+          "icon": "volunteer_activism",
+          "title": "Nothilfe & Nahrungsmittelhilfe",
+          "description": "Bereitstellung von Nahrung, Winterkleidung und Krisenhilfe in Notzeiten und bei Katastrophen.",
+          "highlights": [
+            "Verteilung von Winterkleidung",
+            "Nahrungs- und Iftar-Unterstützung",
+            "Hochwasser-, COVID- und Flüchtlingshilfe"
+          ]
+        },
+        {
+          "id": "community",
+          "icon": "diversity_3",
+          "title": "Gemeinschaftshilfe",
+          "description": "Stärkung bedürftiger Familien durch praktische, würdeorientierte soziale Unterstützung.",
+          "highlights": [
+            "Heiratshilfe für arme Familien",
+            "Zinsfreie Darlehen für Existenzsicherung",
+            "Unterstützung für Menschen mit Behinderung und Aufklärungsarbeit"
+          ]
+        }
+      ]
+    },
+    "featured": {
+      "eyebrow": "Vorgestelltes Programm",
+      "title": "Alokayon Pathshala",
+      "description": "Eine kostenlose Schule, geschaffen, um benachteiligten Kindern in Slumgemeinden Struktur, Bildung und Hoffnung zu bringen.",
+      "points": [
+        "Mehr als 50 Kinder lernen kostenlos",
+        "Bücher, Hefte, Stifte und Schulmaterialien werden bereitgestellt",
+        "Ein Weg von informeller Not zu formaler Bildung"
+      ],
+      "stats": [
+        {
+          "value": "50+",
+          "label": "Lernende Kinder"
+        },
+        {
+          "value": "2023",
+          "label": "Offizielle Eröffnung"
+        },
+        {
+          "value": "45",
+          "label": "Schulaufnahmen"
+        }
+      ],
+      "cta": "Die Geschichte der Schule entdecken"
+    },
+    "featuredMadrasa": {
+      "eyebrow": "Vorgestellte Einrichtung",
+      "title": "Abdul Karim Miazi Hafezi Madrasa",
+      "description": "Eine strukturierte Madrasa-Initiative, die koranische, arabische und bengalische Bildung in einem disziplinierten, rechenschaftspflichtigen Lernumfeld vereint.",
+      "points": [
+        "Mehr als 100 eingeschriebene Schüler aus benachteiligten Verhältnissen",
+        "Integrierter Unterricht in Arabisch, Bengalisch, Englisch und Mathematik",
+        "Mahlzeiten, Materialien und betreute Aufsicht für bedürftige Lernende"
+      ],
+      "stats": [
+        {
+          "value": "100+",
+          "label": "Eingeschriebene Schüler"
+        },
+        {
+          "value": "31",
+          "label": "Hifz-Schüler"
+        },
+        {
+          "value": "2019",
+          "label": "Zeitraum der eingetragenen Unterstützung"
+        }
+      ],
+      "cta": "Die Geschichte der Madrasa entdecken"
+    },
+    "caseStudy": {
+      "eyebrow": "Echte Wirkung",
+      "title": "Der Weg einer Familie von der Krise zur Stabilität",
+      "problemLabel": "Problem:",
+      "realityLabel": "Realität:",
+      "interventionLabel": "Maßnahme:",
+      "impactLabel": "Wirkung:",
+      "problem": "Viele Familien überleben nur von unsicherem Tageseinkommen. Wenn der Hauptverdiener stirbt, kann der gesamte Haushalt über Nacht zusammenbrechen.",
+      "reality": "Verwitwete Mütter, die verwaiste Kinder betreuen, geraten oft in Schuldenfallen und verlieren die letzte Stabilität, die ihnen geblieben war.",
+      "intervention": "Alokayon identifiziert solche Familien und reagiert mit Bildungsunterstützung, direkter finanzieller Hilfe und Existenzgrundlagen, die Abhängigkeit verringern.",
+      "impact": "Kinder setzen ihr Studium fort, Familien finden wieder Halt, und bedürftige Haushalte bewegen sich von der Krise hin zu Würde und Stabilität.",
+      "timeline": [
+        {
+          "label": "Problem",
+          "text": "Der Verlust des Einkommens stürzt Familien in extreme Unsicherheit."
+        },
+        {
+          "label": "Krise",
+          "text": "Ohne verlässliche Unterstützung vertiefen sich Schulden und Unsicherheit."
+        },
+        {
+          "label": "Unterstützung",
+          "text": "Alokayon bietet praktische Bildungs-, Nothilfe- und Existenzsicherungshilfe."
+        },
+        {
+          "label": "Erholung",
+          "text": "Familien bauen Selbstvertrauen, Unabhängigkeit und Hoffnung wieder auf."
+        }
+      ]
+    },
+    "initiatives": {
+      "eyebrow": "Unsere wichtigsten Initiativen",
+      "title": "Gezielte Maßnahmen, die echte Bedürfnisse vor Ort erfüllen.",
+      "items": [
+        {
+          "icon": "content_cut",
+          "title": "Verteilung von Nähmaschinen"
+        },
+        {
+          "icon": "pets",
+          "title": "Viehunterstützung"
+        },
+        {
+          "icon": "egg",
+          "title": "Geflügelunterstützung"
+        },
+        {
+          "icon": "ac_unit",
+          "title": "Verteilung von Winterkleidung"
+        },
+        {
+          "icon": "park",
+          "title": "Baumpflanzprogramm"
+        },
+        {
+          "icon": "menu_book",
+          "title": "Bibliothek & Islamische Bildung"
+        },
+        {
+          "icon": "favorite",
+          "title": "Heiratshilfe für Waisen"
+        },
+        {
+          "icon": "restaurant",
+          "title": "Iftar-Verteilung"
+        }
+      ]
+    },
+    "gallery": {
+      "eyebrow": "Echte Momente, echte Wirkung",
+      "title": "Ein Einblick in die Leben, die wir unterstützen, und die Gemeinschaften, denen wir dienen.",
+      "footer": "Diese Momente spiegeln die Programme, Beziehungen und praktische Fürsorge wider, die die Arbeit von Alokayon in den Gemeinschaften prägen.",
+      "filters": [
+        {
+          "id": "all",
+          "label": "Alle"
+        },
+        {
+          "id": "education",
+          "label": "Bildung"
+        },
+        {
+          "id": "relief",
+          "label": "Nothilfe"
+        },
+        {
+          "id": "healthcare",
+          "label": "Gesundheitsversorgung"
+        },
+        {
+          "id": "livelihood",
+          "label": "Existenzsicherung"
+        }
+      ],
+      "items": [
+        {
+          "program": "education",
+          "title": "Gemeinsam lernende Kinder",
+          "location": "Unterrichtsunterstützung für benachteiligte Schüler"
+        },
+        {
+          "program": "relief",
+          "title": "Nothilfe erreicht Familien",
+          "location": "Nothilfe, geleistet mit Fürsorge und Würde"
+        },
+        {
+          "program": "livelihood",
+          "title": "Werkzeuge für Selbstständigkeit",
+          "location": "Einkommensschaffende Unterstützung für Witwen und Familien"
+        },
+        {
+          "program": "healthcare",
+          "title": "Medizinische Hilfe in dringenden Momenten",
+          "location": "Unterstützung für Menschen, die sich Behandlung nicht leisten können"
+        },
+        {
+          "program": "education",
+          "title": "Bücher und Lernmaterialien",
+          "location": "Praktische Bildungsunterstützung für alle Altersgruppen"
+        },
+        {
+          "program": "relief",
+          "title": "Nahrungsmittel- und Saisonhilfe",
+          "location": "Nothilfe in Notzeiten und im Winter"
+        },
+        {
+          "program": "livelihood",
+          "title": "Existenzsicherung in Aktion",
+          "location": "Haushalten helfen, wieder Stabilität aufzubauen"
+        },
+        {
+          "program": "education",
+          "title": "Schulumgebungen, die Hoffnung schaffen",
+          "location": "Wege zu strukturiertem Lernen"
+        }
+      ],
+      "modalContext": "Programmübersicht"
+    },
+    "impact": {
+      "eyebrow": "Wirkung auf einen Blick",
+      "title": "Verankert in Handlung, nicht in abstrakten Zahlen.",
+      "items": [
+        {
+          "value": "200+",
+          "label": "Unterstützte Schüler"
+        },
+        {
+          "value": "60+",
+          "label": "Ältere Menschen mit Zuwendung"
+        },
+        {
+          "value": "70+",
+          "label": "Unterstützte Witwen"
+        },
+        {
+          "value": "25+",
+          "label": "Jährlich unterstützte medizinische Fälle"
+        }
+      ]
+    },
+    "stories": {
+      "eyebrow": "Echte Geschichten",
+      "title": "Leben, verändert durch kleine, aber rechtzeitige Unterstützung.",
+      "items": [
+        {
+          "quote": "Alokayon unterstützte meine Ausbildung, als ich fast nichts hatte. Diese Unterstützung wurde zur Brücke in eine bessere Zukunft.",
+          "person": "Begünstigter Student",
+          "context": "Hochschulbildungsunterstützung"
+        },
+        {
+          "quote": "Wichtig ist nicht nur die Hilfe selbst, sondern die Würde, mit der sie die Familie erreicht.",
+          "person": "Begünstigte Witwe",
+          "context": "Existenzsicherung"
+        },
+        {
+          "quote": "Winterkleidung erreichte Menschen, die sonst keinen Schutz vor der Kälte hatten. Dieser Moment ist mir tief im Gedächtnis geblieben.",
+          "person": "Md. Maruf Hossain",
+          "context": "Nothilfearbeit in Kurigram"
+        }
+      ]
+    },
+    "cta": {
+      "eyebrow": "Werden Sie Teil des Wandels",
+      "title": "Ihre Unterstützung bringt Bildung, Nothilfe und Würde zu denen, die sie am meisten brauchen.",
+      "description": "Unterstützen Sie reale Programme, dokumentiert im Magazin und den Gemeinschaftsberichten von Alokayon."
+    }
+  },
+  "school": {
+    "hero": {
+      "eyebrow": "Alokayon-Schule",
+      "title": "Eine kostenlose Bildungseinrichtung für benachteiligte Kinder",
+      "description": "Die Alokayon-Schule wurde geschaffen, um Kindern, die in Entbehrung aufwachsen, Bildung, Struktur und Hoffnung zu bringen. Mehr als fünfzig Kinder erhalten kostenlosen Unterricht und Lernmaterialien.",
+      "imageAlt": "Kinder lernen an der Alokayon-Schule",
+      "floatingStat": {
+        "value": "50+",
+        "label": "Kostenlos lernende Kinder"
+      }
+    },
+    "impact": {
+      "items": [
+        {
+          "value": "50+",
+          "label": "Kostenlos lernende Kinder"
+        },
+        {
+          "value": "13. Feb. 2023",
+          "label": "Offizielle Eröffnung von Alokayon Pathshala"
+        },
+        {
+          "value": "45",
+          "label": "In staatliche Grundschulen aufgenommene Kinder"
+        },
+        {
+          "value": "Arabisch + Bengalisch",
+          "label": "Integriertes Lernmodell"
+        }
+      ]
+    },
+    "whyMatters": {
+      "eyebrow": "Warum diese Schule wichtig ist",
+      "title": "Bildung kann Not schon früh unterbrechen.",
+      "paragraphOne": "Kinder tragen das Potenzial der Lehrer, Führungspersönlichkeiten, Künstler und Denker von morgen in sich. Doch viele benachteiligte Kinder wachsen ohne Zugang zu Nahrung, Fürsorge und Bildung auf, die nötig sind, um dieses Potenzial zu entfalten.",
+      "paragraphTwo": "Die Alokayon-Schule existiert, um diesen Kreislauf frühzeitig zu unterbrechen – damit Kinder nicht in Vernachlässigung, Analphabetismus oder schädliche Umgebungen abgleiten, sondern mit Disziplin, Würde und Möglichkeiten aufwachsen."
+    },
+    "founding": {
+      "eyebrow": "Wie die Alokayon-Schule begann",
+      "title": "Ein kleiner Lehrversuch wurde zu einer gemeinsamen Mission.",
+      "paragraphOne": "Lange Zeit wollte Alokayon Bildungsmöglichkeiten für benachteiligte Kinder schaffen, verfügte jedoch nicht über die nötigen Einrichtungen und Mittel, um zu beginnen.",
+      "paragraphTwo": "Das änderte sich, als Jesmin Akter, die Slumkinder auf der Veranda ihres Hauses unterrichtet hatte, mit der Organisation in Kontakt kam. Alokayon reagierte, indem es einen kleinen Raum mietete, Sitzgelegenheiten einrichtete und Bücher, Hefte und Stifte bereitstellte. Die Schule wurde daraufhin am 13. Februar 2023 offiziell als Alokayon Pathshala eingeweiht.",
+      "timeline": [
+        {
+          "label": "Schritt 1",
+          "title": "Informeller Unterricht auf einer Veranda"
+        },
+        {
+          "label": "Schritt 2",
+          "title": "Alokayon stellt Raum und Materialien bereit"
+        },
+        {
+          "label": "Schritt 3",
+          "title": "Offizielle Einweihung der Schule"
+        }
+      ]
+    },
+    "teacher": {
+      "eyebrow": "Im Fokus: die Lehrerin",
+      "title": "Lernen Sie die Lehrerin hinter der Schule kennen",
+      "paragraphOne": "Die Geschichte von Jesmin Akter gibt dieser Schule ihr Herz. Nachdem sie als Kind ihren Vater verlor, tiefe finanzielle Not erlebte und eine schwierige frühe Ehe durchstand, hielt sie dennoch an ihrem Traum vom Unterrichten fest.",
+      "paragraphTwo": "Sie begann, indem sie Kinder aus der Nachbarschaft zum Lernen einlud, manchmal mit unbenutzten Seiten aus den alten Heften ihrer Söhne. Mit der Unterstützung von Alokayon wurde aus diesem kleinen Einsatz eine richtige Schule.",
+      "quote": "Mit der Unterstützung von Alokayon glaube ich nun, dass ich, so Allah will, benachteiligte Kinder ins Licht der Bildung führen kann.",
+      "name": "Jesmin Akter",
+      "role": "Lehrerin, Alokayon-Schule 1",
+      "imageAlt": "Lehrerin Jesmin Akter mit Schülern"
+    },
+    "support": {
+      "eyebrow": "Was die Schüler erhalten",
+      "title": "Mehr als ein Klassenzimmer — ein Fundament für das Lernen.",
+      "items": [
+        "Kostenloser Unterricht im Klassenzimmer",
+        "Bücher, Hefte, Stifte und Schulmaterialien",
+        "Sitzgelegenheiten, Strom, Licht und Ventilatoren",
+        "Arabisch- und Religionsunterricht",
+        "Eine sichere und unterstützende Lernumgebung",
+        "Ein Weg in staatliche Grundschulen"
+      ]
+    },
+    "gallery": {
+      "eyebrow": "Momente von der Alokayon-Schule",
+      "title": "Echte Szenen aus einem auf Fürsorge aufgebauten Lernraum.",
+      "items": [
+        {
+          "title": "Unterricht im Klassenzimmer in Rasulbag"
+        },
+        {
+          "title": "Bücher und Materialien für benachteiligte Kinder"
+        },
+        {
+          "title": "Von der Lehrerin geleitetes Gruppenlernen"
+        },
+        {
+          "title": "Schüler lernen mit Struktur und Unterstützung"
+        },
+        {
+          "title": "Arabisch- und Moralunterricht neben regulärer Bildung"
+        },
+        {
+          "title": "Eine von Würde geprägte Klassenzimmerumgebung"
+        }
+      ]
+    },
+    "outcomes": {
+      "eyebrow": "Ergebnisse",
+      "title": "Von Unterrichtsunterstützung zur Schulaufnahme",
+      "summary": "45 benachteiligte Kinder wechselten innerhalb von drei Jahren in die formale Grundschulbildung.",
+      "items": [
+        {
+          "year": "2023",
+          "value": "10",
+          "label": "In staatlichen Grundschulen eingeschriebene Kinder"
+        },
+        {
+          "year": "2024",
+          "value": "10",
+          "label": "In staatlichen Grundschulen eingeschriebene Kinder"
+        },
+        {
+          "year": "2025",
+          "value": "25",
+          "label": "In staatlichen Grundschulen eingeschriebene Kinder"
+        }
+      ]
+    },
+    "trust": {
+      "eyebrow": "Mit Sorgfalt aufgebaut, durch Taten gestützt",
+      "description": "Alokayon Pathshala wurde im Rasulbag-Slum in der Nähe der Polizeistation Tejgaon in Dhaka eingerichtet, wo mehr als fünfzig benachteiligte Kinder kostenlose Bildung und Schulmaterialien erhalten. Sie ist zudem Teil der umfassenderen Bildungsunterstützung von Alokayon, von der insgesamt rund 200 Kinder profitieren.",
+      "badges": [
+        "Kostenlose Bildungsunterstützung",
+        "Mehr als 50 Kinder",
+        "Verbunden mit umfassenderer Bildungsarbeit"
+      ]
+    },
+    "cta": {
+      "eyebrow": "Unterstützen Sie die Schule",
+      "title": "Helfen Sie einem Kind, in ein Klassenzimmer zu treten — nicht in Vernachlässigung.",
+      "primary": "Alokayon-Schule unterstützen",
+      "secondary": "Die Geschichte der Schule lesen"
+    }
+  },
+  "madrasa": {
+    "hero": {
+      "eyebrow": "Alokayon-Madrasa-Initiative",
+      "title": "Abdul Karim Miazi Hafezi Madrasa",
+      "description": "Eine besondere Bildungseinrichtung, die arabische und bengalische Bildung in einem disziplinierten, spirituell verwurzelten Umfeld vereint.",
+      "location": "Sompara, Chatkhil, Noakhali",
+      "imageAlt": "Schüler beim Lernen in der Madrasa-Umgebung",
+      "floatingStat": {
+        "value": "31",
+        "label": "Schüler, die den Koran auswendig lernen"
+      }
+    },
+    "impact": {
+      "items": [
+        {
+          "value": "100+",
+          "label": "Eingeschriebene Schüler"
+        },
+        {
+          "value": "80%",
+          "label": "Benachteiligter Hintergrund"
+        },
+        {
+          "value": "31",
+          "label": "Schüler, die den Koran auswendig lernen"
+        },
+        {
+          "value": "Arabisch + Bengalisch",
+          "label": "Integrierter Lehrplan"
+        }
+      ]
+    },
+    "vision": {
+      "eyebrow": "Vision",
+      "title": "Ein neues Modell der Madrasa-Bildung",
+      "paragraphOne": "Diese Madrasa wurde gegründet, um über ein herkömmliches System hinauszugehen und einen modernen, zeitgemäßen Lehrplan einzuführen, der arabische und bengalische Bildung vereint.",
+      "paragraphTwo": "Das Ziel ist nicht nur, Schüler mit starkem religiösem Fundament hervorzubringen, sondern sie auch mit dem akademischen Wissen auszustatten, das für die moderne Welt nötig ist."
+    },
+    "leadership": {
+      "eyebrow": "Führung & Integrität",
+      "title": "Führung, aufgebaut auf Opferbereitschaft und Integrität",
+      "description": "Die Einrichtung wird unter der Aufsicht von Herrn Abdul Matin (B.Sc.), Vizepräsident von Alokayon, geleitet. Was diese Madrasa einzigartig macht, ist nicht nur ihre Bildungsstruktur, sondern die Aufrichtigkeit und Rechenschaftspflicht, die in ihrem Kern liegen.",
+      "cardOneLabel": "Führungsmodell",
+      "cardOneTitle": "Der Direktor nimmt kein Gehalt oder Honorar",
+      "cardTwoLabel": "Finanzielle Integrität",
+      "cardTwoTitle": "Persönliche Pensionsunterstützung hilft, Betriebskosten zu decken",
+      "points": [
+        "Der Direktor nimmt kein Gehalt oder Honorar",
+        "Ein Teil der persönlichen Pension wird der Einrichtung gespendet",
+        "Betriebskosten und Gäste werden mit persönlicher Fürsorge unterstützt",
+        "Volle Transparenz und Rechenschaftspflicht werden gewahrt"
+      ],
+      "imageAlt": "Eine disziplinierte Madrasa-Lernumgebung"
+    },
+    "features": {
+      "eyebrow": "Was diese Madrasa anders macht",
+      "title": "Strukturiert, rechenschaftspflichtig und verwurzelt in Din und Lernen zugleich.",
+      "items": [
+        {
+          "icon": "menu_book",
+          "title": "Integrierter Lehrplan",
+          "text": "Arabisch, Bengalisch, Englisch und Mathematik werden gemeinsam in einem ausgewogenen Modell unterrichtet."
+        },
+        {
+          "icon": "rule",
+          "title": "Keine Nachhilfeabhängigkeit",
+          "text": "Der Unterricht wird im Klassenzimmer abgeschlossen, sodass Schüler nicht auf Privatunterricht angewiesen sind."
+        },
+        {
+          "icon": "checklist",
+          "title": "Strukturiertes Lernsystem",
+          "text": "Tägliche Überwachung und Lehrerberatung halten den Lernprozess diszipliniert und klar."
+        },
+        {
+          "icon": "mosque",
+          "title": "Moralische & spirituelle Entwicklung",
+          "text": "Koranauswendiglernen und ein diszipliniertes Umfeld formen sowohl Charakter als auch Gewohnheiten."
+        },
+        {
+          "icon": "verified",
+          "title": "Transparente Verwaltung",
+          "text": "Die Madrasa wird mit sichtbarer Rechenschaftspflicht in ihren Abläufen und Entscheidungen geführt."
+        },
+        {
+          "icon": "volunteer_activism",
+          "title": "Unterstützung für die Armen",
+          "text": "Die Einrichtung dient verwaisten und extrem armen Kindern mit besonderer Fürsorge."
+        }
+      ]
+    },
+    "pathway": {
+      "eyebrow": "Akademischer Weg",
+      "title": "Ein vollständiger Bildungsweg",
+      "summary": "Schüler schließen mit religiösem und akademischem Fundament ab, was ihnen ermöglicht, in der regulären Bildung fortzufahren.",
+      "items": [
+        {
+          "label": "Stufe 1",
+          "title": "Hifz (Koranauswendiglernen)",
+          "text": "Schüler beginnen mit einem starken spirituellen Fundament und diszipliniertem Studium."
+        },
+        {
+          "label": "Stufe 2",
+          "title": "Akademisches Lernen bis Klasse 6 (Ebtedayee)",
+          "text": "Schüler setzen ihr Lernen mit einem breiteren Lehrplan neben der religiösen Bildung fort."
+        },
+        {
+          "label": "Stufe 3",
+          "title": "Übergang in Klasse 7",
+          "text": "Schüler können mit einem stärkeren Fundament in Schul- oder Madrasa-Wege wechseln."
+        }
+      ]
+    },
+    "support": {
+      "eyebrow": "Schülerleben & Unterstützung",
+      "title": "Mehr als Bildung — ein Unterstützungssystem.",
+      "items": [
+        "Kostenlose oder kostengünstige Bildung für bedürftige Schüler",
+        "Bücher, Hefte, Stifte und Lernmaterialien",
+        "Zwei Mahlzeiten pro Tag",
+        "Eine sichere und disziplinierte Lernumgebung",
+        "Lehrerbetreuung und regelmäßige Aufsicht"
+      ]
+    },
+    "hifz": {
+      "eyebrow": "Hifz-Programm",
+      "title": "Koranauswendiglernen mit Struktur und Fürsorge",
+      "statOne": {
+        "value": "31",
+        "label": "Derzeit den Koran auswendig lernende Schüler"
+      },
+      "statTwo": {
+        "value": "Jungen + Mädchen",
+        "label": "Sowohl Jungen als auch Mädchen sind eingeschlossen"
+      },
+      "statThree": {
+        "value": "2",
+        "label": "Kürzliche Absolventen: 1 männlicher und 1 weiblicher Hafiz"
+      }
+    },
+    "gallery": {
+      "eyebrow": "Im Inneren der Madrasa",
+      "title": "Tägliches Lernen, Disziplin und Fürsorge in der Praxis.",
+      "items": [
+        {
+          "title": "Koranstudium in einem konzentrierten Umfeld"
+        },
+        {
+          "title": "Strukturiertes Lernen im Klassenzimmer"
+        },
+        {
+          "title": "Gruppenstudium und Lehrerbetreuung"
+        },
+        {
+          "title": "Mahlzeiten und tägliche Schülerunterstützung"
+        },
+        {
+          "title": "Lernen, geprägt von Din und Disziplin zugleich"
+        }
+      ]
+    },
+    "trust": {
+      "eyebrow": "Transparenz, der Sie vertrauen können",
+      "description": "Alokayon unterstützt diese Madrasa, nachdem es ihre disziplinierte Verwaltung, ihren ausgewogenen Lehrplan, die Unterrichtsqualität und die volle Transparenz in den Abläufen beobachtet hat.",
+      "badges": [
+        "Disziplinierte Verwaltung",
+        "Ausgewogener Lehrplan",
+        "Qualitätsvolles Unterrichtssystem",
+        "Transparente Abläufe"
+      ]
+    },
+    "cta": {
+      "eyebrow": "Werden Sie Teil einer dauerhaften Wirkung",
+      "title": "Unterstützen Sie eine Zukunft, in der Wissen, Glaube und Würde gemeinsam wachsen.",
+      "description": "Unterstützen Sie diese Einrichtung mit Zakat und Spenden und helfen Sie, disziplinierte, rechenschaftspflichtige islamische Bildung aufrechtzuerhalten."
+    }
+  },
+  "opinions": {
+    "hero": {
+      "eyebrow": "Stimmen der Wirkung",
+      "title": "Echte Geschichten aus Leben, die durch Alokayon verändert wurden",
+      "description": "Von Bildung bis zum Überleben – dies sind keine Zeugnisse, sondern Lebenswege."
+    },
+    "featuredStory": {
+      "eyebrow": "Vorgestellte Geschichte",
+      "title": "Vom Kampf zur Stabilität",
+      "badges": [
+        "Schüler mit GPA 5",
+        "Honours- und Master-Abschluss",
+        "BCS-Kandidat (46.)",
+        "Leitender Lehrer an der Alokayon-Schule"
+      ],
+      "summary": "Md. Nasim Uddin wuchs in schwerer finanzieller Not auf und kämpfte oft darum, sich sowohl Nahrung als auch Bildung leisten zu können. Trotz herausragender schulischer Leistungen blieb die Fortsetzung seines Studiums in Dhaka ungewiss.",
+      "summaryTwo": "Durch die Unterstützung von Alokayon – einschließlich Schulgeld, Büchern, Prüfungsgebühren und Familienhilfe – konnte er sein Hochschulstudium abschließen. Heute gibt er als Lehrer an dieselbe Gemeinschaft zurück, die einst an seiner Seite stand.",
+      "fullStory": [
+        "Nasim Uddin stammte aus einer Familie der unteren Mittelschicht in einer abgelegenen Gegend von Jhenaidah, wo die Fortsetzung der Ausbildung außergewöhnliche Opfer erforderte. Er studierte, während er mit seinem Vater auf den Feldern arbeitete und, wann immer möglich, andere unterrichtete.",
+        "Nach seinem Umzug nach Dhaka für die Hochschulbildung sah er sich schmerzhafter Ungewissheit bezüglich Wohnheimmiete, Nahrung und Studienkosten gegenüber. Dennoch versuchte er weiterhin, sein Studium mit Würde fortzusetzen.",
+        "Alokayon sprang mit Unterstützung für Schulgeld, Bücher, Prüfungsgebühren und breitere Familienbedürfnisse ein. Diese Unterstützung erweiterte sich zu medizinischer Hilfe für seine Eltern, Reparaturen nach Sturmschäden und zinsfreier Hilfe.",
+        "Später schloss er sowohl sein Honours- als auch sein Master-Studium ab, nahm an der Vorprüfung des 46. BCS teil und arbeitet nun als leitender Lehrer an der Alokayon Pathshala-1.",
+        "Seine Geschichte zeigt, was rechtzeitige, durchdachte Unterstützung bewirken kann, wenn sie die richtige Person im richtigen Moment erreicht."
+      ],
+      "cardEyebrow": "Vorgestellte Geschichte",
+      "cardDescription": "Ein Lebensweg, geprägt von Bildungsunterstützung, Familienfürsorge und der Chance, etwas zurückzugeben.",
+      "readFullStory": "Vollständige Geschichte lesen",
+      "hideFullStory": "Geschichte ausblenden"
+    },
+    "grid": {
+      "eyebrow": "Weitere Stimmen",
+      "title": "Geschichten von Unterstützung, Bildung und Würde",
+      "cards": [
+        {
+          "title": "Ein Name der Menschlichkeit",
+          "quote": "Alokayon unterstützte meine Familie in unseren schwersten Zeiten, von Stipendienhilfe bis zu medizinischer Unterstützung und grundlegenden Überlebensbedürfnissen.",
+          "tags": [
+            "Stipendienunterstützung",
+            "Familienhilfe",
+            "Medizinische Hilfe"
+          ],
+          "name": "Md. Omar Faruque",
+          "role": "Assistant Manager, BRAC",
+          "location": "Comilla"
+        },
+        {
+          "title": "Bildung ermöglicht",
+          "quote": "Die Unterstützung, die ich erhielt, machte meinen schwierigen Bildungsweg viel leichter und gab mir Zuversicht für die Zukunft.",
+          "tags": [
+            "Bildung",
+            "Stipendienunterstützung",
+            "Universitätsweg"
+          ],
+          "name": "Tumpa",
+          "role": "Fachbereich Philosophie, Universität Chittagong",
+          "location": "Chattogram"
+        },
+        {
+          "title": "Eine Fackel des Lichts",
+          "quote": "Das Stipendium von Alokayon linderte die Last meines Vaters und ermöglichte mir, mein Hochschulstudium hoffnungsvoll fortzusetzen.",
+          "tags": [
+            "Stipendium",
+            "Hochschulbildung",
+            "Langfristige Unterstützung"
+          ],
+          "name": "Tahmina Akter",
+          "role": "Fachbereich Wirtschaft, Universität Chittagong",
+          "location": "Chattogram"
+        },
+        {
+          "title": "Ein Segen für arme Studierende",
+          "quote": "Ihre Unterstützung half mir, das Universitätsstudium fortzusetzen, als ich keinen klaren Weg für Unterkunft, Essen oder Studiengebühren hatte.",
+          "tags": [
+            "Universitätsunterstützung",
+            "Armutsbekämpfung",
+            "Studentenfürsorge"
+          ],
+          "name": "Akheruzzaman",
+          "role": "Student, Universität Rajshahi",
+          "location": "Rajshahi"
+        },
+        {
+          "title": "An der Seite der Kälteopfer",
+          "quote": "Durch die Winterkleidungshilfe von Alokayon sah ich, wie Menschen, die fast nichts hatten, ein wenig Komfort und Würde zurückgewannen.",
+          "tags": [
+            "Nothilfearbeit",
+            "Winterhilfe",
+            "Gemeinschaftsfürsorge"
+          ],
+          "name": "Md. Maruf Hossain",
+          "role": "Gemeindefreiwilliger",
+          "location": "Ulipur, Kurigram"
+        }
+      ]
+    },
+    "themes": {
+      "education": {
+        "title": "Bildungsunterstützung",
+        "intro": "Schülern helfen, trotz finanzieller Not ihre Ausbildung fortzusetzen.",
+        "items": [
+          {
+            "quote": "Ohne Unterstützung wäre die Fortsetzung meines Studiums ungewiss gewesen. Alokayon half mir, diesen Weg festzuhalten.",
+            "name": "Md. Nasim Uddin",
+            "role": "Leitender Lehrer, Alokayon-Schule"
+          },
+          {
+            "quote": "Die finanzielle Unterstützung, die ich erhielt, verringerte die Last meiner Familie und ermöglichte mir, weiter zu lernen.",
+            "name": "Tahmina Akter",
+            "role": "Begünstigte Schülerin"
+          },
+          {
+            "quote": "Die Organisation machte den schwierigen Weg meines Bildungslebens viel leichter.",
+            "name": "Tumpa",
+            "role": "Begünstigte Studentin"
+          },
+          {
+            "quote": "Als ich unsicher war, wie ich das Universitätsleben bewältigen sollte, half mir die Unterstützung von Alokayon, mit Würde weiterzumachen.",
+            "name": "Akheruzzaman",
+            "role": "Begünstigter Student"
+          }
+        ]
+      },
+      "family": {
+        "title": "Familien- & Finanzhilfe",
+        "intro": "Unterstützung, die über eine Person hinausgeht und den ganzen Haushalt stärkt.",
+        "items": [
+          {
+            "quote": "Meine Familie erhielt Unterstützung in Bildung, Gesundheitsversorgung, Nahrung und heiratsbezogenen Bedürfnissen zu einer Zeit, als wir zutiefst schutzlos waren.",
+            "name": "Md. Omar Faruque",
+            "role": "Ehemaliger Schüler und Begünstigter"
+          }
+        ]
+      },
+      "relief": {
+        "title": "Notfall- & Nothilfearbeit",
+        "heading": "Mitgefühl, das Menschen in harten Bedingungen erreicht",
+        "description": "An Nothilfearbeit erinnert man sich oft nicht nur wegen dessen, was verteilt wurde, sondern wegen der Würde, die in diesem Moment wiederhergestellt wurde.",
+        "imageAlt": "Winterkleidung und Nothilfearbeit",
+        "items": [
+          {
+            "quote": "Die Verteilung von Winterkleidung unter den extrem Armen brachte eine Art spirituelle Freude, die schwer zu beschreiben ist.",
+            "name": "Md. Maruf Hossain",
+            "role": "Nothilfepartner in Kurigram"
+          }
+        ]
+      }
+    },
+    "quote": {
+      "text": "Alokayon ist in mein Leben getreten wie ein Leuchtturm des Lichts.",
+      "author": "Md. Nasim Uddin"
+    },
+    "impactSummary": {
+      "eyebrow": "Was uns diese Geschichten sagen",
+      "title": "Emotionen zählen — aber das Muster zählt auch.",
+      "points": [
+        "Bildungsunterstützung kann die Richtung eines Lebens verändern.",
+        "Kleine finanzielle Hilfe kann langfristige Unabhängigkeit schaffen.",
+        "Transparenz hilft Menschen zu vertrauen, wohin ihre Unterstützung fließt.",
+        "Gemeinschaftsbasierte Unterstützung vervielfacht die Wirkung im Laufe der Zeit."
+      ]
+    },
+    "cta": {
+      "eyebrow": "Gestalten Sie die nächste Geschichte",
+      "title": "Ihre Unterstützung kann den nächsten Weg von Würde und Hoffnung mitgestalten.",
+      "description": "Stehen Sie Schülern, Familien und bedürftigen Gemeinschaften mit praktischer, transparenter Unterstützung zur Seite."
+    }
+  },
+  "transparency": {
+    "defaultSections": [
+      "Botschaft des Gründers",
+      "Aktivitätsübersicht",
+      "Kommentare namhafter Persönlichkeiten",
+      "Reflexionen von Schülern",
+      "Alokayon-Profil",
+      "Fallstudie zur Armutsbekämpfung",
+      "Alokayon-Schule",
+      "Hafezi-Madrasa",
+      "Finanzbericht",
+      "Prüfbericht",
+      "Registrierungsurkunde"
+    ],
+    "hero": {
+      "eyebrow": "Transparenz & Publikationen",
+      "title": "Transparenz, Berichte und Magazin",
+      "description": "Entdecken Sie die jährlichen Publikationen, Finanzberichte und wichtigen Dokumente von Alokayon mit voller Transparenz.",
+      "trustLine": "Eingetragene Organisation • Spendenfinanziert • Veröffentlichte Berichterstattung",
+      "primaryCta": "Neuestes Magazin lesen",
+      "secondaryCta": "PDF herunterladen",
+      "floatingLabel": "Neueste Ausgabe",
+      "floatingText": "Magazin, Prüfung, Profil und Berichterstattung an einem Ort"
+    },
+    "highlights": {
+      "items": [
+        {
+          "icon": "auto_stories",
+          "title": "Neuestes Magazin veröffentlicht",
+          "description": "Das Jahresmagazin vereint das Profil, die Arbeit, die Geschichten und die Berichterstattung von Alokayon."
+        },
+        {
+          "icon": "account_balance",
+          "title": "Finanzbericht enthalten",
+          "description": "Spendenquittungen und Ausgabendetails sind für das Vertrauen der Spender enthalten."
+        },
+        {
+          "icon": "fact_check",
+          "title": "Prüfbericht enthalten",
+          "description": "Veröffentlichte Dokumentation unterstützt Rechenschaftspflicht und transparente Abläufe."
+        },
+        {
+          "icon": "verified",
+          "title": "Registrierungsdokumente verfügbar",
+          "description": "Ein offizieller Registrierungsnachweis ist zusammen mit dem Organisationsprofil enthalten."
+        }
+      ]
+    },
+    "atAGlance": {
+      "eyebrow": "Magazin auf einen Blick",
+      "title": "Der Beweis, dass Alokayon real, transparent und aktiv ist",
+      "description": "Das Magazin vereint die Nachweise, nach denen Spender suchen: Registrierung, Programmdetails, Finanzberichterstattung, Prüfaufzeichnungen und echte Stimmen von Begünstigten und Unterstützern.",
+      "cta": "Vollständiges Magazin lesen",
+      "items": [
+        {
+          "icon": "verified",
+          "title": "Gegründet und eingetragen",
+          "description": "Begonnen 2011 und 2019 offiziell als unpolitische, gemeinnützige Organisation eingetragen."
+        },
+        {
+          "icon": "volunteer_activism",
+          "title": "Spendenbasiert und unabhängig",
+          "description": "Getragen durch Zakat und individuelle Spenden, mit Aktivitäten, die auf niedrige Betriebskosten ausgelegt sind."
+        },
+        {
+          "icon": "groups",
+          "title": "Fokussiert auf echte Bedürftigkeit",
+          "description": "Dient Waisen, Witwen, älteren Menschen, Menschen mit Behinderung und extrem armen Familien."
+        },
+        {
+          "icon": "school",
+          "title": "Starke Bildungswirkung",
+          "description": "Schülerunterstützung, Alokayon Pathshala und Madrasa-Bildung helfen Kindern, weiter zu lernen."
+        },
+        {
+          "icon": "medical_services",
+          "title": "Gesundheits- und Nothilfeprogramme",
+          "description": "Medizinische Hilfe, Nahrungsmittelunterstützung, Winterkleidung, Katastrophenhilfe und Nothilfe sind dokumentiert."
+        },
+        {
+          "icon": "handshake",
+          "title": "Wirtschaftliche Stärkung",
+          "description": "Existenzsicherung umfasst Kühe, Ziegen, Enten, Nähmaschinen, Darlehen und Kleinunternehmenshilfe."
+        },
+        {
+          "icon": "account_balance",
+          "title": "Transparente Finanzberichterstattung",
+          "description": "Jährliche Einnahmen, Ausgaben und kategorienweise Verteilung werden zur Prüfung durch Spender veröffentlicht."
+        },
+        {
+          "icon": "fact_check",
+          "title": "Prüfung und Zertifizierung",
+          "description": "Die Publikation enthält Prüfberichte, Registrierungsnachweise und Organisationsdokumentation."
+        },
+        {
+          "icon": "map",
+          "title": "Landesweite Reichweite",
+          "description": "Aktivitäten erreichen Slums in Dhaka, Kurigram, hochwassergeschädigte Gebiete in Sylhet und Flüchtlingshilfe-Kontexte."
+        }
+      ]
+    },
+    "library": {
+      "eyebrow": "Publikationsbibliothek",
+      "title": "Jahrespublikationen lesen und herunterladen",
+      "featuredLabel": "Ausgewählte Ausgabe",
+      "readOnline": "Online lesen",
+      "downloadPdf": "PDF herunterladen"
+    },
+    "contents": {
+      "eyebrow": "In dieser Ausgabe",
+      "title": "Ein kuratierter Blick auf die Arbeit, die Menschen und die Nachweise hinter Alokayon"
+    },
+    "documents": {
+      "eyebrow": "Transparenzdokumente",
+      "title": "Wichtige Unterlagen, die Spender schnell einsehen können",
+      "description": "Manche Leser benötigen direkten Zugang zu Nachweisdokumenten, ohne das gesamte Magazin zu lesen. Diese Unterlagen sind in der veröffentlichten Ausgabe verfügbar.",
+      "view": "Ansehen",
+      "download": "Herunterladen",
+      "items": [
+        {
+          "icon": "receipt_long",
+          "title": "Finanzbericht",
+          "description": "Zusammenfassung der erhaltenen Mittel, der verteilten Unterstützung und der Programmausgaben."
+        },
+        {
+          "icon": "fact_check",
+          "title": "Prüfbericht",
+          "description": "Unabhängige Berichterstattung und Verifizierung in der Jahrespublikation enthalten."
+        },
+        {
+          "icon": "workspace_premium",
+          "title": "Registrierungsurkunde",
+          "description": "Offizieller Registrierungsnachweis, der die rechtliche und organisatorische Identität von Alokayon belegt."
+        }
+      ]
+    },
+    "financial": {
+      "eyebrow": "Finanzielle Momentaufnahme",
+      "title": "Ein schneller Überblick, bevor Sie den vollständigen Bericht öffnen",
+      "description": "Detaillierte Finanzberichte sind im Jahresmagazin und in herunterladbaren Unterlagen verfügbar. Diese Zahlen helfen Besuchern, das Ausmaß des Gebens und der Verteilung zu verstehen.",
+      "numbers": [
+        {
+          "value": "1.02M BDT",
+          "label": "Ungefähre Einnahmen für 2024–25"
+        },
+        {
+          "value": "1.13M BDT",
+          "label": "Ungefähre Ausgaben und Verteilung"
+        }
+      ],
+      "breakdown": [
+        {
+          "label": "Bildung und Schülerunterstützung",
+          "width": "42%"
+        },
+        {
+          "label": "Medizinische und Nothilfe",
+          "width": "24%"
+        },
+        {
+          "label": "Nothilfe, Nahrung und Winterhilfe",
+          "width": "20%"
+        },
+        {
+          "label": "Existenzsicherung und Familienhilfe",
+          "width": "14%"
+        }
+      ]
+    },
+    "cta": {
+      "eyebrow": "Möchten Sie offline lesen?",
+      "title": "Laden Sie das neueste Magazin herunter und prüfen Sie die Transparenzunterlagen von Alokayon.",
+      "description": "Bewahren Sie die Jahrespublikation zum Offline-Lesen, zur Spenderprüfung oder zum Teilen mit Familie und Freunden auf.",
+      "downloadMagazine": "Magazin 2025 herunterladen",
+      "readOnline": "Online lesen"
+    },
+    "reader": {
+      "description": "Lesen Sie die ausgewählte Alokayon-Publikation direkt in Ihrem Browser oder laden Sie sie zur Offline-Ansicht herunter.",
+      "back": "Zurück zur Transparenz",
+      "download": "PDF herunterladen"
+    },
+    "states": {
+      "loading": "Veröffentlichte Magazine werden geladen...",
+      "errorTitle": "Wir konnten die Magazinbibliothek nicht laden",
+      "errorDescription": "Bitte versuchen Sie es in Kürze erneut oder kommen Sie zurück, nachdem Sie die öffentlichen Zugriffseinstellungen für die Magazintabelle überprüft haben.",
+      "emptyTitle": "Noch keine Magazine veröffentlicht",
+      "emptyDescription": "Sobald Ausgaben im Admin-Dashboard hinzugefügt werden, erscheinen sie hier automatisch."
+    }
+  },
+  "donors": {
+    "hero": {
+      "eyebrow": "Stimmen des Vertrauens",
+      "title": "Vertrauensstimmen unserer Spender",
+      "description": "Menschen auf der ganzen Welt unterstützen Alokayon mit Zuversicht — geleitet von Transparenz, Wirkung und Glauben.",
+      "secondaryCta": "Unsere Wirkung ansehen",
+      "imageAlt": "Von Alokayon-Spendern unterstützte Gemeinschaftsaktivität",
+      "floatingCard": {
+        "eyebrow": "Globale Unterstützung",
+        "value": "3 Länder",
+        "label": "Spender aus Bangladesch, Indien und den USA"
+      }
+    },
+    "trustIndicators": {
+      "items": [
+        {
+          "icon": "verified",
+          "label": "Eingetragene NGO (2019)"
+        },
+        {
+          "icon": "monitoring",
+          "label": "100 % Transparenzrichtlinie"
+        },
+        {
+          "icon": "volunteer_activism",
+          "label": "Basierend auf Zakat & Spenden"
+        },
+        {
+          "icon": "public_off",
+          "label": "Keine ausländische Finanzierung"
+        }
+      ]
+    },
+    "featured": {
+      "eyebrow": "Vorgestellte Spenderstimme",
+      "title": "Vertrauen, geformt durch Transparenz",
+      "quote": "Als ich die Transparenz und Rechenschaftspflicht in den Abläufen von Alokayon beobachtete, fühlte ich mich inspiriert, mich der Organisation anzuschließen.",
+      "name": "Professor Harunur Rashid Sikder",
+      "role": "Freiheitskämpfer, ehemaliger Vorsitzender, Dhaka Education Board",
+      "location": "Dallas, USA"
+    },
+    "cards": {
+      "items": [
+        {
+          "quote": "Gemeinsame Anstrengung schafft größere Möglichkeiten, Benachteiligte zu unterstützen, und Alokayon macht diese Anstrengung bedeutsam.",
+          "name": "Professor Dr. Md. Tohor Ali",
+          "role": "Ehemaliger Abteilungsleiter, Fachbereich Gemeindemedizin, Sir Salimullah Medical College & Mitford Hospital",
+          "location": "Dhaka"
+        },
+        {
+          "quote": "Ich fühlte mich versichert, dass meine Zakat und Spenden durch Alokayon richtig eingesetzt würden und tatsächlich die Bedürftigen erreichen.",
+          "name": "Md. Abdul Momen",
+          "role": "Spezialist für Monitoring und Evaluation, Weltbank",
+          "location": "Dhaka"
+        },
+        {
+          "quote": "Selbst aus dem Ausland unterstütze ich Alokayon weiterhin finanziell, weil ich seinem Zweck, seiner Struktur und seiner Aufrichtigkeit vertraue.",
+          "name": "Md. Mohiuddin Babu",
+          "role": "Monatlicher Spender und Unterstützer",
+          "location": "New York, USA"
+        },
+        {
+          "quote": "Sozialer Dienst ist für diejenigen, die dazu in der Lage sind, keine Option; es ist eine Verantwortung, und Alokayon trägt diese Verantwortung mit Sorgfalt.",
+          "name": "Kamrul Hasan",
+          "role": "Pensionierter Verteidigungssekretär",
+          "location": "Bangladesch"
+        }
+      ]
+    },
+    "globalSupport": {
+      "eyebrow": "Weltweit unterstützt",
+      "title": "Eine wachsende Gemeinschaft des Vertrauens über Grenzen hinweg",
+      "description": "Zu den Unterstützern von Alokayon gehören Spender und Wohlgesinnte aus Bangladesch, Indien und den USA — Menschen, verbunden durch Vertrauen in transparente, glaubensorientierte Wirkung.",
+      "points": [
+        {
+          "country": "USA",
+          "label": "USA",
+          "top": "38%",
+          "left": "24%"
+        },
+        {
+          "country": "India",
+          "label": "Indien",
+          "top": "49%",
+          "left": "72%"
+        },
+        {
+          "country": "Bangladesh",
+          "label": "Bangladesch",
+          "top": "52%",
+          "left": "78%"
+        }
+      ]
+    },
+    "stories": {
+      "eyebrow": "Wie Spender sich engagierten",
+      "title": "Ausführlichere Reflexionen hinter dem Vertrauen",
+      "items": [
+        {
+          "title": "Wie ich mich Alokayon anschloss",
+          "summary": "Die Beziehung eines Spenders zu Alokayon beginnt oft mit Vertrauen in die Menschen hinter der Arbeit und wächst, wenn man die Aufrichtigkeit in der Praxis erlebt.",
+          "paragraphs": [
+            "Md. Mohiuddin Babu beschrieb, wie er direkt von Fazlul Kader von Alokayon erfuhr und sich entschied, sich zu engagieren, nachdem er verstanden hatte, dass es sich um eine eingetragene, unpolitische, gemeinnützige Organisation zur Unterstützung bedürftiger Menschen handelt.",
+            "Aus den USA leistet er weiterhin monatliche finanzielle Beiträge und bietet zudem Anleitung und Ratschläge, motiviert durch sein Vertrauen in die Bildungs- und Armutsbekämpfungsarbeit der Organisation."
+          ],
+          "name": "Md. Mohiuddin Babu",
+          "role": "Unterstützer aus New York, USA"
+        },
+        {
+          "title": "Meine Zusammenarbeit mit Alokayon Charity",
+          "summary": "Auch aus dem Ausland bleiben Spender durch regelmäßige Kommunikation, Zakat und jährliche Beiträge mit Alokayon verbunden.",
+          "paragraphs": [
+            "Mumtaz Meher erzählte, dass ihre Familie regelmäßigen Kontakt mit dem Gründer von Alokayon hielt und von der dienstorientierten Mission und der offiziellen staatlichen Genehmigung der Organisation überzeugt wurde.",
+            "Sie und ihre Kinder unterstützen Alokayon weiterhin aus North Carolina mit Zakat und Spenden, insbesondere wegen seiner Arbeit für hilflose Familien und Bildungsinitiativen für Slumkinder."
+          ],
+          "name": "Mumtaz Meher",
+          "role": "Unterstützerin aus North Carolina, USA"
+        },
+        {
+          "title": "Vertrauen von außerhalb Bangladeschs",
+          "summary": "Manche Spender unterstützen Alokayon aus anderen Ländern, weil sie sowohl der Organisation als auch den Menschen dahinter vertrauen.",
+          "paragraphs": [
+            "Affan Abbasi erklärte, dass sein Vertrauen in Alokayon durch den Ruf seiner Gründer und die Klarheit seiner Arbeit für Witwen, Waisen und benachteiligte Familien geprägt wurde.",
+            "Er betonte, dass Menschen bei wohltätigen Spenden zuerst Vertrauen suchen, bevor sie ihr hart verdientes Einkommen anbieten – und dass dieses Vertrauen Alokayon selbst aus dem Ausland hervorhebt."
+          ],
+          "name": "Affan Abbasi",
+          "role": "Unterstützer aus Neu-Delhi, Indien"
+        }
+      ]
+    },
+    "whyTrust": {
+      "eyebrow": "Warum Spender sich für Alokayon entscheiden",
+      "title": "Vertrauen wächst, wenn Aufrichtigkeit durch Struktur gestützt wird.",
+      "description": "In diesen Spenderreflexionen tauchen immer wieder dieselben Themen auf: Transparenz, Zakat-Rechenschaftspflicht, sichtbare Wirkung und glaubensgeleiteter Dienst ohne politische oder kommerzielle Motive.",
+      "points": [
+        "Transparente Finanzpraktiken und sichtbare Rechenschaftspflicht",
+        "Direkte Unterstützung für echte Begünstigte in echter Not",
+        "Glaubensorientierte Wohltätigkeitsarbeit, verwurzelt in Aufrichtigkeit",
+        "Keine politische oder kommerzielle Agenda",
+        "Nachgewiesene Wirkung in Bildung, Gesundheitsversorgung und Nothilfe"
+      ]
+    },
+    "cta": {
+      "eyebrow": "Werden Sie Teil dieses Vertrauens",
+      "title": "Werden Sie Teil einer wachsenden Gemeinschaft von Spendern, die an bedeutungsvolle, transparente Wirkung glauben.",
+      "description": "Unterstützen Sie Arbeit, der Spender aus verschiedenen Ländern vertrauen und die in aufrichtigem Dienst an bedürftigen Menschen verwurzelt ist.",
+      "secondary": "Kontaktieren Sie uns"
+    }
+  },
+  "galleryPage": {
+    "hero": {
+      "eyebrow": "Wirkungsgalerie",
+      "title": "Momente der Wirkung",
+      "description": "Ein Einblick in die Leben, Gemeinschaften und Geschichten, die Ihre Unterstützung durch die Arbeit von Alokayon berührt.",
+      "note": "Echte Fotografien. Echte Programme. Echte Menschen."
+    },
+    "filters": [
+      {
+        "id": "all",
+        "label": "Alle"
+      },
+      {
+        "id": "education",
+        "label": "Bildung"
+      },
+      {
+        "id": "relief",
+        "label": "Nothilfe"
+      },
+      {
+        "id": "livelihood",
+        "label": "Existenzsicherung"
+      },
+      {
+        "id": "healthcare",
+        "label": "Gesundheitsversorgung"
+      },
+      {
+        "id": "madrasa",
+        "label": "Madrasa"
+      },
+      {
+        "id": "pathshala",
+        "label": "Pathshala"
+      }
+    ],
+    "grid": {
+      "eyebrow": "Nach Programm durchsuchen",
+      "title": "Eine visuelle Aufzeichnung von Fürsorge, Lernen und Erholung",
+      "description": "Durchsuchen Sie die Arbeit anhand von Bildungsräumen, Nothilfemomenten, Existenzsicherung und gemeinschaftsorientierten Programmen.",
+      "locationLabel": "Standort",
+      "yearLabel": "Jahr / Programm",
+      "closeImage": "Galeriebild schließen",
+      "items": [
+        {
+          "category": "Bildung",
+          "title": "Gemeinsam lernende Kinder",
+          "description": "Unterrichtsmomente, die Fürsorge, Routine und Möglichkeiten widerspiegeln.",
+          "story": "Solche Lernräume helfen Kindern, von Unsicherheit zu Struktur, Würde und zukünftigen Chancen zu gelangen.",
+          "location": "Dhaka",
+          "year": "2025"
+        },
+        {
+          "category": "Nothilfe",
+          "title": "Nahrung und Würde in der Gemeinschaftshilfe",
+          "description": "Unterstützung, die Familien in Momenten echter Not erreicht.",
+          "story": "Bei Nothilfe geht es nicht nur um Versorgungsgüter. Es geht darum, mit Aufrichtigkeit präsent zu sein, wenn Not sichtbar wird.",
+          "location": "Bangladesch",
+          "year": "2025"
+        },
+        {
+          "category": "Existenzsicherung",
+          "title": "Praktische Werkzeuge für Selbstständigkeit",
+          "description": "Programme, die Familien helfen, mit stabilen Einkommensquellen wiederaufzubauen.",
+          "story": "Existenzsicherung ist darauf ausgelegt, Unabhängigkeit durch praktische Werkzeuge und würdevolle Chancen wiederherzustellen.",
+          "location": "Gemeinschaftsprogramm",
+          "year": "2025"
+        },
+        {
+          "category": "Gesundheitsversorgung",
+          "title": "Fürsorge, die bedürftige Familien erreicht",
+          "description": "Direkte Unterstützung, wenn Behandlung und Stabilität am wichtigsten sind.",
+          "story": "Medizinische Unterstützung erreicht Familien oft in kritischen Momenten und hilft ihnen, Krankheit zu bewältigen, ohne völlig allein gelassen zu werden.",
+          "location": "Gemeinschaftshilfe",
+          "year": "2025"
+        },
+        {
+          "category": "Madrasa",
+          "title": "Koranisches und allgemeines Lernen zusammen",
+          "description": "Ein diszipliniertes Umfeld für Din und Bildung zugleich.",
+          "story": "Die Madrasa spiegelt ein ruhiges, rechenschaftspflichtiges Lernumfeld wider, in dem Charakter und Wissen gemeinsam wachsen.",
+          "location": "Chatkhil, Noakhali",
+          "year": "2025"
+        },
+        {
+          "category": "Pathshala",
+          "title": "Ein kostenloser Lernraum in der Stadt",
+          "description": "Kinder in benachteiligten Gemeinschaften erhalten Zugang zu Bildung.",
+          "story": "Alokayon Pathshala schafft einen beständigen Lernort für Kinder, die sonst außerhalb der formalen Bildung bleiben könnten.",
+          "location": "Rasulbag, Dhaka",
+          "year": "2025"
+        },
+        {
+          "category": "Bildung",
+          "title": "Freiwillige in Aktion",
+          "description": "Gemeinschaftshilfe, geprägt von Menschen, die beständig präsent sind.",
+          "story": "Bedeutungsvoller Dienst wird nicht nur durch Spenden aufrechterhalten, sondern durch Freiwillige und engagierte Unterstützer, die vor Ort arbeiten.",
+          "location": "Feldarbeit",
+          "year": "2025"
+        },
+        {
+          "category": "Nothilfe",
+          "title": "Unterstützung, die dort ankommt, wo sie gebraucht wird",
+          "description": "Sichtbare Fürsorge an Orten, die von anderen oft übersehen werden.",
+          "story": "Wenn Unterstützung Menschen an übersehenen Orten erreicht, wird sie zum Beweis, dass Mitgefühl noch immer auf praktische Weise nach außen wirken kann.",
+          "location": "Bangladesch",
+          "year": "2025"
+        }
+      ]
+    },
+    "featured": {
+      "eyebrow": "Vorgestellte Geschichten",
+      "title": "Bilder, die tiefere Geschichten tragen",
+      "items": [
+        {
+          "title": "Alokayon Pathshala im Alltag",
+          "description": "Ein genauerer Blick darauf, wie Lernen, Routine und Ermutigung für Kinder in benachteiligten Gemeinschaften Gestalt annehmen.",
+          "linkLabel": "Schule entdecken"
+        },
+        {
+          "title": "Diszipliniertes Lernen in der Madrasa",
+          "description": "Ein fokussiertes Bildungsumfeld, in dem koranisches Lernen und akademische Struktur Seite an Seite bestehen.",
+          "linkLabel": "Madrasa entdecken"
+        },
+        {
+          "title": "Existenzsicherung mit bleibendem Wert",
+          "description": "Unterstützung, die über Nothilfe hinausgeht, indem sie Familien hilft, mit praktischen einkommensschaffenden Werkzeugen wiederaufzubauen.",
+          "linkLabel": "Programme ansehen"
+        }
+      ]
+    },
+    "impact": {
+      "eyebrow": "Wirkung im Blick",
+      "title": "Worauf diese Bilder hinweisen",
+      "stats": [
+        {
+          "value": "200+",
+          "label": "Unterstützte Schüler"
+        },
+        {
+          "value": "1.3M+ BDT",
+          "label": "Jährlich verteilt"
+        },
+        {
+          "value": "500+",
+          "label": "Verteilte Existenzgrundlagen"
+        },
+        {
+          "value": "Seit 2011",
+          "label": "Dient Gemeinschaften"
+        }
+      ]
+    },
+    "cta": {
+      "eyebrow": "Jedes Bild erzählt eine Geschichte",
+      "title": "Werden Sie Teil der nächsten.",
+      "description": "Die Arbeit geht weiter, weil Menschen sich entscheiden, Vertrauen in Handeln zu verwandeln.",
+      "secondary": "Programme ansehen"
+    }
+  }
+}

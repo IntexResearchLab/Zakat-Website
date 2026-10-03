@@ -2,10 +2,12 @@ import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
 
 import bn from './locales/bn/common.json'
+import de from './locales/de/common.json'
 import en from './locales/en/common.json'
 
 const LANGUAGE_STORAGE_KEY = 'alokayon-language'
-const supportedLanguages = ['en', 'bn'] as const
+const supportedLanguages = ['en', 'bn', 'de'] as const
+type SupportedLanguage = (typeof supportedLanguages)[number]
 
 const getInitialLanguage = () => {
   if (typeof window === 'undefined') {
@@ -14,7 +16,7 @@ const getInitialLanguage = () => {
 
   const storedLanguage = window.localStorage.getItem(LANGUAGE_STORAGE_KEY)
 
-  if (storedLanguage && supportedLanguages.includes(storedLanguage as 'en' | 'bn')) {
+  if (storedLanguage && supportedLanguages.includes(storedLanguage as SupportedLanguage)) {
     return storedLanguage
   }
 
@@ -28,6 +30,9 @@ void i18n.use(initReactI18next).init({
     },
     bn: {
       translation: bn,
+    },
+    de: {
+      translation: de,
     },
   },
   lng: getInitialLanguage(),
