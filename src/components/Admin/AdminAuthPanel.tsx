@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
+import { getFriendlyErrorMessage } from '../../lib/adminErrors'
 import { supabase } from '../../utils/supabase'
 
 function AdminAuthPanel() {
@@ -30,7 +31,7 @@ function AdminAuthPanel() {
     setIsSubmitting(false)
 
     if (error) {
-      setErrorMessage(error.message || t('admin.auth.genericError'))
+      setErrorMessage(getFriendlyErrorMessage(t, error, 'admin.auth.genericError'))
       return
     }
 
@@ -102,10 +103,16 @@ function AdminAuthPanel() {
 
           <form className="mt-8 space-y-5" onSubmit={handleSubmit}>
             <div>
-              <label className="mb-2 block text-[0.88rem] font-semibold text-[#14324d]">
+              <label
+                className="mb-2 block text-[0.88rem] font-semibold text-[#14324d]"
+                htmlFor="admin-email"
+              >
                 {t('admin.auth.emailLabel')}
               </label>
               <input
+                autoComplete="email"
+                id="admin-email"
+                required
                 className="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-[#fbfdff] px-4 py-3 text-[0.98rem] text-[#14324d] outline-none transition placeholder:text-[#90a3af] focus:border-[#115b82] focus:bg-white"
                 onChange={(event) => setEmail(event.target.value)}
                 placeholder={t('common.form.emailPlaceholder')}
@@ -115,11 +122,17 @@ function AdminAuthPanel() {
             </div>
 
             <div>
-              <label className="mb-2 block text-[0.88rem] font-semibold text-[#14324d]">
+              <label
+                className="mb-2 block text-[0.88rem] font-semibold text-[#14324d]"
+                htmlFor="admin-password"
+              >
                 {t('admin.auth.passwordLabel')}
               </label>
               <div className="relative">
                 <input
+                  autoComplete="current-password"
+                  id="admin-password"
+                  required
                   className="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-[#fbfdff] px-4 py-3 pr-14 text-[0.98rem] text-[#14324d] outline-none transition placeholder:text-[#90a3af] focus:border-[#115b82] focus:bg-white"
                   onChange={(event) => setPassword(event.target.value)}
                   placeholder={t('admin.auth.passwordPlaceholder')}
@@ -139,11 +152,7 @@ function AdminAuthPanel() {
               </div>
             </div>
 
-            <div className="flex items-center justify-between gap-4 text-sm">
-              <label className="flex items-center gap-2 text-[#627581]">
-                <input className="h-4 w-4 rounded border-[#cfe0ea]" type="checkbox" />
-                <span>{t('admin.auth.rememberMe')}</span>
-              </label>
+            <div className="flex items-center justify-end gap-4 text-sm">
               <button
                 className="font-semibold text-[#115b82] disabled:cursor-not-allowed disabled:text-[#8fa8b6]"
                 disabled={isSendingReset}

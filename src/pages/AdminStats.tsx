@@ -6,6 +6,7 @@ import {
   type PublicStatsGroup,
   type PublicStatsKey,
 } from '../content/stats'
+import { getFriendlyErrorMessage } from '../lib/adminErrors'
 import { invalidatePublicStatsCache } from '../lib/publicStats'
 import { supabase } from '../utils/supabase'
 
@@ -23,6 +24,17 @@ type PublicStatRow = {
 type EditableStatsMap = Record<PublicStatsKey, string>
 
 const defaultRows = getStatsInventoryRows()
+
+// "receipts2024to2025" -> "Receipts 2024–2025", "hifzStudents" -> "Hifz students"
+const humanizeStatKey = (key: string) => {
+  const spaced = key
+    .replace(/(\d+)to(\d+)/g, ' $1–$2')
+    .replace(/([a-z])([A-Z0-9])/g, '$1 $2')
+    .trim()
+    .toLowerCase()
+
+  return spaced.charAt(0).toUpperCase() + spaced.slice(1)
+}
 
 function AdminStats() {
   const { t } = useTranslation()
@@ -95,7 +107,7 @@ function AdminStats() {
       .order('sort_order', { ascending: true })
 
     if (error) {
-      setErrorMessage(error.message)
+      setErrorMessage(getFriendlyErrorMessage(t, error))
       setIsLoading(false)
       return
     }
@@ -114,8 +126,8 @@ function AdminStats() {
 
   useEffect(() => {
     // We intentionally load the current public stats once when the admin page opens.
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     void loadStats()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const handleValueChange = (key: PublicStatsKey, value: string) => {
@@ -166,35 +178,45 @@ function AdminStats() {
     )
 
     const results = await Promise.all(updates)
-    const failedResult = results.find((result) => result.error)
+    // Updates run independently, so keep the ones that succeeded even if another failed.
+    const savedRows = changedRows.filter((_, index) => !results[index].error)
+    const firstError = results.find((result) => result.error)?.error
 
-    if (failedResult?.error) {
-      setErrorMessage(failedResult.error.message)
-      setIsSavingAll(false)
-      return
+    if (savedRows.length) {
+      invalidatePublicStatsCache()
+      setRows((current) =>
+        current.map((item) => {
+          const savedRow = savedRows.find((row) => row.id === item.id)
+          return savedRow
+            ? {
+                ...item,
+                value: draftValues[savedRow.key].trim(),
+                updated_at: timestamp,
+              }
+            : item
+        }),
+      )
+      setDraftValues((current) => {
+        const nextDrafts = { ...current }
+        savedRows.forEach((row) => {
+          nextDrafts[row.key] = draftValues[row.key].trim()
+        })
+        return nextDrafts
+      })
+      setSuccessMessage(t('admin.stats.saveSuccess', { count: savedRows.length }))
     }
 
-    invalidatePublicStatsCache()
-    setRows((current) =>
-      current.map((item) => {
-        const changedRow = changedRows.find((row) => row.id === item.id)
-        return changedRow
-          ? {
-              ...item,
-              value: draftValues[changedRow.key].trim(),
-              updated_at: timestamp,
-            }
-          : item
-      }),
-    )
-    setDraftValues((current) => {
-      const nextDrafts = { ...current }
-      changedRows.forEach((row) => {
-        nextDrafts[row.key] = draftValues[row.key].trim()
-      })
-      return nextDrafts
-    })
-    setSuccessMessage(t('admin.stats.saveSuccess', { count: changedRows.length }))
+    if (firstError) {
+      setErrorMessage(
+        savedRows.length
+          ? t('admin.stats.partialSaveError', {
+              count: changedRows.length - savedRows.length,
+              reason: getFriendlyErrorMessage(t, firstError),
+            })
+          : getFriendlyErrorMessage(t, firstError),
+      )
+    }
+
     setIsSavingAll(false)
   }
 
@@ -215,6 +237,7 @@ function AdminStats() {
           </p>
         </div>
       }
+      hasUnsavedChanges={unsavedCount > 0}
       title={t('admin.stats.title')}
     >
       <div className="mt-8 rounded-[1.35rem] border border-[#dbe7ee] bg-white p-6 shadow-[0_18px_42px_rgba(15,23,42,0.05)]">
@@ -237,29 +260,35 @@ function AdminStats() {
               {t('admin.stats.refresh')}
             </button>
           </div>
+        </div>
 
-          <div className="flex flex-col gap-3 rounded-[1rem] border border-[#edf3f7] bg-[#fbfdff] p-4 sm:flex-row sm:items-center sm:justify-between">
-            <p className="text-[0.92rem] leading-[1.7] text-[#627581]">
-              {t('admin.stats.unsavedChanges', { count: unsavedCount })}
-            </p>
-            <div className="flex flex-wrap items-center gap-3">
-              <button
-                className="rounded-full border border-[#dbe7ee] bg-white px-5 py-2.5 text-[0.78rem] font-bold uppercase tracking-[0.14em] text-[#14324d] transition hover:border-[#c2d7e6] hover:bg-[#f9fcfe] disabled:cursor-not-allowed disabled:opacity-60"
-                disabled={!unsavedCount || isSavingAll}
-                onClick={handleResetChanges}
-                type="button"
-              >
-                {t('admin.stats.resetButton')}
-              </button>
-              <button
-                className="rounded-full bg-[#13703e] px-5 py-2.5 text-[0.78rem] font-bold uppercase tracking-[0.14em] text-white shadow-[0_14px_32px_rgba(19,112,62,0.18)] transition hover:bg-[#105f35] disabled:cursor-not-allowed disabled:bg-[#74a889]"
-                disabled={!unsavedCount || isSavingAll}
-                onClick={() => void handleSaveAll()}
-                type="button"
-              >
-                {isSavingAll ? t('admin.stats.savingAll') : t('admin.stats.saveAllButton')}
-              </button>
-            </div>
+        <div
+          className={`sticky top-[4.25rem] z-20 mt-5 flex flex-col gap-3 rounded-[1rem] border p-4 shadow-[0_12px_28px_rgba(15,23,42,0.06)] backdrop-blur-sm transition sm:flex-row sm:items-center sm:justify-between lg:top-4 ${
+            unsavedCount
+              ? 'border-[#9fc7da] bg-[#f2f9fd]/95'
+              : 'border-[#edf3f7] bg-[#fbfdff]/95'
+          }`}
+        >
+          <p className="text-[0.92rem] leading-[1.7] text-[#627581]">
+            {t('admin.stats.unsavedChanges', { count: unsavedCount })}
+          </p>
+          <div className="flex flex-wrap items-center gap-3">
+            <button
+              className="rounded-full border border-[#dbe7ee] bg-white px-5 py-2.5 text-[0.78rem] font-bold uppercase tracking-[0.14em] text-[#14324d] transition hover:border-[#c2d7e6] hover:bg-[#f9fcfe] disabled:cursor-not-allowed disabled:opacity-60"
+              disabled={!unsavedCount || isSavingAll}
+              onClick={handleResetChanges}
+              type="button"
+            >
+              {t('admin.stats.resetButton')}
+            </button>
+            <button
+              className="rounded-full bg-[#13703e] px-5 py-2.5 text-[0.78rem] font-bold uppercase tracking-[0.14em] text-white shadow-[0_14px_32px_rgba(19,112,62,0.18)] transition hover:bg-[#105f35] disabled:cursor-not-allowed disabled:bg-[#74a889]"
+              disabled={!unsavedCount || isSavingAll}
+              onClick={() => void handleSaveAll()}
+              type="button"
+            >
+              {isSavingAll ? t('admin.stats.savingAll') : t('admin.stats.saveAllButton')}
+            </button>
           </div>
         </div>
 
@@ -296,7 +325,7 @@ function AdminStats() {
                   </div>
                 </div>
 
-                <div className="grid gap-4 lg:grid-cols-2">
+                <div className="grid gap-4 xl:grid-cols-2">
                   {groupRows.map((row) => {
                     const hasPendingChange = (draftValues[row.key] ?? '').trim() !== row.value
 
@@ -307,23 +336,26 @@ function AdminStats() {
                       >
                         <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                           <div>
-                            <p className="text-[0.74rem] font-bold uppercase tracking-[0.16em] text-[#115b82]">
-                              {row.key}
+                            <p className="font-serif text-[1.2rem] leading-tight tracking-[-0.02em] text-[#14324d]">
+                              {t(`admin.stats.labels.${row.key}`, {
+                                defaultValue: humanizeStatKey(row.key),
+                              })}
                             </p>
                             <p className="mt-2 text-[0.95rem] leading-[1.7] text-[#627581]">
                               {row.description}
                             </p>
                           </div>
-                          <span className="rounded-full border border-[#dbe7ee] bg-white px-3 py-1 text-[0.72rem] font-bold uppercase tracking-[0.14em] text-[#14324d]">
-                            {t(`admin.stats.groups.${groupName}.title`)}
-                          </span>
                         </div>
 
                         <div className="mt-4">
-                          <label className="mb-2 block text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#6a7c87]">
+                          <label
+                            className="mb-2 block text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#6a7c87]"
+                            htmlFor={`stat-${row.key}`}
+                          >
                             {t('admin.stats.valueLabel')}
                           </label>
                           <input
+                            id={`stat-${row.key}`}
                             className={`w-full rounded-[0.95rem] border bg-white px-4 py-3 text-[1rem] text-[#14324d] outline-none transition placeholder:text-[#90a3af] focus:border-[#115b82] ${
                               hasPendingChange
                                 ? 'border-[#9fc7da] ring-2 ring-[#e4f1f8]'

@@ -2286,6 +2286,34 @@
     }
   },
   "admin": {
+    "errors": {
+      "generic": "Something went wrong and the change wasn't saved. Please try again.",
+      "network": "We couldn't reach the server. Check your internet connection and try again.",
+      "invalidCredentials": "That email and password don't match an admin account. Please check them and try again.",
+      "emailNotConfirmed": "This email address hasn't been confirmed yet. Check your inbox for the confirmation link.",
+      "rateLimited": "Too many attempts in a short time. Please wait a minute and try again.",
+      "permission": "Your account doesn't have permission to make this change. Please contact the site administrator.",
+      "sessionExpired": "Your session has expired. Please sign out and sign in again.",
+      "fileTooLarge": "This file is too large to upload. Please choose a smaller file.",
+      "duplicate": "An item with the same details already exists.",
+      "weakPassword": "This password is too weak. Use at least 8 characters with a mix of letters and numbers.",
+      "samePassword": "Your new password must be different from your current password."
+    },
+    "images": {
+      "unsupportedType": "Please choose a JPG, PNG, or WebP image. iPhone HEIC photos can be exported as JPG first.",
+      "optimizing": "Preparing image...",
+      "newImage": "New image (not saved yet)",
+      "currentImage": "Current image",
+      "optimizedSize": "Optimized for the web: {{from}} → {{to}}",
+      "removeSelection": "Remove selection"
+    },
+    "unsaved": {
+      "leaveConfirmation": "You have unsaved changes. Leave this page and discard them?",
+      "discardConfirmation": "You have unsaved changes. Discard them?"
+    },
+    "mobileNav": {
+      "toggle": "Toggle admin menu"
+    },
     "navigation": [
       {
         "label": "Overview",
@@ -2316,11 +2344,11 @@
     "auth": {
       "eyebrow": "Admin Access",
       "title": "Welcome back to Alokayon Charity",
-      "description": "A calm, secure workspace for managing stories, pages, donations, and reporting.",
+      "description": "Sign in to update the magazines, gallery, executive committee, and impact figures shown on the Alokayon website.",
       "trust": [
-        "Role-based admin access",
-        "Supabase authentication ready",
-        "Built for secure content management"
+        "Access is limited to approved Alokayon administrators",
+        "Forgot your password? Reset it securely by email",
+        "Update website content without touching any code"
       ],
       "formTitle": "Sign in to the admin dashboard",
       "formDescription": "Use your admin credentials to continue into the secure dashboard.",
@@ -2330,7 +2358,6 @@
       "passwordPlaceholder": "Enter your password",
       "showPassword": "Show password",
       "hidePassword": "Hide password",
-      "rememberMe": "Keep me signed in",
       "forgotPassword": "Forgot password?",
       "forgotPasswordEmailRequired": "Enter your email address above, then click Forgot password.",
       "sendingResetEmail": "Sending...",
@@ -2449,8 +2476,6 @@
       "coverHelp": "Upload a cover image if you have one. This is optional.",
       "currentPdf": "Current PDF on record: {{fileName}}",
       "newPdfSelected": "New PDF selected: {{fileName}}",
-      "currentCover": "Current cover image will stay unless you replace it.",
-      "newCoverSelected": "New cover image selected: {{fileName}}",
       "fileOnRecord": "file on record",
       "fields": {
         "title": "Title",
@@ -2494,8 +2519,6 @@
       "deleteButton": "Delete",
       "deleting": "Deleting...",
       "imageHelp": "Upload a portrait or profile image. This image is required for new members.",
-      "currentImage": "Current image will stay unless you replace it.",
-      "newImageSelected": "New image selected: {{fileName}}",
       "fields": {
         "name": "Name",
         "role": "Role",
@@ -2541,8 +2564,6 @@
       "deleteButton": "Delete",
       "deleting": "Deleting...",
       "imageHelp": "Upload the gallery image shown on the public card and lightbox.",
-      "currentImage": "Current image will stay unless you replace it.",
-      "newImageSelected": "New image selected: {{fileName}}",
       "fields": {
         "category": "Category",
         "span": "Card size",
@@ -2588,6 +2609,7 @@
       "resetButton": "Reset Changes",
       "savingAll": "Saving...",
       "saveAllButton": "Save All Changes",
+      "partialSaveError": "{{count}} change(s) could not be saved. {{reason}}",
       "groups": {
         "organization": {
           "eyebrow": "Core Organization",

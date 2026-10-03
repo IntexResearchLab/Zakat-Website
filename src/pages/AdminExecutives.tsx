@@ -1,11 +1,13 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import AdminImageInput from '../components/Admin/AdminImageInput'
 import AdminShellLayout from '../components/Admin/AdminShellLayout'
 import InitialsAvatar from '../components/reusables/InitialsAvatar'
 import {
   invalidateExecutiveRowsCache,
   type ExecutiveMember,
 } from '../lib/executives'
+import { getFriendlyErrorMessage } from '../lib/adminErrors'
 import { supabase } from '../utils/supabase'
 
 type ExecutiveForm = {
@@ -62,6 +64,7 @@ function AdminExecutives() {
   const { t } = useTranslation()
   const [members, setMembers] = useState<ExecutiveMember[]>([])
   const [formState, setFormState] = useState<ExecutiveForm>(initialFormState)
+  const [baselineForm, setBaselineForm] = useState<ExecutiveForm>(initialFormState)
   const [imageFile, setImageFile] = useState<File | null>(null)
   const [editingId, setEditingId] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState(true)
@@ -69,9 +72,14 @@ function AdminExecutives() {
   const [deletingId, setDeletingId] = useState<string | null>(null)
   const [errorMessage, setErrorMessage] = useState('')
   const [successMessage, setSuccessMessage] = useState('')
-  const imageInputRef = useRef<HTMLInputElement | null>(null)
+  const formSectionRef = useRef<HTMLElement | null>(null)
 
   const memberCount = members.length
+  const hasUnsavedChanges =
+    imageFile !== null ||
+    (Object.keys(formState) as Array<keyof ExecutiveForm>).some(
+      (field) => formState[field] !== baselineForm[field],
+    )
   const editingMember = useMemo(
     () => members.find((member) => member.id === editingId) ?? null,
     [editingId, members],
@@ -88,7 +96,7 @@ function AdminExecutives() {
       .order('created_at', { ascending: true })
 
     if (error) {
-      setErrorMessage(error.message)
+      setErrorMessage(getFriendlyErrorMessage(t, error))
       setIsLoading(false)
       return
     }
@@ -112,7 +120,7 @@ function AdminExecutives() {
       }
 
       if (error) {
-        setErrorMessage(error.message)
+        setErrorMessage(getFriendlyErrorMessage(t, error))
         setIsLoading(false)
         return
       }
@@ -126,15 +134,26 @@ function AdminExecutives() {
     return () => {
       isMounted = false
     }
-  }, [])
+  }, [t])
 
   const resetForm = () => {
     setFormState(initialFormState)
+    setBaselineForm(initialFormState)
     setImageFile(null)
     setEditingId(null)
-    if (imageInputRef.current) {
-      imageInputRef.current.value = ''
+  }
+
+  const confirmDiscardChanges = () =>
+    !hasUnsavedChanges || window.confirm(t('admin.unsaved.discardConfirmation'))
+
+  const handleDiscard = () => {
+    if (!confirmDiscardChanges()) {
+      return
     }
+
+    setErrorMessage('')
+    setSuccessMessage('')
+    resetForm()
   }
 
   const handleFieldChange = (field: keyof ExecutiveForm, value: string) => {
@@ -145,20 +164,25 @@ function AdminExecutives() {
   }
 
   const handleEdit = (member: ExecutiveMember) => {
-    setEditingId(member.id)
-    setErrorMessage('')
-    setSuccessMessage('')
-    setImageFile(null)
-    setFormState({
+    if (member.id !== editingId && !confirmDiscardChanges()) {
+      return
+    }
+
+    const nextForm: ExecutiveForm = {
       name: member.name,
       role: member.role,
       email: member.email ?? '',
       phone: member.phone ?? '',
       sortOrder: String(member.sort_order),
-    })
-    if (imageInputRef.current) {
-      imageInputRef.current.value = ''
     }
+
+    setEditingId(member.id)
+    setErrorMessage('')
+    setSuccessMessage('')
+    setImageFile(null)
+    setFormState(nextForm)
+    setBaselineForm(nextForm)
+    formSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 
   const handleDelete = async (member: ExecutiveMember) => {
@@ -177,7 +201,7 @@ function AdminExecutives() {
     const { error } = await supabase.from('executive_members').delete().eq('id', member.id)
 
     if (error) {
-      setErrorMessage(error.message)
+      setErrorMessage(getFriendlyErrorMessage(t, error))
       setDeletingId(null)
       return
     }
@@ -231,7 +255,7 @@ function AdminExecutives() {
         })
 
       if (uploadError) {
-        setErrorMessage(uploadError.message)
+        setErrorMessage(getFriendlyErrorMessage(t, uploadError))
         setIsSaving(false)
         return
       }
@@ -263,7 +287,7 @@ function AdminExecutives() {
         .single()
 
       if (error) {
-        setErrorMessage(error.message)
+        setErrorMessage(getFriendlyErrorMessage(t, error))
         setIsSaving(false)
         return
       }
@@ -287,7 +311,7 @@ function AdminExecutives() {
         .single()
 
       if (error) {
-        setErrorMessage(error.message)
+        setErrorMessage(getFriendlyErrorMessage(t, error))
         setIsSaving(false)
         return
       }
@@ -322,10 +346,14 @@ function AdminExecutives() {
           </p>
         </div>
       }
+      hasUnsavedChanges={hasUnsavedChanges}
       title={t('admin.executives.title')}
     >
       <div className="mt-8 grid gap-6 xl:grid-cols-[0.88fr_1.12fr]">
-        <section className="rounded-[1.35rem] border border-[#dbe7ee] bg-white p-6 shadow-[0_18px_42px_rgba(15,23,42,0.05)]">
+        <section
+          className="scroll-mt-24 rounded-[1.35rem] border border-[#dbe7ee] bg-white p-6 shadow-[0_18px_42px_rgba(15,23,42,0.05)] lg:scroll-mt-6"
+          ref={formSectionRef}
+        >
           <div className="flex items-start justify-between gap-4 border-b border-[#edf3f7] pb-5">
             <div>
               <h2 className="font-serif text-[1.8rem] leading-none tracking-[-0.03em] text-[#14324d]">
@@ -340,7 +368,7 @@ function AdminExecutives() {
             {editingId ? (
               <button
                 className="rounded-full border border-[#dbe7ee] px-4 py-2 text-[0.78rem] font-bold uppercase tracking-[0.14em] text-[#115b82] transition hover:border-[#bfd5e4] hover:bg-[#f7fbfd]"
-                onClick={resetForm}
+                onClick={handleDiscard}
                 type="button"
               >
                 {t('admin.executives.cancelEdit')}
@@ -403,31 +431,27 @@ function AdminExecutives() {
             </div>
 
             <div className="grid gap-4 sm:grid-cols-[minmax(0,1fr)_180px]">
-              <label className="space-y-2">
-                <span className="text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#6a7c87]">
+              <div className="space-y-2">
+                <span className="block text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#6a7c87]">
                   {t('admin.executives.fields.image')}
                 </span>
-                <input
-                  accept="image/*"
-                  className="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-white px-4 py-3 text-[0.95rem] text-[#14324d] file:mr-3 file:rounded-full file:border-0 file:bg-[#eef6fb] file:px-3 file:py-2 file:text-[0.8rem] file:font-semibold file:text-[#115b82]"
-                  onChange={(event) => setImageFile(event.target.files?.[0] ?? null)}
-                  ref={imageInputRef}
-                  type="file"
+                <AdminImageInput
+                  alt={formState.name || t('admin.executives.fields.image')}
+                  currentImageUrl={editingMember?.image_url}
+                  file={imageFile}
+                  inputClassName="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-white px-4 py-3 text-[0.95rem] text-[#14324d] file:mr-3 file:rounded-full file:border-0 file:bg-[#eef6fb] file:px-3 file:py-2 file:text-[0.8rem] file:font-semibold file:text-[#115b82]"
+                  maxDimension={800}
+                  onChange={(file) => {
+                    setErrorMessage('')
+                    setImageFile(file)
+                  }}
+                  onError={setErrorMessage}
+                  previewClassName="h-28 w-28 object-cover"
                 />
                 <p className="text-[0.84rem] leading-[1.6] text-[#7a8b95]">
                   {t('admin.executives.imageHelp')}
                 </p>
-                {editingMember?.image_url && !imageFile ? (
-                  <p className="text-[0.84rem] leading-[1.6] text-[#627581]">
-                    {t('admin.executives.currentImage')}
-                  </p>
-                ) : null}
-                {imageFile ? (
-                  <p className="text-[0.84rem] leading-[1.6] text-[#627581]">
-                    {t('admin.executives.newImageSelected', { fileName: imageFile.name })}
-                  </p>
-                ) : null}
-              </label>
+              </div>
 
               <label className="space-y-2">
                 <span className="text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#6a7c87]">
@@ -468,7 +492,7 @@ function AdminExecutives() {
               </button>
               <button
                 className="rounded-full border border-[#dbe7ee] bg-white px-5 py-3 text-[0.8rem] font-bold uppercase tracking-[0.16em] text-[#14324d] transition hover:border-[#c2d7e6] hover:bg-[#f9fcfe]"
-                onClick={resetForm}
+                onClick={handleDiscard}
                 type="button"
               >
                 {t('admin.executives.resetForm')}

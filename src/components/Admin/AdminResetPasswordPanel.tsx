@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link, useNavigate } from 'react-router-dom'
 import { supabase } from '../../utils/supabase'
+import { getFriendlyErrorMessage } from '../../lib/adminErrors'
 
 function AdminResetPasswordPanel() {
   const { t } = useTranslation()
@@ -66,7 +67,7 @@ function AdminResetPasswordPanel() {
     setIsSubmitting(false)
 
     if (error) {
-      setErrorMessage(error.message || t('admin.resetPassword.genericError'))
+      setErrorMessage(getFriendlyErrorMessage(t, error, 'admin.resetPassword.genericError'))
       return
     }
 
