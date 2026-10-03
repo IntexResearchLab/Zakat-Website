@@ -9,6 +9,7 @@ import AdminStats from './pages/AdminStats'
 import AlokayonSchool from './pages/AlokayonSchool'
 import AdminRouteGuard from './components/Admin/AdminRouteGuard'
 import Donate from './pages/Donate'
+import DonationResult from './pages/DonationResult'
 import Gallery from './pages/Gallery'
 import Home from './pages/Home'
 import LegalPage from './pages/LegalPage'
@@ -88,6 +89,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/donate" element={<Donate />} />
+          <Route path="/donate/success" element={<DonationResult status="success" />} />
+          <Route path="/donate/failed" element={<DonationResult status="failed" />} />
+          <Route path="/donate/cancelled" element={<DonationResult status="cancelled" />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route
             path="/opinions-of-beneficiaries"

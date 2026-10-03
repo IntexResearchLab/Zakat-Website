@@ -801,6 +801,21 @@
       "agreement": {
         "text": "Ich habe die <terms>Allgemeinen Geschäftsbedingungen</terms>, die <privacy>Datenschutzerklärung</privacy> und die <refund>Rückgabe- und Erstattungsrichtlinie</refund> gelesen und stimme ihnen zu.",
         "required": "Bitte setzen Sie das Häkchen, um unseren Richtlinien vor der Spende zuzustimmen."
+      },
+      "amountGroupLabel": "Spendenbetrag",
+      "customAmountLabel": "Ihren Betrag eingeben (BDT)",
+      "customAmountPlaceholder": "Zum Beispiel 1500",
+      "categoryLabel": "Wofür soll Ihre Spende verwendet werden?",
+      "donateAmount": "৳{{amount}} spenden",
+      "redirecting": "Sichere Zahlung wird geöffnet...",
+      "secureNote": "Sie schließen die Zahlung auf der sicheren SSLCommerz-Seite ab.",
+      "errors": {
+        "amount": "Bitte geben Sie einen Betrag zwischen ৳{{min}} und ৳{{max}} ein.",
+        "name": "Bitte geben Sie Ihren Namen ein.",
+        "email": "Bitte geben Sie eine gültige E-Mail-Adresse ein, damit wir Ihre Spende bestätigen können.",
+        "phone": "Bitte geben Sie eine gültige Telefonnummer ein.",
+        "gateway": "Der Zahlungsdienst antwortet gerade nicht. Bitte versuchen Sie es in einigen Minuten erneut.",
+        "generic": "Etwas ist schiefgelaufen, die Zahlung wurde nicht gestartet. Bitte versuchen Sie es erneut."
       }
     },
     "transparency": {
@@ -1025,6 +1040,27 @@
       "eyebrow": "Letzter Schritt",
       "title": "Seien Sie heute der Grund für jemandes Lächeln.",
       "description": "Ihre Zakat und Spende können durch rechtzeitige, transparente und würdezentrierte Unterstützung ein Leben verändern."
+    },
+    "result": {
+      "success": {
+        "title": "Vielen Dank für Ihre Spende",
+        "message": "Ihre Zahlung wurde empfangen und bestätigt. Möge Allah sie von Ihnen annehmen. Eine Bestätigung wurde vom Zahlungsanbieter gesendet."
+      },
+      "failed": {
+        "title": "Zahlung nicht abgeschlossen",
+        "message": "Ihre Zahlung wurde nicht durchgeführt und es wurde kein Geld abgebucht. Falls doch ein Betrag abgebucht wurde, erstattet Ihre Bank oder Ihr Zahlungsanbieter ihn. Bitte versuchen Sie es erneut."
+      },
+      "cancelled": {
+        "title": "Zahlung abgebrochen",
+        "message": "Sie haben die Zahlung abgebrochen, es wurde kein Geld abgebucht. Sie können jederzeit erneut spenden."
+      },
+      "reviewMessage": "Ihre Zahlung wurde empfangen und wird von unserem Zahlungspartner geprüft. Wir melden uns, falls weitere Angaben nötig sind.",
+      "amountLabel": "Betrag",
+      "transactionLabel": "Transaktions-ID",
+      "homeButton": "Zur Startseite",
+      "tryAgainButton": "Erneut versuchen",
+      "impactButton": "Unsere Wirkung ansehen",
+      "contactNote": "Fragen zu Ihrer Spende? Schreiben Sie uns an"
     }
   },
   "programs": {

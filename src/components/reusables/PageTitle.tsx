@@ -8,6 +8,9 @@ const siteName = 'Alokayon Charity'
 const titleKeysByPath: Record<string, string> = {
   '/about': 'common.breadcrumb.aboutUs',
   '/donate': 'common.breadcrumb.donate',
+  '/donate/success': 'common.breadcrumb.donate',
+  '/donate/failed': 'common.breadcrumb.donate',
+  '/donate/cancelled': 'common.breadcrumb.donate',
   '/gallery': 'common.breadcrumb.gallery',
   '/opinions-of-beneficiaries': 'common.breadcrumb.opinions',
   '/our-donors': 'common.breadcrumb.donors',

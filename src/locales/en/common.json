@@ -514,6 +514,21 @@
       "agreement": {
         "text": "I have read and agree to the <terms>Terms and Conditions</terms>, <privacy>Privacy Policy</privacy>, and <refund>Return and Refund Policy</refund>.",
         "required": "Please tick the box to agree to our policies before donating."
+      },
+      "amountGroupLabel": "Donation amount",
+      "customAmountLabel": "Enter your amount (BDT)",
+      "customAmountPlaceholder": "For example 1500",
+      "categoryLabel": "Where should your donation go?",
+      "donateAmount": "Donate ৳{{amount}}",
+      "redirecting": "Opening secure payment...",
+      "secureNote": "You will complete your payment on the secure SSLCommerz page.",
+      "errors": {
+        "amount": "Please enter an amount between ৳{{min}} and ৳{{max}}.",
+        "name": "Please enter your name.",
+        "email": "Please enter a valid email address so we can confirm your donation.",
+        "phone": "Please enter a valid phone number.",
+        "gateway": "The payment service is not responding right now. Please try again in a few minutes.",
+        "generic": "Something went wrong and your payment wasn't started. Please try again."
       }
     },
     "transparency": {
@@ -738,6 +753,27 @@
       "eyebrow": "Final Step",
       "title": "Be the reason someone smiles today.",
       "description": "Your zakat and donation can transform a life through timely, transparent, and dignity-centered support."
+    },
+    "result": {
+      "success": {
+        "title": "Thank you for your donation",
+        "message": "Your payment was received and confirmed. May Allah accept it from you. A confirmation has been sent by the payment gateway."
+      },
+      "failed": {
+        "title": "Payment not completed",
+        "message": "Your payment didn't go through and no money was taken. If an amount was deducted, it will be returned by your bank or payment provider. Please try again."
+      },
+      "cancelled": {
+        "title": "Payment cancelled",
+        "message": "You cancelled the payment, so no money was taken. You can donate again whenever you are ready."
+      },
+      "reviewMessage": "Your payment was received and is being verified by our payment partner. We will contact you if anything else is needed.",
+      "amountLabel": "Amount",
+      "transactionLabel": "Transaction ID",
+      "homeButton": "Back to home",
+      "tryAgainButton": "Try again",
+      "impactButton": "See our impact",
+      "contactNote": "Questions about your donation? Email us at"
     }
   },
   "about": {

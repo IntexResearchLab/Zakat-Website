@@ -1,14 +1,28 @@
-import { useState } from 'react'
+import { useState, type FormEvent } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import Reveal from '../reusables/Reveal'
 
 const policyLinkClass = 'font-semibold text-[#115b82] underline underline-offset-2 hover:text-[#0d4f72]'
+const fieldClass =
+  'rounded-[1rem] border border-[#d7e6ef] bg-white px-4 py-3.5 text-[1rem] text-[#14324d] outline-none transition placeholder:text-[#90a2ae] focus:border-[#115b82]'
+
+const MIN_DONATION_BDT = 10
+const MAX_DONATION_BDT = 500000
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+const categoryKeys = ['default', 'education', 'healthcare', 'livelihood'] as const
+
+// Amount labels are translated text such as "৳1000" or "৳১০০০"; options without digits are "custom".
+const parseAmountLabel = (label: string) => {
+  const latinDigits = label.replace(/[০-৯]/g, (digit) => String('০১২৩৪৫৬৭৮৯'.indexOf(digit)))
+  const digits = latinDigits.replace(/[^\d]/g, '')
+  return digits ? Number(digits) : null
+}
+
+type DonateErrorKey = 'amount' | 'name' | 'email' | 'phone' | 'gateway' | 'generic'
 
 function DonateMainSection() {
   const { t } = useTranslation()
-  // Payment gateway compliance: donors must actively agree to the policies before paying.
-  const [hasAgreedToPolicies, setHasAgreedToPolicies] = useState(false)
   const amountOptions = t('donate.main.amounts', {
     returnObjects: true,
   }) as Array<{ amount: string; label: string }>
@@ -18,11 +32,91 @@ function DonateMainSection() {
   const trustItems = t('donate.main.trustItems', { returnObjects: true }) as string[]
   const paymentMethods = t('donate.main.paymentMethods', { returnObjects: true }) as string[]
 
+  const [selectedOption, setSelectedOption] = useState(1)
+  const [customAmount, setCustomAmount] = useState('')
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [phone, setPhone] = useState('')
+  const [category, setCategory] = useState<(typeof categoryKeys)[number]>('default')
+  // Payment gateway compliance: donors must actively agree to the policies before paying.
+  const [hasAgreedToPolicies, setHasAgreedToPolicies] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [errorKey, setErrorKey] = useState<DonateErrorKey | null>(null)
+
+  const selectedPreset = parseAmountLabel(amountOptions[selectedOption]?.amount ?? '')
+  const isCustomAmount = selectedPreset === null
+  const amount = isCustomAmount ? Number(customAmount) : selectedPreset
+
+  const validate = (): DonateErrorKey | null => {
+    if (!Number.isFinite(amount) || amount < MIN_DONATION_BDT || amount > MAX_DONATION_BDT) {
+      return 'amount'
+    }
+    if (!name.trim()) {
+      return 'name'
+    }
+    if (!emailPattern.test(email.trim())) {
+      return 'email'
+    }
+    if (phone.replace(/\D/g, '').length < 10) {
+      return 'phone'
+    }
+    return null
+  }
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+
+    const validationError = validate()
+    if (validationError) {
+      setErrorKey(validationError)
+      return
+    }
+
+    setErrorKey(null)
+    setIsSubmitting(true)
+
+    try {
+      const response = await fetch('/api/payment/init', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          amount,
+          name: name.trim(),
+          email: email.trim(),
+          phone: phone.trim(),
+          category,
+        }),
+      })
+      const data = (await response.json().catch(() => ({}))) as { url?: string; error?: string }
+
+      if (response.ok && data.url) {
+        // Hand the donor over to the SSLCommerz hosted payment page.
+        window.location.assign(data.url)
+        return
+      }
+
+      const serverErrors: Record<string, DonateErrorKey> = {
+        invalid_amount: 'amount',
+        invalid_donor: 'name',
+        gateway_unavailable: 'gateway',
+      }
+      setErrorKey(serverErrors[data.error ?? ''] ?? 'generic')
+    } catch {
+      setErrorKey('generic')
+    }
+
+    setIsSubmitting(false)
+  }
+
   return (
     <section className="bg-white py-20 sm:py-24" id="donate-form">
       <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[1.02fr_0.98fr] lg:items-start lg:gap-12">
         <Reveal>
-          <div className="rounded-[1.5rem] border border-[#dbe7ee] bg-[#fbfdfe] p-7 shadow-[0_18px_40px_rgba(15,23,42,0.05)] sm:p-8">
+          <form
+            className="rounded-[1.5rem] border border-[#dbe7ee] bg-[#fbfdfe] p-7 shadow-[0_18px_40px_rgba(15,23,42,0.05)] sm:p-8"
+            noValidate
+            onSubmit={(event) => void handleSubmit(event)}
+          >
             <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#115b82]">
               {t('donate.main.formEyebrow')}
             </p>
@@ -30,42 +124,101 @@ function DonateMainSection() {
               {t('donate.main.formTitle')}
             </h2>
 
-            <div className="mt-7 grid gap-4 sm:grid-cols-2">
-              {amountOptions.map((option) => (
-                <button
-                  className="rounded-[1.1rem] border border-[#d7e6ef] bg-white px-5 py-5 text-left transition hover:border-[#115b82] hover:bg-[#f7fbfd]"
-                  key={option.amount}
-                  type="button"
-                >
-                  <p className="font-serif text-[1.8rem] leading-none tracking-[-0.04em] text-[#14324d]">
-                    {option.amount}
-                  </p>
-                  <p className="mt-2 text-[0.92rem] leading-[1.55] text-[#647783]">{option.label}</p>
-                </button>
-              ))}
+            <div
+              aria-label={t('donate.main.amountGroupLabel')}
+              className="mt-7 grid gap-4 sm:grid-cols-2"
+              role="radiogroup"
+            >
+              {amountOptions.map((option, index) => {
+                const isSelected = index === selectedOption
+
+                return (
+                  <button
+                    aria-checked={isSelected}
+                    className={`rounded-[1.1rem] border px-5 py-5 text-left transition ${
+                      isSelected
+                        ? 'border-[#115b82] bg-[#eef7fc] ring-2 ring-[#115b82]/20'
+                        : 'border-[#d7e6ef] bg-white hover:border-[#115b82] hover:bg-[#f7fbfd]'
+                    }`}
+                    key={option.amount}
+                    onClick={() => {
+                      setSelectedOption(index)
+                      setErrorKey(null)
+                    }}
+                    role="radio"
+                    type="button"
+                  >
+                    <p className="font-serif text-[1.8rem] leading-none tracking-[-0.04em] text-[#14324d]">
+                      {option.amount}
+                    </p>
+                    <p className="mt-2 text-[0.92rem] leading-[1.55] text-[#647783]">{option.label}</p>
+                  </button>
+                )
+              })}
             </div>
+
+            {isCustomAmount ? (
+              <label className="mt-4 block">
+                <span className="mb-2 block text-[0.88rem] font-semibold text-[#14324d]">
+                  {t('donate.main.customAmountLabel')}
+                </span>
+                <div className="relative">
+                  <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 font-semibold text-[#627581]">
+                    ৳
+                  </span>
+                  <input
+                    className={`${fieldClass} w-full pl-9`}
+                    inputMode="numeric"
+                    max={MAX_DONATION_BDT}
+                    min={MIN_DONATION_BDT}
+                    onChange={(event) => setCustomAmount(event.target.value.replace(/[^\d.]/g, ''))}
+                    placeholder={t('donate.main.customAmountPlaceholder')}
+                    type="text"
+                    value={customAmount}
+                  />
+                </div>
+              </label>
+            ) : null}
 
             <div className="mt-7 grid gap-4">
               <input
-                className="rounded-[1rem] border border-[#d7e6ef] bg-white px-4 py-3.5 text-[1rem] text-[#14324d] outline-none transition placeholder:text-[#90a2ae] focus:border-[#115b82]"
+                aria-label={t('common.form.namePlaceholder')}
+                autoComplete="name"
+                className={fieldClass}
+                onChange={(event) => setName(event.target.value)}
                 placeholder={t('common.form.namePlaceholder')}
                 type="text"
+                value={name}
               />
               <input
-                className="rounded-[1rem] border border-[#d7e6ef] bg-white px-4 py-3.5 text-[1rem] text-[#14324d] outline-none transition placeholder:text-[#90a2ae] focus:border-[#115b82]"
+                aria-label={t('common.form.emailPlaceholder')}
+                autoComplete="email"
+                className={fieldClass}
+                onChange={(event) => setEmail(event.target.value)}
                 placeholder={t('common.form.emailPlaceholder')}
                 type="email"
+                value={email}
               />
               <input
-                className="rounded-[1rem] border border-[#d7e6ef] bg-white px-4 py-3.5 text-[1rem] text-[#14324d] outline-none transition placeholder:text-[#90a2ae] focus:border-[#115b82]"
+                aria-label={t('common.form.phonePlaceholder')}
+                autoComplete="tel"
+                className={fieldClass}
+                onChange={(event) => setPhone(event.target.value)}
                 placeholder={t('common.form.phonePlaceholder')}
                 type="tel"
+                value={phone}
               />
-              <select className="rounded-[1rem] border border-[#d7e6ef] bg-white px-4 py-3.5 text-[1rem] text-[#14324d] outline-none transition focus:border-[#115b82]">
-                <option>{t('donate.main.categories.default')}</option>
-                <option>{t('donate.main.categories.education')}</option>
-                <option>{t('donate.main.categories.healthcare')}</option>
-                <option>{t('donate.main.categories.livelihood')}</option>
+              <select
+                aria-label={t('donate.main.categoryLabel')}
+                className={fieldClass}
+                onChange={(event) => setCategory(event.target.value as (typeof categoryKeys)[number])}
+                value={category}
+              >
+                {categoryKeys.map((key) => (
+                  <option key={key} value={key}>
+                    {t(`donate.main.categories.${key}`)}
+                  </option>
+                ))}
               </select>
             </div>
 
@@ -104,14 +257,31 @@ function DonateMainSection() {
               </p>
             ) : null}
 
+            {errorKey ? (
+              <p
+                className="mt-5 rounded-[1rem] border border-[#f3d1d4] bg-[#fff6f7] px-4 py-3 text-[0.92rem] leading-[1.6] text-[#9e3342]"
+                role="alert"
+              >
+                {t(`donate.main.errors.${errorKey}`, { min: MIN_DONATION_BDT, max: MAX_DONATION_BDT })}
+              </p>
+            ) : null}
+
             <button
-              className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-[#13703e] px-6 py-3.5 text-sm font-bold uppercase tracking-[0.16em] text-white shadow-[0_12px_30px_rgba(19,112,62,0.18)] transition hover:bg-[#105f35] disabled:cursor-not-allowed disabled:bg-[#9cbfa9] disabled:shadow-none"
-              disabled={!hasAgreedToPolicies}
-              type="button"
+              className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#13703e] px-6 py-3.5 text-sm font-bold uppercase tracking-[0.16em] text-white shadow-[0_12px_30px_rgba(19,112,62,0.18)] transition hover:bg-[#105f35] disabled:cursor-not-allowed disabled:bg-[#9cbfa9] disabled:shadow-none"
+              disabled={!hasAgreedToPolicies || isSubmitting}
+              type="submit"
             >
-              {t('common.actions.donateNow')}
+              <span className="material-symbols-outlined text-[1.1rem]">lock</span>
+              {isSubmitting
+                ? t('donate.main.redirecting')
+                : Number.isFinite(amount) && amount >= MIN_DONATION_BDT
+                  ? t('donate.main.donateAmount', { amount: amount.toLocaleString('en-US') })
+                  : t('common.actions.donateNow')}
             </button>
-          </div>
+            <p className="mt-3 text-center text-[0.82rem] leading-[1.6] text-[#7a8b95]">
+              {t('donate.main.secureNote')}
+            </p>
+          </form>
         </Reveal>
 
         <Reveal delay={120}>
