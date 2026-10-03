@@ -25,14 +25,14 @@ type FeaturedStory = {
 }
 
 const galleryImageMap = [
-  '/assets/home/carousel-3.jpg',
-  '/assets/home/carousel-2.jpg',
-  '/assets/home/volunteers-1.jpg',
-  '/assets/about/Donation.jpg',
-  '/assets/about/about-us.webp',
-  '/assets/home/volunteer-2.jpg',
-  '/assets/home/carousel-1.jpg',
-  '/assets/home/carousel-2.jpg',
+  '/assets/home/Alokayon_School_1.jpg',
+  '/assets/home/celebration.jpg',
+  '/assets/about/donors-community.jpg',
+  '/assets/about/Donating.jpg',
+  '/assets/about/Giving.jpg',
+  '/assets/about/community-support.jpg',
+  '/assets/about/book-distribution.jpg',
+  '/assets/school/School_2.jpg',
 ]
 
 const galleryCategoryMap = [

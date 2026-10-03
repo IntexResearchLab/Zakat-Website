@@ -37,33 +37,20 @@ type Story = {
   image?: string
 }
 
-const storyPortraits: Record<string, string> = {
-  'Affan Abbasi': '/assets/about/affan-abbasi.jpeg',
+// Keyed by index rather than name since the story order is stable across
+// locales but the translated name text is not.
+const storyPortraitsByIndex: Record<number, string> = {
+  2: '/assets/about/affan-abbasi.jpeg',
 }
-
-const donorPortraits = [
-  '/assets/about/person-1.jpg',
-  '/assets/about/person-2.jpg',
-  '/assets/about/person-3.jpg',
-  '/assets/about/person-4.jpg',
-]
 
 export const getDonorTrustIndicators = (t: TFunction) =>
   t('donors.trustIndicators.items', { returnObjects: true }) as TrustIndicator[]
 
-export const getFeaturedDonor = (t: TFunction) => ({
-  ...(t('donors.featured', { returnObjects: true }) as FeaturedDonor),
-  image: '/assets/about/Donation.jpg',
-})
+export const getFeaturedDonor = (t: TFunction) =>
+  t('donors.featured', { returnObjects: true }) as FeaturedDonor
 
-export const getDonorCards = (t: TFunction) => {
-  const cards = t('donors.cards.items', { returnObjects: true }) as DonorCard[]
-
-  return cards.map((card, index) => ({
-    ...card,
-    image: donorPortraits[index % donorPortraits.length],
-  }))
-}
+export const getDonorCards = (t: TFunction) =>
+  t('donors.cards.items', { returnObjects: true }) as DonorCard[]
 
 export const getMapPoints = (t: TFunction) =>
   t('donors.globalSupport.points', { returnObjects: true }) as MapPoint[]
@@ -71,9 +58,9 @@ export const getMapPoints = (t: TFunction) =>
 export const getDonorStories = (t: TFunction) => {
   const stories = t('donors.stories.items', { returnObjects: true }) as Story[]
 
-  return stories.map((story) => ({
+  return stories.map((story, index) => ({
     ...story,
-    image: storyPortraits[story.name],
+    image: storyPortraitsByIndex[index],
   }))
 }
 

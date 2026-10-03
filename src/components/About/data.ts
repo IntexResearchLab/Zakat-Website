@@ -37,13 +37,6 @@ type CommitteeMember = {
   image?: string
 }
 
-const committeeImages = [
-  '/assets/about/person-1.jpg',
-  '/assets/about/person-2.jpg',
-  '/assets/about/person-3.jpg',
-  '/assets/about/person-4.jpg',
-]
-
 const purposeImages = [
   {
     image: '/assets/about/Donating.jpg',
@@ -77,9 +70,9 @@ export const getTrustPoints = (t: TFunction) =>
 export const getCommitteeMembers = (t: TFunction) => {
   const members = t('about.executive.members', { returnObjects: true }) as CommitteeMember[]
 
-  return members.map((member, index) => ({
+  return members.map((member) => ({
     ...member,
-    image: member.image ?? committeeImages[index % committeeImages.length],
+    image: member.image ?? null,
   }))
 }
 

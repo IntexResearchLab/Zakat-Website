@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import Reveal from '../reusables/Reveal'
+import InitialsAvatar from '../reusables/InitialsAvatar'
 import { getCommitteeMembers } from './data'
 import {
   getCachedExecutiveMembers,
@@ -12,7 +13,7 @@ type DisplayExecutiveMember = {
   id: string
   name: string
   role: string
-  image: string
+  image: string | null
   email: string
   phone: string
 }
@@ -54,12 +55,11 @@ function AboutExecutiveCommittee() {
   const committeeMembers = useMemo<DisplayExecutiveMember[]>(
     () =>
       remoteMembers.length
-        ? remoteMembers.map((member, index) => ({
+        ? remoteMembers.map((member) => ({
             id: member.id,
             name: member.name,
             role: member.role,
-            image:
-              member.image_url || fallbackMembers[index % fallbackMembers.length]?.image || '/assets/about/person-1.jpg',
+            image: member.image_url || null,
             email: member.email || officeEmail,
             phone: member.phone || officePhone,
           }))
@@ -67,7 +67,7 @@ function AboutExecutiveCommittee() {
             id: `fallback-${index + 1}`,
             name: member.name,
             role: member.role,
-            image: member.image || '/assets/about/person-1.jpg',
+            image: member.image ?? null,
             email: member.email || officeEmail,
             phone: member.phone || officePhone,
           })),
@@ -179,11 +179,15 @@ function AboutExecutiveCommittee() {
                   key={member.id}
                 >
                   <div className="overflow-hidden rounded-[0.95rem] bg-[#f2f7fa]">
-                    <img
-                      alt={member.name}
-                      className="aspect-[4/4.6] w-full object-cover transition duration-500 group-hover:scale-[1.03]"
-                      src={member.image}
-                    />
+                    {member.image ? (
+                      <img
+                        alt={member.name}
+                        className="aspect-[4/4.6] w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+                        src={member.image}
+                      />
+                    ) : (
+                      <InitialsAvatar className="aspect-[4/4.6] w-full" name={member.name} />
+                    )}
                   </div>
                   <h3 className="mt-4 font-serif text-[1.28rem] leading-[1.05] tracking-[-0.03em] text-[#14324d]">
                     {member.name}
@@ -302,11 +306,15 @@ function AboutExecutiveCommittee() {
                     key={`directory-${member.id}`}
                   >
                     <div className="flex items-start gap-4">
-                      <img
-                        alt={member.name}
-                        className="h-24 w-20 rounded-[0.85rem] object-cover"
-                        src={member.image}
-                      />
+                      {member.image ? (
+                        <img
+                          alt={member.name}
+                          className="h-24 w-20 rounded-[0.85rem] object-cover"
+                          src={member.image}
+                        />
+                      ) : (
+                        <InitialsAvatar className="h-24 w-20 rounded-[0.85rem]" name={member.name} />
+                      )}
                       <div className="min-w-0">
                         <h4 className="font-serif text-[1.2rem] leading-[1.1] tracking-[-0.03em] text-[#14324d]">
                           {member.name}

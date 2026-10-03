@@ -2,7 +2,8 @@
   "app": {
     "languages": {
       "en": "EN",
-      "bn": "বাংলা"
+      "bn": "বাংলা",
+      "de": "Deutsch"
     }
   },
   "nav": {
@@ -60,6 +61,10 @@
     },
     "payments": {
       "accepted": "Accepted: bKash, Nagad, Visa, Mastercard"
+    },
+    "labels": {
+      "arabicAndBengali": "Arabic + Bengali",
+      "sinceYear": "Since {{year}}"
     }
   },
   "footer": {
@@ -203,6 +208,8 @@
         }
       ],
       "programsTitle": "Signature programs",
+      "childrenLearningLabel": "children learning",
+      "studentsEnrolledLabel": "students enrolled",
       "programCards": [
         {
           "title": "Alokayon Pathshala",
@@ -609,17 +616,17 @@
       "title": "Real moments behind every act of giving.",
       "items": [
         {
-          "image": "/assets/home/carousel-1.jpg",
+          "image": "/assets/about/book-distribution.jpg",
           "title": "Education Support",
           "caption": "Helping children stay connected to learning with direct, practical support."
         },
         {
-          "image": "/assets/home/volunteers-1.jpg",
+          "image": "/assets/about/community-support.jpg",
           "title": "Community Care",
           "caption": "Moments of face-to-face service that turn donations into visible impact."
         },
         {
-          "image": "/assets/home/carousel-3.jpg",
+          "image": "/assets/about/winter-relief-sunamganj.jpg",
           "title": "Relief & Dignity",
           "caption": "Relief reaches families through quiet, accountable distribution on the ground."
         }

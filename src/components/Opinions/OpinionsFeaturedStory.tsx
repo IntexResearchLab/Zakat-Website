@@ -16,7 +16,7 @@ function OpinionsFeaturedStory() {
             <img
               alt="Featured beneficiary story"
               className="aspect-[4/5] w-full rounded-[1.3rem] object-cover"
-              src="/assets/about/person-1.jpg"
+              src="/assets/about/beneficiary-story.jpg"
             />
             <div className="mt-6 rounded-[1.2rem] border border-white/80 bg-white/82 p-5 backdrop-blur-sm">
               <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#115b82]">{t('opinions.featuredStory.cardEyebrow')}</p>

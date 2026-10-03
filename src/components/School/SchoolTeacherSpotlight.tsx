@@ -1,4 +1,5 @@
 import Reveal from '../reusables/Reveal'
+import InitialsAvatar from '../reusables/InitialsAvatar'
 import { useTranslation } from 'react-i18next'
 
 function SchoolTeacherSpotlight() {
@@ -9,11 +10,7 @@ function SchoolTeacherSpotlight() {
       <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-18">
         <Reveal>
           <div className="overflow-hidden rounded-[1.8rem] border border-[#dbe7ee] bg-white shadow-[0_18px_40px_rgba(15,23,42,0.06)]">
-            <img
-              alt={t('school.teacher.imageAlt')}
-              className="aspect-[4/5] w-full object-cover"
-              src="/assets/about/person-1.jpg"
-            />
+            <InitialsAvatar className="aspect-[4/5] w-full" name={t('school.teacher.name')} />
           </div>
         </Reveal>
 

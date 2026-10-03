@@ -208,8 +208,8 @@ export const getHomeSignatureProgramStats = (t: TFunction) => {
     ...card,
     microStat:
       index === 0
-        ? `${getStatValue('childrenLearning')} children learning`
-        : `${getStatValue('studentsEnrolled')} students enrolled`,
+        ? `${getStatValue('childrenLearning')} ${t('home.impact.childrenLearningLabel')}`
+        : `${getStatValue('studentsEnrolled')} ${t('home.impact.studentsEnrolledLabel')}`,
   }))
 }
 
@@ -261,7 +261,7 @@ export const getSchoolImpactStatsFromInventory = (t: TFunction): UiStat[] =>
       getStatValue('childrenLearning'),
       getStatValue('formalLaunchDate'),
       getStatValue('totalAdmissions'),
-      'Arabic + Bengali',
+      t('common.labels.arabicAndBengali'),
     ][index],
     label: item.label,
   }))
@@ -279,7 +279,7 @@ export const getMadrasaImpactStatsFromInventory = (t: TFunction): UiStat[] =>
       getStatValue('studentsEnrolled'),
       getStatValue('underprivilegedBackground'),
       getStatValue('hifzStudents'),
-      'Arabic + Bengali',
+      t('common.labels.arabicAndBengali'),
     ][index],
     label: item.label,
   }))
@@ -298,7 +298,7 @@ export const getGalleryImpactStats = (t: TFunction): UiStat[] =>
       getStatValue('studentsSupported'),
       getStatValue('annualDistribution'),
       getStatValue('livelihoodsDistributed'),
-      `Since ${getStatValue('foundedYear')}`,
+      t('common.labels.sinceYear', { year: getStatValue('foundedYear') }),
     ][index],
     label: item.label,
   }))
