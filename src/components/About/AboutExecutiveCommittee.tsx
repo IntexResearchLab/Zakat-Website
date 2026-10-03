@@ -142,7 +142,7 @@ function AboutExecutiveCommittee() {
 
   return (
     <>
-      <section className="bg-white py-20 sm:py-24">
+      <section className="scroll-mt-20 bg-white py-20 sm:py-24" id="executive-committee">
         <div className="mx-auto max-w-7xl px-6">
           <Reveal className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-3xl">

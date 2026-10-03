@@ -8,6 +8,7 @@ export type ExecutiveMember = {
   phone: string | null
   image_url: string | null
   sort_order: number
+  is_active: boolean
   created_at: string | null
 }
 

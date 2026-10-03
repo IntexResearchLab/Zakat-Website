@@ -86,7 +86,7 @@ function MosaicGallerySection({
 
   return (
     <>
-      <section className="bg-white py-18 sm:py-22" id={sectionId}>
+      <section className="scroll-mt-20 bg-white py-18 sm:py-22" id={sectionId}>
         <div className="mx-auto max-w-7xl px-6">
           <Reveal className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
             <div className="max-w-4xl">

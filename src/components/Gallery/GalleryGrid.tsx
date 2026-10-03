@@ -67,6 +67,7 @@ function GalleryGrid() {
       filters={filters}
       items={items}
       locationLabel={t('galleryPage.grid.locationLabel')}
+      sectionId="gallery-grid"
       title={t('galleryPage.grid.title')}
       yearLabel={t('galleryPage.grid.yearLabel')}
     />

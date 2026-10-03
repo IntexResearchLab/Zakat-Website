@@ -2311,6 +2311,26 @@
       "leaveConfirmation": "You have unsaved changes. Leave this page and discard them?",
       "discardConfirmation": "You have unsaved changes. Discard them?"
     },
+    "list": {
+      "moveUp": "Move up",
+      "moveDown": "Move down",
+      "reorderDisabled": "Clear search and filters to change the order",
+      "hide": "Hide",
+      "show": "Show",
+      "hiddenBadge": "Hidden",
+      "hiddenSuccess": "\"{{name}}\" is now hidden from the public website.",
+      "shownSuccess": "\"{{name}}\" is now visible on the public website.",
+      "viewOnSite": "View on site",
+      "categoryFilter": "Filter by category",
+      "allCategories": "All categories",
+      "visibilityFilter": "Filter by visibility",
+      "statusAll": "Visible and hidden",
+      "statusVisible": "Visible only",
+      "statusHidden": "Hidden only",
+      "showingCount": "Showing {{shown}} of {{total}}",
+      "clearFilters": "Clear filters",
+      "noResults": "Nothing matches your search or filters."
+    },
     "mobileNav": {
       "toggle": "Toggle admin menu"
     },
@@ -2416,28 +2436,33 @@
           "cta": "Manage Stats"
         }
       ],
-      "nextStepsTitle": "What You Can Manage Now",
-      "nextSteps": [
-        "Upload new magazine issues and keep the public archive current.",
-        "Add or remove executive members with photos and contact details.",
-        "Refresh public-facing impact figures from one connected stats page.",
-        "Build the image gallery with categorized visuals and lightbox stories."
-      ],
-      "notesTitle": "Current Scope",
-      "notes": [
-        {
-          "title": "Cleaned to live modules",
-          "detail": "This dashboard now shows only the admin areas that are already built and usable."
-        },
-        {
-          "title": "Supabase-backed sections",
-          "detail": "Magazines, gallery items, executive members, and public stats are connected to Supabase."
-        },
-        {
-          "title": "Good next additions",
-          "detail": "If we expand later, the next natural admin modules would be donors, beneficiary stories, and program content."
-        }
-      ],
+      "loading": "Loading the latest details...",
+      "attentionTitle": "Needs attention",
+      "allGood": "Everything looks up to date.",
+      "units": {
+        "magazines": "issues",
+        "gallery": "images",
+        "executives": "members",
+        "stats": "figures"
+      },
+      "summary": {
+        "hidden": "{{count}} hidden from the website",
+        "latestIssue": "Latest issue: {{year}}",
+        "lastAdded": "Last added {{date}}",
+        "lastUpdated": "Last updated {{date}}",
+        "never": "No updates recorded yet",
+        "unavailable": "Details couldn't be loaded."
+      },
+      "alerts": {
+        "loadError": "Some dashboard details couldn't be loaded. {{reason}}",
+        "noMagazines": "No magazines have been uploaded yet.",
+        "oldMagazine": "The latest magazine is from {{year}}. Upload a newer issue when it's ready.",
+        "noVisibleGallery": "The public gallery has no visible images.",
+        "noVisibleExecutives": "No executive committee members are visible on the About page.",
+        "missingPhotos": "{{count}} visible executive member(s) don't have a photo yet.",
+        "statsNeverUpdated": "The impact figures have never been updated from the admin.",
+        "staleStats": "The impact figures were last updated on {{date}}. Check they're still accurate."
+      },
       "sidebar": {
         "brandNote": "Alokayon Charity Admin",
         "footer": "A focused admin for the live content modules already connected to the website."
@@ -2511,7 +2536,8 @@
       "deleteSuccess": "Executive member deleted successfully.",
       "deleteConfirmation": "Delete \"{{name}}\" from the executive directory?",
       "libraryTitle": "Executive directory",
-      "libraryIntro": "Review the members currently visible on the About page, then edit or remove them whenever the committee changes.",
+      "libraryIntro": "Review the committee members, change their order, hide anyone who shouldn't appear yet, or edit their details.",
+      "searchPlaceholder": "Search by name, role, email, or phone",
       "refresh": "Refresh",
       "loading": "Loading executive members from Supabase...",
       "emptyState": "No executive members have been added yet.",
@@ -2556,7 +2582,8 @@
       "deleteSuccess": "Gallery item deleted successfully.",
       "deleteConfirmation": "Delete \"{{title}}\" from the gallery?",
       "libraryTitle": "Gallery library",
-      "libraryIntro": "Review the live gallery items, update their stories, and remove anything that no longer belongs in the public archive.",
+      "libraryIntro": "Review the gallery items, change their order, hide images temporarily, or update their stories.",
+      "searchPlaceholder": "Search by title, description, location, or year",
       "refresh": "Refresh",
       "loading": "Loading gallery items from Supabase...",
       "emptyState": "No gallery items have been added yet.",

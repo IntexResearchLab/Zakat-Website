@@ -631,6 +631,15 @@ function AdminMagazines() {
                                 ? t('admin.magazines.deleting')
                                 : t('admin.magazines.deleteButton')}
                             </button>
+                            <a
+                              className="inline-flex items-center gap-1.5 rounded-full px-3 py-2 text-[0.74rem] font-bold uppercase tracking-[0.14em] text-[#115b82] transition hover:bg-white"
+                              href={`/transparency/${magazine.year}`}
+                              rel="noopener noreferrer"
+                              target="_blank"
+                            >
+                              {t('admin.list.viewOnSite')}
+                              <span className="material-symbols-outlined text-[1rem]">open_in_new</span>
+                            </a>
                           </div>
                         </div>
 
