@@ -11,6 +11,7 @@ import AdminRouteGuard from './components/Admin/AdminRouteGuard'
 import Donate from './pages/Donate'
 import Gallery from './pages/Gallery'
 import Home from './pages/Home'
+import LegalPage from './pages/LegalPage'
 import Madrasa from './pages/Madrasa'
 import OpinionsOfBeneficiaries from './pages/OpinionsOfBeneficiaries'
 import OurDonors from './pages/OurDonors'
@@ -97,6 +98,9 @@ function App() {
           <Route path="/programs/madrasa" element={<Madrasa />} />
           <Route path="/programs" element={<Programs />} />
           <Route path="/transparency" element={<Transparency />} />
+          <Route path="/terms-and-conditions" element={<LegalPage policy="terms" />} />
+          <Route path="/privacy-policy" element={<LegalPage policy="privacy" />} />
+          <Route path="/refund-policy" element={<LegalPage policy="refund" />} />
           <Route path="/transparency/:year" element={<TransparencyReader />} />
           <Route path="*" element={<Navigate replace to="/" />} />
         </Routes>

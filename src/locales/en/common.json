@@ -52,7 +52,10 @@
       "opinions": "Voices of Impact",
       "programs": "Programs",
       "school": "School",
-      "transparency": "Magazine"
+      "transparency": "Magazine",
+      "terms": "Terms and Conditions",
+      "privacy": "Privacy Policy",
+      "refund": "Return and Refund Policy"
     },
     "form": {
       "emailPlaceholder": "Enter your email",
@@ -133,12 +136,39 @@
           "href": "tel:01779577828",
           "external": true
         }
-      ]
+      ],
+      "addressLabel": "Registered address"
     },
     "bottom": {
       "copyright": "© {{year}} Alokayon",
       "designed": "Intex Research Lab, Development Unit"
-    }
+    },
+    "policies": {
+      "title": "About & Policies",
+      "links": [
+        {
+          "label": "About Us",
+          "href": "/about"
+        },
+        {
+          "label": "Terms and Conditions",
+          "href": "/terms-and-conditions"
+        },
+        {
+          "label": "Privacy Policy",
+          "href": "/privacy-policy"
+        },
+        {
+          "label": "Return and Refund Policy",
+          "href": "/refund-policy"
+        }
+      ]
+    },
+    "organization": {
+      "registration": "Registered with the Department of Social Services, Ministry of Social Welfare, Bangladesh (2019)",
+      "management": "Founder Chairman: A.K.M. Fazlul Kader"
+    },
+    "paymentsAlt": "Pay with Visa, Mastercard, American Express, bKash, Nagad, Rocket, internet banking and other channels. Verified by SSLCommerz."
   },
   "home": {
     "hero": {
@@ -480,7 +510,11 @@
         "Established in 2011",
         "Verified programs",
         "Transparent reporting"
-      ]
+      ],
+      "agreement": {
+        "text": "I have read and agree to the <terms>Terms and Conditions</terms>, <privacy>Privacy Policy</privacy>, and <refund>Return and Refund Policy</refund>.",
+        "required": "Please tick the box to agree to our policies before donating."
+      }
     },
     "transparency": {
       "eyebrow": "Transparency",
@@ -2655,6 +2689,214 @@
           "title": "Financial snapshot"
         }
       }
+    }
+  },
+  "legal": {
+    "eyebrow": "Policies",
+    "lastUpdatedLabel": "Last updated",
+    "lastUpdated": "4 October 2026",
+    "relatedLabel": "Related policies:",
+    "contact": {
+      "title": "Contact us",
+      "intro": "If you have any questions about this policy, please contact us using the details below.",
+      "organizationLabel": "Organization",
+      "organization": "Alokayon, registered with the Department of Social Services, Ministry of Social Welfare, Government of Bangladesh (2019)",
+      "addressLabel": "Registered address",
+      "emailLabel": "Email",
+      "phoneLabel": "Phone"
+    },
+    "terms": {
+      "title": "Terms and Conditions",
+      "intro": "These Terms and Conditions apply to everyone who visits the Alokayon website or makes a donation through it. By using this website or donating, you agree to these terms. Please read them carefully.",
+      "sections": [
+        {
+          "heading": "About Alokayon",
+          "paragraphs": [
+            "Alokayon is a non-profit, non-political charitable organization in Bangladesh. It began informally in 2011 and was formally registered with the Department of Social Services, Ministry of Social Welfare, in 2019. Alokayon supports underprivileged children, widows, elderly people, and vulnerable families through education, relief, healthcare, and livelihood programs."
+          ]
+        },
+        {
+          "heading": "Using this website",
+          "bullets": [
+            "Use this website only for lawful purposes and in a way that does not harm the website or other visitors.",
+            "Provide accurate and complete information when you make a donation or contact us.",
+            "Do not attempt to access the administrative areas of the website without authorization."
+          ]
+        },
+        {
+          "heading": "Donations",
+          "paragraphs": [
+            "All donations, including zakat and sadaqah, are voluntary. Amounts are processed in Bangladeshi Taka (BDT) unless stated otherwise.",
+            "Alokayon uses donations for its charitable programs. Where you choose a specific program, we will use your donation for that program. If that program is already fully funded or can no longer be carried out, we may use the donation for a similar program with the greatest need."
+          ]
+        },
+        {
+          "heading": "Payments",
+          "paragraphs": [
+            "Online payments are processed securely by SSLCommerz, a licensed payment gateway in Bangladesh. Alokayon does not receive or store your full card number, PIN, or mobile banking password.",
+            "By making a payment, you confirm that you are authorized to use the selected card, bank account, or mobile wallet. Your bank or payment provider may apply its own charges."
+          ]
+        },
+        {
+          "heading": "Confirmation and receipts",
+          "paragraphs": [
+            "After a successful donation you will receive a confirmation from the payment gateway. If you need a receipt for your records, please contact us with your transaction details."
+          ]
+        },
+        {
+          "heading": "Refunds",
+          "paragraphs": [
+            "Refunds are handled according to our Return and Refund Policy, which forms part of these Terms and Conditions."
+          ]
+        },
+        {
+          "heading": "Content and intellectual property",
+          "paragraphs": [
+            "The text, photographs, logos, and other content on this website belong to Alokayon or are used with permission. You may share our content for non-commercial purposes with credit to Alokayon, but you may not modify or sell it without our written permission."
+          ]
+        },
+        {
+          "heading": "Links to other websites",
+          "paragraphs": [
+            "This website may link to other websites, such as payment providers. Alokayon is not responsible for the content or privacy practices of those websites."
+          ]
+        },
+        {
+          "heading": "Limitation of liability",
+          "paragraphs": [
+            "We work to keep the information on this website accurate and the website available, but we cannot guarantee that it will always be error-free or uninterrupted. To the extent permitted by law, Alokayon is not liable for any indirect loss arising from the use of this website."
+          ]
+        },
+        {
+          "heading": "Governing law",
+          "paragraphs": [
+            "These terms are governed by the laws of Bangladesh. Any dispute will be subject to the jurisdiction of the courts of Dhaka."
+          ]
+        },
+        {
+          "heading": "Changes to these terms",
+          "paragraphs": [
+            "We may update these Terms and Conditions from time to time. The updated version will be posted on this page with a new \"Last updated\" date."
+          ]
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "intro": "Alokayon respects your privacy. This Privacy Policy explains what personal information we collect when you visit our website or make a donation, how we use it, and the choices you have.",
+      "sections": [
+        {
+          "heading": "Information we collect",
+          "bullets": [
+            "Donation details you provide, such as your name, email address, phone number, donation amount, and the program you choose to support.",
+            "Messages you send us by email or phone.",
+            "Payment information is collected and processed by our payment gateway, SSLCommerz. Alokayon does not receive or store your full card number, PIN, or mobile banking password.",
+            "Basic technical information, such as your selected language, which is stored in your own browser, and standard server logs kept by our hosting providers."
+          ]
+        },
+        {
+          "heading": "How we use your information",
+          "bullets": [
+            "To process your donation and confirm that it was received.",
+            "To provide receipts and respond to your questions.",
+            "To keep accurate financial and accounting records as required by law.",
+            "To report on our work. Published reports use totals only and never identify individual donors without their permission."
+          ]
+        },
+        {
+          "heading": "Sharing your information",
+          "paragraphs": [
+            "We do not sell, rent, or trade your personal information. We share it only with:"
+          ],
+          "bullets": [
+            "SSLCommerz and the related banks and mobile financial services, to process your payment.",
+            "Service providers that host our website and data, only as needed to run the website.",
+            "Government or law enforcement authorities in Bangladesh, when required by law."
+          ]
+        },
+        {
+          "heading": "Donor recognition",
+          "paragraphs": [
+            "We will not publish your name, photo, or comments on our website or in our magazine without your permission."
+          ]
+        },
+        {
+          "heading": "Data security",
+          "paragraphs": [
+            "We use reasonable technical and organizational measures to protect your information, and access to donor information is limited to authorized Alokayon staff. No method of transmission over the internet is completely secure, but we take care to protect your data."
+          ]
+        },
+        {
+          "heading": "How long we keep your information",
+          "paragraphs": [
+            "We keep donation records for as long as needed to meet our accounting, audit, and legal obligations. Other information is deleted when it is no longer needed."
+          ]
+        },
+        {
+          "heading": "Your choices",
+          "paragraphs": [
+            "You may ask to see, correct, or delete the personal information we hold about you by contacting us. We will respond within a reasonable time, unless we are required by law to keep certain records."
+          ]
+        },
+        {
+          "heading": "Children's privacy",
+          "paragraphs": [
+            "Our website is intended for adults making donations. We do not knowingly collect personal information online from children."
+          ]
+        },
+        {
+          "heading": "Changes to this policy",
+          "paragraphs": [
+            "We may update this Privacy Policy from time to time. The updated version will be posted on this page with a new \"Last updated\" date."
+          ]
+        }
+      ]
+    },
+    "refund": {
+      "title": "Return and Refund Policy",
+      "intro": "Alokayon does not sell physical products, so this policy covers refunds of donations made through our website. Because donations are usually allocated to programs quickly, they are generally non-refundable, except in the cases described below.",
+      "sections": [
+        {
+          "heading": "When you can request a refund",
+          "bullets": [
+            "You were charged more than once for the same donation (duplicate payment).",
+            "You entered the wrong amount by mistake.",
+            "Your account was charged but the donation was not completed.",
+            "Your card or account was used without your permission."
+          ]
+        },
+        {
+          "heading": "How to request a refund",
+          "paragraphs": [
+            "Email alokayon2019@gmail.com within 7 days of the donation and include:"
+          ],
+          "bullets": [
+            "Your full name and phone number.",
+            "The date and amount of the donation.",
+            "The transaction ID and payment method (card, bKash, Nagad, bank, etc.).",
+            "The reason for the refund request."
+          ]
+        },
+        {
+          "heading": "Review and refund timeline",
+          "paragraphs": [
+            "We will review your request and reply within 3 working days.",
+            "Approved refunds are processed within 7 to 10 working days and returned to the original payment method. Depending on your bank or mobile financial service, it may take a few additional days for the amount to appear in your account."
+          ]
+        },
+        {
+          "heading": "Zakat donations",
+          "paragraphs": [
+            "If a zakat donation is refunded, that amount will not have been distributed as zakat on your behalf. Please consider this before requesting a refund."
+          ]
+        },
+        {
+          "heading": "Cancellations",
+          "paragraphs": [
+            "If you made a donation by mistake, contact us as soon as possible. Requests made before the funds have been allocated are easier for us to resolve."
+          ]
+        }
+      ]
     }
   }
 }

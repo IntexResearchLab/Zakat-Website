@@ -1,8 +1,14 @@
-import { useTranslation } from 'react-i18next'
+import { useState } from 'react'
+import { Trans, useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 import Reveal from '../reusables/Reveal'
+
+const policyLinkClass = 'font-semibold text-[#115b82] underline underline-offset-2 hover:text-[#0d4f72]'
 
 function DonateMainSection() {
   const { t } = useTranslation()
+  // Payment gateway compliance: donors must actively agree to the policies before paying.
+  const [hasAgreedToPolicies, setHasAgreedToPolicies] = useState(false)
   const amountOptions = t('donate.main.amounts', {
     returnObjects: true,
   }) as Array<{ amount: string; label: string }>
@@ -74,8 +80,33 @@ function DonateMainSection() {
               ))}
             </div>
 
+            <label className="mt-7 flex items-start gap-3 rounded-[1rem] border border-[#d7e6ef] bg-white px-4 py-3.5 text-[0.94rem] leading-[1.6] text-[#4f6170]">
+              <input
+                checked={hasAgreedToPolicies}
+                className="mt-1 h-4 w-4 shrink-0 accent-[#13703e]"
+                onChange={(event) => setHasAgreedToPolicies(event.target.checked)}
+                type="checkbox"
+              />
+              <span>
+                <Trans
+                  components={{
+                    terms: <Link className={policyLinkClass} rel="noopener" target="_blank" to="/terms-and-conditions" />,
+                    privacy: <Link className={policyLinkClass} rel="noopener" target="_blank" to="/privacy-policy" />,
+                    refund: <Link className={policyLinkClass} rel="noopener" target="_blank" to="/refund-policy" />,
+                  }}
+                  i18nKey="donate.main.agreement.text"
+                />
+              </span>
+            </label>
+            {!hasAgreedToPolicies ? (
+              <p className="mt-2 text-[0.84rem] leading-[1.6] text-[#7a8b95]">
+                {t('donate.main.agreement.required')}
+              </p>
+            ) : null}
+
             <button
-              className="mt-8 inline-flex w-full items-center justify-center rounded-full bg-[#13703e] px-6 py-3.5 text-sm font-bold uppercase tracking-[0.16em] text-white shadow-[0_12px_30px_rgba(19,112,62,0.18)] transition hover:bg-[#105f35]"
+              className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-[#13703e] px-6 py-3.5 text-sm font-bold uppercase tracking-[0.16em] text-white shadow-[0_12px_30px_rgba(19,112,62,0.18)] transition hover:bg-[#105f35] disabled:cursor-not-allowed disabled:bg-[#9cbfa9] disabled:shadow-none"
+              disabled={!hasAgreedToPolicies}
               type="button"
             >
               {t('common.actions.donateNow')}

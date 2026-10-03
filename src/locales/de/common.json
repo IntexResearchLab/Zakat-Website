@@ -52,7 +52,10 @@
       "opinions": "Stimmen der Wirkung",
       "programs": "Programme",
       "school": "Schule",
-      "transparency": "Magazin"
+      "transparency": "Magazin",
+      "terms": "Allgemeine Geschäftsbedingungen",
+      "privacy": "Datenschutzerklärung",
+      "refund": "Rückgabe- und Erstattungsrichtlinie"
     },
     "form": {
       "emailPlaceholder": "E-Mail-Adresse eingeben",
@@ -133,12 +136,39 @@
           "href": "tel:01779577828",
           "external": true
         }
-      ]
+      ],
+      "addressLabel": "Eingetragene Adresse"
     },
     "bottom": {
       "copyright": "© {{year}} Alokayon",
       "designed": "Intex Research Lab, Development Unit"
-    }
+    },
+    "policies": {
+      "title": "Über uns & Richtlinien",
+      "links": [
+        {
+          "label": "Über uns",
+          "href": "/about"
+        },
+        {
+          "label": "Allgemeine Geschäftsbedingungen",
+          "href": "/terms-and-conditions"
+        },
+        {
+          "label": "Datenschutzerklärung",
+          "href": "/privacy-policy"
+        },
+        {
+          "label": "Rückgabe- und Erstattungsrichtlinie",
+          "href": "/refund-policy"
+        }
+      ]
+    },
+    "organization": {
+      "registration": "Registriert beim Department of Social Services, Ministerium für Soziales, Bangladesch (2019)",
+      "management": "Gründungsvorsitzender: A.K.M. Fazlul Kader"
+    },
+    "paymentsAlt": "Bezahlen mit Visa, Mastercard, American Express, bKash, Nagad, Rocket, Online-Banking und weiteren Kanälen. Verifiziert durch SSLCommerz."
   },
   "home": {
     "hero": {
@@ -767,7 +797,11 @@
         "Gegründet 2011",
         "Verifizierte Programme",
         "Transparente Berichterstattung"
-      ]
+      ],
+      "agreement": {
+        "text": "Ich habe die <terms>Allgemeinen Geschäftsbedingungen</terms>, die <privacy>Datenschutzerklärung</privacy> und die <refund>Rückgabe- und Erstattungsrichtlinie</refund> gelesen und stimme ihnen zu.",
+        "required": "Bitte setzen Sie das Häkchen, um unseren Richtlinien vor der Spende zuzustimmen."
+      }
     },
     "transparency": {
       "eyebrow": "Transparenz",

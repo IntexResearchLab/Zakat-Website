@@ -15,6 +15,9 @@ const titleKeysByPath: Record<string, string> = {
   '/programs/alokayon-school': 'common.breadcrumb.school',
   '/programs/madrasa': 'common.breadcrumb.madrasah',
   '/transparency': 'common.breadcrumb.transparency',
+  '/terms-and-conditions': 'common.breadcrumb.terms',
+  '/privacy-policy': 'common.breadcrumb.privacy',
+  '/refund-policy': 'common.breadcrumb.refund',
 }
 
 function PageTitle() {
