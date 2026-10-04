@@ -3,9 +3,12 @@ import { Trans, useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import Reveal from '../reusables/Reveal'
 
-const policyLinkClass = 'font-semibold text-[#115b82] underline underline-offset-2 hover:text-[#0d4f72]'
+const policyLinkClass =
+  'font-semibold text-[#115b82] underline underline-offset-2 hover:text-[#0d4f72]'
 const fieldClass =
-  'rounded-[1rem] border border-[#d7e6ef] bg-white px-4 py-3.5 text-[1rem] text-[#14324d] outline-none transition placeholder:text-[#90a2ae] focus:border-[#115b82]'
+  'rounded-[1rem] border border-[#d7e6ef] bg-white px-4 py-3.5 text-[1rem] text-[#14324d] outline-none transition placeholder:text-[#627581] focus:border-[#115b82]'
+
+const labelClass = 'text-[0.88rem] font-semibold text-[#14324d]'
 
 const MIN_DONATION_BDT = 10
 const MAX_DONATION_BDT = 500000
@@ -154,7 +157,9 @@ function DonateMainSection() {
                     <p className="font-serif text-[1.8rem] leading-none tracking-[-0.04em] text-[#14324d]">
                       {option.amount}
                     </p>
-                    <p className="mt-2 text-[0.92rem] leading-[1.55] text-[#647783]">{option.label}</p>
+                    <p className="mt-2 text-[0.92rem] leading-[1.55] text-[#647783]">
+                      {option.label}
+                    </p>
                   </button>
                 )
               })}
@@ -184,45 +189,62 @@ function DonateMainSection() {
             ) : null}
 
             <div className="mt-7 grid gap-4">
-              <input
-                aria-label={t('common.form.namePlaceholder')}
-                autoComplete="name"
-                className={fieldClass}
-                onChange={(event) => setName(event.target.value)}
-                placeholder={t('common.form.namePlaceholder')}
-                type="text"
-                value={name}
-              />
-              <input
-                aria-label={t('common.form.emailPlaceholder')}
-                autoComplete="email"
-                className={fieldClass}
-                onChange={(event) => setEmail(event.target.value)}
-                placeholder={t('common.form.emailPlaceholder')}
-                type="email"
-                value={email}
-              />
-              <input
-                aria-label={t('common.form.phonePlaceholder')}
-                autoComplete="tel"
-                className={fieldClass}
-                onChange={(event) => setPhone(event.target.value)}
-                placeholder={t('common.form.phonePlaceholder')}
-                type="tel"
-                value={phone}
-              />
-              <select
-                aria-label={t('donate.main.categoryLabel')}
-                className={fieldClass}
-                onChange={(event) => setCategory(event.target.value as (typeof categoryKeys)[number])}
-                value={category}
-              >
-                {categoryKeys.map((key) => (
-                  <option key={key} value={key}>
-                    {t(`donate.main.categories.${key}`)}
-                  </option>
-                ))}
-              </select>
+              <label className="grid gap-2">
+                <span className={labelClass}>{t('common.form.nameLabel')}</span>
+                <input
+                  autoComplete="name"
+                  className={fieldClass}
+                  id="donate-name"
+                  onChange={(event) => setName(event.target.value)}
+                  placeholder={t('common.form.namePlaceholder')}
+                  required
+                  type="text"
+                  value={name}
+                />
+              </label>
+              <label className="grid gap-2">
+                <span className={labelClass}>{t('common.form.emailLabel')}</span>
+                <input
+                  autoComplete="email"
+                  className={fieldClass}
+                  id="donate-email"
+                  onChange={(event) => setEmail(event.target.value)}
+                  placeholder={t('common.form.emailPlaceholder')}
+                  required
+                  type="email"
+                  value={email}
+                />
+              </label>
+              <label className="grid gap-2">
+                <span className={labelClass}>{t('common.form.phoneLabel')}</span>
+                <input
+                  autoComplete="tel"
+                  className={fieldClass}
+                  id="donate-phone"
+                  onChange={(event) => setPhone(event.target.value)}
+                  placeholder={t('common.form.phonePlaceholder')}
+                  required
+                  type="tel"
+                  value={phone}
+                />
+              </label>
+              <label className="grid gap-2">
+                <span className={labelClass}>{t('donate.main.categoryLabel')}</span>
+                <select
+                  className={fieldClass}
+                  id="donate-category"
+                  onChange={(event) =>
+                    setCategory(event.target.value as (typeof categoryKeys)[number])
+                  }
+                  value={category}
+                >
+                  {categoryKeys.map((key) => (
+                    <option key={key} value={key}>
+                      {t(`donate.main.categories.${key}`)}
+                    </option>
+                  ))}
+                </select>
+              </label>
             </div>
 
             <div className="mt-7 flex flex-wrap gap-3">
@@ -238,7 +260,10 @@ function DonateMainSection() {
 
             <div className="mt-7 rounded-[1rem] border border-[#d7e6ef] bg-white px-4 py-3.5 text-[0.94rem] leading-[1.6] text-[#4f6170]">
               <p className="flex items-start gap-3">
-                <span aria-hidden="true" className="material-symbols-outlined mt-0.5 text-[1.1rem] text-[#115b82]">
+                <span
+                  aria-hidden="true"
+                  className="material-symbols-outlined mt-0.5 text-[1.1rem] text-[#115b82]"
+                >
                   receipt_long
                 </span>
                 <span>{t('donate.main.receipt.note')}</span>
@@ -264,16 +289,40 @@ function DonateMainSection() {
               <span>
                 <Trans
                   components={{
-                    terms: <Link className={policyLinkClass} rel="noopener" target="_blank" to="/terms-and-conditions" />,
-                    privacy: <Link className={policyLinkClass} rel="noopener" target="_blank" to="/privacy-policy" />,
-                    refund: <Link className={policyLinkClass} rel="noopener" target="_blank" to="/refund-policy" />,
+                    terms: (
+                      <Link
+                        className={policyLinkClass}
+                        rel="noopener"
+                        target="_blank"
+                        to="/terms-and-conditions"
+                      />
+                    ),
+                    privacy: (
+                      <Link
+                        className={policyLinkClass}
+                        rel="noopener"
+                        target="_blank"
+                        to="/privacy-policy"
+                      />
+                    ),
+                    refund: (
+                      <Link
+                        className={policyLinkClass}
+                        rel="noopener"
+                        target="_blank"
+                        to="/refund-policy"
+                      />
+                    ),
                   }}
                   i18nKey="donate.main.agreement.text"
                 />
               </span>
             </label>
             {!hasAgreedToPolicies ? (
-              <p className="mt-2 text-[0.84rem] leading-[1.6] text-[#7a8b95]">
+              <p
+                id="donate-agreement-note"
+                className="mt-2 text-[0.84rem] leading-[1.6] text-[#5d6d78]"
+              >
                 {t('donate.main.agreement.required')}
               </p>
             ) : null}
@@ -283,23 +332,29 @@ function DonateMainSection() {
                 className="mt-5 rounded-[1rem] border border-[#f3d1d4] bg-[#fff6f7] px-4 py-3 text-[0.92rem] leading-[1.6] text-[#9e3342]"
                 role="alert"
               >
-                {t(`donate.main.errors.${errorKey}`, { min: MIN_DONATION_BDT, max: MAX_DONATION_BDT })}
+                {t(`donate.main.errors.${errorKey}`, {
+                  min: MIN_DONATION_BDT,
+                  max: MAX_DONATION_BDT,
+                })}
               </p>
             ) : null}
 
             <button
+              aria-describedby={!hasAgreedToPolicies ? 'donate-agreement-note' : undefined}
               className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#13703e] px-6 py-3.5 text-sm font-bold uppercase tracking-[0.16em] text-white shadow-[0_12px_30px_rgba(19,112,62,0.18)] transition hover:bg-[#105f35] disabled:cursor-not-allowed disabled:bg-[#9cbfa9] disabled:shadow-none"
               disabled={!hasAgreedToPolicies || isSubmitting}
               type="submit"
             >
-              <span className="material-symbols-outlined text-[1.1rem]">lock</span>
+              <span aria-hidden="true" className="material-symbols-outlined text-[1.1rem]">
+                lock
+              </span>
               {isSubmitting
                 ? t('donate.main.redirecting')
                 : Number.isFinite(amount) && amount >= MIN_DONATION_BDT
                   ? t('donate.main.donateAmount', { amount: amount.toLocaleString('en-US') })
                   : t('common.actions.donateNow')}
             </button>
-            <p className="mt-3 text-center text-[0.82rem] leading-[1.6] text-[#7a8b95]">
+            <p className="mt-3 text-center text-[0.82rem] leading-[1.6] text-[#5d6d78]">
               {t('donate.main.secureNote')}
             </p>
           </form>
@@ -332,7 +387,10 @@ function DonateMainSection() {
               <div className="space-y-3">
                 {trustItems.map((item) => (
                   <div className="flex items-start gap-3" key={item}>
-                    <span className="material-symbols-outlined mt-0.5 text-[1rem] text-[#2d8a57]">
+                    <span
+                      aria-hidden="true"
+                      className="material-symbols-outlined mt-0.5 text-[1rem] text-[#2d8a57]"
+                    >
                       task_alt
                     </span>
                     <p className="text-[0.96rem] leading-[1.7] text-[#5f7280]">{item}</p>

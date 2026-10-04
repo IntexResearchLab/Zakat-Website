@@ -36,7 +36,7 @@ function MissionSection() {
             <p className="relative mt-4 text-[0.82rem] font-semibold leading-[1.55] text-[#725f2c]">
               {t('home.mission.quoteAttribution')}
             </p>
-            <p className="relative mt-1 text-[0.76rem] leading-[1.5] text-[#8a783f]">
+            <p className="relative mt-1 text-[0.76rem] leading-[1.5] text-[#75663a]">
               {t('home.mission.quoteSource')}
             </p>
           </div>

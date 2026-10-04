@@ -6,6 +6,7 @@ import PageTitle from './components/reusables/PageTitle'
 import ScrollToTop from './components/reusables/ScrollToTop'
 import { PublicStatsProvider } from './lib/publicStats'
 import { lazy, Suspense } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Route, Routes, useLocation } from 'react-router-dom'
 
 // Each page downloads when it is first opened. Home stays in the main bundle so the
@@ -35,97 +36,110 @@ const TransparencyReader = lazy(() => import('./pages/TransparencyReader'))
 function App() {
   const location = useLocation()
   const isAdminRoute = location.pathname.startsWith('/admin')
+  const PageContent = isAdminRoute ? 'div' : 'main'
+  const { t } = useTranslation()
 
   return (
     <PublicStatsProvider>
-      <main
+      <div
         className={`min-h-screen ${isAdminRoute ? 'bg-[#f4f8fb] text-[#16324f]' : 'bg-[#eef7fb] text-[#16324f]'}`}
       >
+        {!isAdminRoute ? (
+          <a
+            className="sr-only z-50 rounded-full bg-[#115b82] text-sm font-bold text-white focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:px-5 focus:py-3"
+            href="#main-content"
+          >
+            {t('common.aria.skipToContent')}
+          </a>
+        ) : null}
         {!isAdminRoute ? <Header /> : null}
         <PageTitle />
         <ScrollToTop />
-        <Suspense fallback={<div className="min-h-screen" />}>
-          <Routes>
-            <Route
-              path="/admin"
-              element={
-                <AdminRouteGuard mode="guest">
-                  <AdminAuth />
-                </AdminRouteGuard>
-              }
-            />
-            <Route path="/admin/reset-password" element={<AdminResetPassword />} />
-            <Route
-              path="/admin/dashboard"
-              element={
-                <AdminRouteGuard mode="protected">
-                  <AdminDashboard />
-                </AdminRouteGuard>
-              }
-            />
-            <Route
-              path="/admin/donations"
-              element={
-                <AdminRouteGuard mode="protected">
-                  <AdminDonations />
-                </AdminRouteGuard>
-              }
-            />
-            <Route
-              path="/admin/magazines"
-              element={
-                <AdminRouteGuard mode="protected">
-                  <AdminMagazines />
-                </AdminRouteGuard>
-              }
-            />
-            <Route
-              path="/admin/executives"
-              element={
-                <AdminRouteGuard mode="protected">
-                  <AdminExecutives />
-                </AdminRouteGuard>
-              }
-            />
-            <Route
-              path="/admin/gallery"
-              element={
-                <AdminRouteGuard mode="protected">
-                  <AdminGallery />
-                </AdminRouteGuard>
-              }
-            />
-            <Route
-              path="/admin/stats"
-              element={
-                <AdminRouteGuard mode="protected">
-                  <AdminStats />
-                </AdminRouteGuard>
-              }
-            />
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/donate" element={<Donate />} />
-            <Route path="/donate/success" element={<DonationResult status="success" />} />
-            <Route path="/donate/failed" element={<DonationResult status="failed" />} />
-            <Route path="/donate/cancelled" element={<DonationResult status="cancelled" />} />
-            <Route path="/donate/receipt" element={<DonationResult status="receipt" />} />
-            <Route path="/gallery" element={<Gallery />} />
-            <Route path="/opinions-of-beneficiaries" element={<OpinionsOfBeneficiaries />} />
-            <Route path="/our-donors" element={<OurDonors />} />
-            <Route path="/programs/alokayon-school" element={<AlokayonSchool />} />
-            <Route path="/programs/madrasa" element={<Madrasa />} />
-            <Route path="/programs" element={<Programs />} />
-            <Route path="/transparency" element={<Transparency />} />
-            <Route path="/terms-and-conditions" element={<LegalPage policy="terms" />} />
-            <Route path="/privacy-policy" element={<LegalPage policy="privacy" />} />
-            <Route path="/refund-policy" element={<LegalPage policy="refund" />} />
-            <Route path="/transparency/:year" element={<TransparencyReader />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Suspense>
+        {/* Admin pages render their own <main> inside the dashboard layout. */}
+        <PageContent id="main-content" tabIndex={-1}>
+          <Suspense fallback={<div className="min-h-screen" />}>
+            <Routes>
+              <Route
+                path="/admin"
+                element={
+                  <AdminRouteGuard mode="guest">
+                    <AdminAuth />
+                  </AdminRouteGuard>
+                }
+              />
+              <Route path="/admin/reset-password" element={<AdminResetPassword />} />
+              <Route
+                path="/admin/dashboard"
+                element={
+                  <AdminRouteGuard mode="protected">
+                    <AdminDashboard />
+                  </AdminRouteGuard>
+                }
+              />
+              <Route
+                path="/admin/donations"
+                element={
+                  <AdminRouteGuard mode="protected">
+                    <AdminDonations />
+                  </AdminRouteGuard>
+                }
+              />
+              <Route
+                path="/admin/magazines"
+                element={
+                  <AdminRouteGuard mode="protected">
+                    <AdminMagazines />
+                  </AdminRouteGuard>
+                }
+              />
+              <Route
+                path="/admin/executives"
+                element={
+                  <AdminRouteGuard mode="protected">
+                    <AdminExecutives />
+                  </AdminRouteGuard>
+                }
+              />
+              <Route
+                path="/admin/gallery"
+                element={
+                  <AdminRouteGuard mode="protected">
+                    <AdminGallery />
+                  </AdminRouteGuard>
+                }
+              />
+              <Route
+                path="/admin/stats"
+                element={
+                  <AdminRouteGuard mode="protected">
+                    <AdminStats />
+                  </AdminRouteGuard>
+                }
+              />
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/donate" element={<Donate />} />
+              <Route path="/donate/success" element={<DonationResult status="success" />} />
+              <Route path="/donate/failed" element={<DonationResult status="failed" />} />
+              <Route path="/donate/cancelled" element={<DonationResult status="cancelled" />} />
+              <Route path="/donate/receipt" element={<DonationResult status="receipt" />} />
+              <Route path="/gallery" element={<Gallery />} />
+              <Route path="/opinions-of-beneficiaries" element={<OpinionsOfBeneficiaries />} />
+              <Route path="/our-donors" element={<OurDonors />} />
+              <Route path="/programs/alokayon-school" element={<AlokayonSchool />} />
+              <Route path="/programs/madrasa" element={<Madrasa />} />
+              <Route path="/programs" element={<Programs />} />
+              <Route path="/transparency" element={<Transparency />} />
+              <Route path="/terms-and-conditions" element={<LegalPage policy="terms" />} />
+              <Route path="/privacy-policy" element={<LegalPage policy="privacy" />} />
+              <Route path="/refund-policy" element={<LegalPage policy="refund" />} />
+              <Route path="/transparency/:year" element={<TransparencyReader />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
+        </PageContent>
         {!isAdminRoute ? <Footer /> : null}
-      </main>
+      </div>
     </PublicStatsProvider>
   )
 }

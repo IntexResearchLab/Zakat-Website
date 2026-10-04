@@ -39,7 +39,15 @@
       "viewSchoolGallery": "স্কুল গ্যালারি দেখুন"
     },
     "aria": {
-      "toggleNavigationMenu": "নেভিগেশন মেনু খুলুন বা বন্ধ করুন"
+      "toggleNavigationMenu": "নেভিগেশন মেনু খুলুন বা বন্ধ করুন",
+      "skipToContent": "মূল বিষয়বস্তুতে যান",
+      "mainNavigation": "প্রধান",
+      "language": "ভাষা",
+      "closeDialog": "বন্ধ করুন",
+      "scrollLeft": "বাঁয়ে সরান",
+      "scrollRight": "ডানে সরান",
+      "featuredStoryImage": "নির্বাচিত উপকারভোগীর গল্প",
+      "breadcrumb": "ব্রেডক্রাম্ব"
     },
     "breadcrumb": {
       "home": "হোম",
@@ -59,7 +67,10 @@
     "form": {
       "emailPlaceholder": "আপনার ইমেইল লিখুন",
       "namePlaceholder": "আপনার নাম লিখুন",
-      "phonePlaceholder": "আপনার ফোন নম্বর লিখুন"
+      "phonePlaceholder": "আপনার ফোন নম্বর লিখুন",
+      "nameLabel": "পূর্ণ নাম",
+      "emailLabel": "ইমেইল ঠিকানা",
+      "phoneLabel": "ফোন নম্বর"
     },
     "payments": {
       "accepted": "গৃহীত: বিকাশ, নগদ, ভিসা, মাস্টারকার্ড"
@@ -213,7 +224,9 @@
           "verseReference": "সূরা আল-ইনসান (৭৬:৮)",
           "alt": "শিশু ও পরিবারদের সাথে আলোকায়নের একটি কার্যক্রমের মুহূর্ত"
         }
-      ]
+      ],
+      "pauseSlides": "স্লাইডশো থামান",
+      "playSlides": "স্লাইডশো চালু করুন"
     },
     "impact": {
       "title": "কমিউনিটি কার্যক্রম থেকে যাচাইকৃত প্রভাব",

@@ -39,7 +39,7 @@ function ImpactSection() {
                 <p className="font-serif text-[2.45rem] leading-none tracking-[-0.05em] text-[#14324d] sm:text-[2.9rem]">
                   {stat.value}
                 </p>
-                <p className="mt-2 max-w-[12rem] text-[0.92rem] font-semibold tracking-[0.02em] text-[#697b86]">
+                <p className="mt-2 max-w-[12rem] text-[0.92rem] font-semibold tracking-[0.02em] text-[#5d6d78]">
                   {stat.label}
                 </p>
               </div>
@@ -59,7 +59,7 @@ function ImpactSection() {
                   to={program.href}
                 >
                   <div className="flex items-start gap-4">
-                    <span className="material-symbols-outlined rounded-full bg-[#e9f2ec] p-3 text-[1.3rem] text-[#115b82]">
+                    <span aria-hidden="true" className="material-symbols-outlined rounded-full bg-[#e9f2ec] p-3 text-[1.3rem] text-[#115b82]">
                       {program.icon}
                     </span>
                     <div className="min-w-0 flex-1">

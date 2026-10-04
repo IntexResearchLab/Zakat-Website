@@ -28,7 +28,7 @@ function StoryList({
             <p className="text-[1rem] leading-[1.75] text-[#516875]">“{item.quote}”</p>
             <div className="mt-4 border-t border-[#e5edf3] pt-3">
               <p className="text-[0.98rem] font-semibold text-[#14324d]">{item.name}</p>
-              <p className="mt-1 text-[0.92rem] text-[#71828d]">{item.role}</p>
+              <p className="mt-1 text-[0.92rem] text-[#5d6d78]">{item.role}</p>
             </div>
           </div>
         ))}

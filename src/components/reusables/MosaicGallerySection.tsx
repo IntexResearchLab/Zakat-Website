@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
+import { useModalDialog } from '../../lib/useModalDialog'
 import Reveal from './Reveal'
 
 export type MosaicGalleryFilter = {
@@ -55,26 +56,7 @@ function MosaicGallerySection({
   const [activeFilter, setActiveFilter] = useState('all')
   const [selectedItem, setSelectedItem] = useState<MosaicGalleryItem | null>(null)
 
-  useEffect(() => {
-    if (!selectedItem) {
-      return undefined
-    }
-
-    const handleEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        setSelectedItem(null)
-      }
-    }
-
-    const originalOverflow = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
-    window.addEventListener('keydown', handleEscape)
-
-    return () => {
-      document.body.style.overflow = originalOverflow
-      window.removeEventListener('keydown', handleEscape)
-    }
-  }, [selectedItem])
+  const dialogRef = useModalDialog(Boolean(selectedItem), () => setSelectedItem(null))
 
   const visibleItems = useMemo(() => {
     if (activeFilter === 'all') {
@@ -163,19 +145,20 @@ function MosaicGallerySection({
           aria-modal="true"
           className="fixed inset-0 z-50 flex items-center justify-center bg-[#09131ccc]/82 px-4 py-8 backdrop-blur-sm"
           onClick={() => setSelectedItem(null)}
+          ref={dialogRef}
           role="dialog"
+          tabIndex={-1}
         >
-          <div
-            className="relative w-full max-w-5xl"
-            onClick={(event) => event.stopPropagation()}
-          >
+          <div className="relative w-full max-w-5xl" onClick={(event) => event.stopPropagation()}>
             <button
               aria-label={closeLabel}
               className="absolute right-3 top-3 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/92 text-[#14324d] shadow-[0_12px_24px_rgba(15,23,42,0.14)] transition hover:bg-white"
               onClick={() => setSelectedItem(null)}
               type="button"
             >
-              <span className="material-symbols-outlined text-[1.25rem]">close</span>
+              <span aria-hidden="true" className="material-symbols-outlined text-[1.25rem]">
+                close
+              </span>
             </button>
 
             <div className="max-h-[86vh] overflow-y-auto rounded-[1.45rem] border border-[#dce7ee] bg-white p-6 shadow-[0_24px_60px_rgba(15,23,42,0.22)] sm:p-8">

@@ -1,5 +1,6 @@
 import { supabase } from './supabase'
 import type { MagazineIssue } from '../components/Transparency/types'
+import { readStorage, writeStorage, removeStorage } from './safeStorage'
 
 type MagazineRow = {
   id: string
@@ -24,11 +25,16 @@ export const fetchMagazineRows = async (options?: { forceRefresh?: boolean }) =>
   }
 
   if (!options?.forceRefresh && typeof window !== 'undefined') {
-    const cachedValue = window.localStorage.getItem(magazineRowsStorageKey)
-    if (cachedValue) {
-      const parsedRows = JSON.parse(cachedValue) as MagazineRow[]
-      magazineRowsCache = parsedRows
-      return { data: parsedRows, error: null }
+    // A damaged cache must not break the page: fall through to a fresh load.
+    try {
+      const cachedValue = readStorage(magazineRowsStorageKey)
+      const parsedRows = cachedValue ? (JSON.parse(cachedValue) as unknown) : null
+      if (Array.isArray(parsedRows)) {
+        magazineRowsCache = parsedRows as MagazineRow[]
+        return { data: magazineRowsCache, error: null }
+      }
+    } catch {
+      invalidateMagazineRowsCache()
     }
   }
 
@@ -41,9 +47,7 @@ export const fetchMagazineRows = async (options?: { forceRefresh?: boolean }) =>
   if (!result.error) {
     const rows = (result.data ?? []) as MagazineRow[]
     magazineRowsCache = rows
-    if (typeof window !== 'undefined') {
-      window.localStorage.setItem(magazineRowsStorageKey, JSON.stringify(rows))
-    }
+    writeStorage(magazineRowsStorageKey, JSON.stringify(rows))
     return {
       data: rows,
       error: null,
@@ -58,21 +62,11 @@ export const fetchMagazineRows = async (options?: { forceRefresh?: boolean }) =>
 
 export const invalidateMagazineRowsCache = () => {
   magazineRowsCache = null
-  if (typeof window !== 'undefined') {
-    window.localStorage.removeItem(magazineRowsStorageKey)
-  }
+  removeStorage(magazineRowsStorageKey)
 }
 
 export const getCachedMagazineIssues = (sections: string[]) =>
   magazineRowsCache ? mapMagazineRowsToIssues(magazineRowsCache, sections) : null
-
-export const queryMagazineRows = async () => {
-  return supabase
-    .from('magazines')
-    .select('id, title, year, description, pdf_url, cover_image_url')
-    .order('year', { ascending: false })
-    .order('created_at', { ascending: false })
-}
 
 export const mapMagazineRowsToIssues = (
   rows: MagazineRow[],

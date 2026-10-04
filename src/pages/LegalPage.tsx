@@ -42,7 +42,7 @@ function LegalPage({ policy }: LegalPageProps) {
           <h1 className="mt-4 font-serif text-[2.6rem] font-semibold leading-[1] tracking-[-0.04em] text-[#101d2b] sm:text-[3.4rem]">
             {t(`legal.${policy}.title`)}
           </h1>
-          <p className="mt-4 text-[0.92rem] font-semibold text-[#6a7c87]">
+          <p className="mt-4 text-[0.92rem] font-semibold text-[#5d6d78]">
             {t('legal.lastUpdatedLabel')}: {t('legal.lastUpdated')}
           </p>
           <p className="mt-6 max-w-3xl text-[1.04rem] leading-[1.85] text-[#5d6d78]">

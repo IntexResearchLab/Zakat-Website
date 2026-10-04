@@ -198,7 +198,7 @@ function AdminDashboardShell() {
 
   const renderSummary = (moduleKey: ModuleKey) => {
     if (isLoading) {
-      return <p className="text-[0.9rem] text-[#8a9ba7]">{t('admin.dashboard.loading')}</p>
+      return <p className="text-[0.9rem] text-[#5d6d78]">{t('admin.dashboard.loading')}</p>
     }
 
     const summary = data[moduleKey]
@@ -213,9 +213,9 @@ function AdminDashboardShell() {
           <span className="font-serif text-[2.4rem] leading-none tracking-[-0.05em] text-[#14324d]">
             {summary.total}
           </span>
-          <span className="text-[0.9rem] text-[#6a7c87]">{t(`admin.dashboard.units.${moduleKey}`)}</span>
+          <span className="text-[0.9rem] text-[#5d6d78]">{t(`admin.dashboard.units.${moduleKey}`)}</span>
         </p>
-        <div className="mt-3 space-y-1 text-[0.86rem] leading-[1.5] text-[#6a7c87]">
+        <div className="mt-3 space-y-1 text-[0.86rem] leading-[1.5] text-[#5d6d78]">
           {summary.hidden ? <p>{t('admin.dashboard.summary.hidden', { count: summary.hidden })}</p> : null}
           {moduleKey === 'magazines' && summary.latestYear ? (
             <p>{t('admin.dashboard.summary.latestIssue', { year: summary.latestYear })}</p>
@@ -247,7 +247,7 @@ function AdminDashboardShell() {
         </h2>
         <div className="mt-5 space-y-3">
           {isLoading ? (
-            <p className="text-[0.95rem] text-[#8a9ba7]">{t('admin.dashboard.loading')}</p>
+            <p className="text-[0.95rem] text-[#5d6d78]">{t('admin.dashboard.loading')}</p>
           ) : alerts.length ? (
             alerts.map((alert) => (
               <Link
@@ -259,16 +259,16 @@ function AdminDashboardShell() {
                 key={alert.message}
                 to={alert.href}
               >
-                <span className="material-symbols-outlined mt-0.5 text-[1.1rem]">
+                <span aria-hidden="true" className="material-symbols-outlined mt-0.5 text-[1.1rem]">
                   {alert.tone === 'error' ? 'error' : 'warning'}
                 </span>
                 <span className="flex-1 text-[0.95rem] leading-[1.6]">{alert.message}</span>
-                <span className="material-symbols-outlined mt-0.5 text-[1rem]">arrow_forward</span>
+                <span aria-hidden="true" className="material-symbols-outlined mt-0.5 text-[1rem]">arrow_forward</span>
               </Link>
             ))
           ) : (
             <p className="flex items-center gap-3 rounded-[1rem] border border-[#cde7d8] bg-[#f5fbf7] px-4 py-3.5 text-[0.95rem] text-[#13703e]">
-              <span className="material-symbols-outlined text-[1.1rem]">task_alt</span>
+              <span aria-hidden="true" className="material-symbols-outlined text-[1.1rem]">task_alt</span>
               {t('admin.dashboard.allGood')}
             </p>
           )}
@@ -287,7 +287,7 @@ function AdminDashboardShell() {
               <h2 className="font-serif text-[1.6rem] leading-[1.02] tracking-[-0.03em] text-[#14324d]">
                 {module.title}
               </h2>
-              <p className="mt-3 text-[0.92rem] leading-[1.65] text-[#6a7c87]">{module.description}</p>
+              <p className="mt-3 text-[0.92rem] leading-[1.65] text-[#5d6d78]">{module.description}</p>
               <div className="mt-5 flex-1 border-t border-[#edf3f7] pt-5">
                 {moduleKey ? renderSummary(moduleKey) : null}
               </div>
@@ -297,17 +297,17 @@ function AdminDashboardShell() {
                   to={module.href}
                 >
                   {module.cta}
-                  <span className="material-symbols-outlined text-[1rem]">arrow_forward</span>
+                  <span aria-hidden="true" className="material-symbols-outlined text-[1rem]">arrow_forward</span>
                 </Link>
                 {moduleKey ? (
                   <a
-                    className="inline-flex items-center gap-1.5 text-[0.78rem] font-semibold text-[#6a7c87] transition hover:text-[#115b82]"
+                    className="inline-flex items-center gap-1.5 text-[0.78rem] font-semibold text-[#5d6d78] transition hover:text-[#115b82]"
                     href={publicHrefByModule[moduleKey]}
                     rel="noopener noreferrer"
                     target="_blank"
                   >
                     {t('admin.list.viewOnSite')}
-                    <span className="material-symbols-outlined text-[0.95rem]">open_in_new</span>
+                    <span aria-hidden="true" className="material-symbols-outlined text-[0.95rem]">open_in_new</span>
                   </a>
                 ) : null}
               </div>

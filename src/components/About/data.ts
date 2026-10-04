@@ -5,20 +5,9 @@ type ImpactStat = {
   label: string
 }
 
-type Program = {
-  icon: string
-  title: string
-  description: string
-}
-
 type TimelineItem = {
   year: string
   title: string
-}
-
-type Testimonial = {
-  quote: string
-  author: string
 }
 
 type PurposeSection = {
@@ -55,17 +44,8 @@ const purposeImages = [
 export const getImpactStats = (t: TFunction) =>
   t('about.purpose.stats', { returnObjects: true }) as ImpactStat[]
 
-export const getPrograms = (t: TFunction) =>
-  t('about.programs.items', { returnObjects: true }) as Program[]
-
 export const getTimeline = (t: TFunction) =>
   t('about.journey.timeline', { returnObjects: true }) as TimelineItem[]
-
-export const getTestimonials = (t: TFunction) =>
-  t('about.voices.testimonials', { returnObjects: true }) as Testimonial[]
-
-export const getTrustPoints = (t: TFunction) =>
-  t('about.trust.points', { returnObjects: true }) as string[]
 
 export const getCommitteeMembers = (t: TFunction) => {
   const members = t('about.executive.members', { returnObjects: true }) as CommitteeMember[]

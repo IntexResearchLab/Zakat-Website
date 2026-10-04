@@ -11,7 +11,7 @@ function MadrasaHero() {
       <div className="mx-auto grid max-w-7xl gap-12 px-6 py-14 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:gap-20 lg:py-20">
         <Reveal className="max-w-2xl">
           <Breadcrumb
-            accentClassName="text-[#b38a2f]"
+            accentClassName="text-[#86621a]"
             items={[
               { label: t('common.breadcrumb.programs'), to: '/programs' },
               { label: t('common.breadcrumb.madrasah') },

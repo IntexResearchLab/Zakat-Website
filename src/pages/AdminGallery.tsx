@@ -453,7 +453,7 @@ function AdminGallery() {
           <p className="mt-2 font-serif text-[2rem] leading-none tracking-[-0.05em] text-[#14324d]">
             {galleryCount}
           </p>
-          <p className="mt-2 text-[0.9rem] leading-[1.6] text-[#6a7c87]">
+          <p className="mt-2 text-[0.9rem] leading-[1.6] text-[#5d6d78]">
             {t('admin.gallery.headerCardContext')}
           </p>
         </div>
@@ -489,7 +489,7 @@ function AdminGallery() {
           <form className="mt-6 space-y-5" onSubmit={handleSubmit}>
             <div className="grid gap-4 sm:grid-cols-2">
               <label className="space-y-2">
-                <span className="text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#6a7c87]">
+                <span className="text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#5d6d78]">
                   {t('admin.gallery.fields.category')}
                 </span>
                 <select
@@ -506,7 +506,7 @@ function AdminGallery() {
               </label>
 
               <label className="space-y-2">
-                <span className="text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#6a7c87]">
+                <span className="text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#5d6d78]">
                   {t('admin.gallery.fields.span')}
                 </span>
                 <select
@@ -522,11 +522,11 @@ function AdminGallery() {
             </div>
 
             <label className="space-y-2">
-              <span className="text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#6a7c87]">
+              <span className="text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#5d6d78]">
                 {t('admin.gallery.fields.title')}
               </span>
               <input
-                className="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-white px-4 py-3 text-[1rem] text-[#14324d] outline-none transition placeholder:text-[#90a3af] focus:border-[#115b82]"
+                className="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-white px-4 py-3 text-[1rem] text-[#14324d] outline-none transition placeholder:text-[#627581] focus:border-[#115b82]"
                 onChange={(event) => handleFieldChange('title', event.target.value)}
                 placeholder={t('admin.gallery.placeholders.title')}
                 value={formState.title}
@@ -534,11 +534,11 @@ function AdminGallery() {
             </label>
 
             <label className="space-y-2">
-              <span className="text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#6a7c87]">
+              <span className="text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#5d6d78]">
                 {t('admin.gallery.fields.description')}
               </span>
               <textarea
-                className="min-h-[100px] w-full rounded-[0.95rem] border border-[#d8e5ec] bg-white px-4 py-3 text-[1rem] leading-[1.7] text-[#14324d] outline-none transition placeholder:text-[#90a3af] focus:border-[#115b82]"
+                className="min-h-[100px] w-full rounded-[0.95rem] border border-[#d8e5ec] bg-white px-4 py-3 text-[1rem] leading-[1.7] text-[#14324d] outline-none transition placeholder:text-[#627581] focus:border-[#115b82]"
                 onChange={(event) => handleFieldChange('description', event.target.value)}
                 placeholder={t('admin.gallery.placeholders.description')}
                 value={formState.description}
@@ -546,11 +546,11 @@ function AdminGallery() {
             </label>
 
             <label className="space-y-2">
-              <span className="text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#6a7c87]">
+              <span className="text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#5d6d78]">
                 {t('admin.gallery.fields.story')}
               </span>
               <textarea
-                className="min-h-[130px] w-full rounded-[0.95rem] border border-[#d8e5ec] bg-white px-4 py-3 text-[1rem] leading-[1.7] text-[#14324d] outline-none transition placeholder:text-[#90a3af] focus:border-[#115b82]"
+                className="min-h-[130px] w-full rounded-[0.95rem] border border-[#d8e5ec] bg-white px-4 py-3 text-[1rem] leading-[1.7] text-[#14324d] outline-none transition placeholder:text-[#627581] focus:border-[#115b82]"
                 onChange={(event) => handleFieldChange('story', event.target.value)}
                 placeholder={t('admin.gallery.placeholders.story')}
                 value={formState.story}
@@ -559,11 +559,11 @@ function AdminGallery() {
 
             <div className="grid gap-4 sm:grid-cols-3">
               <label className="space-y-2">
-                <span className="text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#6a7c87]">
+                <span className="text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#5d6d78]">
                   {t('admin.gallery.fields.location')}
                 </span>
                 <input
-                  className="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-white px-4 py-3 text-[1rem] text-[#14324d] outline-none transition placeholder:text-[#90a3af] focus:border-[#115b82]"
+                  className="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-white px-4 py-3 text-[1rem] text-[#14324d] outline-none transition placeholder:text-[#627581] focus:border-[#115b82]"
                   onChange={(event) => handleFieldChange('location', event.target.value)}
                   placeholder={t('admin.gallery.placeholders.location')}
                   value={formState.location}
@@ -571,11 +571,11 @@ function AdminGallery() {
               </label>
 
               <label className="space-y-2">
-                <span className="text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#6a7c87]">
+                <span className="text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#5d6d78]">
                   {t('admin.gallery.fields.year')}
                 </span>
                 <input
-                  className="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-white px-4 py-3 text-[1rem] text-[#14324d] outline-none transition placeholder:text-[#90a3af] focus:border-[#115b82]"
+                  className="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-white px-4 py-3 text-[1rem] text-[#14324d] outline-none transition placeholder:text-[#627581] focus:border-[#115b82]"
                   onChange={(event) => handleFieldChange('year', event.target.value)}
                   placeholder={t('admin.gallery.placeholders.year')}
                   value={formState.year}
@@ -583,11 +583,11 @@ function AdminGallery() {
               </label>
 
               <label className="space-y-2">
-                <span className="text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#6a7c87]">
+                <span className="text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#5d6d78]">
                   {t('admin.gallery.fields.sortOrder')}
                 </span>
                 <input
-                  className="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-white px-4 py-3 text-[1rem] text-[#14324d] outline-none transition placeholder:text-[#90a3af] focus:border-[#115b82]"
+                  className="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-white px-4 py-3 text-[1rem] text-[#14324d] outline-none transition placeholder:text-[#627581] focus:border-[#115b82]"
                   onChange={(event) => handleFieldChange('sortOrder', event.target.value)}
                   placeholder={t('admin.gallery.placeholders.sortOrder')}
                   value={formState.sortOrder}
@@ -596,7 +596,7 @@ function AdminGallery() {
             </div>
 
             <div className="space-y-2">
-              <span className="block text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#6a7c87]">
+              <span className="block text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#5d6d78]">
                 {t('admin.gallery.fields.image')}
               </span>
               <AdminImageInput
@@ -612,7 +612,7 @@ function AdminGallery() {
                 onError={setErrorMessage}
                 previewClassName="h-36 w-full max-w-[16rem] object-cover"
               />
-              <p className="text-[0.84rem] leading-[1.6] text-[#7a8b95]">
+              <p className="text-[0.84rem] leading-[1.6] text-[#5d6d78]">
                 {t('admin.gallery.imageHelp')}
               </p>
             </div>
@@ -667,7 +667,7 @@ function AdminGallery() {
               onClick={() => void loadItems()}
               type="button"
             >
-              <span className="material-symbols-outlined text-[1rem]">refresh</span>
+              <span aria-hidden="true" className="material-symbols-outlined text-[1rem]">refresh</span>
               {t('admin.gallery.refresh')}
             </button>
           </div>
@@ -689,19 +689,19 @@ function AdminGallery() {
           ) : null}
 
           {!isLoading && items.length && !visibleItems.length ? (
-            <div className="mt-6 rounded-[1rem] border border-dashed border-[#dbe7ee] bg-[#fbfdff] px-4 py-10 text-center text-[#6a7c87]">
+            <div className="mt-6 rounded-[1rem] border border-dashed border-[#dbe7ee] bg-[#fbfdff] px-4 py-10 text-center text-[#5d6d78]">
               {t('admin.list.noResults')}
             </div>
           ) : null}
 
           {isLoading ? (
-            <div className="mt-6 rounded-[1rem] border border-dashed border-[#dbe7ee] bg-[#fbfdff] px-4 py-10 text-center text-[#6a7c87]">
+            <div className="mt-6 rounded-[1rem] border border-dashed border-[#dbe7ee] bg-[#fbfdff] px-4 py-10 text-center text-[#5d6d78]">
               {t('admin.gallery.loading')}
             </div>
           ) : null}
 
           {!isLoading && !items.length ? (
-            <div className="mt-6 rounded-[1rem] border border-dashed border-[#dbe7ee] bg-[#fbfdff] px-4 py-10 text-center text-[#6a7c87]">
+            <div className="mt-6 rounded-[1rem] border border-dashed border-[#dbe7ee] bg-[#fbfdff] px-4 py-10 text-center text-[#5d6d78]">
               {t('admin.gallery.emptyState')}
             </div>
           ) : null}
@@ -752,10 +752,10 @@ function AdminGallery() {
                           </div>
                         </div>
 
-                        <p className="mt-2 text-[0.9rem] leading-[1.6] text-[#6a7c87]">
+                        <p className="mt-2 text-[0.9rem] leading-[1.6] text-[#5d6d78]">
                           {item.description}
                         </p>
-                        <p className="mt-3 text-[0.82rem] text-[#8a9ba7]">
+                        <p className="mt-3 text-[0.82rem] text-[#5d6d78]">
                           {item.location} • {item.year} • #{item.sort_order}
                         </p>
 

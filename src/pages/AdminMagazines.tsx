@@ -390,7 +390,7 @@ function AdminMagazines() {
           <p className="mt-2 font-serif text-[2rem] leading-none tracking-[-0.05em] text-[#14324d]">
             {magazineCount}
           </p>
-          <p className="mt-2 text-[0.9rem] leading-[1.6] text-[#6a7c87]">
+          <p className="mt-2 text-[0.9rem] leading-[1.6] text-[#5d6d78]">
             {t('admin.magazines.headerCardContext')}
           </p>
         </div>
@@ -431,7 +431,7 @@ function AdminMagazines() {
                 {t('admin.magazines.fields.title')}
               </label>
               <input
-                className="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-[#fbfdff] px-4 py-3 text-[0.98rem] text-[#14324d] outline-none transition placeholder:text-[#90a3af] focus:border-[#115b82] focus:bg-white"
+                className="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-[#fbfdff] px-4 py-3 text-[0.98rem] text-[#14324d] outline-none transition placeholder:text-[#627581] focus:border-[#115b82] focus:bg-white"
                 onChange={(event) => handleFieldChange('title', event.target.value)}
                 placeholder={t('admin.magazines.placeholders.title')}
                 type="text"
@@ -444,7 +444,7 @@ function AdminMagazines() {
                 {t('admin.magazines.fields.year')}
               </label>
               <input
-                className="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-[#fbfdff] px-4 py-3 text-[0.98rem] text-[#14324d] outline-none transition placeholder:text-[#90a3af] focus:border-[#115b82] focus:bg-white"
+                className="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-[#fbfdff] px-4 py-3 text-[0.98rem] text-[#14324d] outline-none transition placeholder:text-[#627581] focus:border-[#115b82] focus:bg-white"
                 onChange={(event) => handleFieldChange('year', event.target.value)}
                 placeholder={t('admin.magazines.placeholders.year')}
                 type="number"
@@ -457,7 +457,7 @@ function AdminMagazines() {
                 {t('admin.magazines.fields.description')}
               </label>
               <textarea
-                className="min-h-[132px] w-full rounded-[0.95rem] border border-[#d8e5ec] bg-[#fbfdff] px-4 py-3 text-[0.98rem] text-[#14324d] outline-none transition placeholder:text-[#90a3af] focus:border-[#115b82] focus:bg-white"
+                className="min-h-[132px] w-full rounded-[0.95rem] border border-[#d8e5ec] bg-[#fbfdff] px-4 py-3 text-[0.98rem] text-[#14324d] outline-none transition placeholder:text-[#627581] focus:border-[#115b82] focus:bg-white"
                 onChange={(event) =>
                   handleFieldChange('description', event.target.value)
                 }
@@ -479,7 +479,7 @@ function AdminMagazines() {
                   type="file"
                 />
               </div>
-              <p className="mt-2 text-[0.82rem] leading-[1.65] text-[#6a7c87]">
+              <p className="mt-2 text-[0.82rem] leading-[1.65] text-[#5d6d78]">
                 {editingId
                   ? pdfFile
                     ? t('admin.magazines.newPdfSelected', { fileName: pdfFile.name })
@@ -509,7 +509,7 @@ function AdminMagazines() {
                 onError={setErrorMessage}
                 previewClassName="h-36 w-28 object-cover"
               />
-              <p className="mt-2 text-[0.82rem] leading-[1.65] text-[#6a7c87]">
+              <p className="mt-2 text-[0.82rem] leading-[1.65] text-[#5d6d78]">
                 {t('admin.magazines.coverHelp')}
               </p>
             </div>
@@ -564,20 +564,20 @@ function AdminMagazines() {
               onClick={() => void loadMagazines()}
               type="button"
             >
-              <span className="material-symbols-outlined text-[1rem]">refresh</span>
+              <span aria-hidden="true" className="material-symbols-outlined text-[1rem]">refresh</span>
               {t('admin.magazines.refresh')}
             </button>
           </div>
 
           <div className="mt-6 space-y-4">
             {isLoading ? (
-              <div className="rounded-[1rem] border border-dashed border-[#dbe7ee] bg-[#fbfdff] px-4 py-10 text-center text-[#6a7c87]">
+              <div className="rounded-[1rem] border border-dashed border-[#dbe7ee] bg-[#fbfdff] px-4 py-10 text-center text-[#5d6d78]">
                 {t('admin.magazines.loading')}
               </div>
             ) : null}
 
             {!isLoading && magazines.length === 0 ? (
-              <div className="rounded-[1rem] border border-dashed border-[#dbe7ee] bg-[#fbfdff] px-4 py-10 text-center text-[#6a7c87]">
+              <div className="rounded-[1rem] border border-dashed border-[#dbe7ee] bg-[#fbfdff] px-4 py-10 text-center text-[#5d6d78]">
                 {t('admin.magazines.emptyState')}
               </div>
             ) : null}
@@ -599,8 +599,8 @@ function AdminMagazines() {
                             src={magazine.cover_image_url}
                           />
                         ) : (
-                          <div className="flex h-full items-center justify-center text-[#7e93a0]">
-                            <span className="material-symbols-outlined text-[2rem]">
+                          <div className="flex h-full items-center justify-center text-[#5d6d78]">
+                            <span aria-hidden="true" className="material-symbols-outlined text-[2rem]">
                               menu_book
                             </span>
                           </div>
@@ -642,7 +642,7 @@ function AdminMagazines() {
                               target="_blank"
                             >
                               {t('admin.list.viewOnSite')}
-                              <span className="material-symbols-outlined text-[1rem]">open_in_new</span>
+                              <span aria-hidden="true" className="material-symbols-outlined text-[1rem]">open_in_new</span>
                             </a>
                           </div>
                         </div>
@@ -653,14 +653,14 @@ function AdminMagazines() {
                           </p>
                         ) : null}
 
-                        <div className="mt-4 flex flex-wrap gap-3 text-[0.82rem] text-[#6a7c87]">
+                        <div className="mt-4 flex flex-wrap gap-3 text-[0.82rem] text-[#5d6d78]">
                           <a
                             className="inline-flex items-center gap-1 font-semibold text-[#115b82] hover:text-[#0c4867]"
                             href={magazine.pdf_url}
                             rel="noreferrer"
                             target="_blank"
                           >
-                            <span className="material-symbols-outlined text-[1rem]">
+                            <span aria-hidden="true" className="material-symbols-outlined text-[1rem]">
                               picture_as_pdf
                             </span>
                             {t('admin.magazines.openPdf')}
@@ -668,7 +668,7 @@ function AdminMagazines() {
 
                           {magazine.created_at ? (
                             <span className="inline-flex items-center gap-1">
-                              <span className="material-symbols-outlined text-[1rem]">
+                              <span aria-hidden="true" className="material-symbols-outlined text-[1rem]">
                                 schedule
                               </span>
                               {new Date(magazine.created_at).toLocaleDateString('en-GB', {

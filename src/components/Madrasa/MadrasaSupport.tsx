@@ -25,7 +25,7 @@ function MadrasaSupport() {
               className="rounded-[1.3rem] border border-[#dde5de] bg-[#fcfdfb] px-5 py-5 shadow-[0_14px_30px_rgba(18,28,22,0.04)]"
             >
               <div className="flex items-start gap-3">
-                <span className="material-symbols-outlined mt-0.5 text-[1.15rem] text-[#2d8a57]">
+                <span aria-hidden="true" className="material-symbols-outlined mt-0.5 text-[1.15rem] text-[#2d8a57]">
                   task_alt
                 </span>
                 <p className="text-[1rem] leading-[1.75] text-[#51635a]">{item}</p>

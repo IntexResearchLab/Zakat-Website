@@ -26,7 +26,7 @@ function TransparencyHero({ latestIssue }: TransparencyHeroProps) {
           <p className="mt-7 max-w-[37rem] text-[1.05rem] leading-[1.85] text-[#5d6d78] sm:text-[1.08rem]">
             {t('transparency.hero.description')}
           </p>
-          <p className="mt-5 text-[0.92rem] font-semibold leading-[1.7] text-[#6b7c87]">
+          <p className="mt-5 text-[0.92rem] font-semibold leading-[1.7] text-[#5d6d78]">
             {t('transparency.hero.trustLine')}
           </p>
 
@@ -65,7 +65,7 @@ function TransparencyHero({ latestIssue }: TransparencyHeroProps) {
                   />
                 ) : (
                   <div className="text-center">
-                    <span className="material-symbols-outlined text-[4rem] text-[#115b82]">
+                    <span aria-hidden="true" className="material-symbols-outlined text-[4rem] text-[#115b82]">
                       picture_as_pdf
                     </span>
                     <p className="mt-4 text-sm font-bold uppercase tracking-[0.18em] text-[#115b82]">

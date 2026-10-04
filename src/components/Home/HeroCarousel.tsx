@@ -5,6 +5,10 @@ import { Link } from 'react-router-dom'
 function HeroCarousel() {
   const { t } = useTranslation()
   const [activeSlide, setActiveSlide] = useState(0)
+  // Visitors can stop the slideshow, and it starts paused for those who prefer reduced motion.
+  const [isPaused, setIsPaused] = useState(
+    () => window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false,
+  )
   const slides = t('home.hero.slides', { returnObjects: true }) as Array<{
     image: string
     eyebrow: string
@@ -19,12 +23,16 @@ function HeroCarousel() {
   }>
 
   useEffect(() => {
+    if (isPaused) {
+      return
+    }
+
     const interval = window.setInterval(() => {
       setActiveSlide((current) => (current + 1) % slides.length)
     }, 9000)
 
     return () => window.clearInterval(interval)
-  }, [slides.length])
+  }, [isPaused, slides.length])
 
   const currentSlide = slides[activeSlide]
 
@@ -55,16 +63,13 @@ function HeroCarousel() {
 
         <div className="relative flex min-h-[640px] items-center pb-20 pt-14 md:absolute md:inset-0 md:min-h-0 md:py-0">
           <div className="mx-auto w-full max-w-7xl px-6 md:px-10">
-            <div
-              className="hero-copy-animate max-w-2xl pl-2 md:pl-10"
-              key={currentSlide.image}
-            >
+            <div className="hero-copy-animate max-w-2xl pl-2 md:pl-10" key={currentSlide.image}>
               <p className="mb-5 text-sm font-bold uppercase tracking-[0.32em] text-[#ffd86b]">
                 {currentSlide.eyebrow}
               </p>
               <div className="mb-7 max-w-[38rem] border-l border-[#f2d46f]/60 pl-5">
                 <div className="mb-3 flex items-center gap-3 text-[#f2d46f]">
-                  <span className="material-symbols-outlined text-[1.1rem]">
+                  <span aria-hidden="true" className="material-symbols-outlined text-[1.1rem]">
                     auto_stories
                   </span>
                   <span className="text-[0.72rem] font-bold uppercase tracking-[0.18em]">
@@ -108,26 +113,35 @@ function HeroCarousel() {
           </div>
         </div>
 
-        <div className="absolute bottom-8 left-1/2 flex -translate-x-1/2 gap-3">
+        <div className="absolute bottom-8 left-1/2 flex -translate-x-1/2 items-center gap-3">
           {slides.map((slide, index) => (
             <button
+              aria-current={index === activeSlide ? 'true' : undefined}
               aria-label={t('home.hero.goToSlide', { index: index + 1 })}
               className={`h-2.5 rounded-full transition-all ${
-                  index === activeSlide ? 'w-10 bg-[#d8f0ff]' : 'w-2.5 bg-white/45 hover:bg-[#d8f0ff]'
-                }`}
+                index === activeSlide ? 'w-10 bg-[#d8f0ff]' : 'w-2.5 bg-white/45 hover:bg-[#d8f0ff]'
+              }`}
               key={slide.image}
               onClick={() => setActiveSlide(index)}
               type="button"
             />
           ))}
+          <button
+            aria-label={isPaused ? t('home.hero.playSlides') : t('home.hero.pauseSlides')}
+            className="ml-1 flex h-8 w-8 items-center justify-center rounded-full border border-white/25 bg-[#0c4c6d]/45 text-white backdrop-blur-sm transition hover:bg-[#0c4c6d]/70"
+            onClick={() => setIsPaused((paused) => !paused)}
+            type="button"
+          >
+            <span aria-hidden="true" className="material-symbols-outlined text-[1.1rem]">
+              {isPaused ? 'play_arrow' : 'pause'}
+            </span>
+          </button>
         </div>
 
         <button
           aria-label={t('home.hero.previousSlide')}
           className="hover-lift-soft absolute left-5 top-1/2 hidden h-11 w-11 -translate-y-1/2 items-center md:flex justify-center rounded-full border border-white/20 bg-[#0c4c6d]/45 text-2xl text-white backdrop-blur-sm transition hover:bg-[#0c4c6d]/70"
-          onClick={() =>
-            setActiveSlide((current) => (current - 1 + slides.length) % slides.length)
-          }
+          onClick={() => setActiveSlide((current) => (current - 1 + slides.length) % slides.length)}
           type="button"
         >
           ‹

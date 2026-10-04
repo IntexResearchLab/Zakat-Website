@@ -38,7 +38,7 @@ function AdminItemControls({
         title={reorderTitle ?? t('admin.list.moveUp')}
         type="button"
       >
-        <span className="material-symbols-outlined text-[1.1rem]">arrow_upward</span>
+        <span aria-hidden="true" className="material-symbols-outlined text-[1.1rem]">arrow_upward</span>
       </button>
       <button
         aria-label={t('admin.list.moveDown')}
@@ -48,7 +48,7 @@ function AdminItemControls({
         title={reorderTitle ?? t('admin.list.moveDown')}
         type="button"
       >
-        <span className="material-symbols-outlined text-[1.1rem]">arrow_downward</span>
+        <span aria-hidden="true" className="material-symbols-outlined text-[1.1rem]">arrow_downward</span>
       </button>
       <button
         className="inline-flex h-9 items-center gap-1.5 rounded-full border border-[#dbe7ee] bg-white px-3 text-[0.75rem] font-bold uppercase tracking-[0.12em] text-[#14324d] transition hover:border-[#bfd5e4] hover:bg-[#f7fbfd] disabled:cursor-not-allowed disabled:opacity-50"
@@ -56,7 +56,7 @@ function AdminItemControls({
         onClick={onToggleVisibility}
         type="button"
       >
-        <span className="material-symbols-outlined text-[1rem]">
+        <span aria-hidden="true" className="material-symbols-outlined text-[1rem]">
           {isActive ? 'visibility_off' : 'visibility'}
         </span>
         {isActive ? t('admin.list.hide') : t('admin.list.show')}
@@ -69,7 +69,7 @@ function AdminItemControls({
           target="_blank"
         >
           {t('admin.list.viewOnSite')}
-          <span className="material-symbols-outlined text-[1rem]">open_in_new</span>
+          <span aria-hidden="true" className="material-symbols-outlined text-[1rem]">open_in_new</span>
         </a>
       ) : null}
     </div>

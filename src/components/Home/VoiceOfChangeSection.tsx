@@ -75,7 +75,7 @@ function VoiceOfChangeSection() {
                 <p className="text-base font-bold text-[#14324d]">
                   {activeTestimonial.name}
                 </p>
-                <p className="mt-1 text-sm text-[#6b7a86]">
+                <p className="mt-1 text-sm text-[#5d6d78]">
                   {activeTestimonial.role}
                   {activeTestimonial.location ? `, ${activeTestimonial.location}` : ''}
                 </p>
@@ -84,7 +84,7 @@ function VoiceOfChangeSection() {
               <div className="flex items-center gap-3 self-start sm:self-auto">
                 <button
                   aria-label={t('home.voices.previous')}
-                  className="hover-lift-soft flex h-9 w-9 items-center justify-center rounded-full border border-[#d8e5ee] bg-[#fbfdff] text-[#7b8b96] transition hover:border-[#c4d8e6] hover:text-[#14324d]"
+                  className="hover-lift-soft flex h-9 w-9 items-center justify-center rounded-full border border-[#d8e5ee] bg-[#fbfdff] text-[#5d6d78] transition hover:border-[#c4d8e6] hover:text-[#14324d]"
                   onClick={handlePrevious}
                   type="button"
                 >
@@ -92,7 +92,7 @@ function VoiceOfChangeSection() {
                 </button>
                 <button
                   aria-label={t('home.voices.next')}
-                  className="hover-lift-soft flex h-9 w-9 items-center justify-center rounded-full border border-[#d8e5ee] bg-[#fbfdff] text-[#7b8b96] transition hover:border-[#c4d8e6] hover:text-[#14324d]"
+                  className="hover-lift-soft flex h-9 w-9 items-center justify-center rounded-full border border-[#d8e5ee] bg-[#fbfdff] text-[#5d6d78] transition hover:border-[#c4d8e6] hover:text-[#14324d]"
                   onClick={handleNext}
                   type="button"
                 >

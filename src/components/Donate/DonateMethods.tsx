@@ -50,7 +50,7 @@ function DonateMethods() {
             <div className="mt-6 grid gap-4 sm:grid-cols-2">
               {bankItems.map((item) => (
                 <div key={item.label}>
-                  <p className="text-[0.8rem] font-bold uppercase tracking-[0.14em] text-[#7a8f9d]">
+                  <p className="text-[0.8rem] font-bold uppercase tracking-[0.14em] text-[#5d6d78]">
                     {item.label}
                   </p>
                   <p className="mt-2 text-[0.98rem] leading-[1.7] text-[#14324d]">{item.value}</p>
@@ -61,7 +61,7 @@ function DonateMethods() {
             <div className="mt-8 border-t border-[#e4edf3] pt-6 space-y-3">
               {trustItems.map((item) => (
                 <div className="flex items-start gap-3" key={item}>
-                  <span className="material-symbols-outlined mt-0.5 text-[1rem] text-[#2d8a57]">
+                  <span aria-hidden="true" className="material-symbols-outlined mt-0.5 text-[1rem] text-[#2d8a57]">
                     task_alt
                   </span>
                   <p className="text-[0.96rem] leading-[1.7] text-[#5f7280]">{item}</p>

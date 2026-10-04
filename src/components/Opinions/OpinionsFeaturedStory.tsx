@@ -14,7 +14,7 @@ function OpinionsFeaturedStory() {
         <Reveal>
           <div className="relative overflow-hidden rounded-[1.8rem] border border-[#dbe7ee] bg-[radial-gradient(circle_at_top,#fafdff_0%,#eff6fb_52%,#e8f0f5_100%)] p-8 shadow-[0_18px_40px_rgba(15,23,42,0.06)]">
             <img
-              alt="Featured beneficiary story"
+              alt={t('common.aria.featuredStoryImage')}
               className="aspect-[4/5] w-full rounded-[1.3rem] object-cover"
               decoding="async"
               loading="lazy"
@@ -71,7 +71,7 @@ function OpinionsFeaturedStory() {
             onClick={() => setIsExpanded((value) => !value)}
           >
             {isExpanded ? t('opinions.featuredStory.hideFullStory') : t('opinions.featuredStory.readFullStory')}
-            <span className="material-symbols-outlined text-[1.15rem]">
+            <span aria-hidden="true" className="material-symbols-outlined text-[1.15rem]">
               {isExpanded ? 'expand_less' : 'arrow_forward'}
             </span>
           </button>

@@ -42,7 +42,7 @@ function OpinionsTestimonialGrid() {
               </div>
               <div className="mt-6 border-t border-[#e3edf3] pt-4">
                 <p className="text-[1rem] font-semibold text-[#14324d]">{card.name}</p>
-                <p className="mt-1 text-[0.95rem] text-[#6b7b87]">
+                <p className="mt-1 text-[0.95rem] text-[#5d6d78]">
                   {card.role}
                   {card.location ? `, ${card.location}` : ''}
                 </p>

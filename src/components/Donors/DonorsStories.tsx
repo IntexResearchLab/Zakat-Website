@@ -55,7 +55,7 @@ function DonorsStories() {
                         </div>
                       </div>
                     </div>
-                    <span className="material-symbols-outlined mt-1 text-[#115b82]">
+                    <span aria-hidden="true" className="material-symbols-outlined mt-1 text-[#115b82]">
                       {isOpen ? 'remove' : 'add'}
                     </span>
                   </button>

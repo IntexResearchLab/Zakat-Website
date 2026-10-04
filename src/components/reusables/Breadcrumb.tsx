@@ -12,12 +12,12 @@ type BreadcrumbProps = {
   accentClassName?: string
 }
 
-function Breadcrumb({ items, accentClassName = 'text-[#c58b16]' }: BreadcrumbProps) {
+function Breadcrumb({ items, accentClassName = 'text-[#946510]' }: BreadcrumbProps) {
   const { t } = useTranslation()
   const trail: BreadcrumbItem[] = [{ label: t('common.breadcrumb.home'), to: '/' }, ...items]
 
   return (
-    <nav aria-label="Breadcrumb">
+    <nav aria-label={t('common.aria.breadcrumb')}>
       <ol className="flex flex-wrap items-center gap-2 text-[0.92rem] font-medium tracking-[-0.01em] text-[#5f7280]">
         {trail.map((item, index) => {
           const isLast = index === trail.length - 1

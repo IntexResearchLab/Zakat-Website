@@ -368,11 +368,11 @@ function AdminDonations() {
         <div className="mt-5 space-y-3">
           <label className="relative block">
             <span className="sr-only">{t('admin.donations.searchPlaceholder')}</span>
-            <span aria-hidden="true" className="material-symbols-outlined pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[1.1rem] text-[#90a3af]">
+            <span aria-hidden="true" className="material-symbols-outlined pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[1.1rem] text-[#5d6d78]">
               search
             </span>
             <input
-              className="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-white px-4 py-2.5 pl-10 text-[0.95rem] text-[#14324d] outline-none transition placeholder:text-[#90a3af] focus:border-[#115b82]"
+              className="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-white px-4 py-2.5 pl-10 text-[0.95rem] text-[#14324d] outline-none transition placeholder:text-[#627581] focus:border-[#115b82]"
               onChange={(event) => setSearch(event.target.value)}
               placeholder={t('admin.donations.searchPlaceholder')}
               type="search"

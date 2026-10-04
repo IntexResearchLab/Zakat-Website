@@ -8,6 +8,7 @@ import {
   type PublicStatsKey,
 } from '../content/stats'
 import { supabase } from '../utils/supabase'
+import { readStorage, writeStorage, removeStorage } from './safeStorage'
 
 type PublicStatsContextValue = {
   stats: Record<PublicStatsKey, string>
@@ -31,7 +32,7 @@ const getCachedStats = () => {
     return null
   }
 
-  const cachedValue = window.localStorage.getItem(statsStorageKey)
+  const cachedValue = readStorage(statsStorageKey)
 
   if (!cachedValue) {
     return null
@@ -40,7 +41,7 @@ const getCachedStats = () => {
   try {
     return JSON.parse(cachedValue) as Record<PublicStatsKey, string>
   } catch {
-    window.localStorage.removeItem(statsStorageKey)
+    removeStorage(statsStorageKey)
     return null
   }
 }
@@ -50,12 +51,12 @@ const cacheStats = (stats: Record<PublicStatsKey, string>) => {
     return
   }
 
-  window.localStorage.setItem(statsStorageKey, JSON.stringify(stats))
+  writeStorage(statsStorageKey, JSON.stringify(stats))
 }
 
 export const invalidatePublicStatsCache = () => {
   if (typeof window !== 'undefined') {
-    window.localStorage.removeItem(statsStorageKey)
+    removeStorage(statsStorageKey)
   }
   resetCurrentStatsMap()
 }

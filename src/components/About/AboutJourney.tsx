@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
+import { useModalDialog } from '../../lib/useModalDialog'
 import Reveal from '../reusables/Reveal'
 import { useTranslation } from 'react-i18next'
 import { getTimeline } from './data'
@@ -8,26 +9,7 @@ function AboutJourney() {
   const timeline = getTimeline(t)
   const [isCertificateOpen, setIsCertificateOpen] = useState(false)
 
-  useEffect(() => {
-    if (!isCertificateOpen) {
-      return undefined
-    }
-
-    const handleEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        setIsCertificateOpen(false)
-      }
-    }
-
-    const originalOverflow = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
-    window.addEventListener('keydown', handleEscape)
-
-    return () => {
-      document.body.style.overflow = originalOverflow
-      window.removeEventListener('keydown', handleEscape)
-    }
-  }, [isCertificateOpen])
+  const dialogRef = useModalDialog(isCertificateOpen, () => setIsCertificateOpen(false))
 
   return (
     <>
@@ -70,7 +52,7 @@ function AboutJourney() {
 
             <div className="max-w-[26rem] rounded-[1rem] border border-[#dce7ee] bg-white p-4 shadow-[0_12px_28px_rgba(15,23,42,0.05)] lg:-ml-14 xl:-ml-20">
               <div className="inline-flex items-center gap-2 rounded-full border border-[#d7e5ed] bg-[#f8fcfe] px-3 py-1.5 text-[0.74rem] font-bold uppercase tracking-[0.16em] text-[#115b82]">
-                <span className="material-symbols-outlined text-[1rem]">
+                <span aria-hidden="true" className="material-symbols-outlined text-[1rem]">
                   verified
                 </span>
                 {t('about.journey.badge')}
@@ -107,20 +89,21 @@ function AboutJourney() {
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-[#09131ccc]/80 px-4 py-8 backdrop-blur-sm"
           onClick={() => setIsCertificateOpen(false)}
+          ref={dialogRef}
           role="dialog"
+          tabIndex={-1}
           aria-modal="true"
         >
-          <div
-            className="relative w-full max-w-5xl"
-            onClick={(event) => event.stopPropagation()}
-          >
+          <div className="relative w-full max-w-5xl" onClick={(event) => event.stopPropagation()}>
             <button
-              aria-label="Close certificate preview"
+              aria-label={t('common.aria.closeDialog')}
               className="absolute right-3 top-3 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/92 text-[#14324d] shadow-[0_12px_24px_rgba(15,23,42,0.14)] transition hover:bg-white"
               onClick={() => setIsCertificateOpen(false)}
               type="button"
             >
-              <span className="material-symbols-outlined text-[1.25rem]">close</span>
+              <span aria-hidden="true" className="material-symbols-outlined text-[1.25rem]">
+                close
+              </span>
             </button>
 
             <div className="overflow-hidden rounded-[1.35rem] border border-white/20 bg-white p-4 shadow-[0_24px_60px_rgba(15,23,42,0.25)] sm:p-6">

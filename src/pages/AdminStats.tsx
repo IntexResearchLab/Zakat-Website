@@ -270,7 +270,7 @@ function AdminStats() {
           <p className="mt-2 font-serif text-[2rem] leading-none tracking-[-0.05em] text-[#14324d]">
             {statCount}
           </p>
-          <p className="mt-2 text-[0.9rem] leading-[1.6] text-[#6a7c87]">
+          <p className="mt-2 text-[0.9rem] leading-[1.6] text-[#5d6d78]">
             {t('admin.stats.headerCardContext')}
           </p>
         </div>
@@ -294,7 +294,7 @@ function AdminStats() {
               onClick={() => void loadStats()}
               type="button"
             >
-              <span className="material-symbols-outlined text-[1rem]">refresh</span>
+              <span aria-hidden="true" className="material-symbols-outlined text-[1rem]">refresh</span>
               {t('admin.stats.refresh')}
             </button>
           </div>
@@ -343,7 +343,7 @@ function AdminStats() {
         ) : null}
 
         {isLoading ? (
-          <div className="mt-6 rounded-[1rem] border border-dashed border-[#dbe7ee] bg-[#fbfdff] px-4 py-10 text-center text-[#6a7c87]">
+          <div className="mt-6 rounded-[1rem] border border-dashed border-[#dbe7ee] bg-[#fbfdff] px-4 py-10 text-center text-[#5d6d78]">
             {t('admin.stats.loading')}
           </div>
         ) : null}
@@ -387,14 +387,14 @@ function AdminStats() {
 
                         <div className="mt-4">
                           <label
-                            className="mb-2 block text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#6a7c87]"
+                            className="mb-2 block text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#5d6d78]"
                             htmlFor={`stat-${row.key}`}
                           >
                             {t('admin.stats.valueLabel')}
                           </label>
                           <input
                             id={`stat-${row.key}`}
-                            className={`w-full rounded-[0.95rem] border bg-white px-4 py-3 text-[1rem] text-[#14324d] outline-none transition placeholder:text-[#90a3af] focus:border-[#115b82] ${
+                            className={`w-full rounded-[0.95rem] border bg-white px-4 py-3 text-[1rem] text-[#14324d] outline-none transition placeholder:text-[#627581] focus:border-[#115b82] ${
                               hasPendingChange
                                 ? 'border-[#9fc7da] ring-2 ring-[#e4f1f8]'
                                 : 'border-[#d8e5ec]'
@@ -405,7 +405,7 @@ function AdminStats() {
                         </div>
 
                         <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
-                          <p className="text-[0.78rem] text-[#8a9ba7]">
+                          <p className="text-[0.78rem] text-[#5d6d78]">
                             {row.updated_at
                               ? new Date(row.updated_at).toLocaleDateString('en-GB', {
                                   day: '2-digit',

@@ -79,7 +79,7 @@ function DonateHero() {
         >
           {trustItems.map((item) => (
             <div className="flex items-center gap-3" key={item}>
-              <span className="material-symbols-outlined text-[1rem] text-[#2d8a57]">verified</span>
+              <span aria-hidden="true" className="material-symbols-outlined text-[1rem] text-[#2d8a57]">verified</span>
               <p className="text-[0.95rem] font-semibold leading-[1.65] text-[#536b7a]">{item}</p>
             </div>
           ))}

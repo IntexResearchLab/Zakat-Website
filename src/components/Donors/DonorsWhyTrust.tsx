@@ -30,7 +30,7 @@ function DonorsWhyTrust() {
                 delay={90}
               >
                 <div className="flex items-start gap-3">
-                  <span className="material-symbols-outlined mt-0.5 text-[1rem] text-[#2d8a57]">
+                  <span aria-hidden="true" className="material-symbols-outlined mt-0.5 text-[1rem] text-[#2d8a57]">
                     task_alt
                   </span>
                   <p className="text-[0.98rem] leading-[1.72] text-[#58708a]">{point}</p>

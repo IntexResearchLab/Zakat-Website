@@ -428,7 +428,7 @@ function AdminExecutives() {
           <p className="mt-2 font-serif text-[2rem] leading-none tracking-[-0.05em] text-[#14324d]">
             {memberCount}
           </p>
-          <p className="mt-2 text-[0.9rem] leading-[1.6] text-[#6a7c87]">
+          <p className="mt-2 text-[0.9rem] leading-[1.6] text-[#5d6d78]">
             {t('admin.executives.headerCardContext')}
           </p>
         </div>
@@ -466,11 +466,11 @@ function AdminExecutives() {
           <form className="mt-6 space-y-5" onSubmit={handleSubmit}>
             <div className="grid gap-4 sm:grid-cols-2">
               <label className="space-y-2">
-                <span className="text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#6a7c87]">
+                <span className="text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#5d6d78]">
                   {t('admin.executives.fields.name')}
                 </span>
                 <input
-                  className="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-white px-4 py-3 text-[1rem] text-[#14324d] outline-none transition placeholder:text-[#90a3af] focus:border-[#115b82]"
+                  className="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-white px-4 py-3 text-[1rem] text-[#14324d] outline-none transition placeholder:text-[#627581] focus:border-[#115b82]"
                   onChange={(event) => handleFieldChange('name', event.target.value)}
                   placeholder={t('admin.executives.placeholders.name')}
                   value={formState.name}
@@ -478,11 +478,11 @@ function AdminExecutives() {
               </label>
 
               <label className="space-y-2">
-                <span className="text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#6a7c87]">
+                <span className="text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#5d6d78]">
                   {t('admin.executives.fields.role')}
                 </span>
                 <input
-                  className="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-white px-4 py-3 text-[1rem] text-[#14324d] outline-none transition placeholder:text-[#90a3af] focus:border-[#115b82]"
+                  className="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-white px-4 py-3 text-[1rem] text-[#14324d] outline-none transition placeholder:text-[#627581] focus:border-[#115b82]"
                   onChange={(event) => handleFieldChange('role', event.target.value)}
                   placeholder={t('admin.executives.placeholders.role')}
                   value={formState.role}
@@ -492,11 +492,11 @@ function AdminExecutives() {
 
             <div className="grid gap-4 sm:grid-cols-2">
               <label className="space-y-2">
-                <span className="text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#6a7c87]">
+                <span className="text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#5d6d78]">
                   {t('admin.executives.fields.email')}
                 </span>
                 <input
-                  className="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-white px-4 py-3 text-[1rem] text-[#14324d] outline-none transition placeholder:text-[#90a3af] focus:border-[#115b82]"
+                  className="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-white px-4 py-3 text-[1rem] text-[#14324d] outline-none transition placeholder:text-[#627581] focus:border-[#115b82]"
                   onChange={(event) => handleFieldChange('email', event.target.value)}
                   placeholder={t('admin.executives.placeholders.email')}
                   type="email"
@@ -505,11 +505,11 @@ function AdminExecutives() {
               </label>
 
               <label className="space-y-2">
-                <span className="text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#6a7c87]">
+                <span className="text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#5d6d78]">
                   {t('admin.executives.fields.phone')}
                 </span>
                 <input
-                  className="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-white px-4 py-3 text-[1rem] text-[#14324d] outline-none transition placeholder:text-[#90a3af] focus:border-[#115b82]"
+                  className="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-white px-4 py-3 text-[1rem] text-[#14324d] outline-none transition placeholder:text-[#627581] focus:border-[#115b82]"
                   onChange={(event) => handleFieldChange('phone', event.target.value)}
                   placeholder={t('admin.executives.placeholders.phone')}
                   value={formState.phone}
@@ -519,7 +519,7 @@ function AdminExecutives() {
 
             <div className="grid gap-4 sm:grid-cols-[minmax(0,1fr)_180px]">
               <div className="space-y-2">
-                <span className="block text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#6a7c87]">
+                <span className="block text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#5d6d78]">
                   {t('admin.executives.fields.image')}
                 </span>
                 <AdminImageInput
@@ -535,17 +535,17 @@ function AdminExecutives() {
                   onError={setErrorMessage}
                   previewClassName="h-28 w-28 object-cover"
                 />
-                <p className="text-[0.84rem] leading-[1.6] text-[#7a8b95]">
+                <p className="text-[0.84rem] leading-[1.6] text-[#5d6d78]">
                   {t('admin.executives.imageHelp')}
                 </p>
               </div>
 
               <label className="space-y-2">
-                <span className="text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#6a7c87]">
+                <span className="text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#5d6d78]">
                   {t('admin.executives.fields.sortOrder')}
                 </span>
                 <input
-                  className="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-white px-4 py-3 text-[1rem] text-[#14324d] outline-none transition placeholder:text-[#90a3af] focus:border-[#115b82]"
+                  className="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-white px-4 py-3 text-[1rem] text-[#14324d] outline-none transition placeholder:text-[#627581] focus:border-[#115b82]"
                   onChange={(event) => handleFieldChange('sortOrder', event.target.value)}
                   placeholder={t('admin.executives.placeholders.sortOrder')}
                   value={formState.sortOrder}
@@ -603,7 +603,7 @@ function AdminExecutives() {
               onClick={() => void loadMembers()}
               type="button"
             >
-              <span className="material-symbols-outlined text-[1rem]">refresh</span>
+              <span aria-hidden="true" className="material-symbols-outlined text-[1rem]">refresh</span>
               {t('admin.executives.refresh')}
             </button>
           </div>
@@ -622,19 +622,19 @@ function AdminExecutives() {
           ) : null}
 
           {!isLoading && members.length && !visibleMembers.length ? (
-            <div className="mt-6 rounded-[1rem] border border-dashed border-[#dbe7ee] bg-[#fbfdff] px-4 py-10 text-center text-[#6a7c87]">
+            <div className="mt-6 rounded-[1rem] border border-dashed border-[#dbe7ee] bg-[#fbfdff] px-4 py-10 text-center text-[#5d6d78]">
               {t('admin.list.noResults')}
             </div>
           ) : null}
 
           {isLoading ? (
-            <div className="mt-6 rounded-[1rem] border border-dashed border-[#dbe7ee] bg-[#fbfdff] px-4 py-10 text-center text-[#6a7c87]">
+            <div className="mt-6 rounded-[1rem] border border-dashed border-[#dbe7ee] bg-[#fbfdff] px-4 py-10 text-center text-[#5d6d78]">
               {t('admin.executives.loading')}
             </div>
           ) : null}
 
           {!isLoading && !members.length ? (
-            <div className="mt-6 rounded-[1rem] border border-dashed border-[#dbe7ee] bg-[#fbfdff] px-4 py-10 text-center text-[#6a7c87]">
+            <div className="mt-6 rounded-[1rem] border border-dashed border-[#dbe7ee] bg-[#fbfdff] px-4 py-10 text-center text-[#5d6d78]">
               {t('admin.executives.emptyState')}
             </div>
           ) : null}
@@ -671,7 +671,7 @@ function AdminExecutives() {
                             <h3 className="font-serif text-[1.22rem] leading-[1.1] tracking-[-0.03em] text-[#14324d]">
                               {member.name}
                             </h3>
-                            <p className="mt-1 text-[0.9rem] leading-[1.5] text-[#6a7c87]">
+                            <p className="mt-1 text-[0.9rem] leading-[1.5] text-[#5d6d78]">
                               {member.role}
                             </p>
                           </div>

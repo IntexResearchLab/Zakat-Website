@@ -25,7 +25,7 @@ function ProgramsInitiatives() {
               key={item.title}
             >
               <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#edf7fc] text-[#115b82]">
-                <span className="material-symbols-outlined text-[1.35rem]">
+                <span aria-hidden="true" className="material-symbols-outlined text-[1.35rem]">
                   {item.icon}
                 </span>
               </div>

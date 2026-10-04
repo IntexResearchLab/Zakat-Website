@@ -48,7 +48,7 @@ function DonationResult({ status }: DonationResultProps) {
         ) : transactionId ? (
           <dl className="mt-7 space-y-2 rounded-[1rem] border border-[#e4edf3] bg-[#f9fcfe] px-5 py-4 text-left text-[0.94rem]">
             <div className="flex justify-between gap-4">
-              <dt className="text-[#6a7c87]">{t('donate.result.transactionLabel')}</dt>
+              <dt className="text-[#5d6d78]">{t('donate.result.transactionLabel')}</dt>
               <dd className="break-all font-mono text-[0.86rem] text-[#14324d]">{transactionId}</dd>
             </div>
           </dl>
@@ -78,7 +78,7 @@ function DonationResult({ status }: DonationResultProps) {
           </Link>
         </div>
 
-        <p className="mt-7 text-[0.86rem] leading-[1.7] text-[#7a8b95]">
+        <p className="mt-7 text-[0.86rem] leading-[1.7] text-[#5d6d78]">
           {t('donate.result.contactNote')}{' '}
           <a className="font-semibold text-[#115b82]" href="mailto:alokayon2019@gmail.com">
             alokayon2019@gmail.com

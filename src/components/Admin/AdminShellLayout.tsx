@@ -101,7 +101,7 @@ function AdminShellLayout({
             onClick={() => setIsMenuOpen((open) => !open)}
             type="button"
           >
-            <span className="material-symbols-outlined text-[1.35rem]">
+            <span aria-hidden="true" className="material-symbols-outlined text-[1.35rem]">
               {isMenuOpen ? 'close' : 'menu'}
             </span>
           </button>
@@ -120,7 +120,7 @@ function AdminShellLayout({
                 onClick={handleNavClick}
                 to={item.href}
               >
-                <span className="material-symbols-outlined text-[1.1rem]">
+                <span aria-hidden="true" className="material-symbols-outlined text-[1.1rem]">
                   {navIconMap[item.icon]}
                 </span>
                 <span>{item.label}</span>
@@ -132,7 +132,7 @@ function AdminShellLayout({
               onClick={() => void handleSignOut()}
               type="button"
             >
-              <span className="material-symbols-outlined text-[1.1rem]">logout</span>
+              <span aria-hidden="true" className="material-symbols-outlined text-[1.1rem]">logout</span>
               {isSigningOut ? t('admin.dashboard.signingOut') : t('admin.dashboard.signOut')}
             </button>
           </nav>
@@ -165,7 +165,7 @@ function AdminShellLayout({
                   onClick={handleNavClick}
                   to={item.href}
                 >
-                  <span className="material-symbols-outlined text-[1.1rem]">
+                  <span aria-hidden="true" className="material-symbols-outlined text-[1.1rem]">
                     {navIconMap[item.icon]}
                   </span>
                   <span>{item.label}</span>

@@ -66,7 +66,7 @@ function ProgramCategories() {
               key={program.title}
             >
               <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#edf7fc] text-[#115b82]">
-                <span className="material-symbols-outlined text-[1.55rem]">
+                <span aria-hidden="true" className="material-symbols-outlined text-[1.55rem]">
                   {program.icon}
                 </span>
               </div>
@@ -80,7 +80,7 @@ function ProgramCategories() {
               <div className="mt-6 space-y-3 border-t border-[#e6eef3] pt-5">
                 {program.highlights.map((item) => (
                   <div className="flex items-start gap-3" key={item}>
-                    <span className="material-symbols-outlined mt-0.5 text-[1rem] text-[#2d8a57]">
+                    <span aria-hidden="true" className="material-symbols-outlined mt-0.5 text-[1rem] text-[#2d8a57]">
                       task_alt
                     </span>
                     <p className="text-[0.92rem] leading-[1.65] text-[#60727d]">

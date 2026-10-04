@@ -22,7 +22,7 @@ type AdminListFiltersProps = {
 }
 
 const fieldClass =
-  'rounded-[0.95rem] border border-[#d8e5ec] bg-white px-4 py-2.5 text-[0.95rem] text-[#14324d] outline-none transition placeholder:text-[#90a3af] focus:border-[#115b82]'
+  'rounded-[0.95rem] border border-[#d8e5ec] bg-white px-4 py-2.5 text-[0.95rem] text-[#14324d] outline-none transition placeholder:text-[#627581] focus:border-[#115b82]'
 
 function AdminListFilters({
   search,
@@ -45,7 +45,7 @@ function AdminListFilters({
       <div className="space-y-3">
         <label className="relative block">
           <span className="sr-only">{searchPlaceholder}</span>
-          <span className="material-symbols-outlined pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[1.1rem] text-[#90a3af]">
+          <span aria-hidden="true" className="material-symbols-outlined pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[1.1rem] text-[#5d6d78]">
             search
           </span>
           <input
@@ -85,7 +85,7 @@ function AdminListFilters({
         </div>
       </div>
 
-      <div className="flex flex-wrap items-center justify-between gap-2 text-[0.84rem] text-[#6a7c87]">
+      <div className="flex flex-wrap items-center justify-between gap-2 text-[0.84rem] text-[#5d6d78]">
         <p>{t('admin.list.showingCount', { shown: shownCount, total: totalCount })}</p>
         {isFiltered ? (
           <button

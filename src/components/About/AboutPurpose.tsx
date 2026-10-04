@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
+import { useModalDialog } from '../../lib/useModalDialog'
 import Reveal from '../reusables/Reveal'
 import { useTranslation } from 'react-i18next'
 
@@ -9,26 +10,7 @@ function AboutPurpose() {
     returnObjects: true,
   }) as Array<{ title: string; paragraphs: string[] }>
 
-  useEffect(() => {
-    if (!isStoryOpen) {
-      return undefined
-    }
-
-    const handleEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        setIsStoryOpen(false)
-      }
-    }
-
-    const originalOverflow = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
-    window.addEventListener('keydown', handleEscape)
-
-    return () => {
-      document.body.style.overflow = originalOverflow
-      window.removeEventListener('keydown', handleEscape)
-    }
-  }, [isStoryOpen])
+  const dialogRef = useModalDialog(isStoryOpen, () => setIsStoryOpen(false))
 
   return (
     <>
@@ -42,12 +24,10 @@ function AboutPurpose() {
               {t('about.purpose.title')}
             </h2>
             <div className="mx-auto mt-8 max-w-4xl space-y-5 text-[1.06rem] leading-[1.85] text-[#516573] sm:text-[1.1rem]">
-              <p>
-                {t('about.purpose.paragraphOne')}
-              </p>
+              <p>{t('about.purpose.paragraphOne')}</p>
               <p>
                 {t('about.purpose.paragraphTwoPrefix')}{' '}
-                <span className="text-[#8b9aa5]">{t('about.purpose.paragraphTwoEmphasis')}</span>
+                <span className="text-[#5d6d78]">{t('about.purpose.paragraphTwoEmphasis')}</span>
               </p>
             </div>
             <button
@@ -69,19 +49,20 @@ function AboutPurpose() {
           aria-modal="true"
           className="fixed inset-0 z-50 flex items-center justify-center bg-[#09131ccc]/82 px-4 py-8 backdrop-blur-sm"
           onClick={() => setIsStoryOpen(false)}
+          ref={dialogRef}
           role="dialog"
+          tabIndex={-1}
         >
-          <div
-            className="relative w-full max-w-4xl"
-            onClick={(event) => event.stopPropagation()}
-          >
+          <div className="relative w-full max-w-4xl" onClick={(event) => event.stopPropagation()}>
             <button
-              aria-label="Close story"
+              aria-label={t('common.aria.closeDialog')}
               className="absolute right-3 top-3 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/92 text-[#14324d] shadow-[0_12px_24px_rgba(15,23,42,0.14)] transition hover:bg-white"
               onClick={() => setIsStoryOpen(false)}
               type="button"
             >
-              <span className="material-symbols-outlined text-[1.25rem]">close</span>
+              <span aria-hidden="true" className="material-symbols-outlined text-[1.25rem]">
+                close
+              </span>
             </button>
 
             <div className="max-h-[86vh] overflow-y-auto rounded-[1.45rem] border border-[#dce7ee] bg-white p-7 shadow-[0_24px_60px_rgba(15,23,42,0.22)] sm:p-9">

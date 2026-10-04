@@ -40,7 +40,15 @@
       "viewSchoolGallery": "Schulgalerie ansehen"
     },
     "aria": {
-      "toggleNavigationMenu": "Navigationsmenü ein-/ausblenden"
+      "toggleNavigationMenu": "Navigationsmenü ein-/ausblenden",
+      "skipToContent": "Zum Hauptinhalt springen",
+      "mainNavigation": "Hauptmenü",
+      "language": "Sprache",
+      "closeDialog": "Schließen",
+      "scrollLeft": "Nach links scrollen",
+      "scrollRight": "Nach rechts scrollen",
+      "featuredStoryImage": "Ausgewählte Geschichte eines Begünstigten",
+      "breadcrumb": "Brotkrümelnavigation"
     },
     "breadcrumb": {
       "home": "Startseite",
@@ -60,7 +68,10 @@
     "form": {
       "emailPlaceholder": "E-Mail-Adresse eingeben",
       "namePlaceholder": "Namen eingeben",
-      "phonePlaceholder": "Telefonnummer eingeben"
+      "phonePlaceholder": "Telefonnummer eingeben",
+      "nameLabel": "Vollständiger Name",
+      "emailLabel": "E-Mail-Adresse",
+      "phoneLabel": "Telefonnummer"
     },
     "payments": {
       "accepted": "Akzeptiert: bKash, Nagad, Visa, Mastercard"
@@ -214,7 +225,9 @@
           "verseReference": "Sure Al-Insan (76:8)",
           "alt": "Ein Moment aus einem Alokayon-Programm mit Kindern und Familien"
         }
-      ]
+      ],
+      "pauseSlides": "Diashow anhalten",
+      "playSlides": "Diashow abspielen"
     },
     "impact": {
       "title": "Verifizierte Wirkung aus Gemeinschaftsprogrammen",

@@ -23,7 +23,7 @@ function MadrasaLeadership() {
           <div className="mt-8 space-y-4">
             {madrasaTrustPoints.map((point) => (
               <div className="flex items-start gap-3" key={point}>
-                <span className="material-symbols-outlined mt-0.5 text-[1rem] text-[#2d8a57]">
+                <span aria-hidden="true" className="material-symbols-outlined mt-0.5 text-[1rem] text-[#2d8a57]">
                   verified
                 </span>
                 <p className="text-[1rem] leading-[1.75] text-[#4f6258]">{point}</p>

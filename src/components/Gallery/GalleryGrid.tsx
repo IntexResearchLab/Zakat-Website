@@ -18,15 +18,17 @@ function GalleryGrid() {
   const filters = getGalleryFilters(t)
   const fallbackItems = getGalleryItems(t)
   const [remoteItems, setRemoteItems] = useState<GalleryRecord[]>(() => getCachedGalleryItems() ?? [])
+  const [useFallback, setUseFallback] = useState(() => !getCachedGalleryItems()?.length)
 
   useEffect(() => {
     let isMounted = true
 
     const syncGalleryItems = async () => {
       try {
-        const rows = await loadGalleryItems()
+        const { rows, hasAnyRows } = await loadGalleryItems()
         if (isMounted) {
           setRemoteItems(rows)
+          setUseFallback(!hasAnyRows)
         }
       } catch {
         // The fallback gallery content is intentionally kept in code.
@@ -42,7 +44,7 @@ function GalleryGrid() {
 
   const items = useMemo<GalleryItem[]>(
     () =>
-      remoteItems.length
+      !useFallback
         ? remoteItems.map((item) => ({
             id: item.id,
             category: getGalleryCategoryLabel(t, item.filter_id),
@@ -56,7 +58,7 @@ function GalleryGrid() {
             span: item.span,
           }))
         : fallbackItems,
-    [fallbackItems, remoteItems, t],
+    [fallbackItems, remoteItems, t, useFallback],
   )
 
   return (

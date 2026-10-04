@@ -135,18 +135,18 @@ function AdminResetPasswordPanel() {
                   </label>
                   <div className="relative">
                     <input
-                      className="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-[#fbfdff] px-4 py-3 pr-14 text-[0.98rem] text-[#14324d] outline-none transition placeholder:text-[#90a3af] focus:border-[#115b82] focus:bg-white"
+                      className="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-[#fbfdff] px-4 py-3 pr-14 text-[0.98rem] text-[#14324d] outline-none transition placeholder:text-[#627581] focus:border-[#115b82] focus:bg-white"
                       onChange={(event) => setPassword(event.target.value)}
                       type={showPassword ? 'text' : 'password'}
                       value={password}
                     />
                     <button
                       aria-label={showPassword ? t('admin.auth.hidePassword') : t('admin.auth.showPassword')}
-                      className="absolute inset-y-0 right-0 flex items-center px-4 text-[#6c8390] transition hover:text-[#14324d]"
+                      className="absolute inset-y-0 right-0 flex items-center px-4 text-[#5d6d78] transition hover:text-[#14324d]"
                       onClick={() => setShowPassword((current) => !current)}
                       type="button"
                     >
-                      <span className="material-symbols-outlined text-[1.2rem]">
+                      <span aria-hidden="true" className="material-symbols-outlined text-[1.2rem]">
                         {showPassword ? 'visibility_off' : 'visibility'}
                       </span>
                     </button>
@@ -158,7 +158,7 @@ function AdminResetPasswordPanel() {
                     {t('admin.resetPassword.confirmPasswordLabel')}
                   </label>
                   <input
-                    className="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-[#fbfdff] px-4 py-3 text-[0.98rem] text-[#14324d] outline-none transition placeholder:text-[#90a3af] focus:border-[#115b82] focus:bg-white"
+                    className="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-[#fbfdff] px-4 py-3 text-[0.98rem] text-[#14324d] outline-none transition placeholder:text-[#627581] focus:border-[#115b82] focus:bg-white"
                     onChange={(event) => setConfirmPassword(event.target.value)}
                     type={showPassword ? 'text' : 'password'}
                     value={confirmPassword}

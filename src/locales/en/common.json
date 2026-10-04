@@ -40,7 +40,15 @@
       "viewSchoolGallery": "View School Gallery"
     },
     "aria": {
-      "toggleNavigationMenu": "Toggle navigation menu"
+      "toggleNavigationMenu": "Toggle navigation menu",
+      "skipToContent": "Skip to main content",
+      "mainNavigation": "Main",
+      "language": "Language",
+      "closeDialog": "Close",
+      "scrollLeft": "Scroll left",
+      "scrollRight": "Scroll right",
+      "featuredStoryImage": "Featured beneficiary story",
+      "breadcrumb": "Breadcrumb"
     },
     "breadcrumb": {
       "home": "Home",
@@ -60,7 +68,10 @@
     "form": {
       "emailPlaceholder": "Enter your email",
       "namePlaceholder": "Enter your name",
-      "phonePlaceholder": "Enter your phone"
+      "phonePlaceholder": "Enter your phone",
+      "nameLabel": "Full name",
+      "emailLabel": "Email address",
+      "phoneLabel": "Phone number"
     },
     "payments": {
       "accepted": "Accepted: bKash, Nagad, Visa, Mastercard"
@@ -214,7 +225,9 @@
           "verseReference": "Surah Al-Insan (76:8)",
           "alt": "An Alokayon program moment with children and families"
         }
-      ]
+      ],
+      "pauseSlides": "Pause slideshow",
+      "playSlides": "Play slideshow"
     },
     "impact": {
       "title": "Verified impact from community programs",

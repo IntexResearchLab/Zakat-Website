@@ -26,7 +26,7 @@ function DonatePrograms() {
               key={item.title}
             >
               <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#edf7fc] text-[#115b82]">
-                <span className="material-symbols-outlined text-[1.55rem]">{item.icon}</span>
+                <span aria-hidden="true" className="material-symbols-outlined text-[1.55rem]">{item.icon}</span>
               </div>
               <h3 className="mt-5 font-serif text-[1.45rem] leading-[1.05] tracking-[-0.03em] text-[#14324d]">
                 {item.title}

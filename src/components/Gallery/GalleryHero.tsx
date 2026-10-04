@@ -28,7 +28,7 @@ function GalleryHero() {
           <p className="mx-auto mt-6 max-w-3xl text-[1rem] leading-[1.8] text-[#5f7280] sm:text-[1.08rem]">
             {t('galleryPage.hero.description')}
           </p>
-          <p className="mx-auto mt-4 max-w-2xl text-[0.9rem] font-medium leading-[1.7] text-[#78909e]">
+          <p className="mx-auto mt-4 max-w-2xl text-[0.9rem] font-medium leading-[1.7] text-[#5d6d78]">
             {t('galleryPage.hero.note')}
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">

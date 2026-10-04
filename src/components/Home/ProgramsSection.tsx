@@ -50,6 +50,8 @@ function ProgramsSection() {
           <div className="programs-marquee-track flex w-max gap-6">
             {scrollingCards.map((card, index) => (
               <article
+                // The list is repeated to make the loop seamless; screen readers only need it once.
+                aria-hidden={index >= programCards.length ? true : undefined}
                 className="group hover-lift-soft relative h-[18rem] w-[15rem] shrink-0 overflow-hidden rounded-[1.35rem] bg-[#173852] shadow-[0_12px_32px_rgba(15,23,42,0.08)] duration-300 hover:shadow-[0_18px_40px_rgba(15,23,42,0.14)]"
                 key={`${card.title}-${index}`}
               >
