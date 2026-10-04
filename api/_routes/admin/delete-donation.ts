@@ -1,6 +1,6 @@
 import type { ServerResponse } from 'node:http'
-import { getServiceClient, isUuid, requireAdmin } from '../_lib/db.js'
-import { readBody, sendJson, type ApiRequest } from '../_lib/sslcommerz.js'
+import { getServiceClient, isUuid, requireAdmin } from '../../_lib/db.js'
+import { readBody, sendJson, type ApiRequest } from '../../_lib/sslcommerz.js'
 
 // Admin: delete a donation that was recorded by mistake. Only manual entries can be deleted;
 // online payments are financial records confirmed by SSLCommerz and always stay.

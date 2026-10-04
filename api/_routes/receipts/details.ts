@@ -1,6 +1,6 @@
 import type { ServerResponse } from 'node:http'
-import { getServiceClient, isUuid, type Donation } from '../_lib/db.js'
-import { sendJson, type ApiRequest } from '../_lib/sslcommerz.js'
+import { getServiceClient, isUuid, type Donation } from '../../_lib/db.js'
+import { sendJson, type ApiRequest } from '../../_lib/sslcommerz.js'
 
 // Public receipt summary for the thank-you page and the link in the receipt email.
 // The unguessable receipt token is the only key, and contact details are never returned.

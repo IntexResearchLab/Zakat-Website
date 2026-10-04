@@ -1,7 +1,7 @@
 import type { ServerResponse } from 'node:http'
-import { getCampaignTitle, getServiceClient, isUuid, type Donation } from '../_lib/db.js'
-import { buildReceiptPdf, receiptFileName } from '../_lib/receipt.js'
-import { sendJson, type ApiRequest } from '../_lib/sslcommerz.js'
+import { getCampaignTitle, getServiceClient, isUuid, type Donation } from '../../_lib/db.js'
+import { buildReceiptPdf, receiptFileName } from '../../_lib/receipt.js'
+import { sendJson, type ApiRequest } from '../../_lib/sslcommerz.js'
 
 // Downloads the digital receipt PDF. Used by donors and by the admin when printing a copy to sign.
 export default async function handler(req: ApiRequest, res: ServerResponse) {

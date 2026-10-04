@@ -7,9 +7,9 @@ import {
   requireAdmin,
   type Donation,
   type PaymentMethod,
-} from '../_lib/db.js'
-import { deliverReceipt } from '../_lib/donations.js'
-import { MAX_DONATION_BDT, getSiteUrl, readBody, sendJson, type ApiRequest } from '../_lib/sslcommerz.js'
+} from '../../_lib/db.js'
+import { deliverReceipt } from '../../_lib/donations.js'
+import { MAX_DONATION_BDT, getSiteUrl, readBody, sendJson, type ApiRequest } from '../../_lib/sslcommerz.js'
 
 const allowedCategories = ['default', 'zakat', 'education', 'healthcare', 'livelihood']
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/

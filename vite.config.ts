@@ -15,7 +15,17 @@ const localApiFunctions = (): Plugin => ({
       }
 
       try {
-        const module = await server.ssrLoadModule(`/api/${route}.ts`)
+        let module
+        try {
+          module = await server.ssrLoadModule(`/api/${route}.ts`)
+        } catch (error) {
+          // Like Vercel, fall back to a shared "[action].ts" function in the same folder.
+          const folder = route.split('/').slice(0, -1).join('/')
+          if ((error as { code?: string }).code !== 'ERR_LOAD_URL' || !folder) {
+            throw error
+          }
+          module = await server.ssrLoadModule(`/api/${folder}/[action].ts`)
+        }
         await module.default(req, res)
       } catch (error) {
         if ((error as { code?: string }).code === 'ERR_LOAD_URL') {

@@ -1,7 +1,7 @@
 import type { ServerResponse } from 'node:http'
-import { getServiceClient, isUuid, requireAdmin, type Donation } from '../_lib/db.js'
-import { deliverReceipt } from '../_lib/donations.js'
-import { getSiteUrl, readBody, sendJson, type ApiRequest } from '../_lib/sslcommerz.js'
+import { getServiceClient, isUuid, requireAdmin, type Donation } from '../../_lib/db.js'
+import { deliverReceipt } from '../../_lib/donations.js'
+import { getSiteUrl, readBody, sendJson, type ApiRequest } from '../../_lib/sslcommerz.js'
 
 // Admin: email the digital receipt again. For a donation held for review, this also
 // approves it as paid, which assigns its receipt number.
