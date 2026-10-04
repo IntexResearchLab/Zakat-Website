@@ -1,10 +1,11 @@
 import Reveal from '../reusables/Reveal'
 import { useTranslation } from 'react-i18next'
 import { getTestimonialCards } from './data'
+import { fromTranslations, useTestimonials } from '../../lib/testimonials'
 
 function OpinionsTestimonialGrid() {
   const { t } = useTranslation()
-  const testimonialCards = getTestimonialCards(t)
+  const testimonialCards = useTestimonials('beneficiary', fromTranslations(getTestimonialCards(t)))
 
   return (
     <section className="bg-white py-18 sm:py-22">
@@ -21,15 +22,15 @@ function OpinionsTestimonialGrid() {
         <Reveal className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3" delay={120}>
           {testimonialCards.map((card) => (
             <article
-              key={card.name}
+              key={card.id}
               className="rounded-[1.4rem] border border-[#dbe7ee] bg-[#fbfdff] p-6 shadow-[0_14px_30px_rgba(15,23,42,0.04)]"
             >
-              <p className="font-serif text-[1.7rem] leading-tight tracking-[-0.03em] text-[#14324d]">
-                {card.title}
-              </p>
-              <p className="mt-4 text-[1rem] leading-[1.8] text-[#5f7280]">
-                “{card.quote}”
-              </p>
+              {card.headline ? (
+                <p className="font-serif text-[1.7rem] leading-tight tracking-[-0.03em] text-[#14324d]">
+                  {card.headline}
+                </p>
+              ) : null}
+              <p className="mt-4 text-[1rem] leading-[1.8] text-[#5f7280]">“{card.quote}”</p>
               <div className="mt-5 flex flex-wrap gap-2">
                 {card.tags.map((tag) => (
                   <span

@@ -1,11 +1,19 @@
 import { useTranslation } from 'react-i18next'
 import Reveal from '../reusables/Reveal'
+import { fromTranslations, useTestimonials } from '../../lib/testimonials'
 
 function DonateStories() {
   const { t } = useTranslation()
-  const stories = t('donate.stories.items', {
-    returnObjects: true,
-  }) as Array<{ quote: string; name: string; role: string }>
+  const stories = useTestimonials(
+    'beneficiary',
+    fromTranslations(
+      t('donate.stories.items', { returnObjects: true }) as Parameters<typeof fromTranslations>[0],
+    ),
+  ).slice(0, 3)
+
+  if (!stories.length) {
+    return null
+  }
 
   return (
     <section className="bg-[#fbfdfe] py-20 sm:py-24">
@@ -26,14 +34,16 @@ function DonateStories() {
           {stories.map((story) => (
             <article
               className="rounded-[1.3rem] border border-[#dbe7ee] bg-white p-7 shadow-[0_14px_34px_rgba(15,23,42,0.05)]"
-              key={story.name}
+              key={story.id}
             >
               <p className="font-serif text-[1.2rem] italic leading-[1.75] text-[#26455f]">
                 “{story.quote}”
               </p>
               <div className="mt-6 border-t border-[#e4edf3] pt-5">
                 <p className="text-[0.98rem] font-bold text-[#14324d]">{story.name}</p>
-                <p className="mt-1 text-[0.9rem] leading-[1.65] text-[#647783]">{story.role}</p>
+                <p className="mt-1 text-[0.9rem] leading-[1.65] text-[#647783]">
+                  {[story.role, story.location].filter(Boolean).join(', ')}
+                </p>
               </div>
             </article>
           ))}

@@ -2531,6 +2531,11 @@
         "icon": "gallery"
       },
       {
+        "label": "Testimonials",
+        "href": "/admin/testimonials",
+        "icon": "testimonials"
+      },
+      {
         "label": "Executives",
         "href": "/admin/executives",
         "icon": "executives"
@@ -3029,6 +3034,66 @@
       "deleteConfirm": "Delete the message from {{name}}? This cannot be undone.",
       "replySubject": "Re: your message to Alokayon",
       "replyGreeting": "Dear {{name}},"
+    },
+    "testimonials": {
+      "eyebrow": "Testimonials",
+      "title": "Stories and testimonials",
+      "description": "Quotes from beneficiaries and donors shown across the website. Add both English and Bangla so each visitor reads them in their language.",
+      "new": "Add a quote",
+      "newTitle": "Add a quote",
+      "editTitle": "Edit quote",
+      "import": "Import the current quotes",
+      "importing": "Importing...",
+      "importConfirm": "Copy the quotes that are on the website today (English and Bangla) into this list so you can edit them?",
+      "imported": "{{count}} quotes imported. You can now edit, hide or reorder them.",
+      "tabs": {
+        "beneficiary": "Beneficiaries",
+        "donor": "Donors"
+      },
+      "kinds": {
+        "beneficiary": "Beneficiary",
+        "donor": "Donor"
+      },
+      "where": {
+        "beneficiary": "Shown on Voices of Impact, and the first three on the Donate page. Until you add any, the website shows its built-in quotes.",
+        "donor": "Shown on Our Donors, and the first three on the Donate page. Until you add any, the website shows its built-in quotes."
+      },
+      "fields": {
+        "kind": "Type of quote",
+        "name": "Name (English)",
+        "nameBn": "Name (Bangla)",
+        "roleEn": "Role or description (English)",
+        "roleBn": "Role or description (Bangla)",
+        "locationEn": "Location (English)",
+        "locationBn": "Location (Bangla)",
+        "quoteEn": "Quote (English)",
+        "quoteBn": "Quote (Bangla)",
+        "headlineEn": "Headline (English)",
+        "headlineBn": "Headline (Bangla)",
+        "tagsEn": "Tags, separated by commas (English)",
+        "tagsBn": "Tags, separated by commas (Bangla)",
+        "showOnHome": "Show this quote in the home page carousel"
+      },
+      "optionalHelp": "Only the English name and quote are required. Headlines and tags appear on the Voices of Impact cards; the headline is also the label in the home page carousel.",
+      "save": "Save quote",
+      "saving": "Saving...",
+      "cancel": "Cancel",
+      "edit": "Edit",
+      "delete": "Delete",
+      "addToHome": "Show on home",
+      "removeFromHome": "Remove from home",
+      "hidden": "Hidden",
+      "onHome": "On home page",
+      "noBangla": "No Bangla yet",
+      "created": "Quote from {{name}} added.",
+      "updated": "Quote from {{name}} updated.",
+      "deleted": "Quote from {{name}} deleted.",
+      "deleteConfirm": "Delete the quote from {{name}}? This cannot be undone.",
+      "loading": "Loading quotes...",
+      "empty": "No quotes of this type yet.",
+      "errors": {
+        "required": "Please enter at least the English name and quote."
+      }
     }
   },
   "legal": {

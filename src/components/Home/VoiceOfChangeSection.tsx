@@ -2,15 +2,25 @@ import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import Reveal from '../reusables/Reveal'
+import { fromTranslations, useTestimonials } from '../../lib/testimonials'
 
 function VoiceOfChangeSection() {
   const { t } = useTranslation()
   const [activeIndex, setActiveIndex] = useState(0)
-  const testimonials = t('home.voices.testimonials', {
-    returnObjects: true,
-  }) as Array<{ category: string; quote: string; name: string; role: string; location: string }>
+  const testimonials = useTestimonials(
+    'home',
+    fromTranslations(
+      t('home.voices.testimonials', { returnObjects: true }) as Parameters<
+        typeof fromTranslations
+      >[0],
+    ),
+  )
 
   useEffect(() => {
+    if (testimonials.length < 2) {
+      return
+    }
+
     const interval = window.setInterval(() => {
       setActiveIndex((current) => (current + 1) % testimonials.length)
     }, 5000)
@@ -18,7 +28,9 @@ function VoiceOfChangeSection() {
     return () => window.clearInterval(interval)
   }, [testimonials.length])
 
-  const activeTestimonial = testimonials[activeIndex]
+  // The list can shrink when admin-managed quotes load, so keep the index in range.
+  const currentIndex = activeIndex % Math.max(testimonials.length, 1)
+  const activeTestimonial = testimonials[currentIndex]
 
   const handlePrevious = () => {
     setActiveIndex((current) => (current - 1 + testimonials.length) % testimonials.length)
@@ -26,6 +38,10 @@ function VoiceOfChangeSection() {
 
   const handleNext = () => {
     setActiveIndex((current) => (current + 1) % testimonials.length)
+  }
+
+  if (!activeTestimonial) {
+    return null
   }
 
   return (
@@ -47,18 +63,20 @@ function VoiceOfChangeSection() {
           <div className="flex flex-col gap-8">
             <div className="flex items-center justify-between gap-4">
               <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#115b82]">
-                {activeTestimonial.category}
+                {activeTestimonial.headline}
               </p>
-              <div className="hidden items-center gap-2 sm:flex">
+              <div
+                className={`items-center gap-2 ${testimonials.length > 1 ? 'hidden sm:flex' : 'hidden'}`}
+              >
                 {testimonials.map((testimonial, index) => (
                   <button
                     aria-label={t('home.voices.showTestimonial', { index: index + 1 })}
                     className={`h-2.5 rounded-full transition-all ${
-                      index === activeIndex
+                      index === currentIndex
                         ? 'w-8 bg-[#115b82]'
                         : 'w-2.5 bg-[#d3e1ea] hover:bg-[#b8cddd]'
                     }`}
-                    key={testimonial.category}
+                    key={testimonial.id}
                     onClick={() => setActiveIndex(index)}
                     type="button"
                   />
@@ -72,16 +90,16 @@ function VoiceOfChangeSection() {
 
             <div className="flex flex-col gap-4 border-t border-[#e7eef3] pt-5 sm:flex-row sm:items-center sm:justify-between">
               <div>
-                <p className="text-base font-bold text-[#14324d]">
-                  {activeTestimonial.name}
-                </p>
+                <p className="text-base font-bold text-[#14324d]">{activeTestimonial.name}</p>
                 <p className="mt-1 text-sm text-[#5d6d78]">
                   {activeTestimonial.role}
                   {activeTestimonial.location ? `, ${activeTestimonial.location}` : ''}
                 </p>
               </div>
 
-              <div className="flex items-center gap-3 self-start sm:self-auto">
+              <div
+                className={`flex items-center gap-3 self-start sm:self-auto ${testimonials.length > 1 ? '' : 'invisible'}`}
+              >
                 <button
                   aria-label={t('home.voices.previous')}
                   className="hover-lift-soft flex h-9 w-9 items-center justify-center rounded-full border border-[#d8e5ee] bg-[#fbfdff] text-[#5d6d78] transition hover:border-[#c4d8e6] hover:text-[#14324d]"
