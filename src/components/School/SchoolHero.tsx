@@ -19,7 +19,7 @@ function SchoolHero() {
           <p className="mt-8 text-sm font-bold uppercase tracking-[0.2em] text-[#115b82]">
             {t('school.hero.eyebrow')}
           </p>
-          <h1 className="mt-5 max-w-[12ch] font-serif text-[3rem] font-semibold leading-[0.98] tracking-[-0.05em] text-[#101d2b] sm:text-[4.2rem]">
+          <h1 className="mt-5 max-w-[12ch] hyphens-auto font-serif [overflow-wrap:anywhere] text-[3rem] font-semibold leading-[0.98] tracking-[-0.05em] text-[#101d2b] sm:text-[4.2rem]">
             {t('school.hero.title')}
           </h1>
           <p className="mt-8 max-w-[34rem] text-[1.03rem] leading-[1.9] text-[#5d6d78] sm:text-[1.06rem]">

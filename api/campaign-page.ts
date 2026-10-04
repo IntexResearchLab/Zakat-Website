@@ -57,30 +57,31 @@ export default async function handler(req: ApiRequest, res: ServerResponse) {
       status = 404
     } else {
       const title = escapeAttribute(`${data.title_en} | ${siteName}`)
-      const description = escapeAttribute(data.summary_en)
+      const description = escapeAttribute(data.summary_en ?? '')
       const url = escapeAttribute(`${siteUrl}/campaigns/${data.slug}`)
 
       html = html
-        .replace(/<title>[^<]*<\/title>/, `<title>${title}</title>`)
+        // Function replacements, so a "$" in an appeal's text is not read as a replacement pattern.
+        .replace(/<title>[^<]*<\/title>/, () => `<title>${title}</title>`)
         .replace(
           /<meta\s+name="description"\s+content="[^"]*"\s*\/?>/,
-          `<meta name="description" content="${description}" />`,
+          () => `<meta name="description" content="${description}" />`,
         )
         .replace(
           /<meta\s+property="og:title"\s+content="[^"]*"\s*\/?>/,
-          `<meta property="og:title" content="${title}" />`,
+          () => `<meta property="og:title" content="${title}" />`,
         )
         .replace(
           /<meta\s+property="og:description"\s+content="[^"]*"\s*\/?>/,
-          `<meta property="og:description" content="${description}" />`,
+          () => `<meta property="og:description" content="${description}" />`,
         )
         .replace(
           /<meta\s+property="og:url"\s+content="[^"]*"\s*\/?>/,
-          `<meta property="og:url" content="${url}" />`,
+          () => `<meta property="og:url" content="${url}" />`,
         )
         .replace(
           /<link\s+rel="canonical"\s+href="[^"]*"\s*\/?>/,
-          `<link rel="canonical" href="${url}" />`,
+          () => `<link rel="canonical" href="${url}" />`,
         )
 
       if (data.image_url) {
@@ -88,12 +89,12 @@ export default async function handler(req: ApiRequest, res: ServerResponse) {
         html = html
           .replace(
             /<meta\s+property="og:image"\s+content="[^"]*"\s*\/?>/,
-            `<meta property="og:image" content="${escapeAttribute(data.image_url)}" />`,
+            () => `<meta property="og:image" content="${escapeAttribute(data.image_url)}" />`,
           )
           .replace(/\s*<meta\s+property="og:image:(?:width|height)"\s+content="[^"]*"\s*\/?>/g, '')
           .replace(
             /<meta\s+property="og:image:alt"\s+content="[^"]*"\s*\/?>/,
-            `<meta property="og:image:alt" content="${escapeAttribute(data.title_en)}" />`,
+            () => `<meta property="og:image:alt" content="${escapeAttribute(data.title_en)}" />`,
           )
       }
     }

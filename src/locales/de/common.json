@@ -159,12 +159,12 @@
         },
         {
           "label": "bKash: 01925124019",
-          "href": "tel:01925124019",
+          "href": "tel:+8801925124019",
           "external": true
         },
         {
           "label": "Nagad: 01779577828",
-          "href": "tel:01779577828",
+          "href": "tel:+8801779577828",
           "external": true
         }
       ],
@@ -414,12 +414,12 @@
           {
             "label": "bKash / Kontakt",
             "value": "01925124019",
-            "href": "tel:01925124019"
+            "href": "tel:+8801925124019"
           },
           {
             "label": "Nagad / Kontakt",
             "value": "01779577828",
-            "href": "tel:01779577828"
+            "href": "tel:+8801779577828"
           }
         ]
       },

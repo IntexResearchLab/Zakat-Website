@@ -187,7 +187,12 @@ export const validatePayment = async (valId: string) => {
     format: 'json',
   })
 
-  const response = await fetch(`${config.baseUrl}/validator/api/validationserverAPI.php?${params}`)
+  const response = await fetch(`${config.baseUrl}/validator/api/validationserverAPI.php?${params}`, {
+    signal: AbortSignal.timeout(10_000),
+  })
+  if (!response.ok) {
+    throw new Error(`validation API returned ${response.status}`)
+  }
   return (await response.json()) as ValidationResult
 }
 

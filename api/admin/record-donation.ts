@@ -45,7 +45,8 @@ export default async function handler(req: ApiRequest, res: ServerResponse) {
     const method = String(body.method) as PaymentMethod
     const category = allowedCategories.includes(String(body.category)) ? String(body.category) : 'default'
     const receivedOn = String(body.receivedOn ?? '')
-    const today = new Date().toISOString().slice(0, 10)
+    // Admins enter dates in Bangladesh time; UTC would reject today's date before 6 am there.
+    const today = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Dhaka' })
 
     if (!Number.isFinite(amount) || amount <= 0 || amount > MAX_DONATION_BDT * 20) {
       return sendJson(res, 400, { error: 'invalid_amount' })

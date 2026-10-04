@@ -95,7 +95,7 @@ function LegalPage({ policy }: LegalPageProps) {
             </dd>
             <dt className="font-semibold text-[#14324d]">{t('legal.contact.phoneLabel')}</dt>
             <dd>
-              <a className="text-[#115b82] underline-offset-4 hover:underline" href="tel:01925124019">
+              <a className="text-[#115b82] underline-offset-4 hover:underline" href="tel:+8801925124019">
                 01925124019
               </a>
             </dd>

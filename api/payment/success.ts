@@ -22,7 +22,16 @@ export default async function handler(req: ApiRequest, res: ServerResponse) {
       return redirect(res, `${siteUrl}/donate/failed`)
     }
 
-    const validation = await validatePayment(body.val_id)
+    let validation
+    try {
+      validation = await validatePayment(body.val_id)
+    } catch (error) {
+      // SSLCommerz could not be reached, which says nothing about the payment itself. The donor may
+      // have paid, so show "being verified" rather than a failure; the IPN confirms it later.
+      console.error('[payment/success] validation unavailable', transactionId, error)
+      const params = new URLSearchParams({ tran_id: transactionId, review: '1' })
+      return redirect(res, `${siteUrl}/donate/success?${params}`)
+    }
 
     if (!isValidatedPayment(validation, transactionId)) {
       console.warn('[payment/success] validation failed', transactionId, validation.status)

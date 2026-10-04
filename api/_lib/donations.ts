@@ -1,5 +1,5 @@
 import { getServiceClient, type Donation } from './db.js'
-import { sendReceiptEmail } from './email.js'
+import { sendReceiptEmail, sendSignedRequestNotice } from './email.js'
 import type { ValidationResult } from './sslcommerz.js'
 
 // Both the browser redirect (success) and the server notification (IPN) confirm payments.
@@ -85,11 +85,17 @@ export const confirmDonation = async (
     console.warn('[donations] amount mismatch', tranId, donation.amount, validation.amount)
   }
 
-  if (updated.status !== 'paid') {
-    return updated as Donation
+  const confirmed =
+    updated.status === 'paid' ? (await deliverReceipt(updated as Donation, siteUrl)).donation : (updated as Donation)
+
+  // A hand-signed copy ticked on the donate form needs the same notice as one requested later.
+  if (confirmed.signed_receipt_status === 'requested') {
+    await sendSignedRequestNotice(confirmed, siteUrl).catch((noticeError) =>
+      console.error('[donations] signed receipt notice failed', tranId, noticeError),
+    )
   }
 
-  return (await deliverReceipt(updated as Donation, siteUrl)).donation
+  return confirmed
 }
 
 export const markDonationClosed = async (tranId: string, status: 'failed' | 'cancelled') => {

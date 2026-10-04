@@ -1,5 +1,5 @@
 import type { ServerResponse } from 'node:http'
-import { createHash } from 'node:crypto'
+import { createHmac } from 'node:crypto'
 import { getServiceClient } from './_lib/db.js'
 import { escapeHtml, layout, sendEmail } from './_lib/email.js'
 import { getSiteUrl, readBody, sendJson, type ApiRequest } from './_lib/sslcommerz.js'
@@ -7,6 +7,9 @@ import { getSiteUrl, readBody, sendJson, type ApiRequest } from './_lib/sslcomme
 const topics = ['general', 'donation', 'zakat', 'volunteer', 'partnership', 'other']
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 const maxPerHourFromOneSender = 5
+// Above this many messages an hour from everyone together, messages are still saved for the
+// inbox but the team is no longer emailed about each one, so a spam run cannot flood the mailbox.
+const maxNoticesPerHour = 20
 // Real people take a few seconds to fill in the form; most bots post immediately.
 const minFillTimeMs = 3000
 
@@ -21,7 +24,9 @@ const hashIp = (req: ApiRequest) => {
     .split(',')[0]
     .trim()
   const ip = forwarded || req.socket.remoteAddress || 'unknown'
-  return createHash('sha256').update(`alokayon-contact:${ip}`).digest('hex').slice(0, 32)
+  // Keyed with a server secret: a plain hash of an IPv4 address can be reversed by trying them all.
+  const secret = process.env.CONTACT_IP_SECRET || process.env.SUPABASE_SERVICE_ROLE_KEY || ''
+  return createHmac('sha256', `alokayon-contact:${secret}`).update(ip).digest('hex').slice(0, 32)
 }
 
 // Saves a contact form message for the admin inbox and emails the team about it.
@@ -93,7 +98,12 @@ export default async function handler(req: ApiRequest, res: ServerResponse) {
 
     // The message is already saved, so a failed notification only means the team checks the inbox.
     const notifyTo = process.env.ADMIN_NOTIFY_EMAIL
-    if (notifyTo) {
+    const { count: recentTotal } = await client
+      .from('contact_messages')
+      .select('id', { count: 'exact', head: true })
+      .gte('created_at', oneHourAgo)
+
+    if (notifyTo && (recentTotal ?? 0) <= maxNoticesPerHour) {
       await sendEmail({
         to: notifyTo,
         replyTo: email,
