@@ -2853,7 +2853,8 @@
       "labels": {
         "goldPricePerGram": "Gold price per gram (22 carat, BDT)",
         "silverPricePerGram": "Silver price per gram (BDT)",
-        "metalPricesUpdated": "Prices last checked on"
+        "metalPricesUpdated": "Prices last checked on",
+        "medicalCasesYearly": "Medical cases supported each year"
       }
     },
     "donations": {
@@ -3194,8 +3195,9 @@
           "heading": "Information we collect",
           "bullets": [
             "Donation details you provide, such as your name, email address, phone number, donation amount, and the program you choose to support.",
-            "Messages you send us by email or phone.",
+            "Messages you send us by email, by phone, or through the contact form on this website.",
             "Payment information is collected and processed by our payment gateway, SSLCommerz. Alokayon does not receive or store your full card number, PIN, or mobile banking password.",
+            "When you use the contact form, a one-way code made from your IP address (not the address itself), used only to stop repeated spam messages.",
             "Basic technical information, such as your selected language, which is stored in your own browser, and standard server logs kept by our hosting providers."
           ]
         },

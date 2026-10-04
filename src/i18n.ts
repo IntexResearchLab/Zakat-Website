@@ -24,7 +24,25 @@ const loadLanguage = async (language: SupportedLanguage) => {
   i18n.addResourceBundle(language, 'translation', resources)
 }
 
+// Bangla fonts are only requested once someone reads in Bangla. Google serves them split by
+// script, so only the Bengali glyph files are downloaded.
+const loadBanglaFonts = () => {
+  if (typeof document === 'undefined' || document.getElementById('bangla-fonts')) {
+    return
+  }
+
+  const link = document.createElement('link')
+  link.id = 'bangla-fonts'
+  link.rel = 'stylesheet'
+  link.href =
+    'https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;700&family=Noto+Serif+Bengali:wght@500;600&display=swap'
+  document.head.appendChild(link)
+}
+
 export const changeLanguage = async (language: SupportedLanguage) => {
+  if (language === 'bn') {
+    loadBanglaFonts()
+  }
   await loadLanguage(language)
   await i18n.changeLanguage(language)
 }

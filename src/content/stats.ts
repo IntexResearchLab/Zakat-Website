@@ -71,6 +71,10 @@ export const statsInventory = {
       value: '1.3M+ BDT',
       description: 'Approximate public-facing annual distribution total.',
     },
+    medicalCasesYearly: {
+      value: '25+',
+      description: 'Medical cases supported each year, shown on the Programs page.',
+    },
     executiveCommitteeMembers: {
       value: '14',
       description: 'Number of executive committee members shown on the site.',
@@ -267,7 +271,7 @@ export const getProgramsImpactStats = (t: TFunction): UiStat[] =>
       getStatValue('studentsSupported'),
       getStatValue('elderlySupported'),
       getStatValue('widowsSupported'),
-      '25+',
+      getStatValue('medicalCasesYearly'),
     ][index],
     label: item.label,
   }))

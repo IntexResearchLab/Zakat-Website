@@ -2657,5 +2657,214 @@
       "phoneAlt": "Telefon (Nagad)",
       "address": "Büroadresse"
     }
+  },
+  "legal": {
+    "eyebrow": "Richtlinien",
+    "lastUpdatedLabel": "Zuletzt aktualisiert",
+    "lastUpdated": "4. Oktober 2026",
+    "relatedLabel": "Weitere Richtlinien:",
+    "contact": {
+      "title": "Kontakt",
+      "intro": "Wenn Sie Fragen zu dieser Richtlinie haben, kontaktieren Sie uns bitte über die folgenden Angaben.",
+      "organizationLabel": "Organisation",
+      "organization": "Alokayon, registriert beim Department of Social Services, Ministerium für Soziales, Regierung von Bangladesch (2019)",
+      "addressLabel": "Eingetragene Adresse",
+      "emailLabel": "E-Mail",
+      "phoneLabel": "Telefon"
+    },
+    "terms": {
+      "title": "Allgemeine Geschäftsbedingungen",
+      "intro": "Diese Allgemeinen Geschäftsbedingungen gelten für alle, die die Website von Alokayon besuchen oder darüber spenden. Mit der Nutzung dieser Website oder einer Spende stimmen Sie diesen Bedingungen zu. Bitte lesen Sie sie sorgfältig.",
+      "sections": [
+        {
+          "heading": "Über Alokayon",
+          "paragraphs": [
+            "Alokayon ist eine gemeinnützige, parteipolitisch unabhängige Hilfsorganisation in Bangladesch. Sie begann 2011 informell und wurde 2019 beim Department of Social Services des Ministeriums für Soziales offiziell registriert. Alokayon unterstützt benachteiligte Kinder, Witwen, ältere Menschen und bedürftige Familien durch Programme in den Bereichen Bildung, Nothilfe, Gesundheit und Lebensunterhalt."
+          ]
+        },
+        {
+          "heading": "Nutzung dieser Website",
+          "bullets": [
+            "Nutzen Sie diese Website nur für rechtmäßige Zwecke und so, dass weder der Website noch anderen Besuchern geschadet wird.",
+            "Machen Sie bei einer Spende oder Kontaktaufnahme richtige und vollständige Angaben.",
+            "Versuchen Sie nicht, ohne Berechtigung auf die Verwaltungsbereiche der Website zuzugreifen."
+          ]
+        },
+        {
+          "heading": "Spenden",
+          "paragraphs": [
+            "Alle Spenden, einschließlich Zakat und Sadaqah, sind freiwillig. Beträge werden in Bangladesch-Taka (BDT) abgewickelt, sofern nicht anders angegeben.",
+            "Alokayon verwendet Spenden für seine gemeinnützigen Programme. Wenn Sie ein bestimmtes Programm wählen, verwenden wir Ihre Spende für dieses Programm. Ist dieses Programm bereits vollständig finanziert oder kann es nicht mehr durchgeführt werden, können wir die Spende für ein ähnliches Programm mit dem größten Bedarf verwenden."
+          ]
+        },
+        {
+          "heading": "Zahlungen",
+          "paragraphs": [
+            "Online-Zahlungen werden sicher von SSLCommerz abgewickelt, einem lizenzierten Zahlungsanbieter in Bangladesch. Alokayon erhält oder speichert weder Ihre vollständige Kartennummer noch Ihre PIN oder Ihr Mobile-Banking-Passwort.",
+            "Mit einer Zahlung bestätigen Sie, dass Sie berechtigt sind, die gewählte Karte, das Bankkonto oder die mobile Geldbörse zu verwenden. Ihre Bank oder Ihr Zahlungsanbieter kann eigene Gebühren erheben."
+          ]
+        },
+        {
+          "heading": "Bestätigung und Quittungen",
+          "paragraphs": [
+            "Nach einer erfolgreichen Spende erhalten Sie per E-Mail eine offizielle Quittung als PDF. Sie können auch eine handschriftlich unterschriebene Quittung anfordern, die unser Team unterschreibt und Ihnen per E-Mail sendet."
+          ]
+        },
+        {
+          "heading": "Erstattungen",
+          "paragraphs": [
+            "Erstattungen werden gemäß unserer Rückgabe- und Erstattungsrichtlinie behandelt, die Bestandteil dieser Allgemeinen Geschäftsbedingungen ist."
+          ]
+        },
+        {
+          "heading": "Inhalte und geistiges Eigentum",
+          "paragraphs": [
+            "Texte, Fotos, Logos und andere Inhalte dieser Website gehören Alokayon oder werden mit Erlaubnis verwendet. Sie dürfen unsere Inhalte für nicht-kommerzielle Zwecke mit Nennung von Alokayon teilen, sie aber ohne unsere schriftliche Erlaubnis weder verändern noch verkaufen."
+          ]
+        },
+        {
+          "heading": "Links zu anderen Websites",
+          "paragraphs": [
+            "Diese Website kann auf andere Websites verlinken, zum Beispiel auf Zahlungsanbieter. Alokayon ist nicht für die Inhalte oder den Datenschutz dieser Websites verantwortlich."
+          ]
+        },
+        {
+          "heading": "Haftungsbeschränkung",
+          "paragraphs": [
+            "Wir bemühen uns, die Informationen auf dieser Website richtig und die Website verfügbar zu halten, können aber nicht garantieren, dass sie immer fehlerfrei oder ununterbrochen erreichbar ist. Soweit gesetzlich zulässig, haftet Alokayon nicht für mittelbare Schäden, die aus der Nutzung dieser Website entstehen."
+          ]
+        },
+        {
+          "heading": "Anwendbares Recht",
+          "paragraphs": [
+            "Diese Bedingungen unterliegen dem Recht von Bangladesch. Für Streitigkeiten sind die Gerichte in Dhaka zuständig."
+          ]
+        },
+        {
+          "heading": "Änderungen dieser Bedingungen",
+          "paragraphs": [
+            "Wir können diese Allgemeinen Geschäftsbedingungen von Zeit zu Zeit aktualisieren. Die aktualisierte Fassung wird auf dieser Seite mit einem neuen Datum unter „Zuletzt aktualisiert“ veröffentlicht."
+          ]
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Datenschutzerklärung",
+      "intro": "Alokayon respektiert Ihre Privatsphäre. Diese Datenschutzerklärung erklärt, welche personenbezogenen Daten wir erheben, wenn Sie unsere Website besuchen oder spenden, wie wir sie verwenden und welche Wahlmöglichkeiten Sie haben.",
+      "sections": [
+        {
+          "heading": "Welche Daten wir erheben",
+          "bullets": [
+            "Spendenangaben, die Sie machen, etwa Ihr Name, Ihre E-Mail-Adresse, Telefonnummer, der Spendenbetrag und das Programm, das Sie unterstützen möchten.",
+            "Nachrichten, die Sie uns per E-Mail, telefonisch oder über das Kontaktformular auf dieser Website senden.",
+            "Zahlungsdaten werden von unserem Zahlungsanbieter SSLCommerz erhoben und verarbeitet. Alokayon erhält oder speichert weder Ihre vollständige Kartennummer noch Ihre PIN oder Ihr Mobile-Banking-Passwort.",
+            "Wenn Sie das Kontaktformular nutzen, ein aus Ihrer IP-Adresse erzeugter Einweg-Code (nicht die Adresse selbst), der nur dazu dient, wiederholte Spam-Nachrichten zu verhindern.",
+            "Grundlegende technische Informationen, etwa die gewählte Sprache, die in Ihrem eigenen Browser gespeichert wird, sowie übliche Server-Protokolle unserer Hosting-Anbieter."
+          ]
+        },
+        {
+          "heading": "Wie wir Ihre Daten verwenden",
+          "bullets": [
+            "Um Ihre Spende abzuwickeln und ihren Eingang zu bestätigen.",
+            "Um Quittungen auszustellen und Ihre Fragen zu beantworten.",
+            "Um gesetzlich vorgeschriebene, korrekte Finanz- und Buchhaltungsunterlagen zu führen.",
+            "Um über unsere Arbeit zu berichten. Veröffentlichte Berichte enthalten nur Summen und nennen einzelne Spender nie ohne deren Erlaubnis."
+          ]
+        },
+        {
+          "heading": "Weitergabe Ihrer Daten",
+          "paragraphs": [
+            "Wir verkaufen, vermieten oder tauschen Ihre personenbezogenen Daten nicht. Wir geben sie nur weiter an:"
+          ],
+          "bullets": [
+            "SSLCommerz und die beteiligten Banken und mobilen Finanzdienste, um Ihre Zahlung abzuwickeln.",
+            "Dienstleister, die unsere Website und Daten hosten, nur soweit es für den Betrieb der Website nötig ist.",
+            "Behörden oder Strafverfolgungsbehörden in Bangladesch, wenn das Gesetz es verlangt."
+          ]
+        },
+        {
+          "heading": "Nennung von Spendern",
+          "paragraphs": [
+            "Wir veröffentlichen Ihren Namen, Ihr Foto oder Ihre Kommentare weder auf unserer Website noch in unserem Magazin ohne Ihre Erlaubnis."
+          ]
+        },
+        {
+          "heading": "Datensicherheit",
+          "paragraphs": [
+            "Wir setzen angemessene technische und organisatorische Maßnahmen zum Schutz Ihrer Daten ein, und der Zugriff auf Spenderdaten ist auf befugte Mitarbeitende von Alokayon beschränkt. Keine Übertragung über das Internet ist völlig sicher, aber wir achten sorgfältig auf den Schutz Ihrer Daten."
+          ]
+        },
+        {
+          "heading": "Wie lange wir Ihre Daten aufbewahren",
+          "paragraphs": [
+            "Spendenunterlagen bewahren wir so lange auf, wie es für unsere Buchhaltungs-, Prüfungs- und gesetzlichen Pflichten nötig ist. Andere Daten werden gelöscht, sobald sie nicht mehr benötigt werden."
+          ]
+        },
+        {
+          "heading": "Ihre Wahlmöglichkeiten",
+          "paragraphs": [
+            "Sie können uns kontaktieren, um die über Sie gespeicherten personenbezogenen Daten einzusehen, zu berichtigen oder löschen zu lassen. Wir antworten innerhalb einer angemessenen Frist, sofern wir bestimmte Unterlagen nicht gesetzlich aufbewahren müssen."
+          ]
+        },
+        {
+          "heading": "Datenschutz von Kindern",
+          "paragraphs": [
+            "Unsere Website richtet sich an Erwachsene, die spenden. Wir erheben online nicht wissentlich personenbezogene Daten von Kindern."
+          ]
+        },
+        {
+          "heading": "Änderungen dieser Erklärung",
+          "paragraphs": [
+            "Wir können diese Datenschutzerklärung von Zeit zu Zeit aktualisieren. Die aktualisierte Fassung wird auf dieser Seite mit einem neuen Datum unter „Zuletzt aktualisiert“ veröffentlicht."
+          ]
+        }
+      ]
+    },
+    "refund": {
+      "title": "Rückgabe- und Erstattungsrichtlinie",
+      "intro": "Alokayon verkauft keine physischen Produkte. Diese Richtlinie betrifft daher die Erstattung von Spenden über unsere Website. Da Spenden in der Regel schnell Programmen zugewiesen werden, sind sie grundsätzlich nicht erstattungsfähig, außer in den unten beschriebenen Fällen.",
+      "sections": [
+        {
+          "heading": "Wann Sie eine Erstattung beantragen können",
+          "bullets": [
+            "Ihnen wurde dieselbe Spende mehrfach berechnet (doppelte Zahlung).",
+            "Sie haben versehentlich einen falschen Betrag eingegeben.",
+            "Ihr Konto wurde belastet, aber die Spende wurde nicht abgeschlossen.",
+            "Ihre Karte oder Ihr Konto wurde ohne Ihre Erlaubnis verwendet."
+          ]
+        },
+        {
+          "heading": "So beantragen Sie eine Erstattung",
+          "paragraphs": [
+            "Schreiben Sie innerhalb von 7 Tagen nach der Spende an alokayon2019@gmail.com und geben Sie an:"
+          ],
+          "bullets": [
+            "Ihren vollständigen Namen und Ihre Telefonnummer.",
+            "Datum und Betrag der Spende.",
+            "Die Transaktions-ID und die Zahlungsart (Karte, bKash, Nagad, Bank usw.).",
+            "Den Grund für den Erstattungsantrag."
+          ]
+        },
+        {
+          "heading": "Prüfung und Bearbeitungszeit",
+          "paragraphs": [
+            "Wir prüfen Ihren Antrag und antworten innerhalb von 3 Werktagen.",
+            "Genehmigte Erstattungen werden innerhalb von 7 bis 10 Werktagen bearbeitet und auf die ursprüngliche Zahlungsart zurückgezahlt. Je nach Bank oder mobilem Finanzdienst kann es einige zusätzliche Tage dauern, bis der Betrag auf Ihrem Konto erscheint."
+          ]
+        },
+        {
+          "heading": "Zakat-Spenden",
+          "paragraphs": [
+            "Wird eine Zakat-Spende erstattet, wurde dieser Betrag nicht als Zakat in Ihrem Namen verteilt. Bitte bedenken Sie dies, bevor Sie eine Erstattung beantragen."
+          ]
+        },
+        {
+          "heading": "Stornierungen",
+          "paragraphs": [
+            "Wenn Sie versehentlich gespendet haben, kontaktieren Sie uns so schnell wie möglich. Anfragen, die eingehen, bevor die Mittel zugewiesen wurden, können wir leichter lösen."
+          ]
+        }
+      ]
+    }
   }
 }
