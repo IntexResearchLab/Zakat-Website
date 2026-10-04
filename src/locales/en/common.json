@@ -2830,7 +2830,7 @@
       "signedAlert_one": "{{count}} donor is waiting for a hand-signed receipt. Show requests",
       "signedAlert_other": "{{count}} donors are waiting for a hand-signed receipt. Show requests",
       "listTitle": "Donation records",
-      "listIntro": "Donations appear here automatically once SSLCommerz confirms the payment.",
+      "listIntro": "Online donations appear here automatically once SSLCommerz confirms the payment. Record bKash, Nagad, bank and cash donations yourself.",
       "export": "Export CSV",
       "searchPlaceholder": "Search by name, email, phone, receipt or transaction ID",
       "filterLabel": "Filter donations",
@@ -2840,7 +2840,8 @@
         "review": "Needs review",
         "emailFailed": "Receipt not emailed",
         "unpaid": "Not completed",
-        "all": "All"
+        "all": "All",
+        "manual": "Recorded manually"
       },
       "status": {
         "paid": "Received",
@@ -2875,6 +2876,49 @@
       "errors": {
         "emailFailed": "The email couldn't be sent. Check the email settings (Resend) or try again later.",
         "fileType": "Please upload a PDF, JPG or PNG file."
+      },
+      "methods": {
+        "bkash": "bKash",
+        "nagad": "Nagad",
+        "bank": "Bank transfer",
+        "cash": "Cash",
+        "other": "Other",
+        "online": "Online payment"
+      },
+      "recordedBy": "Recorded by {{name}}",
+      "noEmail": "No email address. Download the PDF to print it or send it yourself.",
+      "delete": "Delete this entry",
+      "deleteConfirm": "Delete this donation record? Its receipt number will not be reused.",
+      "deleteYes": "Yes, delete",
+      "deleteNo": "Keep it",
+      "deleted": "Donation record deleted.",
+      "record": {
+        "open": "Record a donation",
+        "title": "Record a donation",
+        "intro": "For donations received by bKash, Nagad, bank transfer or cash. Each one gets a receipt number and counts toward your totals.",
+        "name": "Donor name",
+        "amount": "Amount (BDT)",
+        "method": "Received by",
+        "receivedOn": "Date received",
+        "reference": "Reference (optional)",
+        "referencePlaceholder": "bKash TrxID, bank reference or receipt book number",
+        "category": "Purpose",
+        "email": "Donor email (optional)",
+        "phone": "Donor phone (optional)",
+        "notes": "Notes (optional)",
+        "sendReceipt": "Email the PDF receipt to the donor now",
+        "noEmailNote": "Add an email address to send the donor a receipt. Without one, you can download the PDF afterwards.",
+        "save": "Save donation",
+        "saving": "Saving...",
+        "cancel": "Cancel",
+        "saved": "Donation saved with receipt number {{number}}.",
+        "savedAndEmailed": "Donation saved with receipt number {{number}}, and the receipt was emailed to the donor.",
+        "errors": {
+          "name": "Please enter the donor's name.",
+          "amount": "Please enter an amount greater than zero.",
+          "email": "This email address doesn’t look right. Check it, or leave it empty.",
+          "date": "Please choose the date the donation was received. It can’t be in the future."
+        }
       }
     }
   },

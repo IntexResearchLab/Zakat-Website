@@ -39,6 +39,10 @@ export default async function handler(req: ApiRequest, res: ServerResponse) {
     }
 
     const donation = data as Donation
+
+    if (!donation.donor_email) {
+      return sendJson(res, 400, { error: 'no_email' })
+    }
     const { data: file, error: downloadError } = await client.storage.from(BUCKET).download(path)
 
     if (downloadError || !file) {

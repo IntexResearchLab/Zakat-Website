@@ -30,6 +30,10 @@ export default async function handler(req: ApiRequest, res: ServerResponse) {
       return sendJson(res, 404, { error: 'not_found' })
     }
 
+    if (!donation.donor_email) {
+      return sendJson(res, 400, { error: 'no_email' })
+    }
+
     if (donation.status === 'review') {
       const { data: approved, error } = await client
         .from('donations')

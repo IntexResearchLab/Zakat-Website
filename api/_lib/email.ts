@@ -1,5 +1,12 @@
 import type { Donation } from './db.js'
-import { buildReceiptPdf, categoryLabels, formatAmount, formatReceiptDate, receiptFileName } from './receipt.js'
+import {
+  buildReceiptPdf,
+  categoryLabels,
+  describePaymentMethod,
+  formatAmount,
+  formatReceiptDate,
+  receiptFileName,
+} from './receipt.js'
 
 // Sends email through the Resend API (https://resend.com/docs/api-reference/emails/send-email).
 
@@ -75,7 +82,8 @@ ${detailRow('Receipt number', donation.receipt_number ?? '-')}
 ${detailRow('Amount', formatAmount(Number(donation.paid_amount ?? donation.amount)))}
 ${detailRow('Purpose', categoryLabels[donation.category] ?? donation.category)}
 ${detailRow('Date', formatReceiptDate(donation.paid_at))}
-${detailRow('Transaction ID', donation.tran_id)}
+${detailRow('Payment method', describePaymentMethod(donation))}
+${detailRow(donation.source === 'manual' ? 'Record ID' : 'Transaction ID', donation.tran_id)}
 </table>`
 
 export const receiptPageUrl = (siteUrl: string, donation: Donation) =>
@@ -83,6 +91,10 @@ export const receiptPageUrl = (siteUrl: string, donation: Donation) =>
 
 // The digital receipt, sent automatically once a payment is confirmed.
 export const sendReceiptEmail = async (donation: Donation, siteUrl: string) => {
+  if (!donation.donor_email) {
+    throw new Error('This donation has no email address.')
+  }
+
   const pdf = await buildReceiptPdf(donation)
   const signedNote =
     donation.signed_receipt_status === 'requested'
@@ -105,6 +117,10 @@ ${signedNote}`),
 
 // Sent when the client uploads the scanned, hand-signed receipt in the admin dashboard.
 export const sendSignedReceiptEmail = async (donation: Donation, file: Attachment) => {
+  if (!donation.donor_email) {
+    throw new Error('This donation has no email address.')
+  }
+
   await sendEmail({
     to: donation.donor_email,
     subject: `Your signed donation receipt ${donation.receipt_number ?? ''} – Alokayon`,
@@ -129,7 +145,7 @@ export const sendSignedRequestNotice = async (donation: Donation, siteUrl: strin
     to,
     subject: `Signed receipt requested – ${donation.receipt_number ?? donation.tran_id}`,
     html: layout(`
-<p style="margin-top:0"><strong>${escapeHtml(donation.donor_name)}</strong> (${escapeHtml(donation.donor_email)}) has asked for a hand-signed receipt.</p>
+<p style="margin-top:0"><strong>${escapeHtml(donation.donor_name)}</strong> (${escapeHtml(donation.donor_email ?? donation.donor_phone ?? 'no contact details')}) has asked for a hand-signed receipt.</p>
 ${donationSummary(donation)}
 <p>${button(`${siteUrl}/admin/donations`, 'Open donations in the admin')}</p>`),
   })

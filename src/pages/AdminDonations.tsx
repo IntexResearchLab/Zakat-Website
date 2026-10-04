@@ -2,50 +2,46 @@ import { useEffect, useMemo, useState, type ChangeEvent } from 'react'
 import { useTranslation } from 'react-i18next'
 import AdminShellLayout from '../components/Admin/AdminShellLayout'
 import { getFriendlyErrorMessage } from '../lib/adminErrors'
+import { callAdminApi, type AdminDonation } from '../lib/adminDonations'
+import RecordDonationForm from '../components/Admin/RecordDonationForm'
 import { supabase } from '../utils/supabase'
 
-type Donation = {
-  id: string
-  tran_id: string
-  status: 'pending' | 'paid' | 'review' | 'failed' | 'cancelled'
-  amount: number
-  paid_amount: number | null
-  category: string
-  donor_name: string
-  donor_email: string
-  donor_phone: string
-  card_type: string | null
-  paid_at: string | null
-  receipt_number: string | null
-  receipt_token: string
-  receipt_sent_at: string | null
-  receipt_error: string | null
-  signed_receipt_status: 'none' | 'requested' | 'sent'
-  signed_receipt_requested_at: string | null
-  signed_receipt_path: string | null
-  signed_receipt_sent_at: string | null
-  created_at: string
-}
+type Donation = AdminDonation
 
-type DonationFilter = 'confirmed' | 'signedRequested' | 'review' | 'emailFailed' | 'unpaid' | 'all'
+type DonationFilter =
+  'confirmed' | 'manual' | 'signedRequested' | 'review' | 'emailFailed' | 'unpaid' | 'all'
 
-const filterKeys: DonationFilter[] = ['confirmed', 'signedRequested', 'review', 'emailFailed', 'unpaid', 'all']
+const filterKeys: DonationFilter[] = [
+  'confirmed',
+  'manual',
+  'signedRequested',
+  'review',
+  'emailFailed',
+  'unpaid',
+  'all',
+]
 const signedReceiptBucket = 'signed-receipts'
 const maxSignedReceiptBytes = 10 * 1024 * 1024
 const signedReceiptTypes = ['application/pdf', 'image/jpeg', 'image/png']
 
-const isConfirmed = (donation: Donation) => donation.status === 'paid' || donation.status === 'review'
+const isConfirmed = (donation: Donation) =>
+  donation.status === 'paid' || donation.status === 'review'
 
 const matchesFilter = (donation: Donation, filter: DonationFilter) => {
   switch (filter) {
     case 'confirmed':
       return isConfirmed(donation)
+    case 'manual':
+      return donation.source === 'manual'
     case 'signedRequested':
       return isConfirmed(donation) && donation.signed_receipt_status === 'requested'
     case 'review':
       return donation.status === 'review'
     case 'emailFailed':
-      return donation.status === 'paid' && !donation.receipt_sent_at
+      // Only donations with an email address can be emailed a receipt.
+      return (
+        donation.status === 'paid' && Boolean(donation.donor_email) && !donation.receipt_sent_at
+      )
     case 'unpaid':
       return !isConfirmed(donation)
     default:
@@ -53,7 +49,8 @@ const matchesFilter = (donation: Donation, filter: DonationFilter) => {
   }
 }
 
-const formatTaka = (value: number) => `৳${value.toLocaleString('en-US', { maximumFractionDigits: 2 })}`
+const formatTaka = (value: number) =>
+  `৳${value.toLocaleString('en-US', { maximumFractionDigits: 2 })}`
 
 const formatDate = (value: string | null) =>
   value
@@ -66,28 +63,20 @@ const formatDate = (value: string | null) =>
       })
     : '-'
 
+// Manual entries only have a date; their stored time (noon in Dhaka) means nothing.
+const formatDay = (value: string | null) =>
+  value
+    ? new Date(value).toLocaleDateString('en-GB', {
+        day: '2-digit',
+        month: 'short',
+        year: 'numeric',
+        timeZone: 'Asia/Dhaka',
+      })
+    : '-'
+
 const donationAmount = (donation: Donation) => Number(donation.paid_amount ?? donation.amount)
 
 const csvCell = (value: unknown) => `"${String(value ?? '').replace(/"/g, '""')}"`
-
-// Calls an admin API function with the signed-in admin's access token.
-const callAdminApi = async (path: string, payload: Record<string, string>) => {
-  const {
-    data: { session },
-  } = await supabase.auth.getSession()
-
-  const response = await fetch(path, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${session?.access_token ?? ''}`,
-    },
-    body: JSON.stringify(payload),
-  })
-  const data = (await response.json().catch(() => ({}))) as { donation?: Donation; error?: string }
-
-  return { ok: response.ok, status: response.status, ...data }
-}
 
 const badgeClass = {
   green: 'border-[#cde7d8] bg-[#f5fbf7] text-[#13703e]',
@@ -105,6 +94,13 @@ function AdminDonations() {
   const [search, setSearch] = useState('')
   const [filter, setFilter] = useState<DonationFilter>('confirmed')
   const [busyId, setBusyId] = useState<string | null>(null)
+  const [isRecording, setIsRecording] = useState(false)
+  const [confirmDeleteId, setConfirmDeleteId] = useState<string | null>(null)
+
+  const describeMethod = (donation: Donation) =>
+    donation.source === 'manual'
+      ? t(`admin.donations.methods.${donation.payment_method ?? 'other'}`)
+      : (donation.card_type ?? t('admin.donations.methods.online'))
 
   const loadDonations = async () => {
     setIsLoading(true)
@@ -138,7 +134,10 @@ function AdminDonations() {
     .reduce((sum, donation) => sum + donationAmount(donation), 0)
   const allTimeTotal = confirmed.reduce((sum, donation) => sum + donationAmount(donation), 0)
   const filterCounts = Object.fromEntries(
-    filterKeys.map((key) => [key, donations.filter((donation) => matchesFilter(donation, key)).length]),
+    filterKeys.map((key) => [
+      key,
+      donations.filter((donation) => matchesFilter(donation, key)).length,
+    ]),
   ) as Record<DonationFilter, number>
 
   const visibleDonations = useMemo(() => {
@@ -148,14 +147,23 @@ function AdminDonations() {
       (donation) =>
         matchesFilter(donation, filter) &&
         (!query ||
-          [donation.donor_name, donation.donor_email, donation.donor_phone, donation.receipt_number, donation.tran_id]
+          [
+            donation.donor_name,
+            donation.donor_email,
+            donation.donor_phone,
+            donation.receipt_number,
+            donation.tran_id,
+            donation.reference,
+          ]
             .filter(Boolean)
             .some((value) => String(value).toLowerCase().includes(query))),
     )
   }, [donations, filter, search])
 
   const replaceDonation = (updated: Donation) =>
-    setDonations((current) => current.map((donation) => (donation.id === updated.id ? updated : donation)))
+    setDonations((current) =>
+      current.map((donation) => (donation.id === updated.id ? updated : donation)),
+    )
 
   const showResult = (ok: boolean, successKey: string, error?: string) => {
     setSuccessMessage(ok ? t(successKey) : '')
@@ -166,8 +174,34 @@ function AdminDonations() {
           ? t('admin.errors.permission')
           : error === 'email_failed'
             ? t('admin.donations.errors.emailFailed')
-            : t('admin.errors.generic'),
+            : error === 'network'
+              ? t('admin.errors.network')
+              : t('admin.errors.generic'),
     )
+  }
+
+  const handleRecorded = (donation: Donation, emailed: boolean) => {
+    setDonations((current) => [donation, ...current])
+    setIsRecording(false)
+    setFilter('confirmed')
+    setErrorMessage('')
+    setSuccessMessage(
+      t(emailed ? 'admin.donations.record.savedAndEmailed' : 'admin.donations.record.saved', {
+        number: donation.receipt_number ?? '',
+      }),
+    )
+  }
+
+  const handleDelete = async (donation: Donation) => {
+    setBusyId(donation.id)
+    const result = await callAdminApi('/api/admin/delete-donation', { id: donation.id })
+
+    if (result.ok) {
+      setDonations((current) => current.filter((item) => item.id !== donation.id))
+    }
+    setConfirmDeleteId(null)
+    showResult(result.ok, 'admin.donations.deleted', result.error)
+    setBusyId(null)
   }
 
   const handleResendReceipt = async (donation: Donation) => {
@@ -176,11 +210,7 @@ function AdminDonations() {
     }
 
     setBusyId(donation.id)
-    const result = await callAdminApi('/api/admin/resend-receipt', { id: donation.id }).catch(() => ({
-      ok: false,
-      error: 'network',
-      donation: undefined,
-    }))
+    const result = await callAdminApi('/api/admin/resend-receipt', { id: donation.id })
 
     if (result.donation) {
       replaceDonation(result.donation)
@@ -227,11 +257,7 @@ function AdminDonations() {
       return
     }
 
-    const result = await callAdminApi('/api/admin/send-signed-receipt', { id: donation.id, path }).catch(() => ({
-      ok: false,
-      error: 'network',
-      donation: undefined,
-    }))
+    const result = await callAdminApi('/api/admin/send-signed-receipt', { id: donation.id, path })
 
     if (result.donation) {
       replaceDonation(result.donation)
@@ -267,8 +293,12 @@ function AdminDonations() {
       'Phone',
       'Amount (BDT)',
       'Purpose',
+      'Source',
       'Payment method',
-      'Transaction ID',
+      'Reference',
+      'Notes',
+      'Recorded by',
+      'Transaction or record ID',
       'Receipt emailed',
       'Signed receipt',
     ]
@@ -281,7 +311,11 @@ function AdminDonations() {
       donation.donor_phone,
       donationAmount(donation),
       t(`donate.main.categories.${donation.category}`, { defaultValue: donation.category }),
-      donation.card_type,
+      donation.source,
+      describeMethod(donation),
+      donation.reference,
+      donation.notes,
+      donation.recorded_by,
       donation.tran_id,
       donation.receipt_sent_at ? 'yes' : 'no',
       donation.signed_receipt_status,
@@ -298,9 +332,17 @@ function AdminDonations() {
 
   const statusBadge = (donation: Donation) => {
     const tone =
-      donation.status === 'paid' ? 'green' : donation.status === 'review' ? 'amber' : donation.status === 'pending' ? 'grey' : 'red'
+      donation.status === 'paid'
+        ? 'green'
+        : donation.status === 'review'
+          ? 'amber'
+          : donation.status === 'pending'
+            ? 'grey'
+            : 'red'
     return (
-      <span className={`rounded-full border px-3 py-1 text-[0.72rem] font-bold uppercase tracking-[0.12em] ${badgeClass[tone]}`}>
+      <span
+        className={`rounded-full border px-3 py-1 text-[0.72rem] font-bold uppercase tracking-[0.12em] ${badgeClass[tone]}`}
+      >
         {t(`admin.donations.status.${donation.status}`)}
       </span>
     )
@@ -319,19 +361,42 @@ function AdminDonations() {
             {formatTaka(monthTotal)}
           </p>
           <p className="mt-2 text-[0.9rem] leading-[1.6] text-[#627581]">
-            {t('admin.donations.allTime', { amount: formatTaka(allTimeTotal), count: confirmed.length })}
+            {t('admin.donations.allTime', {
+              amount: formatTaka(allTimeTotal),
+              count: confirmed.length,
+            })}
           </p>
         </div>
       }
       title={t('admin.donations.title')}
     >
+      {isRecording ? (
+        <RecordDonationForm onCancel={() => setIsRecording(false)} onRecorded={handleRecorded} />
+      ) : (
+        <button
+          className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#13703e] px-6 py-3 text-[0.8rem] font-bold uppercase tracking-[0.14em] text-white shadow-[0_14px_32px_rgba(19,112,62,0.18)] transition hover:bg-[#105f35]"
+          onClick={() => {
+            setSuccessMessage('')
+            setIsRecording(true)
+          }}
+          type="button"
+        >
+          <span aria-hidden="true" className="material-symbols-outlined text-[1.1rem]">
+            add
+          </span>
+          {t('admin.donations.record.open')}
+        </button>
+      )}
+
       {filterCounts.signedRequested ? (
         <button
           className="mt-8 flex w-full items-center gap-3 rounded-[1.1rem] border border-[#f1dfb8] bg-[#fffaf0] px-5 py-4 text-left text-[0.96rem] text-[#6b4a00] transition hover:bg-[#fff5e0]"
           onClick={() => setFilter('signedRequested')}
           type="button"
         >
-          <span aria-hidden="true" className="material-symbols-outlined text-[1.3rem]">draw</span>
+          <span aria-hidden="true" className="material-symbols-outlined text-[1.3rem]">
+            draw
+          </span>
           {t('admin.donations.signedAlert', { count: filterCounts.signedRequested })}
         </button>
       ) : null}
@@ -342,7 +407,9 @@ function AdminDonations() {
             <h2 className="font-serif text-[1.8rem] leading-none tracking-[-0.03em] text-[#14324d]">
               {t('admin.donations.listTitle')}
             </h2>
-            <p className="mt-3 text-[0.96rem] leading-[1.75] text-[#627581]">{t('admin.donations.listIntro')}</p>
+            <p className="mt-3 text-[0.96rem] leading-[1.75] text-[#627581]">
+              {t('admin.donations.listIntro')}
+            </p>
           </div>
           <div className="flex flex-wrap gap-2">
             <button
@@ -351,7 +418,9 @@ function AdminDonations() {
               onClick={handleExport}
               type="button"
             >
-              <span aria-hidden="true" className="material-symbols-outlined text-[1rem]">download</span>
+              <span aria-hidden="true" className="material-symbols-outlined text-[1rem]">
+                download
+              </span>
               {t('admin.donations.export')}
             </button>
             <button
@@ -359,7 +428,9 @@ function AdminDonations() {
               onClick={() => void loadDonations()}
               type="button"
             >
-              <span aria-hidden="true" className="material-symbols-outlined text-[1rem]">refresh</span>
+              <span aria-hidden="true" className="material-symbols-outlined text-[1rem]">
+                refresh
+              </span>
               {t('admin.stats.refresh')}
             </button>
           </div>
@@ -368,7 +439,10 @@ function AdminDonations() {
         <div className="mt-5 space-y-3">
           <label className="relative block">
             <span className="sr-only">{t('admin.donations.searchPlaceholder')}</span>
-            <span aria-hidden="true" className="material-symbols-outlined pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[1.1rem] text-[#5d6d78]">
+            <span
+              aria-hidden="true"
+              className="material-symbols-outlined pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[1.1rem] text-[#5d6d78]"
+            >
               search
             </span>
             <input
@@ -379,7 +453,11 @@ function AdminDonations() {
               value={search}
             />
           </label>
-          <div className="flex flex-wrap gap-2" role="group" aria-label={t('admin.donations.filterLabel')}>
+          <div
+            className="flex flex-wrap gap-2"
+            role="group"
+            aria-label={t('admin.donations.filterLabel')}
+          >
             {filterKeys.map((key) => (
               <button
                 aria-pressed={filter === key}
@@ -399,13 +477,19 @@ function AdminDonations() {
         </div>
 
         {errorMessage ? (
-          <p className="mt-5 rounded-[1rem] border border-[#f3d1d4] bg-[#fff6f7] px-4 py-3 text-sm leading-[1.7] text-[#9e3342]" role="alert">
+          <p
+            className="mt-5 rounded-[1rem] border border-[#f3d1d4] bg-[#fff6f7] px-4 py-3 text-sm leading-[1.7] text-[#9e3342]"
+            role="alert"
+          >
             {errorMessage}
           </p>
         ) : null}
 
         {successMessage ? (
-          <p className="mt-5 rounded-[1rem] border border-[#cde7d8] bg-[#f5fbf7] px-4 py-3 text-sm leading-[1.7] text-[#13703e]" role="status">
+          <p
+            className="mt-5 rounded-[1rem] border border-[#cde7d8] bg-[#f5fbf7] px-4 py-3 text-sm leading-[1.7] text-[#13703e]"
+            role="status"
+          >
             {successMessage}
           </p>
         ) : null}
@@ -425,7 +509,10 @@ function AdminDonations() {
               const canEmail = isConfirmed(donation)
 
               return (
-                <li className="rounded-[1.1rem] border border-[#edf3f7] bg-[#fbfdff] p-5" key={donation.id}>
+                <li
+                  className="rounded-[1.1rem] border border-[#edf3f7] bg-[#fbfdff] p-5"
+                  key={donation.id}
+                >
                   <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
                     <div className="min-w-0">
                       <div className="flex flex-wrap items-center gap-2">
@@ -434,14 +521,29 @@ function AdminDonations() {
                         </p>
                         {statusBadge(donation)}
                       </div>
-                      <p className="mt-1 break-all text-[0.9rem] text-[#627581]">
-                        {donation.donor_email} · {donation.donor_phone}
-                      </p>
+                      {donation.donor_email || donation.donor_phone ? (
+                        <p className="mt-1 break-all text-[0.9rem] text-[#627581]">
+                          {[donation.donor_email, donation.donor_phone].filter(Boolean).join(' · ')}
+                        </p>
+                      ) : null}
                       <p className="mt-2 text-[0.86rem] text-[#627581]">
-                        {formatDate(donation.paid_at ?? donation.created_at)} ·{' '}
-                        {t(`donate.main.categories.${donation.category}`, { defaultValue: donation.category })}
-                        {donation.card_type ? ` · ${donation.card_type}` : ''}
+                        {donation.source === 'manual'
+                          ? formatDay(donation.paid_at)
+                          : formatDate(donation.paid_at ?? donation.created_at)}{' '}
+                        ·{' '}
+                        {t(`donate.main.categories.${donation.category}`, {
+                          defaultValue: donation.category,
+                        })}
+                        {' · '}
+                        {describeMethod(donation)}
+                        {donation.reference ? ` (${donation.reference})` : ''}
                       </p>
+                      {donation.source === 'manual' ? (
+                        <p className="mt-1 text-[0.84rem] text-[#5d6d78]">
+                          {t('admin.donations.recordedBy', { name: donation.recorded_by ?? '-' })}
+                          {donation.notes ? ` · ${donation.notes}` : ''}
+                        </p>
+                      ) : null}
                       <p className="mt-1 font-mono text-[0.8rem] text-[#627581]">
                         {donation.receipt_number ? `${donation.receipt_number} · ` : ''}
                         {donation.tran_id}
@@ -455,21 +557,29 @@ function AdminDonations() {
                   {canEmail ? (
                     <div className="mt-4 grid gap-3 border-t border-[#edf3f7] pt-4 md:grid-cols-2">
                       <div className="text-[0.88rem] leading-[1.6]">
-                        <p className="font-semibold text-[#14324d]">{t('admin.donations.digitalReceipt')}</p>
+                        <p className="font-semibold text-[#14324d]">
+                          {t('admin.donations.digitalReceipt')}
+                        </p>
                         <p
                           className={
                             donation.status === 'review'
                               ? 'text-[#8a5a00]'
-                              : donation.receipt_sent_at
-                                ? 'text-[#13703e]'
-                                : 'text-[#9e3342]'
+                              : !donation.donor_email
+                                ? 'text-[#5d6d78]'
+                                : donation.receipt_sent_at
+                                  ? 'text-[#13703e]'
+                                  : 'text-[#9e3342]'
                           }
                         >
                           {donation.status === 'review'
                             ? t('admin.donations.reviewNote')
-                            : donation.receipt_sent_at
-                              ? t('admin.donations.emailedOn', { date: formatDate(donation.receipt_sent_at) })
-                              : t('admin.donations.notEmailed')}
+                            : !donation.donor_email
+                              ? t('admin.donations.noEmail')
+                              : donation.receipt_sent_at
+                                ? t('admin.donations.emailedOn', {
+                                    date: formatDate(donation.receipt_sent_at),
+                                  })
+                                : t('admin.donations.notEmailed')}
                         </p>
                         <div className="mt-2 flex flex-wrap gap-2">
                           {donation.status === 'paid' ? (
@@ -478,28 +588,42 @@ function AdminDonations() {
                               download
                               href={`/api/receipts/pdf?ref=${donation.receipt_token}`}
                             >
-                              <span aria-hidden="true" className="material-symbols-outlined text-[0.95rem]">picture_as_pdf</span>
+                              <span
+                                aria-hidden="true"
+                                className="material-symbols-outlined text-[0.95rem]"
+                              >
+                                picture_as_pdf
+                              </span>
                               {t('admin.donations.downloadPdf')}
                             </a>
                           ) : null}
-                          <button
-                            className="inline-flex items-center gap-1.5 rounded-full border border-[#dbe7ee] bg-white px-3.5 py-1.5 text-[0.76rem] font-bold uppercase tracking-[0.12em] text-[#115b82] transition hover:bg-[#f7fbfd] disabled:opacity-60"
-                            disabled={isBusy}
-                            onClick={() => void handleResendReceipt(donation)}
-                            type="button"
-                          >
-                            <span aria-hidden="true" className="material-symbols-outlined text-[0.95rem]">send</span>
-                            {donation.status === 'review'
-                              ? t('admin.donations.approveAndSend')
-                              : donation.receipt_sent_at
-                                ? t('admin.donations.resend')
-                                : t('admin.donations.send')}
-                          </button>
+                          {donation.donor_email ? (
+                            <button
+                              className="inline-flex items-center gap-1.5 rounded-full border border-[#dbe7ee] bg-white px-3.5 py-1.5 text-[0.76rem] font-bold uppercase tracking-[0.12em] text-[#115b82] transition hover:bg-[#f7fbfd] disabled:opacity-60"
+                              disabled={isBusy}
+                              onClick={() => void handleResendReceipt(donation)}
+                              type="button"
+                            >
+                              <span
+                                aria-hidden="true"
+                                className="material-symbols-outlined text-[0.95rem]"
+                              >
+                                send
+                              </span>
+                              {donation.status === 'review'
+                                ? t('admin.donations.approveAndSend')
+                                : donation.receipt_sent_at
+                                  ? t('admin.donations.resend')
+                                  : t('admin.donations.send')}
+                            </button>
+                          ) : null}
                         </div>
                       </div>
 
                       <div className="text-[0.88rem] leading-[1.6]">
-                        <p className="font-semibold text-[#14324d]">{t('admin.donations.signedReceipt')}</p>
+                        <p className="font-semibold text-[#14324d]">
+                          {t('admin.donations.signedReceipt')}
+                        </p>
                         {donation.signed_receipt_status === 'none' ? (
                           <p className="text-[#627581]">{t('admin.donations.signedNone')}</p>
                         ) : donation.signed_receipt_status === 'requested' ? (
@@ -513,44 +637,93 @@ function AdminDonations() {
                           </>
                         ) : (
                           <p className="text-[#13703e]">
-                            {t('admin.donations.signedSentOn', { date: formatDate(donation.signed_receipt_sent_at) })}
+                            {t('admin.donations.signedSentOn', {
+                              date: formatDate(donation.signed_receipt_sent_at),
+                            })}
                           </p>
                         )}
                         {/* A signed copy needs the receipt number, which is assigned once the payment is approved. */}
-                        <div className={`mt-2 flex flex-wrap gap-2 ${donation.status === 'paid' ? '' : 'hidden'}`}>
-                          <label
-                            className={`inline-flex cursor-pointer items-center gap-1.5 rounded-full px-3.5 py-1.5 text-[0.76rem] font-bold uppercase tracking-[0.12em] transition ${
-                              donation.signed_receipt_status === 'requested'
-                                ? 'bg-[#13703e] text-white hover:bg-[#105f35]'
-                                : 'border border-[#dbe7ee] bg-white text-[#115b82] hover:bg-[#f7fbfd]'
-                            } ${isBusy ? 'pointer-events-none opacity-60' : ''}`}
-                          >
-                            <span aria-hidden="true" className="material-symbols-outlined text-[0.95rem]">upload_file</span>
-                            {isBusy
-                              ? t('admin.donations.working')
-                              : donation.signed_receipt_status === 'sent'
-                                ? t('admin.donations.uploadAgain')
-                                : t('admin.donations.uploadSigned')}
-                            <input
-                              accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png"
-                              className="sr-only"
-                              disabled={isBusy}
-                              onChange={(event) => void handleSignedUpload(donation, event)}
-                              type="file"
-                            />
-                          </label>
-                          {donation.signed_receipt_path ? (
-                            <button
-                              className="inline-flex items-center gap-1.5 rounded-full border border-[#dbe7ee] bg-white px-3.5 py-1.5 text-[0.76rem] font-bold uppercase tracking-[0.12em] text-[#115b82] transition hover:bg-[#f7fbfd]"
-                              onClick={() => void handleViewSigned(donation)}
-                              type="button"
+                        {donation.status === 'paid' && donation.donor_email ? (
+                          <div className="mt-2 flex flex-wrap gap-2">
+                            <label
+                              className={`inline-flex cursor-pointer items-center gap-1.5 rounded-full px-3.5 py-1.5 text-[0.76rem] font-bold uppercase tracking-[0.12em] transition ${
+                                donation.signed_receipt_status === 'requested'
+                                  ? 'bg-[#13703e] text-white hover:bg-[#105f35]'
+                                  : 'border border-[#dbe7ee] bg-white text-[#115b82] hover:bg-[#f7fbfd]'
+                              } ${isBusy ? 'pointer-events-none opacity-60' : ''}`}
                             >
-                              <span aria-hidden="true" className="material-symbols-outlined text-[0.95rem]">visibility</span>
-                              {t('admin.donations.viewSigned')}
-                            </button>
-                          ) : null}
-                        </div>
+                              <span
+                                aria-hidden="true"
+                                className="material-symbols-outlined text-[0.95rem]"
+                              >
+                                upload_file
+                              </span>
+                              {isBusy
+                                ? t('admin.donations.working')
+                                : donation.signed_receipt_status === 'sent'
+                                  ? t('admin.donations.uploadAgain')
+                                  : t('admin.donations.uploadSigned')}
+                              <input
+                                accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png"
+                                className="sr-only"
+                                disabled={isBusy}
+                                onChange={(event) => void handleSignedUpload(donation, event)}
+                                type="file"
+                              />
+                            </label>
+                            {donation.signed_receipt_path ? (
+                              <button
+                                className="inline-flex items-center gap-1.5 rounded-full border border-[#dbe7ee] bg-white px-3.5 py-1.5 text-[0.76rem] font-bold uppercase tracking-[0.12em] text-[#115b82] transition hover:bg-[#f7fbfd]"
+                                onClick={() => void handleViewSigned(donation)}
+                                type="button"
+                              >
+                                <span
+                                  aria-hidden="true"
+                                  className="material-symbols-outlined text-[0.95rem]"
+                                >
+                                  visibility
+                                </span>
+                                {t('admin.donations.viewSigned')}
+                              </button>
+                            ) : null}
+                          </div>
+                        ) : null}
                       </div>
+                    </div>
+                  ) : null}
+
+                  {donation.source === 'manual' ? (
+                    <div className="mt-4 flex flex-wrap items-center gap-3 border-t border-[#edf3f7] pt-4 text-[0.86rem]">
+                      {confirmDeleteId === donation.id ? (
+                        <>
+                          <span className="text-[#9e3342]">
+                            {t('admin.donations.deleteConfirm')}
+                          </span>
+                          <button
+                            className="rounded-full bg-[#a33b49] px-4 py-1.5 text-[0.76rem] font-bold uppercase tracking-[0.12em] text-white transition hover:bg-[#8c2f3c] disabled:opacity-60"
+                            disabled={isBusy}
+                            onClick={() => void handleDelete(donation)}
+                            type="button"
+                          >
+                            {t('admin.donations.deleteYes')}
+                          </button>
+                          <button
+                            className="rounded-full border border-[#dbe7ee] bg-white px-4 py-1.5 text-[0.76rem] font-bold uppercase tracking-[0.12em] text-[#14324d] transition hover:bg-[#f7fbfd]"
+                            onClick={() => setConfirmDeleteId(null)}
+                            type="button"
+                          >
+                            {t('admin.donations.deleteNo')}
+                          </button>
+                        </>
+                      ) : (
+                        <button
+                          className="font-semibold text-[#9e3342] underline-offset-2 hover:underline"
+                          onClick={() => setConfirmDeleteId(donation.id)}
+                          type="button"
+                        >
+                          {t('admin.donations.delete')}
+                        </button>
+                      )}
                     </div>
                   ) : null}
                 </li>

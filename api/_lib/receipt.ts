@@ -1,5 +1,5 @@
 import { PDFDocument, StandardFonts, rgb, type PDFFont, type PDFPage } from 'pdf-lib'
-import type { Donation } from './db.js'
+import type { Donation, PaymentMethod } from './db.js'
 
 // Builds the digital donation receipt as an A4 PDF. Organisation details mirror the
 // registered information shown in the site footer and donation methods section.
@@ -21,6 +21,23 @@ export const categoryLabels: Record<string, string> = {
   education: 'Education',
   healthcare: 'Healthcare',
   livelihood: 'Livelihood',
+}
+
+const paymentMethodLabels: Record<PaymentMethod, string> = {
+  bkash: 'bKash',
+  nagad: 'Nagad',
+  bank: 'Bank transfer',
+  cash: 'Cash',
+  other: 'Other',
+}
+
+export const describePaymentMethod = (donation: Donation) => {
+  if (donation.source === 'manual') {
+    const method = donation.payment_method ? paymentMethodLabels[donation.payment_method] : 'Offline'
+    return donation.reference ? `${method} (ref. ${donation.reference})` : method
+  }
+
+  return donation.card_type ? `${donation.card_type} via SSLCommerz` : 'Online via SSLCommerz'
 }
 
 const navy = rgb(0.078, 0.196, 0.302)
@@ -88,7 +105,10 @@ export const buildReceiptPdf = async (donation: Donation) => {
   y -= 20
   drawText(page, donation.donor_name, left, y, serif, 20)
   y -= 16
-  drawText(page, `${donation.donor_email}  |  ${donation.donor_phone}`, left, y, regular, 10, muted)
+  const contact = [donation.donor_email, donation.donor_phone].filter(Boolean).join('  |  ')
+  if (contact) {
+    drawText(page, contact, left, y, regular, 10, muted)
+  }
 
   // Amount box
   y -= 58
@@ -98,8 +118,8 @@ export const buildReceiptPdf = async (donation: Donation) => {
 
   const rows: Array<[string, string]> = [
     ['Purpose', categoryLabels[donation.category] ?? donation.category],
-    ['Payment method', donation.card_type ? `${donation.card_type} via SSLCommerz` : 'Online via SSLCommerz'],
-    ['Transaction ID', donation.tran_id],
+    ['Payment method', describePaymentMethod(donation)],
+    [donation.source === 'manual' ? 'Record ID' : 'Transaction ID', donation.tran_id],
   ]
 
   y -= 64
@@ -124,7 +144,17 @@ export const buildReceiptPdf = async (donation: Donation) => {
   y -= 25
   drawText(page, 'This is a computer-generated receipt and is valid without a signature.', left, y, regular, 9, muted)
   y -= 13
-  drawText(page, 'A hand-signed copy can be requested from the link in your receipt email.', left, y, regular, 9, muted)
+  drawText(
+    page,
+    donation.source === 'manual'
+      ? 'For a hand-signed copy, please contact Alokayon using the details below.'
+      : 'A hand-signed copy can be requested from the link in your receipt email.',
+    left,
+    y,
+    regular,
+    9,
+    muted,
+  )
 
   // Signature area, used when the client prints and signs a copy by hand.
   const signatureY = 170

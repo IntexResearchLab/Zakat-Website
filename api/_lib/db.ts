@@ -25,6 +25,10 @@ export const getServiceClient = () => {
   return serviceClient
 }
 
+export type PaymentMethod = 'bkash' | 'nagad' | 'bank' | 'cash' | 'other'
+
+export const paymentMethods: PaymentMethod[] = ['bkash', 'nagad', 'bank', 'cash', 'other']
+
 export type Donation = {
   id: string
   tran_id: string
@@ -34,9 +38,14 @@ export type Donation = {
   currency: string
   category: string
   donor_name: string
-  donor_email: string
-  donor_phone: string
+  donor_email: string | null
+  donor_phone: string | null
   card_type: string | null
+  source: 'online' | 'manual'
+  payment_method: PaymentMethod | null
+  reference: string | null
+  notes: string | null
+  recorded_by: string | null
   paid_at: string | null
   receipt_number: string | null
   receipt_token: string
