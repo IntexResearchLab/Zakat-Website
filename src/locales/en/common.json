@@ -18,7 +18,8 @@
     "programs": "Programs",
     "programsOverview": "All Programs",
     "transparency": "Magazine",
-    "voices": "Voices"
+    "voices": "Voices",
+    "zakatCalculator": "Zakat Calculator"
   },
   "common": {
     "actions": {
@@ -40,7 +41,15 @@
       "viewSchoolGallery": "View School Gallery"
     },
     "aria": {
-      "toggleNavigationMenu": "Toggle navigation menu"
+      "toggleNavigationMenu": "Toggle navigation menu",
+      "skipToContent": "Skip to main content",
+      "mainNavigation": "Main",
+      "language": "Language",
+      "closeDialog": "Close",
+      "scrollLeft": "Scroll left",
+      "scrollRight": "Scroll right",
+      "featuredStoryImage": "Featured beneficiary story",
+      "breadcrumb": "Breadcrumb"
     },
     "breadcrumb": {
       "home": "Home",
@@ -52,12 +61,21 @@
       "opinions": "Voices of Impact",
       "programs": "Programs",
       "school": "School",
-      "transparency": "Magazine"
+      "transparency": "Magazine",
+      "terms": "Terms and Conditions",
+      "privacy": "Privacy Policy",
+      "refund": "Return and Refund Policy",
+      "zakatCalculator": "Zakat Calculator",
+      "campaigns": "Appeals",
+      "contact": "Contact"
     },
     "form": {
       "emailPlaceholder": "Enter your email",
       "namePlaceholder": "Enter your name",
-      "phonePlaceholder": "Enter your phone"
+      "phonePlaceholder": "Enter your phone",
+      "nameLabel": "Full name",
+      "emailLabel": "Email address",
+      "phoneLabel": "Phone number"
     },
     "payments": {
       "accepted": "Accepted: bKash, Nagad, Visa, Mastercard"
@@ -108,8 +126,20 @@
           "href": "/our-donors"
         },
         {
+          "label": "Appeals",
+          "href": "/campaigns"
+        },
+        {
           "label": "Donate",
           "href": "/donate"
+        },
+        {
+          "label": "Zakat Calculator",
+          "href": "/zakat-calculator"
+        },
+        {
+          "label": "Contact",
+          "href": "/contact"
         }
       ]
     },
@@ -119,26 +149,57 @@
       "note": "For zakat, donation, partnership, and direct payment inquiries",
       "links": [
         {
+          "label": "Send us a message",
+          "href": "/contact"
+        },
+        {
           "label": "alokayon2019@gmail.com",
           "href": "mailto:alokayon2019@gmail.com",
           "external": true
         },
         {
           "label": "bKash: 01925124019",
-          "href": "tel:01925124019",
+          "href": "tel:+8801925124019",
           "external": true
         },
         {
           "label": "Nagad: 01779577828",
-          "href": "tel:01779577828",
+          "href": "tel:+8801779577828",
           "external": true
+        }
+      ],
+      "addressLabel": "Registered address"
+    },
+    "bottom": {
+      "copyright": "© {{year}} Alokayon",
+      "designed": "Intex Research Lab, Development Unit"
+    },
+    "policies": {
+      "title": "About & Policies",
+      "links": [
+        {
+          "label": "About Us",
+          "href": "/about"
+        },
+        {
+          "label": "Terms and Conditions",
+          "href": "/terms-and-conditions"
+        },
+        {
+          "label": "Privacy Policy",
+          "href": "/privacy-policy"
+        },
+        {
+          "label": "Return and Refund Policy",
+          "href": "/refund-policy"
         }
       ]
     },
-    "bottom": {
-      "copyright": "© 2025 Alokayon",
-      "designed": "Intex Research Lab, Development Unit"
-    }
+    "organization": {
+      "registration": "Registered with the Department of Social Services, Ministry of Social Welfare, Bangladesh (2019)",
+      "management": "Founder Chairman: A.K.M. Fazlul Kader"
+    },
+    "paymentsAlt": "Pay with Visa, Mastercard, American Express, bKash, Nagad, Rocket, internet banking and other channels. Verified by SSLCommerz."
   },
   "home": {
     "hero": {
@@ -149,7 +210,7 @@
       "verseLabel": "Qur'anic Reminder",
       "slides": [
         {
-          "image": "/assets/home/celebration.jpg",
+          "image": "/assets/home/celebration.webp",
           "eyebrow": "Faith in Action",
           "titleTop": "Give Your Zakat.",
           "titleBottom": "Transform Lives.",
@@ -161,7 +222,7 @@
           "alt": "Children gathered during an Alokayon support activity"
         },
         {
-          "image": "/assets/about/Donating.jpg",
+          "image": "/assets/about/Donating.webp",
           "eyebrow": "Transparent Impact",
           "titleTop": "Give With Trust.",
           "titleBottom": "Reach Real People.",
@@ -173,7 +234,7 @@
           "alt": "Community members receiving support through Alokayon"
         },
         {
-          "image": "/assets/school/School_3.jpg",
+          "image": "/assets/school/School_3.webp",
           "eyebrow": "Compassion That Lasts",
           "titleTop": "Stand Beside",
           "titleBottom": "Those In Need.",
@@ -184,7 +245,9 @@
           "verseReference": "Surah Al-Insan (76:8)",
           "alt": "An Alokayon program moment with children and families"
         }
-      ]
+      ],
+      "pauseSlides": "Pause slideshow",
+      "playSlides": "Play slideshow"
     },
     "impact": {
       "title": "Verified impact from community programs",
@@ -351,12 +414,12 @@
           {
             "label": "bKash / Contact",
             "value": "01925124019",
-            "href": "tel:01925124019"
+            "href": "tel:+8801925124019"
           },
           {
             "label": "Nagad / Contact",
             "value": "01779577828",
-            "href": "tel:01779577828"
+            "href": "tel:+8801779577828"
           }
         ]
       },
@@ -451,7 +514,8 @@
         "default": "Where most needed",
         "education": "Education",
         "healthcare": "Healthcare",
-        "livelihood": "Livelihood"
+        "livelihood": "Livelihood",
+        "zakat": "Zakat"
       },
       "paymentMethods": [
         "bKash",
@@ -480,7 +544,34 @@
         "Established in 2011",
         "Verified programs",
         "Transparent reporting"
-      ]
+      ],
+      "agreement": {
+        "text": "I have read and agree to the <terms>Terms and Conditions</terms>, <privacy>Privacy Policy</privacy>, and <refund>Return and Refund Policy</refund>.",
+        "required": "Please tick the box to agree to our policies before donating."
+      },
+      "amountGroupLabel": "Donation amount",
+      "customAmountLabel": "Enter your amount (BDT)",
+      "customAmountPlaceholder": "For example 1500",
+      "categoryLabel": "Where should your donation go?",
+      "donateAmount": "Donate ৳{{amount}}",
+      "redirecting": "Opening secure payment...",
+      "secureNote": "You will complete your payment on the secure SSLCommerz page.",
+      "errors": {
+        "amount": "Please enter an amount between ৳{{min}} and ৳{{max}}.",
+        "name": "Please enter your name.",
+        "email": "Please enter a valid email address so we can confirm your donation.",
+        "phone": "Please enter a valid phone number.",
+        "gateway": "The payment service is not responding right now. Please try again in a few minutes.",
+        "generic": "Something went wrong and your payment wasn't started. Please try again."
+      },
+      "receipt": {
+        "note": "An official receipt will be emailed to you as a PDF. Please write your name in English letters as it should appear on the receipt.",
+        "signedOption": "I would also like a hand-signed receipt (our team will sign it and email it to you)."
+      },
+      "calculatorPrompt": "Not sure how much zakat you owe?",
+      "calculatorLink": "Use the zakat calculator",
+      "campaignBanner": "Your donation will go to:",
+      "campaignRemove": "Give where most needed instead"
     },
     "transparency": {
       "eyebrow": "Transparency",
@@ -616,17 +707,17 @@
       "title": "Real moments behind every act of giving.",
       "items": [
         {
-          "image": "/assets/about/book-distribution.jpg",
+          "image": "/assets/about/book-distribution.webp",
           "title": "Education Support",
           "caption": "Helping children stay connected to learning with direct, practical support."
         },
         {
-          "image": "/assets/about/community-support.jpg",
+          "image": "/assets/about/community-support.webp",
           "title": "Community Care",
           "caption": "Moments of face-to-face service that turn donations into visible impact."
         },
         {
-          "image": "/assets/about/winter-relief-sunamganj.jpg",
+          "image": "/assets/about/winter-relief-sunamganj.webp",
           "title": "Relief & Dignity",
           "caption": "Relief reaches families through quiet, accountable distribution on the ground."
         }
@@ -704,6 +795,47 @@
       "eyebrow": "Final Step",
       "title": "Be the reason someone smiles today.",
       "description": "Your zakat and donation can transform a life through timely, transparent, and dignity-centered support."
+    },
+    "result": {
+      "success": {
+        "title": "Thank you for your donation",
+        "message": "Your payment was received and confirmed. May Allah accept it from you. Your receipt has been emailed to you."
+      },
+      "failed": {
+        "title": "Payment not completed",
+        "message": "Your payment didn't go through and no money was taken. If an amount was deducted, it will be returned by your bank or payment provider. Please try again."
+      },
+      "cancelled": {
+        "title": "Payment cancelled",
+        "message": "You cancelled the payment, so no money was taken. You can donate again whenever you are ready."
+      },
+      "reviewMessage": "Your payment was received and is being verified by our payment partner. We will contact you if anything else is needed.",
+      "amountLabel": "Amount",
+      "transactionLabel": "Transaction ID",
+      "homeButton": "Back to home",
+      "tryAgainButton": "Try again",
+      "impactButton": "See our impact",
+      "contactNote": "Questions about your donation? Email us at",
+      "receipt": {
+        "title": "Your donation receipt",
+        "message": "Thank you for supporting Alokayon. You can download your receipt or ask for a hand-signed copy here."
+      }
+    },
+    "receipt": {
+      "loading": "Loading your receipt...",
+      "loadError": "We couldn't load your receipt right now. Your payment is safe. Please check your email, or contact us with your transaction ID.",
+      "numberLabel": "Receipt number",
+      "dateLabel": "Date",
+      "emailed": "Your official receipt has been emailed to you. You can also download it here.",
+      "emailPending": "Your receipt is being prepared. You can download it here now.",
+      "downloadButton": "Download receipt (PDF)",
+      "signedTitle": "Hand-signed receipt",
+      "signedDescription": "Need a receipt signed by Alokayon for your records? Request one and our team will sign it and email it to you.",
+      "requestButton": "Request signed receipt",
+      "requesting": "Sending request...",
+      "requestError": "We couldn't send your request. Please try again, or email us.",
+      "signedRequested": "Request received. Our team will sign your receipt and email it to you soon.",
+      "signedSent": "Your signed receipt has been emailed to you."
     }
   },
   "about": {
@@ -2165,13 +2297,34 @@
       "note": "Real photographs. Real programs. Real people."
     },
     "filters": [
-      { "id": "all", "label": "All" },
-      { "id": "education", "label": "Education" },
-      { "id": "relief", "label": "Relief" },
-      { "id": "livelihood", "label": "Livelihood" },
-      { "id": "healthcare", "label": "Healthcare" },
-      { "id": "madrasa", "label": "Madrasa" },
-      { "id": "pathshala", "label": "Pathshala" }
+      {
+        "id": "all",
+        "label": "All"
+      },
+      {
+        "id": "education",
+        "label": "Education"
+      },
+      {
+        "id": "relief",
+        "label": "Relief"
+      },
+      {
+        "id": "livelihood",
+        "label": "Livelihood"
+      },
+      {
+        "id": "healthcare",
+        "label": "Healthcare"
+      },
+      {
+        "id": "madrasa",
+        "label": "Madrasa"
+      },
+      {
+        "id": "pathshala",
+        "label": "Pathshala"
+      }
     ],
     "grid": {
       "eyebrow": "Browse by Program",
@@ -2272,10 +2425,22 @@
       "eyebrow": "Impact in View",
       "title": "What these images point toward",
       "stats": [
-        { "value": "200+", "label": "Students Supported" },
-        { "value": "1.3M+ BDT", "label": "Distributed Annually" },
-        { "value": "500+", "label": "Livelihood Assets Distributed" },
-        { "value": "Since 2011", "label": "Serving Communities" }
+        {
+          "value": "200+",
+          "label": "Students Supported"
+        },
+        {
+          "value": "1.3M+ BDT",
+          "label": "Distributed Annually"
+        },
+        {
+          "value": "500+",
+          "label": "Livelihood Assets Distributed"
+        },
+        {
+          "value": "Since 2011",
+          "label": "Serving Communities"
+        }
       ]
     },
     "cta": {
@@ -2286,11 +2451,74 @@
     }
   },
   "admin": {
+    "errors": {
+      "generic": "Something went wrong and the change wasn't saved. Please try again.",
+      "network": "We couldn't reach the server. Check your internet connection and try again.",
+      "invalidCredentials": "That email and password don't match an admin account. Please check them and try again.",
+      "emailNotConfirmed": "This email address hasn't been confirmed yet. Check your inbox for the confirmation link.",
+      "rateLimited": "Too many attempts in a short time. Please wait a minute and try again.",
+      "permission": "Your account doesn't have permission to make this change. Please contact the site administrator.",
+      "sessionExpired": "Your session has expired. Please sign out and sign in again.",
+      "fileTooLarge": "This file is too large to upload. Please choose a smaller file.",
+      "duplicate": "An item with the same details already exists.",
+      "weakPassword": "This password is too weak. Use at least 8 characters with a mix of letters and numbers.",
+      "samePassword": "Your new password must be different from your current password."
+    },
+    "images": {
+      "unsupportedType": "Please choose a JPG, PNG, or WebP image. iPhone HEIC photos can be exported as JPG first.",
+      "optimizing": "Preparing image...",
+      "newImage": "New image (not saved yet)",
+      "currentImage": "Current image",
+      "optimizedSize": "Optimized for the web: {{from}} → {{to}}",
+      "removeSelection": "Remove selection"
+    },
+    "unsaved": {
+      "leaveConfirmation": "You have unsaved changes. Leave this page and discard them?",
+      "discardConfirmation": "You have unsaved changes. Discard them?"
+    },
+    "list": {
+      "moveUp": "Move up",
+      "moveDown": "Move down",
+      "reorderDisabled": "Clear search and filters to change the order",
+      "hide": "Hide",
+      "show": "Show",
+      "hiddenBadge": "Hidden",
+      "hiddenSuccess": "\"{{name}}\" is now hidden from the public website.",
+      "shownSuccess": "\"{{name}}\" is now visible on the public website.",
+      "viewOnSite": "View on site",
+      "categoryFilter": "Filter by category",
+      "allCategories": "All categories",
+      "visibilityFilter": "Filter by visibility",
+      "statusAll": "Visible and hidden",
+      "statusVisible": "Visible only",
+      "statusHidden": "Hidden only",
+      "showingCount": "Showing {{shown}} of {{total}}",
+      "clearFilters": "Clear filters",
+      "noResults": "Nothing matches your search or filters."
+    },
+    "mobileNav": {
+      "toggle": "Toggle admin menu"
+    },
     "navigation": [
       {
         "label": "Overview",
         "href": "/admin/dashboard",
         "icon": "overview"
+      },
+      {
+        "label": "Donations",
+        "href": "/admin/donations",
+        "icon": "donations"
+      },
+      {
+        "label": "Campaigns",
+        "href": "/admin/campaigns",
+        "icon": "campaigns"
+      },
+      {
+        "label": "Messages",
+        "href": "/admin/messages",
+        "icon": "messages"
       },
       {
         "label": "Magazines",
@@ -2301,6 +2529,16 @@
         "label": "Gallery",
         "href": "/admin/gallery",
         "icon": "gallery"
+      },
+      {
+        "label": "Testimonials",
+        "href": "/admin/testimonials",
+        "icon": "testimonials"
+      },
+      {
+        "label": "Stories",
+        "href": "/admin/stories",
+        "icon": "stories"
       },
       {
         "label": "Executives",
@@ -2316,11 +2554,11 @@
     "auth": {
       "eyebrow": "Admin Access",
       "title": "Welcome back to Alokayon Charity",
-      "description": "A calm, secure workspace for managing stories, pages, donations, and reporting.",
+      "description": "Sign in to update the magazines, gallery, executive committee, and impact figures shown on the Alokayon website.",
       "trust": [
-        "Role-based admin access",
-        "Supabase authentication ready",
-        "Built for secure content management"
+        "Access is limited to approved Alokayon administrators",
+        "Forgot your password? Reset it securely by email",
+        "Update website content without touching any code"
       ],
       "formTitle": "Sign in to the admin dashboard",
       "formDescription": "Use your admin credentials to continue into the secure dashboard.",
@@ -2330,7 +2568,6 @@
       "passwordPlaceholder": "Enter your password",
       "showPassword": "Show password",
       "hidePassword": "Hide password",
-      "rememberMe": "Keep me signed in",
       "forgotPassword": "Forgot password?",
       "forgotPasswordEmailRequired": "Enter your email address above, then click Forgot password.",
       "sendingResetEmail": "Sending...",
@@ -2339,7 +2576,9 @@
       "signIn": "Sign In",
       "signingIn": "Signing In...",
       "genericError": "We couldn't sign you in. Please check your credentials and try again.",
-      "helpText": "Only authorized Alokayon administrators should use this area."
+      "helpText": "Only authorized Alokayon administrators should use this area.",
+      "notAdminTitle": "This account is not an admin",
+      "notAdminMessage": "You're signed in, but this account hasn't been approved for the Alokayon dashboard. Ask the site administrator to add it, or sign in with an admin account."
     },
     "resetPassword": {
       "eyebrow": "Reset Password",
@@ -2389,28 +2628,37 @@
           "cta": "Manage Stats"
         }
       ],
-      "nextStepsTitle": "What You Can Manage Now",
-      "nextSteps": [
-        "Upload new magazine issues and keep the public archive current.",
-        "Add or remove executive members with photos and contact details.",
-        "Refresh public-facing impact figures from one connected stats page.",
-        "Build the image gallery with categorized visuals and lightbox stories."
-      ],
-      "notesTitle": "Current Scope",
-      "notes": [
-        {
-          "title": "Cleaned to live modules",
-          "detail": "This dashboard now shows only the admin areas that are already built and usable."
-        },
-        {
-          "title": "Supabase-backed sections",
-          "detail": "Magazines, gallery items, executive members, and public stats are connected to Supabase."
-        },
-        {
-          "title": "Good next additions",
-          "detail": "If we expand later, the next natural admin modules would be donors, beneficiary stories, and program content."
-        }
-      ],
+      "loading": "Loading the latest details...",
+      "attentionTitle": "Needs attention",
+      "allGood": "Everything looks up to date.",
+      "units": {
+        "magazines": "issues",
+        "gallery": "images",
+        "executives": "members",
+        "stats": "figures"
+      },
+      "summary": {
+        "hidden": "{{count}} hidden from the website",
+        "latestIssue": "Latest issue: {{year}}",
+        "lastAdded": "Last added {{date}}",
+        "lastUpdated": "Last updated {{date}}",
+        "never": "No updates recorded yet",
+        "unavailable": "Details couldn't be loaded."
+      },
+      "alerts": {
+        "loadError": "Some dashboard details couldn't be loaded. {{reason}}",
+        "noMagazines": "No magazines have been uploaded yet.",
+        "oldMagazine": "The latest magazine is from {{year}}. Upload a newer issue when it's ready.",
+        "noVisibleGallery": "The public gallery has no visible images.",
+        "noVisibleExecutives": "No executive committee members are visible on the About page.",
+        "missingPhotos": "{{count}} visible executive member(s) don't have a photo yet.",
+        "statsNeverUpdated": "The impact figures have never been updated from the admin.",
+        "staleStats": "The impact figures were last updated on {{date}}. Check they're still accurate.",
+        "newMessages_one": "{{count}} new message from the contact form is waiting for a reply.",
+        "newMessages_other": "{{count}} new messages from the contact form are waiting for a reply.",
+        "signedRequests_one": "{{count}} donor is waiting for a hand-signed receipt.",
+        "signedRequests_other": "{{count}} donors are waiting for a hand-signed receipt."
+      },
       "sidebar": {
         "brandNote": "Alokayon Charity Admin",
         "footer": "A focused admin for the live content modules already connected to the website."
@@ -2449,8 +2697,6 @@
       "coverHelp": "Upload a cover image if you have one. This is optional.",
       "currentPdf": "Current PDF on record: {{fileName}}",
       "newPdfSelected": "New PDF selected: {{fileName}}",
-      "currentCover": "Current cover image will stay unless you replace it.",
-      "newCoverSelected": "New cover image selected: {{fileName}}",
       "fileOnRecord": "file on record",
       "fields": {
         "title": "Title",
@@ -2486,7 +2732,8 @@
       "deleteSuccess": "Executive member deleted successfully.",
       "deleteConfirmation": "Delete \"{{name}}\" from the executive directory?",
       "libraryTitle": "Executive directory",
-      "libraryIntro": "Review the members currently visible on the About page, then edit or remove them whenever the committee changes.",
+      "libraryIntro": "Review the committee members, change their order, hide anyone who shouldn't appear yet, or edit their details.",
+      "searchPlaceholder": "Search by name, role, email, or phone",
       "refresh": "Refresh",
       "loading": "Loading executive members from Supabase...",
       "emptyState": "No executive members have been added yet.",
@@ -2494,8 +2741,6 @@
       "deleteButton": "Delete",
       "deleting": "Deleting...",
       "imageHelp": "Upload a portrait or profile image. This image is required for new members.",
-      "currentImage": "Current image will stay unless you replace it.",
-      "newImageSelected": "New image selected: {{fileName}}",
       "fields": {
         "name": "Name",
         "role": "Role",
@@ -2533,7 +2778,8 @@
       "deleteSuccess": "Gallery item deleted successfully.",
       "deleteConfirmation": "Delete \"{{title}}\" from the gallery?",
       "libraryTitle": "Gallery library",
-      "libraryIntro": "Review the live gallery items, update their stories, and remove anything that no longer belongs in the public archive.",
+      "libraryIntro": "Review the gallery items, change their order, hide images temporarily, or update their stories.",
+      "searchPlaceholder": "Search by title, description, location, or year",
       "refresh": "Refresh",
       "loading": "Loading gallery items from Supabase...",
       "emptyState": "No gallery items have been added yet.",
@@ -2541,8 +2787,6 @@
       "deleteButton": "Delete",
       "deleting": "Deleting...",
       "imageHelp": "Upload the gallery image shown on the public card and lightbox.",
-      "currentImage": "Current image will stay unless you replace it.",
-      "newImageSelected": "New image selected: {{fileName}}",
       "fields": {
         "category": "Category",
         "span": "Card size",
@@ -2588,6 +2832,7 @@
       "resetButton": "Reset Changes",
       "savingAll": "Saving...",
       "saveAllButton": "Save All Changes",
+      "partialSaveError": "{{count}} change(s) could not be saved. {{reason}}",
       "groups": {
         "organization": {
           "eyebrow": "Core Organization",
@@ -2604,8 +2849,732 @@
         "finance": {
           "eyebrow": "Finance",
           "title": "Financial snapshot"
+        },
+        "zakat": {
+          "eyebrow": "Zakat Calculator",
+          "title": "Gold and silver prices"
         }
+      },
+      "labels": {
+        "goldPricePerGram": "Gold price per gram (22 carat, BDT)",
+        "silverPricePerGram": "Silver price per gram (BDT)",
+        "metalPricesUpdated": "Prices last checked on",
+        "medicalCasesYearly": "Medical cases supported each year"
       }
+    },
+    "donations": {
+      "eyebrow": "Donations",
+      "title": "Donations and receipts",
+      "description": "See every online donation, check that receipts reached donors, and send hand-signed receipts when donors ask for them.",
+      "monthLabel": "Received this month",
+      "allTime": "{{amount}} from {{count}} donations in total",
+      "signedAlert_one": "{{count}} donor is waiting for a hand-signed receipt. Show requests",
+      "signedAlert_other": "{{count}} donors are waiting for a hand-signed receipt. Show requests",
+      "listTitle": "Donation records",
+      "listIntro": "Online donations appear here automatically once SSLCommerz confirms the payment. Record bKash, Nagad, bank and cash donations yourself.",
+      "export": "Export CSV",
+      "searchPlaceholder": "Search by name, email, phone, receipt or transaction ID",
+      "filterLabel": "Filter donations",
+      "filters": {
+        "confirmed": "Received",
+        "signedRequested": "Signed receipt requested",
+        "review": "Needs review",
+        "emailFailed": "Receipt not emailed",
+        "unpaid": "Not completed",
+        "all": "All",
+        "manual": "Recorded manually"
+      },
+      "status": {
+        "paid": "Received",
+        "review": "Needs review",
+        "pending": "Not completed",
+        "failed": "Failed",
+        "cancelled": "Cancelled"
+      },
+      "loading": "Loading donations...",
+      "empty": "No donations match this view.",
+      "digitalReceipt": "Digital receipt",
+      "emailedOn": "Emailed {{date}}",
+      "notEmailed": "Not emailed yet. Check the donor email address, then send it.",
+      "reviewNote": "SSLCommerz flagged this payment, or the amount differs. Check it in the SSLCommerz panel before approving.",
+      "downloadPdf": "PDF",
+      "send": "Send receipt",
+      "resend": "Resend",
+      "approveAndSend": "Approve and send receipt",
+      "approveConfirm": "Approve this donation as received and email the receipt? Only do this after checking the payment in the SSLCommerz panel.",
+      "receiptSent": "Receipt emailed to the donor.",
+      "signedReceipt": "Hand-signed receipt",
+      "signedNone": "Not requested.",
+      "signedRequestedOn": "Requested {{date}}",
+      "signedSteps": "Download the PDF, print and sign it, then upload a scan or photo (PDF, JPG or PNG).",
+      "signedSentOn": "Signed copy emailed {{date}}",
+      "uploadSigned": "Upload signed copy and email",
+      "uploadAgain": "Send a new signed copy",
+      "working": "Sending...",
+      "viewSigned": "View",
+      "sendSignedConfirm": "Email this signed receipt to {{email}}?",
+      "signedSent": "Signed receipt emailed to the donor.",
+      "errors": {
+        "emailFailed": "The email couldn't be sent. Check the email settings (Resend) or try again later.",
+        "fileType": "Please upload a PDF, JPG or PNG file."
+      },
+      "methods": {
+        "bkash": "bKash",
+        "nagad": "Nagad",
+        "bank": "Bank transfer",
+        "cash": "Cash",
+        "other": "Other",
+        "online": "Online payment"
+      },
+      "recordedBy": "Recorded by {{name}}",
+      "noEmail": "No email address. Download the PDF to print it or send it yourself.",
+      "delete": "Delete this entry",
+      "deleteConfirm": "Delete this donation record? Its receipt number will not be reused.",
+      "deleteYes": "Yes, delete",
+      "deleteNo": "Keep it",
+      "deleted": "Donation record deleted.",
+      "record": {
+        "open": "Record a donation",
+        "title": "Record a donation",
+        "intro": "For donations received by bKash, Nagad, bank transfer or cash. Each one gets a receipt number and counts toward your totals.",
+        "name": "Donor name",
+        "amount": "Amount (BDT)",
+        "method": "Received by",
+        "receivedOn": "Date received",
+        "reference": "Reference (optional)",
+        "referencePlaceholder": "bKash TrxID, bank reference or receipt book number",
+        "category": "Purpose",
+        "email": "Donor email (optional)",
+        "phone": "Donor phone (optional)",
+        "notes": "Notes (optional)",
+        "sendReceipt": "Email the PDF receipt to the donor now",
+        "noEmailNote": "Add an email address to send the donor a receipt. Without one, you can download the PDF afterwards.",
+        "save": "Save donation",
+        "saving": "Saving...",
+        "cancel": "Cancel",
+        "saved": "Donation saved with receipt number {{number}}.",
+        "savedAndEmailed": "Donation saved with receipt number {{number}}, and the receipt was emailed to the donor.",
+        "errors": {
+          "name": "Please enter the donor's name.",
+          "amount": "Please enter an amount greater than zero.",
+          "email": "This email address doesn’t look right. Check it, or leave it empty.",
+          "date": "Please choose the date the donation was received. It can’t be in the future."
+        },
+        "campaign": "Campaign (optional)",
+        "campaignNone": "No campaign"
+      },
+      "campaignLabel": "Campaign: {{title}}"
+    },
+    "campaigns": {
+      "eyebrow": "Campaigns",
+      "title": "Fundraising appeals",
+      "description": "Create appeals with a goal and a story. Progress updates automatically from online donations made on the appeal page and from donations you record against it.",
+      "new": "New campaign",
+      "newTitle": "New campaign",
+      "editTitle": "Edit campaign",
+      "fields": {
+        "titleEn": "Title (English)",
+        "titleBn": "Title (Bangla, optional)",
+        "summaryEn": "Short summary (English)",
+        "summaryBn": "Short summary (Bangla, optional)",
+        "storyEn": "Full story (English, optional)",
+        "storyBn": "Full story (Bangla, optional)",
+        "goal": "Goal (BDT)",
+        "category": "Donation purpose",
+        "startsOn": "Starts on (optional)",
+        "endsOn": "Ends on (optional)",
+        "slug": "Web address",
+        "image": "Photo"
+      },
+      "slugHelp": "Lowercase letters, numbers and hyphens. Changing it later breaks links that were already shared.",
+      "save": "Save campaign",
+      "saving": "Saving...",
+      "cancel": "Cancel",
+      "edit": "Edit",
+      "delete": "Delete",
+      "created": "Campaign \"{{title}}\" created.",
+      "updated": "Campaign \"{{title}}\" updated.",
+      "deleted": "Campaign \"{{title}}\" deleted.",
+      "deleteConfirm": "Delete \"{{title}}\"? Donations made to it are kept, but they will no longer be linked to a campaign.",
+      "listTitle": "All campaigns",
+      "listIntro": "Visitors see campaigns that are shown and have started. Hidden and upcoming campaigns stay private.",
+      "loading": "Loading campaigns...",
+      "empty": "No campaigns yet. Create one for your next appeal, for example winter blankets or Ramadan food packs.",
+      "state": {
+        "open": "Running",
+        "upcoming": "Not started",
+        "ended": "Ended",
+        "hidden": "Hidden"
+      },
+      "errors": {
+        "required": "Please enter an English title and summary.",
+        "slug": "Please enter a web address using letters, numbers and hyphens.",
+        "goal": "Please enter a goal greater than zero.",
+        "dates": "The end date must be on or after the start date."
+      }
+    },
+    "messages": {
+      "eyebrow": "Messages",
+      "title": "Contact form inbox",
+      "description": "Messages sent through the website. Reply by email, then mark them as replied so the team knows they are handled.",
+      "filterLabel": "Filter messages",
+      "filters": {
+        "new": "New",
+        "replied": "Replied",
+        "archived": "Archived",
+        "all": "All"
+      },
+      "status": {
+        "new": "New",
+        "replied": "Replied",
+        "archived": "Archived"
+      },
+      "loading": "Loading messages...",
+      "empty": "No messages here.",
+      "emptyNew": "No new messages. You are all caught up.",
+      "reply": "Reply by email",
+      "markReplied": "Mark as replied",
+      "archive": "Archive",
+      "markNew": "Mark as new",
+      "delete": "Delete",
+      "deleteConfirm": "Delete the message from {{name}}? This cannot be undone.",
+      "replySubject": "Re: your message to Alokayon",
+      "replyGreeting": "Dear {{name}},"
+    },
+    "testimonials": {
+      "eyebrow": "Testimonials",
+      "title": "Stories and testimonials",
+      "description": "Quotes from beneficiaries and donors shown across the website. Add both English and Bangla so each visitor reads them in their language.",
+      "new": "Add a quote",
+      "newTitle": "Add a quote",
+      "editTitle": "Edit quote",
+      "import": "Import the current quotes",
+      "importing": "Importing...",
+      "importConfirm": "Copy the quotes that are on the website today (English and Bangla) into this list so you can edit them?",
+      "imported": "{{count}} quotes imported. You can now edit, hide or reorder them.",
+      "tabs": {
+        "beneficiary": "Beneficiaries",
+        "donor": "Donors"
+      },
+      "kinds": {
+        "beneficiary": "Beneficiary",
+        "donor": "Donor"
+      },
+      "where": {
+        "beneficiary": "Shown on Voices of Impact, and the first three on the Donate page. Until you add any, the website shows its built-in quotes.",
+        "donor": "Shown on Our Donors, and the first three on the Donate page. Until you add any, the website shows its built-in quotes."
+      },
+      "fields": {
+        "kind": "Type of quote",
+        "name": "Name (English)",
+        "nameBn": "Name (Bangla)",
+        "roleEn": "Role or description (English)",
+        "roleBn": "Role or description (Bangla)",
+        "locationEn": "Location (English)",
+        "locationBn": "Location (Bangla)",
+        "quoteEn": "Quote (English)",
+        "quoteBn": "Quote (Bangla)",
+        "headlineEn": "Headline (English)",
+        "headlineBn": "Headline (Bangla)",
+        "tagsEn": "Tags, separated by commas (English)",
+        "tagsBn": "Tags, separated by commas (Bangla)",
+        "showOnHome": "Show this quote in the home page carousel"
+      },
+      "optionalHelp": "Only the English name and quote are required. Headlines and tags appear on the Voices of Impact cards; the headline is also the label in the home page carousel.",
+      "save": "Save quote",
+      "saving": "Saving...",
+      "cancel": "Cancel",
+      "edit": "Edit",
+      "delete": "Delete",
+      "addToHome": "Show on home",
+      "removeFromHome": "Remove from home",
+      "hidden": "Hidden",
+      "onHome": "On home page",
+      "noBangla": "No Bangla yet",
+      "created": "Quote from {{name}} added.",
+      "updated": "Quote from {{name}} updated.",
+      "deleted": "Quote from {{name}} deleted.",
+      "deleteConfirm": "Delete the quote from {{name}}? This cannot be undone.",
+      "loading": "Loading quotes...",
+      "empty": "No quotes of this type yet.",
+      "errors": {
+        "required": "Please enter at least the English name and quote."
+      }
+    },
+    "stories": {
+      "eyebrow": "Stories",
+      "title": "Long-form stories",
+      "description": "The featured beneficiary story on Voices of Impact and the donor stories on Our Donors. Write them in English and Bangla.",
+      "new": "Add a story",
+      "newTitle": "Add a story",
+      "editTitle": "Edit story",
+      "import": "Import the current stories",
+      "importing": "Importing...",
+      "importConfirm": "Copy the stories that are on the website today (English and Bangla) into this list so you can edit them?",
+      "imported": "{{count}} stories imported. You can now edit, hide or reorder them.",
+      "tabs": {
+        "beneficiary": "Featured beneficiary story",
+        "donor": "Donor stories"
+      },
+      "kinds": {
+        "beneficiary": "Beneficiary (featured story)",
+        "donor": "Donor story"
+      },
+      "where": {
+        "beneficiary": "Voices of Impact shows the first visible story from this list as its featured story. Move another to the top to feature it instead.",
+        "donor": "Shown on Our Donors under \"How donors became involved\", in this order."
+      },
+      "fields": {
+        "kind": "Type of story",
+        "titleEn": "Title (English)",
+        "titleBn": "Title (Bangla)",
+        "summaryEn": "Introduction (English)",
+        "summaryBn": "Introduction (Bangla)",
+        "bodyEn": "Full story (English)",
+        "bodyBn": "Full story (Bangla)",
+        "name": "Name (English)",
+        "nameBn": "Name (Bangla)",
+        "roleEn": "Role or description (English)",
+        "roleBn": "Role or description (Bangla)",
+        "badgesEn": "Highlights, separated by commas (English)",
+        "badgesBn": "Highlights, separated by commas (Bangla)",
+        "image": "Photo"
+      },
+      "help": "Only the English title and introduction are required. Leave a blank line between paragraphs. Visitors see the introduction first and can open the full story. Highlights appear as badges on the featured story.",
+      "save": "Save story",
+      "saving": "Saving...",
+      "cancel": "Cancel",
+      "edit": "Edit",
+      "delete": "Delete",
+      "featured": "Featured now",
+      "hidden": "Hidden",
+      "noBangla": "No Bangla yet",
+      "created": "Story \"{{title}}\" added.",
+      "updated": "Story \"{{title}}\" updated.",
+      "deleted": "Story \"{{title}}\" deleted.",
+      "deleteConfirm": "Delete the story \"{{title}}\"? This cannot be undone.",
+      "loading": "Loading stories...",
+      "empty": "No stories of this type yet.",
+      "errors": {
+        "required": "Please enter at least the English title and introduction."
+      }
+    }
+  },
+  "legal": {
+    "eyebrow": "Policies",
+    "lastUpdatedLabel": "Last updated",
+    "lastUpdated": "4 October 2026",
+    "relatedLabel": "Related policies:",
+    "contact": {
+      "title": "Contact us",
+      "intro": "If you have any questions about this policy, please contact us using the details below.",
+      "organizationLabel": "Organization",
+      "organization": "Alokayon, registered with the Department of Social Services, Ministry of Social Welfare, Government of Bangladesh (2019)",
+      "addressLabel": "Registered address",
+      "emailLabel": "Email",
+      "phoneLabel": "Phone"
+    },
+    "terms": {
+      "title": "Terms and Conditions",
+      "intro": "These Terms and Conditions apply to everyone who visits the Alokayon website or makes a donation through it. By using this website or donating, you agree to these terms. Please read them carefully.",
+      "sections": [
+        {
+          "heading": "About Alokayon",
+          "paragraphs": [
+            "Alokayon is a non-profit, non-political charitable organization in Bangladesh. It began informally in 2011 and was formally registered with the Department of Social Services, Ministry of Social Welfare, in 2019. Alokayon supports underprivileged children, widows, elderly people, and vulnerable families through education, relief, healthcare, and livelihood programs."
+          ]
+        },
+        {
+          "heading": "Using this website",
+          "bullets": [
+            "Use this website only for lawful purposes and in a way that does not harm the website or other visitors.",
+            "Provide accurate and complete information when you make a donation or contact us.",
+            "Do not attempt to access the administrative areas of the website without authorization."
+          ]
+        },
+        {
+          "heading": "Donations",
+          "paragraphs": [
+            "All donations, including zakat and sadaqah, are voluntary. Amounts are processed in Bangladeshi Taka (BDT) unless stated otherwise.",
+            "Alokayon uses donations for its charitable programs. Where you choose a specific program, we will use your donation for that program. If that program is already fully funded or can no longer be carried out, we may use the donation for a similar program with the greatest need."
+          ]
+        },
+        {
+          "heading": "Payments",
+          "paragraphs": [
+            "Online payments are processed securely by SSLCommerz, a licensed payment gateway in Bangladesh. Alokayon does not receive or store your full card number, PIN, or mobile banking password.",
+            "By making a payment, you confirm that you are authorized to use the selected card, bank account, or mobile wallet. Your bank or payment provider may apply its own charges."
+          ]
+        },
+        {
+          "heading": "Confirmation and receipts",
+          "paragraphs": [
+            "After a successful donation, an official receipt is emailed to you as a PDF. You can also ask for a hand-signed receipt, which our team will sign and email to you."
+          ]
+        },
+        {
+          "heading": "Refunds",
+          "paragraphs": [
+            "Refunds are handled according to our Return and Refund Policy, which forms part of these Terms and Conditions."
+          ]
+        },
+        {
+          "heading": "Content and intellectual property",
+          "paragraphs": [
+            "The text, photographs, logos, and other content on this website belong to Alokayon or are used with permission. You may share our content for non-commercial purposes with credit to Alokayon, but you may not modify or sell it without our written permission."
+          ]
+        },
+        {
+          "heading": "Links to other websites",
+          "paragraphs": [
+            "This website may link to other websites, such as payment providers. Alokayon is not responsible for the content or privacy practices of those websites."
+          ]
+        },
+        {
+          "heading": "Limitation of liability",
+          "paragraphs": [
+            "We work to keep the information on this website accurate and the website available, but we cannot guarantee that it will always be error-free or uninterrupted. To the extent permitted by law, Alokayon is not liable for any indirect loss arising from the use of this website."
+          ]
+        },
+        {
+          "heading": "Governing law",
+          "paragraphs": [
+            "These terms are governed by the laws of Bangladesh. Any dispute will be subject to the jurisdiction of the courts of Dhaka."
+          ]
+        },
+        {
+          "heading": "Changes to these terms",
+          "paragraphs": [
+            "We may update these Terms and Conditions from time to time. The updated version will be posted on this page with a new \"Last updated\" date."
+          ]
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "intro": "Alokayon respects your privacy. This Privacy Policy explains what personal information we collect when you visit our website or make a donation, how we use it, and the choices you have.",
+      "sections": [
+        {
+          "heading": "Information we collect",
+          "bullets": [
+            "Donation details you provide, such as your name, email address, phone number, donation amount, and the program you choose to support.",
+            "Messages you send us by email, by phone, or through the contact form on this website.",
+            "Payment information is collected and processed by our payment gateway, SSLCommerz. Alokayon does not receive or store your full card number, PIN, or mobile banking password.",
+            "When you use the contact form, a one-way code made from your IP address (not the address itself), used only to stop repeated spam messages.",
+            "Basic technical information, such as your selected language, which is stored in your own browser, and standard server logs kept by our hosting providers."
+          ]
+        },
+        {
+          "heading": "How we use your information",
+          "bullets": [
+            "To process your donation and confirm that it was received.",
+            "To provide receipts and respond to your questions.",
+            "To keep accurate financial and accounting records as required by law.",
+            "To report on our work. Published reports use totals only and never identify individual donors without their permission."
+          ]
+        },
+        {
+          "heading": "Sharing your information",
+          "paragraphs": [
+            "We do not sell, rent, or trade your personal information. We share it only with:"
+          ],
+          "bullets": [
+            "SSLCommerz and the related banks and mobile financial services, to process your payment.",
+            "Service providers that host our website and data, only as needed to run the website.",
+            "Government or law enforcement authorities in Bangladesh, when required by law."
+          ]
+        },
+        {
+          "heading": "Donor recognition",
+          "paragraphs": [
+            "We will not publish your name, photo, or comments on our website or in our magazine without your permission."
+          ]
+        },
+        {
+          "heading": "Data security",
+          "paragraphs": [
+            "We use reasonable technical and organizational measures to protect your information, and access to donor information is limited to authorized Alokayon staff. No method of transmission over the internet is completely secure, but we take care to protect your data."
+          ]
+        },
+        {
+          "heading": "How long we keep your information",
+          "paragraphs": [
+            "We keep donation records for as long as needed to meet our accounting, audit, and legal obligations. Other information is deleted when it is no longer needed."
+          ]
+        },
+        {
+          "heading": "Your choices",
+          "paragraphs": [
+            "You may ask to see, correct, or delete the personal information we hold about you by contacting us. We will respond within a reasonable time, unless we are required by law to keep certain records."
+          ]
+        },
+        {
+          "heading": "Children's privacy",
+          "paragraphs": [
+            "Our website is intended for adults making donations. We do not knowingly collect personal information online from children."
+          ]
+        },
+        {
+          "heading": "Changes to this policy",
+          "paragraphs": [
+            "We may update this Privacy Policy from time to time. The updated version will be posted on this page with a new \"Last updated\" date."
+          ]
+        }
+      ]
+    },
+    "refund": {
+      "title": "Return and Refund Policy",
+      "intro": "Alokayon does not sell physical products, so this policy covers refunds of donations made through our website. Because donations are usually allocated to programs quickly, they are generally non-refundable, except in the cases described below.",
+      "sections": [
+        {
+          "heading": "When you can request a refund",
+          "bullets": [
+            "You were charged more than once for the same donation (duplicate payment).",
+            "You entered the wrong amount by mistake.",
+            "Your account was charged but the donation was not completed.",
+            "Your card or account was used without your permission."
+          ]
+        },
+        {
+          "heading": "How to request a refund",
+          "paragraphs": [
+            "Email alokayon2019@gmail.com within 7 days of the donation and include:"
+          ],
+          "bullets": [
+            "Your full name and phone number.",
+            "The date and amount of the donation.",
+            "The transaction ID and payment method (card, bKash, Nagad, bank, etc.).",
+            "The reason for the refund request."
+          ]
+        },
+        {
+          "heading": "Review and refund timeline",
+          "paragraphs": [
+            "We will review your request and reply within 3 working days.",
+            "Approved refunds are processed within 7 to 10 working days and returned to the original payment method. Depending on your bank or mobile financial service, it may take a few additional days for the amount to appear in your account."
+          ]
+        },
+        {
+          "heading": "Zakat donations",
+          "paragraphs": [
+            "If a zakat donation is refunded, that amount will not have been distributed as zakat on your behalf. Please consider this before requesting a refund."
+          ]
+        },
+        {
+          "heading": "Cancellations",
+          "paragraphs": [
+            "If you made a donation by mistake, contact us as soon as possible. Requests made before the funds have been allocated are easier for us to resolve."
+          ]
+        }
+      ]
+    }
+  },
+  "seo": {
+    "descriptions": {
+      "home": "Alokayon is a registered charity in Bangladesh. Give your zakat and donations to support students, widows, elderly people and vulnerable families.",
+      "about": "The story of Alokayon: founded in 2011 as Dushtho Sheba, registered in 2019, and serving underprivileged communities in Bangladesh with dignity and accountability.",
+      "programs": "Alokayon's programs: education, healthcare, widow support, relief, livelihood, elderly care, the Alokayon Pathshala school and the Hafezi madrasa.",
+      "school": "Alokayon Pathshala gives free education to underprivileged children in Dhaka's slum communities.",
+      "madrasa": "Abdul Karim Miazi Hafezi Madrasa combines Qur'anic, Arabic and Bengali education for its students.",
+      "gallery": "Photos of Alokayon's work: school days, relief distributions, livelihood support and community care.",
+      "opinions": "Students, families and widows describe how support from Alokayon changed their lives.",
+      "donors": "Donors in Bangladesh and abroad explain why they give their zakat and donations through Alokayon.",
+      "transparency": "Read Alokayon's annual magazines and financial reports to see how donations are received and spent.",
+      "donate": "Donate to Alokayon securely by card, bKash or Nagad, and receive an emailed receipt. Your zakat reaches students, widows and families in need.",
+      "terms": "Terms and conditions for donating to Alokayon.",
+      "privacy": "How Alokayon collects, uses and protects your personal information.",
+      "refund": "Alokayon's return and refund policy for donations.",
+      "zakatCalculator": "Work out how much zakat you owe. Enter your cash, gold, silver, savings and debts, and see your zakat at 2.5% using the current nisab in BDT.",
+      "campaigns": "Support Alokayon's current appeals. See each appeal's goal, how much has been raised, and give to the cause you care about.",
+      "contact": "Contact Alokayon about donations, zakat, receipts, volunteering or partnerships. Send a message or call us in Dhaka."
+    },
+    "notFoundTitle": "Page not found"
+  },
+  "notFound": {
+    "eyebrow": "Error 404",
+    "title": "We couldn't find that page",
+    "message": "The link may be broken, or the page may have moved. Try one of these instead.",
+    "homeButton": "Go to the home page",
+    "donateButton": "Donate",
+    "programsLink": "Our programs",
+    "transparencyLink": "Reports and magazines",
+    "contactNote": "Still looking for something? Email us at"
+  },
+  "zakatCalculator": {
+    "eyebrow": "Zakat Calculator",
+    "title": "Work out the zakat you owe",
+    "intro": "Enter what you own and what you owe today. The calculator checks your wealth against the nisab and shows your zakat at 2.5%. Nothing you type is saved or sent anywhere.",
+    "sections": {
+      "nisab": "Nisab and prices",
+      "assets": "What you own",
+      "deductions": "What you owe now"
+    },
+    "nisab": {
+      "label": "Nisab standard",
+      "silver": {
+        "title": "Silver nisab (612.36 g)",
+        "description": "The lower threshold. Many scholars in Bangladesh recommend it because more people pay zakat, which benefits more people in need.",
+        "metal": "silver"
+      },
+      "gold": {
+        "title": "Gold nisab (87.48 g)",
+        "description": "A higher threshold. Some scholars use it, especially when most of your wealth is held as gold.",
+        "metal": "gold"
+      }
+    },
+    "fields": {
+      "goldPrice": "Gold price per gram (22 carat)",
+      "silverPrice": "Silver price per gram",
+      "cash": "Cash and bank balances",
+      "gold": "Gold you own",
+      "silver": "Silver you own",
+      "investments": "Savings and investments",
+      "businessStock": "Business stock",
+      "receivables": "Money others owe you",
+      "otherAssets": "Other zakatable wealth",
+      "debtsDue": "Debts and bills due now"
+    },
+    "hints": {
+      "cash": "Cash at home, bank accounts, and bKash, Nagad or other mobile wallets.",
+      "gold": "Jewellery, coins and bars, by weight. 1 vori is {{grams}} grams.",
+      "silver": "Jewellery, coins and items, by weight.",
+      "investments": "Shares, savings certificates (sanchayapatra), DPS, FDR and similar savings.",
+      "businessStock": "Goods held for sale, at their current selling price.",
+      "receivables": "Loans you have given that you expect to be repaid.",
+      "otherAssets": "Foreign currency, or property and land bought to resell.",
+      "debtsDue": "Loan instalments, rent, bills and other payments that are due now. Do not include the full amount of a long-term loan."
+    },
+    "units": {
+      "label": "Unit",
+      "vori": "Vori",
+      "gram": "Grams"
+    },
+    "prices": {
+      "updated": "Prices set by Alokayon on {{date}}. You can change them to today’s rate.",
+      "missing": "Enter today’s gold and silver prices to calculate the nisab.",
+      "bajusLink": "Check the BAJUS price list"
+    },
+    "summary": {
+      "title": "Your zakat",
+      "totalAssets": "Total wealth",
+      "deductions": "Debts due now",
+      "netWealth": "Net zakatable wealth",
+      "nisab": "Nisab ({{grams}} g of {{metal}})"
+    },
+    "result": {
+      "needPrice": "Enter the {{metal}} price per gram to see whether you have reached the nisab.",
+      "empty": "Enter your wealth to see your zakat.",
+      "dueLabel": "Zakat due",
+      "dueNote": "This is 2.5% of your net wealth, due if it has stayed at or above the nisab for one lunar year.",
+      "payButton": "Pay {{amount}} as zakat",
+      "largeAmount": "For amounts above ৳5,00,000, please pay by bank transfer. The bank details are on the Donate page.",
+      "belowNisab": "Your net wealth is below the nisab, so zakat is not due. You can still give sadaqah at any time."
+    },
+    "explainer": {
+      "title": "How zakat is calculated",
+      "items": [
+        {
+          "title": "Nisab",
+          "text": "Zakat is due once your net wealth reaches the nisab: the value of 87.48 grams of gold or 612.36 grams of silver."
+        },
+        {
+          "title": "One lunar year (hawl)",
+          "text": "Your wealth must stay at or above the nisab for a full Hijri year. Many people pick a fixed date, such as Ramadan, to calculate each year."
+        },
+        {
+          "title": "2.5% of net wealth",
+          "text": "Add up your zakatable wealth, take away debts that are due now, and pay 2.5% of what remains."
+        },
+        {
+          "title": "What is not counted",
+          "text": "The home you live in, your personal car, furniture, clothes and the tools you use for work are not counted."
+        }
+      ]
+    },
+    "disclaimer": "This calculator is a guide. Rulings differ on some items, such as jewellery that is worn and long-term debts. For your own situation, please ask a scholar you trust."
+  },
+  "campaigns": {
+    "progress": {
+      "ofGoal": "raised of {{goal}}",
+      "label": "Fundraising progress",
+      "valueText": "{{raised}} raised of {{goal}}",
+      "percent": "{{percent}}% of goal",
+      "donors_one": "{{count}} donor",
+      "donors_other": "{{count}} donors",
+      "daysLeft_one": "{{count}} day left",
+      "daysLeft_other": "{{count}} days left",
+      "lastDay": "Last day"
+    },
+    "state": {
+      "ended": "Appeal ended"
+    },
+    "card": {
+      "give": "Give to this appeal",
+      "viewResult": "See what was raised",
+      "linkLabel": "{{title}}: see appeal and donate"
+    },
+    "section": {
+      "eyebrow": "Current appeals",
+      "title": "Help us reach these goals",
+      "viewAll": "See all appeals"
+    },
+    "page": {
+      "eyebrow": "Appeals",
+      "title": "Give to a specific need",
+      "intro": "Each appeal has a clear goal. Every donation made from an appeal page counts toward it, and the progress you see is updated from real donations.",
+      "loading": "Loading appeals...",
+      "error": "We couldn't load the appeals right now. Please try again in a moment.",
+      "emptyTitle": "No appeals are running right now",
+      "emptyText": "You can still give where the need is greatest. Your donation supports all of our programs.",
+      "endedTitle": "Completed appeals"
+    },
+    "detail": {
+      "donate": "Donate to this appeal",
+      "donateGeneral": "Donate where most needed",
+      "endedNote": "This appeal has ended. Thank you to everyone who gave. You can still support our ongoing work.",
+      "privacyNote": "Only totals are shown here. Donor names and amounts are never published.",
+      "storyTitle": "About this appeal"
+    }
+  },
+  "contactPage": {
+    "eyebrow": "Contact us",
+    "title": "Send us a message",
+    "intro": "Questions about a donation, a receipt or zakat? Want to volunteer or work with us? Write to us and our team will reply by email.",
+    "fields": {
+      "name": "Your name",
+      "email": "Email address",
+      "phone": "Phone number (optional)",
+      "topic": "What is it about?",
+      "message": "Your message"
+    },
+    "topics": {
+      "general": "General question",
+      "donation": "Donation or receipt",
+      "zakat": "Zakat question",
+      "volunteer": "Volunteering",
+      "partnership": "Partnership",
+      "other": "Something else"
+    },
+    "send": "Send message",
+    "sending": "Sending...",
+    "replyNote": "We usually reply within 3 working days.",
+    "sent": {
+      "title": "Thank you, your message has been sent",
+      "message": "Our team will reply to {{email}}, usually within 3 working days."
+    },
+    "errors": {
+      "name": "Please enter your name.",
+      "email": "Please enter a valid email address so we can reply.",
+      "message": "Please write a message of at least a few words.",
+      "tooMany": "You have sent several messages in a short time. Please wait an hour, or email us directly.",
+      "generic": "Your message couldn't be sent. Please try again, or email us at alokayon2019@gmail.com."
+    },
+    "details": {
+      "title": "Other ways to reach us",
+      "email": "Email",
+      "phone": "Phone (bKash)",
+      "phoneAlt": "Phone (Nagad)",
+      "address": "Office address"
     }
   }
 }

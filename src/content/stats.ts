@@ -71,6 +71,10 @@ export const statsInventory = {
       value: '1.3M+ BDT',
       description: 'Approximate public-facing annual distribution total.',
     },
+    medicalCasesYearly: {
+      value: '25+',
+      description: 'Medical cases supported each year, shown on the Programs page.',
+    },
     executiveCommitteeMembers: {
       value: '14',
       description: 'Number of executive committee members shown on the site.',
@@ -128,6 +132,23 @@ export const statsInventory = {
     distribution2024to2025: {
       value: '1.13M BDT',
       description: 'Approximate expenditure/distribution shown for the 2024–25 financial period.',
+    },
+  },
+  // Prices used by the zakat calculator. Left empty until an admin enters today's prices.
+  zakat: {
+    goldPricePerGram: {
+      value: '',
+      description:
+        'Price of 22 carat gold per gram in BDT, from the BAJUS rate. Used to value gold and the gold nisab.',
+    },
+    silverPricePerGram: {
+      value: '',
+      description:
+        'Price of 22 carat silver per gram in BDT, from the BAJUS rate. Used to value silver and the silver nisab.',
+    },
+    metalPricesUpdated: {
+      value: '',
+      description: 'Date the gold and silver prices were last checked, e.g. 4 October 2026.',
     },
   },
 } as const satisfies Record<string, Record<string, StatInventoryEntry>>
@@ -250,7 +271,7 @@ export const getProgramsImpactStats = (t: TFunction): UiStat[] =>
       getStatValue('studentsSupported'),
       getStatValue('elderlySupported'),
       getStatValue('widowsSupported'),
-      '25+',
+      getStatValue('medicalCasesYearly'),
     ][index],
     label: item.label,
   }))

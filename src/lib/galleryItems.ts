@@ -1,4 +1,5 @@
 import { supabase } from '../utils/supabase'
+import { readStorage, writeStorage, removeStorage } from './safeStorage'
 
 export type GallerySpan = 'large' | 'medium' | 'small'
 
@@ -24,7 +25,7 @@ export const getCachedGalleryItems = () => {
     return null
   }
 
-  const cachedValue = window.localStorage.getItem(galleryStorageKey)
+  const cachedValue = readStorage(galleryStorageKey)
 
   if (!cachedValue) {
     return null
@@ -33,7 +34,7 @@ export const getCachedGalleryItems = () => {
   try {
     return JSON.parse(cachedValue) as GalleryRecord[]
   } catch {
-    window.localStorage.removeItem(galleryStorageKey)
+    removeStorage(galleryStorageKey)
     return null
   }
 }
@@ -43,12 +44,12 @@ export const cacheGalleryItems = (items: GalleryRecord[]) => {
     return
   }
 
-  window.localStorage.setItem(galleryStorageKey, JSON.stringify(items))
+  writeStorage(galleryStorageKey, JSON.stringify(items))
 }
 
 export const invalidateGalleryItemsCache = () => {
   if (typeof window !== 'undefined') {
-    window.localStorage.removeItem(galleryStorageKey)
+    removeStorage(galleryStorageKey)
   }
 }
 
@@ -56,7 +57,6 @@ export const loadGalleryItems = async () => {
   const { data, error } = await supabase
     .from('gallery_items')
     .select('*')
-    .eq('is_active', true)
     .order('sort_order', { ascending: true })
     .order('created_at', { ascending: true })
 
@@ -64,7 +64,10 @@ export const loadGalleryItems = async () => {
     throw error
   }
 
-  const rows = ((data ?? []) as GalleryRecord[]).filter((row) => row.image_url && row.title)
+  const allRows = (data ?? []) as GalleryRecord[]
+  const rows = allRows.filter((row) => row.is_active && row.image_url && row.title)
   cacheGalleryItems(rows)
-  return rows
+  // hasAnyRows tells "the admin hid everything" (show nothing) apart from "nothing has been
+  // added yet" (show the built-in example content).
+  return { rows, hasAnyRows: allRows.length > 0 }
 }

@@ -60,14 +60,14 @@ type Story = {
 }
 
 const galleryImageMap = [
-  '/assets/programs/Education.jpeg',
-  '/assets/programs/Relief.jpg',
-  '/assets/programs/Livelihood.jpeg',
-  '/assets/programs/Elderly_Care.jpg',
-  '/assets/programs/School.jpeg',
-  '/assets/programs/Relief.jpg',
-  '/assets/programs/Community.jpg',
-  '/assets/programs/School.jpeg',
+  '/assets/about/Donation_5.webp',
+  '/assets/about/Donating_4.webp',
+  '/assets/about/Donation_6.webp',
+  '/assets/programs/Elderly_Care.webp',
+  '/assets/about/Donating_3.webp',
+  '/assets/about/Donating_4.webp',
+  '/assets/programs/Community.webp',
+  '/assets/about/Donating_3.webp',
 ]
 
 const gallerySpanMap = ['large', 'small', 'medium', 'medium', 'small', 'small', 'medium', 'small']
@@ -83,18 +83,18 @@ export const getFilterTabs = (t: TFunction) =>
 export const getFeaturedProgram = (t: TFunction) => ({
   ...(t('programs.featured', { returnObjects: true }) as FeaturedProgram),
   stats: getFeaturedSchoolStats(t),
-  image: '/assets/programs/School.jpeg',
+  image: '/assets/about/Donating_3.webp',
 })
 
 export const getFeaturedMadrasa = (t: TFunction) => ({
   ...(t('programs.featuredMadrasa', { returnObjects: true }) as FeaturedProgram),
   stats: getFeaturedMadrasaStats(t),
-  image: '/assets/programs/Education.jpeg',
+  image: '/assets/about/Donation_5.webp',
 })
 
 export const getCaseStudy = (t: TFunction) => ({
   ...(t('programs.caseStudy', { returnObjects: true }) as CaseStudy),
-  image: '/assets/programs/Community.jpg',
+  image: '/assets/programs/Community.webp',
 })
 
 export const getInitiatives = (t: TFunction) =>

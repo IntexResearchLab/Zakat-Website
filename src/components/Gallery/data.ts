@@ -25,14 +25,14 @@ type FeaturedStory = {
 }
 
 const galleryImageMap = [
-  '/assets/home/Alokayon_School_1.jpg',
-  '/assets/home/celebration.jpg',
-  '/assets/about/donors-community.jpg',
-  '/assets/about/Donating.jpg',
-  '/assets/about/Giving.jpg',
-  '/assets/about/community-support.jpg',
-  '/assets/about/book-distribution.jpg',
-  '/assets/school/School_2.jpg',
+  '/assets/home/Alokayon_School_1.webp',
+  '/assets/home/celebration.webp',
+  '/assets/about/donors-community.webp',
+  '/assets/about/Donating.webp',
+  '/assets/about/Giving.webp',
+  '/assets/about/community-support.webp',
+  '/assets/about/book-distribution.webp',
+  '/assets/home/celebration.webp',
 ]
 
 const galleryCategoryMap = [
@@ -58,9 +58,9 @@ const gallerySpanMap: GalleryItem['span'][] = [
 ]
 
 const featuredImageMap = [
-  '/assets/school/School_2.jpg',
-  '/assets/school/School_3.jpg',
-  '/assets/programs/Livelihood.jpeg',
+  '/assets/home/celebration.webp',
+  '/assets/school/School_3.webp',
+  '/assets/about/Donation_6.webp',
 ]
 
 const featuredLinkMap = ['/programs/alokayon-school', '/programs/madrasa', '/programs']

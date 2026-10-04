@@ -16,7 +16,7 @@ function TransparencyHighlights() {
             delay={index * 45}
             key={item.title}
           >
-            <span className="material-symbols-outlined text-[1.55rem] text-[#115b82]">
+            <span aria-hidden="true" className="material-symbols-outlined text-[1.55rem] text-[#115b82]">
               {item.icon}
             </span>
             <h2 className="mt-4 text-[1rem] font-bold leading-[1.35] text-[#14324d]">

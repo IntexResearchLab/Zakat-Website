@@ -27,7 +27,7 @@ function GalleryImpactStrip() {
                 <p className="font-serif text-[2.7rem] leading-none tracking-[-0.05em] text-[#14324d] sm:text-[3.2rem]">
                   {stat.value}
                 </p>
-                <p className="mt-2 text-[0.9rem] font-semibold tracking-[0.02em] text-[#697b86]">
+                <p className="mt-2 text-[0.9rem] font-semibold tracking-[0.02em] text-[#5d6d78]">
                   {stat.label}
                 </p>
               </div>

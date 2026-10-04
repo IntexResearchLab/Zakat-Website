@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import AdminImageInput from '../components/Admin/AdminImageInput'
 import AdminShellLayout from '../components/Admin/AdminShellLayout'
+import { getFriendlyErrorMessage, requireChangedRows } from '../lib/adminErrors'
 import { invalidateMagazineRowsCache } from '../lib/magazines'
 import { supabase } from '../utils/supabase'
 
@@ -72,6 +74,7 @@ function AdminMagazines() {
   const { t } = useTranslation()
   const [magazines, setMagazines] = useState<Magazine[]>([])
   const [formState, setFormState] = useState<MagazineForm>(initialFormState)
+  const [baselineForm, setBaselineForm] = useState<MagazineForm>(initialFormState)
   const [pdfFile, setPdfFile] = useState<File | null>(null)
   const [coverFile, setCoverFile] = useState<File | null>(null)
   const [editingId, setEditingId] = useState<string | null>(null)
@@ -81,9 +84,15 @@ function AdminMagazines() {
   const [errorMessage, setErrorMessage] = useState('')
   const [successMessage, setSuccessMessage] = useState('')
   const pdfInputRef = useRef<HTMLInputElement | null>(null)
-  const coverInputRef = useRef<HTMLInputElement | null>(null)
+  const formSectionRef = useRef<HTMLElement | null>(null)
 
   const magazineCount = useMemo(() => magazines.length, [magazines.length])
+  const hasUnsavedChanges =
+    pdfFile !== null ||
+    coverFile !== null ||
+    (Object.keys(formState) as Array<keyof MagazineForm>).some(
+      (field) => formState[field] !== baselineForm[field],
+    )
   const editingMagazine = useMemo(
     () => magazines.find((magazine) => magazine.id === editingId) ?? null,
     [editingId, magazines],
@@ -104,7 +113,7 @@ function AdminMagazines() {
       .order('created_at', { ascending: false })
 
     if (error) {
-      setErrorMessage(error.message)
+      setErrorMessage(getFriendlyErrorMessage(t, error))
       if (showLoader) {
         setIsLoading(false)
       }
@@ -132,7 +141,7 @@ function AdminMagazines() {
       }
 
       if (error) {
-        setErrorMessage(error.message)
+        setErrorMessage(getFriendlyErrorMessage(t, error))
         setIsLoading(false)
         return
       }
@@ -146,19 +155,30 @@ function AdminMagazines() {
     return () => {
       isMounted = false
     }
-  }, [])
+  }, [t])
 
   const resetForm = () => {
     setFormState(initialFormState)
+    setBaselineForm(initialFormState)
     setPdfFile(null)
     setCoverFile(null)
     setEditingId(null)
     if (pdfInputRef.current) {
       pdfInputRef.current.value = ''
     }
-    if (coverInputRef.current) {
-      coverInputRef.current.value = ''
+  }
+
+  const confirmDiscardChanges = () =>
+    !hasUnsavedChanges || window.confirm(t('admin.unsaved.discardConfirmation'))
+
+  const handleDiscard = () => {
+    if (!confirmDiscardChanges()) {
+      return
     }
+
+    setErrorMessage('')
+    setSuccessMessage('')
+    resetForm()
   }
 
   const handleFieldChange = (
@@ -172,22 +192,27 @@ function AdminMagazines() {
   }
 
   const handleEdit = (magazine: Magazine) => {
-    setEditingId(magazine.id)
-    setSuccessMessage('')
-    setErrorMessage('')
-    setFormState({
+    if (magazine.id !== editingId && !confirmDiscardChanges()) {
+      return
+    }
+
+    const nextForm: MagazineForm = {
       title: magazine.title,
       year: String(magazine.year),
       description: magazine.description ?? '',
-    })
+    }
+
+    setEditingId(magazine.id)
+    setSuccessMessage('')
+    setErrorMessage('')
+    setFormState(nextForm)
+    setBaselineForm(nextForm)
     setPdfFile(null)
     setCoverFile(null)
     if (pdfInputRef.current) {
       pdfInputRef.current.value = ''
     }
-    if (coverInputRef.current) {
-      coverInputRef.current.value = ''
-    }
+    formSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 
   const handleDelete = async (magazine: Magazine) => {
@@ -203,10 +228,12 @@ function AdminMagazines() {
     setErrorMessage('')
     setSuccessMessage('')
 
-    const { error } = await supabase.from('magazines').delete().eq('id', magazine.id)
+    const error = requireChangedRows(
+      await supabase.from('magazines').delete().eq('id', magazine.id).select('id'),
+    )
 
     if (error) {
-      setErrorMessage(error.message)
+      setErrorMessage(getFriendlyErrorMessage(t, error))
       setDeletingId(null)
       return
     }
@@ -256,6 +283,8 @@ function AdminMagazines() {
 
     let pdfUrl = currentMagazine?.pdf_url ?? ''
     let coverImageUrl = currentMagazine?.cover_image_url ?? null
+    // Old files are only removed after the database row points at the new ones.
+    const replacedFilePaths: string[] = []
 
     if (pdfFile) {
       const pdfPath = buildStoragePath('pdfs', formState.year, title, pdfFile.name)
@@ -268,7 +297,7 @@ function AdminMagazines() {
         })
 
       if (pdfUploadError) {
-        setErrorMessage(pdfUploadError.message)
+        setErrorMessage(getFriendlyErrorMessage(t, pdfUploadError))
         setIsSaving(false)
         return
       }
@@ -278,7 +307,7 @@ function AdminMagazines() {
 
       const oldPdfPath = getStoragePathFromPublicUrl(currentMagazine?.pdf_url ?? null)
       if (oldPdfPath) {
-        await supabase.storage.from(magazineBucket).remove([oldPdfPath])
+        replacedFilePaths.push(oldPdfPath)
       }
     }
 
@@ -298,7 +327,7 @@ function AdminMagazines() {
         })
 
       if (coverUploadError) {
-        setErrorMessage(coverUploadError.message)
+        setErrorMessage(getFriendlyErrorMessage(t, coverUploadError))
         setIsSaving(false)
         return
       }
@@ -310,7 +339,7 @@ function AdminMagazines() {
         currentMagazine?.cover_image_url ?? null,
       )
       if (oldCoverPath) {
-        await supabase.storage.from(magazineBucket).remove([oldCoverPath])
+        replacedFilePaths.push(oldCoverPath)
       }
     }
 
@@ -323,15 +352,19 @@ function AdminMagazines() {
     }
 
     const query = editingId
-      ? supabase.from('magazines').update(payload).eq('id', editingId)
-      : supabase.from('magazines').insert(payload)
+      ? supabase.from('magazines').update(payload).eq('id', editingId).select('id')
+      : supabase.from('magazines').insert(payload).select('id')
 
-    const { error } = await query
+    const error = requireChangedRows(await query)
 
     if (error) {
-      setErrorMessage(error.message)
+      setErrorMessage(getFriendlyErrorMessage(t, error))
       setIsSaving(false)
       return
+    }
+
+    if (replacedFilePaths.length) {
+      await supabase.storage.from(magazineBucket).remove(replacedFilePaths)
     }
 
     setSuccessMessage(
@@ -357,15 +390,19 @@ function AdminMagazines() {
           <p className="mt-2 font-serif text-[2rem] leading-none tracking-[-0.05em] text-[#14324d]">
             {magazineCount}
           </p>
-          <p className="mt-2 text-[0.9rem] leading-[1.6] text-[#6a7c87]">
+          <p className="mt-2 text-[0.9rem] leading-[1.6] text-[#5d6d78]">
             {t('admin.magazines.headerCardContext')}
           </p>
         </div>
       }
+      hasUnsavedChanges={hasUnsavedChanges}
       title={t('admin.magazines.title')}
     >
       <div className="mt-8 grid gap-6 xl:grid-cols-[0.94fr_1.06fr]">
-        <section className="rounded-[1.35rem] border border-[#dbe7ee] bg-white p-6 shadow-[0_18px_42px_rgba(15,23,42,0.05)]">
+        <section
+          className="scroll-mt-24 rounded-[1.35rem] border border-[#dbe7ee] bg-white p-6 shadow-[0_18px_42px_rgba(15,23,42,0.05)] lg:scroll-mt-6"
+          ref={formSectionRef}
+        >
           <div className="flex items-start justify-between gap-4">
             <div>
               <h2 className="font-serif text-[1.8rem] leading-none tracking-[-0.03em] text-[#14324d]">
@@ -380,7 +417,7 @@ function AdminMagazines() {
             {editingId ? (
               <button
                 className="rounded-full border border-[#dbe7ee] px-4 py-2 text-[0.78rem] font-bold uppercase tracking-[0.14em] text-[#14324d] transition hover:border-[#bfd5e4] hover:bg-[#f7fbfd]"
-                onClick={resetForm}
+                onClick={handleDiscard}
                 type="button"
               >
                 {t('admin.magazines.cancelEdit')}
@@ -394,7 +431,7 @@ function AdminMagazines() {
                 {t('admin.magazines.fields.title')}
               </label>
               <input
-                className="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-[#fbfdff] px-4 py-3 text-[0.98rem] text-[#14324d] outline-none transition placeholder:text-[#90a3af] focus:border-[#115b82] focus:bg-white"
+                className="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-[#fbfdff] px-4 py-3 text-[0.98rem] text-[#14324d] outline-none transition placeholder:text-[#627581] focus:border-[#115b82] focus:bg-white"
                 onChange={(event) => handleFieldChange('title', event.target.value)}
                 placeholder={t('admin.magazines.placeholders.title')}
                 type="text"
@@ -407,7 +444,7 @@ function AdminMagazines() {
                 {t('admin.magazines.fields.year')}
               </label>
               <input
-                className="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-[#fbfdff] px-4 py-3 text-[0.98rem] text-[#14324d] outline-none transition placeholder:text-[#90a3af] focus:border-[#115b82] focus:bg-white"
+                className="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-[#fbfdff] px-4 py-3 text-[0.98rem] text-[#14324d] outline-none transition placeholder:text-[#627581] focus:border-[#115b82] focus:bg-white"
                 onChange={(event) => handleFieldChange('year', event.target.value)}
                 placeholder={t('admin.magazines.placeholders.year')}
                 type="number"
@@ -420,7 +457,7 @@ function AdminMagazines() {
                 {t('admin.magazines.fields.description')}
               </label>
               <textarea
-                className="min-h-[132px] w-full rounded-[0.95rem] border border-[#d8e5ec] bg-[#fbfdff] px-4 py-3 text-[0.98rem] text-[#14324d] outline-none transition placeholder:text-[#90a3af] focus:border-[#115b82] focus:bg-white"
+                className="min-h-[132px] w-full rounded-[0.95rem] border border-[#d8e5ec] bg-[#fbfdff] px-4 py-3 text-[0.98rem] text-[#14324d] outline-none transition placeholder:text-[#627581] focus:border-[#115b82] focus:bg-white"
                 onChange={(event) =>
                   handleFieldChange('description', event.target.value)
                 }
@@ -442,7 +479,7 @@ function AdminMagazines() {
                   type="file"
                 />
               </div>
-              <p className="mt-2 text-[0.82rem] leading-[1.65] text-[#6a7c87]">
+              <p className="mt-2 text-[0.82rem] leading-[1.65] text-[#5d6d78]">
                 {editingId
                   ? pdfFile
                     ? t('admin.magazines.newPdfSelected', { fileName: pdfFile.name })
@@ -459,29 +496,22 @@ function AdminMagazines() {
               <label className="mb-2 block text-[0.88rem] font-semibold text-[#14324d]">
                 {t('admin.magazines.fields.coverImageFile')}
               </label>
-              <div className="rounded-[0.95rem] border border-[#d8e5ec] bg-[#fbfdff] px-4 py-3">
-                <input
-                  accept="image/*"
-                  className="block w-full text-[0.95rem] text-[#14324d] file:mr-4 file:rounded-full file:border-0 file:bg-[#edf7fc] file:px-4 file:py-2 file:text-[0.82rem] file:font-bold file:uppercase file:tracking-[0.14em] file:text-[#115b82]"
-                  onChange={(event) => setCoverFile(event.target.files?.[0] ?? null)}
-                  ref={coverInputRef}
-                  type="file"
-                />
-              </div>
-              <p className="mt-2 text-[0.82rem] leading-[1.65] text-[#6a7c87]">
-                {coverFile
-                  ? t('admin.magazines.newCoverSelected', { fileName: coverFile.name })
-                  : editingId && editingMagazine?.cover_image_url
-                    ? t('admin.magazines.currentCover')
-                    : t('admin.magazines.coverHelp')}
+              <AdminImageInput
+                alt={formState.title || t('admin.magazines.fields.coverImageFile')}
+                currentImageUrl={editingId ? editingMagazine?.cover_image_url : null}
+                file={coverFile}
+                inputClassName="block w-full rounded-[0.95rem] border border-[#d8e5ec] bg-[#fbfdff] px-4 py-3 text-[0.95rem] text-[#14324d] file:mr-4 file:rounded-full file:border-0 file:bg-[#edf7fc] file:px-4 file:py-2 file:text-[0.82rem] file:font-bold file:uppercase file:tracking-[0.14em] file:text-[#115b82]"
+                maxDimension={1400}
+                onChange={(file) => {
+                  setErrorMessage('')
+                  setCoverFile(file)
+                }}
+                onError={setErrorMessage}
+                previewClassName="h-36 w-28 object-cover"
+              />
+              <p className="mt-2 text-[0.82rem] leading-[1.65] text-[#5d6d78]">
+                {t('admin.magazines.coverHelp')}
               </p>
-              {editingId && editingMagazine?.cover_image_url && !coverFile ? (
-                <img
-                  alt={editingMagazine.title}
-                  className="mt-3 h-24 w-24 rounded-[0.9rem] border border-[#dbe7ee] object-cover"
-                  src={editingMagazine.cover_image_url}
-                />
-              ) : null}
             </div>
 
             <div className="flex flex-wrap gap-3 pt-2">
@@ -498,7 +528,7 @@ function AdminMagazines() {
               </button>
               <button
                 className="rounded-full border border-[#dbe7ee] px-6 py-3 text-sm font-bold uppercase tracking-[0.16em] text-[#14324d] transition hover:border-[#bfd5e4] hover:bg-[#f7fbfd]"
-                onClick={resetForm}
+                onClick={handleDiscard}
                 type="button"
               >
                 {t('admin.magazines.resetForm')}
@@ -534,20 +564,20 @@ function AdminMagazines() {
               onClick={() => void loadMagazines()}
               type="button"
             >
-              <span className="material-symbols-outlined text-[1rem]">refresh</span>
+              <span aria-hidden="true" className="material-symbols-outlined text-[1rem]">refresh</span>
               {t('admin.magazines.refresh')}
             </button>
           </div>
 
           <div className="mt-6 space-y-4">
             {isLoading ? (
-              <div className="rounded-[1rem] border border-dashed border-[#dbe7ee] bg-[#fbfdff] px-4 py-10 text-center text-[#6a7c87]">
+              <div className="rounded-[1rem] border border-dashed border-[#dbe7ee] bg-[#fbfdff] px-4 py-10 text-center text-[#5d6d78]">
                 {t('admin.magazines.loading')}
               </div>
             ) : null}
 
             {!isLoading && magazines.length === 0 ? (
-              <div className="rounded-[1rem] border border-dashed border-[#dbe7ee] bg-[#fbfdff] px-4 py-10 text-center text-[#6a7c87]">
+              <div className="rounded-[1rem] border border-dashed border-[#dbe7ee] bg-[#fbfdff] px-4 py-10 text-center text-[#5d6d78]">
                 {t('admin.magazines.emptyState')}
               </div>
             ) : null}
@@ -564,11 +594,13 @@ function AdminMagazines() {
                           <img
                             alt={magazine.title}
                             className="h-full w-full object-cover"
+                            decoding="async"
+                            loading="lazy"
                             src={magazine.cover_image_url}
                           />
                         ) : (
-                          <div className="flex h-full items-center justify-center text-[#7e93a0]">
-                            <span className="material-symbols-outlined text-[2rem]">
+                          <div className="flex h-full items-center justify-center text-[#5d6d78]">
+                            <span aria-hidden="true" className="material-symbols-outlined text-[2rem]">
                               menu_book
                             </span>
                           </div>
@@ -603,6 +635,15 @@ function AdminMagazines() {
                                 ? t('admin.magazines.deleting')
                                 : t('admin.magazines.deleteButton')}
                             </button>
+                            <a
+                              className="inline-flex items-center gap-1.5 rounded-full px-3 py-2 text-[0.74rem] font-bold uppercase tracking-[0.14em] text-[#115b82] transition hover:bg-white"
+                              href={`/transparency/${magazine.year}`}
+                              rel="noopener noreferrer"
+                              target="_blank"
+                            >
+                              {t('admin.list.viewOnSite')}
+                              <span aria-hidden="true" className="material-symbols-outlined text-[1rem]">open_in_new</span>
+                            </a>
                           </div>
                         </div>
 
@@ -612,14 +653,14 @@ function AdminMagazines() {
                           </p>
                         ) : null}
 
-                        <div className="mt-4 flex flex-wrap gap-3 text-[0.82rem] text-[#6a7c87]">
+                        <div className="mt-4 flex flex-wrap gap-3 text-[0.82rem] text-[#5d6d78]">
                           <a
                             className="inline-flex items-center gap-1 font-semibold text-[#115b82] hover:text-[#0c4867]"
                             href={magazine.pdf_url}
                             rel="noreferrer"
                             target="_blank"
                           >
-                            <span className="material-symbols-outlined text-[1rem]">
+                            <span aria-hidden="true" className="material-symbols-outlined text-[1rem]">
                               picture_as_pdf
                             </span>
                             {t('admin.magazines.openPdf')}
@@ -627,7 +668,7 @@ function AdminMagazines() {
 
                           {magazine.created_at ? (
                             <span className="inline-flex items-center gap-1">
-                              <span className="material-symbols-outlined text-[1rem]">
+                              <span aria-hidden="true" className="material-symbols-outlined text-[1rem]">
                                 schedule
                               </span>
                               {new Date(magazine.created_at).toLocaleDateString('en-GB', {

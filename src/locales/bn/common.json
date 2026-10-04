@@ -18,7 +18,8 @@
     "programs": "কার্যক্রম",
     "programsOverview": "সব কার্যক্রম",
     "transparency": "ম্যাগাজিন",
-    "voices": "অভিমত"
+    "voices": "অভিমত",
+    "zakatCalculator": "যাকাত ক্যালকুলেটর"
   },
   "common": {
     "actions": {
@@ -27,6 +28,7 @@
       "donateNow": "এখনই ডোনেট করুন",
       "learnMore": "আরও জানুন",
       "learnMoreAboutUs": "আমাদের সম্পর্কে আরও জানুন",
+      "readFullMessage": "পুরো বার্তা পড়ুন",
       "readMagazine": "ম্যাগাজিন পড়ুন",
       "readOurMagazine": "আমাদের ম্যাগাজিন পড়ুন",
       "readOurStory": "আমাদের গল্প পড়ুন",
@@ -39,7 +41,15 @@
       "viewSchoolGallery": "স্কুল গ্যালারি দেখুন"
     },
     "aria": {
-      "toggleNavigationMenu": "নেভিগেশন মেনু খুলুন বা বন্ধ করুন"
+      "toggleNavigationMenu": "নেভিগেশন মেনু খুলুন বা বন্ধ করুন",
+      "skipToContent": "মূল বিষয়বস্তুতে যান",
+      "mainNavigation": "প্রধান",
+      "language": "ভাষা",
+      "closeDialog": "বন্ধ করুন",
+      "scrollLeft": "বাঁয়ে সরান",
+      "scrollRight": "ডানে সরান",
+      "featuredStoryImage": "নির্বাচিত উপকারভোগীর গল্প",
+      "breadcrumb": "ব্রেডক্রাম্ব"
     },
     "breadcrumb": {
       "home": "হোম",
@@ -51,12 +61,21 @@
       "opinions": "উপকারভোগীদের মতামত",
       "programs": "কার্যক্রম",
       "school": "স্কুল",
-      "transparency": "ম্যাগাজিন"
+      "transparency": "ম্যাগাজিন",
+      "terms": "শর্তাবলি",
+      "privacy": "গোপনীয়তা নীতি",
+      "refund": "রিটার্ন ও রিফান্ড নীতিমালা",
+      "zakatCalculator": "যাকাত ক্যালকুলেটর",
+      "campaigns": "আবেদন",
+      "contact": "যোগাযোগ"
     },
     "form": {
       "emailPlaceholder": "আপনার ইমেইল লিখুন",
       "namePlaceholder": "আপনার নাম লিখুন",
-      "phonePlaceholder": "আপনার ফোন নম্বর লিখুন"
+      "phonePlaceholder": "আপনার ফোন নম্বর লিখুন",
+      "nameLabel": "পূর্ণ নাম",
+      "emailLabel": "ইমেইল ঠিকানা",
+      "phoneLabel": "ফোন নম্বর"
     },
     "payments": {
       "accepted": "গৃহীত: বিকাশ, নগদ, ভিসা, মাস্টারকার্ড"
@@ -107,8 +126,20 @@
           "href": "/our-donors"
         },
         {
+          "label": "আবেদন",
+          "href": "/campaigns"
+        },
+        {
           "label": "ডোনেট",
           "href": "/donate"
+        },
+        {
+          "label": "যাকাত ক্যালকুলেটর",
+          "href": "/zakat-calculator"
+        },
+        {
+          "label": "যোগাযোগ",
+          "href": "/contact"
         }
       ]
     },
@@ -118,26 +149,57 @@
       "note": "যাকাত, ডোনেশন, অংশীদারিত্ব এবং সরাসরি পেমেন্ট সংক্রান্ত যোগাযোগের জন্য",
       "links": [
         {
+          "label": "আমাদের বার্তা পাঠান",
+          "href": "/contact"
+        },
+        {
           "label": "alokayon2019@gmail.com",
           "href": "mailto:alokayon2019@gmail.com",
           "external": true
         },
         {
           "label": "bKash: 01925124019",
-          "href": "tel:01925124019",
+          "href": "tel:+8801925124019",
           "external": true
         },
         {
           "label": "Nagad: 01779577828",
-          "href": "tel:01779577828",
+          "href": "tel:+8801779577828",
           "external": true
+        }
+      ],
+      "addressLabel": "নিবন্ধিত ঠিকানা"
+    },
+    "bottom": {
+      "copyright": "© {{year}} Alokayon",
+      "designed": "Intex Research Lab, Development Unit"
+    },
+    "policies": {
+      "title": "পরিচিতি ও নীতিমালা",
+      "links": [
+        {
+          "label": "আমাদের সম্পর্কে",
+          "href": "/about"
+        },
+        {
+          "label": "শর্তাবলি",
+          "href": "/terms-and-conditions"
+        },
+        {
+          "label": "গোপনীয়তা নীতি",
+          "href": "/privacy-policy"
+        },
+        {
+          "label": "রিটার্ন ও রিফান্ড নীতিমালা",
+          "href": "/refund-policy"
         }
       ]
     },
-    "bottom": {
-      "copyright": "© 2025 Alokayon",
-      "designed": "Intex Research Lab, Development Unit"
-    }
+    "organization": {
+      "registration": "সমাজসেবা অধিদপ্তর, সমাজকল্যাণ মন্ত্রণালয়, বাংলাদেশ কর্তৃক নিবন্ধিত (২০১৯)",
+      "management": "প্রতিষ্ঠাতা চেয়ারম্যান: এ.কে.এম. ফজলুল কাদের"
+    },
+    "paymentsAlt": "ভিসা, মাস্টারকার্ড, আমেরিকান এক্সপ্রেস, বিকাশ, নগদ, রকেট, ইন্টারনেট ব্যাংকিং ও অন্যান্য মাধ্যমে পেমেন্ট করুন। SSLCommerz কর্তৃক যাচাইকৃত।"
   },
   "home": {
     "hero": {
@@ -148,7 +210,7 @@
       "verseLabel": "কুরআনের স্মরণিকা",
       "slides": [
         {
-          "image": "/assets/home/celebration.jpg",
+          "image": "/assets/home/celebration.webp",
           "eyebrow": "কর্মে বিশ্বাস",
           "titleTop": "আপনার যাকাত দিন।",
           "titleBottom": "জীবন বদলে দিন।",
@@ -160,7 +222,7 @@
           "alt": "আলোকায়নের একটি সহায়তা কার্যক্রমে শিশুরা একত্রিত"
         },
         {
-          "image": "/assets/about/Donating.jpg",
+          "image": "/assets/about/Donating.webp",
           "eyebrow": "স্বচ্ছ প্রভাব",
           "titleTop": "বিশ্বাসের সাথে দিন।",
           "titleBottom": "প্রকৃত মানুষের কাছে পৌঁছান।",
@@ -172,7 +234,7 @@
           "alt": "আলোকায়নের মাধ্যমে সহায়তা পাচ্ছেন কমিউনিটির সদস্যরা"
         },
         {
-          "image": "/assets/school/School_3.jpg",
+          "image": "/assets/school/School_3.webp",
           "eyebrow": "চিরস্থায়ী সহমর্মিতা",
           "titleTop": "পাশে দাঁড়ান",
           "titleBottom": "যারা প্রয়োজনে আছেন তাদের।",
@@ -183,7 +245,9 @@
           "verseReference": "সূরা আল-ইনসান (৭৬:৮)",
           "alt": "শিশু ও পরিবারদের সাথে আলোকায়নের একটি কার্যক্রমের মুহূর্ত"
         }
-      ]
+      ],
+      "pauseSlides": "স্লাইডশো থামান",
+      "playSlides": "স্লাইডশো চালু করুন"
     },
     "impact": {
       "title": "কমিউনিটি কার্যক্রম থেকে যাচাইকৃত প্রভাব",
@@ -350,12 +414,12 @@
           {
             "label": "বিকাশ / যোগাযোগ",
             "value": "01925124019",
-            "href": "tel:01925124019"
+            "href": "tel:+8801925124019"
           },
           {
             "label": "নগদ / যোগাযোগ",
             "value": "01779577828",
-            "href": "tel:01779577828"
+            "href": "tel:+8801779577828"
           }
         ]
       },
@@ -737,7 +801,8 @@
         "default": "যেখানে সবচেয়ে বেশি প্রয়োজন",
         "education": "শিক্ষা",
         "healthcare": "স্বাস্থ্যসেবা",
-        "livelihood": "জীবিকা"
+        "livelihood": "জীবিকা",
+        "zakat": "যাকাত"
       },
       "paymentMethods": [
         "bKash",
@@ -766,7 +831,34 @@
         "২০১১ সালে প্রতিষ্ঠিত",
         "যাচাইকৃত কার্যক্রম",
         "স্বচ্ছ প্রতিবেদন"
-      ]
+      ],
+      "agreement": {
+        "text": "আমি <terms>শর্তাবলি</terms>, <privacy>গোপনীয়তা নীতি</privacy> এবং <refund>রিটার্ন ও রিফান্ড নীতিমালা</refund> পড়েছি এবং এতে সম্মত।",
+        "required": "অনুদানের আগে আমাদের নীতিমালায় সম্মতি দিতে বক্সে টিক দিন।"
+      },
+      "amountGroupLabel": "অনুদানের পরিমাণ",
+      "customAmountLabel": "আপনার পরিমাণ লিখুন (টাকা)",
+      "customAmountPlaceholder": "যেমন ১৫০০",
+      "categoryLabel": "আপনার অনুদান কোথায় যাবে?",
+      "donateAmount": "৳{{amount}} দান করুন",
+      "redirecting": "নিরাপদ পেমেন্ট পেজ খোলা হচ্ছে...",
+      "secureNote": "আপনি SSLCommerz-এর নিরাপদ পেজে পেমেন্ট সম্পন্ন করবেন।",
+      "errors": {
+        "amount": "অনুগ্রহ করে ৳{{min}} থেকে ৳{{max}}-এর মধ্যে পরিমাণ লিখুন।",
+        "name": "অনুগ্রহ করে আপনার নাম লিখুন।",
+        "email": "অনুদান নিশ্চিত করতে একটি সঠিক ইমেইল ঠিকানা লিখুন।",
+        "phone": "অনুগ্রহ করে একটি সঠিক ফোন নম্বর লিখুন।",
+        "gateway": "পেমেন্ট সেবা এই মুহূর্তে সাড়া দিচ্ছে না। কয়েক মিনিট পর আবার চেষ্টা করুন।",
+        "generic": "কোনো সমস্যা হয়েছে, পেমেন্ট শুরু হয়নি। অনুগ্রহ করে আবার চেষ্টা করুন।"
+      },
+      "receipt": {
+        "note": "আপনার ইমেইলে PDF আকারে একটি অফিসিয়াল রসিদ পাঠানো হবে। রসিদে যেভাবে দেখাতে চান, সেভাবে ইংরেজি অক্ষরে আপনার নাম লিখুন।",
+        "signedOption": "আমি একটি হাতে স্বাক্ষরিত রসিদও চাই (আমাদের টিম স্বাক্ষর করে ইমেইলে পাঠাবে)।"
+      },
+      "calculatorPrompt": "আপনার যাকাত কত, নিশ্চিত নন?",
+      "calculatorLink": "যাকাত ক্যালকুলেটর ব্যবহার করুন",
+      "campaignBanner": "আপনার অনুদান যাবে:",
+      "campaignRemove": "বরং সবচেয়ে প্রয়োজনীয় খাতে দিন"
     },
     "transparency": {
       "eyebrow": "স্বচ্ছতা",
@@ -902,17 +994,17 @@
       "title": "প্রতিটি দানের পেছনে রয়েছে বাস্তব মুহূর্ত।",
       "items": [
         {
-          "image": "/assets/about/book-distribution.jpg",
+          "image": "/assets/about/book-distribution.webp",
           "title": "শিক্ষা সহায়তা",
           "caption": "সরাসরি বাস্তবমুখী সহায়তার মাধ্যমে শিশুদের শেখার সাথে সংযুক্ত রাখতে সাহায্য করা।"
         },
         {
-          "image": "/assets/about/community-support.jpg",
+          "image": "/assets/about/community-support.webp",
           "title": "কমিউনিটি যত্ন",
           "caption": "মুখোমুখি সেবার মুহূর্ত, যা দানকে দৃশ্যমান প্রভাবে রূপান্তরিত করে।"
         },
         {
-          "image": "/assets/about/winter-relief-sunamganj.jpg",
+          "image": "/assets/about/winter-relief-sunamganj.webp",
           "title": "ত্রাণ ও মর্যাদা",
           "caption": "নীরব, জবাবদিহিমূলক মাঠপর্যায়ের বিতরণের মাধ্যমে ত্রাণ পরিবারগুলোর কাছে পৌঁছায়।"
         }
@@ -990,6 +1082,47 @@
       "eyebrow": "শেষ ধাপ",
       "title": "আজ কারো হাসির কারণ হয়ে উঠুন।",
       "description": "আপনার যাকাত ও দান সময়োপযোগী, স্বচ্ছ ও মর্যাদাকেন্দ্রিক সহায়তার মাধ্যমে একটি জীবন বদলে দিতে পারে।"
+    },
+    "result": {
+      "success": {
+        "title": "আপনার অনুদানের জন্য ধন্যবাদ",
+        "message": "আপনার পেমেন্ট গ্রহণ ও নিশ্চিত করা হয়েছে। আল্লাহ আপনার দান কবুল করুন। আপনার রসিদ ইমেইলে পাঠানো হয়েছে।"
+      },
+      "failed": {
+        "title": "পেমেন্ট সম্পন্ন হয়নি",
+        "message": "আপনার পেমেন্ট সম্পন্ন হয়নি এবং কোনো টাকা কাটা হয়নি। কোনো টাকা কাটা হয়ে থাকলে আপনার ব্যাংক বা পেমেন্ট সেবাদাতা তা ফেরত দেবে। অনুগ্রহ করে আবার চেষ্টা করুন।"
+      },
+      "cancelled": {
+        "title": "পেমেন্ট বাতিল হয়েছে",
+        "message": "আপনি পেমেন্ট বাতিল করেছেন, তাই কোনো টাকা কাটা হয়নি। প্রস্তুত হলে যেকোনো সময় আবার দান করতে পারেন।"
+      },
+      "reviewMessage": "আপনার পেমেন্ট গ্রহণ করা হয়েছে এবং আমাদের পেমেন্ট সহযোগী তা যাচাই করছে। আর কিছু প্রয়োজন হলে আমরা আপনার সাথে যোগাযোগ করব।",
+      "amountLabel": "পরিমাণ",
+      "transactionLabel": "লেনদেন আইডি",
+      "homeButton": "হোমে ফিরে যান",
+      "tryAgainButton": "আবার চেষ্টা করুন",
+      "impactButton": "আমাদের কাজ দেখুন",
+      "contactNote": "অনুদান সম্পর্কে প্রশ্ন থাকলে ইমেইল করুন",
+      "receipt": {
+        "title": "আপনার অনুদানের রসিদ",
+        "message": "আলোকায়নের পাশে থাকার জন্য ধন্যবাদ। এখান থেকে আপনার রসিদ ডাউনলোড করতে বা স্বাক্ষরিত কপির অনুরোধ করতে পারেন।"
+      }
+    },
+    "receipt": {
+      "loading": "আপনার রসিদ লোড হচ্ছে...",
+      "loadError": "এই মুহূর্তে আপনার রসিদ লোড করা যাচ্ছে না। আপনার পেমেন্ট নিরাপদ আছে। অনুগ্রহ করে ইমেইল দেখুন, অথবা ট্রানজেকশন আইডিসহ আমাদের সাথে যোগাযোগ করুন।",
+      "numberLabel": "রসিদ নম্বর",
+      "dateLabel": "তারিখ",
+      "emailed": "আপনার অফিসিয়াল রসিদ ইমেইলে পাঠানো হয়েছে। এখান থেকেও ডাউনলোড করতে পারেন।",
+      "emailPending": "আপনার রসিদ প্রস্তুত করা হচ্ছে। এখনই এখান থেকে ডাউনলোড করতে পারেন।",
+      "downloadButton": "রসিদ ডাউনলোড (PDF)",
+      "signedTitle": "হাতে স্বাক্ষরিত রসিদ",
+      "signedDescription": "আপনার রেকর্ডের জন্য আলোকায়নের স্বাক্ষরিত রসিদ প্রয়োজন? অনুরোধ করুন, আমাদের টিম স্বাক্ষর করে ইমেইলে পাঠাবে।",
+      "requestButton": "স্বাক্ষরিত রসিদের অনুরোধ",
+      "requesting": "অনুরোধ পাঠানো হচ্ছে...",
+      "requestError": "আপনার অনুরোধ পাঠানো যায়নি। আবার চেষ্টা করুন, অথবা আমাদের ইমেইল করুন।",
+      "signedRequested": "অনুরোধ পাওয়া গেছে। আমাদের টিম শীঘ্রই আপনার রসিদে স্বাক্ষর করে ইমেইলে পাঠাবে।",
+      "signedSent": "আপনার স্বাক্ষরিত রসিদ ইমেইলে পাঠানো হয়েছে।"
     }
   },
   "programs": {
@@ -2318,11 +2451,74 @@
     }
   },
   "admin": {
+    "errors": {
+      "generic": "Something went wrong and the change wasn't saved. Please try again.",
+      "network": "We couldn't reach the server. Check your internet connection and try again.",
+      "invalidCredentials": "That email and password don't match an admin account. Please check them and try again.",
+      "emailNotConfirmed": "This email address hasn't been confirmed yet. Check your inbox for the confirmation link.",
+      "rateLimited": "Too many attempts in a short time. Please wait a minute and try again.",
+      "permission": "Your account doesn't have permission to make this change. Please contact the site administrator.",
+      "sessionExpired": "Your session has expired. Please sign out and sign in again.",
+      "fileTooLarge": "This file is too large to upload. Please choose a smaller file.",
+      "duplicate": "An item with the same details already exists.",
+      "weakPassword": "This password is too weak. Use at least 8 characters with a mix of letters and numbers.",
+      "samePassword": "Your new password must be different from your current password."
+    },
+    "images": {
+      "unsupportedType": "Please choose a JPG, PNG, or WebP image. iPhone HEIC photos can be exported as JPG first.",
+      "optimizing": "Preparing image...",
+      "newImage": "New image (not saved yet)",
+      "currentImage": "Current image",
+      "optimizedSize": "Optimized for the web: {{from}} → {{to}}",
+      "removeSelection": "Remove selection"
+    },
+    "unsaved": {
+      "leaveConfirmation": "You have unsaved changes. Leave this page and discard them?",
+      "discardConfirmation": "You have unsaved changes. Discard them?"
+    },
+    "list": {
+      "moveUp": "Move up",
+      "moveDown": "Move down",
+      "reorderDisabled": "Clear search and filters to change the order",
+      "hide": "Hide",
+      "show": "Show",
+      "hiddenBadge": "Hidden",
+      "hiddenSuccess": "\"{{name}}\" is now hidden from the public website.",
+      "shownSuccess": "\"{{name}}\" is now visible on the public website.",
+      "viewOnSite": "View on site",
+      "categoryFilter": "Filter by category",
+      "allCategories": "All categories",
+      "visibilityFilter": "Filter by visibility",
+      "statusAll": "Visible and hidden",
+      "statusVisible": "Visible only",
+      "statusHidden": "Hidden only",
+      "showingCount": "Showing {{shown}} of {{total}}",
+      "clearFilters": "Clear filters",
+      "noResults": "Nothing matches your search or filters."
+    },
+    "mobileNav": {
+      "toggle": "Toggle admin menu"
+    },
     "navigation": [
       {
         "label": "Overview",
         "href": "/admin/dashboard",
         "icon": "overview"
+      },
+      {
+        "label": "অনুদান",
+        "href": "/admin/donations",
+        "icon": "donations"
+      },
+      {
+        "label": "ক্যাম্পেইন",
+        "href": "/admin/campaigns",
+        "icon": "campaigns"
+      },
+      {
+        "label": "বার্তা",
+        "href": "/admin/messages",
+        "icon": "messages"
       },
       {
         "label": "Magazines",
@@ -2333,6 +2529,16 @@
         "label": "Gallery",
         "href": "/admin/gallery",
         "icon": "gallery"
+      },
+      {
+        "label": "মতামত",
+        "href": "/admin/testimonials",
+        "icon": "testimonials"
+      },
+      {
+        "label": "গল্প",
+        "href": "/admin/stories",
+        "icon": "stories"
       },
       {
         "label": "Executives",
@@ -2348,11 +2554,11 @@
     "auth": {
       "eyebrow": "Admin Access",
       "title": "Welcome back to Alokayon Charity",
-      "description": "A calm, secure workspace for managing stories, pages, donations, and reporting.",
+      "description": "Sign in to update the magazines, gallery, executive committee, and impact figures shown on the Alokayon website.",
       "trust": [
-        "Role-based admin access",
-        "Supabase authentication ready",
-        "Built for secure content management"
+        "Access is limited to approved Alokayon administrators",
+        "Forgot your password? Reset it securely by email",
+        "Update website content without touching any code"
       ],
       "formTitle": "Sign in to the admin dashboard",
       "formDescription": "Use your admin credentials to continue into the secure dashboard.",
@@ -2362,7 +2568,6 @@
       "passwordPlaceholder": "Enter your password",
       "showPassword": "Show password",
       "hidePassword": "Hide password",
-      "rememberMe": "Keep me signed in",
       "forgotPassword": "Forgot password?",
       "forgotPasswordEmailRequired": "Enter your email address above, then click Forgot password.",
       "sendingResetEmail": "Sending...",
@@ -2371,7 +2576,9 @@
       "signIn": "Sign In",
       "signingIn": "Signing In...",
       "genericError": "We couldn't sign you in. Please check your credentials and try again.",
-      "helpText": "Only authorized Alokayon administrators should use this area."
+      "helpText": "Only authorized Alokayon administrators should use this area.",
+      "notAdminTitle": "এই অ্যাকাউন্টটি অ্যাডমিন নয়",
+      "notAdminMessage": "আপনি সাইন ইন করেছেন, কিন্তু এই অ্যাকাউন্টটি আলোকায়ন ড্যাশবোর্ডের জন্য অনুমোদিত নয়। সাইট অ্যাডমিনিস্ট্রেটরকে যোগ করতে বলুন, অথবা অ্যাডমিন অ্যাকাউন্ট দিয়ে সাইন ইন করুন।"
     },
     "resetPassword": {
       "eyebrow": "Reset Password",
@@ -2421,28 +2628,37 @@
           "cta": "Manage Stats"
         }
       ],
-      "nextStepsTitle": "What You Can Manage Now",
-      "nextSteps": [
-        "Upload new magazine issues and keep the public archive current.",
-        "Add or remove executive members with photos and contact details.",
-        "Refresh public-facing impact figures from one connected stats page.",
-        "Build the image gallery with categorized visuals and lightbox stories."
-      ],
-      "notesTitle": "Current Scope",
-      "notes": [
-        {
-          "title": "Cleaned to live modules",
-          "detail": "This dashboard now shows only the admin areas that are already built and usable."
-        },
-        {
-          "title": "Supabase-backed sections",
-          "detail": "Magazines, gallery items, executive members, and public stats are connected to Supabase."
-        },
-        {
-          "title": "Good next additions",
-          "detail": "If we expand later, the next natural admin modules would be donors, beneficiary stories, and program content."
-        }
-      ],
+      "loading": "Loading the latest details...",
+      "attentionTitle": "Needs attention",
+      "allGood": "Everything looks up to date.",
+      "units": {
+        "magazines": "issues",
+        "gallery": "images",
+        "executives": "members",
+        "stats": "figures"
+      },
+      "summary": {
+        "hidden": "{{count}} hidden from the website",
+        "latestIssue": "Latest issue: {{year}}",
+        "lastAdded": "Last added {{date}}",
+        "lastUpdated": "Last updated {{date}}",
+        "never": "No updates recorded yet",
+        "unavailable": "Details couldn't be loaded."
+      },
+      "alerts": {
+        "loadError": "Some dashboard details couldn't be loaded. {{reason}}",
+        "noMagazines": "No magazines have been uploaded yet.",
+        "oldMagazine": "The latest magazine is from {{year}}. Upload a newer issue when it's ready.",
+        "noVisibleGallery": "The public gallery has no visible images.",
+        "noVisibleExecutives": "No executive committee members are visible on the About page.",
+        "missingPhotos": "{{count}} visible executive member(s) don't have a photo yet.",
+        "statsNeverUpdated": "The impact figures have never been updated from the admin.",
+        "staleStats": "The impact figures were last updated on {{date}}. Check they're still accurate.",
+        "newMessages_one": "যোগাযোগ ফর্মের {{count}}টি নতুন বার্তা উত্তরের অপেক্ষায় আছে।",
+        "newMessages_other": "যোগাযোগ ফর্মের {{count}}টি নতুন বার্তা উত্তরের অপেক্ষায় আছে।",
+        "signedRequests_one": "{{count}} জন দাতা হাতে স্বাক্ষরিত রসিদের অপেক্ষায় আছেন।",
+        "signedRequests_other": "{{count}} জন দাতা হাতে স্বাক্ষরিত রসিদের অপেক্ষায় আছেন।"
+      },
       "sidebar": {
         "brandNote": "Alokayon Charity Admin",
         "footer": "A focused admin for the live content modules already connected to the website."
@@ -2481,8 +2697,6 @@
       "coverHelp": "Upload a cover image if you have one. This is optional.",
       "currentPdf": "Current PDF on record: {{fileName}}",
       "newPdfSelected": "New PDF selected: {{fileName}}",
-      "currentCover": "Current cover image will stay unless you replace it.",
-      "newCoverSelected": "New cover image selected: {{fileName}}",
       "fileOnRecord": "file on record",
       "fields": {
         "title": "Title",
@@ -2518,7 +2732,8 @@
       "deleteSuccess": "Executive member deleted successfully.",
       "deleteConfirmation": "Delete \"{{name}}\" from the executive directory?",
       "libraryTitle": "Executive directory",
-      "libraryIntro": "Review the members currently visible on the About page, then edit or remove them whenever the committee changes.",
+      "libraryIntro": "Review the committee members, change their order, hide anyone who shouldn't appear yet, or edit their details.",
+      "searchPlaceholder": "Search by name, role, email, or phone",
       "refresh": "Refresh",
       "loading": "Loading executive members from Supabase...",
       "emptyState": "No executive members have been added yet.",
@@ -2526,8 +2741,6 @@
       "deleteButton": "Delete",
       "deleting": "Deleting...",
       "imageHelp": "Upload a portrait or profile image. This image is required for new members.",
-      "currentImage": "Current image will stay unless you replace it.",
-      "newImageSelected": "New image selected: {{fileName}}",
       "fields": {
         "name": "Name",
         "role": "Role",
@@ -2565,7 +2778,8 @@
       "deleteSuccess": "Gallery item deleted successfully.",
       "deleteConfirmation": "Delete \"{{title}}\" from the gallery?",
       "libraryTitle": "Gallery library",
-      "libraryIntro": "Review the live gallery items, update their stories, and remove anything that no longer belongs in the public archive.",
+      "libraryIntro": "Review the gallery items, change their order, hide images temporarily, or update their stories.",
+      "searchPlaceholder": "Search by title, description, location, or year",
       "refresh": "Refresh",
       "loading": "Loading gallery items from Supabase...",
       "emptyState": "No gallery items have been added yet.",
@@ -2573,8 +2787,6 @@
       "deleteButton": "Delete",
       "deleting": "Deleting...",
       "imageHelp": "Upload the gallery image shown on the public card and lightbox.",
-      "currentImage": "Current image will stay unless you replace it.",
-      "newImageSelected": "New image selected: {{fileName}}",
       "fields": {
         "category": "Category",
         "span": "Card size",
@@ -2620,6 +2832,7 @@
       "resetButton": "Reset Changes",
       "savingAll": "Saving...",
       "saveAllButton": "Save All Changes",
+      "partialSaveError": "{{count}} change(s) could not be saved. {{reason}}",
       "groups": {
         "organization": {
           "eyebrow": "Core Organization",
@@ -2636,8 +2849,732 @@
         "finance": {
           "eyebrow": "Finance",
           "title": "Financial snapshot"
+        },
+        "zakat": {
+          "eyebrow": "যাকাত ক্যালকুলেটর",
+          "title": "স্বর্ণ ও রুপার দাম"
         }
+      },
+      "labels": {
+        "goldPricePerGram": "প্রতি গ্রাম স্বর্ণের দাম (২২ ক্যারেট, টাকা)",
+        "silverPricePerGram": "প্রতি গ্রাম রুপার দাম (টাকা)",
+        "metalPricesUpdated": "দাম সর্বশেষ যাচাইয়ের তারিখ",
+        "medicalCasesYearly": "প্রতি বছর সহায়তাপ্রাপ্ত চিকিৎসা কেস"
       }
+    },
+    "donations": {
+      "eyebrow": "অনুদান",
+      "title": "অনুদান ও রসিদ",
+      "description": "সব অনলাইন অনুদান দেখুন, দাতারা রসিদ পেয়েছেন কিনা যাচাই করুন, এবং অনুরোধ এলে হাতে স্বাক্ষরিত রসিদ পাঠান।",
+      "monthLabel": "এই মাসে প্রাপ্ত",
+      "allTime": "মোট {{count}}টি অনুদান থেকে {{amount}}",
+      "signedAlert_one": "{{count}} জন দাতা হাতে স্বাক্ষরিত রসিদের অপেক্ষায় আছেন। অনুরোধগুলো দেখুন",
+      "signedAlert_other": "{{count}} জন দাতা হাতে স্বাক্ষরিত রসিদের অপেক্ষায় আছেন। অনুরোধগুলো দেখুন",
+      "listTitle": "অনুদানের রেকর্ড",
+      "listIntro": "SSLCommerz পেমেন্ট নিশ্চিত করার সাথে সাথে অনলাইন অনুদান এখানে দেখা যাবে। বিকাশ, নগদ, ব্যাংক ও নগদ টাকার অনুদান নিজে যোগ করুন।",
+      "export": "CSV এক্সপোর্ট",
+      "searchPlaceholder": "নাম, ইমেইল, ফোন, রসিদ বা ট্রানজেকশন আইডি দিয়ে খুঁজুন",
+      "filterLabel": "অনুদান ফিল্টার",
+      "filters": {
+        "confirmed": "প্রাপ্ত",
+        "signedRequested": "স্বাক্ষরিত রসিদের অনুরোধ",
+        "review": "যাচাই প্রয়োজন",
+        "emailFailed": "রসিদ ইমেইল হয়নি",
+        "unpaid": "সম্পন্ন হয়নি",
+        "all": "সব",
+        "manual": "হাতে যোগ করা"
+      },
+      "status": {
+        "paid": "প্রাপ্ত",
+        "review": "যাচাই প্রয়োজন",
+        "pending": "সম্পন্ন হয়নি",
+        "failed": "ব্যর্থ",
+        "cancelled": "বাতিল"
+      },
+      "loading": "অনুদান লোড হচ্ছে...",
+      "empty": "এই তালিকায় কোনো অনুদান নেই।",
+      "digitalReceipt": "ডিজিটাল রসিদ",
+      "emailedOn": "{{date}} তারিখে ইমেইল করা হয়েছে",
+      "notEmailed": "এখনও ইমেইল করা হয়নি। দাতার ইমেইল ঠিকানা যাচাই করে পাঠান।",
+      "reviewNote": "SSLCommerz এই পেমেন্টটি চিহ্নিত করেছে, অথবা পরিমাণে পার্থক্য আছে। অনুমোদনের আগে SSLCommerz প্যানেলে যাচাই করুন।",
+      "downloadPdf": "PDF",
+      "send": "রসিদ পাঠান",
+      "resend": "আবার পাঠান",
+      "approveAndSend": "অনুমোদন করে রসিদ পাঠান",
+      "approveConfirm": "এই অনুদানটি প্রাপ্ত হিসেবে অনুমোদন করে রসিদ ইমেইল করবেন? শুধুমাত্র SSLCommerz প্যানেলে পেমেন্ট যাচাই করার পরেই এটি করুন।",
+      "receiptSent": "দাতাকে রসিদ ইমেইল করা হয়েছে।",
+      "signedReceipt": "হাতে স্বাক্ষরিত রসিদ",
+      "signedNone": "অনুরোধ করা হয়নি।",
+      "signedRequestedOn": "{{date}} তারিখে অনুরোধ করা হয়েছে",
+      "signedSteps": "PDF ডাউনলোড করে প্রিন্ট ও স্বাক্ষর করুন, তারপর স্ক্যান বা ছবি আপলোড করুন (PDF, JPG বা PNG)।",
+      "signedSentOn": "{{date}} তারিখে স্বাক্ষরিত কপি ইমেইল করা হয়েছে",
+      "uploadSigned": "স্বাক্ষরিত কপি আপলোড ও ইমেইল",
+      "uploadAgain": "নতুন স্বাক্ষরিত কপি পাঠান",
+      "working": "পাঠানো হচ্ছে...",
+      "viewSigned": "দেখুন",
+      "sendSignedConfirm": "এই স্বাক্ষরিত রসিদটি {{email}} ঠিকানায় ইমেইল করবেন?",
+      "signedSent": "দাতাকে স্বাক্ষরিত রসিদ ইমেইল করা হয়েছে।",
+      "errors": {
+        "emailFailed": "ইমেইল পাঠানো যায়নি। ইমেইল সেটিংস (Resend) যাচাই করুন অথবা পরে আবার চেষ্টা করুন।",
+        "fileType": "অনুগ্রহ করে PDF, JPG বা PNG ফাইল আপলোড করুন।"
+      },
+      "methods": {
+        "bkash": "বিকাশ",
+        "nagad": "নগদ",
+        "bank": "ব্যাংক ট্রান্সফার",
+        "cash": "নগদ টাকা",
+        "other": "অন্যান্য",
+        "online": "অনলাইন পেমেন্ট"
+      },
+      "recordedBy": "{{name}} যোগ করেছেন",
+      "noEmail": "ইমেইল ঠিকানা নেই। প্রিন্ট করতে বা নিজে পাঠাতে PDF ডাউনলোড করুন।",
+      "delete": "এই রেকর্ড মুছুন",
+      "deleteConfirm": "এই অনুদানের রেকর্ড মুছবেন? এর রসিদ নম্বর আর ব্যবহার হবে না।",
+      "deleteYes": "হ্যাঁ, মুছুন",
+      "deleteNo": "রেখে দিন",
+      "deleted": "অনুদানের রেকর্ড মুছে ফেলা হয়েছে।",
+      "record": {
+        "open": "অনুদান যোগ করুন",
+        "title": "অনুদান যোগ করুন",
+        "intro": "বিকাশ, নগদ, ব্যাংক ট্রান্সফার বা নগদ টাকায় পাওয়া অনুদানের জন্য। প্রতিটি অনুদান একটি রসিদ নম্বর পাবে এবং মোট হিসাবে যোগ হবে।",
+        "name": "দাতার নাম",
+        "amount": "পরিমাণ (টাকা)",
+        "method": "যেভাবে পাওয়া গেছে",
+        "receivedOn": "প্রাপ্তির তারিখ",
+        "reference": "রেফারেন্স (ঐচ্ছিক)",
+        "referencePlaceholder": "বিকাশ TrxID, ব্যাংক রেফারেন্স বা রসিদ বইয়ের নম্বর",
+        "category": "উদ্দেশ্য",
+        "email": "দাতার ইমেইল (ঐচ্ছিক)",
+        "phone": "দাতার ফোন (ঐচ্ছিক)",
+        "notes": "নোট (ঐচ্ছিক)",
+        "sendReceipt": "এখনই দাতাকে PDF রসিদ ইমেইল করুন",
+        "noEmailNote": "দাতাকে রসিদ পাঠাতে ইমেইল ঠিকানা দিন। না দিলে পরে PDF ডাউনলোড করতে পারবেন।",
+        "save": "অনুদান সংরক্ষণ করুন",
+        "saving": "সংরক্ষণ হচ্ছে...",
+        "cancel": "বাতিল",
+        "saved": "রসিদ নম্বর {{number}} সহ অনুদান সংরক্ষিত হয়েছে।",
+        "savedAndEmailed": "রসিদ নম্বর {{number}} সহ অনুদান সংরক্ষিত হয়েছে এবং দাতাকে রসিদ ইমেইল করা হয়েছে।",
+        "errors": {
+          "name": "দাতার নাম লিখুন।",
+          "amount": "শূন্যের বেশি একটি পরিমাণ লিখুন।",
+          "email": "ইমেইল ঠিকানাটি সঠিক মনে হচ্ছে না। যাচাই করুন, অথবা খালি রাখুন।",
+          "date": "অনুদান পাওয়ার তারিখ বেছে নিন। ভবিষ্যতের তারিখ দেওয়া যাবে না।"
+        },
+        "campaign": "ক্যাম্পেইন (ঐচ্ছিক)",
+        "campaignNone": "কোনো ক্যাম্পেইন নয়"
+      },
+      "campaignLabel": "ক্যাম্পেইন: {{title}}"
+    },
+    "campaigns": {
+      "eyebrow": "ক্যাম্পেইন",
+      "title": "তহবিল সংগ্রহের আবেদন",
+      "description": "লক্ষ্য ও গল্পসহ আবেদন তৈরি করুন। আবেদনের পৃষ্ঠা থেকে আসা অনলাইন অনুদান এবং আপনার যোগ করা অনুদান থেকে অগ্রগতি নিজে থেকেই হালনাগাদ হয়।",
+      "new": "নতুন ক্যাম্পেইন",
+      "newTitle": "নতুন ক্যাম্পেইন",
+      "editTitle": "ক্যাম্পেইন সম্পাদনা",
+      "fields": {
+        "titleEn": "শিরোনাম (ইংরেজি)",
+        "titleBn": "শিরোনাম (বাংলা, ঐচ্ছিক)",
+        "summaryEn": "সংক্ষিপ্ত বিবরণ (ইংরেজি)",
+        "summaryBn": "সংক্ষিপ্ত বিবরণ (বাংলা, ঐচ্ছিক)",
+        "storyEn": "পূর্ণ গল্প (ইংরেজি, ঐচ্ছিক)",
+        "storyBn": "পূর্ণ গল্প (বাংলা, ঐচ্ছিক)",
+        "goal": "লক্ষ্য (টাকা)",
+        "category": "অনুদানের উদ্দেশ্য",
+        "startsOn": "শুরুর তারিখ (ঐচ্ছিক)",
+        "endsOn": "শেষের তারিখ (ঐচ্ছিক)",
+        "slug": "ওয়েব ঠিকানা",
+        "image": "ছবি"
+      },
+      "slugHelp": "ছোট হাতের অক্ষর, সংখ্যা ও হাইফেন। পরে বদলালে আগে শেয়ার করা লিংক কাজ করবে না।",
+      "save": "ক্যাম্পেইন সংরক্ষণ",
+      "saving": "সংরক্ষণ হচ্ছে...",
+      "cancel": "বাতিল",
+      "edit": "সম্পাদনা",
+      "delete": "মুছুন",
+      "created": "\"{{title}}\" ক্যাম্পেইন তৈরি হয়েছে।",
+      "updated": "\"{{title}}\" ক্যাম্পেইন হালনাগাদ হয়েছে।",
+      "deleted": "\"{{title}}\" ক্যাম্পেইন মুছে ফেলা হয়েছে।",
+      "deleteConfirm": "\"{{title}}\" মুছবেন? এতে দেওয়া অনুদানগুলো থাকবে, তবে আর কোনো ক্যাম্পেইনের সাথে যুক্ত থাকবে না।",
+      "listTitle": "সব ক্যাম্পেইন",
+      "listIntro": "দর্শকরা শুধু দৃশ্যমান ও শুরু হওয়া ক্যাম্পেইন দেখেন। লুকানো ও আসন্ন ক্যাম্পেইন গোপন থাকে।",
+      "loading": "ক্যাম্পেইন লোড হচ্ছে...",
+      "empty": "এখনও কোনো ক্যাম্পেইন নেই। পরবর্তী আবেদনের জন্য একটি তৈরি করুন, যেমন শীতবস্ত্র বা রমজানের খাদ্য সহায়তা।",
+      "state": {
+        "open": "চলমান",
+        "upcoming": "শুরু হয়নি",
+        "ended": "শেষ",
+        "hidden": "লুকানো"
+      },
+      "errors": {
+        "required": "ইংরেজি শিরোনাম ও সংক্ষিপ্ত বিবরণ লিখুন।",
+        "slug": "অক্ষর, সংখ্যা ও হাইফেন দিয়ে একটি ওয়েব ঠিকানা লিখুন।",
+        "goal": "শূন্যের বেশি একটি লক্ষ্য লিখুন।",
+        "dates": "শেষের তারিখ শুরুর তারিখের দিন বা পরে হতে হবে।"
+      }
+    },
+    "messages": {
+      "eyebrow": "বার্তা",
+      "title": "যোগাযোগ ফর্মের ইনবক্স",
+      "description": "ওয়েবসাইটের মাধ্যমে পাঠানো বার্তা। ইমেইলে উত্তর দিন, তারপর উত্তর দেওয়া হয়েছে চিহ্নিত করুন যাতে টিম জানে।",
+      "filterLabel": "বার্তা ফিল্টার",
+      "filters": {
+        "new": "নতুন",
+        "replied": "উত্তর দেওয়া",
+        "archived": "আর্কাইভ",
+        "all": "সব"
+      },
+      "status": {
+        "new": "নতুন",
+        "replied": "উত্তর দেওয়া",
+        "archived": "আর্কাইভ"
+      },
+      "loading": "বার্তা লোড হচ্ছে...",
+      "empty": "এখানে কোনো বার্তা নেই।",
+      "emptyNew": "কোনো নতুন বার্তা নেই।",
+      "reply": "ইমেইলে উত্তর দিন",
+      "markReplied": "উত্তর দেওয়া হয়েছে",
+      "archive": "আর্কাইভ",
+      "markNew": "নতুন হিসেবে চিহ্নিত",
+      "delete": "মুছুন",
+      "deleteConfirm": "{{name}}-এর বার্তা মুছবেন? এটি আর ফেরত আনা যাবে না।",
+      "replySubject": "Re: your message to Alokayon",
+      "replyGreeting": "প্রিয় {{name}},"
+    },
+    "testimonials": {
+      "eyebrow": "মতামত",
+      "title": "গল্প ও মতামত",
+      "description": "ওয়েবসাইটে দেখানো উপকারভোগী ও দাতাদের উক্তি। ইংরেজি ও বাংলা দুটোই লিখুন, যাতে প্রত্যেক দর্শক নিজের ভাষায় পড়তে পারেন।",
+      "new": "উক্তি যোগ করুন",
+      "newTitle": "উক্তি যোগ করুন",
+      "editTitle": "উক্তি সম্পাদনা",
+      "import": "বর্তমান উক্তিগুলো আনুন",
+      "importing": "আনা হচ্ছে...",
+      "importConfirm": "ওয়েবসাইটে এখন যে উক্তিগুলো আছে (ইংরেজি ও বাংলা) সেগুলো সম্পাদনার জন্য এই তালিকায় কপি করবেন?",
+      "imported": "{{count}}টি উক্তি আনা হয়েছে। এখন সম্পাদনা, লুকানো বা ক্রম বদলাতে পারেন।",
+      "tabs": {
+        "beneficiary": "উপকারভোগী",
+        "donor": "দাতা"
+      },
+      "kinds": {
+        "beneficiary": "উপকারভোগী",
+        "donor": "দাতা"
+      },
+      "where": {
+        "beneficiary": "Voices of Impact পৃষ্ঠায় এবং প্রথম তিনটি অনুদান পৃষ্ঠায় দেখানো হয়। কিছু যোগ না করা পর্যন্ত ওয়েবসাইটে আগের উক্তিগুলো দেখাবে।",
+        "donor": "Our Donors পৃষ্ঠায় এবং প্রথম তিনটি অনুদান পৃষ্ঠায় দেখানো হয়। কিছু যোগ না করা পর্যন্ত ওয়েবসাইটে আগের উক্তিগুলো দেখাবে।"
+      },
+      "fields": {
+        "kind": "উক্তির ধরন",
+        "name": "নাম (ইংরেজি)",
+        "nameBn": "নাম (বাংলা)",
+        "roleEn": "পদবি বা পরিচয় (ইংরেজি)",
+        "roleBn": "পদবি বা পরিচয় (বাংলা)",
+        "locationEn": "স্থান (ইংরেজি)",
+        "locationBn": "স্থান (বাংলা)",
+        "quoteEn": "উক্তি (ইংরেজি)",
+        "quoteBn": "উক্তি (বাংলা)",
+        "headlineEn": "শিরোনাম (ইংরেজি)",
+        "headlineBn": "শিরোনাম (বাংলা)",
+        "tagsEn": "ট্যাগ, কমা দিয়ে আলাদা (ইংরেজি)",
+        "tagsBn": "ট্যাগ, কমা দিয়ে আলাদা (বাংলা)",
+        "showOnHome": "হোম পেজের ক্যারোসেলে এই উক্তি দেখান"
+      },
+      "optionalHelp": "শুধু ইংরেজি নাম ও উক্তি আবশ্যক। শিরোনাম ও ট্যাগ Voices of Impact কার্ডে দেখা যায়; শিরোনাম হোম পেজ ক্যারোসেলের লেবেলও।",
+      "save": "উক্তি সংরক্ষণ",
+      "saving": "সংরক্ষণ হচ্ছে...",
+      "cancel": "বাতিল",
+      "edit": "সম্পাদনা",
+      "delete": "মুছুন",
+      "addToHome": "হোমে দেখান",
+      "removeFromHome": "হোম থেকে সরান",
+      "hidden": "লুকানো",
+      "onHome": "হোম পেজে",
+      "noBangla": "বাংলা নেই",
+      "created": "{{name}}-এর উক্তি যোগ হয়েছে।",
+      "updated": "{{name}}-এর উক্তি হালনাগাদ হয়েছে।",
+      "deleted": "{{name}}-এর উক্তি মুছে ফেলা হয়েছে।",
+      "deleteConfirm": "{{name}}-এর উক্তি মুছবেন? এটি আর ফেরত আনা যাবে না।",
+      "loading": "উক্তি লোড হচ্ছে...",
+      "empty": "এই ধরনের কোনো উক্তি এখনও নেই।",
+      "errors": {
+        "required": "অন্তত ইংরেজি নাম ও উক্তি লিখুন।"
+      }
+    },
+    "stories": {
+      "eyebrow": "গল্প",
+      "title": "বিস্তারিত গল্প",
+      "description": "Voices of Impact পৃষ্ঠার নির্বাচিত উপকারভোগীর গল্প এবং Our Donors পৃষ্ঠার দাতাদের গল্প। ইংরেজি ও বাংলায় লিখুন।",
+      "new": "গল্প যোগ করুন",
+      "newTitle": "গল্প যোগ করুন",
+      "editTitle": "গল্প সম্পাদনা",
+      "import": "বর্তমান গল্পগুলো আনুন",
+      "importing": "আনা হচ্ছে...",
+      "importConfirm": "ওয়েবসাইটে এখন যে গল্পগুলো আছে (ইংরেজি ও বাংলা) সেগুলো সম্পাদনার জন্য এই তালিকায় কপি করবেন?",
+      "imported": "{{count}}টি গল্প আনা হয়েছে। এখন সম্পাদনা, লুকানো বা ক্রম বদলাতে পারেন।",
+      "tabs": {
+        "beneficiary": "নির্বাচিত উপকারভোগীর গল্প",
+        "donor": "দাতাদের গল্প"
+      },
+      "kinds": {
+        "beneficiary": "উপকারভোগী (নির্বাচিত গল্প)",
+        "donor": "দাতার গল্প"
+      },
+      "where": {
+        "beneficiary": "Voices of Impact পৃষ্ঠায় এই তালিকার প্রথম দৃশ্যমান গল্পটি নির্বাচিত গল্প হিসেবে দেখানো হয়। অন্য গল্প দেখাতে সেটি উপরে সরান।",
+        "donor": "Our Donors পৃষ্ঠায় \"দাতারা কীভাবে যুক্ত হলেন\" অংশে এই ক্রমে দেখানো হয়।"
+      },
+      "fields": {
+        "kind": "গল্পের ধরন",
+        "titleEn": "শিরোনাম (ইংরেজি)",
+        "titleBn": "শিরোনাম (বাংলা)",
+        "summaryEn": "ভূমিকা (ইংরেজি)",
+        "summaryBn": "ভূমিকা (বাংলা)",
+        "bodyEn": "পূর্ণ গল্প (ইংরেজি)",
+        "bodyBn": "পূর্ণ গল্প (বাংলা)",
+        "name": "নাম (ইংরেজি)",
+        "nameBn": "নাম (বাংলা)",
+        "roleEn": "পদবি বা পরিচয় (ইংরেজি)",
+        "roleBn": "পদবি বা পরিচয় (বাংলা)",
+        "badgesEn": "হাইলাইট, কমা দিয়ে আলাদা (ইংরেজি)",
+        "badgesBn": "হাইলাইট, কমা দিয়ে আলাদা (বাংলা)",
+        "image": "ছবি"
+      },
+      "help": "শুধু ইংরেজি শিরোনাম ও ভূমিকা আবশ্যক। অনুচ্ছেদের মাঝে একটি ফাঁকা লাইন রাখুন। দর্শকরা প্রথমে ভূমিকা দেখেন এবং পূর্ণ গল্প খুলতে পারেন। হাইলাইটগুলো নির্বাচিত গল্পে ব্যাজ হিসেবে দেখায়।",
+      "save": "গল্প সংরক্ষণ",
+      "saving": "সংরক্ষণ হচ্ছে...",
+      "cancel": "বাতিল",
+      "edit": "সম্পাদনা",
+      "delete": "মুছুন",
+      "featured": "এখন নির্বাচিত",
+      "hidden": "লুকানো",
+      "noBangla": "বাংলা নেই",
+      "created": "\"{{title}}\" গল্প যোগ হয়েছে।",
+      "updated": "\"{{title}}\" গল্প হালনাগাদ হয়েছে।",
+      "deleted": "\"{{title}}\" গল্প মুছে ফেলা হয়েছে।",
+      "deleteConfirm": "\"{{title}}\" গল্পটি মুছবেন? এটি আর ফেরত আনা যাবে না।",
+      "loading": "গল্প লোড হচ্ছে...",
+      "empty": "এই ধরনের কোনো গল্প এখনও নেই।",
+      "errors": {
+        "required": "অন্তত ইংরেজি শিরোনাম ও ভূমিকা লিখুন।"
+      }
+    }
+  },
+  "legal": {
+    "eyebrow": "নীতিমালা",
+    "lastUpdatedLabel": "সর্বশেষ হালনাগাদ",
+    "lastUpdated": "৪ অক্টোবর ২০২৬",
+    "relatedLabel": "সংশ্লিষ্ট নীতিমালা:",
+    "contact": {
+      "title": "যোগাযোগ করুন",
+      "intro": "এই নীতিমালা সম্পর্কে কোনো প্রশ্ন থাকলে নিচের তথ্য ব্যবহার করে আমাদের সাথে যোগাযোগ করুন।",
+      "organizationLabel": "প্রতিষ্ঠান",
+      "organization": "Alokayon, সমাজসেবা অধিদপ্তর, সমাজকল্যাণ মন্ত্রণালয়, গণপ্রজাতন্ত্রী বাংলাদেশ সরকারের অধীনে নিবন্ধিত (২০১৯)",
+      "addressLabel": "নিবন্ধিত ঠিকানা",
+      "emailLabel": "ইমেইল",
+      "phoneLabel": "ফোন"
+    },
+    "terms": {
+      "title": "শর্তাবলি",
+      "intro": "Alokayon-এর ওয়েবসাইট ব্যবহারকারী এবং এর মাধ্যমে অনুদানকারী সকলের জন্য এই শর্তাবলি প্রযোজ্য। এই ওয়েবসাইট ব্যবহার বা অনুদান প্রদানের মাধ্যমে আপনি এই শর্তাবলিতে সম্মত হচ্ছেন। অনুগ্রহ করে মনোযোগ দিয়ে পড়ুন।",
+      "sections": [
+        {
+          "heading": "Alokayon সম্পর্কে",
+          "paragraphs": [
+            "Alokayon বাংলাদেশের একটি অলাভজনক, অরাজনৈতিক দাতব্য প্রতিষ্ঠান। ২০১১ সালে অনানুষ্ঠানিকভাবে যাত্রা শুরু করে ২০১৯ সালে সমাজকল্যাণ মন্ত্রণালয়ের সমাজসেবা অধিদপ্তরে আনুষ্ঠানিকভাবে নিবন্ধিত হয়। Alokayon শিক্ষা, ত্রাণ, স্বাস্থ্যসেবা ও জীবিকা কার্যক্রমের মাধ্যমে সুবিধাবঞ্চিত শিশু, বিধবা, বয়স্ক মানুষ এবং অসহায় পরিবারের পাশে দাঁড়ায়।"
+          ]
+        },
+        {
+          "heading": "ওয়েবসাইট ব্যবহার",
+          "bullets": [
+            "এই ওয়েবসাইট শুধুমাত্র বৈধ উদ্দেশ্যে এবং এমনভাবে ব্যবহার করুন যাতে ওয়েবসাইট বা অন্য ব্যবহারকারীদের কোনো ক্ষতি না হয়।",
+            "অনুদান প্রদান বা যোগাযোগের সময় সঠিক ও সম্পূর্ণ তথ্য দিন।",
+            "অনুমতি ছাড়া ওয়েবসাইটের প্রশাসনিক অংশে প্রবেশের চেষ্টা করবেন না।"
+          ]
+        },
+        {
+          "heading": "অনুদান",
+          "paragraphs": [
+            "যাকাত ও সদকাসহ সকল অনুদান স্বেচ্ছায় প্রদত্ত। ভিন্নভাবে উল্লেখ না থাকলে সকল অর্থ বাংলাদেশি টাকায় (BDT) প্রক্রিয়া করা হয়।",
+            "Alokayon অনুদানের অর্থ তার দাতব্য কার্যক্রমে ব্যবহার করে। আপনি নির্দিষ্ট কোনো কার্যক্রম বেছে নিলে আপনার অনুদান সেই কার্যক্রমেই ব্যবহার করা হবে। সেই কার্যক্রমের প্রয়োজনীয় অর্থ ইতোমধ্যে পূরণ হয়ে গেলে বা কার্যক্রমটি আর পরিচালনা করা সম্ভব না হলে, আমরা অনুদানটি সবচেয়ে প্রয়োজনীয় অনুরূপ কোনো কার্যক্রমে ব্যবহার করতে পারি।"
+          ]
+        },
+        {
+          "heading": "পেমেন্ট",
+          "paragraphs": [
+            "অনলাইন পেমেন্ট বাংলাদেশের লাইসেন্সপ্রাপ্ত পেমেন্ট গেটওয়ে SSLCommerz-এর মাধ্যমে নিরাপদে প্রক্রিয়া করা হয়। Alokayon আপনার সম্পূর্ণ কার্ড নম্বর, পিন বা মোবাইল ব্যাংকিং পাসওয়ার্ড গ্রহণ বা সংরক্ষণ করে না।",
+            "পেমেন্ট করার মাধ্যমে আপনি নিশ্চিত করছেন যে নির্বাচিত কার্ড, ব্যাংক অ্যাকাউন্ট বা মোবাইল ওয়ালেট ব্যবহারের অধিকার আপনার আছে। আপনার ব্যাংক বা পেমেন্ট সেবাদাতা নিজস্ব চার্জ প্রযোজ্য করতে পারে।"
+          ]
+        },
+        {
+          "heading": "নিশ্চিতকরণ ও রসিদ",
+          "paragraphs": [
+            "অনুদান সফল হলে আপনার ইমেইলে PDF আকারে একটি অফিসিয়াল রসিদ পাঠানো হবে। আপনি হাতে স্বাক্ষরিত রসিদেরও অনুরোধ করতে পারেন, যা আমাদের টিম স্বাক্ষর করে ইমেইলে পাঠাবে।"
+          ]
+        },
+        {
+          "heading": "রিফান্ড",
+          "paragraphs": [
+            "রিফান্ড আমাদের রিটার্ন ও রিফান্ড নীতিমালা অনুযায়ী পরিচালিত হয়, যা এই শর্তাবলির অংশ।"
+          ]
+        },
+        {
+          "heading": "কনটেন্ট ও মেধাস্বত্ব",
+          "paragraphs": [
+            "এই ওয়েবসাইটের লেখা, ছবি, লোগো ও অন্যান্য কনটেন্ট Alokayon-এর মালিকানাধীন অথবা অনুমতি নিয়ে ব্যবহৃত। Alokayon-এর নাম উল্লেখ করে অবাণিজ্যিক উদ্দেশ্যে আমাদের কনটেন্ট শেয়ার করতে পারবেন, তবে লিখিত অনুমতি ছাড়া পরিবর্তন বা বিক্রি করা যাবে না।"
+          ]
+        },
+        {
+          "heading": "অন্যান্য ওয়েবসাইটের লিংক",
+          "paragraphs": [
+            "এই ওয়েবসাইটে পেমেন্ট সেবাদাতাসহ অন্যান্য ওয়েবসাইটের লিংক থাকতে পারে। সেসব ওয়েবসাইটের কনটেন্ট বা গোপনীয়তা চর্চার জন্য Alokayon দায়ী নয়।"
+          ]
+        },
+        {
+          "heading": "দায়বদ্ধতার সীমা",
+          "paragraphs": [
+            "আমরা ওয়েবসাইটের তথ্য সঠিক রাখতে এবং ওয়েবসাইট সচল রাখতে চেষ্টা করি, তবে এটি সবসময় ত্রুটিমুক্ত বা নিরবচ্ছিন্ন থাকবে এমন নিশ্চয়তা দিতে পারি না। আইনের অনুমোদিত সীমা পর্যন্ত, এই ওয়েবসাইট ব্যবহারের ফলে সৃষ্ট কোনো পরোক্ষ ক্ষতির জন্য Alokayon দায়ী থাকবে না।"
+          ]
+        },
+        {
+          "heading": "প্রযোজ্য আইন",
+          "paragraphs": [
+            "এই শর্তাবলি বাংলাদেশের আইন দ্বারা পরিচালিত। যেকোনো বিরোধ ঢাকার আদালতের এখতিয়ারাধীন থাকবে।"
+          ]
+        },
+        {
+          "heading": "শর্তাবলির পরিবর্তন",
+          "paragraphs": [
+            "আমরা সময়ে সময়ে এই শর্তাবলি হালনাগাদ করতে পারি। হালনাগাদকৃত সংস্করণ নতুন \"সর্বশেষ হালনাগাদ\" তারিখসহ এই পৃষ্ঠায় প্রকাশ করা হবে।"
+          ]
+        }
+      ]
+    },
+    "privacy": {
+      "title": "গোপনীয়তা নীতি",
+      "intro": "Alokayon আপনার গোপনীয়তাকে সম্মান করে। আপনি আমাদের ওয়েবসাইট ব্যবহার বা অনুদান প্রদানের সময় আমরা কী ব্যক্তিগত তথ্য সংগ্রহ করি, কীভাবে তা ব্যবহার করি এবং এ বিষয়ে আপনার কী কী সুযোগ রয়েছে, এই নীতিতে তা ব্যাখ্যা করা হয়েছে।",
+      "sections": [
+        {
+          "heading": "আমরা যে তথ্য সংগ্রহ করি",
+          "bullets": [
+            "অনুদানের সময় আপনার দেওয়া তথ্য, যেমন নাম, ইমেইল ঠিকানা, ফোন নম্বর, অনুদানের পরিমাণ এবং আপনার বেছে নেওয়া কার্যক্রম।",
+            "ইমেইল, ফোন বা এই ওয়েবসাইটের যোগাযোগ ফর্মের মাধ্যমে আপনি যে বার্তা পাঠান।",
+            "পেমেন্টের তথ্য আমাদের পেমেন্ট গেটওয়ে SSLCommerz সংগ্রহ ও প্রক্রিয়া করে। Alokayon আপনার সম্পূর্ণ কার্ড নম্বর, পিন বা মোবাইল ব্যাংকিং পাসওয়ার্ড গ্রহণ বা সংরক্ষণ করে না।",
+            "যোগাযোগ ফর্ম ব্যবহার করলে আপনার আইপি ঠিকানা থেকে তৈরি একটি একমুখী কোড (ঠিকানাটি নিজে নয়), যা শুধু বারবার পাঠানো স্প্যাম বার্তা ঠেকাতে ব্যবহৃত হয়।",
+            "সাধারণ প্রযুক্তিগত তথ্য, যেমন আপনার নির্বাচিত ভাষা (যা আপনার নিজের ব্রাউজারে সংরক্ষিত থাকে) এবং আমাদের হোস্টিং সেবাদাতার সাধারণ সার্ভার লগ।"
+          ]
+        },
+        {
+          "heading": "আমরা আপনার তথ্য কীভাবে ব্যবহার করি",
+          "bullets": [
+            "আপনার অনুদান প্রক্রিয়া করতে এবং তা গ্রহণের নিশ্চিতকরণ দিতে।",
+            "রসিদ প্রদান এবং আপনার প্রশ্নের উত্তর দিতে।",
+            "আইন অনুযায়ী সঠিক আর্থিক ও হিসাব সংক্রান্ত রেকর্ড রাখতে।",
+            "আমাদের কাজের প্রতিবেদন তৈরি করতে। প্রকাশিত প্রতিবেদনে শুধু সামগ্রিক হিসাব থাকে, অনুমতি ছাড়া কোনো দাতাকে আলাদাভাবে চিহ্নিত করা হয় না।"
+          ]
+        },
+        {
+          "heading": "তথ্য শেয়ার করা",
+          "paragraphs": [
+            "আমরা আপনার ব্যক্তিগত তথ্য বিক্রি, ভাড়া বা বিনিময় করি না। আমরা শুধু নিচের ক্ষেত্রে তথ্য শেয়ার করি:"
+          ],
+          "bullets": [
+            "আপনার পেমেন্ট প্রক্রিয়ার জন্য SSLCommerz এবং সংশ্লিষ্ট ব্যাংক ও মোবাইল আর্থিক সেবাদাতার সাথে।",
+            "আমাদের ওয়েবসাইট ও তথ্য হোস্ট করা সেবাদাতার সাথে, শুধু ওয়েবসাইট পরিচালনার জন্য যতটুকু প্রয়োজন।",
+            "আইন অনুযায়ী প্রয়োজন হলে বাংলাদেশের সরকারি বা আইনশৃঙ্খলা কর্তৃপক্ষের সাথে।"
+          ]
+        },
+        {
+          "heading": "দাতার স্বীকৃতি",
+          "paragraphs": [
+            "আপনার অনুমতি ছাড়া আমরা আপনার নাম, ছবি বা মন্তব্য আমাদের ওয়েবসাইট বা ম্যাগাজিনে প্রকাশ করব না।"
+          ]
+        },
+        {
+          "heading": "তথ্যের নিরাপত্তা",
+          "paragraphs": [
+            "আপনার তথ্য সুরক্ষায় আমরা যুক্তিসঙ্গত প্রযুক্তিগত ও সাংগঠনিক ব্যবস্থা গ্রহণ করি এবং দাতাদের তথ্যে শুধু অনুমোদিত Alokayon কর্মীদের প্রবেশাধিকার থাকে। ইন্টারনেটে তথ্য আদান-প্রদানের কোনো পদ্ধতিই সম্পূর্ণ নিরাপদ নয়, তবে আমরা আপনার তথ্য সুরক্ষায় যত্নবান।"
+          ]
+        },
+        {
+          "heading": "তথ্য কতদিন সংরক্ষণ করি",
+          "paragraphs": [
+            "হিসাব, নিরীক্ষা ও আইনগত বাধ্যবাধকতা পূরণের জন্য যতদিন প্রয়োজন ততদিন আমরা অনুদানের রেকর্ড সংরক্ষণ করি। অন্যান্য তথ্য প্রয়োজন শেষ হলে মুছে ফেলা হয়।"
+          ]
+        },
+        {
+          "heading": "আপনার অধিকার",
+          "paragraphs": [
+            "আমাদের কাছে থাকা আপনার ব্যক্তিগত তথ্য দেখতে, সংশোধন করতে বা মুছে ফেলতে আমাদের সাথে যোগাযোগ করতে পারেন। আইন অনুযায়ী কিছু রেকর্ড সংরক্ষণ বাধ্যতামূলক না হলে আমরা যুক্তিসঙ্গত সময়ের মধ্যে ব্যবস্থা নেব।"
+          ]
+        },
+        {
+          "heading": "শিশুদের গোপনীয়তা",
+          "paragraphs": [
+            "আমাদের ওয়েবসাইট অনুদানকারী প্রাপ্তবয়স্কদের জন্য। আমরা জেনেশুনে অনলাইনে শিশুদের কাছ থেকে ব্যক্তিগত তথ্য সংগ্রহ করি না।"
+          ]
+        },
+        {
+          "heading": "এই নীতির পরিবর্তন",
+          "paragraphs": [
+            "আমরা সময়ে সময়ে এই গোপনীয়তা নীতি হালনাগাদ করতে পারি। হালনাগাদকৃত সংস্করণ নতুন \"সর্বশেষ হালনাগাদ\" তারিখসহ এই পৃষ্ঠায় প্রকাশ করা হবে।"
+          ]
+        }
+      ]
+    },
+    "refund": {
+      "title": "রিটার্ন ও রিফান্ড নীতিমালা",
+      "intro": "Alokayon কোনো পণ্য বিক্রি করে না, তাই এই নীতিমালা আমাদের ওয়েবসাইটের মাধ্যমে দেওয়া অনুদানের রিফান্ডের ক্ষেত্রে প্রযোজ্য। অনুদানের অর্থ সাধারণত দ্রুত কার্যক্রমে বরাদ্দ করা হয় বলে তা সাধারণত ফেরতযোগ্য নয়, তবে নিচে বর্ণিত ক্ষেত্রগুলো ব্যতিক্রম।",
+      "sections": [
+        {
+          "heading": "যেসব ক্ষেত্রে রিফান্ডের অনুরোধ করা যায়",
+          "bullets": [
+            "একই অনুদানের জন্য একাধিকবার টাকা কাটা হয়েছে (ডুপ্লিকেট পেমেন্ট)।",
+            "ভুলবশত ভুল পরিমাণ লিখেছেন।",
+            "আপনার অ্যাকাউন্ট থেকে টাকা কাটা হয়েছে কিন্তু অনুদান সম্পন্ন হয়নি।",
+            "আপনার অনুমতি ছাড়া আপনার কার্ড বা অ্যাকাউন্ট ব্যবহার করা হয়েছে।"
+          ]
+        },
+        {
+          "heading": "রিফান্ডের অনুরোধ যেভাবে করবেন",
+          "paragraphs": [
+            "অনুদানের ৭ দিনের মধ্যে alokayon2019@gmail.com ঠিকানায় নিচের তথ্যসহ ইমেইল করুন:"
+          ],
+          "bullets": [
+            "আপনার পূর্ণ নাম ও ফোন নম্বর।",
+            "অনুদানের তারিখ ও পরিমাণ।",
+            "লেনদেন আইডি ও পেমেন্ট পদ্ধতি (কার্ড, বিকাশ, নগদ, ব্যাংক ইত্যাদি)।",
+            "রিফান্ডের অনুরোধের কারণ।"
+          ]
+        },
+        {
+          "heading": "যাচাই ও রিফান্ডের সময়সীমা",
+          "paragraphs": [
+            "আমরা আপনার অনুরোধ যাচাই করে ৩ কর্মদিবসের মধ্যে উত্তর দেব।",
+            "অনুমোদিত রিফান্ড ৭ থেকে ১০ কর্মদিবসের মধ্যে প্রক্রিয়া করে মূল পেমেন্ট পদ্ধতিতে ফেরত পাঠানো হয়। আপনার ব্যাংক বা মোবাইল আর্থিক সেবাদাতার ওপর নির্ভর করে টাকা অ্যাকাউন্টে দেখা যেতে আরও কয়েক দিন লাগতে পারে।"
+          ]
+        },
+        {
+          "heading": "যাকাতের অনুদান",
+          "paragraphs": [
+            "যাকাতের অনুদান রিফান্ড করা হলে সেই পরিমাণ অর্থ আপনার পক্ষ থেকে যাকাত হিসেবে বিতরণ করা হয়নি বলে গণ্য হবে। রিফান্ডের অনুরোধ করার আগে বিষয়টি বিবেচনা করুন।"
+          ]
+        },
+        {
+          "heading": "বাতিলকরণ",
+          "paragraphs": [
+            "ভুলবশত অনুদান দিয়ে থাকলে যত দ্রুত সম্ভব আমাদের সাথে যোগাযোগ করুন। অর্থ বরাদ্দের আগে অনুরোধ করলে আমাদের পক্ষে সমাধান করা সহজ হয়।"
+          ]
+        }
+      ]
+    }
+  },
+  "seo": {
+    "descriptions": {
+      "home": "আলোকায়ন বাংলাদেশের একটি নিবন্ধিত দাতব্য সংস্থা। শিক্ষার্থী, বিধবা, প্রবীণ ও অসহায় পরিবারের পাশে দাঁড়াতে আপনার যাকাত ও অনুদান দিন।",
+      "about": "আলোকায়নের গল্প: ২০১১ সালে দুস্থ সেবা নামে শুরু, ২০১৯ সালে নিবন্ধিত, এবং মর্যাদা ও জবাবদিহিতার সাথে বাংলাদেশের সুবিধাবঞ্চিত মানুষের সেবায়।",
+      "programs": "আলোকায়নের কর্মসূচি: শিক্ষা, চিকিৎসা, বিধবা সহায়তা, ত্রাণ, জীবিকা, প্রবীণ সেবা, আলোকায়ন পাঠশালা ও হাফেজি মাদ্রাসা।",
+      "school": "আলোকায়ন পাঠশালা ঢাকার বস্তির সুবিধাবঞ্চিত শিশুদের বিনামূল্যে শিক্ষা দেয়।",
+      "madrasa": "আব্দুল করিম মিয়াজী হাফেজি মাদ্রাসায় কুরআন, আরবি ও বাংলা শিক্ষার সমন্বয় করা হয়।",
+      "gallery": "আলোকায়নের কাজের ছবি: পাঠশালার দিন, ত্রাণ বিতরণ, জীবিকা সহায়তা ও সমাজসেবা।",
+      "opinions": "শিক্ষার্থী, পরিবার ও বিধবারা জানাচ্ছেন আলোকায়নের সহায়তা কীভাবে তাদের জীবন বদলেছে।",
+      "donors": "দেশ-বিদেশের দাতারা জানাচ্ছেন কেন তারা আলোকায়নের মাধ্যমে যাকাত ও অনুদান দেন।",
+      "transparency": "আলোকায়নের বার্ষিক ম্যাগাজিন ও আর্থিক প্রতিবেদন পড়ুন, দেখুন অনুদান কীভাবে গ্রহণ ও ব্যয় হয়।",
+      "donate": "কার্ড, বিকাশ বা নগদের মাধ্যমে নিরাপদে আলোকায়নে অনুদান দিন এবং ইমেইলে রসিদ পান। আপনার যাকাত পৌঁছাবে শিক্ষার্থী, বিধবা ও অসহায় পরিবারের কাছে।",
+      "terms": "আলোকায়নে অনুদান দেওয়ার শর্তাবলি।",
+      "privacy": "আলোকায়ন কীভাবে আপনার ব্যক্তিগত তথ্য সংগ্রহ, ব্যবহার ও সুরক্ষা করে।",
+      "refund": "অনুদানের ক্ষেত্রে আলোকায়নের রিটার্ন ও রিফান্ড নীতি।",
+      "zakatCalculator": "আপনার যাকাত কত হবে হিসাব করুন। নগদ, স্বর্ণ, রুপা, সঞ্চয় ও ঋণ লিখুন এবং টাকায় বর্তমান নিসাব অনুযায়ী ২.৫% হারে যাকাত দেখুন।",
+      "campaigns": "আলোকায়নের চলমান আবেদনগুলোতে সহায়তা করুন। প্রতিটি আবেদনের লক্ষ্য ও এ পর্যন্ত সংগৃহীত অর্থ দেখুন, এবং আপনার পছন্দের উদ্দেশ্যে দান করুন।",
+      "contact": "অনুদান, যাকাত, রসিদ, স্বেচ্ছাসেবা বা অংশীদারিত্ব নিয়ে আলোকায়নের সাথে যোগাযোগ করুন। বার্তা পাঠান অথবা ঢাকায় আমাদের ফোন করুন।"
+    },
+    "notFoundTitle": "পৃষ্ঠাটি পাওয়া যায়নি"
+  },
+  "notFound": {
+    "eyebrow": "ত্রুটি ৪০৪",
+    "title": "পৃষ্ঠাটি খুঁজে পাওয়া যায়নি",
+    "message": "লিংকটি ভুল হতে পারে, অথবা পৃষ্ঠাটি সরানো হয়েছে। এর পরিবর্তে এগুলো দেখুন।",
+    "homeButton": "হোম পেজে যান",
+    "donateButton": "অনুদান দিন",
+    "programsLink": "আমাদের কর্মসূচি",
+    "transparencyLink": "প্রতিবেদন ও ম্যাগাজিন",
+    "contactNote": "এখনও কিছু খুঁজছেন? আমাদের ইমেইল করুন"
+  },
+  "zakatCalculator": {
+    "eyebrow": "যাকাত ক্যালকুলেটর",
+    "title": "আপনার যাকাত হিসাব করুন",
+    "intro": "আজ আপনার যা আছে এবং যা পরিশোধ করতে হবে তা লিখুন। ক্যালকুলেটর আপনার সম্পদ নিসাবের সাথে মিলিয়ে ২.৫% হারে যাকাত দেখাবে। আপনার লেখা কোনো তথ্য সংরক্ষণ বা কোথাও পাঠানো হয় না।",
+    "sections": {
+      "nisab": "নিসাব ও দাম",
+      "assets": "আপনার সম্পদ",
+      "deductions": "এখন যা পরিশোধযোগ্য"
+    },
+    "nisab": {
+      "label": "নিসাবের মানদণ্ড",
+      "silver": {
+        "title": "রুপার নিসাব (৬১২.৩৬ গ্রাম)",
+        "description": "কম সীমা। বাংলাদেশের অনেক আলেম এটি পরামর্শ দেন, কারণ এতে বেশি মানুষ যাকাত দেন এবং বেশি অভাবী মানুষ উপকৃত হন।",
+        "metal": "রুপা"
+      },
+      "gold": {
+        "title": "স্বর্ণের নিসাব (৮৭.৪৮ গ্রাম)",
+        "description": "বেশি সীমা। কিছু আলেম এটি ব্যবহার করেন, বিশেষ করে যখন আপনার সম্পদের বেশিরভাগ স্বর্ণ।",
+        "metal": "স্বর্ণ"
+      }
+    },
+    "fields": {
+      "goldPrice": "প্রতি গ্রাম স্বর্ণের দাম (২২ ক্যারেট)",
+      "silverPrice": "প্রতি গ্রাম রুপার দাম",
+      "cash": "নগদ ও ব্যাংকে জমা",
+      "gold": "আপনার স্বর্ণ",
+      "silver": "আপনার রুপা",
+      "investments": "সঞ্চয় ও বিনিয়োগ",
+      "businessStock": "ব্যবসার মালামাল",
+      "receivables": "অন্যদের কাছে পাওনা টাকা",
+      "otherAssets": "অন্যান্য যাকাতযোগ্য সম্পদ",
+      "debtsDue": "এখন পরিশোধযোগ্য ঋণ ও বিল"
+    },
+    "hints": {
+      "cash": "ঘরে রাখা নগদ, ব্যাংক হিসাব, এবং বিকাশ, নগদ বা অন্য মোবাইল ওয়ালেট।",
+      "gold": "গহনা, কয়েন ও বার, ওজন অনুযায়ী। ১ ভরি = {{grams}} গ্রাম।",
+      "silver": "গহনা, কয়েন ও অন্যান্য জিনিস, ওজন অনুযায়ী।",
+      "investments": "শেয়ার, সঞ্চয়পত্র, ডিপিএস, এফডিআর ও এ ধরনের সঞ্চয়।",
+      "businessStock": "বিক্রির জন্য রাখা মালামাল, বর্তমান বিক্রয়মূল্যে।",
+      "receivables": "যে ধার ফেরত পাওয়ার আশা করেন।",
+      "otherAssets": "বৈদেশিক মুদ্রা, অথবা পুনরায় বিক্রির জন্য কেনা জমি ও সম্পত্তি।",
+      "debtsDue": "ঋণের কিস্তি, ভাড়া, বিল ও অন্যান্য পরিশোধ যা এখন দিতে হবে। দীর্ঘমেয়াদি ঋণের পুরো অঙ্ক যোগ করবেন না।"
+    },
+    "units": {
+      "label": "একক",
+      "vori": "ভরি",
+      "gram": "গ্রাম"
+    },
+    "prices": {
+      "updated": "{{date}} তারিখে আলোকায়ন এই দাম নির্ধারণ করেছে। আজকের দামে পরিবর্তন করতে পারেন।",
+      "missing": "নিসাব হিসাব করতে আজকের স্বর্ণ ও রুপার দাম লিখুন।",
+      "bajusLink": "বাজুসের দামের তালিকা দেখুন"
+    },
+    "summary": {
+      "title": "আপনার যাকাত",
+      "totalAssets": "মোট সম্পদ",
+      "deductions": "এখন পরিশোধযোগ্য ঋণ",
+      "netWealth": "নিট যাকাতযোগ্য সম্পদ",
+      "nisab": "নিসাব ({{grams}} গ্রাম {{metal}})"
+    },
+    "result": {
+      "needPrice": "নিসাব পূর্ণ হয়েছে কিনা দেখতে প্রতি গ্রাম {{metal}}-এর দাম লিখুন।",
+      "empty": "যাকাত দেখতে আপনার সম্পদ লিখুন।",
+      "dueLabel": "প্রদেয় যাকাত",
+      "dueNote": "এটি আপনার নিট সম্পদের ২.৫%, যা এক চান্দ্রবছর নিসাব বা তার বেশি থাকলে দিতে হয়।",
+      "payButton": "যাকাত হিসেবে {{amount}} দিন",
+      "largeAmount": "৳৫,০০,০০০-এর বেশি অঙ্ক ব্যাংক ট্রান্সফারের মাধ্যমে দিন। ব্যাংকের তথ্য অনুদান পৃষ্ঠায় আছে।",
+      "belowNisab": "আপনার নিট সম্পদ নিসাবের কম, তাই যাকাত ফরজ নয়। তবে যেকোনো সময় সদকা দিতে পারেন।"
+    },
+    "explainer": {
+      "title": "যাকাত কীভাবে হিসাব হয়",
+      "items": [
+        {
+          "title": "নিসাব",
+          "text": "আপনার নিট সম্পদ নিসাব পরিমাণে পৌঁছালে যাকাত ফরজ হয়: ৮৭.৪৮ গ্রাম স্বর্ণ বা ৬১২.৩৬ গ্রাম রুপার মূল্য।"
+        },
+        {
+          "title": "এক চান্দ্রবছর (হাওল)",
+          "text": "আপনার সম্পদ পুরো এক হিজরি বছর নিসাব বা তার বেশি থাকতে হবে। অনেকে প্রতি বছর রমজানের মতো নির্দিষ্ট একটি দিনে হিসাব করেন।"
+        },
+        {
+          "title": "নিট সম্পদের ২.৫%",
+          "text": "যাকাতযোগ্য সম্পদ যোগ করুন, এখন পরিশোধযোগ্য ঋণ বাদ দিন, এবং বাকি অংশের ২.৫% দিন।"
+        },
+        {
+          "title": "যা হিসাবে ধরা হয় না",
+          "text": "বসবাসের বাড়ি, ব্যক্তিগত গাড়ি, আসবাব, পোশাক এবং কাজের সরঞ্জাম হিসাবে ধরা হয় না।"
+        }
+      ]
+    },
+    "disclaimer": "এই ক্যালকুলেটরটি একটি সহায়িকা। ব্যবহৃত গহনা ও দীর্ঘমেয়াদি ঋণের মতো কিছু বিষয়ে মতভেদ আছে। আপনার নিজের ক্ষেত্রে বিশ্বস্ত কোনো আলেমের পরামর্শ নিন।"
+  },
+  "campaigns": {
+    "progress": {
+      "ofGoal": "সংগৃহীত, লক্ষ্য {{goal}}",
+      "label": "তহবিল সংগ্রহের অগ্রগতি",
+      "valueText": "লক্ষ্য {{goal}}-এর মধ্যে {{raised}} সংগৃহীত",
+      "percent": "লক্ষ্যের {{percent}}%",
+      "donors_one": "{{count}} জন দাতা",
+      "donors_other": "{{count}} জন দাতা",
+      "daysLeft_one": "আর {{count}} দিন বাকি",
+      "daysLeft_other": "আর {{count}} দিন বাকি",
+      "lastDay": "আজ শেষ দিন"
+    },
+    "state": {
+      "ended": "আবেদন শেষ"
+    },
+    "card": {
+      "give": "এই আবেদনে দান করুন",
+      "viewResult": "কত সংগৃহীত হয়েছে দেখুন",
+      "linkLabel": "{{title}}: আবেদন দেখুন ও দান করুন"
+    },
+    "section": {
+      "eyebrow": "চলমান আবেদন",
+      "title": "এই লক্ষ্যগুলো পূরণে আমাদের সাহায্য করুন",
+      "viewAll": "সব আবেদন দেখুন"
+    },
+    "page": {
+      "eyebrow": "আবেদন",
+      "title": "নির্দিষ্ট প্রয়োজনে দান করুন",
+      "intro": "প্রতিটি আবেদনের একটি স্পষ্ট লক্ষ্য আছে। আবেদনের পৃষ্ঠা থেকে দেওয়া প্রতিটি অনুদান সেই লক্ষ্যে যোগ হয়, এবং অগ্রগতি প্রকৃত অনুদান থেকে হালনাগাদ হয়।",
+      "loading": "আবেদন লোড হচ্ছে...",
+      "error": "এই মুহূর্তে আবেদনগুলো লোড করা যাচ্ছে না। একটু পরে আবার চেষ্টা করুন।",
+      "emptyTitle": "এই মুহূর্তে কোনো আবেদন চলছে না",
+      "emptyText": "আপনি এখনও সবচেয়ে প্রয়োজনীয় খাতে দান করতে পারেন। আপনার অনুদান আমাদের সব কর্মসূচিতে সহায়তা করে।",
+      "endedTitle": "সম্পন্ন আবেদন"
+    },
+    "detail": {
+      "donate": "এই আবেদনে দান করুন",
+      "donateGeneral": "সবচেয়ে প্রয়োজনীয় খাতে দান করুন",
+      "endedNote": "এই আবেদন শেষ হয়েছে। যারা দান করেছেন সবাইকে ধন্যবাদ। আপনি এখনও আমাদের চলমান কাজে সহায়তা করতে পারেন।",
+      "privacyNote": "এখানে শুধু মোট পরিমাণ দেখানো হয়। দাতাদের নাম ও অনুদানের পরিমাণ কখনো প্রকাশ করা হয় না।",
+      "storyTitle": "এই আবেদন সম্পর্কে"
+    }
+  },
+  "contactPage": {
+    "eyebrow": "যোগাযোগ",
+    "title": "আমাদের বার্তা পাঠান",
+    "intro": "অনুদান, রসিদ বা যাকাত নিয়ে প্রশ্ন আছে? স্বেচ্ছাসেবক হতে বা আমাদের সাথে কাজ করতে চান? লিখুন, আমাদের টিম ইমেইলে উত্তর দেবে।",
+    "fields": {
+      "name": "আপনার নাম",
+      "email": "ইমেইল ঠিকানা",
+      "phone": "ফোন নম্বর (ঐচ্ছিক)",
+      "topic": "বিষয়",
+      "message": "আপনার বার্তা"
+    },
+    "topics": {
+      "general": "সাধারণ প্রশ্ন",
+      "donation": "অনুদান বা রসিদ",
+      "zakat": "যাকাত সংক্রান্ত প্রশ্ন",
+      "volunteer": "স্বেচ্ছাসেবা",
+      "partnership": "অংশীদারিত্ব",
+      "other": "অন্য কিছু"
+    },
+    "send": "বার্তা পাঠান",
+    "sending": "পাঠানো হচ্ছে...",
+    "replyNote": "আমরা সাধারণত ৩ কর্মদিবসের মধ্যে উত্তর দিই।",
+    "sent": {
+      "title": "ধন্যবাদ, আপনার বার্তা পাঠানো হয়েছে",
+      "message": "আমাদের টিম সাধারণত ৩ কর্মদিবসের মধ্যে {{email}} ঠিকানায় উত্তর দেবে।"
+    },
+    "errors": {
+      "name": "আপনার নাম লিখুন।",
+      "email": "উত্তর দেওয়ার জন্য একটি সঠিক ইমেইল ঠিকানা লিখুন।",
+      "message": "অন্তত কয়েকটি শব্দে আপনার বার্তা লিখুন।",
+      "tooMany": "আপনি অল্প সময়ে কয়েকটি বার্তা পাঠিয়েছেন। এক ঘণ্টা অপেক্ষা করুন, অথবা সরাসরি ইমেইল করুন।",
+      "generic": "আপনার বার্তা পাঠানো যায়নি। আবার চেষ্টা করুন, অথবা alokayon2019@gmail.com-এ ইমেইল করুন।"
+    },
+    "details": {
+      "title": "যোগাযোগের অন্যান্য উপায়",
+      "email": "ইমেইল",
+      "phone": "ফোন (বিকাশ)",
+      "phoneAlt": "ফোন (নগদ)",
+      "address": "অফিসের ঠিকানা"
     }
   }
 }

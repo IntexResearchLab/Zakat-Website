@@ -29,7 +29,7 @@ function ProgramsStories() {
               </p>
               <div className="mt-6 border-t border-[#e7eef3] pt-5">
                 <p className="text-[1rem] font-bold text-[#14324d]">{story.person}</p>
-                <p className="mt-1 text-[0.9rem] text-[#6b7a86]">{story.context}</p>
+                <p className="mt-1 text-[0.9rem] text-[#5d6d78]">{story.context}</p>
               </div>
             </article>
           ))}

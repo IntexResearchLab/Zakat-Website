@@ -1,3 +1,4 @@
+import ActiveCampaignsSection from '../components/Campaigns/ActiveCampaignsSection'
 import DonateCta from '../components/Donate/DonateCta'
 import DonateDonorTrust from '../components/Donate/DonateDonorTrust'
 import DonateHero from '../components/Donate/DonateHero'
@@ -14,6 +15,7 @@ function Donate() {
     <>
       <DonateHero />
       <DonateMainSection />
+      <ActiveCampaignsSection />
       <DonateTransparency />
       <DonatePrograms />
       <DonateStories />

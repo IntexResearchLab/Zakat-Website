@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link, useNavigate } from 'react-router-dom'
-import { supabase } from '../../utils/supabase'
+import { hasRecoverySession, supabase } from '../../utils/supabase'
+import { getFriendlyErrorMessage } from '../../lib/adminErrors'
 
 function AdminResetPasswordPanel() {
   const { t } = useTranslation()
@@ -24,7 +25,9 @@ function AdminResetPasswordPanel() {
       } = await supabase.auth.getSession()
 
       if (isMounted) {
-        setHasValidLink(Boolean(session))
+        // A normal signed-in session is not enough: anyone at an unattended computer could
+        // otherwise change the password without knowing the current one.
+        setHasValidLink(Boolean(session) && hasRecoverySession())
         setIsCheckingLink(false)
       }
     }
@@ -34,7 +37,7 @@ function AdminResetPasswordPanel() {
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((event, session) => {
-      if (event === 'PASSWORD_RECOVERY' || session) {
+      if (event === 'PASSWORD_RECOVERY' || (session && hasRecoverySession())) {
         setHasValidLink(true)
         setIsCheckingLink(false)
       }
@@ -66,7 +69,7 @@ function AdminResetPasswordPanel() {
     setIsSubmitting(false)
 
     if (error) {
-      setErrorMessage(error.message || t('admin.resetPassword.genericError'))
+      setErrorMessage(getFriendlyErrorMessage(t, error, 'admin.resetPassword.genericError'))
       return
     }
 
@@ -78,7 +81,7 @@ function AdminResetPasswordPanel() {
     <div className="grid min-h-screen lg:grid-cols-[1.08fr_0.92fr]">
       <div className="relative overflow-hidden bg-[linear-gradient(145deg,#14324d,#0d2236)] px-6 py-16 text-white sm:px-10 lg:px-14">
         <div className="absolute inset-0 opacity-10">
-          <img alt="" className="h-full w-full object-cover" src="/assets/home/Alokayon_School_1.jpg" />
+          <img alt="" className="h-full w-full object-cover" decoding="async" src="/assets/home/Alokayon_School_1.webp" />
         </div>
         <div className="relative mx-auto flex h-full max-w-2xl flex-col justify-between">
           <div>
@@ -132,18 +135,18 @@ function AdminResetPasswordPanel() {
                   </label>
                   <div className="relative">
                     <input
-                      className="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-[#fbfdff] px-4 py-3 pr-14 text-[0.98rem] text-[#14324d] outline-none transition placeholder:text-[#90a3af] focus:border-[#115b82] focus:bg-white"
+                      className="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-[#fbfdff] px-4 py-3 pr-14 text-[0.98rem] text-[#14324d] outline-none transition placeholder:text-[#627581] focus:border-[#115b82] focus:bg-white"
                       onChange={(event) => setPassword(event.target.value)}
                       type={showPassword ? 'text' : 'password'}
                       value={password}
                     />
                     <button
                       aria-label={showPassword ? t('admin.auth.hidePassword') : t('admin.auth.showPassword')}
-                      className="absolute inset-y-0 right-0 flex items-center px-4 text-[#6c8390] transition hover:text-[#14324d]"
+                      className="absolute inset-y-0 right-0 flex items-center px-4 text-[#5d6d78] transition hover:text-[#14324d]"
                       onClick={() => setShowPassword((current) => !current)}
                       type="button"
                     >
-                      <span className="material-symbols-outlined text-[1.2rem]">
+                      <span aria-hidden="true" className="material-symbols-outlined text-[1.2rem]">
                         {showPassword ? 'visibility_off' : 'visibility'}
                       </span>
                     </button>
@@ -155,7 +158,7 @@ function AdminResetPasswordPanel() {
                     {t('admin.resetPassword.confirmPasswordLabel')}
                   </label>
                   <input
-                    className="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-[#fbfdff] px-4 py-3 text-[0.98rem] text-[#14324d] outline-none transition placeholder:text-[#90a3af] focus:border-[#115b82] focus:bg-white"
+                    className="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-[#fbfdff] px-4 py-3 text-[0.98rem] text-[#14324d] outline-none transition placeholder:text-[#627581] focus:border-[#115b82] focus:bg-white"
                     onChange={(event) => setConfirmPassword(event.target.value)}
                     type={showPassword ? 'text' : 'password'}
                     value={confirmPassword}

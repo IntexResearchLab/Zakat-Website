@@ -38,7 +38,7 @@ function AboutCta() {
           </div>
           <div className="mt-7 flex flex-col items-center justify-center gap-2 text-[0.92rem] leading-[1.7] text-[#647783] sm:flex-row sm:gap-3">
             <span className="inline-flex items-center gap-2">
-              <span className="material-symbols-outlined text-[1rem] text-[#2d8a57]">
+              <span aria-hidden="true" className="material-symbols-outlined text-[1rem] text-[#2d8a57]">
                 verified
               </span>
               {t('about.cta.trustPrimary')}

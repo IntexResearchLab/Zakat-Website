@@ -11,7 +11,7 @@ function OpinionsQuoteHighlight() {
           <p className="font-serif text-[2.3rem] leading-[1.2] tracking-[-0.04em] text-[#14324d] sm:text-[3.3rem]">
             “{t('opinions.quote.text')}”
           </p>
-          <p className="mt-5 text-[1rem] font-semibold text-[#6f846f]">
+          <p className="mt-5 text-[1rem] font-semibold text-[#5d7a5e]">
             {t('opinions.quote.author')}
           </p>
         </Reveal>

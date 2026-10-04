@@ -66,12 +66,12 @@ function TransparencyMagazineLibrary({
           <div className="flex items-center gap-3 lg:max-w-[32rem]">
             {shouldShowYearScroller ? (
               <button
-                aria-label="Scroll magazine years left"
+                aria-label={t('common.aria.scrollLeft')}
                 className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#dce7ee] bg-white text-[#627581] transition hover:border-[#bdd6e4] hover:bg-[#f5fafe] hover:text-[#115b82]"
                 onClick={() => handleYearRailScroll('left')}
                 type="button"
               >
-                <span className="material-symbols-outlined text-[1.15rem]">west</span>
+                <span aria-hidden="true" className="material-symbols-outlined text-[1.15rem]">west</span>
               </button>
             ) : null}
 
@@ -102,12 +102,12 @@ function TransparencyMagazineLibrary({
 
             {shouldShowYearScroller ? (
               <button
-                aria-label="Scroll magazine years right"
+                aria-label={t('common.aria.scrollRight')}
                 className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#dce7ee] bg-white text-[#627581] transition hover:border-[#bdd6e4] hover:bg-[#f5fafe] hover:text-[#115b82]"
                 onClick={() => handleYearRailScroll('right')}
                 type="button"
               >
-                <span className="material-symbols-outlined text-[1.15rem]">east</span>
+                <span aria-hidden="true" className="material-symbols-outlined text-[1.15rem]">east</span>
               </button>
             ) : null}
           </div>
@@ -122,11 +122,13 @@ function TransparencyMagazineLibrary({
                 <img
                   alt={selectedIssue.title}
                   className="h-full w-full rounded-[1rem] object-cover"
+                  decoding="async"
+                  loading="lazy"
                   src={selectedIssue.coverImageUrl}
                 />
               ) : (
                 <div>
-                  <span className="material-symbols-outlined text-[4rem] text-[#115b82]">
+                  <span aria-hidden="true" className="material-symbols-outlined text-[4rem] text-[#115b82]">
                     article
                   </span>
                   <p className="mt-4 text-sm font-bold uppercase tracking-[0.18em] text-[#115b82]">

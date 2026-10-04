@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { useModalDialog } from '../../lib/useModalDialog'
 import { useTranslation } from 'react-i18next'
 import Reveal from '../reusables/Reveal'
 import InitialsAvatar from '../reusables/InitialsAvatar'
@@ -26,8 +27,9 @@ function AboutExecutiveCommittee() {
   const [remoteMembers, setRemoteMembers] = useState<ExecutiveMember[]>(
     () => getCachedExecutiveMembers() ?? [],
   )
+  const [useFallback, setUseFallback] = useState(() => !getCachedExecutiveMembers()?.length)
 
-  const fallbackMembers = getCommitteeMembers(t)
+  const fallbackMembers = useMemo(() => getCommitteeMembers(t), [t])
   const officeEmail = t('about.executive.officeEmail')
   const officePhone = t('about.executive.officePhone')
 
@@ -36,9 +38,10 @@ function AboutExecutiveCommittee() {
 
     const syncExecutiveMembers = async () => {
       try {
-        const rows = await loadExecutiveMembers()
+        const { rows, hasAnyRows } = await loadExecutiveMembers()
         if (isMounted) {
           setRemoteMembers(rows)
+          setUseFallback(!hasAnyRows)
         }
       } catch {
         // The public fallback content is kept in translations, so we stay quiet here.
@@ -54,7 +57,7 @@ function AboutExecutiveCommittee() {
 
   const committeeMembers = useMemo<DisplayExecutiveMember[]>(
     () =>
-      remoteMembers.length
+      !useFallback
         ? remoteMembers.map((member) => ({
             id: member.id,
             name: member.name,
@@ -71,7 +74,7 @@ function AboutExecutiveCommittee() {
             email: member.email || officeEmail,
             phone: member.phone || officePhone,
           })),
-    [fallbackMembers, officeEmail, officePhone, remoteMembers],
+    [fallbackMembers, officeEmail, officePhone, remoteMembers, useFallback],
   )
 
   useEffect(() => {
@@ -110,26 +113,7 @@ function AboutExecutiveCommittee() {
     return () => window.clearInterval(interval)
   }, [committeeTotalPages, isDirectoryOpen])
 
-  useEffect(() => {
-    if (!isDirectoryOpen) {
-      return undefined
-    }
-
-    const handleEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        setIsDirectoryOpen(false)
-      }
-    }
-
-    const originalOverflow = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
-    window.addEventListener('keydown', handleEscape)
-
-    return () => {
-      document.body.style.overflow = originalOverflow
-      window.removeEventListener('keydown', handleEscape)
-    }
-  }, [isDirectoryOpen])
+  const dialogRef = useModalDialog(isDirectoryOpen, () => setIsDirectoryOpen(false))
 
   const currentMembers = useMemo(
     () =>
@@ -140,9 +124,15 @@ function AboutExecutiveCommittee() {
     [committeeMembers, currentCommitteePage, committeeVisibleCount],
   )
 
+
+  // Every member is hidden in the admin: leave the section out rather than show an empty carousel.
+  if (!committeeMembers.length) {
+    return null
+  }
+
   return (
     <>
-      <section className="bg-white py-20 sm:py-24">
+      <section className="scroll-mt-20 bg-white py-20 sm:py-24" id="executive-committee">
         <div className="mx-auto max-w-7xl px-6">
           <Reveal className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-3xl">
@@ -183,6 +173,8 @@ function AboutExecutiveCommittee() {
                       <img
                         alt={member.name}
                         className="aspect-[4/4.6] w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+                        decoding="async"
+                        loading="lazy"
                         src={member.image}
                       />
                     ) : (
@@ -192,7 +184,7 @@ function AboutExecutiveCommittee() {
                   <h3 className="mt-4 font-serif text-[1.28rem] leading-[1.05] tracking-[-0.03em] text-[#14324d]">
                     {member.name}
                   </h3>
-                  <p className="mt-2 text-[0.88rem] font-medium leading-[1.55] text-[#6a7c87]">
+                  <p className="mt-2 text-[0.88rem] font-medium leading-[1.55] text-[#5d6d78]">
                     {member.role}
                   </p>
                   <div className="mt-3 rounded-[0.9rem] bg-[#f7fbfd] px-3.5 py-3 ring-1 ring-[#dce7ee]">
@@ -204,14 +196,18 @@ function AboutExecutiveCommittee() {
                         className="flex items-center gap-2 transition hover:text-[#115b82]"
                         href={`mailto:${member.email}`}
                       >
-                        <span className="material-symbols-outlined text-[1rem]">mail</span>
+                        <span aria-hidden="true" className="material-symbols-outlined text-[1rem]">
+                          mail
+                        </span>
                         <span>{member.email}</span>
                       </a>
                       <a
                         className="flex items-center gap-2 transition hover:text-[#115b82]"
                         href={`tel:${member.phone.replace(/\s+/g, '')}`}
                       >
-                        <span className="material-symbols-outlined text-[1rem]">call</span>
+                        <span aria-hidden="true" className="material-symbols-outlined text-[1rem]">
+                          call
+                        </span>
                         <span>{member.phone}</span>
                       </a>
                     </div>
@@ -236,7 +232,9 @@ function AboutExecutiveCommittee() {
                   }
                   type="button"
                 >
-                  <span className="material-symbols-outlined text-[1.15rem]">west</span>
+                  <span aria-hidden="true" className="material-symbols-outlined text-[1.15rem]">
+                    west
+                  </span>
                 </button>
 
                 <div className="flex items-center gap-2">
@@ -258,12 +256,12 @@ function AboutExecutiveCommittee() {
                 <button
                   aria-label={t('about.executive.next')}
                   className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#dce7ee] bg-white text-[#115b82] transition hover:border-[#bdd6e4] hover:bg-[#f5fafe]"
-                  onClick={() =>
-                    setCommitteePage((current) => (current + 1) % committeeTotalPages)
-                  }
+                  onClick={() => setCommitteePage((current) => (current + 1) % committeeTotalPages)}
                   type="button"
                 >
-                  <span className="material-symbols-outlined text-[1.15rem]">east</span>
+                  <span aria-hidden="true" className="material-symbols-outlined text-[1.15rem]">
+                    east
+                  </span>
                 </button>
               </div>
             </div>
@@ -276,7 +274,9 @@ function AboutExecutiveCommittee() {
           aria-modal="true"
           className="fixed inset-0 z-50 flex items-center justify-center bg-[#09131ccc]/82 px-4 py-8 backdrop-blur-sm"
           onClick={() => setIsDirectoryOpen(false)}
+          ref={dialogRef}
           role="dialog"
+          tabIndex={-1}
         >
           <div className="relative w-full max-w-6xl" onClick={(event) => event.stopPropagation()}>
             <button
@@ -285,7 +285,9 @@ function AboutExecutiveCommittee() {
               onClick={() => setIsDirectoryOpen(false)}
               type="button"
             >
-              <span className="material-symbols-outlined text-[1.25rem]">close</span>
+              <span aria-hidden="true" className="material-symbols-outlined text-[1.25rem]">
+                close
+              </span>
             </button>
 
             <div className="max-h-[86vh] overflow-y-auto rounded-[1.45rem] border border-[#dce7ee] bg-white p-7 shadow-[0_24px_60px_rgba(15,23,42,0.22)] sm:p-9">
@@ -310,23 +312,31 @@ function AboutExecutiveCommittee() {
                         <img
                           alt={member.name}
                           className="h-24 w-20 rounded-[0.85rem] object-cover"
+                          decoding="async"
+                          loading="lazy"
                           src={member.image}
                         />
                       ) : (
-                        <InitialsAvatar className="h-24 w-20 rounded-[0.85rem]" name={member.name} />
+                        <InitialsAvatar
+                          className="h-24 w-20 rounded-[0.85rem]"
+                          name={member.name}
+                        />
                       )}
                       <div className="min-w-0">
                         <h4 className="font-serif text-[1.2rem] leading-[1.1] tracking-[-0.03em] text-[#14324d]">
                           {member.name}
                         </h4>
-                        <p className="mt-1 text-[0.92rem] leading-[1.5] text-[#6a7c87]">
+                        <p className="mt-1 text-[0.92rem] leading-[1.5] text-[#5d6d78]">
                           {member.role}
                         </p>
                         <p className="mt-3 text-[0.72rem] font-bold uppercase tracking-[0.16em] text-[#115b82]">
                           {t('about.executive.contactLabel')}
                         </p>
                         <div className="mt-2 space-y-1.5 text-[0.85rem] text-[#5d6f7b]">
-                          <a className="block transition hover:text-[#115b82]" href={`mailto:${member.email}`}>
+                          <a
+                            className="block transition hover:text-[#115b82]"
+                            href={`mailto:${member.email}`}
+                          >
                             {member.email}
                           </a>
                           <a

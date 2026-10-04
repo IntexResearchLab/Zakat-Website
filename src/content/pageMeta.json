@@ -1,0 +1,85 @@
+{
+  "/": {
+    "descriptionKey": "seo.descriptions.home"
+  },
+  "/about": {
+    "titleKey": "common.breadcrumb.aboutUs",
+    "descriptionKey": "seo.descriptions.about"
+  },
+  "/donate": {
+    "titleKey": "common.breadcrumb.donate",
+    "descriptionKey": "seo.descriptions.donate"
+  },
+  "/donate/success": {
+    "titleKey": "common.breadcrumb.donate",
+    "descriptionKey": "seo.descriptions.donate",
+    "noIndex": true
+  },
+  "/donate/failed": {
+    "titleKey": "common.breadcrumb.donate",
+    "descriptionKey": "seo.descriptions.donate",
+    "noIndex": true
+  },
+  "/donate/cancelled": {
+    "titleKey": "common.breadcrumb.donate",
+    "descriptionKey": "seo.descriptions.donate",
+    "noIndex": true
+  },
+  "/donate/receipt": {
+    "titleKey": "common.breadcrumb.donate",
+    "descriptionKey": "seo.descriptions.donate",
+    "noIndex": true
+  },
+  "/gallery": {
+    "titleKey": "common.breadcrumb.gallery",
+    "descriptionKey": "seo.descriptions.gallery"
+  },
+  "/opinions-of-beneficiaries": {
+    "titleKey": "common.breadcrumb.opinions",
+    "descriptionKey": "seo.descriptions.opinions"
+  },
+  "/our-donors": {
+    "titleKey": "common.breadcrumb.donors",
+    "descriptionKey": "seo.descriptions.donors"
+  },
+  "/programs": {
+    "titleKey": "common.breadcrumb.programs",
+    "descriptionKey": "seo.descriptions.programs"
+  },
+  "/programs/alokayon-school": {
+    "titleKey": "common.breadcrumb.school",
+    "descriptionKey": "seo.descriptions.school"
+  },
+  "/programs/madrasa": {
+    "titleKey": "common.breadcrumb.madrasah",
+    "descriptionKey": "seo.descriptions.madrasa"
+  },
+  "/transparency": {
+    "titleKey": "common.breadcrumb.transparency",
+    "descriptionKey": "seo.descriptions.transparency"
+  },
+  "/contact": {
+    "titleKey": "common.breadcrumb.contact",
+    "descriptionKey": "seo.descriptions.contact"
+  },
+  "/campaigns": {
+    "titleKey": "common.breadcrumb.campaigns",
+    "descriptionKey": "seo.descriptions.campaigns"
+  },
+  "/zakat-calculator": {
+    "titleKey": "common.breadcrumb.zakatCalculator",
+    "descriptionKey": "seo.descriptions.zakatCalculator"
+  },
+  "/terms-and-conditions": {
+    "titleKey": "common.breadcrumb.terms",
+    "descriptionKey": "seo.descriptions.terms"
+  },
+  "/privacy-policy": {
+    "titleKey": "common.breadcrumb.privacy",
+    "descriptionKey": "seo.descriptions.privacy"
+  },
+  "/refund-policy": {
+    "titleKey": "common.breadcrumb.refund",
+    "descriptionKey": "seo.descriptions.refund"
+  }
+}

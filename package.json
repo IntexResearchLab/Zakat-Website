@@ -1,11 +1,11 @@
 {
-  "name": "zakat-website",
+  "name": "alokayon-website",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && node scripts/prerender-meta.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -13,6 +13,7 @@
     "@supabase/supabase-js": "^2.105.3",
     "@tailwindcss/vite": "^4.2.2",
     "i18next": "^26.0.6",
+    "pdf-lib": "^1.17.1",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-i18next": "^17.0.4",

@@ -1,52 +1,92 @@
 import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
 
-import bn from './locales/bn/common.json'
-import de from './locales/de/common.json'
 import en from './locales/en/common.json'
+import { readStorage, writeStorage } from './lib/safeStorage'
 
 const LANGUAGE_STORAGE_KEY = 'alokayon-language'
 const supportedLanguages = ['en', 'bn', 'de'] as const
 type SupportedLanguage = (typeof supportedLanguages)[number]
 
-const getInitialLanguage = () => {
+// English is bundled because it is the fallback for missing keys. Bangla and German are
+// downloaded only when a visitor uses them, which keeps them out of everyone else's download.
+const languageLoaders: Record<Exclude<SupportedLanguage, 'en'>, () => Promise<{ default: object }>> = {
+  bn: () => import('./locales/bn/common.json'),
+  de: () => import('./locales/de/common.json'),
+}
+
+const loadLanguage = async (language: SupportedLanguage) => {
+  if (language === 'en' || i18n.hasResourceBundle(language, 'translation')) {
+    return
+  }
+
+  const { default: resources } = await languageLoaders[language]()
+  i18n.addResourceBundle(language, 'translation', resources)
+}
+
+// Bangla fonts are only requested once someone reads in Bangla. Google serves them split by
+// script, so only the Bengali glyph files are downloaded.
+const loadBanglaFonts = () => {
+  if (typeof document === 'undefined' || document.getElementById('bangla-fonts')) {
+    return
+  }
+
+  const link = document.createElement('link')
+  link.id = 'bangla-fonts'
+  link.rel = 'stylesheet'
+  link.href =
+    'https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;700&family=Noto+Serif+Bengali:wght@500;600&display=swap'
+  document.head.appendChild(link)
+}
+
+export const changeLanguage = async (language: SupportedLanguage) => {
+  if (language === 'bn') {
+    loadBanglaFonts()
+  }
+  await loadLanguage(language)
+  await i18n.changeLanguage(language)
+}
+
+const getInitialLanguage = (): SupportedLanguage => {
   if (typeof window === 'undefined') {
     return 'en'
   }
 
-  const storedLanguage = window.localStorage.getItem(LANGUAGE_STORAGE_KEY)
+  const storedLanguage = readStorage(LANGUAGE_STORAGE_KEY)
 
   if (storedLanguage && supportedLanguages.includes(storedLanguage as SupportedLanguage)) {
-    return storedLanguage
+    return storedLanguage as SupportedLanguage
   }
 
   return 'en'
 }
 
-void i18n.use(initReactI18next).init({
-  resources: {
-    en: {
-      translation: en,
+const initialLanguage = getInitialLanguage()
+
+// Resolves once the visitor's language is ready, so the first render is already translated.
+export const i18nReady = i18n
+  .use(initReactI18next)
+  .init({
+    resources: {
+      en: {
+        translation: en,
+      },
     },
-    bn: {
-      translation: bn,
+    lng: 'en',
+    fallbackLng: 'en',
+    supportedLngs: [...supportedLanguages],
+    interpolation: {
+      escapeValue: false,
     },
-    de: {
-      translation: de,
-    },
-  },
-  lng: getInitialLanguage(),
-  fallbackLng: 'en',
-  supportedLngs: [...supportedLanguages],
-  interpolation: {
-    escapeValue: false,
-  },
-  returnObjects: true,
-})
+    returnObjects: true,
+  })
+  .then(() => changeLanguage(initialLanguage))
+  // If a language file fails to download, the site still works in English.
+  .catch((error: unknown) => console.error('[i18n]', error))
 
 i18n.on('languageChanged', (language) => {
   if (typeof window !== 'undefined') {
-    window.localStorage.setItem(LANGUAGE_STORAGE_KEY, language)
+    writeStorage(LANGUAGE_STORAGE_KEY, language)
     document.documentElement.lang = language
   }
 })

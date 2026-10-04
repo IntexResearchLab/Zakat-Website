@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import Reveal from '../reusables/Reveal'
+import Breadcrumb from '../reusables/Breadcrumb'
 
 function DonateHero() {
   const { t } = useTranslation()
@@ -10,13 +11,11 @@ function DonateHero() {
       <div className="mx-auto max-w-7xl px-6 py-14 sm:py-20">
         <div className="grid gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:gap-20">
           <Reveal className="max-w-3xl">
-            <p className="text-[1rem] font-medium tracking-[-0.01em] text-[#5f7280]">
-              [{t('common.breadcrumb.home')} / <span className="text-[#c58b16]">{t('common.breadcrumb.donate')}</span>]
-            </p>
+            <Breadcrumb items={[{ label: t('common.breadcrumb.donate') }]} />
             <p className="mt-8 text-sm font-bold uppercase tracking-[0.2em] text-[#115b82]">
               {t('donate.hero.eyebrow')}
             </p>
-            <h1 className="mt-5 max-w-[12ch] font-serif text-[3rem] font-semibold leading-[0.94] tracking-[-0.05em] text-[#101d2b] sm:text-[4.25rem]">
+            <h1 className="mt-5 max-w-[12ch] hyphens-auto font-serif [overflow-wrap:anywhere] text-[3rem] font-semibold leading-[0.94] tracking-[-0.05em] text-[#101d2b] sm:text-[4.25rem]">
               {t('donate.hero.title')}
             </h1>
             <p className="mt-7 max-w-[40rem] text-[1.05rem] leading-[1.85] text-[#5d6d78] sm:text-[1.08rem]">
@@ -45,7 +44,8 @@ function DonateHero() {
                 <img
                   alt={t('donate.hero.imageAlt')}
                   className="aspect-[5/4] w-full object-cover"
-                  src="/assets/about/donate-hero.jpg"
+                  decoding="async"
+                  src="/assets/about/donate-hero.webp"
                 />
               </div>
 
@@ -53,7 +53,8 @@ function DonateHero() {
                 <img
                   alt={t('donate.hero.logoAlt')}
                   className="h-22 w-22 rounded-full border border-white/85 bg-white/96 object-contain p-1.5 shadow-[0_16px_36px_rgba(15,23,42,0.16)] backdrop-blur-sm sm:h-26 sm:w-26 sm:p-2"
-                  src="/assets/about/Logo.png"
+                  decoding="async"
+                  src="/assets/about/Logo.webp"
                 />
               </div>
 
@@ -78,7 +79,7 @@ function DonateHero() {
         >
           {trustItems.map((item) => (
             <div className="flex items-center gap-3" key={item}>
-              <span className="material-symbols-outlined text-[1rem] text-[#2d8a57]">verified</span>
+              <span aria-hidden="true" className="material-symbols-outlined text-[1rem] text-[#2d8a57]">verified</span>
               <p className="text-[0.95rem] font-semibold leading-[1.65] text-[#536b7a]">{item}</p>
             </div>
           ))}

@@ -3,15 +3,15 @@ import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 
 const programCardImages = [
-  '/assets/programs/School.jpeg',
-  '/assets/programs/Elderly_Care.jpg',
-  '/assets/programs/Widow.jpg',
-  '/assets/programs/Relief.jpg',
-  '/assets/programs/Livelihood.jpeg',
-  '/assets/programs/Elderly_Care.jpg',
-  '/assets/programs/Community.jpg',
-  '/assets/programs/School.jpeg',
-  '/assets/programs/Education.jpeg',
+  '/assets/about/Donating_3.webp',
+  '/assets/programs/Elderly_Care.webp',
+  '/assets/about/Donating_2.webp',
+  '/assets/about/Donating_4.webp',
+  '/assets/about/Donation_6.webp',
+  '/assets/programs/Elderly_Care.webp',
+  '/assets/programs/Community.webp',
+  '/assets/about/Donating_3.webp',
+  '/assets/about/Donation_5.webp',
 ]
 
 function ProgramsSection() {
@@ -50,12 +50,16 @@ function ProgramsSection() {
           <div className="programs-marquee-track flex w-max gap-6">
             {scrollingCards.map((card, index) => (
               <article
+                // The list is repeated to make the loop seamless; screen readers only need it once.
+                aria-hidden={index >= programCards.length ? true : undefined}
                 className="group hover-lift-soft relative h-[18rem] w-[15rem] shrink-0 overflow-hidden rounded-[1.35rem] bg-[#173852] shadow-[0_12px_32px_rgba(15,23,42,0.08)] duration-300 hover:shadow-[0_18px_40px_rgba(15,23,42,0.14)]"
                 key={`${card.title}-${index}`}
               >
                 <img
                   alt={card.title}
                   className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]"
+                  decoding="async"
+                  loading="lazy"
                   src={card.image}
                 />
                 <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(10,24,34,0.92),rgba(10,24,34,0.22),rgba(10,24,34,0.04))]" />

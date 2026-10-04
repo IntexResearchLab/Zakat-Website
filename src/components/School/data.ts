@@ -14,12 +14,12 @@ type GalleryItem = {
 }
 
 const schoolGalleryImages = [
-  '/assets/school/School_2.jpg',
-  '/assets/school/School_3.jpg',
-  '/assets/school/School_4.jpg',
-  '/assets/school/School_5.jpeg',
-  '/assets/school/School_6.jpg',
-  '/assets/school/School_7.jpeg',
+  '/assets/home/celebration.webp',
+  '/assets/school/School_3.webp',
+  '/assets/home/Alokayon_School_1.webp',
+  '/assets/about/Donating_3.webp',
+  '/assets/school/School_6.webp',
+  '/assets/about/Donation_5.webp',
 ]
 
 export const getSchoolImpactStats = (t: TFunction) => getSchoolImpactStatsFromInventory(t)

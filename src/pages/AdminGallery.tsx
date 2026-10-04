@@ -1,5 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import AdminImageInput from '../components/Admin/AdminImageInput'
+import AdminItemControls from '../components/Admin/AdminItemControls'
+import AdminListFilters, { type VisibilityFilter } from '../components/Admin/AdminListFilters'
 import AdminShellLayout from '../components/Admin/AdminShellLayout'
 import { getGalleryCategoryLabel, getGalleryFilters } from '../components/Gallery/data'
 import {
@@ -7,6 +10,8 @@ import {
   type GalleryRecord,
   type GallerySpan,
 } from '../lib/galleryItems'
+import { getFriendlyErrorMessage, requireChangedRows } from '../lib/adminErrors'
+import { moveAndRenumber, persistSortOrder, setRowVisibility } from '../lib/adminOrdering'
 import { supabase } from '../utils/supabase'
 
 type GalleryForm = {
@@ -69,6 +74,7 @@ function AdminGallery() {
   const { t } = useTranslation()
   const [items, setItems] = useState<GalleryRecord[]>([])
   const [formState, setFormState] = useState<GalleryForm>(initialFormState)
+  const [baselineForm, setBaselineForm] = useState<GalleryForm>(initialFormState)
   const [imageFile, setImageFile] = useState<File | null>(null)
   const [editingId, setEditingId] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState(true)
@@ -76,13 +82,48 @@ function AdminGallery() {
   const [deletingId, setDeletingId] = useState<string | null>(null)
   const [errorMessage, setErrorMessage] = useState('')
   const [successMessage, setSuccessMessage] = useState('')
-  const imageInputRef = useRef<HTMLInputElement | null>(null)
+  const [busyItemId, setBusyItemId] = useState<string | null>(null)
+  const [search, setSearch] = useState('')
+  const [categoryFilter, setCategoryFilter] = useState('all')
+  const [visibilityFilter, setVisibilityFilter] = useState<VisibilityFilter>('all')
+  const formSectionRef = useRef<HTMLElement | null>(null)
 
   const filters = useMemo(
     () => getGalleryFilters(t).filter((filter) => filter.id !== 'all'),
     [t],
   )
   const galleryCount = items.length
+  const isListFiltered =
+    Boolean(search.trim()) || categoryFilter !== 'all' || visibilityFilter !== 'all'
+  const visibleItems = useMemo(() => {
+    const query = search.trim().toLowerCase()
+
+    return items.filter((item) => {
+      if (categoryFilter !== 'all' && item.filter_id !== categoryFilter) {
+        return false
+      }
+
+      if (visibilityFilter === 'visible' && !item.is_active) {
+        return false
+      }
+
+      if (visibilityFilter === 'hidden' && item.is_active) {
+        return false
+      }
+
+      return (
+        !query ||
+        [item.title, item.description, item.location, item.year].some((value) =>
+          value?.toLowerCase().includes(query),
+        )
+      )
+    })
+  }, [categoryFilter, items, search, visibilityFilter])
+  const hasUnsavedChanges =
+    imageFile !== null ||
+    (Object.keys(formState) as Array<keyof GalleryForm>).some(
+      (field) => formState[field] !== baselineForm[field],
+    )
   const editingItem = useMemo(
     () => items.find((item) => item.id === editingId) ?? null,
     [editingId, items],
@@ -99,7 +140,7 @@ function AdminGallery() {
       .order('created_at', { ascending: true })
 
     if (error) {
-      setErrorMessage(error.message)
+      setErrorMessage(getFriendlyErrorMessage(t, error))
       setIsLoading(false)
       return
     }
@@ -123,7 +164,7 @@ function AdminGallery() {
       }
 
       if (error) {
-        setErrorMessage(error.message)
+        setErrorMessage(getFriendlyErrorMessage(t, error))
         setIsLoading(false)
         return
       }
@@ -137,15 +178,26 @@ function AdminGallery() {
     return () => {
       isMounted = false
     }
-  }, [])
+  }, [t])
 
   const resetForm = () => {
     setFormState(initialFormState)
+    setBaselineForm(initialFormState)
     setImageFile(null)
     setEditingId(null)
-    if (imageInputRef.current) {
-      imageInputRef.current.value = ''
+  }
+
+  const confirmDiscardChanges = () =>
+    !hasUnsavedChanges || window.confirm(t('admin.unsaved.discardConfirmation'))
+
+  const handleDiscard = () => {
+    if (!confirmDiscardChanges()) {
+      return
     }
+
+    setErrorMessage('')
+    setSuccessMessage('')
+    resetForm()
   }
 
   const handleFieldChange = (field: keyof GalleryForm, value: string) => {
@@ -156,11 +208,11 @@ function AdminGallery() {
   }
 
   const handleEdit = (item: GalleryRecord) => {
-    setEditingId(item.id)
-    setErrorMessage('')
-    setSuccessMessage('')
-    setImageFile(null)
-    setFormState({
+    if (item.id !== editingId && !confirmDiscardChanges()) {
+      return
+    }
+
+    const nextForm: GalleryForm = {
       filterId: item.filter_id,
       title: item.title,
       description: item.description,
@@ -169,10 +221,15 @@ function AdminGallery() {
       year: item.year,
       span: item.span,
       sortOrder: String(item.sort_order),
-    })
-    if (imageInputRef.current) {
-      imageInputRef.current.value = ''
     }
+
+    setEditingId(item.id)
+    setErrorMessage('')
+    setSuccessMessage('')
+    setImageFile(null)
+    setFormState(nextForm)
+    setBaselineForm(nextForm)
+    formSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 
   const handleDelete = async (item: GalleryRecord) => {
@@ -188,10 +245,12 @@ function AdminGallery() {
     setErrorMessage('')
     setSuccessMessage('')
 
-    const { error } = await supabase.from('gallery_items').delete().eq('id', item.id)
+    const error = requireChangedRows(
+      await supabase.from('gallery_items').delete().eq('id', item.id).select('id'),
+    )
 
     if (error) {
-      setErrorMessage(error.message)
+      setErrorMessage(getFriendlyErrorMessage(t, error))
       setDeletingId(null)
       return
     }
@@ -209,6 +268,62 @@ function AdminGallery() {
     setItems((current) => current.filter((entry) => entry.id !== item.id))
     setSuccessMessage(t('admin.gallery.deleteSuccess'))
     setDeletingId(null)
+  }
+
+  const clearFilters = () => {
+    setSearch('')
+    setCategoryFilter('all')
+    setVisibilityFilter('all')
+  }
+
+  const handleMove = async (item: GalleryRecord, direction: -1 | 1) => {
+    const { nextItems, changedRows } = moveAndRenumber(items, item.id, direction)
+
+    if (!changedRows.length) {
+      return
+    }
+
+    const previousItems = items
+    setBusyItemId(item.id)
+    setErrorMessage('')
+    setSuccessMessage('')
+    setItems(nextItems)
+
+    const error = await persistSortOrder('gallery_items', changedRows)
+
+    if (error) {
+      setItems(previousItems)
+      setErrorMessage(getFriendlyErrorMessage(t, error))
+    } else {
+      invalidateGalleryItemsCache()
+    }
+
+    setBusyItemId(null)
+  }
+
+  const handleToggleVisibility = async (item: GalleryRecord) => {
+    const nextIsActive = !item.is_active
+    setBusyItemId(item.id)
+    setErrorMessage('')
+    setSuccessMessage('')
+
+    const error = await setRowVisibility('gallery_items', item.id, nextIsActive)
+
+    if (error) {
+      setErrorMessage(getFriendlyErrorMessage(t, error))
+    } else {
+      invalidateGalleryItemsCache()
+      setItems((current) =>
+        current.map((entry) => (entry.id === item.id ? { ...entry, is_active: nextIsActive } : entry)),
+      )
+      setSuccessMessage(
+        nextIsActive
+          ? t('admin.list.shownSuccess', { name: item.title })
+          : t('admin.list.hiddenSuccess', { name: item.title }),
+      )
+    }
+
+    setBusyItemId(null)
   }
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -248,7 +363,7 @@ function AdminGallery() {
         })
 
       if (uploadError) {
-        setErrorMessage(uploadError.message)
+        setErrorMessage(getFriendlyErrorMessage(t, uploadError))
         setIsSaving(false)
         return
       }
@@ -271,7 +386,8 @@ function AdminGallery() {
       image_url: imageUrl,
       span: formState.span,
       sort_order: Number(formState.sortOrder) || galleryCount + 1,
-      is_active: true,
+      // Editing must not un-hide an item that was hidden from the public gallery.
+      is_active: editingItem?.is_active ?? true,
     }
 
     if (editingId) {
@@ -283,7 +399,7 @@ function AdminGallery() {
         .single()
 
       if (error) {
-        setErrorMessage(error.message)
+        setErrorMessage(getFriendlyErrorMessage(t, error))
         setIsSaving(false)
         return
       }
@@ -307,7 +423,7 @@ function AdminGallery() {
         .single()
 
       if (error) {
-        setErrorMessage(error.message)
+        setErrorMessage(getFriendlyErrorMessage(t, error))
         setIsSaving(false)
         return
       }
@@ -337,15 +453,19 @@ function AdminGallery() {
           <p className="mt-2 font-serif text-[2rem] leading-none tracking-[-0.05em] text-[#14324d]">
             {galleryCount}
           </p>
-          <p className="mt-2 text-[0.9rem] leading-[1.6] text-[#6a7c87]">
+          <p className="mt-2 text-[0.9rem] leading-[1.6] text-[#5d6d78]">
             {t('admin.gallery.headerCardContext')}
           </p>
         </div>
       }
+      hasUnsavedChanges={hasUnsavedChanges}
       title={t('admin.gallery.title')}
     >
       <div className="mt-8 grid gap-6 xl:grid-cols-[0.9fr_1.1fr]">
-        <section className="rounded-[1.35rem] border border-[#dbe7ee] bg-white p-6 shadow-[0_18px_42px_rgba(15,23,42,0.05)]">
+        <section
+          className="scroll-mt-24 rounded-[1.35rem] border border-[#dbe7ee] bg-white p-6 shadow-[0_18px_42px_rgba(15,23,42,0.05)] lg:scroll-mt-6"
+          ref={formSectionRef}
+        >
           <div className="flex items-start justify-between gap-4 border-b border-[#edf3f7] pb-5">
             <div>
               <h2 className="font-serif text-[1.8rem] leading-none tracking-[-0.03em] text-[#14324d]">
@@ -358,7 +478,7 @@ function AdminGallery() {
             {editingId ? (
               <button
                 className="rounded-full border border-[#dbe7ee] px-4 py-2 text-[0.78rem] font-bold uppercase tracking-[0.14em] text-[#115b82] transition hover:border-[#bfd5e4] hover:bg-[#f7fbfd]"
-                onClick={resetForm}
+                onClick={handleDiscard}
                 type="button"
               >
                 {t('admin.gallery.cancelEdit')}
@@ -369,7 +489,7 @@ function AdminGallery() {
           <form className="mt-6 space-y-5" onSubmit={handleSubmit}>
             <div className="grid gap-4 sm:grid-cols-2">
               <label className="space-y-2">
-                <span className="text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#6a7c87]">
+                <span className="text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#5d6d78]">
                   {t('admin.gallery.fields.category')}
                 </span>
                 <select
@@ -386,7 +506,7 @@ function AdminGallery() {
               </label>
 
               <label className="space-y-2">
-                <span className="text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#6a7c87]">
+                <span className="text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#5d6d78]">
                   {t('admin.gallery.fields.span')}
                 </span>
                 <select
@@ -402,11 +522,11 @@ function AdminGallery() {
             </div>
 
             <label className="space-y-2">
-              <span className="text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#6a7c87]">
+              <span className="text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#5d6d78]">
                 {t('admin.gallery.fields.title')}
               </span>
               <input
-                className="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-white px-4 py-3 text-[1rem] text-[#14324d] outline-none transition placeholder:text-[#90a3af] focus:border-[#115b82]"
+                className="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-white px-4 py-3 text-[1rem] text-[#14324d] outline-none transition placeholder:text-[#627581] focus:border-[#115b82]"
                 onChange={(event) => handleFieldChange('title', event.target.value)}
                 placeholder={t('admin.gallery.placeholders.title')}
                 value={formState.title}
@@ -414,11 +534,11 @@ function AdminGallery() {
             </label>
 
             <label className="space-y-2">
-              <span className="text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#6a7c87]">
+              <span className="text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#5d6d78]">
                 {t('admin.gallery.fields.description')}
               </span>
               <textarea
-                className="min-h-[100px] w-full rounded-[0.95rem] border border-[#d8e5ec] bg-white px-4 py-3 text-[1rem] leading-[1.7] text-[#14324d] outline-none transition placeholder:text-[#90a3af] focus:border-[#115b82]"
+                className="min-h-[100px] w-full rounded-[0.95rem] border border-[#d8e5ec] bg-white px-4 py-3 text-[1rem] leading-[1.7] text-[#14324d] outline-none transition placeholder:text-[#627581] focus:border-[#115b82]"
                 onChange={(event) => handleFieldChange('description', event.target.value)}
                 placeholder={t('admin.gallery.placeholders.description')}
                 value={formState.description}
@@ -426,11 +546,11 @@ function AdminGallery() {
             </label>
 
             <label className="space-y-2">
-              <span className="text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#6a7c87]">
+              <span className="text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#5d6d78]">
                 {t('admin.gallery.fields.story')}
               </span>
               <textarea
-                className="min-h-[130px] w-full rounded-[0.95rem] border border-[#d8e5ec] bg-white px-4 py-3 text-[1rem] leading-[1.7] text-[#14324d] outline-none transition placeholder:text-[#90a3af] focus:border-[#115b82]"
+                className="min-h-[130px] w-full rounded-[0.95rem] border border-[#d8e5ec] bg-white px-4 py-3 text-[1rem] leading-[1.7] text-[#14324d] outline-none transition placeholder:text-[#627581] focus:border-[#115b82]"
                 onChange={(event) => handleFieldChange('story', event.target.value)}
                 placeholder={t('admin.gallery.placeholders.story')}
                 value={formState.story}
@@ -439,11 +559,11 @@ function AdminGallery() {
 
             <div className="grid gap-4 sm:grid-cols-3">
               <label className="space-y-2">
-                <span className="text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#6a7c87]">
+                <span className="text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#5d6d78]">
                   {t('admin.gallery.fields.location')}
                 </span>
                 <input
-                  className="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-white px-4 py-3 text-[1rem] text-[#14324d] outline-none transition placeholder:text-[#90a3af] focus:border-[#115b82]"
+                  className="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-white px-4 py-3 text-[1rem] text-[#14324d] outline-none transition placeholder:text-[#627581] focus:border-[#115b82]"
                   onChange={(event) => handleFieldChange('location', event.target.value)}
                   placeholder={t('admin.gallery.placeholders.location')}
                   value={formState.location}
@@ -451,11 +571,11 @@ function AdminGallery() {
               </label>
 
               <label className="space-y-2">
-                <span className="text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#6a7c87]">
+                <span className="text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#5d6d78]">
                   {t('admin.gallery.fields.year')}
                 </span>
                 <input
-                  className="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-white px-4 py-3 text-[1rem] text-[#14324d] outline-none transition placeholder:text-[#90a3af] focus:border-[#115b82]"
+                  className="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-white px-4 py-3 text-[1rem] text-[#14324d] outline-none transition placeholder:text-[#627581] focus:border-[#115b82]"
                   onChange={(event) => handleFieldChange('year', event.target.value)}
                   placeholder={t('admin.gallery.placeholders.year')}
                   value={formState.year}
@@ -463,11 +583,11 @@ function AdminGallery() {
               </label>
 
               <label className="space-y-2">
-                <span className="text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#6a7c87]">
+                <span className="text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#5d6d78]">
                   {t('admin.gallery.fields.sortOrder')}
                 </span>
                 <input
-                  className="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-white px-4 py-3 text-[1rem] text-[#14324d] outline-none transition placeholder:text-[#90a3af] focus:border-[#115b82]"
+                  className="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-white px-4 py-3 text-[1rem] text-[#14324d] outline-none transition placeholder:text-[#627581] focus:border-[#115b82]"
                   onChange={(event) => handleFieldChange('sortOrder', event.target.value)}
                   placeholder={t('admin.gallery.placeholders.sortOrder')}
                   value={formState.sortOrder}
@@ -475,31 +595,27 @@ function AdminGallery() {
               </label>
             </div>
 
-            <label className="space-y-2">
-              <span className="text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#6a7c87]">
+            <div className="space-y-2">
+              <span className="block text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#5d6d78]">
                 {t('admin.gallery.fields.image')}
               </span>
-              <input
-                accept="image/*"
-                className="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-white px-4 py-3 text-[0.95rem] text-[#14324d] file:mr-3 file:rounded-full file:border-0 file:bg-[#eef6fb] file:px-3 file:py-2 file:text-[0.8rem] file:font-semibold file:text-[#115b82]"
-                onChange={(event) => setImageFile(event.target.files?.[0] ?? null)}
-                ref={imageInputRef}
-                type="file"
+              <AdminImageInput
+                alt={formState.title || t('admin.gallery.fields.image')}
+                currentImageUrl={editingItem?.image_url}
+                file={imageFile}
+                inputClassName="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-white px-4 py-3 text-[0.95rem] text-[#14324d] file:mr-3 file:rounded-full file:border-0 file:bg-[#eef6fb] file:px-3 file:py-2 file:text-[0.8rem] file:font-semibold file:text-[#115b82]"
+                maxDimension={2000}
+                onChange={(file) => {
+                  setErrorMessage('')
+                  setImageFile(file)
+                }}
+                onError={setErrorMessage}
+                previewClassName="h-36 w-full max-w-[16rem] object-cover"
               />
-              <p className="text-[0.84rem] leading-[1.6] text-[#7a8b95]">
+              <p className="text-[0.84rem] leading-[1.6] text-[#5d6d78]">
                 {t('admin.gallery.imageHelp')}
               </p>
-              {editingItem?.image_url && !imageFile ? (
-                <p className="text-[0.84rem] leading-[1.6] text-[#627581]">
-                  {t('admin.gallery.currentImage')}
-                </p>
-              ) : null}
-              {imageFile ? (
-                <p className="text-[0.84rem] leading-[1.6] text-[#627581]">
-                  {t('admin.gallery.newImageSelected', { fileName: imageFile.name })}
-                </p>
-              ) : null}
-            </label>
+            </div>
 
             {errorMessage ? (
               <p className="rounded-[1rem] border border-[#f3d1d4] bg-[#fff6f7] px-4 py-3 text-sm leading-[1.7] text-[#9e3342]">
@@ -527,7 +643,7 @@ function AdminGallery() {
               </button>
               <button
                 className="rounded-full border border-[#dbe7ee] bg-white px-5 py-3 text-[0.8rem] font-bold uppercase tracking-[0.16em] text-[#14324d] transition hover:border-[#c2d7e6] hover:bg-[#f9fcfe]"
-                onClick={resetForm}
+                onClick={handleDiscard}
                 type="button"
               >
                 {t('admin.gallery.resetForm')}
@@ -551,81 +667,135 @@ function AdminGallery() {
               onClick={() => void loadItems()}
               type="button"
             >
-              <span className="material-symbols-outlined text-[1rem]">refresh</span>
+              <span aria-hidden="true" className="material-symbols-outlined text-[1rem]">refresh</span>
               {t('admin.gallery.refresh')}
             </button>
           </div>
 
+          {items.length ? (
+            <AdminListFilters
+              category={categoryFilter}
+              categoryOptions={filters.map((filter) => ({ value: filter.id, label: filter.label }))}
+              onCategoryChange={setCategoryFilter}
+              onClear={clearFilters}
+              onSearchChange={setSearch}
+              onVisibilityChange={setVisibilityFilter}
+              search={search}
+              searchPlaceholder={t('admin.gallery.searchPlaceholder')}
+              shownCount={visibleItems.length}
+              totalCount={items.length}
+              visibility={visibilityFilter}
+            />
+          ) : null}
+
+          {!isLoading && items.length && !visibleItems.length ? (
+            <div className="mt-6 rounded-[1rem] border border-dashed border-[#dbe7ee] bg-[#fbfdff] px-4 py-10 text-center text-[#5d6d78]">
+              {t('admin.list.noResults')}
+            </div>
+          ) : null}
+
           {isLoading ? (
-            <div className="mt-6 rounded-[1rem] border border-dashed border-[#dbe7ee] bg-[#fbfdff] px-4 py-10 text-center text-[#6a7c87]">
+            <div className="mt-6 rounded-[1rem] border border-dashed border-[#dbe7ee] bg-[#fbfdff] px-4 py-10 text-center text-[#5d6d78]">
               {t('admin.gallery.loading')}
             </div>
           ) : null}
 
           {!isLoading && !items.length ? (
-            <div className="mt-6 rounded-[1rem] border border-dashed border-[#dbe7ee] bg-[#fbfdff] px-4 py-10 text-center text-[#6a7c87]">
+            <div className="mt-6 rounded-[1rem] border border-dashed border-[#dbe7ee] bg-[#fbfdff] px-4 py-10 text-center text-[#5d6d78]">
               {t('admin.gallery.emptyState')}
             </div>
           ) : null}
 
-          {!isLoading && items.length ? (
+          {!isLoading && visibleItems.length ? (
             <div className="mt-6 grid gap-4">
-              {items.map((item) => (
-                <article
-                  className="rounded-[1.15rem] border border-[#edf3f7] bg-[#fbfdff] p-4"
-                  key={item.id}
-                >
-                  <div className="flex items-start gap-4">
-                    <img
-                      alt={item.title}
-                      className="h-24 w-28 rounded-[0.85rem] bg-[#eef6fb] object-cover"
-                      src={item.image_url}
-                    />
-                    <div className="min-w-0 flex-1">
-                      <div className="flex items-start justify-between gap-4">
-                        <div>
-                          <p className="text-[0.72rem] font-bold uppercase tracking-[0.16em] text-[#115b82]">
-                            {getGalleryCategoryLabel(t, item.filter_id)}
-                          </p>
-                          <h3 className="mt-1 font-serif text-[1.22rem] leading-[1.1] tracking-[-0.03em] text-[#14324d]">
-                            {item.title}
-                          </h3>
+              {visibleItems.map((item) => {
+                const position = items.findIndex((entry) => entry.id === item.id)
+
+                return (
+                  <article
+                    className={`rounded-[1.15rem] border p-4 ${
+                      item.is_active
+                        ? 'border-[#edf3f7] bg-[#fbfdff]'
+                        : 'border-dashed border-[#d6dee4] bg-[#f5f7f9]'
+                    }`}
+                    key={item.id}
+                  >
+                    <div className="flex items-start gap-4">
+                      <img
+                        alt={item.title}
+                        className={`h-24 w-28 rounded-[0.85rem] bg-[#eef6fb] object-cover ${
+                          item.is_active ? '' : 'opacity-50 grayscale'
+                        }`}
+                        decoding="async"
+                        loading="lazy"
+                        src={item.image_url}
+                      />
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-start justify-between gap-4">
+                          <div>
+                            <p className="text-[0.72rem] font-bold uppercase tracking-[0.16em] text-[#115b82]">
+                              {getGalleryCategoryLabel(t, item.filter_id)}
+                            </p>
+                            <h3 className="mt-1 font-serif text-[1.22rem] leading-[1.1] tracking-[-0.03em] text-[#14324d]">
+                              {item.title}
+                            </h3>
+                          </div>
+                          <div className="flex shrink-0 flex-wrap justify-end gap-2">
+                            {!item.is_active ? (
+                              <span className="rounded-full bg-[#e8edf1] px-3 py-1 text-[0.72rem] font-bold uppercase tracking-[0.14em] text-[#5b6b76]">
+                                {t('admin.list.hiddenBadge')}
+                              </span>
+                            ) : null}
+                            <span className="rounded-full border border-[#dbe7ee] bg-white px-3 py-1 text-[0.72rem] font-bold uppercase tracking-[0.14em] text-[#115b82]">
+                              {item.span}
+                            </span>
+                          </div>
                         </div>
-                        <span className="rounded-full border border-[#dbe7ee] bg-white px-3 py-1 text-[0.72rem] font-bold uppercase tracking-[0.14em] text-[#115b82]">
-                          {item.span}
-                        </span>
-                      </div>
 
-                      <p className="mt-2 text-[0.9rem] leading-[1.6] text-[#6a7c87]">
-                        {item.description}
-                      </p>
-                      <p className="mt-3 text-[0.82rem] text-[#8a9ba7]">
-                        {item.location} • {item.year} • #{item.sort_order}
-                      </p>
+                        <p className="mt-2 text-[0.9rem] leading-[1.6] text-[#5d6d78]">
+                          {item.description}
+                        </p>
+                        <p className="mt-3 text-[0.82rem] text-[#5d6d78]">
+                          {item.location} • {item.year} • #{item.sort_order}
+                        </p>
 
-                      <div className="mt-4 flex flex-wrap gap-3">
-                        <button
-                          className="rounded-full border border-[#dbe7ee] bg-white px-4 py-2 text-[0.75rem] font-bold uppercase tracking-[0.14em] text-[#115b82] transition hover:border-[#bfd5e4] hover:bg-[#f7fbfd]"
-                          onClick={() => handleEdit(item)}
-                          type="button"
-                        >
-                          {t('admin.gallery.editButton')}
-                        </button>
-                        <button
-                          className="rounded-full border border-[#f2d6d9] bg-white px-4 py-2 text-[0.75rem] font-bold uppercase tracking-[0.14em] text-[#a33b49] transition hover:bg-[#fff7f8] disabled:cursor-not-allowed disabled:opacity-60"
-                          disabled={deletingId === item.id}
-                          onClick={() => void handleDelete(item)}
-                          type="button"
-                        >
-                          {deletingId === item.id
-                            ? t('admin.gallery.deleting')
-                            : t('admin.gallery.deleteButton')}
-                        </button>
+                        <div className="mt-4">
+                          <AdminItemControls
+                            canMoveDown={position < items.length - 1}
+                            canMoveUp={position > 0}
+                            isActive={item.is_active}
+                            isBusy={busyItemId !== null}
+                            onMove={(direction) => void handleMove(item, direction)}
+                            onToggleVisibility={() => void handleToggleVisibility(item)}
+                            reorderDisabled={isListFiltered}
+                            viewHref="/gallery#gallery-grid"
+                          />
+                        </div>
+
+                        <div className="mt-3 flex flex-wrap gap-3">
+                          <button
+                            className="rounded-full border border-[#dbe7ee] bg-white px-4 py-2 text-[0.75rem] font-bold uppercase tracking-[0.14em] text-[#115b82] transition hover:border-[#bfd5e4] hover:bg-[#f7fbfd]"
+                            onClick={() => handleEdit(item)}
+                            type="button"
+                          >
+                            {t('admin.gallery.editButton')}
+                          </button>
+                          <button
+                            className="rounded-full border border-[#f2d6d9] bg-white px-4 py-2 text-[0.75rem] font-bold uppercase tracking-[0.14em] text-[#a33b49] transition hover:bg-[#fff7f8] disabled:cursor-not-allowed disabled:opacity-60"
+                            disabled={deletingId === item.id}
+                            onClick={() => void handleDelete(item)}
+                            type="button"
+                          >
+                            {deletingId === item.id
+                              ? t('admin.gallery.deleting')
+                              : t('admin.gallery.deleteButton')}
+                          </button>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </article>
-              ))}
+                  </article>
+                )
+              })}
             </div>
           ) : null}
         </section>

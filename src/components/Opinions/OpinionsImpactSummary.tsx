@@ -25,7 +25,7 @@ function OpinionsImpactSummary() {
               className="rounded-[1.35rem] border border-[#dbe7ee] bg-white p-6 shadow-[0_14px_30px_rgba(15,23,42,0.04)]"
             >
               <div className="flex items-start gap-3">
-                <span className="material-symbols-outlined mt-0.5 text-[1.15rem] text-[#2d8a57]">
+                <span aria-hidden="true" className="material-symbols-outlined mt-0.5 text-[1.15rem] text-[#2d8a57]">
                   task_alt
                 </span>
                 <p className="text-[1rem] leading-[1.8] text-[#516875]">{point}</p>

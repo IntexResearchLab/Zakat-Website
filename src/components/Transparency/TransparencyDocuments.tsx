@@ -34,7 +34,7 @@ function TransparencyDocuments({ selectedIssue }: TransparencyDocumentsProps) {
               className="rounded-[1.2rem] border border-[#dbe7ee] bg-white p-6 shadow-[0_12px_30px_rgba(15,23,42,0.04)]"
               key={document.title}
             >
-              <span className="material-symbols-outlined text-[1.7rem] text-[#115b82]">
+              <span aria-hidden="true" className="material-symbols-outlined text-[1.7rem] text-[#115b82]">
                 {document.icon}
               </span>
               <h3 className="mt-4 font-serif text-[1.45rem] leading-[1.1] tracking-[-0.03em] text-[#14324d]">

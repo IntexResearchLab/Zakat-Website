@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
+import { getFriendlyErrorMessage } from '../../lib/adminErrors'
 import { supabase } from '../../utils/supabase'
 
 function AdminAuthPanel() {
@@ -30,7 +31,7 @@ function AdminAuthPanel() {
     setIsSubmitting(false)
 
     if (error) {
-      setErrorMessage(error.message || t('admin.auth.genericError'))
+      setErrorMessage(getFriendlyErrorMessage(t, error, 'admin.auth.genericError'))
       return
     }
 
@@ -62,7 +63,8 @@ function AdminAuthPanel() {
           <img
             alt=""
             className="h-full w-full object-cover"
-            src="/assets/home/Alokayon_School_1.jpg"
+            decoding="async"
+            src="/assets/home/Alokayon_School_1.webp"
           />
         </div>
         <div className="relative mx-auto flex h-full max-w-2xl flex-col justify-between">
@@ -81,7 +83,7 @@ function AdminAuthPanel() {
           <div className="mt-12 space-y-4 rounded-[1.35rem] border border-white/12 bg-white/6 p-6 backdrop-blur-md">
             {trustPoints.map((point) => (
               <div className="flex items-start gap-3" key={point}>
-                <span className="material-symbols-outlined mt-0.5 text-[#9be0b7]">
+                <span aria-hidden="true" className="material-symbols-outlined mt-0.5 text-[#9be0b7]">
                   verified
                 </span>
                 <p className="text-[0.98rem] leading-[1.7] text-[#e5eef4]">{point}</p>
@@ -102,11 +104,17 @@ function AdminAuthPanel() {
 
           <form className="mt-8 space-y-5" onSubmit={handleSubmit}>
             <div>
-              <label className="mb-2 block text-[0.88rem] font-semibold text-[#14324d]">
+              <label
+                className="mb-2 block text-[0.88rem] font-semibold text-[#14324d]"
+                htmlFor="admin-email"
+              >
                 {t('admin.auth.emailLabel')}
               </label>
               <input
-                className="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-[#fbfdff] px-4 py-3 text-[0.98rem] text-[#14324d] outline-none transition placeholder:text-[#90a3af] focus:border-[#115b82] focus:bg-white"
+                autoComplete="email"
+                id="admin-email"
+                required
+                className="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-[#fbfdff] px-4 py-3 text-[0.98rem] text-[#14324d] outline-none transition placeholder:text-[#627581] focus:border-[#115b82] focus:bg-white"
                 onChange={(event) => setEmail(event.target.value)}
                 placeholder={t('common.form.emailPlaceholder')}
                 type="email"
@@ -115,12 +123,18 @@ function AdminAuthPanel() {
             </div>
 
             <div>
-              <label className="mb-2 block text-[0.88rem] font-semibold text-[#14324d]">
+              <label
+                className="mb-2 block text-[0.88rem] font-semibold text-[#14324d]"
+                htmlFor="admin-password"
+              >
                 {t('admin.auth.passwordLabel')}
               </label>
               <div className="relative">
                 <input
-                  className="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-[#fbfdff] px-4 py-3 pr-14 text-[0.98rem] text-[#14324d] outline-none transition placeholder:text-[#90a3af] focus:border-[#115b82] focus:bg-white"
+                  autoComplete="current-password"
+                  id="admin-password"
+                  required
+                  className="w-full rounded-[0.95rem] border border-[#d8e5ec] bg-[#fbfdff] px-4 py-3 pr-14 text-[0.98rem] text-[#14324d] outline-none transition placeholder:text-[#627581] focus:border-[#115b82] focus:bg-white"
                   onChange={(event) => setPassword(event.target.value)}
                   placeholder={t('admin.auth.passwordPlaceholder')}
                   type={showPassword ? 'text' : 'password'}
@@ -128,22 +142,18 @@ function AdminAuthPanel() {
                 />
                 <button
                   aria-label={showPassword ? t('admin.auth.hidePassword') : t('admin.auth.showPassword')}
-                  className="absolute inset-y-0 right-0 flex items-center px-4 text-[#6c8390] transition hover:text-[#14324d]"
+                  className="absolute inset-y-0 right-0 flex items-center px-4 text-[#5d6d78] transition hover:text-[#14324d]"
                   onClick={() => setShowPassword((current) => !current)}
                   type="button"
                 >
-                  <span className="material-symbols-outlined text-[1.2rem]">
+                  <span aria-hidden="true" className="material-symbols-outlined text-[1.2rem]">
                     {showPassword ? 'visibility_off' : 'visibility'}
                   </span>
                 </button>
               </div>
             </div>
 
-            <div className="flex items-center justify-between gap-4 text-sm">
-              <label className="flex items-center gap-2 text-[#627581]">
-                <input className="h-4 w-4 rounded border-[#cfe0ea]" type="checkbox" />
-                <span>{t('admin.auth.rememberMe')}</span>
-              </label>
+            <div className="flex items-center justify-end gap-4 text-sm">
               <button
                 className="font-semibold text-[#115b82] disabled:cursor-not-allowed disabled:text-[#8fa8b6]"
                 disabled={isSendingReset}
@@ -175,7 +185,7 @@ function AdminAuthPanel() {
             ) : null}
           </form>
 
-          <p className="mt-6 text-center text-[0.84rem] leading-[1.7] text-[#7b909d]">
+          <p className="mt-6 text-center text-[0.84rem] leading-[1.7] text-[#5d6d78]">
             {t('admin.auth.helpText')}
           </p>
         </div>

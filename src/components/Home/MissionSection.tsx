@@ -13,7 +13,9 @@ function MissionSection() {
             <img
               alt={t('home.mission.imageAlt')}
               className="aspect-[4/5] w-full object-cover transition duration-700 hover:scale-[1.03]"
-              src="/assets/home/Alokayon_School_1.jpg"
+              decoding="async"
+              loading="lazy"
+              src="/assets/home/Alokayon_School_1.webp"
             />
           </div>
 
@@ -34,7 +36,7 @@ function MissionSection() {
             <p className="relative mt-4 text-[0.82rem] font-semibold leading-[1.55] text-[#725f2c]">
               {t('home.mission.quoteAttribution')}
             </p>
-            <p className="relative mt-1 text-[0.76rem] leading-[1.5] text-[#8a783f]">
+            <p className="relative mt-1 text-[0.76rem] leading-[1.5] text-[#75663a]">
               {t('home.mission.quoteSource')}
             </p>
           </div>

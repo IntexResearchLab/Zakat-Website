@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /api/
+Disallow: /donate/success
+Disallow: /donate/failed
+Disallow: /donate/cancelled
+Disallow: /donate/receipt
+
+Sitemap: https://alokayoncharity.com/sitemap.xml

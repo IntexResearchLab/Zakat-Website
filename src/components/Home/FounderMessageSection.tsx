@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
+import { useModalDialog } from '../../lib/useModalDialog'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import Reveal from '../reusables/Reveal'
@@ -10,26 +11,7 @@ function FounderMessageSection() {
     returnObjects: true,
   }) as Array<{ title: string; paragraphs: string[] }>
 
-  useEffect(() => {
-    if (!isOpen) {
-      return undefined
-    }
-
-    const handleEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        setIsOpen(false)
-      }
-    }
-
-    const originalOverflow = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
-    window.addEventListener('keydown', handleEscape)
-
-    return () => {
-      document.body.style.overflow = originalOverflow
-      window.removeEventListener('keydown', handleEscape)
-    }
-  }, [isOpen])
+  const dialogRef = useModalDialog(isOpen, () => setIsOpen(false))
 
   return (
     <>
@@ -40,7 +22,9 @@ function FounderMessageSection() {
               <img
                 alt={t('home.founder.imageAlt')}
                 className="aspect-[4/5] w-full rounded-[1rem] object-cover"
-                src="/assets/about/founder-akm-fazlul-quader.jpg"
+                decoding="async"
+                loading="lazy"
+                src="/assets/about/founder-akm-fazlul-quader.webp"
               />
             </div>
           </Reveal>
@@ -49,7 +33,7 @@ function FounderMessageSection() {
             <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#115b82]">
               {t('home.founder.eyebrow')}
             </p>
-            <p className="mt-4 text-[0.82rem] font-semibold uppercase tracking-[0.14em] text-[#6e7d73]">
+            <p className="mt-4 text-[0.82rem] font-semibold uppercase tracking-[0.14em] text-[#5f6e64]">
               {t('home.founder.context')}
             </p>
             <h2 className="mt-5 font-serif text-[2.45rem] leading-[0.98] tracking-[-0.04em] text-[#14324d] sm:text-[3.05rem]">
@@ -65,7 +49,7 @@ function FounderMessageSection() {
               <p className="font-serif text-[1.3rem] leading-none tracking-[-0.03em] text-[#14324d]">
                 {t('home.founder.name')}
               </p>
-              <p className="mt-2 text-[0.95rem] leading-[1.6] text-[#6a7c87]">
+              <p className="mt-2 text-[0.95rem] leading-[1.6] text-[#5d6d78]">
                 {t('home.founder.role')}
               </p>
             </div>
@@ -89,19 +73,20 @@ function FounderMessageSection() {
           aria-modal="true"
           className="fixed inset-0 z-50 flex items-center justify-center bg-[#09131ccc]/82 px-4 py-8 backdrop-blur-sm"
           onClick={() => setIsOpen(false)}
+          ref={dialogRef}
           role="dialog"
+          tabIndex={-1}
         >
-          <div
-            className="relative w-full max-w-5xl"
-            onClick={(event) => event.stopPropagation()}
-          >
+          <div className="relative w-full max-w-5xl" onClick={(event) => event.stopPropagation()}>
             <button
-              aria-label="Close founder message"
+              aria-label={t('common.aria.closeDialog')}
               className="absolute right-3 top-3 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/92 text-[#14324d] shadow-[0_12px_24px_rgba(15,23,42,0.14)] transition hover:bg-white"
               onClick={() => setIsOpen(false)}
               type="button"
             >
-              <span className="material-symbols-outlined text-[1.25rem]">close</span>
+              <span aria-hidden="true" className="material-symbols-outlined text-[1.25rem]">
+                close
+              </span>
             </button>
 
             <div className="max-h-[86vh] overflow-y-auto rounded-[1.45rem] border border-[#dce7ee] bg-white p-7 shadow-[0_24px_60px_rgba(15,23,42,0.22)] sm:p-9">
@@ -111,14 +96,16 @@ function FounderMessageSection() {
                     <img
                       alt={t('home.founder.imageAlt')}
                       className="aspect-[4/5] w-full rounded-[0.95rem] object-cover"
-                      src="/assets/about/founder-akm-fazlul-quader.jpg"
+                      decoding="async"
+                      loading="lazy"
+                      src="/assets/about/founder-akm-fazlul-quader.webp"
                     />
                   </div>
                   <div className="mt-5 border-l-2 border-[#d9e4eb] pl-4">
                     <p className="font-serif text-[1.2rem] leading-none tracking-[-0.03em] text-[#14324d]">
                       {t('home.founder.name')}
                     </p>
-                    <p className="mt-2 text-[0.93rem] leading-[1.6] text-[#6a7c87]">
+                    <p className="mt-2 text-[0.93rem] leading-[1.6] text-[#5d6d78]">
                       {t('home.founder.role')}
                     </p>
                   </div>

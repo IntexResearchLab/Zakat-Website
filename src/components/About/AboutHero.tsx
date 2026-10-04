@@ -1,6 +1,7 @@
 import Reveal from '../reusables/Reveal'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
+import Breadcrumb from '../reusables/Breadcrumb'
 
 function AboutHero() {
   const { t } = useTranslation()
@@ -9,9 +10,7 @@ function AboutHero() {
     <section className="border-b border-[#d8e5ec] bg-white">
       <div className="mx-auto grid max-w-7xl gap-12 px-6 py-14 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:gap-20 lg:py-20">
         <Reveal className="max-w-2xl">
-          <p className="text-[1rem] font-medium tracking-[-0.01em] text-[#5f7280]">
-            [{t('common.breadcrumb.home')} / <span className="text-[#c58b16]">{t('common.breadcrumb.aboutUs')}</span>]
-          </p>
+          <Breadcrumb items={[{ label: t('common.breadcrumb.aboutUs') }]} />
           <p className="mt-8 text-sm font-bold uppercase tracking-[0.2em] text-[#115b82]">
             {t('about.hero.eyebrow')}
           </p>
@@ -43,7 +42,8 @@ function AboutHero() {
               <img
                 alt={t('about.hero.imageAlt')}
                 className="aspect-[5/4] w-full object-cover"
-                src="/assets/about/Giving.jpg"
+                decoding="async"
+                src="/assets/about/Giving.webp"
               />
             </div>
 
@@ -51,7 +51,8 @@ function AboutHero() {
               <img
                 alt={t('about.hero.logoAlt')}
                 className="h-22 w-22 rounded-full border border-white/85 bg-white/96 object-contain p-1.5 shadow-[0_16px_36px_rgba(15,23,42,0.16)] backdrop-blur-sm sm:h-26 sm:w-26 sm:p-2"
-                src="/assets/about/Logo.png"
+                decoding="async"
+                src="/assets/about/Logo.webp"
               />
             </div>
           </div>

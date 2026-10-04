@@ -1,11 +1,23 @@
 import { useTranslation } from 'react-i18next'
 import Reveal from '../reusables/Reveal'
+import { fromTranslations, useTestimonials } from '../../lib/testimonials'
 
 function DonateDonorTrust() {
   const { t } = useTranslation()
-  const quotes = t('donate.donorTrust.items', {
-    returnObjects: true,
-  }) as Array<{ quote: string; name: string; role: string }>
+  const quotes = useTestimonials(
+    'donor',
+    fromTranslations(
+      t('donate.donorTrust.items', { returnObjects: true }) as Parameters<
+        typeof fromTranslations
+      >[0],
+    ),
+  )
+    .slice(0, 3)
+    .map((quote) => ({ ...quote, role: [quote.role, quote.location].filter(Boolean).join(', ') }))
+
+  if (!quotes.length) {
+    return null
+  }
 
   return (
     <section className="bg-white py-20 sm:py-24">
@@ -34,7 +46,7 @@ function DonateDonorTrust() {
             {quotes.slice(1).map((quote) => (
               <article
                 className="rounded-[1.2rem] border border-[#dbe7ee] bg-[#fbfdfe] p-6 shadow-[0_12px_30px_rgba(15,23,42,0.04)]"
-                key={quote.name}
+                key={quote.id}
               >
                 <p className="font-serif text-[1.1rem] italic leading-[1.75] text-[#27465f]">
                   “{quote.quote}”

@@ -6,6 +6,7 @@ import {
   type PublicStatsGroup,
   type PublicStatsKey,
 } from '../content/stats'
+import { getFriendlyErrorMessage, requireChangedRows } from '../lib/adminErrors'
 import { invalidatePublicStatsCache } from '../lib/publicStats'
 import { supabase } from '../utils/supabase'
 
@@ -24,6 +25,17 @@ type EditableStatsMap = Record<PublicStatsKey, string>
 
 const defaultRows = getStatsInventoryRows()
 
+// "receipts2024to2025" -> "Receipts 2024–2025", "hifzStudents" -> "Hifz students"
+const humanizeStatKey = (key: string) => {
+  const spaced = key
+    .replace(/(\d+)to(\d+)/g, ' $1–$2')
+    .replace(/([a-z])([A-Z0-9])/g, '$1 $2')
+    .trim()
+    .toLowerCase()
+
+  return spaced.charAt(0).toUpperCase() + spaced.slice(1)
+}
+
 function AdminStats() {
   const { t } = useTranslation()
   const [rows, setRows] = useState<PublicStatRow[]>([])
@@ -34,26 +46,31 @@ function AdminStats() {
     }, {} as EditableStatsMap),
   )
   const [isLoading, setIsLoading] = useState(true)
+  // Only seed an empty table after a successful load, never because loading failed.
+  const [hasLoaded, setHasLoaded] = useState(false)
   const [isSavingAll, setIsSavingAll] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
   const [successMessage, setSuccessMessage] = useState('')
 
-  const sourceRows = useMemo(
-    () =>
-      rows.length
-        ? rows
-        : defaultRows.map((row, index) => ({
-            id: `${row.groupName}-${row.key}-${index}`,
-            key: row.key,
-            value: row.value,
-            description: row.description,
-            group_name: row.groupName,
-            sort_order: row.sortOrder,
-            is_active: row.isActive,
-            updated_at: null,
-          })),
-    [rows],
-  )
+  // Database rows, plus any figure from the built-in list that has no row yet (for example
+  // a newly added figure, or every figure when the table is empty). Those get a "new:" id
+  // and are inserted, rather than updated, when saved.
+  const sourceRows = useMemo(() => {
+    const savedKeys = new Set(rows.map((row) => row.key))
+    const missingRows = defaultRows
+      .filter((row) => !savedKeys.has(row.key))
+      .map((row) => ({
+        id: `new:${row.key}`,
+        key: row.key,
+        value: row.value,
+        description: row.description,
+        group_name: row.groupName,
+        sort_order: row.sortOrder,
+        is_active: row.isActive,
+        updated_at: null,
+      }))
+    return [...rows, ...missingRows]
+  }, [rows])
 
   const groupedRows = useMemo(
     () =>
@@ -95,13 +112,14 @@ function AdminStats() {
       .order('sort_order', { ascending: true })
 
     if (error) {
-      setErrorMessage(error.message)
+      setErrorMessage(getFriendlyErrorMessage(t, error))
       setIsLoading(false)
       return
     }
 
     const nextRows = (data ?? []) as PublicStatRow[]
     setRows(nextRows)
+    setHasLoaded(true)
     setDraftValues((current) => {
       const nextDrafts = { ...current }
       nextRows.forEach((row) => {
@@ -114,8 +132,8 @@ function AdminStats() {
 
   useEffect(() => {
     // We intentionally load the current public stats once when the admin page opens.
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     void loadStats()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const handleValueChange = (key: PublicStatsKey, value: string) => {
@@ -155,46 +173,93 @@ function AdminStats() {
     setSuccessMessage('')
 
     const timestamp = new Date().toISOString()
-    const updates = changedRows.map((row) =>
+
+    const newRows = changedRows.filter((row) => row.id.startsWith('new:'))
+    const existingRows = changedRows.filter((row) => !row.id.startsWith('new:'))
+
+    // Only create rows after a successful load, never because loading failed.
+    if (newRows.length && !hasLoaded) {
+      setErrorMessage(t('admin.errors.network'))
+      setIsSavingAll(false)
+      return
+    }
+
+    const insertError = newRows.length
+      ? (
+          await supabase.from('public_stats').insert(
+            newRows.map((row) => ({
+              key: row.key,
+              value: draftValues[row.key].trim(),
+              description: row.description,
+              group_name: row.group_name,
+              sort_order: row.sort_order,
+              is_active: row.is_active,
+              updated_at: timestamp,
+            })),
+          )
+        ).error
+      : null
+
+    const updates = existingRows.map((row) =>
       supabase
         .from('public_stats')
         .update({
           value: draftValues[row.key].trim(),
           updated_at: timestamp,
         })
-        .eq('id', row.id),
+        .eq('id', row.id)
+        .select('id'),
     )
 
-    const results = await Promise.all(updates)
-    const failedResult = results.find((result) => result.error)
+    const results = (await Promise.all(updates)).map(requireChangedRows)
+    // Updates run independently, so keep the ones that succeeded even if another failed.
+    const savedRows = [
+      ...existingRows.filter((_, index) => !results[index]),
+      ...(insertError ? [] : newRows),
+    ]
+    const firstError = insertError ?? results.find(Boolean)
 
-    if (failedResult?.error) {
-      setErrorMessage(failedResult.error.message)
-      setIsSavingAll(false)
-      return
+    if (newRows.length && !insertError) {
+      // Reload so the new rows get their real ids.
+      invalidatePublicStatsCache()
+      await loadStats()
     }
 
-    invalidatePublicStatsCache()
-    setRows((current) =>
-      current.map((item) => {
-        const changedRow = changedRows.find((row) => row.id === item.id)
-        return changedRow
-          ? {
-              ...item,
-              value: draftValues[changedRow.key].trim(),
-              updated_at: timestamp,
-            }
-          : item
-      }),
-    )
-    setDraftValues((current) => {
-      const nextDrafts = { ...current }
-      changedRows.forEach((row) => {
-        nextDrafts[row.key] = draftValues[row.key].trim()
+    if (savedRows.length) {
+      invalidatePublicStatsCache()
+      setRows((current) =>
+        current.map((item) => {
+          const savedRow = savedRows.find((row) => row.id === item.id)
+          return savedRow
+            ? {
+                ...item,
+                value: draftValues[savedRow.key].trim(),
+                updated_at: timestamp,
+              }
+            : item
+        }),
+      )
+      setDraftValues((current) => {
+        const nextDrafts = { ...current }
+        savedRows.forEach((row) => {
+          nextDrafts[row.key] = draftValues[row.key].trim()
+        })
+        return nextDrafts
       })
-      return nextDrafts
-    })
-    setSuccessMessage(t('admin.stats.saveSuccess', { count: changedRows.length }))
+      setSuccessMessage(t('admin.stats.saveSuccess', { count: savedRows.length }))
+    }
+
+    if (firstError) {
+      setErrorMessage(
+        savedRows.length
+          ? t('admin.stats.partialSaveError', {
+              count: changedRows.length - savedRows.length,
+              reason: getFriendlyErrorMessage(t, firstError),
+            })
+          : getFriendlyErrorMessage(t, firstError),
+      )
+    }
+
     setIsSavingAll(false)
   }
 
@@ -210,11 +275,12 @@ function AdminStats() {
           <p className="mt-2 font-serif text-[2rem] leading-none tracking-[-0.05em] text-[#14324d]">
             {statCount}
           </p>
-          <p className="mt-2 text-[0.9rem] leading-[1.6] text-[#6a7c87]">
+          <p className="mt-2 text-[0.9rem] leading-[1.6] text-[#5d6d78]">
             {t('admin.stats.headerCardContext')}
           </p>
         </div>
       }
+      hasUnsavedChanges={unsavedCount > 0}
       title={t('admin.stats.title')}
     >
       <div className="mt-8 rounded-[1.35rem] border border-[#dbe7ee] bg-white p-6 shadow-[0_18px_42px_rgba(15,23,42,0.05)]">
@@ -233,33 +299,39 @@ function AdminStats() {
               onClick={() => void loadStats()}
               type="button"
             >
-              <span className="material-symbols-outlined text-[1rem]">refresh</span>
+              <span aria-hidden="true" className="material-symbols-outlined text-[1rem]">refresh</span>
               {t('admin.stats.refresh')}
             </button>
           </div>
+        </div>
 
-          <div className="flex flex-col gap-3 rounded-[1rem] border border-[#edf3f7] bg-[#fbfdff] p-4 sm:flex-row sm:items-center sm:justify-between">
-            <p className="text-[0.92rem] leading-[1.7] text-[#627581]">
-              {t('admin.stats.unsavedChanges', { count: unsavedCount })}
-            </p>
-            <div className="flex flex-wrap items-center gap-3">
-              <button
-                className="rounded-full border border-[#dbe7ee] bg-white px-5 py-2.5 text-[0.78rem] font-bold uppercase tracking-[0.14em] text-[#14324d] transition hover:border-[#c2d7e6] hover:bg-[#f9fcfe] disabled:cursor-not-allowed disabled:opacity-60"
-                disabled={!unsavedCount || isSavingAll}
-                onClick={handleResetChanges}
-                type="button"
-              >
-                {t('admin.stats.resetButton')}
-              </button>
-              <button
-                className="rounded-full bg-[#13703e] px-5 py-2.5 text-[0.78rem] font-bold uppercase tracking-[0.14em] text-white shadow-[0_14px_32px_rgba(19,112,62,0.18)] transition hover:bg-[#105f35] disabled:cursor-not-allowed disabled:bg-[#74a889]"
-                disabled={!unsavedCount || isSavingAll}
-                onClick={() => void handleSaveAll()}
-                type="button"
-              >
-                {isSavingAll ? t('admin.stats.savingAll') : t('admin.stats.saveAllButton')}
-              </button>
-            </div>
+        <div
+          className={`sticky top-[4.25rem] z-20 mt-5 flex flex-col gap-3 rounded-[1rem] border p-4 shadow-[0_12px_28px_rgba(15,23,42,0.06)] backdrop-blur-sm transition sm:flex-row sm:items-center sm:justify-between lg:top-4 ${
+            unsavedCount
+              ? 'border-[#9fc7da] bg-[#f2f9fd]/95'
+              : 'border-[#edf3f7] bg-[#fbfdff]/95'
+          }`}
+        >
+          <p className="text-[0.92rem] leading-[1.7] text-[#627581]">
+            {t('admin.stats.unsavedChanges', { count: unsavedCount })}
+          </p>
+          <div className="flex flex-wrap items-center gap-3">
+            <button
+              className="rounded-full border border-[#dbe7ee] bg-white px-5 py-2.5 text-[0.78rem] font-bold uppercase tracking-[0.14em] text-[#14324d] transition hover:border-[#c2d7e6] hover:bg-[#f9fcfe] disabled:cursor-not-allowed disabled:opacity-60"
+              disabled={!unsavedCount || isSavingAll}
+              onClick={handleResetChanges}
+              type="button"
+            >
+              {t('admin.stats.resetButton')}
+            </button>
+            <button
+              className="rounded-full bg-[#13703e] px-5 py-2.5 text-[0.78rem] font-bold uppercase tracking-[0.14em] text-white shadow-[0_14px_32px_rgba(19,112,62,0.18)] transition hover:bg-[#105f35] disabled:cursor-not-allowed disabled:bg-[#74a889]"
+              disabled={!unsavedCount || isSavingAll}
+              onClick={() => void handleSaveAll()}
+              type="button"
+            >
+              {isSavingAll ? t('admin.stats.savingAll') : t('admin.stats.saveAllButton')}
+            </button>
           </div>
         </div>
 
@@ -276,7 +348,7 @@ function AdminStats() {
         ) : null}
 
         {isLoading ? (
-          <div className="mt-6 rounded-[1rem] border border-dashed border-[#dbe7ee] bg-[#fbfdff] px-4 py-10 text-center text-[#6a7c87]">
+          <div className="mt-6 rounded-[1rem] border border-dashed border-[#dbe7ee] bg-[#fbfdff] px-4 py-10 text-center text-[#5d6d78]">
             {t('admin.stats.loading')}
           </div>
         ) : null}
@@ -296,7 +368,7 @@ function AdminStats() {
                   </div>
                 </div>
 
-                <div className="grid gap-4 lg:grid-cols-2">
+                <div className="grid gap-4 xl:grid-cols-2">
                   {groupRows.map((row) => {
                     const hasPendingChange = (draftValues[row.key] ?? '').trim() !== row.value
 
@@ -307,24 +379,27 @@ function AdminStats() {
                       >
                         <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                           <div>
-                            <p className="text-[0.74rem] font-bold uppercase tracking-[0.16em] text-[#115b82]">
-                              {row.key}
+                            <p className="font-serif text-[1.2rem] leading-tight tracking-[-0.02em] text-[#14324d]">
+                              {t(`admin.stats.labels.${row.key}`, {
+                                defaultValue: humanizeStatKey(row.key),
+                              })}
                             </p>
                             <p className="mt-2 text-[0.95rem] leading-[1.7] text-[#627581]">
                               {row.description}
                             </p>
                           </div>
-                          <span className="rounded-full border border-[#dbe7ee] bg-white px-3 py-1 text-[0.72rem] font-bold uppercase tracking-[0.14em] text-[#14324d]">
-                            {t(`admin.stats.groups.${groupName}.title`)}
-                          </span>
                         </div>
 
                         <div className="mt-4">
-                          <label className="mb-2 block text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#6a7c87]">
+                          <label
+                            className="mb-2 block text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-[#5d6d78]"
+                            htmlFor={`stat-${row.key}`}
+                          >
                             {t('admin.stats.valueLabel')}
                           </label>
                           <input
-                            className={`w-full rounded-[0.95rem] border bg-white px-4 py-3 text-[1rem] text-[#14324d] outline-none transition placeholder:text-[#90a3af] focus:border-[#115b82] ${
+                            id={`stat-${row.key}`}
+                            className={`w-full rounded-[0.95rem] border bg-white px-4 py-3 text-[1rem] text-[#14324d] outline-none transition placeholder:text-[#627581] focus:border-[#115b82] ${
                               hasPendingChange
                                 ? 'border-[#9fc7da] ring-2 ring-[#e4f1f8]'
                                 : 'border-[#d8e5ec]'
@@ -335,7 +410,7 @@ function AdminStats() {
                         </div>
 
                         <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
-                          <p className="text-[0.78rem] text-[#8a9ba7]">
+                          <p className="text-[0.78rem] text-[#5d6d78]">
                             {row.updated_at
                               ? new Date(row.updated_at).toLocaleDateString('en-GB', {
                                   day: '2-digit',

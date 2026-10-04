@@ -22,6 +22,8 @@ function AboutPurposeSections() {
                 <img
                   alt={section.imageAlt}
                   className="aspect-[5/4] w-full object-cover"
+                  decoding="async"
+                  loading="lazy"
                   src={section.image}
                 />
               </div>
@@ -29,6 +31,8 @@ function AboutPurposeSections() {
                 <img
                   alt=""
                   className="aspect-[4/5] w-full object-cover"
+                  decoding="async"
+                  loading="lazy"
                   src={section.secondaryImage}
                 />
               </div>
@@ -48,7 +52,7 @@ function AboutPurposeSections() {
               <div className="mt-7 space-y-4 border-t border-[#dce7ee] pt-6">
                 {section.bullets.map((item) => (
                   <div className="flex items-start gap-3" key={item}>
-                    <span className="material-symbols-outlined mt-0.5 text-[1.1rem] text-[#2d8a57]">
+                    <span aria-hidden="true" className="material-symbols-outlined mt-0.5 text-[1.1rem] text-[#2d8a57]">
                       task_alt
                     </span>
                     <p className="text-[0.98rem] leading-[1.7] text-[#4f6472]">

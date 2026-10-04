@@ -1,5 +1,7 @@
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 import Reveal from '../reusables/Reveal'
+import Breadcrumb from '../reusables/Breadcrumb'
 
 function DonorsHero() {
   const { t } = useTranslation()
@@ -8,14 +10,11 @@ function DonorsHero() {
     <section className="border-b border-[#d8e5ec] bg-[radial-gradient(circle_at_top,rgba(225,240,249,0.85),rgba(247,252,255,1)_52%,rgba(255,255,255,1)_100%)]">
       <div className="mx-auto grid max-w-7xl gap-12 px-6 py-14 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:gap-20 lg:py-20">
         <Reveal className="max-w-2xl">
-          <p className="text-[1rem] font-medium tracking-[-0.01em] text-[#5f7280]">
-            [{t('common.breadcrumb.home')} /{' '}
-            <span className="text-[#c58b16]">{t('common.breadcrumb.donors')}</span>]
-          </p>
+          <Breadcrumb items={[{ label: t('common.breadcrumb.donors') }]} />
           <p className="mt-8 text-sm font-bold uppercase tracking-[0.2em] text-[#115b82]">
             {t('donors.hero.eyebrow')}
           </p>
-          <h1 className="mt-5 max-w-[12ch] font-serif text-[3rem] font-semibold leading-[0.96] tracking-[-0.05em] text-[#101d2b] sm:text-[4.2rem]">
+          <h1 className="mt-5 max-w-[12ch] hyphens-auto font-serif [overflow-wrap:anywhere] text-[3rem] font-semibold leading-[0.96] tracking-[-0.05em] text-[#101d2b] sm:text-[4.2rem]">
             {t('donors.hero.title')}
           </h1>
           <p className="mt-7 max-w-[38rem] text-[1.05rem] leading-[1.85] text-[#5d6d78] sm:text-[1.08rem]">
@@ -23,18 +22,18 @@ function DonorsHero() {
           </p>
 
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <a
+            <Link
               className="hover-lift-soft inline-flex items-center justify-center rounded-full bg-[#115b82] px-7 py-3 text-sm font-bold uppercase tracking-[0.16em] text-white shadow-[0_12px_30px_rgba(17,91,130,0.18)] transition hover:bg-[#0d4f72]"
-              href="#"
+              to="/donate"
             >
               {t('common.actions.donateNow')}
-            </a>
-            <a
+            </Link>
+            <Link
               className="hover-lift-soft inline-flex items-center justify-center rounded-full border border-[#d7e6ef] bg-[#f6fbff] px-7 py-3 text-sm font-bold uppercase tracking-[0.16em] text-[#115b82] transition hover:border-[#bdd6e4] hover:bg-[#edf7fc]"
-              href="#"
+              to="/transparency"
             >
               {t('donors.hero.secondaryCta')}
-            </a>
+            </Link>
           </div>
         </Reveal>
 
@@ -44,7 +43,8 @@ function DonorsHero() {
               <img
                 alt={t('donors.hero.imageAlt')}
                 className="aspect-[5/4] w-full object-cover"
-                src="/assets/about/donors-community.jpg"
+                decoding="async"
+                src="/assets/about/donors-community.webp"
               />
             </div>
 

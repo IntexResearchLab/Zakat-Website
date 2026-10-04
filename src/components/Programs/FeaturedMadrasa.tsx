@@ -26,7 +26,7 @@ function FeaturedMadrasa() {
           <div className="mt-7 space-y-4 border-t border-[#dce7ee] pt-6">
             {featuredProgram.points.map((item) => (
               <div className="flex items-start gap-3" key={item}>
-                <span className="material-symbols-outlined mt-0.5 text-[1rem] text-[#2d8a57]">
+                <span aria-hidden="true" className="material-symbols-outlined mt-0.5 text-[1rem] text-[#2d8a57]">
                   task_alt
                 </span>
                 <p className="text-[0.98rem] leading-[1.7] text-[#4f6472]">{item}</p>
@@ -43,7 +43,7 @@ function FeaturedMadrasa() {
                 <p className="font-serif text-[2rem] leading-none tracking-[-0.05em] text-[#14324d]">
                   {stat.value}
                 </p>
-                <p className="mt-2 text-[0.86rem] font-semibold text-[#697b86]">
+                <p className="mt-2 text-[0.86rem] font-semibold text-[#5d6d78]">
                   {stat.label}
                 </p>
               </div>
@@ -55,7 +55,7 @@ function FeaturedMadrasa() {
             to="/programs/madrasa"
           >
             {featuredProgram.cta}
-            <span className="material-symbols-outlined text-[1.15rem]">
+            <span aria-hidden="true" className="material-symbols-outlined text-[1.15rem]">
               arrow_forward
             </span>
           </Link>
@@ -66,6 +66,8 @@ function FeaturedMadrasa() {
             <img
               alt={featuredProgram.title}
               className="aspect-[5/4] w-full object-cover"
+              decoding="async"
+              loading="lazy"
               src={featuredProgram.image}
             />
           </div>

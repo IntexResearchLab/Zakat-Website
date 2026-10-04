@@ -29,7 +29,7 @@ function ProgramsImpact() {
               <p className="font-serif text-[2.55rem] leading-none tracking-[-0.05em] text-[#14324d] sm:text-[3rem]">
                 {item.value}
               </p>
-              <p className="mt-3 text-[0.92rem] font-semibold leading-[1.45] text-[#697b86]">
+              <p className="mt-3 text-[0.92rem] font-semibold leading-[1.45] text-[#5d6d78]">
                 {item.label}
               </p>
             </div>

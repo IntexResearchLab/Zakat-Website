@@ -40,7 +40,7 @@ type Story = {
 // Keyed by index rather than name since the story order is stable across
 // locales but the translated name text is not.
 const storyPortraitsByIndex: Record<number, string> = {
-  2: '/assets/about/affan-abbasi.jpeg',
+  2: '/assets/about/affan-abbasi.webp',
 }
 
 export const getDonorTrustIndicators = (t: TFunction) =>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, Navigate, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import Breadcrumb from '../components/reusables/Breadcrumb'
 import Reveal from '../components/reusables/Reveal'
 import type { MagazineIssue } from '../components/Transparency/types'
 import { downloadFile } from '../lib/download'
@@ -91,11 +92,12 @@ function TransparencyReader() {
       <div className="mx-auto max-w-7xl px-6 py-10 sm:py-14">
         <Reveal className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            <p className="text-[1rem] font-medium tracking-[-0.01em] text-[#5f7280]">
-              [{t('common.breadcrumb.home')} /{' '}
-              <span className="text-[#c58b16]">{t('common.breadcrumb.transparency')}</span> /{' '}
-              <span className="text-[#c58b16]">{issue.year}</span>]
-            </p>
+            <Breadcrumb
+              items={[
+                { label: t('common.breadcrumb.transparency'), to: '/transparency' },
+                { label: issue.year },
+              ]}
+            />
             <h1 className="mt-6 font-serif text-[2.7rem] leading-[0.98] tracking-[-0.05em] text-[#14324d] sm:text-[3.6rem]">
               {issue.title}
             </h1>

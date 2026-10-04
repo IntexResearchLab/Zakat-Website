@@ -36,11 +36,11 @@ function SupportOptionsSection() {
                     </p>
                     <p className="mt-1 text-[1rem] leading-[1.6] text-[#14324d]">{method.value}</p>
                   </div>
-                  <span className="material-symbols-outlined text-[#115b82]">arrow_outward</span>
+                  <span aria-hidden="true" className="material-symbols-outlined text-[#115b82]">arrow_outward</span>
                 </a>
               ))}
 
-              <p className="pt-2 text-[0.9rem] leading-[1.7] text-[#738592]">
+              <p className="pt-2 text-[0.9rem] leading-[1.7] text-[#5d6d78]">
                 {t('home.supportOptions.contact.note')}
               </p>
             </div>
@@ -54,7 +54,9 @@ function SupportOptionsSection() {
               <img
                 alt={t('home.supportOptions.donation.imageAlt')}
                 className="absolute inset-0 h-full w-full object-cover"
-                src="/assets/home/celebration.jpg"
+                decoding="async"
+                loading="lazy"
+                src="/assets/home/celebration.webp"
               />
               <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(11,35,53,0.78),rgba(11,35,53,0.18))]" />
 
@@ -67,7 +69,7 @@ function SupportOptionsSection() {
                     {t('home.supportOptions.donation.title')}
                   </h3>
 
-                  <div className="mt-6 rounded-[1rem] bg-[#f3f5f7] px-5 py-4 text-[1rem] text-[#70808c]">
+                  <div className="mt-6 rounded-[1rem] bg-[#f3f5f7] px-5 py-4 text-[1rem] text-[#5d6d78]">
                     {t('home.supportOptions.donation.otherAmount')}
                   </div>
 
@@ -78,7 +80,7 @@ function SupportOptionsSection() {
                     {t('common.actions.completeDonation')}
                   </Link>
 
-                  <p className="mt-4 text-center text-[0.72rem] tracking-[0.06em] text-[#8a96a0]">
+                  <p className="mt-4 text-center text-[0.72rem] tracking-[0.06em] text-[#5d6d78]">
                     {t('common.payments.accepted')}
                   </p>
                 </div>

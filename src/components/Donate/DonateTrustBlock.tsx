@@ -29,7 +29,7 @@ function DonateTrustBlock() {
               key={point}
             >
               <div className="flex items-start gap-3">
-                <span className="material-symbols-outlined mt-0.5 text-[1.05rem] text-[#2d8a57]">
+                <span aria-hidden="true" className="material-symbols-outlined mt-0.5 text-[1.05rem] text-[#2d8a57]">
                   verified
                 </span>
                 <p className="text-[0.96rem] leading-[1.75] text-[#516777]">{point}</p>

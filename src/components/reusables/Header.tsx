@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useId, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { NavLink, useLocation } from 'react-router-dom'
 import LanguageSwitcher from './LanguageSwitcher'
@@ -10,37 +10,67 @@ type DesktopDropdownProps = {
 }
 
 function DesktopDropdown({ label, isActive, items }: DesktopDropdownProps) {
+  const [isOpen, setIsOpen] = useState(false)
+  const menuId = useId()
+
+  // Opens on hover, click, or keyboard; closes on Escape or when focus leaves the menu.
   return (
-    <div className="group relative">
+    <div
+      className="relative"
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget)) {
+          setIsOpen(false)
+        }
+      }}
+      onKeyDown={(event) => {
+        if (event.key === 'Escape' && isOpen) {
+          setIsOpen(false)
+          event.currentTarget.querySelector('button')?.focus()
+        }
+      }}
+      onMouseEnter={() => setIsOpen(true)}
+      onMouseLeave={() => setIsOpen(false)}
+    >
       <button
+        aria-controls={menuId}
+        aria-expanded={isOpen}
         className={`flex items-center gap-1.5 border-b-[3px] pb-2 text-[0.98rem] font-medium transition ${
           isActive
             ? 'border-[#115b82] text-[#115b82]'
             : 'border-transparent text-[#587189] hover:text-[#115b82]'
         }`}
+        onClick={() => setIsOpen((open) => !open)}
         type="button"
       >
         <span>{label}</span>
-        <span className="material-symbols-outlined text-[1rem]">expand_more</span>
+        <span aria-hidden="true" className="material-symbols-outlined text-[1rem]">
+          expand_more
+        </span>
       </button>
 
-      <div className="pointer-events-none absolute left-1/2 top-full z-30 w-60 -translate-x-1/2 pt-2 opacity-0 transition duration-150 group-hover:pointer-events-auto group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:opacity-100">
+      <div
+        className={`absolute left-1/2 top-full z-30 w-60 -translate-x-1/2 pt-2 transition duration-150 ${
+          isOpen ? 'opacity-100' : 'pointer-events-none invisible opacity-0'
+        }`}
+        id={menuId}
+      >
         <div className="rounded-[1.15rem] border border-[#d8e5ec] bg-white p-3 shadow-[0_18px_40px_rgba(15,23,42,0.1)]">
-        <div className="grid gap-1.5">
-          {items.map((item) => (
-            <NavLink
-              className={({ isActive: itemActive }) =>
-                itemActive
-                  ? 'rounded-xl bg-[#eef7fb] px-4 py-3 text-[0.94rem] font-semibold text-[#115b82]'
-                  : 'rounded-xl px-4 py-3 text-[0.94rem] font-medium text-[#587189] transition hover:bg-[#f4fafc] hover:text-[#115b82]'
-              }
-              key={item.to}
-              to={item.to}
-            >
-              {item.label}
-            </NavLink>
-          ))}
-        </div>
+          <div className="grid gap-1.5">
+            {items.map((item) => (
+              <NavLink
+                className={({ isActive: itemActive }) =>
+                  itemActive
+                    ? 'rounded-xl bg-[#eef7fb] px-4 py-3 text-[0.94rem] font-semibold text-[#115b82]'
+                    : 'rounded-xl px-4 py-3 text-[0.94rem] font-medium text-[#587189] transition hover:bg-[#f4fafc] hover:text-[#115b82]'
+                }
+                key={item.to}
+                onClick={() => setIsOpen(false)}
+                to={item.to}
+              >
+                {item.label}
+              </NavLink>
+            ))}
+          </div>
         </div>
       </div>
     </div>
@@ -79,6 +109,22 @@ function Header() {
       ? 'rounded-xl bg-[#eef7fb] px-4 py-3 text-[1rem] font-semibold text-[#115b82]'
       : 'rounded-xl px-4 py-3 text-[1rem] font-medium text-[#587189]'
 
+  // Close the mobile menu with Escape. Its links close it themselves when clicked.
+  useEffect(() => {
+    if (!isMenuOpen) {
+      return
+    }
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsMenuOpen(false)
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [isMenuOpen])
+
   const programsActive = location.pathname.startsWith('/programs')
   const impactActive =
     location.pathname === '/opinions-of-beneficiaries' || location.pathname === '/our-donors'
@@ -94,12 +140,16 @@ function Header() {
           <img
             alt={t('nav.brand')}
             className="h-10 w-10 shrink-0 rounded-full border border-[#d5e5ef] bg-white object-contain p-1 shadow-[0_6px_18px_rgba(15,23,42,0.08)] sm:h-11 sm:w-11"
-            src="/assets/about/Logo.png"
+            decoding="async"
+            src="/assets/about/Logo.webp"
           />
           <span className="max-w-[8.5rem] truncate sm:max-w-none">{t('nav.brand')}</span>
         </NavLink>
 
-        <nav className="hidden items-center gap-8 lg:flex xl:gap-9">
+        <nav
+          aria-label={t('common.aria.mainNavigation')}
+          className="hidden items-center gap-6 whitespace-nowrap xl:flex 2xl:gap-9"
+        >
           <NavLink className={linkClass} to="/">
             {t('nav.home')}
           </NavLink>
@@ -115,24 +165,28 @@ function Header() {
             label={t('nav.programs')}
           />
           <DesktopDropdown isActive={impactActive} items={impactItems} label={t('nav.impact')} />
+          <NavLink className={linkClass} to="/zakat-calculator">
+            {t('nav.zakatCalculator')}
+          </NavLink>
           <NavLink className={linkClass} to="/transparency">
             {t('nav.transparency')}
           </NavLink>
         </nav>
 
         <div className="flex shrink-0 items-center gap-3">
-          <div className="hidden lg:block">
+          <div className="hidden xl:block">
             <LanguageSwitcher />
           </div>
 
           <button
+            aria-controls="mobile-navigation"
             aria-expanded={isMenuOpen}
             aria-label={t('common.aria.toggleNavigationMenu')}
-            className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#cfe0ea] bg-white text-[#115b82] transition hover:bg-[#eef7fb] lg:hidden"
+            className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#cfe0ea] bg-white text-[#115b82] transition hover:bg-[#eef7fb] xl:hidden"
             type="button"
             onClick={() => setIsMenuOpen((open) => !open)}
           >
-            <span className="material-symbols-outlined text-[1.35rem]">
+            <span aria-hidden="true" className="material-symbols-outlined text-[1.35rem]">
               {isMenuOpen ? 'close' : 'menu'}
             </span>
           </button>
@@ -147,8 +201,12 @@ function Header() {
       </div>
 
       {isMenuOpen ? (
-        <div className="mx-auto mt-4 max-w-7xl lg:hidden">
-          <nav className="grid gap-2 rounded-[1.3rem] border border-[#d8e5ec] bg-white p-3 shadow-[0_18px_40px_rgba(15,23,42,0.08)]">
+        <div className="mx-auto mt-4 max-w-7xl xl:hidden">
+          <nav
+            aria-label={t('common.aria.mainNavigation')}
+            className="grid gap-2 rounded-[1.3rem] border border-[#d8e5ec] bg-white p-3 shadow-[0_18px_40px_rgba(15,23,42,0.08)]"
+            id="mobile-navigation"
+          >
             <div className="px-1 pb-2">
               <LanguageSwitcher />
             </div>
@@ -159,16 +217,16 @@ function Header() {
             <NavLink className={mobileLinkClass} to="/about" onClick={() => setIsMenuOpen(false)}>
               {t('nav.about')}
             </NavLink>
-            <NavLink
-              className={mobileLinkClass}
-              to="/gallery"
-              onClick={() => setIsMenuOpen(false)}
-            >
+            <NavLink className={mobileLinkClass} to="/gallery" onClick={() => setIsMenuOpen(false)}>
               {t('nav.gallery')}
             </NavLink>
 
             <div className="rounded-xl border border-[#e2ebf0] bg-[#fbfdfe] p-2">
-              <NavLink className={mobileLinkClass} to="/programs" onClick={() => setIsMenuOpen(false)}>
+              <NavLink
+                className={mobileLinkClass}
+                to="/programs"
+                onClick={() => setIsMenuOpen(false)}
+              >
                 {t('nav.programs')}
               </NavLink>
               <div className="mt-1 grid gap-1 pl-3">
@@ -190,7 +248,9 @@ function Header() {
             </div>
 
             <div className="rounded-xl border border-[#e2ebf0] bg-[#fbfdfe] p-2">
-              <div className="px-4 py-3 text-[1rem] font-semibold text-[#115b82]">{t('nav.impact')}</div>
+              <div className="px-4 py-3 text-[1rem] font-semibold text-[#115b82]">
+                {t('nav.impact')}
+              </div>
               <div className="grid gap-1 pl-3">
                 <NavLink
                   className={mobileLinkClass}
@@ -209,6 +269,13 @@ function Header() {
               </div>
             </div>
 
+            <NavLink
+              className={mobileLinkClass}
+              to="/zakat-calculator"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              {t('nav.zakatCalculator')}
+            </NavLink>
             <NavLink
               className={mobileLinkClass}
               to="/transparency"

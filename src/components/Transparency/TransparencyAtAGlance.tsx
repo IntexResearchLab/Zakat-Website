@@ -48,12 +48,12 @@ function TransparencyAtAGlance({ latestIssue }: TransparencyAtAGlanceProps) {
             >
               <div className="flex items-start gap-4">
                 <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#edf7fc] text-[#115b82] transition group-hover:bg-[#115b82] group-hover:text-white">
-                  <span className="material-symbols-outlined text-[1.35rem]">
+                  <span aria-hidden="true" className="material-symbols-outlined text-[1.35rem]">
                     {item.icon}
                   </span>
                 </span>
                 <div>
-                  <p className="text-[0.78rem] font-bold uppercase tracking-[0.16em] text-[#8a9ba7]">
+                  <p className="text-[0.78rem] font-bold uppercase tracking-[0.16em] text-[#5d6d78]">
                     {String(index + 1).padStart(2, '0')}
                   </p>
                   <h3 className="mt-2 text-[1.05rem] font-bold leading-[1.35] text-[#14324d]">

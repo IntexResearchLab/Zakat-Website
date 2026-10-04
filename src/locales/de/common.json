@@ -18,7 +18,8 @@
     "programs": "Programme",
     "programsOverview": "Alle Programme",
     "transparency": "Magazin",
-    "voices": "Stimmen"
+    "voices": "Stimmen",
+    "zakatCalculator": "Zakat-Rechner"
   },
   "common": {
     "actions": {
@@ -40,7 +41,15 @@
       "viewSchoolGallery": "Schulgalerie ansehen"
     },
     "aria": {
-      "toggleNavigationMenu": "Navigationsmenü ein-/ausblenden"
+      "toggleNavigationMenu": "Navigationsmenü ein-/ausblenden",
+      "skipToContent": "Zum Hauptinhalt springen",
+      "mainNavigation": "Hauptmenü",
+      "language": "Sprache",
+      "closeDialog": "Schließen",
+      "scrollLeft": "Nach links scrollen",
+      "scrollRight": "Nach rechts scrollen",
+      "featuredStoryImage": "Ausgewählte Geschichte eines Begünstigten",
+      "breadcrumb": "Brotkrümelnavigation"
     },
     "breadcrumb": {
       "home": "Startseite",
@@ -52,12 +61,21 @@
       "opinions": "Stimmen der Wirkung",
       "programs": "Programme",
       "school": "Schule",
-      "transparency": "Magazin"
+      "transparency": "Magazin",
+      "terms": "Allgemeine Geschäftsbedingungen",
+      "privacy": "Datenschutzerklärung",
+      "refund": "Rückgabe- und Erstattungsrichtlinie",
+      "zakatCalculator": "Zakat-Rechner",
+      "campaigns": "Spendenaufrufe",
+      "contact": "Kontakt"
     },
     "form": {
       "emailPlaceholder": "E-Mail-Adresse eingeben",
       "namePlaceholder": "Namen eingeben",
-      "phonePlaceholder": "Telefonnummer eingeben"
+      "phonePlaceholder": "Telefonnummer eingeben",
+      "nameLabel": "Vollständiger Name",
+      "emailLabel": "E-Mail-Adresse",
+      "phoneLabel": "Telefonnummer"
     },
     "payments": {
       "accepted": "Akzeptiert: bKash, Nagad, Visa, Mastercard"
@@ -108,8 +126,20 @@
           "href": "/our-donors"
         },
         {
+          "label": "Spendenaufrufe",
+          "href": "/campaigns"
+        },
+        {
           "label": "Spenden",
           "href": "/donate"
+        },
+        {
+          "label": "Zakat-Rechner",
+          "href": "/zakat-calculator"
+        },
+        {
+          "label": "Kontakt",
+          "href": "/contact"
         }
       ]
     },
@@ -119,26 +149,57 @@
       "note": "Für Anfragen zu Zakat, Spenden, Partnerschaften und Direktzahlungen",
       "links": [
         {
+          "label": "Nachricht senden",
+          "href": "/contact"
+        },
+        {
           "label": "alokayon2019@gmail.com",
           "href": "mailto:alokayon2019@gmail.com",
           "external": true
         },
         {
           "label": "bKash: 01925124019",
-          "href": "tel:01925124019",
+          "href": "tel:+8801925124019",
           "external": true
         },
         {
           "label": "Nagad: 01779577828",
-          "href": "tel:01779577828",
+          "href": "tel:+8801779577828",
           "external": true
+        }
+      ],
+      "addressLabel": "Eingetragene Adresse"
+    },
+    "bottom": {
+      "copyright": "© {{year}} Alokayon",
+      "designed": "Intex Research Lab, Development Unit"
+    },
+    "policies": {
+      "title": "Über uns & Richtlinien",
+      "links": [
+        {
+          "label": "Über uns",
+          "href": "/about"
+        },
+        {
+          "label": "Allgemeine Geschäftsbedingungen",
+          "href": "/terms-and-conditions"
+        },
+        {
+          "label": "Datenschutzerklärung",
+          "href": "/privacy-policy"
+        },
+        {
+          "label": "Rückgabe- und Erstattungsrichtlinie",
+          "href": "/refund-policy"
         }
       ]
     },
-    "bottom": {
-      "copyright": "© 2025 Alokayon",
-      "designed": "Intex Research Lab, Development Unit"
-    }
+    "organization": {
+      "registration": "Registriert beim Department of Social Services, Ministerium für Soziales, Bangladesch (2019)",
+      "management": "Gründungsvorsitzender: A.K.M. Fazlul Kader"
+    },
+    "paymentsAlt": "Bezahlen mit Visa, Mastercard, American Express, bKash, Nagad, Rocket, Online-Banking und weiteren Kanälen. Verifiziert durch SSLCommerz."
   },
   "home": {
     "hero": {
@@ -149,7 +210,7 @@
       "verseLabel": "Erinnerung aus dem Koran",
       "slides": [
         {
-          "image": "/assets/home/celebration.jpg",
+          "image": "/assets/home/celebration.webp",
           "eyebrow": "Glaube in Aktion",
           "titleTop": "Geben Sie Ihre Zakat.",
           "titleBottom": "Verändern Sie Leben.",
@@ -161,7 +222,7 @@
           "alt": "Kinder versammelt während einer Alokayon-Hilfsaktion"
         },
         {
-          "image": "/assets/about/Donating.jpg",
+          "image": "/assets/about/Donating.webp",
           "eyebrow": "Transparente Wirkung",
           "titleTop": "Geben Sie mit Vertrauen.",
           "titleBottom": "Erreichen Sie echte Menschen.",
@@ -173,7 +234,7 @@
           "alt": "Gemeindemitglieder erhalten Unterstützung durch Alokayon"
         },
         {
-          "image": "/assets/school/School_3.jpg",
+          "image": "/assets/school/School_3.webp",
           "eyebrow": "Mitgefühl, das bleibt",
           "titleTop": "Stehen Sie an der Seite",
           "titleBottom": "derer, die in Not sind.",
@@ -184,7 +245,9 @@
           "verseReference": "Sure Al-Insan (76:8)",
           "alt": "Ein Moment aus einem Alokayon-Programm mit Kindern und Familien"
         }
-      ]
+      ],
+      "pauseSlides": "Diashow anhalten",
+      "playSlides": "Diashow abspielen"
     },
     "impact": {
       "title": "Verifizierte Wirkung aus Gemeinschaftsprogrammen",
@@ -351,12 +414,12 @@
           {
             "label": "bKash / Kontakt",
             "value": "01925124019",
-            "href": "tel:01925124019"
+            "href": "tel:+8801925124019"
           },
           {
             "label": "Nagad / Kontakt",
             "value": "01779577828",
-            "href": "tel:01779577828"
+            "href": "tel:+8801779577828"
           }
         ]
       },
@@ -738,7 +801,8 @@
         "default": "Wo am dringendsten benötigt",
         "education": "Bildung",
         "healthcare": "Gesundheitsversorgung",
-        "livelihood": "Existenzsicherung"
+        "livelihood": "Existenzsicherung",
+        "zakat": "Zakat"
       },
       "paymentMethods": [
         "bKash",
@@ -767,7 +831,34 @@
         "Gegründet 2011",
         "Verifizierte Programme",
         "Transparente Berichterstattung"
-      ]
+      ],
+      "agreement": {
+        "text": "Ich habe die <terms>Allgemeinen Geschäftsbedingungen</terms>, die <privacy>Datenschutzerklärung</privacy> und die <refund>Rückgabe- und Erstattungsrichtlinie</refund> gelesen und stimme ihnen zu.",
+        "required": "Bitte setzen Sie das Häkchen, um unseren Richtlinien vor der Spende zuzustimmen."
+      },
+      "amountGroupLabel": "Spendenbetrag",
+      "customAmountLabel": "Ihren Betrag eingeben (BDT)",
+      "customAmountPlaceholder": "Zum Beispiel 1500",
+      "categoryLabel": "Wofür soll Ihre Spende verwendet werden?",
+      "donateAmount": "৳{{amount}} spenden",
+      "redirecting": "Sichere Zahlung wird geöffnet...",
+      "secureNote": "Sie schließen die Zahlung auf der sicheren SSLCommerz-Seite ab.",
+      "errors": {
+        "amount": "Bitte geben Sie einen Betrag zwischen ৳{{min}} und ৳{{max}} ein.",
+        "name": "Bitte geben Sie Ihren Namen ein.",
+        "email": "Bitte geben Sie eine gültige E-Mail-Adresse ein, damit wir Ihre Spende bestätigen können.",
+        "phone": "Bitte geben Sie eine gültige Telefonnummer ein.",
+        "gateway": "Der Zahlungsdienst antwortet gerade nicht. Bitte versuchen Sie es in einigen Minuten erneut.",
+        "generic": "Etwas ist schiefgelaufen, die Zahlung wurde nicht gestartet. Bitte versuchen Sie es erneut."
+      },
+      "receipt": {
+        "note": "Eine offizielle Quittung wird Ihnen als PDF per E-Mail zugesendet. Bitte schreiben Sie Ihren Namen in lateinischen Buchstaben, so wie er auf der Quittung stehen soll.",
+        "signedOption": "Ich möchte zusätzlich eine handschriftlich unterschriebene Quittung (unser Team unterschreibt sie und sendet sie per E-Mail)."
+      },
+      "calculatorPrompt": "Sie wissen nicht, wie viel Zakat Sie schulden?",
+      "calculatorLink": "Zakat-Rechner verwenden",
+      "campaignBanner": "Ihre Spende geht an:",
+      "campaignRemove": "Stattdessen dort spenden, wo es am nötigsten ist"
     },
     "transparency": {
       "eyebrow": "Transparenz",
@@ -903,17 +994,17 @@
       "title": "Echte Momente hinter jeder Spendenhandlung.",
       "items": [
         {
-          "image": "/assets/about/book-distribution.jpg",
+          "image": "/assets/about/book-distribution.webp",
           "title": "Bildungsunterstützung",
           "caption": "Kindern helfen, mit direkter, praktischer Unterstützung am Lernen teilzuhaben."
         },
         {
-          "image": "/assets/about/community-support.jpg",
+          "image": "/assets/about/community-support.webp",
           "title": "Gemeinschaftsfürsorge",
           "caption": "Momente persönlichen Dienstes, die Spenden in sichtbare Wirkung verwandeln."
         },
         {
-          "image": "/assets/about/winter-relief-sunamganj.jpg",
+          "image": "/assets/about/winter-relief-sunamganj.webp",
           "title": "Nothilfe & Würde",
           "caption": "Nothilfe erreicht Familien durch stille, rechenschaftspflichtige Verteilung vor Ort."
         }
@@ -991,6 +1082,47 @@
       "eyebrow": "Letzter Schritt",
       "title": "Seien Sie heute der Grund für jemandes Lächeln.",
       "description": "Ihre Zakat und Spende können durch rechtzeitige, transparente und würdezentrierte Unterstützung ein Leben verändern."
+    },
+    "result": {
+      "success": {
+        "title": "Vielen Dank für Ihre Spende",
+        "message": "Ihre Zahlung wurde empfangen und bestätigt. Möge Allah sie von Ihnen annehmen. Ihre Quittung wurde Ihnen per E-Mail gesendet."
+      },
+      "failed": {
+        "title": "Zahlung nicht abgeschlossen",
+        "message": "Ihre Zahlung wurde nicht durchgeführt und es wurde kein Geld abgebucht. Falls doch ein Betrag abgebucht wurde, erstattet Ihre Bank oder Ihr Zahlungsanbieter ihn. Bitte versuchen Sie es erneut."
+      },
+      "cancelled": {
+        "title": "Zahlung abgebrochen",
+        "message": "Sie haben die Zahlung abgebrochen, es wurde kein Geld abgebucht. Sie können jederzeit erneut spenden."
+      },
+      "reviewMessage": "Ihre Zahlung wurde empfangen und wird von unserem Zahlungspartner geprüft. Wir melden uns, falls weitere Angaben nötig sind.",
+      "amountLabel": "Betrag",
+      "transactionLabel": "Transaktions-ID",
+      "homeButton": "Zur Startseite",
+      "tryAgainButton": "Erneut versuchen",
+      "impactButton": "Unsere Wirkung ansehen",
+      "contactNote": "Fragen zu Ihrer Spende? Schreiben Sie uns an",
+      "receipt": {
+        "title": "Ihre Spendenquittung",
+        "message": "Vielen Dank für Ihre Unterstützung von Alokayon. Hier können Sie Ihre Quittung herunterladen oder eine unterschriebene Kopie anfordern."
+      }
+    },
+    "receipt": {
+      "loading": "Quittung wird geladen...",
+      "loadError": "Ihre Quittung kann gerade nicht geladen werden. Ihre Zahlung ist sicher. Bitte prüfen Sie Ihre E-Mails oder kontaktieren Sie uns mit Ihrer Transaktions-ID.",
+      "numberLabel": "Quittungsnummer",
+      "dateLabel": "Datum",
+      "emailed": "Ihre offizielle Quittung wurde Ihnen per E-Mail gesendet. Sie können sie auch hier herunterladen.",
+      "emailPending": "Ihre Quittung wird vorbereitet. Sie können sie hier bereits herunterladen.",
+      "downloadButton": "Quittung herunterladen (PDF)",
+      "signedTitle": "Unterschriebene Quittung",
+      "signedDescription": "Benötigen Sie eine von Alokayon unterschriebene Quittung? Fordern Sie sie an, und unser Team sendet sie Ihnen per E-Mail.",
+      "requestButton": "Unterschriebene Quittung anfordern",
+      "requesting": "Anfrage wird gesendet...",
+      "requestError": "Ihre Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder schreiben Sie uns.",
+      "signedRequested": "Anfrage erhalten. Unser Team unterschreibt Ihre Quittung und sendet sie Ihnen bald per E-Mail.",
+      "signedSent": "Ihre unterschriebene Quittung wurde Ihnen per E-Mail gesendet."
     }
   },
   "programs": {
@@ -2316,6 +2448,423 @@
       "title": "Werden Sie Teil der nächsten.",
       "description": "Die Arbeit geht weiter, weil Menschen sich entscheiden, Vertrauen in Handeln zu verwandeln.",
       "secondary": "Programme ansehen"
+    }
+  },
+  "seo": {
+    "descriptions": {
+      "home": "Alokayon ist eine registrierte Hilfsorganisation in Bangladesch. Geben Sie Ihre Zakat und Spenden für Schüler, Witwen, ältere Menschen und bedürftige Familien.",
+      "about": "Die Geschichte von Alokayon: 2011 als Dushtho Sheba gegründet, 2019 registriert und mit Würde und Verantwortung im Dienst benachteiligter Gemeinschaften in Bangladesch.",
+      "programs": "Die Programme von Alokayon: Bildung, Gesundheit, Witwenhilfe, Nothilfe, Lebensunterhalt, Altenhilfe, die Schule Alokayon Pathshala und die Hafezi-Madrasa.",
+      "school": "Alokayon Pathshala bietet Kindern aus den Slums von Dhaka kostenlose Bildung.",
+      "madrasa": "Die Abdul Karim Miazi Hafezi Madrasa verbindet Koran-, Arabisch- und Bengalischunterricht.",
+      "gallery": "Fotos aus der Arbeit von Alokayon: Schulalltag, Hilfsverteilungen, Unterstützung für den Lebensunterhalt und Gemeinschaftshilfe.",
+      "opinions": "Schüler, Familien und Witwen erzählen, wie die Hilfe von Alokayon ihr Leben verändert hat.",
+      "donors": "Spender aus Bangladesch und dem Ausland erklären, warum sie ihre Zakat und Spenden über Alokayon geben.",
+      "transparency": "Lesen Sie die Jahresmagazine und Finanzberichte von Alokayon und sehen Sie, wie Spenden eingehen und verwendet werden.",
+      "donate": "Spenden Sie sicher per Karte, bKash oder Nagad an Alokayon und erhalten Sie eine Quittung per E-Mail. Ihre Zakat erreicht Schüler, Witwen und bedürftige Familien.",
+      "terms": "Allgemeine Bedingungen für Spenden an Alokayon.",
+      "privacy": "Wie Alokayon Ihre persönlichen Daten erhebt, verwendet und schützt.",
+      "refund": "Rückgabe- und Erstattungsrichtlinie von Alokayon für Spenden.",
+      "zakatCalculator": "Berechnen Sie Ihre Zakat. Geben Sie Bargeld, Gold, Silber, Ersparnisse und Schulden ein und sehen Sie Ihre Zakat von 2,5 % anhand des aktuellen Nisab in BDT.",
+      "campaigns": "Unterstützen Sie die aktuellen Spendenaufrufe von Alokayon. Sehen Sie Ziel und Spendenstand jedes Aufrufs und spenden Sie für das Anliegen, das Ihnen wichtig ist.",
+      "contact": "Kontaktieren Sie Alokayon zu Spenden, Zakat, Quittungen, Ehrenamt oder Partnerschaften. Schreiben Sie uns oder rufen Sie uns in Dhaka an."
+    },
+    "notFoundTitle": "Seite nicht gefunden"
+  },
+  "notFound": {
+    "eyebrow": "Fehler 404",
+    "title": "Diese Seite wurde nicht gefunden",
+    "message": "Der Link ist möglicherweise fehlerhaft oder die Seite wurde verschoben. Versuchen Sie stattdessen eine dieser Seiten.",
+    "homeButton": "Zur Startseite",
+    "donateButton": "Spenden",
+    "programsLink": "Unsere Programme",
+    "transparencyLink": "Berichte und Magazine",
+    "contactNote": "Suchen Sie noch etwas? Schreiben Sie uns an"
+  },
+  "zakatCalculator": {
+    "eyebrow": "Zakat-Rechner",
+    "title": "Berechnen Sie Ihre Zakat",
+    "intro": "Geben Sie ein, was Sie heute besitzen und schulden. Der Rechner vergleicht Ihr Vermögen mit dem Nisab und zeigt Ihre Zakat von 2,5 %. Ihre Eingaben werden weder gespeichert noch gesendet.",
+    "sections": {
+      "nisab": "Nisab und Preise",
+      "assets": "Was Sie besitzen",
+      "deductions": "Was Sie jetzt schulden"
+    },
+    "nisab": {
+      "label": "Nisab-Maßstab",
+      "silver": {
+        "title": "Silber-Nisab (612,36 g)",
+        "description": "Die niedrigere Grenze. Viele Gelehrte in Bangladesch empfehlen sie, weil so mehr Menschen Zakat zahlen und mehr Bedürftigen geholfen wird.",
+        "metal": "Silber"
+      },
+      "gold": {
+        "title": "Gold-Nisab (87,48 g)",
+        "description": "Eine höhere Grenze. Manche Gelehrte verwenden sie, besonders wenn Ihr Vermögen überwiegend aus Gold besteht.",
+        "metal": "Gold"
+      }
+    },
+    "fields": {
+      "goldPrice": "Goldpreis pro Gramm (22 Karat)",
+      "silverPrice": "Silberpreis pro Gramm",
+      "cash": "Bargeld und Bankguthaben",
+      "gold": "Ihr Gold",
+      "silver": "Ihr Silber",
+      "investments": "Ersparnisse und Anlagen",
+      "businessStock": "Warenbestand",
+      "receivables": "Geld, das andere Ihnen schulden",
+      "otherAssets": "Sonstiges zakatpflichtiges Vermögen",
+      "debtsDue": "Jetzt fällige Schulden und Rechnungen"
+    },
+    "hints": {
+      "cash": "Bargeld zu Hause, Bankkonten sowie bKash, Nagad oder andere mobile Geldbörsen.",
+      "gold": "Schmuck, Münzen und Barren nach Gewicht. 1 Vori sind {{grams}} Gramm.",
+      "silver": "Schmuck, Münzen und Gegenstände nach Gewicht.",
+      "investments": "Aktien, Sparbriefe (Sanchayapatra), DPS, Festgeld und ähnliche Ersparnisse.",
+      "businessStock": "Zum Verkauf gehaltene Waren zum aktuellen Verkaufspreis.",
+      "receivables": "Verliehenes Geld, dessen Rückzahlung Sie erwarten.",
+      "otherAssets": "Fremdwährung oder zum Weiterverkauf gekaufte Immobilien und Grundstücke.",
+      "debtsDue": "Kreditraten, Miete, Rechnungen und andere jetzt fällige Zahlungen. Nicht den vollen Betrag eines langfristigen Kredits angeben."
+    },
+    "units": {
+      "label": "Einheit",
+      "vori": "Vori",
+      "gram": "Gramm"
+    },
+    "prices": {
+      "updated": "Preise von Alokayon am {{date}} festgelegt. Sie können sie auf den heutigen Kurs ändern.",
+      "missing": "Geben Sie die heutigen Gold- und Silberpreise ein, um den Nisab zu berechnen.",
+      "bajusLink": "BAJUS-Preisliste ansehen"
+    },
+    "summary": {
+      "title": "Ihre Zakat",
+      "totalAssets": "Gesamtvermögen",
+      "deductions": "Jetzt fällige Schulden",
+      "netWealth": "Zakatpflichtiges Nettovermögen",
+      "nisab": "Nisab ({{grams}} g {{metal}})"
+    },
+    "result": {
+      "needPrice": "Geben Sie den {{metal}}preis pro Gramm ein, um zu sehen, ob Sie den Nisab erreichen.",
+      "empty": "Geben Sie Ihr Vermögen ein, um Ihre Zakat zu sehen.",
+      "dueLabel": "Fällige Zakat",
+      "dueNote": "Das sind 2,5 % Ihres Nettovermögens, fällig, wenn es ein Mondjahr lang mindestens den Nisab erreicht hat.",
+      "payButton": "{{amount}} als Zakat zahlen",
+      "largeAmount": "Beträge über ৳5,00,000 zahlen Sie bitte per Banküberweisung. Die Bankdaten finden Sie auf der Spendenseite.",
+      "belowNisab": "Ihr Nettovermögen liegt unter dem Nisab, daher ist keine Zakat fällig. Sadaqah können Sie jederzeit geben."
+    },
+    "explainer": {
+      "title": "So wird Zakat berechnet",
+      "items": [
+        {
+          "title": "Nisab",
+          "text": "Zakat wird fällig, sobald Ihr Nettovermögen den Nisab erreicht: den Wert von 87,48 Gramm Gold oder 612,36 Gramm Silber."
+        },
+        {
+          "title": "Ein Mondjahr (Hawl)",
+          "text": "Ihr Vermögen muss ein volles Hidschra-Jahr mindestens den Nisab erreichen. Viele wählen dafür jedes Jahr ein festes Datum, etwa im Ramadan."
+        },
+        {
+          "title": "2,5 % des Nettovermögens",
+          "text": "Zählen Sie Ihr zakatpflichtiges Vermögen zusammen, ziehen Sie jetzt fällige Schulden ab und zahlen Sie 2,5 % des Rests."
+        },
+        {
+          "title": "Was nicht zählt",
+          "text": "Ihr Wohnhaus, Ihr privates Auto, Möbel, Kleidung und Arbeitsgeräte werden nicht gezählt."
+        }
+      ]
+    },
+    "disclaimer": "Dieser Rechner ist eine Orientierungshilfe. Bei manchen Punkten, etwa getragenem Schmuck und langfristigen Schulden, gibt es unterschiedliche Auffassungen. Fragen Sie für Ihre Situation bitte einen Gelehrten Ihres Vertrauens."
+  },
+  "campaigns": {
+    "progress": {
+      "ofGoal": "von {{goal}} gesammelt",
+      "label": "Spendenfortschritt",
+      "valueText": "{{raised}} von {{goal}} gesammelt",
+      "percent": "{{percent}} % des Ziels",
+      "donors_one": "{{count}} Spender",
+      "donors_other": "{{count}} Spender",
+      "daysLeft_one": "Noch {{count}} Tag",
+      "daysLeft_other": "Noch {{count}} Tage",
+      "lastDay": "Letzter Tag"
+    },
+    "state": {
+      "ended": "Aufruf beendet"
+    },
+    "card": {
+      "give": "Für diesen Aufruf spenden",
+      "viewResult": "Ergebnis ansehen",
+      "linkLabel": "{{title}}: Aufruf ansehen und spenden"
+    },
+    "section": {
+      "eyebrow": "Aktuelle Aufrufe",
+      "title": "Helfen Sie uns, diese Ziele zu erreichen",
+      "viewAll": "Alle Aufrufe ansehen"
+    },
+    "page": {
+      "eyebrow": "Spendenaufrufe",
+      "title": "Für einen bestimmten Zweck spenden",
+      "intro": "Jeder Aufruf hat ein klares Ziel. Jede Spende über die Seite eines Aufrufs zählt dafür, und der Fortschritt wird aus echten Spenden aktualisiert.",
+      "loading": "Aufrufe werden geladen...",
+      "error": "Die Aufrufe können gerade nicht geladen werden. Bitte versuchen Sie es gleich noch einmal.",
+      "emptyTitle": "Derzeit laufen keine Aufrufe",
+      "emptyText": "Sie können trotzdem dort spenden, wo es am nötigsten ist. Ihre Spende unterstützt alle unsere Programme.",
+      "endedTitle": "Abgeschlossene Aufrufe"
+    },
+    "detail": {
+      "donate": "Für diesen Aufruf spenden",
+      "donateGeneral": "Dort spenden, wo es am nötigsten ist",
+      "endedNote": "Dieser Aufruf ist beendet. Danke an alle, die gespendet haben. Sie können unsere laufende Arbeit weiterhin unterstützen.",
+      "privacyNote": "Hier werden nur Summen gezeigt. Namen und Beträge von Spendern werden nie veröffentlicht.",
+      "storyTitle": "Über diesen Aufruf"
+    }
+  },
+  "contactPage": {
+    "eyebrow": "Kontakt",
+    "title": "Schreiben Sie uns",
+    "intro": "Fragen zu einer Spende, Quittung oder Zakat? Möchten Sie sich engagieren oder mit uns zusammenarbeiten? Schreiben Sie uns, unser Team antwortet per E-Mail.",
+    "fields": {
+      "name": "Ihr Name",
+      "email": "E-Mail-Adresse",
+      "phone": "Telefonnummer (optional)",
+      "topic": "Worum geht es?",
+      "message": "Ihre Nachricht"
+    },
+    "topics": {
+      "general": "Allgemeine Frage",
+      "donation": "Spende oder Quittung",
+      "zakat": "Frage zur Zakat",
+      "volunteer": "Ehrenamt",
+      "partnership": "Partnerschaft",
+      "other": "Etwas anderes"
+    },
+    "send": "Nachricht senden",
+    "sending": "Wird gesendet...",
+    "replyNote": "Wir antworten in der Regel innerhalb von 3 Werktagen.",
+    "sent": {
+      "title": "Danke, Ihre Nachricht wurde gesendet",
+      "message": "Unser Team antwortet an {{email}}, in der Regel innerhalb von 3 Werktagen."
+    },
+    "errors": {
+      "name": "Bitte geben Sie Ihren Namen ein.",
+      "email": "Bitte geben Sie eine gültige E-Mail-Adresse ein, damit wir antworten können.",
+      "message": "Bitte schreiben Sie eine Nachricht mit wenigstens ein paar Worten.",
+      "tooMany": "Sie haben in kurzer Zeit mehrere Nachrichten gesendet. Bitte warten Sie eine Stunde oder schreiben Sie uns direkt.",
+      "generic": "Ihre Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder schreiben Sie an alokayon2019@gmail.com."
+    },
+    "details": {
+      "title": "Weitere Kontaktwege",
+      "email": "E-Mail",
+      "phone": "Telefon (bKash)",
+      "phoneAlt": "Telefon (Nagad)",
+      "address": "Büroadresse"
+    }
+  },
+  "legal": {
+    "eyebrow": "Richtlinien",
+    "lastUpdatedLabel": "Zuletzt aktualisiert",
+    "lastUpdated": "4. Oktober 2026",
+    "relatedLabel": "Weitere Richtlinien:",
+    "contact": {
+      "title": "Kontakt",
+      "intro": "Wenn Sie Fragen zu dieser Richtlinie haben, kontaktieren Sie uns bitte über die folgenden Angaben.",
+      "organizationLabel": "Organisation",
+      "organization": "Alokayon, registriert beim Department of Social Services, Ministerium für Soziales, Regierung von Bangladesch (2019)",
+      "addressLabel": "Eingetragene Adresse",
+      "emailLabel": "E-Mail",
+      "phoneLabel": "Telefon"
+    },
+    "terms": {
+      "title": "Allgemeine Geschäftsbedingungen",
+      "intro": "Diese Allgemeinen Geschäftsbedingungen gelten für alle, die die Website von Alokayon besuchen oder darüber spenden. Mit der Nutzung dieser Website oder einer Spende stimmen Sie diesen Bedingungen zu. Bitte lesen Sie sie sorgfältig.",
+      "sections": [
+        {
+          "heading": "Über Alokayon",
+          "paragraphs": [
+            "Alokayon ist eine gemeinnützige, parteipolitisch unabhängige Hilfsorganisation in Bangladesch. Sie begann 2011 informell und wurde 2019 beim Department of Social Services des Ministeriums für Soziales offiziell registriert. Alokayon unterstützt benachteiligte Kinder, Witwen, ältere Menschen und bedürftige Familien durch Programme in den Bereichen Bildung, Nothilfe, Gesundheit und Lebensunterhalt."
+          ]
+        },
+        {
+          "heading": "Nutzung dieser Website",
+          "bullets": [
+            "Nutzen Sie diese Website nur für rechtmäßige Zwecke und so, dass weder der Website noch anderen Besuchern geschadet wird.",
+            "Machen Sie bei einer Spende oder Kontaktaufnahme richtige und vollständige Angaben.",
+            "Versuchen Sie nicht, ohne Berechtigung auf die Verwaltungsbereiche der Website zuzugreifen."
+          ]
+        },
+        {
+          "heading": "Spenden",
+          "paragraphs": [
+            "Alle Spenden, einschließlich Zakat und Sadaqah, sind freiwillig. Beträge werden in Bangladesch-Taka (BDT) abgewickelt, sofern nicht anders angegeben.",
+            "Alokayon verwendet Spenden für seine gemeinnützigen Programme. Wenn Sie ein bestimmtes Programm wählen, verwenden wir Ihre Spende für dieses Programm. Ist dieses Programm bereits vollständig finanziert oder kann es nicht mehr durchgeführt werden, können wir die Spende für ein ähnliches Programm mit dem größten Bedarf verwenden."
+          ]
+        },
+        {
+          "heading": "Zahlungen",
+          "paragraphs": [
+            "Online-Zahlungen werden sicher von SSLCommerz abgewickelt, einem lizenzierten Zahlungsanbieter in Bangladesch. Alokayon erhält oder speichert weder Ihre vollständige Kartennummer noch Ihre PIN oder Ihr Mobile-Banking-Passwort.",
+            "Mit einer Zahlung bestätigen Sie, dass Sie berechtigt sind, die gewählte Karte, das Bankkonto oder die mobile Geldbörse zu verwenden. Ihre Bank oder Ihr Zahlungsanbieter kann eigene Gebühren erheben."
+          ]
+        },
+        {
+          "heading": "Bestätigung und Quittungen",
+          "paragraphs": [
+            "Nach einer erfolgreichen Spende erhalten Sie per E-Mail eine offizielle Quittung als PDF. Sie können auch eine handschriftlich unterschriebene Quittung anfordern, die unser Team unterschreibt und Ihnen per E-Mail sendet."
+          ]
+        },
+        {
+          "heading": "Erstattungen",
+          "paragraphs": [
+            "Erstattungen werden gemäß unserer Rückgabe- und Erstattungsrichtlinie behandelt, die Bestandteil dieser Allgemeinen Geschäftsbedingungen ist."
+          ]
+        },
+        {
+          "heading": "Inhalte und geistiges Eigentum",
+          "paragraphs": [
+            "Texte, Fotos, Logos und andere Inhalte dieser Website gehören Alokayon oder werden mit Erlaubnis verwendet. Sie dürfen unsere Inhalte für nicht-kommerzielle Zwecke mit Nennung von Alokayon teilen, sie aber ohne unsere schriftliche Erlaubnis weder verändern noch verkaufen."
+          ]
+        },
+        {
+          "heading": "Links zu anderen Websites",
+          "paragraphs": [
+            "Diese Website kann auf andere Websites verlinken, zum Beispiel auf Zahlungsanbieter. Alokayon ist nicht für die Inhalte oder den Datenschutz dieser Websites verantwortlich."
+          ]
+        },
+        {
+          "heading": "Haftungsbeschränkung",
+          "paragraphs": [
+            "Wir bemühen uns, die Informationen auf dieser Website richtig und die Website verfügbar zu halten, können aber nicht garantieren, dass sie immer fehlerfrei oder ununterbrochen erreichbar ist. Soweit gesetzlich zulässig, haftet Alokayon nicht für mittelbare Schäden, die aus der Nutzung dieser Website entstehen."
+          ]
+        },
+        {
+          "heading": "Anwendbares Recht",
+          "paragraphs": [
+            "Diese Bedingungen unterliegen dem Recht von Bangladesch. Für Streitigkeiten sind die Gerichte in Dhaka zuständig."
+          ]
+        },
+        {
+          "heading": "Änderungen dieser Bedingungen",
+          "paragraphs": [
+            "Wir können diese Allgemeinen Geschäftsbedingungen von Zeit zu Zeit aktualisieren. Die aktualisierte Fassung wird auf dieser Seite mit einem neuen Datum unter „Zuletzt aktualisiert“ veröffentlicht."
+          ]
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Datenschutzerklärung",
+      "intro": "Alokayon respektiert Ihre Privatsphäre. Diese Datenschutzerklärung erklärt, welche personenbezogenen Daten wir erheben, wenn Sie unsere Website besuchen oder spenden, wie wir sie verwenden und welche Wahlmöglichkeiten Sie haben.",
+      "sections": [
+        {
+          "heading": "Welche Daten wir erheben",
+          "bullets": [
+            "Spendenangaben, die Sie machen, etwa Ihr Name, Ihre E-Mail-Adresse, Telefonnummer, der Spendenbetrag und das Programm, das Sie unterstützen möchten.",
+            "Nachrichten, die Sie uns per E-Mail, telefonisch oder über das Kontaktformular auf dieser Website senden.",
+            "Zahlungsdaten werden von unserem Zahlungsanbieter SSLCommerz erhoben und verarbeitet. Alokayon erhält oder speichert weder Ihre vollständige Kartennummer noch Ihre PIN oder Ihr Mobile-Banking-Passwort.",
+            "Wenn Sie das Kontaktformular nutzen, ein aus Ihrer IP-Adresse erzeugter Einweg-Code (nicht die Adresse selbst), der nur dazu dient, wiederholte Spam-Nachrichten zu verhindern.",
+            "Grundlegende technische Informationen, etwa die gewählte Sprache, die in Ihrem eigenen Browser gespeichert wird, sowie übliche Server-Protokolle unserer Hosting-Anbieter."
+          ]
+        },
+        {
+          "heading": "Wie wir Ihre Daten verwenden",
+          "bullets": [
+            "Um Ihre Spende abzuwickeln und ihren Eingang zu bestätigen.",
+            "Um Quittungen auszustellen und Ihre Fragen zu beantworten.",
+            "Um gesetzlich vorgeschriebene, korrekte Finanz- und Buchhaltungsunterlagen zu führen.",
+            "Um über unsere Arbeit zu berichten. Veröffentlichte Berichte enthalten nur Summen und nennen einzelne Spender nie ohne deren Erlaubnis."
+          ]
+        },
+        {
+          "heading": "Weitergabe Ihrer Daten",
+          "paragraphs": [
+            "Wir verkaufen, vermieten oder tauschen Ihre personenbezogenen Daten nicht. Wir geben sie nur weiter an:"
+          ],
+          "bullets": [
+            "SSLCommerz und die beteiligten Banken und mobilen Finanzdienste, um Ihre Zahlung abzuwickeln.",
+            "Dienstleister, die unsere Website und Daten hosten, nur soweit es für den Betrieb der Website nötig ist.",
+            "Behörden oder Strafverfolgungsbehörden in Bangladesch, wenn das Gesetz es verlangt."
+          ]
+        },
+        {
+          "heading": "Nennung von Spendern",
+          "paragraphs": [
+            "Wir veröffentlichen Ihren Namen, Ihr Foto oder Ihre Kommentare weder auf unserer Website noch in unserem Magazin ohne Ihre Erlaubnis."
+          ]
+        },
+        {
+          "heading": "Datensicherheit",
+          "paragraphs": [
+            "Wir setzen angemessene technische und organisatorische Maßnahmen zum Schutz Ihrer Daten ein, und der Zugriff auf Spenderdaten ist auf befugte Mitarbeitende von Alokayon beschränkt. Keine Übertragung über das Internet ist völlig sicher, aber wir achten sorgfältig auf den Schutz Ihrer Daten."
+          ]
+        },
+        {
+          "heading": "Wie lange wir Ihre Daten aufbewahren",
+          "paragraphs": [
+            "Spendenunterlagen bewahren wir so lange auf, wie es für unsere Buchhaltungs-, Prüfungs- und gesetzlichen Pflichten nötig ist. Andere Daten werden gelöscht, sobald sie nicht mehr benötigt werden."
+          ]
+        },
+        {
+          "heading": "Ihre Wahlmöglichkeiten",
+          "paragraphs": [
+            "Sie können uns kontaktieren, um die über Sie gespeicherten personenbezogenen Daten einzusehen, zu berichtigen oder löschen zu lassen. Wir antworten innerhalb einer angemessenen Frist, sofern wir bestimmte Unterlagen nicht gesetzlich aufbewahren müssen."
+          ]
+        },
+        {
+          "heading": "Datenschutz von Kindern",
+          "paragraphs": [
+            "Unsere Website richtet sich an Erwachsene, die spenden. Wir erheben online nicht wissentlich personenbezogene Daten von Kindern."
+          ]
+        },
+        {
+          "heading": "Änderungen dieser Erklärung",
+          "paragraphs": [
+            "Wir können diese Datenschutzerklärung von Zeit zu Zeit aktualisieren. Die aktualisierte Fassung wird auf dieser Seite mit einem neuen Datum unter „Zuletzt aktualisiert“ veröffentlicht."
+          ]
+        }
+      ]
+    },
+    "refund": {
+      "title": "Rückgabe- und Erstattungsrichtlinie",
+      "intro": "Alokayon verkauft keine physischen Produkte. Diese Richtlinie betrifft daher die Erstattung von Spenden über unsere Website. Da Spenden in der Regel schnell Programmen zugewiesen werden, sind sie grundsätzlich nicht erstattungsfähig, außer in den unten beschriebenen Fällen.",
+      "sections": [
+        {
+          "heading": "Wann Sie eine Erstattung beantragen können",
+          "bullets": [
+            "Ihnen wurde dieselbe Spende mehrfach berechnet (doppelte Zahlung).",
+            "Sie haben versehentlich einen falschen Betrag eingegeben.",
+            "Ihr Konto wurde belastet, aber die Spende wurde nicht abgeschlossen.",
+            "Ihre Karte oder Ihr Konto wurde ohne Ihre Erlaubnis verwendet."
+          ]
+        },
+        {
+          "heading": "So beantragen Sie eine Erstattung",
+          "paragraphs": [
+            "Schreiben Sie innerhalb von 7 Tagen nach der Spende an alokayon2019@gmail.com und geben Sie an:"
+          ],
+          "bullets": [
+            "Ihren vollständigen Namen und Ihre Telefonnummer.",
+            "Datum und Betrag der Spende.",
+            "Die Transaktions-ID und die Zahlungsart (Karte, bKash, Nagad, Bank usw.).",
+            "Den Grund für den Erstattungsantrag."
+          ]
+        },
+        {
+          "heading": "Prüfung und Bearbeitungszeit",
+          "paragraphs": [
+            "Wir prüfen Ihren Antrag und antworten innerhalb von 3 Werktagen.",
+            "Genehmigte Erstattungen werden innerhalb von 7 bis 10 Werktagen bearbeitet und auf die ursprüngliche Zahlungsart zurückgezahlt. Je nach Bank oder mobilem Finanzdienst kann es einige zusätzliche Tage dauern, bis der Betrag auf Ihrem Konto erscheint."
+          ]
+        },
+        {
+          "heading": "Zakat-Spenden",
+          "paragraphs": [
+            "Wird eine Zakat-Spende erstattet, wurde dieser Betrag nicht als Zakat in Ihrem Namen verteilt. Bitte bedenken Sie dies, bevor Sie eine Erstattung beantragen."
+          ]
+        },
+        {
+          "heading": "Stornierungen",
+          "paragraphs": [
+            "Wenn Sie versehentlich gespendet haben, kontaktieren Sie uns so schnell wie möglich. Anfragen, die eingehen, bevor die Mittel zugewiesen wurden, können wir leichter lösen."
+          ]
+        }
+      ]
     }
   }
 }

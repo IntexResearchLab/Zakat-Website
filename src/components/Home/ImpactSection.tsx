@@ -12,7 +12,7 @@ function ImpactSection() {
 
   return (
     <section className="bg-[#f4f7f2] py-12 sm:py-14" id="home-impact">
-      <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6 lg:flex-row lg:items-start lg:justify-between lg:gap-20">
+      <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6 xl:flex-row xl:items-start xl:justify-between xl:gap-20">
         <Reveal className="max-w-md">
           <h2 className="text-[2.15rem] font-black leading-[1.05] tracking-[-0.04em] text-[#14324d] sm:text-[2.65rem]">
             {t('home.impact.title')}
@@ -31,15 +31,15 @@ function ImpactSection() {
           </Link>
         </Reveal>
 
-        <Reveal className="flex-1" delay={120}>
+        <Reveal className="min-w-0 flex-1" delay={120}>
           <div className="border-t border-[#d8e5dd] pt-8">
-            <div className="grid gap-y-8 text-left sm:grid-cols-2 sm:gap-x-12 lg:grid-cols-4 lg:gap-x-10">
+            <div className="grid gap-y-8 text-left grid-cols-2 gap-x-8 sm:gap-x-12 lg:grid-cols-4 lg:gap-x-10">
             {primaryImpactStats.map((stat) => (
               <div className="hover-lift-soft" key={stat.label}>
                 <p className="font-serif text-[2.45rem] leading-none tracking-[-0.05em] text-[#14324d] sm:text-[2.9rem]">
                   {stat.value}
                 </p>
-                <p className="mt-2 max-w-[12rem] text-[0.92rem] font-semibold tracking-[0.02em] text-[#697b86]">
+                <p className="mt-2 max-w-[12rem] text-[0.92rem] font-semibold tracking-[0.02em] text-[#5d6d78]">
                   {stat.label}
                 </p>
               </div>
@@ -59,11 +59,11 @@ function ImpactSection() {
                   to={program.href}
                 >
                   <div className="flex items-start gap-4">
-                    <span className="material-symbols-outlined rounded-full bg-[#e9f2ec] p-3 text-[1.3rem] text-[#115b82]">
+                    <span aria-hidden="true" className="material-symbols-outlined rounded-full bg-[#e9f2ec] p-3 text-[1.3rem] text-[#115b82]">
                       {program.icon}
                     </span>
                     <div className="min-w-0 flex-1">
-                      <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
+                      <div className="flex flex-col gap-2">
                         <h3 className="font-serif text-[1.3rem] leading-tight tracking-[-0.02em] text-[#14324d]">
                           {program.title}
                         </h3>

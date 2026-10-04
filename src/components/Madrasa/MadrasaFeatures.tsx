@@ -25,7 +25,7 @@ function MadrasaFeatures() {
               className="rounded-[1.35rem] border border-[#dde5de] bg-[#fcfdfb] p-6 shadow-[0_14px_30px_rgba(18,28,22,0.04)]"
             >
               <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#eef6f0] text-[#2f6a52]">
-                <span className="material-symbols-outlined text-[1.4rem]">
+                <span aria-hidden="true" className="material-symbols-outlined text-[1.4rem]">
                   {item.icon}
                 </span>
               </div>

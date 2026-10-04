@@ -17,17 +17,20 @@ import {
 
 function Transparency() {
   const { t } = useTranslation()
-  const [defaultSections] = useState(
-    () =>
-      t('transparency.defaultSections', {
-        returnObjects: true,
-      }) as string[],
+  // Recomputed when the language changes, so section names follow the selected language.
+  const defaultSections = useMemo(
+    () => t('transparency.defaultSections', { returnObjects: true }) as string[],
+    [t],
   )
-  const [issues, setIssues] = useState<MagazineIssue[]>(
+  const [loadedIssues, setIssues] = useState<MagazineIssue[]>(
     () => getCachedMagazineIssues(defaultSections) ?? [],
   )
+  const issues = useMemo(
+    () => loadedIssues.map((issue) => ({ ...issue, sections: defaultSections })),
+    [loadedIssues, defaultSections],
+  )
   const [isLoading, setIsLoading] = useState(issues.length === 0)
-  const [errorMessage, setErrorMessage] = useState('')
+  const [hasError, setHasError] = useState(false)
   const [selectedYear, setSelectedYear] = useState('')
 
   useEffect(() => {
@@ -38,7 +41,7 @@ function Transparency() {
       if (!hasCachedIssues) {
         setIsLoading(true)
       }
-      setErrorMessage('')
+      setHasError(false)
 
       const { data, error } = await fetchMagazineRows({
         forceRefresh: hasCachedIssues,
@@ -49,7 +52,9 @@ function Transparency() {
       }
 
       if (error) {
-        setErrorMessage(error.message)
+        // The technical details go to the console; visitors see a plain message.
+        console.error('[transparency]', error.message)
+        setHasError(!hasCachedIssues)
         setIsLoading(false)
         return
       }
@@ -92,7 +97,7 @@ function Transparency() {
     )
   }
 
-  if (errorMessage) {
+  if (hasError) {
     return (
       <section className="bg-white py-24">
         <div className="mx-auto max-w-3xl px-6 text-center">
@@ -102,24 +107,28 @@ function Transparency() {
           <p className="mt-4 text-[1rem] leading-[1.8] text-[#647783]">
             {t('transparency.states.errorDescription')}
           </p>
-          <p className="mt-3 text-sm text-[#8a9ba7]">{errorMessage}</p>
         </div>
       </section>
     )
   }
 
   if (!selectedIssue) {
+    // No magazines published yet: explain that, but keep the rest of the transparency page.
     return (
-      <section className="bg-white py-24">
-        <div className="mx-auto max-w-3xl px-6 text-center">
-          <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#115b82]">
-            {t('transparency.states.emptyTitle')}
-          </p>
-          <p className="mt-4 text-[1rem] leading-[1.8] text-[#647783]">
-            {t('transparency.states.emptyDescription')}
-          </p>
-        </div>
-      </section>
+      <>
+        <section className="bg-white py-24">
+          <div className="mx-auto max-w-3xl px-6 text-center">
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#115b82]">
+              {t('transparency.states.emptyTitle')}
+            </p>
+            <p className="mt-4 text-[1rem] leading-[1.8] text-[#5d6d78]">
+              {t('transparency.states.emptyDescription')}
+            </p>
+          </div>
+        </section>
+        <TransparencyHighlights />
+        <TransparencyFinancialSnapshot />
+      </>
     )
   }
 

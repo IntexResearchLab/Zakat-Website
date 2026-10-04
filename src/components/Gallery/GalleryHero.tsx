@@ -11,7 +11,8 @@ function GalleryHero() {
         <img
           alt=""
           className="h-full w-full object-cover blur-[3px]"
-          src="/assets/home/Alokayon_School_1.jpg"
+          decoding="async"
+          src="/assets/home/Alokayon_School_1.webp"
         />
       </div>
       <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(249,252,254,0.97),rgba(238,247,251,0.9))]" />
@@ -27,7 +28,7 @@ function GalleryHero() {
           <p className="mx-auto mt-6 max-w-3xl text-[1rem] leading-[1.8] text-[#5f7280] sm:text-[1.08rem]">
             {t('galleryPage.hero.description')}
           </p>
-          <p className="mx-auto mt-4 max-w-2xl text-[0.9rem] font-medium leading-[1.7] text-[#78909e]">
+          <p className="mx-auto mt-4 max-w-2xl text-[0.9rem] font-medium leading-[1.7] text-[#5d6d78]">
             {t('galleryPage.hero.note')}
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">

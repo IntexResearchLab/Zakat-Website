@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import Reveal from '../reusables/Reveal'
 import type { MagazineIssue } from './types'
 import { downloadFile } from '../../lib/download'
+import Breadcrumb from '../reusables/Breadcrumb'
 
 type TransparencyHeroProps = {
   latestIssue: MagazineIssue
@@ -15,20 +16,17 @@ function TransparencyHero({ latestIssue }: TransparencyHeroProps) {
     <section className="border-b border-[#d8e5ec] bg-[radial-gradient(circle_at_top_left,rgba(225,240,249,0.85),rgba(250,253,255,1)_48%,rgba(255,255,255,1)_100%)]">
       <div className="mx-auto grid max-w-7xl gap-12 px-6 py-14 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:gap-20 lg:py-20">
         <Reveal className="max-w-2xl">
-          <p className="text-[1rem] font-medium tracking-[-0.01em] text-[#5f7280]">
-            [{t('common.breadcrumb.home')} /{' '}
-            <span className="text-[#c58b16]">{t('common.breadcrumb.transparency')}</span>]
-          </p>
+          <Breadcrumb items={[{ label: t('common.breadcrumb.transparency') }]} />
           <p className="mt-8 text-sm font-bold uppercase tracking-[0.2em] text-[#115b82]">
             {t('transparency.hero.eyebrow')}
           </p>
-          <h1 className="mt-5 max-w-[12ch] font-serif text-[3rem] font-semibold leading-[0.96] tracking-[-0.05em] text-[#101d2b] sm:text-[4.2rem]">
+          <h1 className="mt-5 max-w-[12ch] hyphens-auto font-serif [overflow-wrap:anywhere] text-[3rem] font-semibold leading-[0.96] tracking-[-0.05em] text-[#101d2b] sm:text-[4.2rem]">
             {t('transparency.hero.title')}
           </h1>
           <p className="mt-7 max-w-[37rem] text-[1.05rem] leading-[1.85] text-[#5d6d78] sm:text-[1.08rem]">
             {t('transparency.hero.description')}
           </p>
-          <p className="mt-5 text-[0.92rem] font-semibold leading-[1.7] text-[#6b7c87]">
+          <p className="mt-5 text-[0.92rem] font-semibold leading-[1.7] text-[#5d6d78]">
             {t('transparency.hero.trustLine')}
           </p>
 
@@ -62,11 +60,12 @@ function TransparencyHero({ latestIssue }: TransparencyHeroProps) {
                   <img
                     alt={latestIssue.title}
                     className="h-full w-full rounded-[1rem] object-cover"
+                    decoding="async"
                     src={latestIssue.coverImageUrl}
                   />
                 ) : (
                   <div className="text-center">
-                    <span className="material-symbols-outlined text-[4rem] text-[#115b82]">
+                    <span aria-hidden="true" className="material-symbols-outlined text-[4rem] text-[#115b82]">
                       picture_as_pdf
                     </span>
                     <p className="mt-4 text-sm font-bold uppercase tracking-[0.18em] text-[#115b82]">
