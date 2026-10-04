@@ -52,7 +52,9 @@ export const getFriendlyErrorMessage = (
     message.includes('not authorized') ||
     message.includes('unauthorized') ||
     status === 403 ||
-    code === '42501'
+    code === '42501' ||
+    // .single() after an update that row level security blocked: zero rows came back.
+    code === 'PGRST116'
   ) {
     return t('admin.errors.permission')
   }
@@ -75,3 +77,10 @@ export const getFriendlyErrorMessage = (
 
   return t(fallbackKey)
 }
+
+// Row level security blocks an update or delete silently: no error, just zero rows changed.
+// Treating that as a permission error stops the admin being told a change was saved when it wasn't.
+const noRowsChangedError = { code: '42501', message: 'permission denied: no rows were changed' }
+
+export const requireChangedRows = ({ data, error }: { data: unknown[] | null; error: ErrorLike }) =>
+  error ?? (data?.length ? null : noRowsChangedError)

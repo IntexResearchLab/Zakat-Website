@@ -31,8 +31,8 @@ export const getGatewayConfig = (): GatewayConfig => {
   }
 }
 
-// Callback URLs must point at the public site. SITE_URL is preferred in production
-// so that requests arriving through other hostnames still return to the registered domain.
+// Callback URLs and receipt email links must point at the public site. The request's Host header
+// is only trusted for local development: anywhere else a forged header could send donors elsewhere.
 export const getSiteUrl = (req: IncomingMessage) => {
   const configured = process.env.SITE_URL?.replace(/\/+$/, '')
 
@@ -40,11 +40,22 @@ export const getSiteUrl = (req: IncomingMessage) => {
     return configured
   }
 
-  const forwardedProto = String(req.headers['x-forwarded-proto'] ?? '').split(',')[0]
-  const host = String(req.headers['x-forwarded-host'] ?? req.headers.host ?? '')
-  const protocol = forwardedProto || (host.startsWith('localhost') ? 'http' : 'https')
+  const host = String(req.headers.host ?? '')
 
-  return `${protocol}://${host}`
+  if (/^(localhost|127\.0\.0\.1)(:\d+)?$/.test(host)) {
+    return `http://${host}`
+  }
+
+  // Set automatically by Vercel to the project's production domain.
+  const vercelDomain = process.env.VERCEL_PROJECT_PRODUCTION_URL
+
+  if (vercelDomain) {
+    return `https://${vercelDomain}`
+  }
+
+  // Redirects still work with a relative address; absolute links will fail until SITE_URL is set.
+  console.error('[site-url] SITE_URL is not set')
+  return ''
 }
 
 const readRawBody = (req: IncomingMessage) =>

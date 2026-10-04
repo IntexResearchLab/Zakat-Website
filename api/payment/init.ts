@@ -50,6 +50,13 @@ export default async function handler(req: ApiRequest, res: ServerResponse) {
     return sendJson(res, 400, { error: 'invalid_donor' })
   }
 
+  const siteUrl = getSiteUrl(req)
+
+  // SSLCommerz needs absolute callback addresses.
+  if (!siteUrl) {
+    return sendJson(res, 503, { error: 'unavailable' })
+  }
+
   const transactionId = createTransactionId()
 
   try {
@@ -83,7 +90,7 @@ export default async function handler(req: ApiRequest, res: ServerResponse) {
       email,
       phone,
       category,
-      siteUrl: getSiteUrl(req),
+      siteUrl,
     })
 
     return sendJson(res, 200, { url: gatewayUrl })

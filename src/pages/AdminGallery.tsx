@@ -10,7 +10,7 @@ import {
   type GalleryRecord,
   type GallerySpan,
 } from '../lib/galleryItems'
-import { getFriendlyErrorMessage } from '../lib/adminErrors'
+import { getFriendlyErrorMessage, requireChangedRows } from '../lib/adminErrors'
 import { moveAndRenumber, persistSortOrder, setRowVisibility } from '../lib/adminOrdering'
 import { supabase } from '../utils/supabase'
 
@@ -245,7 +245,9 @@ function AdminGallery() {
     setErrorMessage('')
     setSuccessMessage('')
 
-    const { error } = await supabase.from('gallery_items').delete().eq('id', item.id)
+    const error = requireChangedRows(
+      await supabase.from('gallery_items').delete().eq('id', item.id).select('id'),
+    )
 
     if (error) {
       setErrorMessage(getFriendlyErrorMessage(t, error))

@@ -9,7 +9,7 @@ import {
   invalidateExecutiveRowsCache,
   type ExecutiveMember,
 } from '../lib/executives'
-import { getFriendlyErrorMessage } from '../lib/adminErrors'
+import { getFriendlyErrorMessage, requireChangedRows } from '../lib/adminErrors'
 import { moveAndRenumber, persistSortOrder, setRowVisibility } from '../lib/adminOrdering'
 import { supabase } from '../utils/supabase'
 
@@ -225,7 +225,9 @@ function AdminExecutives() {
     setErrorMessage('')
     setSuccessMessage('')
 
-    const { error } = await supabase.from('executive_members').delete().eq('id', member.id)
+    const error = requireChangedRows(
+      await supabase.from('executive_members').delete().eq('id', member.id).select('id'),
+    )
 
     if (error) {
       setErrorMessage(getFriendlyErrorMessage(t, error))

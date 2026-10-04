@@ -1,4 +1,5 @@
 import { supabase } from '../utils/supabase'
+import { requireChangedRows } from './adminErrors'
 
 type OrderedRow = {
   id: string
@@ -30,13 +31,16 @@ export const moveAndRenumber = <T extends OrderedRow>(items: T[], id: string, di
 
 export const persistSortOrder = async (table: OrderedTable, rows: OrderedRow[]) => {
   const results = await Promise.all(
-    rows.map((row) => supabase.from(table).update({ sort_order: row.sort_order }).eq('id', row.id)),
+    rows.map((row) =>
+      supabase.from(table).update({ sort_order: row.sort_order }).eq('id', row.id).select('id'),
+    ),
   )
 
-  return results.find((result) => result.error)?.error ?? null
+  return results.map(requireChangedRows).find(Boolean) ?? null
 }
 
 export const setRowVisibility = async (table: OrderedTable, id: string, isActive: boolean) => {
-  const { error } = await supabase.from(table).update({ is_active: isActive }).eq('id', id)
-  return error
+  return requireChangedRows(
+    await supabase.from(table).update({ is_active: isActive }).eq('id', id).select('id'),
+  )
 }

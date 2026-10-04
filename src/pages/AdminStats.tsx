@@ -6,7 +6,7 @@ import {
   type PublicStatsGroup,
   type PublicStatsKey,
 } from '../content/stats'
-import { getFriendlyErrorMessage } from '../lib/adminErrors'
+import { getFriendlyErrorMessage, requireChangedRows } from '../lib/adminErrors'
 import { invalidatePublicStatsCache } from '../lib/publicStats'
 import { supabase } from '../utils/supabase'
 
@@ -46,6 +46,8 @@ function AdminStats() {
     }, {} as EditableStatsMap),
   )
   const [isLoading, setIsLoading] = useState(true)
+  // Only seed an empty table after a successful load, never because loading failed.
+  const [hasLoaded, setHasLoaded] = useState(false)
   const [isSavingAll, setIsSavingAll] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
   const [successMessage, setSuccessMessage] = useState('')
@@ -114,6 +116,7 @@ function AdminStats() {
 
     const nextRows = (data ?? []) as PublicStatRow[]
     setRows(nextRows)
+    setHasLoaded(true)
     setDraftValues((current) => {
       const nextDrafts = { ...current }
       nextRows.forEach((row) => {
@@ -167,6 +170,40 @@ function AdminStats() {
     setSuccessMessage('')
 
     const timestamp = new Date().toISOString()
+
+    // An empty table shows the built-in defaults, which have no database rows to update yet.
+    // Saving then creates every row, so the figures can be edited from now on.
+    if (!rows.length) {
+      if (!hasLoaded) {
+        setErrorMessage(t('admin.errors.network'))
+        setIsSavingAll(false)
+        return
+      }
+
+      const { error } = await supabase.from('public_stats').insert(
+        sourceRows.map((row) => ({
+          key: row.key,
+          value: (draftValues[row.key] ?? row.value).trim(),
+          description: row.description,
+          group_name: row.group_name,
+          sort_order: row.sort_order,
+          is_active: row.is_active,
+          updated_at: timestamp,
+        })),
+      )
+
+      if (error) {
+        setErrorMessage(getFriendlyErrorMessage(t, error))
+      } else {
+        invalidatePublicStatsCache()
+        await loadStats()
+        setSuccessMessage(t('admin.stats.saveSuccess', { count: changedRows.length }))
+      }
+
+      setIsSavingAll(false)
+      return
+    }
+
     const updates = changedRows.map((row) =>
       supabase
         .from('public_stats')
@@ -174,13 +211,14 @@ function AdminStats() {
           value: draftValues[row.key].trim(),
           updated_at: timestamp,
         })
-        .eq('id', row.id),
+        .eq('id', row.id)
+        .select('id'),
     )
 
-    const results = await Promise.all(updates)
+    const results = (await Promise.all(updates)).map(requireChangedRows)
     // Updates run independently, so keep the ones that succeeded even if another failed.
-    const savedRows = changedRows.filter((_, index) => !results[index].error)
-    const firstError = results.find((result) => result.error)?.error
+    const savedRows = changedRows.filter((_, index) => !results[index])
+    const firstError = results.find(Boolean)
 
     if (savedRows.length) {
       invalidatePublicStatsCache()

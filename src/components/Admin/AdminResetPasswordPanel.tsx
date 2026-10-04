@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link, useNavigate } from 'react-router-dom'
-import { supabase } from '../../utils/supabase'
+import { hasRecoverySession, supabase } from '../../utils/supabase'
 import { getFriendlyErrorMessage } from '../../lib/adminErrors'
 
 function AdminResetPasswordPanel() {
@@ -25,7 +25,9 @@ function AdminResetPasswordPanel() {
       } = await supabase.auth.getSession()
 
       if (isMounted) {
-        setHasValidLink(Boolean(session))
+        // A normal signed-in session is not enough: anyone at an unattended computer could
+        // otherwise change the password without knowing the current one.
+        setHasValidLink(Boolean(session) && hasRecoverySession())
         setIsCheckingLink(false)
       }
     }
@@ -35,7 +37,7 @@ function AdminResetPasswordPanel() {
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((event, session) => {
-      if (event === 'PASSWORD_RECOVERY' || session) {
+      if (event === 'PASSWORD_RECOVERY' || (session && hasRecoverySession())) {
         setHasValidLink(true)
         setIsCheckingLink(false)
       }

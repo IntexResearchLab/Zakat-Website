@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import AdminImageInput from '../components/Admin/AdminImageInput'
 import AdminShellLayout from '../components/Admin/AdminShellLayout'
-import { getFriendlyErrorMessage } from '../lib/adminErrors'
+import { getFriendlyErrorMessage, requireChangedRows } from '../lib/adminErrors'
 import { invalidateMagazineRowsCache } from '../lib/magazines'
 import { supabase } from '../utils/supabase'
 
@@ -228,7 +228,9 @@ function AdminMagazines() {
     setErrorMessage('')
     setSuccessMessage('')
 
-    const { error } = await supabase.from('magazines').delete().eq('id', magazine.id)
+    const error = requireChangedRows(
+      await supabase.from('magazines').delete().eq('id', magazine.id).select('id'),
+    )
 
     if (error) {
       setErrorMessage(getFriendlyErrorMessage(t, error))
@@ -350,10 +352,10 @@ function AdminMagazines() {
     }
 
     const query = editingId
-      ? supabase.from('magazines').update(payload).eq('id', editingId)
-      : supabase.from('magazines').insert(payload)
+      ? supabase.from('magazines').update(payload).eq('id', editingId).select('id')
+      : supabase.from('magazines').insert(payload).select('id')
 
-    const { error } = await query
+    const error = requireChangedRows(await query)
 
     if (error) {
       setErrorMessage(getFriendlyErrorMessage(t, error))
