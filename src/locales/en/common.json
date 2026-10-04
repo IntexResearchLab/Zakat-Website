@@ -3054,5 +3054,33 @@
         }
       ]
     }
+  },
+  "seo": {
+    "descriptions": {
+      "home": "Alokayon is a registered charity in Bangladesh. Give your zakat and donations to support students, widows, elderly people and vulnerable families.",
+      "about": "The story of Alokayon: founded in 2011 as Dushtho Sheba, registered in 2019, and serving underprivileged communities in Bangladesh with dignity and accountability.",
+      "programs": "Alokayon's programs: education, healthcare, widow support, relief, livelihood, elderly care, the Alokayon Pathshala school and the Hafezi madrasa.",
+      "school": "Alokayon Pathshala gives free education to underprivileged children in Dhaka's slum communities.",
+      "madrasa": "Abdul Karim Miazi Hafezi Madrasa combines Qur'anic, Arabic and Bengali education for its students.",
+      "gallery": "Photos of Alokayon's work: school days, relief distributions, livelihood support and community care.",
+      "opinions": "Students, families and widows describe how support from Alokayon changed their lives.",
+      "donors": "Donors in Bangladesh and abroad explain why they give their zakat and donations through Alokayon.",
+      "transparency": "Read Alokayon's annual magazines and financial reports to see how donations are received and spent.",
+      "donate": "Donate to Alokayon securely by card, bKash or Nagad, and receive an emailed receipt. Your zakat reaches students, widows and families in need.",
+      "terms": "Terms and conditions for donating to Alokayon.",
+      "privacy": "How Alokayon collects, uses and protects your personal information.",
+      "refund": "Alokayon's return and refund policy for donations."
+    },
+    "notFoundTitle": "Page not found"
+  },
+  "notFound": {
+    "eyebrow": "Error 404",
+    "title": "We couldn't find that page",
+    "message": "The link may be broken, or the page may have moved. Try one of these instead.",
+    "homeButton": "Go to the home page",
+    "donateButton": "Donate",
+    "programsLink": "Our programs",
+    "transparencyLink": "Reports and magazines",
+    "contactNote": "Still looking for something? Email us at"
   }
 }

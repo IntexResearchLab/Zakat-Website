@@ -2411,5 +2411,33 @@
       "description": "Die Arbeit geht weiter, weil Menschen sich entscheiden, Vertrauen in Handeln zu verwandeln.",
       "secondary": "Programme ansehen"
     }
+  },
+  "seo": {
+    "descriptions": {
+      "home": "Alokayon ist eine registrierte Hilfsorganisation in Bangladesch. Geben Sie Ihre Zakat und Spenden für Schüler, Witwen, ältere Menschen und bedürftige Familien.",
+      "about": "Die Geschichte von Alokayon: 2011 als Dushtho Sheba gegründet, 2019 registriert und mit Würde und Verantwortung im Dienst benachteiligter Gemeinschaften in Bangladesch.",
+      "programs": "Die Programme von Alokayon: Bildung, Gesundheit, Witwenhilfe, Nothilfe, Lebensunterhalt, Altenhilfe, die Schule Alokayon Pathshala und die Hafezi-Madrasa.",
+      "school": "Alokayon Pathshala bietet Kindern aus den Slums von Dhaka kostenlose Bildung.",
+      "madrasa": "Die Abdul Karim Miazi Hafezi Madrasa verbindet Koran-, Arabisch- und Bengalischunterricht.",
+      "gallery": "Fotos aus der Arbeit von Alokayon: Schulalltag, Hilfsverteilungen, Unterstützung für den Lebensunterhalt und Gemeinschaftshilfe.",
+      "opinions": "Schüler, Familien und Witwen erzählen, wie die Hilfe von Alokayon ihr Leben verändert hat.",
+      "donors": "Spender aus Bangladesch und dem Ausland erklären, warum sie ihre Zakat und Spenden über Alokayon geben.",
+      "transparency": "Lesen Sie die Jahresmagazine und Finanzberichte von Alokayon und sehen Sie, wie Spenden eingehen und verwendet werden.",
+      "donate": "Spenden Sie sicher per Karte, bKash oder Nagad an Alokayon und erhalten Sie eine Quittung per E-Mail. Ihre Zakat erreicht Schüler, Witwen und bedürftige Familien.",
+      "terms": "Allgemeine Bedingungen für Spenden an Alokayon.",
+      "privacy": "Wie Alokayon Ihre persönlichen Daten erhebt, verwendet und schützt.",
+      "refund": "Rückgabe- und Erstattungsrichtlinie von Alokayon für Spenden."
+    },
+    "notFoundTitle": "Seite nicht gefunden"
+  },
+  "notFound": {
+    "eyebrow": "Fehler 404",
+    "title": "Diese Seite wurde nicht gefunden",
+    "message": "Der Link ist möglicherweise fehlerhaft oder die Seite wurde verschoben. Versuchen Sie stattdessen eine dieser Seiten.",
+    "homeButton": "Zur Startseite",
+    "donateButton": "Spenden",
+    "programsLink": "Unsere Programme",
+    "transparencyLink": "Berichte und Magazine",
+    "contactNote": "Suchen Sie noch etwas? Schreiben Sie uns an"
   }
 }

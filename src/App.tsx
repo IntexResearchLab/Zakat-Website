@@ -6,7 +6,7 @@ import PageTitle from './components/reusables/PageTitle'
 import ScrollToTop from './components/reusables/ScrollToTop'
 import { PublicStatsProvider } from './lib/publicStats'
 import { lazy, Suspense } from 'react'
-import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
+import { Route, Routes, useLocation } from 'react-router-dom'
 
 // Each page downloads when it is first opened. Home stays in the main bundle so the
 // landing page renders without waiting for a second request.
@@ -25,6 +25,7 @@ const DonationResult = lazy(() => import('./pages/DonationResult'))
 const Gallery = lazy(() => import('./pages/Gallery'))
 const LegalPage = lazy(() => import('./pages/LegalPage'))
 const Madrasa = lazy(() => import('./pages/Madrasa'))
+const NotFound = lazy(() => import('./pages/NotFound'))
 const OpinionsOfBeneficiaries = lazy(() => import('./pages/OpinionsOfBeneficiaries'))
 const OurDonors = lazy(() => import('./pages/OurDonors'))
 const Programs = lazy(() => import('./pages/Programs'))
@@ -120,7 +121,7 @@ function App() {
             <Route path="/privacy-policy" element={<LegalPage policy="privacy" />} />
             <Route path="/refund-policy" element={<LegalPage policy="refund" />} />
             <Route path="/transparency/:year" element={<TransparencyReader />} />
-            <Route path="*" element={<Navigate replace to="/" />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
         {!isAdminRoute ? <Footer /> : null}
