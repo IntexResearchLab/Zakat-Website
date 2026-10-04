@@ -40,7 +40,9 @@ function FounderMessageSection() {
               <img
                 alt={t('home.founder.imageAlt')}
                 className="aspect-[4/5] w-full rounded-[1rem] object-cover"
-                src="/assets/about/founder-akm-fazlul-quader.jpg"
+                decoding="async"
+                loading="lazy"
+                src="/assets/about/founder-akm-fazlul-quader.webp"
               />
             </div>
           </Reveal>
@@ -111,7 +113,9 @@ function FounderMessageSection() {
                     <img
                       alt={t('home.founder.imageAlt')}
                       className="aspect-[4/5] w-full rounded-[0.95rem] object-cover"
-                      src="/assets/about/founder-akm-fazlul-quader.jpg"
+                      decoding="async"
+                      loading="lazy"
+                      src="/assets/about/founder-akm-fazlul-quader.webp"
                     />
                   </div>
                   <div className="mt-5 border-l-2 border-[#d9e4eb] pl-4">

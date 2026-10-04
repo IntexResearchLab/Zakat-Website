@@ -179,7 +179,7 @@
       "verseLabel": "Erinnerung aus dem Koran",
       "slides": [
         {
-          "image": "/assets/home/celebration.jpg",
+          "image": "/assets/home/celebration.webp",
           "eyebrow": "Glaube in Aktion",
           "titleTop": "Geben Sie Ihre Zakat.",
           "titleBottom": "Verändern Sie Leben.",
@@ -191,7 +191,7 @@
           "alt": "Kinder versammelt während einer Alokayon-Hilfsaktion"
         },
         {
-          "image": "/assets/about/Donating.jpg",
+          "image": "/assets/about/Donating.webp",
           "eyebrow": "Transparente Wirkung",
           "titleTop": "Geben Sie mit Vertrauen.",
           "titleBottom": "Erreichen Sie echte Menschen.",
@@ -203,7 +203,7 @@
           "alt": "Gemeindemitglieder erhalten Unterstützung durch Alokayon"
         },
         {
-          "image": "/assets/school/School_3.jpg",
+          "image": "/assets/school/School_3.webp",
           "eyebrow": "Mitgefühl, das bleibt",
           "titleTop": "Stehen Sie an der Seite",
           "titleBottom": "derer, die in Not sind.",
@@ -956,17 +956,17 @@
       "title": "Echte Momente hinter jeder Spendenhandlung.",
       "items": [
         {
-          "image": "/assets/about/book-distribution.jpg",
+          "image": "/assets/about/book-distribution.webp",
           "title": "Bildungsunterstützung",
           "caption": "Kindern helfen, mit direkter, praktischer Unterstützung am Lernen teilzuhaben."
         },
         {
-          "image": "/assets/about/community-support.jpg",
+          "image": "/assets/about/community-support.webp",
           "title": "Gemeinschaftsfürsorge",
           "caption": "Momente persönlichen Dienstes, die Spenden in sichtbare Wirkung verwandeln."
         },
         {
-          "image": "/assets/about/winter-relief-sunamganj.jpg",
+          "image": "/assets/about/winter-relief-sunamganj.webp",
           "title": "Nothilfe & Würde",
           "caption": "Nothilfe erreicht Familien durch stille, rechenschaftspflichtige Verteilung vor Ort."
         }

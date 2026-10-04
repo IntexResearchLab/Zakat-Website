@@ -13,7 +13,9 @@ function MissionSection() {
             <img
               alt={t('home.mission.imageAlt')}
               className="aspect-[4/5] w-full object-cover transition duration-700 hover:scale-[1.03]"
-              src="/assets/home/Alokayon_School_1.jpg"
+              decoding="async"
+              loading="lazy"
+              src="/assets/home/Alokayon_School_1.webp"
             />
           </div>
 

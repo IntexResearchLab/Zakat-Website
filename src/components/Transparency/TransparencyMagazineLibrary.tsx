@@ -122,6 +122,8 @@ function TransparencyMagazineLibrary({
                 <img
                   alt={selectedIssue.title}
                   className="h-full w-full rounded-[1rem] object-cover"
+                  decoding="async"
+                  loading="lazy"
                   src={selectedIssue.coverImageUrl}
                 />
               ) : (

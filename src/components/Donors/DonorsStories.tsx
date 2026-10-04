@@ -37,6 +37,8 @@ function DonorsStories() {
                         <img
                           alt={story.name}
                           className="h-14 w-14 shrink-0 rounded-full object-cover"
+                          decoding="async"
+                          loading="lazy"
                           src={story.image}
                         />
                       ) : null}

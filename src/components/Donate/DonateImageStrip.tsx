@@ -29,6 +29,8 @@ function DonateImageStrip() {
                 <img
                   alt={item.title}
                   className="aspect-[4/3] w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+                  decoding="async"
+                  loading="lazy"
                   src={item.image}
                 />
               </div>

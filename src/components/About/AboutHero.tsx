@@ -42,7 +42,8 @@ function AboutHero() {
               <img
                 alt={t('about.hero.imageAlt')}
                 className="aspect-[5/4] w-full object-cover"
-                src="/assets/about/Giving.jpg"
+                decoding="async"
+                src="/assets/about/Giving.webp"
               />
             </div>
 
@@ -50,7 +51,8 @@ function AboutHero() {
               <img
                 alt={t('about.hero.logoAlt')}
                 className="h-22 w-22 rounded-full border border-white/85 bg-white/96 object-contain p-1.5 shadow-[0_16px_36px_rgba(15,23,42,0.16)] backdrop-blur-sm sm:h-26 sm:w-26 sm:p-2"
-                src="/assets/about/Logo.png"
+                decoding="async"
+                src="/assets/about/Logo.webp"
               />
             </div>
           </div>

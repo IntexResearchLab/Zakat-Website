@@ -22,6 +22,8 @@ function AboutPurposeSections() {
                 <img
                   alt={section.imageAlt}
                   className="aspect-[5/4] w-full object-cover"
+                  decoding="async"
+                  loading="lazy"
                   src={section.image}
                 />
               </div>
@@ -29,6 +31,8 @@ function AboutPurposeSections() {
                 <img
                   alt=""
                   className="aspect-[4/5] w-full object-cover"
+                  decoding="async"
+                  loading="lazy"
                   src={section.secondaryImage}
                 />
               </div>

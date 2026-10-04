@@ -11,7 +11,8 @@ function GalleryHero() {
         <img
           alt=""
           className="h-full w-full object-cover blur-[3px]"
-          src="/assets/home/Alokayon_School_1.jpg"
+          decoding="async"
+          src="/assets/home/Alokayon_School_1.webp"
         />
       </div>
       <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(249,252,254,0.97),rgba(238,247,251,0.9))]" />

@@ -60,6 +60,7 @@ function TransparencyHero({ latestIssue }: TransparencyHeroProps) {
                   <img
                     alt={latestIssue.title}
                     className="h-full w-full rounded-[1rem] object-cover"
+                    decoding="async"
                     src={latestIssue.coverImageUrl}
                   />
                 ) : (

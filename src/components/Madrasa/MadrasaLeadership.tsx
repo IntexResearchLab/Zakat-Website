@@ -38,7 +38,9 @@ function MadrasaLeadership() {
               <img
                 alt={t('madrasa.leadership.imageAlt')}
                 className="aspect-[4/3] w-full object-cover"
-                src="/assets/about/leadership-abdul-motin.jpg"
+                decoding="async"
+                loading="lazy"
+                src="/assets/about/leadership-abdul-motin.webp"
               />
             </div>
 

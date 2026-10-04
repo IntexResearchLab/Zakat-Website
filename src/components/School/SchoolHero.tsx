@@ -47,7 +47,8 @@ function SchoolHero() {
               <img
                 alt={t('school.hero.imageAlt')}
                 className="aspect-[5/4] w-full object-cover"
-                src="/assets/school/School_1.jpg"
+                decoding="async"
+                src="/assets/school/School_1.webp"
               />
             </div>
 

@@ -90,6 +90,8 @@ function OpinionsThemes() {
               <img
                 alt={t('opinions.themes.relief.imageAlt')}
                 className="h-full w-full object-cover"
+                decoding="async"
+                loading="lazy"
                 src={reliefStories[0].image}
               />
             </div>

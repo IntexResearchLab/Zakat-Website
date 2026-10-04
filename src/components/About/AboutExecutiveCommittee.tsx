@@ -183,6 +183,8 @@ function AboutExecutiveCommittee() {
                       <img
                         alt={member.name}
                         className="aspect-[4/4.6] w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+                        decoding="async"
+                        loading="lazy"
                         src={member.image}
                       />
                     ) : (
@@ -310,6 +312,8 @@ function AboutExecutiveCommittee() {
                         <img
                           alt={member.name}
                           className="h-24 w-20 rounded-[0.85rem] object-cover"
+                          decoding="async"
+                          loading="lazy"
                           src={member.image}
                         />
                       ) : (

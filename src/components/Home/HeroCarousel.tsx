@@ -43,6 +43,10 @@ function HeroCarousel() {
               className={`h-full w-full object-cover ${
                 index === activeSlide ? 'hero-image-active' : ''
               }`}
+              decoding="async"
+              // Only the first slide is visible on load; the rest can wait.
+              fetchPriority={index === 0 ? 'high' : 'low'}
+              loading={index === 0 ? 'eager' : 'lazy'}
               src={slide.image}
             />
             <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(12,76,109,0.88),rgba(17,91,130,0.62),rgba(10,35,54,0.48))]" />

@@ -135,6 +135,8 @@ function MosaicGallerySection({
                   <img
                     alt={item.title}
                     className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]"
+                    decoding="async"
+                    loading="lazy"
                     src={item.image}
                   />
                   <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(10,24,34,0.92),rgba(10,24,34,0.32),rgba(10,24,34,0.08))]" />
@@ -182,6 +184,8 @@ function MosaicGallerySection({
                   <img
                     alt={selectedItem.title}
                     className="w-full object-cover"
+                    decoding="async"
+                    loading="lazy"
                     src={selectedItem.image}
                   />
                 </div>

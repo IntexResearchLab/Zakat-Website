@@ -28,6 +28,8 @@ function SchoolGallery() {
                 <img
                   alt={item.title}
                   className="aspect-[4/3] w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+                  decoding="async"
+                  loading="lazy"
                   src={item.image}
                 />
                 <div className="absolute inset-x-0 bottom-0 bg-[linear-gradient(180deg,transparent_0%,rgba(14,23,34,0.78)_100%)] p-4 text-white">

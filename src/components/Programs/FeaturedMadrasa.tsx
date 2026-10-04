@@ -66,6 +66,8 @@ function FeaturedMadrasa() {
             <img
               alt={featuredProgram.title}
               className="aspect-[5/4] w-full object-cover"
+              decoding="async"
+              loading="lazy"
               src={featuredProgram.image}
             />
           </div>

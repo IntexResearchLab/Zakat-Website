@@ -658,6 +658,8 @@ function AdminExecutives() {
                         <img
                           alt={member.name}
                           className="h-24 w-20 rounded-[0.85rem] bg-[#eef6fb] object-cover"
+                          decoding="async"
+                          loading="lazy"
                           src={member.image_url}
                         />
                       ) : (

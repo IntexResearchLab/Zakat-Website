@@ -594,6 +594,8 @@ function AdminMagazines() {
                           <img
                             alt={magazine.title}
                             className="h-full w-full object-cover"
+                            decoding="async"
+                            loading="lazy"
                             src={magazine.cover_image_url}
                           />
                         ) : (

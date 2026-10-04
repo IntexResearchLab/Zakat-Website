@@ -32,7 +32,8 @@ function ProgramsHero() {
               <img
                 alt={t('programs.hero.imageAlt')}
                 className="aspect-[5/4] w-full object-cover"
-                src="/assets/about/Donating.jpg"
+                decoding="async"
+                src="/assets/about/Donating.webp"
               />
               </div>
 
@@ -40,7 +41,8 @@ function ProgramsHero() {
                 <img
                   alt={t('programs.hero.logoAlt')}
                   className="h-22 w-22 rounded-full border border-white/85 bg-white/96 object-contain p-1.5 shadow-[0_16px_36px_rgba(15,23,42,0.16)] backdrop-blur-sm sm:h-26 sm:w-26 sm:p-2"
-                  src="/assets/about/Logo.png"
+                  decoding="async"
+                  src="/assets/about/Logo.webp"
                 />
               </div>
             </div>

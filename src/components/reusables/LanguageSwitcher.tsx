@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next'
+import { changeLanguage } from '../../i18n'
 
 function LanguageSwitcher() {
   const { i18n, t } = useTranslation()
@@ -21,7 +22,7 @@ function LanguageSwitcher() {
                 isActive ? 'text-[#115b82]' : 'text-[#6f8796] hover:text-[#115b82]'
               }`}
               type="button"
-              onClick={() => void i18n.changeLanguage(language)}
+              onClick={() => void changeLanguage(language)}
             >
               {t(`app.languages.${language}`)}
             </button>

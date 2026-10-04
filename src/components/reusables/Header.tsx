@@ -94,7 +94,8 @@ function Header() {
           <img
             alt={t('nav.brand')}
             className="h-10 w-10 shrink-0 rounded-full border border-[#d5e5ef] bg-white object-contain p-1 shadow-[0_6px_18px_rgba(15,23,42,0.08)] sm:h-11 sm:w-11"
-            src="/assets/about/Logo.png"
+            decoding="async"
+            src="/assets/about/Logo.webp"
           />
           <span className="max-w-[8.5rem] truncate sm:max-w-none">{t('nav.brand')}</span>
         </NavLink>

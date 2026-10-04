@@ -121,6 +121,8 @@ function AdminImageInput({
           <img
             alt={alt}
             className={`rounded-[0.9rem] border border-[#dbe7ee] bg-[#eef6fb] ${previewClassName}`}
+            decoding="async"
+            loading="lazy"
             src={displayUrl}
           />
           <div className="space-y-1 text-[0.84rem] leading-[1.6] text-[#627581]">

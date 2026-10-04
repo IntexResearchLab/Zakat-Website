@@ -178,7 +178,7 @@
       "verseLabel": "কুরআনের স্মরণিকা",
       "slides": [
         {
-          "image": "/assets/home/celebration.jpg",
+          "image": "/assets/home/celebration.webp",
           "eyebrow": "কর্মে বিশ্বাস",
           "titleTop": "আপনার যাকাত দিন।",
           "titleBottom": "জীবন বদলে দিন।",
@@ -190,7 +190,7 @@
           "alt": "আলোকায়নের একটি সহায়তা কার্যক্রমে শিশুরা একত্রিত"
         },
         {
-          "image": "/assets/about/Donating.jpg",
+          "image": "/assets/about/Donating.webp",
           "eyebrow": "স্বচ্ছ প্রভাব",
           "titleTop": "বিশ্বাসের সাথে দিন।",
           "titleBottom": "প্রকৃত মানুষের কাছে পৌঁছান।",
@@ -202,7 +202,7 @@
           "alt": "আলোকায়নের মাধ্যমে সহায়তা পাচ্ছেন কমিউনিটির সদস্যরা"
         },
         {
-          "image": "/assets/school/School_3.jpg",
+          "image": "/assets/school/School_3.webp",
           "eyebrow": "চিরস্থায়ী সহমর্মিতা",
           "titleTop": "পাশে দাঁড়ান",
           "titleBottom": "যারা প্রয়োজনে আছেন তাদের।",
@@ -955,17 +955,17 @@
       "title": "প্রতিটি দানের পেছনে রয়েছে বাস্তব মুহূর্ত।",
       "items": [
         {
-          "image": "/assets/about/book-distribution.jpg",
+          "image": "/assets/about/book-distribution.webp",
           "title": "শিক্ষা সহায়তা",
           "caption": "সরাসরি বাস্তবমুখী সহায়তার মাধ্যমে শিশুদের শেখার সাথে সংযুক্ত রাখতে সাহায্য করা।"
         },
         {
-          "image": "/assets/about/community-support.jpg",
+          "image": "/assets/about/community-support.webp",
           "title": "কমিউনিটি যত্ন",
           "caption": "মুখোমুখি সেবার মুহূর্ত, যা দানকে দৃশ্যমান প্রভাবে রূপান্তরিত করে।"
         },
         {
-          "image": "/assets/about/winter-relief-sunamganj.jpg",
+          "image": "/assets/about/winter-relief-sunamganj.webp",
           "title": "ত্রাণ ও মর্যাদা",
           "caption": "নীরব, জবাবদিহিমূলক মাঠপর্যায়ের বিতরণের মাধ্যমে ত্রাণ পরিবারগুলোর কাছে পৌঁছায়।"
         }

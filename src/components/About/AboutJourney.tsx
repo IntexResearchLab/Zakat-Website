@@ -92,7 +92,9 @@ function AboutJourney() {
                   <img
                     alt={t('about.journey.certificateAlt')}
                     className="max-h-[9rem] w-full object-contain"
-                    src="/assets/about/Certificate.png"
+                    decoding="async"
+                    loading="lazy"
+                    src="/assets/about/Certificate.webp"
                   />
                 </button>
               </div>
@@ -125,7 +127,9 @@ function AboutJourney() {
               <img
                 alt={t('about.journey.certificateAlt')}
                 className="max-h-[80vh] w-full object-contain"
-                src="/assets/about/Certificate.png"
+                decoding="async"
+                loading="lazy"
+                src="/assets/about/Certificate.webp"
               />
             </div>
           </div>

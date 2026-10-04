@@ -43,7 +43,8 @@ function DonorsHero() {
               <img
                 alt={t('donors.hero.imageAlt')}
                 className="aspect-[5/4] w-full object-cover"
-                src="/assets/about/donors-community.jpg"
+                decoding="async"
+                src="/assets/about/donors-community.webp"
               />
             </div>
 

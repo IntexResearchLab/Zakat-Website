@@ -28,6 +28,8 @@ function GalleryFeaturedStories() {
               <img
                 alt={story.title}
                 className="aspect-[4/3] w-full object-cover"
+                decoding="async"
+                loading="lazy"
                 src={story.image}
               />
               <div className="p-6">

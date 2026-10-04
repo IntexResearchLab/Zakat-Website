@@ -3,15 +3,15 @@ import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 
 const programCardImages = [
-  '/assets/programs/School.jpeg',
-  '/assets/programs/Elderly_Care.jpg',
-  '/assets/programs/Widow.jpg',
-  '/assets/programs/Relief.jpg',
-  '/assets/programs/Livelihood.jpeg',
-  '/assets/programs/Elderly_Care.jpg',
-  '/assets/programs/Community.jpg',
-  '/assets/programs/School.jpeg',
-  '/assets/programs/Education.jpeg',
+  '/assets/about/Donating_3.webp',
+  '/assets/programs/Elderly_Care.webp',
+  '/assets/about/Donating_2.webp',
+  '/assets/about/Donating_4.webp',
+  '/assets/about/Donation_6.webp',
+  '/assets/programs/Elderly_Care.webp',
+  '/assets/programs/Community.webp',
+  '/assets/about/Donating_3.webp',
+  '/assets/about/Donation_5.webp',
 ]
 
 function ProgramsSection() {
@@ -56,6 +56,8 @@ function ProgramsSection() {
                 <img
                   alt={card.title}
                   className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]"
+                  decoding="async"
+                  loading="lazy"
                   src={card.image}
                 />
                 <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(10,24,34,0.92),rgba(10,24,34,0.22),rgba(10,24,34,0.04))]" />

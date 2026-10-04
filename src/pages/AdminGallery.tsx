@@ -726,6 +726,8 @@ function AdminGallery() {
                         className={`h-24 w-28 rounded-[0.85rem] bg-[#eef6fb] object-cover ${
                           item.is_active ? '' : 'opacity-50 grayscale'
                         }`}
+                        decoding="async"
+                        loading="lazy"
                         src={item.image_url}
                       />
                       <div className="min-w-0 flex-1">

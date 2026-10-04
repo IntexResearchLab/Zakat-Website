@@ -179,7 +179,7 @@
       "verseLabel": "Qur'anic Reminder",
       "slides": [
         {
-          "image": "/assets/home/celebration.jpg",
+          "image": "/assets/home/celebration.webp",
           "eyebrow": "Faith in Action",
           "titleTop": "Give Your Zakat.",
           "titleBottom": "Transform Lives.",
@@ -191,7 +191,7 @@
           "alt": "Children gathered during an Alokayon support activity"
         },
         {
-          "image": "/assets/about/Donating.jpg",
+          "image": "/assets/about/Donating.webp",
           "eyebrow": "Transparent Impact",
           "titleTop": "Give With Trust.",
           "titleBottom": "Reach Real People.",
@@ -203,7 +203,7 @@
           "alt": "Community members receiving support through Alokayon"
         },
         {
-          "image": "/assets/school/School_3.jpg",
+          "image": "/assets/school/School_3.webp",
           "eyebrow": "Compassion That Lasts",
           "titleTop": "Stand Beside",
           "titleBottom": "Those In Need.",
@@ -669,17 +669,17 @@
       "title": "Real moments behind every act of giving.",
       "items": [
         {
-          "image": "/assets/about/book-distribution.jpg",
+          "image": "/assets/about/book-distribution.webp",
           "title": "Education Support",
           "caption": "Helping children stay connected to learning with direct, practical support."
         },
         {
-          "image": "/assets/about/community-support.jpg",
+          "image": "/assets/about/community-support.webp",
           "title": "Community Care",
           "caption": "Moments of face-to-face service that turn donations into visible impact."
         },
         {
-          "image": "/assets/about/winter-relief-sunamganj.jpg",
+          "image": "/assets/about/winter-relief-sunamganj.webp",
           "title": "Relief & Dignity",
           "caption": "Relief reaches families through quiet, accountable distribution on the ground."
         }
