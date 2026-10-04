@@ -529,6 +529,10 @@
         "phone": "Please enter a valid phone number.",
         "gateway": "The payment service is not responding right now. Please try again in a few minutes.",
         "generic": "Something went wrong and your payment wasn't started. Please try again."
+      },
+      "receipt": {
+        "note": "An official receipt will be emailed to you as a PDF. Please write your name in English letters as it should appear on the receipt.",
+        "signedOption": "I would also like a hand-signed receipt (our team will sign it and email it to you)."
       }
     },
     "transparency": {
@@ -757,7 +761,7 @@
     "result": {
       "success": {
         "title": "Thank you for your donation",
-        "message": "Your payment was received and confirmed. May Allah accept it from you. A confirmation has been sent by the payment gateway."
+        "message": "Your payment was received and confirmed. May Allah accept it from you. Your receipt has been emailed to you."
       },
       "failed": {
         "title": "Payment not completed",
@@ -773,7 +777,27 @@
       "homeButton": "Back to home",
       "tryAgainButton": "Try again",
       "impactButton": "See our impact",
-      "contactNote": "Questions about your donation? Email us at"
+      "contactNote": "Questions about your donation? Email us at",
+      "receipt": {
+        "title": "Your donation receipt",
+        "message": "Thank you for supporting Alokayon. You can download your receipt or ask for a hand-signed copy here."
+      }
+    },
+    "receipt": {
+      "loading": "Loading your receipt...",
+      "loadError": "We couldn't load your receipt right now. Your payment is safe. Please check your email, or contact us with your transaction ID.",
+      "numberLabel": "Receipt number",
+      "dateLabel": "Date",
+      "emailed": "Your official receipt has been emailed to you. You can also download it here.",
+      "emailPending": "Your receipt is being prepared. You can download it here now.",
+      "downloadButton": "Download receipt (PDF)",
+      "signedTitle": "Hand-signed receipt",
+      "signedDescription": "Need a receipt signed by Alokayon for your records? Request one and our team will sign it and email it to you.",
+      "requestButton": "Request signed receipt",
+      "requesting": "Sending request...",
+      "requestError": "We couldn't send your request. Please try again, or email us.",
+      "signedRequested": "Request received. Our team will sign your receipt and email it to you soon.",
+      "signedSent": "Your signed receipt has been emailed to you."
     }
   },
   "about": {
@@ -2235,13 +2259,34 @@
       "note": "Real photographs. Real programs. Real people."
     },
     "filters": [
-      { "id": "all", "label": "All" },
-      { "id": "education", "label": "Education" },
-      { "id": "relief", "label": "Relief" },
-      { "id": "livelihood", "label": "Livelihood" },
-      { "id": "healthcare", "label": "Healthcare" },
-      { "id": "madrasa", "label": "Madrasa" },
-      { "id": "pathshala", "label": "Pathshala" }
+      {
+        "id": "all",
+        "label": "All"
+      },
+      {
+        "id": "education",
+        "label": "Education"
+      },
+      {
+        "id": "relief",
+        "label": "Relief"
+      },
+      {
+        "id": "livelihood",
+        "label": "Livelihood"
+      },
+      {
+        "id": "healthcare",
+        "label": "Healthcare"
+      },
+      {
+        "id": "madrasa",
+        "label": "Madrasa"
+      },
+      {
+        "id": "pathshala",
+        "label": "Pathshala"
+      }
     ],
     "grid": {
       "eyebrow": "Browse by Program",
@@ -2342,10 +2387,22 @@
       "eyebrow": "Impact in View",
       "title": "What these images point toward",
       "stats": [
-        { "value": "200+", "label": "Students Supported" },
-        { "value": "1.3M+ BDT", "label": "Distributed Annually" },
-        { "value": "500+", "label": "Livelihood Assets Distributed" },
-        { "value": "Since 2011", "label": "Serving Communities" }
+        {
+          "value": "200+",
+          "label": "Students Supported"
+        },
+        {
+          "value": "1.3M+ BDT",
+          "label": "Distributed Annually"
+        },
+        {
+          "value": "500+",
+          "label": "Livelihood Assets Distributed"
+        },
+        {
+          "value": "Since 2011",
+          "label": "Serving Communities"
+        }
       ]
     },
     "cta": {
@@ -2411,6 +2468,11 @@
         "icon": "overview"
       },
       {
+        "label": "Donations",
+        "href": "/admin/donations",
+        "icon": "donations"
+      },
+      {
         "label": "Magazines",
         "href": "/admin/magazines",
         "icon": "magazines"
@@ -2456,7 +2518,9 @@
       "signIn": "Sign In",
       "signingIn": "Signing In...",
       "genericError": "We couldn't sign you in. Please check your credentials and try again.",
-      "helpText": "Only authorized Alokayon administrators should use this area."
+      "helpText": "Only authorized Alokayon administrators should use this area.",
+      "notAdminTitle": "This account is not an admin",
+      "notAdminMessage": "You're signed in, but this account hasn't been approved for the Alokayon dashboard. Ask the site administrator to add it, or sign in with an admin account."
     },
     "resetPassword": {
       "eyebrow": "Reset Password",
@@ -2725,6 +2789,62 @@
           "title": "Financial snapshot"
         }
       }
+    },
+    "donations": {
+      "eyebrow": "Donations",
+      "title": "Donations and receipts",
+      "description": "See every online donation, check that receipts reached donors, and send hand-signed receipts when donors ask for them.",
+      "monthLabel": "Received this month",
+      "allTime": "{{amount}} from {{count}} donations in total",
+      "signedAlert_one": "{{count}} donor is waiting for a hand-signed receipt. Show requests",
+      "signedAlert_other": "{{count}} donors are waiting for a hand-signed receipt. Show requests",
+      "listTitle": "Donation records",
+      "listIntro": "Donations appear here automatically once SSLCommerz confirms the payment.",
+      "export": "Export CSV",
+      "searchPlaceholder": "Search by name, email, phone, receipt or transaction ID",
+      "filterLabel": "Filter donations",
+      "filters": {
+        "confirmed": "Received",
+        "signedRequested": "Signed receipt requested",
+        "review": "Needs review",
+        "emailFailed": "Receipt not emailed",
+        "unpaid": "Not completed",
+        "all": "All"
+      },
+      "status": {
+        "paid": "Received",
+        "review": "Needs review",
+        "pending": "Not completed",
+        "failed": "Failed",
+        "cancelled": "Cancelled"
+      },
+      "loading": "Loading donations...",
+      "empty": "No donations match this view.",
+      "digitalReceipt": "Digital receipt",
+      "emailedOn": "Emailed {{date}}",
+      "notEmailed": "Not emailed yet. Check the donor email address, then send it.",
+      "reviewNote": "SSLCommerz flagged this payment, or the amount differs. Check it in the SSLCommerz panel before approving.",
+      "downloadPdf": "PDF",
+      "send": "Send receipt",
+      "resend": "Resend",
+      "approveAndSend": "Approve and send receipt",
+      "approveConfirm": "Approve this donation as received and email the receipt? Only do this after checking the payment in the SSLCommerz panel.",
+      "receiptSent": "Receipt emailed to the donor.",
+      "signedReceipt": "Hand-signed receipt",
+      "signedNone": "Not requested.",
+      "signedRequestedOn": "Requested {{date}}",
+      "signedSteps": "Download the PDF, print and sign it, then upload a scan or photo (PDF, JPG or PNG).",
+      "signedSentOn": "Signed copy emailed {{date}}",
+      "uploadSigned": "Upload signed copy and email",
+      "uploadAgain": "Send a new signed copy",
+      "working": "Sending...",
+      "viewSigned": "View",
+      "sendSignedConfirm": "Email this signed receipt to {{email}}?",
+      "signedSent": "Signed receipt emailed to the donor.",
+      "errors": {
+        "emailFailed": "The email couldn't be sent. Check the email settings (Resend) or try again later.",
+        "fileType": "Please upload a PDF, JPG or PNG file."
+      }
     }
   },
   "legal": {
@@ -2776,7 +2896,7 @@
         {
           "heading": "Confirmation and receipts",
           "paragraphs": [
-            "After a successful donation you will receive a confirmation from the payment gateway. If you need a receipt for your records, please contact us with your transaction details."
+            "After a successful donation, an official receipt is emailed to you as a PDF. You can also ask for a hand-signed receipt, which our team will sign and email to you."
           ]
         },
         {

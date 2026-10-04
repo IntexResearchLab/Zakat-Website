@@ -816,6 +816,10 @@
         "phone": "Bitte geben Sie eine gültige Telefonnummer ein.",
         "gateway": "Der Zahlungsdienst antwortet gerade nicht. Bitte versuchen Sie es in einigen Minuten erneut.",
         "generic": "Etwas ist schiefgelaufen, die Zahlung wurde nicht gestartet. Bitte versuchen Sie es erneut."
+      },
+      "receipt": {
+        "note": "Eine offizielle Quittung wird Ihnen als PDF per E-Mail zugesendet. Bitte schreiben Sie Ihren Namen in lateinischen Buchstaben, so wie er auf der Quittung stehen soll.",
+        "signedOption": "Ich möchte zusätzlich eine handschriftlich unterschriebene Quittung (unser Team unterschreibt sie und sendet sie per E-Mail)."
       }
     },
     "transparency": {
@@ -1044,7 +1048,7 @@
     "result": {
       "success": {
         "title": "Vielen Dank für Ihre Spende",
-        "message": "Ihre Zahlung wurde empfangen und bestätigt. Möge Allah sie von Ihnen annehmen. Eine Bestätigung wurde vom Zahlungsanbieter gesendet."
+        "message": "Ihre Zahlung wurde empfangen und bestätigt. Möge Allah sie von Ihnen annehmen. Ihre Quittung wurde Ihnen per E-Mail gesendet."
       },
       "failed": {
         "title": "Zahlung nicht abgeschlossen",
@@ -1060,7 +1064,27 @@
       "homeButton": "Zur Startseite",
       "tryAgainButton": "Erneut versuchen",
       "impactButton": "Unsere Wirkung ansehen",
-      "contactNote": "Fragen zu Ihrer Spende? Schreiben Sie uns an"
+      "contactNote": "Fragen zu Ihrer Spende? Schreiben Sie uns an",
+      "receipt": {
+        "title": "Ihre Spendenquittung",
+        "message": "Vielen Dank für Ihre Unterstützung von Alokayon. Hier können Sie Ihre Quittung herunterladen oder eine unterschriebene Kopie anfordern."
+      }
+    },
+    "receipt": {
+      "loading": "Quittung wird geladen...",
+      "loadError": "Ihre Quittung kann gerade nicht geladen werden. Ihre Zahlung ist sicher. Bitte prüfen Sie Ihre E-Mails oder kontaktieren Sie uns mit Ihrer Transaktions-ID.",
+      "numberLabel": "Quittungsnummer",
+      "dateLabel": "Datum",
+      "emailed": "Ihre offizielle Quittung wurde Ihnen per E-Mail gesendet. Sie können sie auch hier herunterladen.",
+      "emailPending": "Ihre Quittung wird vorbereitet. Sie können sie hier bereits herunterladen.",
+      "downloadButton": "Quittung herunterladen (PDF)",
+      "signedTitle": "Unterschriebene Quittung",
+      "signedDescription": "Benötigen Sie eine von Alokayon unterschriebene Quittung? Fordern Sie sie an, und unser Team sendet sie Ihnen per E-Mail.",
+      "requestButton": "Unterschriebene Quittung anfordern",
+      "requesting": "Anfrage wird gesendet...",
+      "requestError": "Ihre Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder schreiben Sie uns.",
+      "signedRequested": "Anfrage erhalten. Unser Team unterschreibt Ihre Quittung und sendet sie Ihnen bald per E-Mail.",
+      "signedSent": "Ihre unterschriebene Quittung wurde Ihnen per E-Mail gesendet."
     }
   },
   "programs": {

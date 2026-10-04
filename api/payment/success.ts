@@ -7,6 +7,7 @@ import {
   validatePayment,
   type ApiRequest,
 } from '../_lib/sslcommerz.js'
+import { confirmDonation } from '../_lib/donations.js'
 
 // SSLCommerz posts here after a successful payment. The payment is only shown as
 // successful once the Validation API confirms it.
@@ -28,10 +29,18 @@ export default async function handler(req: ApiRequest, res: ServerResponse) {
       return redirect(res, `${siteUrl}/donate/failed?tran_id=${encodeURIComponent(transactionId)}`)
     }
 
-    const params = new URLSearchParams({
-      tran_id: transactionId,
-      amount: validation.amount ?? '',
-    })
+    const params = new URLSearchParams({ tran_id: transactionId })
+
+    // The payment is already confirmed, so a database or email problem must not show the donor
+    // a failure page. The IPN retries the recording, and the admin can resend the receipt.
+    try {
+      const donation = await confirmDonation(validation, transactionId, siteUrl)
+      if (donation) {
+        params.set('ref', donation.receipt_token)
+      }
+    } catch (error) {
+      console.error('[payment/success] could not record donation', transactionId, error)
+    }
 
     // risk_level 1 means SSLCommerz wants the merchant to verify the donor before accepting.
     if (validation.risk_level === '1') {

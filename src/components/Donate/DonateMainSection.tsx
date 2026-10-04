@@ -40,6 +40,7 @@ function DonateMainSection() {
   const [category, setCategory] = useState<(typeof categoryKeys)[number]>('default')
   // Payment gateway compliance: donors must actively agree to the policies before paying.
   const [hasAgreedToPolicies, setHasAgreedToPolicies] = useState(false)
+  const [wantsSignedReceipt, setWantsSignedReceipt] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [errorKey, setErrorKey] = useState<DonateErrorKey | null>(null)
 
@@ -85,6 +86,7 @@ function DonateMainSection() {
           email: email.trim(),
           phone: phone.trim(),
           category,
+          signedReceipt: wantsSignedReceipt,
         }),
       })
       const data = (await response.json().catch(() => ({}))) as { url?: string; error?: string }
@@ -99,6 +101,7 @@ function DonateMainSection() {
         invalid_amount: 'amount',
         invalid_donor: 'name',
         gateway_unavailable: 'gateway',
+        unavailable: 'gateway',
       }
       setErrorKey(serverErrors[data.error ?? ''] ?? 'generic')
     } catch {
@@ -233,7 +236,25 @@ function DonateMainSection() {
               ))}
             </div>
 
-            <label className="mt-7 flex items-start gap-3 rounded-[1rem] border border-[#d7e6ef] bg-white px-4 py-3.5 text-[0.94rem] leading-[1.6] text-[#4f6170]">
+            <div className="mt-7 rounded-[1rem] border border-[#d7e6ef] bg-white px-4 py-3.5 text-[0.94rem] leading-[1.6] text-[#4f6170]">
+              <p className="flex items-start gap-3">
+                <span aria-hidden="true" className="material-symbols-outlined mt-0.5 text-[1.1rem] text-[#115b82]">
+                  receipt_long
+                </span>
+                <span>{t('donate.main.receipt.note')}</span>
+              </p>
+              <label className="mt-3 flex items-start gap-3 border-t border-[#edf3f7] pt-3">
+                <input
+                  checked={wantsSignedReceipt}
+                  className="mt-1 h-4 w-4 shrink-0 accent-[#13703e]"
+                  onChange={(event) => setWantsSignedReceipt(event.target.checked)}
+                  type="checkbox"
+                />
+                <span>{t('donate.main.receipt.signedOption')}</span>
+              </label>
+            </div>
+
+            <label className="mt-4 flex items-start gap-3 rounded-[1rem] border border-[#d7e6ef] bg-white px-4 py-3.5 text-[0.94rem] leading-[1.6] text-[#4f6170]">
               <input
                 checked={hasAgreedToPolicies}
                 className="mt-1 h-4 w-4 shrink-0 accent-[#13703e]"

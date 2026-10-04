@@ -1,11 +1,13 @@
 import type { ServerResponse } from 'node:http'
 import {
+  getSiteUrl,
   isValidatedPayment,
   readBody,
   sendJson,
   validatePayment,
   type ApiRequest,
 } from '../_lib/sslcommerz.js'
+import { confirmDonation } from '../_lib/donations.js'
 
 // Instant Payment Notification listener. SSLCommerz calls this server-to-server even if the
 // donor closes the browser, so this is the reliable record that a payment completed.
@@ -34,6 +36,11 @@ export default async function handler(req: ApiRequest, res: ServerResponse) {
       risk_level: validation.risk_level,
       valid: isValid,
     })
+
+    // A thrown error returns 500, which makes SSLCommerz retry the notification later.
+    if (isValid) {
+      await confirmDonation(validation, body.tran_id, getSiteUrl(req))
+    }
 
     return sendJson(res, 200, { received: true, valid: isValid })
   } catch (error) {

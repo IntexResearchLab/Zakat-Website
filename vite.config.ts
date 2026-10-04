@@ -33,7 +33,20 @@ const localApiFunctions = (): Plugin => ({
 export default defineConfig(({ mode }) => {
   // Make server-only variables (no VITE_ prefix) available to the local API functions.
   const env = loadEnv(mode, process.cwd(), '')
-  for (const key of ['SSLCOMMERZ_STORE_ID', 'SSLCOMMERZ_STORE_PASSWORD', 'SSLCOMMERZ_SANDBOX', 'SITE_URL']) {
+  const serverKeys = [
+    'SSLCOMMERZ_STORE_ID',
+    'SSLCOMMERZ_STORE_PASSWORD',
+    'SSLCOMMERZ_SANDBOX',
+    'SITE_URL',
+    'VITE_SUPABASE_URL',
+    'SUPABASE_URL',
+    'SUPABASE_SERVICE_ROLE_KEY',
+    'RESEND_API_KEY',
+    'RECEIPT_FROM_EMAIL',
+    'RECEIPT_REPLY_TO',
+    'ADMIN_NOTIFY_EMAIL',
+  ]
+  for (const key of serverKeys) {
     if (env[key] && !process.env[key]) {
       process.env[key] = env[key]
     }

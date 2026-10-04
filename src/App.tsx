@@ -1,6 +1,7 @@
 import About from './pages/About'
 import AdminAuth from './pages/AdminAuth'
 import AdminDashboard from './pages/AdminDashboard'
+import AdminDonations from './pages/AdminDonations'
 import AdminExecutives from './pages/AdminExecutives'
 import AdminGallery from './pages/AdminGallery'
 import AdminMagazines from './pages/AdminMagazines'
@@ -55,6 +56,14 @@ function App() {
             }
           />
           <Route
+            path="/admin/donations"
+            element={
+              <AdminRouteGuard mode="protected">
+                <AdminDonations />
+              </AdminRouteGuard>
+            }
+          />
+          <Route
             path="/admin/magazines"
             element={
               <AdminRouteGuard mode="protected">
@@ -92,6 +101,7 @@ function App() {
           <Route path="/donate/success" element={<DonationResult status="success" />} />
           <Route path="/donate/failed" element={<DonationResult status="failed" />} />
           <Route path="/donate/cancelled" element={<DonationResult status="cancelled" />} />
+          <Route path="/donate/receipt" element={<DonationResult status="receipt" />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route
             path="/opinions-of-beneficiaries"

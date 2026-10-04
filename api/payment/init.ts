@@ -9,6 +9,7 @@ import {
   sendJson,
   type ApiRequest,
 } from '../_lib/sslcommerz.js'
+import { getServiceClient } from '../_lib/db.js'
 
 const allowedCategories = ['default', 'education', 'healthcare', 'livelihood']
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -39,6 +40,7 @@ export default async function handler(req: ApiRequest, res: ServerResponse) {
   const email = clean(body.email, 120)
   const phone = clean(body.phone, 20)
   const category = allowedCategories.includes(body.category) ? body.category : 'default'
+  const wantsSignedReceipt = String(body.signedReceipt) === 'true'
 
   if (!Number.isFinite(amount) || amount < MIN_DONATION_BDT || amount > MAX_DONATION_BDT) {
     return sendJson(res, 400, { error: 'invalid_amount' })
@@ -48,10 +50,35 @@ export default async function handler(req: ApiRequest, res: ServerResponse) {
     return sendJson(res, 400, { error: 'invalid_donor' })
   }
 
+  const transactionId = createTransactionId()
+
+  try {
+    // Record the donation before payment so the confirmation can be matched and receipted.
+    const { error } = await getServiceClient()
+      .from('donations')
+      .insert({
+        tran_id: transactionId,
+        amount,
+        category,
+        donor_name: name,
+        donor_email: email,
+        donor_phone: phone,
+        signed_receipt_status: wantsSignedReceipt ? 'requested' : 'none',
+        signed_receipt_requested_at: wantsSignedReceipt ? new Date().toISOString() : null,
+      })
+
+    if (error) {
+      throw error
+    }
+  } catch (error) {
+    console.error('[payment/init] could not record donation', error)
+    return sendJson(res, 503, { error: 'unavailable' })
+  }
+
   try {
     const gatewayUrl = await createPaymentSession({
       amount,
-      transactionId: createTransactionId(),
+      transactionId,
       name,
       email,
       phone,

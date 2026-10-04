@@ -11,6 +11,7 @@ const titleKeysByPath: Record<string, string> = {
   '/donate/success': 'common.breadcrumb.donate',
   '/donate/failed': 'common.breadcrumb.donate',
   '/donate/cancelled': 'common.breadcrumb.donate',
+  '/donate/receipt': 'common.breadcrumb.donate',
   '/gallery': 'common.breadcrumb.gallery',
   '/opinions-of-beneficiaries': 'common.breadcrumb.opinions',
   '/our-donors': 'common.breadcrumb.donors',
