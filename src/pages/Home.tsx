@@ -1,3 +1,4 @@
+import ActiveCampaignsSection from '../components/Campaigns/ActiveCampaignsSection'
 import DonationSection from '../components/Home/DonationSection'
 import FounderMessageSection from '../components/Home/FounderMessageSection'
 import HeroCarousel from '../components/Home/HeroCarousel'
@@ -12,6 +13,7 @@ function Home() {
     <>
       <HeroCarousel />
       <ImpactSection />
+      <ActiveCampaignsSection />
       <MissionSection />
       <DonationSection />
       <FounderMessageSection />

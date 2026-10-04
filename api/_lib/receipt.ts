@@ -74,7 +74,12 @@ const drawText = (
   color = navy,
 ) => page.drawText(toPdfText(text), { x, y, font, size, color })
 
-export const buildReceiptPdf = async (donation: Donation) => {
+export const describePurpose = (donation: Donation, campaignTitle?: string | null) => {
+  const category = categoryLabels[donation.category] ?? donation.category
+  return campaignTitle ? `${campaignTitle} (${category})` : category
+}
+
+export const buildReceiptPdf = async (donation: Donation, campaignTitle?: string | null) => {
   const pdf = await PDFDocument.create()
   pdf.setTitle(`Donation receipt ${donation.receipt_number ?? ''}`)
   pdf.setAuthor(organisation.name)
@@ -117,7 +122,7 @@ export const buildReceiptPdf = async (donation: Donation) => {
   drawText(page, formatAmount(Number(donation.paid_amount ?? donation.amount)), left + 18, y - 6, serif, 24, green)
 
   const rows: Array<[string, string]> = [
-    ['Purpose', categoryLabels[donation.category] ?? donation.category],
+    ['Purpose', describePurpose(donation, campaignTitle)],
     ['Payment method', describePaymentMethod(donation)],
     [donation.source === 'manual' ? 'Record ID' : 'Transaction ID', donation.tran_id],
   ]

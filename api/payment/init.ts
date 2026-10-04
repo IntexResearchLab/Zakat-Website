@@ -9,7 +9,7 @@ import {
   sendJson,
   type ApiRequest,
 } from '../_lib/sslcommerz.js'
-import { getServiceClient } from '../_lib/db.js'
+import { findOpenCampaignId, getServiceClient } from '../_lib/db.js'
 
 const allowedCategories = ['default', 'zakat', 'education', 'healthcare', 'livelihood']
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -60,6 +60,9 @@ export default async function handler(req: ApiRequest, res: ServerResponse) {
   const transactionId = createTransactionId()
 
   try {
+    // Gifts made from a campaign page count toward that campaign while it is open.
+    const campaignId = await findOpenCampaignId(body.campaign)
+
     // Record the donation before payment so the confirmation can be matched and receipted.
     const { error } = await getServiceClient()
       .from('donations')
@@ -72,6 +75,7 @@ export default async function handler(req: ApiRequest, res: ServerResponse) {
         donor_phone: phone,
         signed_receipt_status: wantsSignedReceipt ? 'requested' : 'none',
         signed_receipt_requested_at: wantsSignedReceipt ? new Date().toISOString() : null,
+        campaign_id: campaignId,
       })
 
     if (error) {

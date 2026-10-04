@@ -1,6 +1,13 @@
 import type { ServerResponse } from 'node:http'
 import { randomBytes } from 'node:crypto'
-import { getServiceClient, paymentMethods, requireAdmin, type Donation, type PaymentMethod } from '../_lib/db.js'
+import {
+  getServiceClient,
+  isUuid,
+  paymentMethods,
+  requireAdmin,
+  type Donation,
+  type PaymentMethod,
+} from '../_lib/db.js'
 import { deliverReceipt } from '../_lib/donations.js'
 import { MAX_DONATION_BDT, getSiteUrl, readBody, sendJson, type ApiRequest } from '../_lib/sslcommerz.js'
 
@@ -75,6 +82,8 @@ export default async function handler(req: ApiRequest, res: ServerResponse) {
         recorded_by: admin.email ?? admin.id,
         // Noon in Dhaka, so the date shown on the receipt matches the date entered.
         paid_at: new Date(`${receivedOn}T12:00:00+06:00`).toISOString(),
+        // Any campaign can be chosen here, so gifts received before or after it ran still count.
+        campaign_id: isUuid(body.campaignId) ? body.campaignId : null,
       })
       .select('*')
       .single()

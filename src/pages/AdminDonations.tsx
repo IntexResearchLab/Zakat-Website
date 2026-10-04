@@ -4,6 +4,7 @@ import AdminShellLayout from '../components/Admin/AdminShellLayout'
 import { getFriendlyErrorMessage } from '../lib/adminErrors'
 import { callAdminApi, type AdminDonation } from '../lib/adminDonations'
 import RecordDonationForm from '../components/Admin/RecordDonationForm'
+import { loadCampaigns } from '../lib/campaigns'
 import { supabase } from '../utils/supabase'
 
 type Donation = AdminDonation
@@ -95,6 +96,7 @@ function AdminDonations() {
   const [filter, setFilter] = useState<DonationFilter>('confirmed')
   const [busyId, setBusyId] = useState<string | null>(null)
   const [isRecording, setIsRecording] = useState(false)
+  const [campaignTitles, setCampaignTitles] = useState<Map<string, string>>(new Map())
   const [confirmDeleteId, setConfirmDeleteId] = useState<string | null>(null)
 
   const describeMethod = (donation: Donation) =>
@@ -120,6 +122,15 @@ function AdminDonations() {
 
     setIsLoading(false)
   }
+
+  useEffect(() => {
+    // Campaign names for the rows and the "record a donation" form. Optional, so failures are ignored.
+    loadCampaigns()
+      .then((campaigns) =>
+        setCampaignTitles(new Map(campaigns.map((campaign) => [campaign.id, campaign.title_en]))),
+      )
+      .catch(() => undefined)
+  }, [])
 
   useEffect(() => {
     void loadDonations()
@@ -293,6 +304,7 @@ function AdminDonations() {
       'Phone',
       'Amount (BDT)',
       'Purpose',
+      'Campaign',
       'Source',
       'Payment method',
       'Reference',
@@ -311,6 +323,7 @@ function AdminDonations() {
       donation.donor_phone,
       donationAmount(donation),
       t(`donate.main.categories.${donation.category}`, { defaultValue: donation.category }),
+      donation.campaign_id ? (campaignTitles.get(donation.campaign_id) ?? '') : '',
       donation.source,
       describeMethod(donation),
       donation.reference,
@@ -371,7 +384,11 @@ function AdminDonations() {
       title={t('admin.donations.title')}
     >
       {isRecording ? (
-        <RecordDonationForm onCancel={() => setIsRecording(false)} onRecorded={handleRecorded} />
+        <RecordDonationForm
+          campaigns={[...campaignTitles].map(([id, title]) => ({ id, title }))}
+          onCancel={() => setIsRecording(false)}
+          onRecorded={handleRecorded}
+        />
       ) : (
         <button
           className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#13703e] px-6 py-3 text-[0.8rem] font-bold uppercase tracking-[0.14em] text-white shadow-[0_14px_32px_rgba(19,112,62,0.18)] transition hover:bg-[#105f35]"
@@ -538,6 +555,13 @@ function AdminDonations() {
                         {describeMethod(donation)}
                         {donation.reference ? ` (${donation.reference})` : ''}
                       </p>
+                      {donation.campaign_id && campaignTitles.get(donation.campaign_id) ? (
+                        <p className="mt-1 text-[0.84rem] font-semibold text-[#13703e]">
+                          {t('admin.donations.campaignLabel', {
+                            title: campaignTitles.get(donation.campaign_id),
+                          })}
+                        </p>
+                      ) : null}
                       {donation.source === 'manual' ? (
                         <p className="mt-1 text-[0.84rem] text-[#5d6d78]">
                           {t('admin.donations.recordedBy', { name: donation.recorded_by ?? '-' })}

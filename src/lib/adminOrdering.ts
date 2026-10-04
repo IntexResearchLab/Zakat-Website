@@ -6,7 +6,7 @@ type OrderedRow = {
   sort_order: number
 }
 
-type OrderedTable = 'gallery_items' | 'executive_members'
+type OrderedTable = 'gallery_items' | 'executive_members' | 'campaigns'
 
 // Swaps an item with its neighbour and renumbers the whole list 1..n, so duplicate
 // or gappy sort_order values left by older edits are cleaned up at the same time.

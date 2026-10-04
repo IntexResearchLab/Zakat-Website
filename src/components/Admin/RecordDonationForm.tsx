@@ -9,6 +9,7 @@ import {
 } from '../../lib/adminDonations'
 
 type RecordDonationFormProps = {
+  campaigns: Array<{ id: string; title: string }>
   onRecorded: (donation: AdminDonation, emailed: boolean) => void
   onCancel: () => void
 }
@@ -23,7 +24,7 @@ const todayInDhaka = () => new Date().toLocaleDateString('en-CA', { timeZone: 'A
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 // Records a donation received outside the website: bKash, Nagad, bank transfer or cash.
-function RecordDonationForm({ onRecorded, onCancel }: RecordDonationFormProps) {
+function RecordDonationForm({ campaigns, onRecorded, onCancel }: RecordDonationFormProps) {
   const { t } = useTranslation()
   const [form, setForm] = useState({
     name: '',
@@ -35,6 +36,7 @@ function RecordDonationForm({ onRecorded, onCancel }: RecordDonationFormProps) {
     reference: '',
     category: 'default' as (typeof donationCategories)[number],
     notes: '',
+    campaignId: '',
   })
   const [sendReceipt, setSendReceipt] = useState(true)
   const [isSaving, setIsSaving] = useState(false)
@@ -202,6 +204,24 @@ function RecordDonationForm({ onRecorded, onCancel }: RecordDonationFormProps) {
             value={form.phone}
           />
         </label>
+        {campaigns.length ? (
+          <label className={`${labelClass} md:col-span-2`}>
+            {t('admin.donations.record.campaign')}
+            <select
+              className={fieldClass}
+              id="record-campaign"
+              onChange={(event) => update('campaignId')(event.target.value)}
+              value={form.campaignId}
+            >
+              <option value="">{t('admin.donations.record.campaignNone')}</option>
+              {campaigns.map((campaign) => (
+                <option key={campaign.id} value={campaign.id}>
+                  {campaign.title}
+                </option>
+              ))}
+            </select>
+          </label>
+        ) : null}
         <label className={`${labelClass} md:col-span-2`}>
           {t('admin.donations.record.notes')}
           <textarea

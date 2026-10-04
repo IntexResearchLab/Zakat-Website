@@ -65,7 +65,8 @@
       "terms": "Terms and Conditions",
       "privacy": "Privacy Policy",
       "refund": "Return and Refund Policy",
-      "zakatCalculator": "Zakat Calculator"
+      "zakatCalculator": "Zakat Calculator",
+      "campaigns": "Appeals"
     },
     "form": {
       "emailPlaceholder": "Enter your email",
@@ -122,6 +123,10 @@
         {
           "label": "Our Donors",
           "href": "/our-donors"
+        },
+        {
+          "label": "Appeals",
+          "href": "/campaigns"
         },
         {
           "label": "Donate",
@@ -555,7 +560,9 @@
         "signedOption": "I would also like a hand-signed receipt (our team will sign it and email it to you)."
       },
       "calculatorPrompt": "Not sure how much zakat you owe?",
-      "calculatorLink": "Use the zakat calculator"
+      "calculatorLink": "Use the zakat calculator",
+      "campaignBanner": "Your donation will go to:",
+      "campaignRemove": "Give where most needed instead"
     },
     "transparency": {
       "eyebrow": "Transparency",
@@ -2495,6 +2502,11 @@
         "icon": "donations"
       },
       {
+        "label": "Campaigns",
+        "href": "/admin/campaigns",
+        "icon": "campaigns"
+      },
+      {
         "label": "Magazines",
         "href": "/admin/magazines",
         "icon": "magazines"
@@ -2918,7 +2930,58 @@
           "amount": "Please enter an amount greater than zero.",
           "email": "This email address doesn’t look right. Check it, or leave it empty.",
           "date": "Please choose the date the donation was received. It can’t be in the future."
-        }
+        },
+        "campaign": "Campaign (optional)",
+        "campaignNone": "No campaign"
+      },
+      "campaignLabel": "Campaign: {{title}}"
+    },
+    "campaigns": {
+      "eyebrow": "Campaigns",
+      "title": "Fundraising appeals",
+      "description": "Create appeals with a goal and a story. Progress updates automatically from online donations made on the appeal page and from donations you record against it.",
+      "new": "New campaign",
+      "newTitle": "New campaign",
+      "editTitle": "Edit campaign",
+      "fields": {
+        "titleEn": "Title (English)",
+        "titleBn": "Title (Bangla, optional)",
+        "summaryEn": "Short summary (English)",
+        "summaryBn": "Short summary (Bangla, optional)",
+        "storyEn": "Full story (English, optional)",
+        "storyBn": "Full story (Bangla, optional)",
+        "goal": "Goal (BDT)",
+        "category": "Donation purpose",
+        "startsOn": "Starts on (optional)",
+        "endsOn": "Ends on (optional)",
+        "slug": "Web address",
+        "image": "Photo"
+      },
+      "slugHelp": "Lowercase letters, numbers and hyphens. Changing it later breaks links that were already shared.",
+      "save": "Save campaign",
+      "saving": "Saving...",
+      "cancel": "Cancel",
+      "edit": "Edit",
+      "delete": "Delete",
+      "created": "Campaign \"{{title}}\" created.",
+      "updated": "Campaign \"{{title}}\" updated.",
+      "deleted": "Campaign \"{{title}}\" deleted.",
+      "deleteConfirm": "Delete \"{{title}}\"? Donations made to it are kept, but they will no longer be linked to a campaign.",
+      "listTitle": "All campaigns",
+      "listIntro": "Visitors see campaigns that are shown and have started. Hidden and upcoming campaigns stay private.",
+      "loading": "Loading campaigns...",
+      "empty": "No campaigns yet. Create one for your next appeal, for example winter blankets or Ramadan food packs.",
+      "state": {
+        "open": "Running",
+        "upcoming": "Not started",
+        "ended": "Ended",
+        "hidden": "Hidden"
+      },
+      "errors": {
+        "required": "Please enter an English title and summary.",
+        "slug": "Please enter a web address using letters, numbers and hyphens.",
+        "goal": "Please enter a goal greater than zero.",
+        "dates": "The end date must be on or after the start date."
       }
     }
   },
@@ -3145,7 +3208,8 @@
       "terms": "Terms and conditions for donating to Alokayon.",
       "privacy": "How Alokayon collects, uses and protects your personal information.",
       "refund": "Alokayon's return and refund policy for donations.",
-      "zakatCalculator": "Work out how much zakat you owe. Enter your cash, gold, silver, savings and debts, and see your zakat at 2.5% using the current nisab in BDT."
+      "zakatCalculator": "Work out how much zakat you owe. Enter your cash, gold, silver, savings and debts, and see your zakat at 2.5% using the current nisab in BDT.",
+      "campaigns": "Support Alokayon's current appeals. See each appeal's goal, how much has been raised, and give to the cause you care about."
     },
     "notFoundTitle": "Page not found"
   },
@@ -3251,5 +3315,48 @@
       ]
     },
     "disclaimer": "This calculator is a guide. Rulings differ on some items, such as jewellery that is worn and long-term debts. For your own situation, please ask a scholar you trust."
+  },
+  "campaigns": {
+    "progress": {
+      "ofGoal": "raised of {{goal}}",
+      "label": "Fundraising progress",
+      "valueText": "{{raised}} raised of {{goal}}",
+      "percent": "{{percent}}% of goal",
+      "donors_one": "{{count}} donor",
+      "donors_other": "{{count}} donors",
+      "daysLeft_one": "{{count}} day left",
+      "daysLeft_other": "{{count}} days left",
+      "lastDay": "Last day"
+    },
+    "state": {
+      "ended": "Appeal ended"
+    },
+    "card": {
+      "give": "Give to this appeal",
+      "viewResult": "See what was raised",
+      "linkLabel": "{{title}}: see appeal and donate"
+    },
+    "section": {
+      "eyebrow": "Current appeals",
+      "title": "Help us reach these goals",
+      "viewAll": "See all appeals"
+    },
+    "page": {
+      "eyebrow": "Appeals",
+      "title": "Give to a specific need",
+      "intro": "Each appeal has a clear goal. Every donation made from an appeal page counts toward it, and the progress you see is updated from real donations.",
+      "loading": "Loading appeals...",
+      "error": "We couldn't load the appeals right now. Please try again in a moment.",
+      "emptyTitle": "No appeals are running right now",
+      "emptyText": "You can still give where the need is greatest. Your donation supports all of our programs.",
+      "endedTitle": "Completed appeals"
+    },
+    "detail": {
+      "donate": "Donate to this appeal",
+      "donateGeneral": "Donate where most needed",
+      "endedNote": "This appeal has ended. Thank you to everyone who gave. You can still support our ongoing work.",
+      "privacyNote": "Only totals are shown here. Donor names and amounts are never published.",
+      "storyTitle": "About this appeal"
+    }
   }
 }

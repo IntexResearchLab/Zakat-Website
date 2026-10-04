@@ -13,6 +13,7 @@ import { Route, Routes, useLocation } from 'react-router-dom'
 // landing page renders without waiting for a second request.
 const About = lazy(() => import('./pages/About'))
 const AdminAuth = lazy(() => import('./pages/AdminAuth'))
+const AdminCampaigns = lazy(() => import('./pages/AdminCampaigns'))
 const AdminDashboard = lazy(() => import('./pages/AdminDashboard'))
 const AdminDonations = lazy(() => import('./pages/AdminDonations'))
 const AdminExecutives = lazy(() => import('./pages/AdminExecutives'))
@@ -21,6 +22,8 @@ const AdminMagazines = lazy(() => import('./pages/AdminMagazines'))
 const AdminResetPassword = lazy(() => import('./pages/AdminResetPassword'))
 const AdminStats = lazy(() => import('./pages/AdminStats'))
 const AlokayonSchool = lazy(() => import('./pages/AlokayonSchool'))
+const CampaignDetail = lazy(() => import('./pages/CampaignDetail'))
+const Campaigns = lazy(() => import('./pages/Campaigns'))
 const Donate = lazy(() => import('./pages/Donate'))
 const DonationResult = lazy(() => import('./pages/DonationResult'))
 const Gallery = lazy(() => import('./pages/Gallery'))
@@ -74,6 +77,14 @@ function App() {
                 element={
                   <AdminRouteGuard mode="protected">
                     <AdminDashboard />
+                  </AdminRouteGuard>
+                }
+              />
+              <Route
+                path="/admin/campaigns"
+                element={
+                  <AdminRouteGuard mode="protected">
+                    <AdminCampaigns />
                   </AdminRouteGuard>
                 }
               />
@@ -132,6 +143,8 @@ function App() {
               <Route path="/programs" element={<Programs />} />
               <Route path="/transparency" element={<Transparency />} />
               <Route path="/zakat-calculator" element={<ZakatCalculator />} />
+            <Route path="/campaigns" element={<Campaigns />} />
+            <Route path="/campaigns/:slug" element={<CampaignDetail />} />
               <Route path="/terms-and-conditions" element={<LegalPage policy="terms" />} />
               <Route path="/privacy-policy" element={<LegalPage policy="privacy" />} />
               <Route path="/refund-policy" element={<LegalPage policy="refund" />} />

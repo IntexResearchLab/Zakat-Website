@@ -23,6 +23,7 @@ const navIconMap = {
   gallery: 'photo_library',
   transparency: 'verified',
   donations: 'payments',
+  campaigns: 'campaign',
   settings: 'settings',
 } as const
 

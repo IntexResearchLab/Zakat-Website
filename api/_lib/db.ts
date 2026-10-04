@@ -46,6 +46,7 @@ export type Donation = {
   reference: string | null
   notes: string | null
   recorded_by: string | null
+  campaign_id: string | null
   paid_at: string | null
   receipt_number: string | null
   receipt_token: string
@@ -86,4 +87,40 @@ export const requireAdmin = async (req: IncomingMessage) => {
     .maybeSingle()
 
   return adminRow ? data.user : null
+}
+
+const todayInDhaka = () => new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Dhaka' })
+
+// Returns the id of a campaign that is visible and currently taking donations, or null.
+export const findOpenCampaignId = async (slug: unknown) => {
+  if (typeof slug !== 'string' || !/^[a-z0-9-]{1,80}$/.test(slug)) {
+    return null
+  }
+
+  const { data } = await getServiceClient()
+    .from('campaigns')
+    .select('id, starts_on, ends_on, is_active')
+    .eq('slug', slug)
+    .maybeSingle()
+
+  const today = todayInDhaka()
+  if (!data?.is_active || (data.starts_on && data.starts_on > today) || (data.ends_on && data.ends_on < today)) {
+    return null
+  }
+
+  return data.id as string
+}
+
+export const getCampaignTitle = async (campaignId: string | null) => {
+  if (!campaignId) {
+    return null
+  }
+
+  const { data } = await getServiceClient()
+    .from('campaigns')
+    .select('title_en')
+    .eq('id', campaignId)
+    .maybeSingle()
+
+  return (data?.title_en as string | undefined) ?? null
 }

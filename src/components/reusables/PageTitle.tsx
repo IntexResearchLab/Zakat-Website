@@ -61,6 +61,10 @@ const pagesByPath: Record<string, PageInfo> = {
     titleKey: 'common.breadcrumb.transparency',
     descriptionKey: 'seo.descriptions.transparency',
   },
+  '/campaigns': {
+    titleKey: 'common.breadcrumb.campaigns',
+    descriptionKey: 'seo.descriptions.campaigns',
+  },
   '/zakat-calculator': {
     titleKey: 'common.breadcrumb.zakatCalculator',
     descriptionKey: 'seo.descriptions.zakatCalculator',
@@ -119,6 +123,7 @@ function PageTitle() {
     const normalizedPath = pathname.replace(/\/+$/, '') || '/'
     const isAdmin = normalizedPath.startsWith('/admin')
     const transparencyYear = normalizedPath.match(/^\/transparency\/([^/]+)$/)?.[1]
+    const isCampaignPage = /^\/campaigns\/[^/]+$/.test(normalizedPath)
     const page: PageInfo | null =
       pagesByPath[normalizedPath] ??
       (transparencyYear
@@ -126,7 +131,9 @@ function PageTitle() {
             titleKey: 'common.breadcrumb.transparency',
             descriptionKey: 'seo.descriptions.transparency',
           }
-        : null)
+        : isCampaignPage
+          ? { titleKey: 'common.breadcrumb.campaigns', descriptionKey: 'seo.descriptions.campaigns' }
+          : null)
 
     let pageLabel: string | null
     if (isAdmin) {

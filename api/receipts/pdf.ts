@@ -1,5 +1,5 @@
 import type { ServerResponse } from 'node:http'
-import { getServiceClient, isUuid, type Donation } from '../_lib/db.js'
+import { getCampaignTitle, getServiceClient, isUuid, type Donation } from '../_lib/db.js'
 import { buildReceiptPdf, receiptFileName } from '../_lib/receipt.js'
 import { sendJson, type ApiRequest } from '../_lib/sslcommerz.js'
 
@@ -24,7 +24,7 @@ export default async function handler(req: ApiRequest, res: ServerResponse) {
     }
 
     const donation = data as Donation
-    const pdf = await buildReceiptPdf(donation)
+    const pdf = await buildReceiptPdf(donation, await getCampaignTitle(donation.campaign_id))
 
     res.statusCode = 200
     res.setHeader('Content-Type', 'application/pdf')

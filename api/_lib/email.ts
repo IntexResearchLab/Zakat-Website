@@ -1,8 +1,8 @@
-import type { Donation } from './db.js'
+import { getCampaignTitle, type Donation } from './db.js'
 import {
   buildReceiptPdf,
-  categoryLabels,
   describePaymentMethod,
+  describePurpose,
   formatAmount,
   formatReceiptDate,
   receiptFileName,
@@ -76,11 +76,11 @@ const detailRow = (label: string, value: string) =>
 const button = (href: string, label: string) =>
   `<a href="${escapeHtml(href)}" style="display:inline-block;background:#13703e;color:#ffffff;text-decoration:none;font-weight:bold;padding:12px 22px;border-radius:999px">${label}</a>`
 
-const donationSummary = (donation: Donation) => `
+const donationSummary = (donation: Donation, campaignTitle?: string | null) => `
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:18px 0;border-top:1px solid #e4edf3;border-bottom:1px solid #e4edf3;font-size:14px">
 ${detailRow('Receipt number', donation.receipt_number ?? '-')}
 ${detailRow('Amount', formatAmount(Number(donation.paid_amount ?? donation.amount)))}
-${detailRow('Purpose', categoryLabels[donation.category] ?? donation.category)}
+${detailRow('Purpose', describePurpose(donation, campaignTitle))}
 ${detailRow('Date', formatReceiptDate(donation.paid_at))}
 ${detailRow('Payment method', describePaymentMethod(donation))}
 ${detailRow(donation.source === 'manual' ? 'Record ID' : 'Transaction ID', donation.tran_id)}
@@ -95,7 +95,8 @@ export const sendReceiptEmail = async (donation: Donation, siteUrl: string) => {
     throw new Error('This donation has no email address.')
   }
 
-  const pdf = await buildReceiptPdf(donation)
+  const campaignTitle = await getCampaignTitle(donation.campaign_id)
+  const pdf = await buildReceiptPdf(donation, campaignTitle)
   const signedNote =
     donation.signed_receipt_status === 'requested'
       ? '<p>You asked for a <strong>hand-signed receipt</strong>. Our team will sign it and email it to you shortly.</p>'
@@ -108,7 +109,7 @@ export const sendReceiptEmail = async (donation: Donation, siteUrl: string) => {
     html: layout(`
 <p style="font-size:18px;color:#14324d;margin-top:0">Dear ${escapeHtml(donation.donor_name)},</p>
 <p>Thank you for your donation to Alokayon. May Allah accept it from you and reward you abundantly.</p>
-${donationSummary(donation)}
+${donationSummary(donation, campaignTitle)}
 <p>Your official receipt is attached as a PDF.</p>
 ${signedNote}`),
     attachments: [{ filename: receiptFileName(donation), content: pdf }],

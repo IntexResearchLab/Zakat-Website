@@ -1,6 +1,8 @@
 import { useState, type FormEvent } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { Link, useSearchParams } from 'react-router-dom'
+import { isCampaignOpen, localizedCampaignText } from '../../lib/campaigns'
+import { useCampaigns } from '../../lib/useCampaigns'
 import Reveal from '../reusables/Reveal'
 
 const policyLinkClass =
@@ -26,7 +28,7 @@ const parseAmountLabel = (label: string) => {
 type DonateErrorKey = 'amount' | 'name' | 'email' | 'phone' | 'gateway' | 'generic'
 
 function DonateMainSection() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const amountOptions = t('donate.main.amounts', {
     returnObjects: true,
   }) as Array<{ amount: string; label: string }>
@@ -40,9 +42,20 @@ function DonateMainSection() {
   const [searchParams] = useSearchParams()
   const presetAmount = Number(searchParams.get('amount'))
   const hasPresetAmount =
-    Number.isFinite(presetAmount) && presetAmount >= MIN_DONATION_BDT && presetAmount <= MAX_DONATION_BDT
-  const customOptionIndex = amountOptions.findIndex((option) => parseAmountLabel(option.amount) === null)
+    Number.isFinite(presetAmount) &&
+    presetAmount >= MIN_DONATION_BDT &&
+    presetAmount <= MAX_DONATION_BDT
+  const customOptionIndex = amountOptions.findIndex(
+    (option) => parseAmountLabel(option.amount) === null,
+  )
   const presetCategory = categoryKeys.find((key) => key === searchParams.get('category'))
+  // Arriving from a campaign page (?campaign=slug) links the gift to that campaign.
+  const { campaigns } = useCampaigns()
+  const campaignSlug = searchParams.get('campaign')
+  const [isCampaignRemoved, setIsCampaignRemoved] = useState(false)
+  const campaign = isCampaignRemoved
+    ? undefined
+    : campaigns?.find((item) => item.slug === campaignSlug && isCampaignOpen(item))
 
   const [selectedOption, setSelectedOption] = useState(
     hasPresetAmount && customOptionIndex >= 0 ? customOptionIndex : 1,
@@ -101,6 +114,7 @@ function DonateMainSection() {
           phone: phone.trim(),
           category,
           signedReceipt: wantsSignedReceipt,
+          campaign: campaign?.slug,
         }),
       })
       const data = (await response.json().catch(() => ({}))) as { url?: string; error?: string }
@@ -140,6 +154,27 @@ function DonateMainSection() {
             <h2 className="mt-5 font-serif text-[2.25rem] leading-[1.02] tracking-[-0.04em] text-[#14324d] sm:text-[2.7rem]">
               {t('donate.main.formTitle')}
             </h2>
+
+            {campaign ? (
+              <div className="mt-6 flex flex-col gap-2 rounded-[1rem] border border-[#cde7d8] bg-[#f5fbf7] px-4 py-3.5 text-[0.94rem] leading-[1.6] text-[#14324d] sm:flex-row sm:items-center sm:justify-between">
+                <p>
+                  {t('donate.main.campaignBanner')}{' '}
+                  <Link
+                    className="font-semibold text-[#13703e] underline underline-offset-2"
+                    to={`/campaigns/${campaign.slug}`}
+                  >
+                    {localizedCampaignText(campaign, 'title', i18n.language)}
+                  </Link>
+                </p>
+                <button
+                  className="shrink-0 text-left text-[0.86rem] font-semibold text-[#115b82] underline-offset-2 hover:underline"
+                  onClick={() => setIsCampaignRemoved(true)}
+                  type="button"
+                >
+                  {t('donate.main.campaignRemove')}
+                </button>
+              </div>
+            ) : null}
 
             <div
               aria-label={t('donate.main.amountGroupLabel')}
@@ -251,9 +286,7 @@ function DonateMainSection() {
                 <select
                   className={fieldClass}
                   id="donate-category"
-                  onChange={(event) =>
-                    setCategory(event.target.value as CategoryKey)
-                  }
+                  onChange={(event) => setCategory(event.target.value as CategoryKey)}
                   value={category}
                 >
                   {categoryKeys.map((key) => (

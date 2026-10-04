@@ -65,7 +65,8 @@
       "terms": "Allgemeine Geschäftsbedingungen",
       "privacy": "Datenschutzerklärung",
       "refund": "Rückgabe- und Erstattungsrichtlinie",
-      "zakatCalculator": "Zakat-Rechner"
+      "zakatCalculator": "Zakat-Rechner",
+      "campaigns": "Spendenaufrufe"
     },
     "form": {
       "emailPlaceholder": "E-Mail-Adresse eingeben",
@@ -122,6 +123,10 @@
         {
           "label": "Unsere Spender",
           "href": "/our-donors"
+        },
+        {
+          "label": "Spendenaufrufe",
+          "href": "/campaigns"
         },
         {
           "label": "Spenden",
@@ -842,7 +847,9 @@
         "signedOption": "Ich möchte zusätzlich eine handschriftlich unterschriebene Quittung (unser Team unterschreibt sie und sendet sie per E-Mail)."
       },
       "calculatorPrompt": "Sie wissen nicht, wie viel Zakat Sie schulden?",
-      "calculatorLink": "Zakat-Rechner verwenden"
+      "calculatorLink": "Zakat-Rechner verwenden",
+      "campaignBanner": "Ihre Spende geht an:",
+      "campaignRemove": "Stattdessen dort spenden, wo es am nötigsten ist"
     },
     "transparency": {
       "eyebrow": "Transparenz",
@@ -2449,7 +2456,8 @@
       "terms": "Allgemeine Bedingungen für Spenden an Alokayon.",
       "privacy": "Wie Alokayon Ihre persönlichen Daten erhebt, verwendet und schützt.",
       "refund": "Rückgabe- und Erstattungsrichtlinie von Alokayon für Spenden.",
-      "zakatCalculator": "Berechnen Sie Ihre Zakat. Geben Sie Bargeld, Gold, Silber, Ersparnisse und Schulden ein und sehen Sie Ihre Zakat von 2,5 % anhand des aktuellen Nisab in BDT."
+      "zakatCalculator": "Berechnen Sie Ihre Zakat. Geben Sie Bargeld, Gold, Silber, Ersparnisse und Schulden ein und sehen Sie Ihre Zakat von 2,5 % anhand des aktuellen Nisab in BDT.",
+      "campaigns": "Unterstützen Sie die aktuellen Spendenaufrufe von Alokayon. Sehen Sie Ziel und Spendenstand jedes Aufrufs und spenden Sie für das Anliegen, das Ihnen wichtig ist."
     },
     "notFoundTitle": "Seite nicht gefunden"
   },
@@ -2555,5 +2563,48 @@
       ]
     },
     "disclaimer": "Dieser Rechner ist eine Orientierungshilfe. Bei manchen Punkten, etwa getragenem Schmuck und langfristigen Schulden, gibt es unterschiedliche Auffassungen. Fragen Sie für Ihre Situation bitte einen Gelehrten Ihres Vertrauens."
+  },
+  "campaigns": {
+    "progress": {
+      "ofGoal": "von {{goal}} gesammelt",
+      "label": "Spendenfortschritt",
+      "valueText": "{{raised}} von {{goal}} gesammelt",
+      "percent": "{{percent}} % des Ziels",
+      "donors_one": "{{count}} Spender",
+      "donors_other": "{{count}} Spender",
+      "daysLeft_one": "Noch {{count}} Tag",
+      "daysLeft_other": "Noch {{count}} Tage",
+      "lastDay": "Letzter Tag"
+    },
+    "state": {
+      "ended": "Aufruf beendet"
+    },
+    "card": {
+      "give": "Für diesen Aufruf spenden",
+      "viewResult": "Ergebnis ansehen",
+      "linkLabel": "{{title}}: Aufruf ansehen und spenden"
+    },
+    "section": {
+      "eyebrow": "Aktuelle Aufrufe",
+      "title": "Helfen Sie uns, diese Ziele zu erreichen",
+      "viewAll": "Alle Aufrufe ansehen"
+    },
+    "page": {
+      "eyebrow": "Spendenaufrufe",
+      "title": "Für einen bestimmten Zweck spenden",
+      "intro": "Jeder Aufruf hat ein klares Ziel. Jede Spende über die Seite eines Aufrufs zählt dafür, und der Fortschritt wird aus echten Spenden aktualisiert.",
+      "loading": "Aufrufe werden geladen...",
+      "error": "Die Aufrufe können gerade nicht geladen werden. Bitte versuchen Sie es gleich noch einmal.",
+      "emptyTitle": "Derzeit laufen keine Aufrufe",
+      "emptyText": "Sie können trotzdem dort spenden, wo es am nötigsten ist. Ihre Spende unterstützt alle unsere Programme.",
+      "endedTitle": "Abgeschlossene Aufrufe"
+    },
+    "detail": {
+      "donate": "Für diesen Aufruf spenden",
+      "donateGeneral": "Dort spenden, wo es am nötigsten ist",
+      "endedNote": "Dieser Aufruf ist beendet. Danke an alle, die gespendet haben. Sie können unsere laufende Arbeit weiterhin unterstützen.",
+      "privacyNote": "Hier werden nur Summen gezeigt. Namen und Beträge von Spendern werden nie veröffentlicht.",
+      "storyTitle": "Über diesen Aufruf"
+    }
   }
 }

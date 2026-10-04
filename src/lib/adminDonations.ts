@@ -28,6 +28,7 @@ export type AdminDonation = {
   reference: string | null
   notes: string | null
   recorded_by: string | null
+  campaign_id: string | null
   paid_at: string | null
   receipt_number: string | null
   receipt_token: string
