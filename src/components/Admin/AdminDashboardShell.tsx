@@ -111,6 +111,33 @@ function AdminDashboardShell() {
   const [isLoading, setIsLoading] = useState(true)
   const [data, setData] = useState<DashboardData>({})
   const [loadError, setLoadError] = useState<{ moduleKey: ModuleKey; message: string } | null>(null)
+  const [inboxCounts, setInboxCounts] = useState({ newMessages: 0, signedRequests: 0 })
+
+  // Things waiting for a person: new contact messages and donors asking for a signed receipt.
+  // These tables may not exist until their migrations run, so failures are simply ignored.
+  useEffect(() => {
+    let isMounted = true
+
+    void Promise.all([
+      supabase.from('contact_messages').select('id', { count: 'exact', head: true }).eq('status', 'new'),
+      supabase
+        .from('donations')
+        .select('id', { count: 'exact', head: true })
+        .eq('status', 'paid')
+        .eq('signed_receipt_status', 'requested'),
+    ]).then(([messages, requests]) => {
+      if (isMounted) {
+        setInboxCounts({
+          newMessages: messages.error ? 0 : (messages.count ?? 0),
+          signedRequests: requests.error ? 0 : (requests.count ?? 0),
+        })
+      }
+    })
+
+    return () => {
+      isMounted = false
+    }
+  }, [])
   const modules = t('admin.dashboard.modules', {
     returnObjects: true,
   }) as Array<{ title: string; description: string; href: string; cta: string }>
@@ -142,6 +169,22 @@ function AdminDashboardShell() {
   }, [t])
 
   const alerts: Alert[] = []
+
+  if (inboxCounts.newMessages) {
+    alerts.push({
+      tone: 'warning',
+      message: t('admin.dashboard.alerts.newMessages', { count: inboxCounts.newMessages }),
+      href: '/admin/messages',
+    })
+  }
+
+  if (inboxCounts.signedRequests) {
+    alerts.push({
+      tone: 'warning',
+      message: t('admin.dashboard.alerts.signedRequests', { count: inboxCounts.signedRequests }),
+      href: '/admin/donations',
+    })
+  }
   const currentYear = new Date().getFullYear()
 
   if (loadError) {

@@ -19,10 +19,12 @@ const AdminDonations = lazy(() => import('./pages/AdminDonations'))
 const AdminExecutives = lazy(() => import('./pages/AdminExecutives'))
 const AdminGallery = lazy(() => import('./pages/AdminGallery'))
 const AdminMagazines = lazy(() => import('./pages/AdminMagazines'))
+const AdminMessages = lazy(() => import('./pages/AdminMessages'))
 const AdminResetPassword = lazy(() => import('./pages/AdminResetPassword'))
 const AdminStats = lazy(() => import('./pages/AdminStats'))
 const AlokayonSchool = lazy(() => import('./pages/AlokayonSchool'))
 const CampaignDetail = lazy(() => import('./pages/CampaignDetail'))
+const Contact = lazy(() => import('./pages/Contact'))
 const Campaigns = lazy(() => import('./pages/Campaigns'))
 const Donate = lazy(() => import('./pages/Donate'))
 const DonationResult = lazy(() => import('./pages/DonationResult'))
@@ -89,6 +91,14 @@ function App() {
                 }
               />
               <Route
+                path="/admin/messages"
+                element={
+                  <AdminRouteGuard mode="protected">
+                    <AdminMessages />
+                  </AdminRouteGuard>
+                }
+              />
+              <Route
                 path="/admin/donations"
                 element={
                   <AdminRouteGuard mode="protected">
@@ -145,6 +155,7 @@ function App() {
               <Route path="/zakat-calculator" element={<ZakatCalculator />} />
             <Route path="/campaigns" element={<Campaigns />} />
             <Route path="/campaigns/:slug" element={<CampaignDetail />} />
+            <Route path="/contact" element={<Contact />} />
               <Route path="/terms-and-conditions" element={<LegalPage policy="terms" />} />
               <Route path="/privacy-policy" element={<LegalPage policy="privacy" />} />
               <Route path="/refund-policy" element={<LegalPage policy="refund" />} />

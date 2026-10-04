@@ -24,6 +24,7 @@ const navIconMap = {
   transparency: 'verified',
   donations: 'payments',
   campaigns: 'campaign',
+  messages: 'mail',
   settings: 'settings',
 } as const
 

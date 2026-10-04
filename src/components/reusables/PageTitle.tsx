@@ -61,6 +61,7 @@ const pagesByPath: Record<string, PageInfo> = {
     titleKey: 'common.breadcrumb.transparency',
     descriptionKey: 'seo.descriptions.transparency',
   },
+  '/contact': { titleKey: 'common.breadcrumb.contact', descriptionKey: 'seo.descriptions.contact' },
   '/campaigns': {
     titleKey: 'common.breadcrumb.campaigns',
     descriptionKey: 'seo.descriptions.campaigns',

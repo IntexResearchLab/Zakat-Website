@@ -17,9 +17,10 @@ type EmailInput = {
   subject: string
   html: string
   attachments?: Attachment[]
+  replyTo?: string
 }
 
-export const sendEmail = async ({ to, subject, html, attachments = [] }: EmailInput) => {
+export const sendEmail = async ({ to, subject, html, attachments = [], replyTo }: EmailInput) => {
   const apiKey = process.env.RESEND_API_KEY
   const from = process.env.RECEIPT_FROM_EMAIL
 
@@ -36,7 +37,7 @@ export const sendEmail = async ({ to, subject, html, attachments = [] }: EmailIn
     body: JSON.stringify({
       from,
       to: [to],
-      reply_to: process.env.RECEIPT_REPLY_TO || undefined,
+      reply_to: replyTo || process.env.RECEIPT_REPLY_TO || undefined,
       subject,
       html,
       attachments: attachments.map((file) => ({
@@ -51,10 +52,10 @@ export const sendEmail = async ({ to, subject, html, attachments = [] }: EmailIn
   }
 }
 
-const escapeHtml = (value: string) =>
+export const escapeHtml = (value: string) =>
   value.replace(/[&<>"']/g, (char) => `&#${char.charCodeAt(0)};`)
 
-const layout = (body: string) => `<!doctype html>
+export const layout = (body: string) => `<!doctype html>
 <html><body style="margin:0;background:#f4f8fb;font-family:Arial,Helvetica,sans-serif;color:#14324d">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="padding:32px 12px">
 <tr><td align="center">

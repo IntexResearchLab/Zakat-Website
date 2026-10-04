@@ -66,7 +66,8 @@
       "privacy": "Privacy Policy",
       "refund": "Return and Refund Policy",
       "zakatCalculator": "Zakat Calculator",
-      "campaigns": "Appeals"
+      "campaigns": "Appeals",
+      "contact": "Contact"
     },
     "form": {
       "emailPlaceholder": "Enter your email",
@@ -135,6 +136,10 @@
         {
           "label": "Zakat Calculator",
           "href": "/zakat-calculator"
+        },
+        {
+          "label": "Contact",
+          "href": "/contact"
         }
       ]
     },
@@ -143,6 +148,10 @@
       "address": "Holding No. 02, Road No. 10/1, Avenue 07, Block G, Ward 02, P.S. Khilgaon, Dhaka South City Corporation, Dhaka.",
       "note": "For zakat, donation, partnership, and direct payment inquiries",
       "links": [
+        {
+          "label": "Send us a message",
+          "href": "/contact"
+        },
         {
           "label": "alokayon2019@gmail.com",
           "href": "mailto:alokayon2019@gmail.com",
@@ -2507,6 +2516,11 @@
         "icon": "campaigns"
       },
       {
+        "label": "Messages",
+        "href": "/admin/messages",
+        "icon": "messages"
+      },
+      {
         "label": "Magazines",
         "href": "/admin/magazines",
         "icon": "magazines"
@@ -2629,7 +2643,11 @@
         "noVisibleExecutives": "No executive committee members are visible on the About page.",
         "missingPhotos": "{{count}} visible executive member(s) don't have a photo yet.",
         "statsNeverUpdated": "The impact figures have never been updated from the admin.",
-        "staleStats": "The impact figures were last updated on {{date}}. Check they're still accurate."
+        "staleStats": "The impact figures were last updated on {{date}}. Check they're still accurate.",
+        "newMessages_one": "{{count}} new message from the contact form is waiting for a reply.",
+        "newMessages_other": "{{count}} new messages from the contact form are waiting for a reply.",
+        "signedRequests_one": "{{count}} donor is waiting for a hand-signed receipt.",
+        "signedRequests_other": "{{count}} donors are waiting for a hand-signed receipt."
       },
       "sidebar": {
         "brandNote": "Alokayon Charity Admin",
@@ -2983,6 +3001,34 @@
         "goal": "Please enter a goal greater than zero.",
         "dates": "The end date must be on or after the start date."
       }
+    },
+    "messages": {
+      "eyebrow": "Messages",
+      "title": "Contact form inbox",
+      "description": "Messages sent through the website. Reply by email, then mark them as replied so the team knows they are handled.",
+      "filterLabel": "Filter messages",
+      "filters": {
+        "new": "New",
+        "replied": "Replied",
+        "archived": "Archived",
+        "all": "All"
+      },
+      "status": {
+        "new": "New",
+        "replied": "Replied",
+        "archived": "Archived"
+      },
+      "loading": "Loading messages...",
+      "empty": "No messages here.",
+      "emptyNew": "No new messages. You are all caught up.",
+      "reply": "Reply by email",
+      "markReplied": "Mark as replied",
+      "archive": "Archive",
+      "markNew": "Mark as new",
+      "delete": "Delete",
+      "deleteConfirm": "Delete the message from {{name}}? This cannot be undone.",
+      "replySubject": "Re: your message to Alokayon",
+      "replyGreeting": "Dear {{name}},"
     }
   },
   "legal": {
@@ -3209,7 +3255,8 @@
       "privacy": "How Alokayon collects, uses and protects your personal information.",
       "refund": "Alokayon's return and refund policy for donations.",
       "zakatCalculator": "Work out how much zakat you owe. Enter your cash, gold, silver, savings and debts, and see your zakat at 2.5% using the current nisab in BDT.",
-      "campaigns": "Support Alokayon's current appeals. See each appeal's goal, how much has been raised, and give to the cause you care about."
+      "campaigns": "Support Alokayon's current appeals. See each appeal's goal, how much has been raised, and give to the cause you care about.",
+      "contact": "Contact Alokayon about donations, zakat, receipts, volunteering or partnerships. Send a message or call us in Dhaka."
     },
     "notFoundTitle": "Page not found"
   },
@@ -3357,6 +3404,47 @@
       "endedNote": "This appeal has ended. Thank you to everyone who gave. You can still support our ongoing work.",
       "privacyNote": "Only totals are shown here. Donor names and amounts are never published.",
       "storyTitle": "About this appeal"
+    }
+  },
+  "contactPage": {
+    "eyebrow": "Contact us",
+    "title": "Send us a message",
+    "intro": "Questions about a donation, a receipt or zakat? Want to volunteer or work with us? Write to us and our team will reply by email.",
+    "fields": {
+      "name": "Your name",
+      "email": "Email address",
+      "phone": "Phone number (optional)",
+      "topic": "What is it about?",
+      "message": "Your message"
+    },
+    "topics": {
+      "general": "General question",
+      "donation": "Donation or receipt",
+      "zakat": "Zakat question",
+      "volunteer": "Volunteering",
+      "partnership": "Partnership",
+      "other": "Something else"
+    },
+    "send": "Send message",
+    "sending": "Sending...",
+    "replyNote": "We usually reply within 3 working days.",
+    "sent": {
+      "title": "Thank you, your message has been sent",
+      "message": "Our team will reply to {{email}}, usually within 3 working days."
+    },
+    "errors": {
+      "name": "Please enter your name.",
+      "email": "Please enter a valid email address so we can reply.",
+      "message": "Please write a message of at least a few words.",
+      "tooMany": "You have sent several messages in a short time. Please wait an hour, or email us directly.",
+      "generic": "Your message couldn't be sent. Please try again, or email us at alokayon2019@gmail.com."
+    },
+    "details": {
+      "title": "Other ways to reach us",
+      "email": "Email",
+      "phone": "Phone (bKash)",
+      "phoneAlt": "Phone (Nagad)",
+      "address": "Office address"
     }
   }
 }

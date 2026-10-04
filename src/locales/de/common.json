@@ -66,7 +66,8 @@
       "privacy": "Datenschutzerklärung",
       "refund": "Rückgabe- und Erstattungsrichtlinie",
       "zakatCalculator": "Zakat-Rechner",
-      "campaigns": "Spendenaufrufe"
+      "campaigns": "Spendenaufrufe",
+      "contact": "Kontakt"
     },
     "form": {
       "emailPlaceholder": "E-Mail-Adresse eingeben",
@@ -135,6 +136,10 @@
         {
           "label": "Zakat-Rechner",
           "href": "/zakat-calculator"
+        },
+        {
+          "label": "Kontakt",
+          "href": "/contact"
         }
       ]
     },
@@ -143,6 +148,10 @@
       "address": "Holding No. 02, Road No. 10/1, Avenue 07, Block G, Ward 02, P.S. Khilgaon, Dhaka South City Corporation, Dhaka.",
       "note": "Für Anfragen zu Zakat, Spenden, Partnerschaften und Direktzahlungen",
       "links": [
+        {
+          "label": "Nachricht senden",
+          "href": "/contact"
+        },
         {
           "label": "alokayon2019@gmail.com",
           "href": "mailto:alokayon2019@gmail.com",
@@ -2457,7 +2466,8 @@
       "privacy": "Wie Alokayon Ihre persönlichen Daten erhebt, verwendet und schützt.",
       "refund": "Rückgabe- und Erstattungsrichtlinie von Alokayon für Spenden.",
       "zakatCalculator": "Berechnen Sie Ihre Zakat. Geben Sie Bargeld, Gold, Silber, Ersparnisse und Schulden ein und sehen Sie Ihre Zakat von 2,5 % anhand des aktuellen Nisab in BDT.",
-      "campaigns": "Unterstützen Sie die aktuellen Spendenaufrufe von Alokayon. Sehen Sie Ziel und Spendenstand jedes Aufrufs und spenden Sie für das Anliegen, das Ihnen wichtig ist."
+      "campaigns": "Unterstützen Sie die aktuellen Spendenaufrufe von Alokayon. Sehen Sie Ziel und Spendenstand jedes Aufrufs und spenden Sie für das Anliegen, das Ihnen wichtig ist.",
+      "contact": "Kontaktieren Sie Alokayon zu Spenden, Zakat, Quittungen, Ehrenamt oder Partnerschaften. Schreiben Sie uns oder rufen Sie uns in Dhaka an."
     },
     "notFoundTitle": "Seite nicht gefunden"
   },
@@ -2605,6 +2615,47 @@
       "endedNote": "Dieser Aufruf ist beendet. Danke an alle, die gespendet haben. Sie können unsere laufende Arbeit weiterhin unterstützen.",
       "privacyNote": "Hier werden nur Summen gezeigt. Namen und Beträge von Spendern werden nie veröffentlicht.",
       "storyTitle": "Über diesen Aufruf"
+    }
+  },
+  "contactPage": {
+    "eyebrow": "Kontakt",
+    "title": "Schreiben Sie uns",
+    "intro": "Fragen zu einer Spende, Quittung oder Zakat? Möchten Sie sich engagieren oder mit uns zusammenarbeiten? Schreiben Sie uns, unser Team antwortet per E-Mail.",
+    "fields": {
+      "name": "Ihr Name",
+      "email": "E-Mail-Adresse",
+      "phone": "Telefonnummer (optional)",
+      "topic": "Worum geht es?",
+      "message": "Ihre Nachricht"
+    },
+    "topics": {
+      "general": "Allgemeine Frage",
+      "donation": "Spende oder Quittung",
+      "zakat": "Frage zur Zakat",
+      "volunteer": "Ehrenamt",
+      "partnership": "Partnerschaft",
+      "other": "Etwas anderes"
+    },
+    "send": "Nachricht senden",
+    "sending": "Wird gesendet...",
+    "replyNote": "Wir antworten in der Regel innerhalb von 3 Werktagen.",
+    "sent": {
+      "title": "Danke, Ihre Nachricht wurde gesendet",
+      "message": "Unser Team antwortet an {{email}}, in der Regel innerhalb von 3 Werktagen."
+    },
+    "errors": {
+      "name": "Bitte geben Sie Ihren Namen ein.",
+      "email": "Bitte geben Sie eine gültige E-Mail-Adresse ein, damit wir antworten können.",
+      "message": "Bitte schreiben Sie eine Nachricht mit wenigstens ein paar Worten.",
+      "tooMany": "Sie haben in kurzer Zeit mehrere Nachrichten gesendet. Bitte warten Sie eine Stunde oder schreiben Sie uns direkt.",
+      "generic": "Ihre Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder schreiben Sie an alokayon2019@gmail.com."
+    },
+    "details": {
+      "title": "Weitere Kontaktwege",
+      "email": "E-Mail",
+      "phone": "Telefon (bKash)",
+      "phoneAlt": "Telefon (Nagad)",
+      "address": "Büroadresse"
     }
   }
 }
