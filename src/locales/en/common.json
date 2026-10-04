@@ -18,7 +18,8 @@
     "programs": "Programs",
     "programsOverview": "All Programs",
     "transparency": "Magazine",
-    "voices": "Voices"
+    "voices": "Voices",
+    "zakatCalculator": "Zakat Calculator"
   },
   "common": {
     "actions": {
@@ -63,7 +64,8 @@
       "transparency": "Magazine",
       "terms": "Terms and Conditions",
       "privacy": "Privacy Policy",
-      "refund": "Return and Refund Policy"
+      "refund": "Return and Refund Policy",
+      "zakatCalculator": "Zakat Calculator"
     },
     "form": {
       "emailPlaceholder": "Enter your email",
@@ -124,6 +126,10 @@
         {
           "label": "Donate",
           "href": "/donate"
+        },
+        {
+          "label": "Zakat Calculator",
+          "href": "/zakat-calculator"
         }
       ]
     },
@@ -494,7 +500,8 @@
         "default": "Where most needed",
         "education": "Education",
         "healthcare": "Healthcare",
-        "livelihood": "Livelihood"
+        "livelihood": "Livelihood",
+        "zakat": "Zakat"
       },
       "paymentMethods": [
         "bKash",
@@ -546,7 +553,9 @@
       "receipt": {
         "note": "An official receipt will be emailed to you as a PDF. Please write your name in English letters as it should appear on the receipt.",
         "signedOption": "I would also like a hand-signed receipt (our team will sign it and email it to you)."
-      }
+      },
+      "calculatorPrompt": "Not sure how much zakat you owe?",
+      "calculatorLink": "Use the zakat calculator"
     },
     "transparency": {
       "eyebrow": "Transparency",
@@ -2800,7 +2809,16 @@
         "finance": {
           "eyebrow": "Finance",
           "title": "Financial snapshot"
+        },
+        "zakat": {
+          "eyebrow": "Zakat Calculator",
+          "title": "Gold and silver prices"
         }
+      },
+      "labels": {
+        "goldPricePerGram": "Gold price per gram (22 carat, BDT)",
+        "silverPricePerGram": "Silver price per gram (BDT)",
+        "metalPricesUpdated": "Prices last checked on"
       }
     },
     "donations": {
@@ -3082,7 +3100,8 @@
       "donate": "Donate to Alokayon securely by card, bKash or Nagad, and receive an emailed receipt. Your zakat reaches students, widows and families in need.",
       "terms": "Terms and conditions for donating to Alokayon.",
       "privacy": "How Alokayon collects, uses and protects your personal information.",
-      "refund": "Alokayon's return and refund policy for donations."
+      "refund": "Alokayon's return and refund policy for donations.",
+      "zakatCalculator": "Work out how much zakat you owe. Enter your cash, gold, silver, savings and debts, and see your zakat at 2.5% using the current nisab in BDT."
     },
     "notFoundTitle": "Page not found"
   },
@@ -3095,5 +3114,98 @@
     "programsLink": "Our programs",
     "transparencyLink": "Reports and magazines",
     "contactNote": "Still looking for something? Email us at"
+  },
+  "zakatCalculator": {
+    "eyebrow": "Zakat Calculator",
+    "title": "Work out the zakat you owe",
+    "intro": "Enter what you own and what you owe today. The calculator checks your wealth against the nisab and shows your zakat at 2.5%. Nothing you type is saved or sent anywhere.",
+    "sections": {
+      "nisab": "Nisab and prices",
+      "assets": "What you own",
+      "deductions": "What you owe now"
+    },
+    "nisab": {
+      "label": "Nisab standard",
+      "silver": {
+        "title": "Silver nisab (612.36 g)",
+        "description": "The lower threshold. Many scholars in Bangladesh recommend it because more people pay zakat, which benefits more people in need.",
+        "metal": "silver"
+      },
+      "gold": {
+        "title": "Gold nisab (87.48 g)",
+        "description": "A higher threshold. Some scholars use it, especially when most of your wealth is held as gold.",
+        "metal": "gold"
+      }
+    },
+    "fields": {
+      "goldPrice": "Gold price per gram (22 carat)",
+      "silverPrice": "Silver price per gram",
+      "cash": "Cash and bank balances",
+      "gold": "Gold you own",
+      "silver": "Silver you own",
+      "investments": "Savings and investments",
+      "businessStock": "Business stock",
+      "receivables": "Money others owe you",
+      "otherAssets": "Other zakatable wealth",
+      "debtsDue": "Debts and bills due now"
+    },
+    "hints": {
+      "cash": "Cash at home, bank accounts, and bKash, Nagad or other mobile wallets.",
+      "gold": "Jewellery, coins and bars, by weight. 1 vori is {{grams}} grams.",
+      "silver": "Jewellery, coins and items, by weight.",
+      "investments": "Shares, savings certificates (sanchayapatra), DPS, FDR and similar savings.",
+      "businessStock": "Goods held for sale, at their current selling price.",
+      "receivables": "Loans you have given that you expect to be repaid.",
+      "otherAssets": "Foreign currency, or property and land bought to resell.",
+      "debtsDue": "Loan instalments, rent, bills and other payments that are due now. Do not include the full amount of a long-term loan."
+    },
+    "units": {
+      "label": "Unit",
+      "vori": "Vori",
+      "gram": "Grams"
+    },
+    "prices": {
+      "updated": "Prices set by Alokayon on {{date}}. You can change them to today’s rate.",
+      "missing": "Enter today’s gold and silver prices to calculate the nisab.",
+      "bajusLink": "Check the BAJUS price list"
+    },
+    "summary": {
+      "title": "Your zakat",
+      "totalAssets": "Total wealth",
+      "deductions": "Debts due now",
+      "netWealth": "Net zakatable wealth",
+      "nisab": "Nisab ({{grams}} g of {{metal}})"
+    },
+    "result": {
+      "needPrice": "Enter the {{metal}} price per gram to see whether you have reached the nisab.",
+      "empty": "Enter your wealth to see your zakat.",
+      "dueLabel": "Zakat due",
+      "dueNote": "This is 2.5% of your net wealth, due if it has stayed at or above the nisab for one lunar year.",
+      "payButton": "Pay {{amount}} as zakat",
+      "largeAmount": "For amounts above ৳5,00,000, please pay by bank transfer. The bank details are on the Donate page.",
+      "belowNisab": "Your net wealth is below the nisab, so zakat is not due. You can still give sadaqah at any time."
+    },
+    "explainer": {
+      "title": "How zakat is calculated",
+      "items": [
+        {
+          "title": "Nisab",
+          "text": "Zakat is due once your net wealth reaches the nisab: the value of 87.48 grams of gold or 612.36 grams of silver."
+        },
+        {
+          "title": "One lunar year (hawl)",
+          "text": "Your wealth must stay at or above the nisab for a full Hijri year. Many people pick a fixed date, such as Ramadan, to calculate each year."
+        },
+        {
+          "title": "2.5% of net wealth",
+          "text": "Add up your zakatable wealth, take away debts that are due now, and pay 2.5% of what remains."
+        },
+        {
+          "title": "What is not counted",
+          "text": "The home you live in, your personal car, furniture, clothes and the tools you use for work are not counted."
+        }
+      ]
+    },
+    "disclaimer": "This calculator is a guide. Rulings differ on some items, such as jewellery that is worn and long-term debts. For your own situation, please ask a scholar you trust."
   }
 }

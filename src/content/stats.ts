@@ -130,6 +130,23 @@ export const statsInventory = {
       description: 'Approximate expenditure/distribution shown for the 2024–25 financial period.',
     },
   },
+  // Prices used by the zakat calculator. Left empty until an admin enters today's prices.
+  zakat: {
+    goldPricePerGram: {
+      value: '',
+      description:
+        'Price of 22 carat gold per gram in BDT, from the BAJUS rate. Used to value gold and the gold nisab.',
+    },
+    silverPricePerGram: {
+      value: '',
+      description:
+        'Price of 22 carat silver per gram in BDT, from the BAJUS rate. Used to value silver and the silver nisab.',
+    },
+    metalPricesUpdated: {
+      value: '',
+      description: 'Date the gold and silver prices were last checked, e.g. 4 October 2026.',
+    },
+  },
 } as const satisfies Record<string, Record<string, StatInventoryEntry>>
 
 export type PublicStatsKey = {

@@ -11,7 +11,7 @@ import {
 } from '../_lib/sslcommerz.js'
 import { getServiceClient } from '../_lib/db.js'
 
-const allowedCategories = ['default', 'education', 'healthcare', 'livelihood']
+const allowedCategories = ['default', 'zakat', 'education', 'healthcare', 'livelihood']
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 const clean = (value: unknown, maxLength: number) =>

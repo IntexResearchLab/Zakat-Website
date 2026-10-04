@@ -148,7 +148,7 @@ function Header() {
 
         <nav
           aria-label={t('common.aria.mainNavigation')}
-          className="hidden items-center gap-8 xl:flex xl:gap-9"
+          className="hidden items-center gap-6 whitespace-nowrap xl:flex 2xl:gap-9"
         >
           <NavLink className={linkClass} to="/">
             {t('nav.home')}
@@ -165,6 +165,9 @@ function Header() {
             label={t('nav.programs')}
           />
           <DesktopDropdown isActive={impactActive} items={impactItems} label={t('nav.impact')} />
+          <NavLink className={linkClass} to="/zakat-calculator">
+            {t('nav.zakatCalculator')}
+          </NavLink>
           <NavLink className={linkClass} to="/transparency">
             {t('nav.transparency')}
           </NavLink>
@@ -266,6 +269,13 @@ function Header() {
               </div>
             </div>
 
+            <NavLink
+              className={mobileLinkClass}
+              to="/zakat-calculator"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              {t('nav.zakatCalculator')}
+            </NavLink>
             <NavLink
               className={mobileLinkClass}
               to="/transparency"

@@ -61,6 +61,10 @@ const pagesByPath: Record<string, PageInfo> = {
     titleKey: 'common.breadcrumb.transparency',
     descriptionKey: 'seo.descriptions.transparency',
   },
+  '/zakat-calculator': {
+    titleKey: 'common.breadcrumb.zakatCalculator',
+    descriptionKey: 'seo.descriptions.zakatCalculator',
+  },
   '/terms-and-conditions': {
     titleKey: 'common.breadcrumb.terms',
     descriptionKey: 'seo.descriptions.terms',

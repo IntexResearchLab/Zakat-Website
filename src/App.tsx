@@ -32,6 +32,7 @@ const OurDonors = lazy(() => import('./pages/OurDonors'))
 const Programs = lazy(() => import('./pages/Programs'))
 const Transparency = lazy(() => import('./pages/Transparency'))
 const TransparencyReader = lazy(() => import('./pages/TransparencyReader'))
+const ZakatCalculator = lazy(() => import('./pages/ZakatCalculator'))
 
 function App() {
   const location = useLocation()
@@ -130,6 +131,7 @@ function App() {
               <Route path="/programs/madrasa" element={<Madrasa />} />
               <Route path="/programs" element={<Programs />} />
               <Route path="/transparency" element={<Transparency />} />
+              <Route path="/zakat-calculator" element={<ZakatCalculator />} />
               <Route path="/terms-and-conditions" element={<LegalPage policy="terms" />} />
               <Route path="/privacy-policy" element={<LegalPage policy="privacy" />} />
               <Route path="/refund-policy" element={<LegalPage policy="refund" />} />

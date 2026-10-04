@@ -18,7 +18,8 @@
     "programs": "Programme",
     "programsOverview": "Alle Programme",
     "transparency": "Magazin",
-    "voices": "Stimmen"
+    "voices": "Stimmen",
+    "zakatCalculator": "Zakat-Rechner"
   },
   "common": {
     "actions": {
@@ -63,7 +64,8 @@
       "transparency": "Magazin",
       "terms": "Allgemeine Geschäftsbedingungen",
       "privacy": "Datenschutzerklärung",
-      "refund": "Rückgabe- und Erstattungsrichtlinie"
+      "refund": "Rückgabe- und Erstattungsrichtlinie",
+      "zakatCalculator": "Zakat-Rechner"
     },
     "form": {
       "emailPlaceholder": "E-Mail-Adresse eingeben",
@@ -124,6 +126,10 @@
         {
           "label": "Spenden",
           "href": "/donate"
+        },
+        {
+          "label": "Zakat-Rechner",
+          "href": "/zakat-calculator"
         }
       ]
     },
@@ -781,7 +787,8 @@
         "default": "Wo am dringendsten benötigt",
         "education": "Bildung",
         "healthcare": "Gesundheitsversorgung",
-        "livelihood": "Existenzsicherung"
+        "livelihood": "Existenzsicherung",
+        "zakat": "Zakat"
       },
       "paymentMethods": [
         "bKash",
@@ -833,7 +840,9 @@
       "receipt": {
         "note": "Eine offizielle Quittung wird Ihnen als PDF per E-Mail zugesendet. Bitte schreiben Sie Ihren Namen in lateinischen Buchstaben, so wie er auf der Quittung stehen soll.",
         "signedOption": "Ich möchte zusätzlich eine handschriftlich unterschriebene Quittung (unser Team unterschreibt sie und sendet sie per E-Mail)."
-      }
+      },
+      "calculatorPrompt": "Sie wissen nicht, wie viel Zakat Sie schulden?",
+      "calculatorLink": "Zakat-Rechner verwenden"
     },
     "transparency": {
       "eyebrow": "Transparenz",
@@ -2439,7 +2448,8 @@
       "donate": "Spenden Sie sicher per Karte, bKash oder Nagad an Alokayon und erhalten Sie eine Quittung per E-Mail. Ihre Zakat erreicht Schüler, Witwen und bedürftige Familien.",
       "terms": "Allgemeine Bedingungen für Spenden an Alokayon.",
       "privacy": "Wie Alokayon Ihre persönlichen Daten erhebt, verwendet und schützt.",
-      "refund": "Rückgabe- und Erstattungsrichtlinie von Alokayon für Spenden."
+      "refund": "Rückgabe- und Erstattungsrichtlinie von Alokayon für Spenden.",
+      "zakatCalculator": "Berechnen Sie Ihre Zakat. Geben Sie Bargeld, Gold, Silber, Ersparnisse und Schulden ein und sehen Sie Ihre Zakat von 2,5 % anhand des aktuellen Nisab in BDT."
     },
     "notFoundTitle": "Seite nicht gefunden"
   },
@@ -2452,5 +2462,98 @@
     "programsLink": "Unsere Programme",
     "transparencyLink": "Berichte und Magazine",
     "contactNote": "Suchen Sie noch etwas? Schreiben Sie uns an"
+  },
+  "zakatCalculator": {
+    "eyebrow": "Zakat-Rechner",
+    "title": "Berechnen Sie Ihre Zakat",
+    "intro": "Geben Sie ein, was Sie heute besitzen und schulden. Der Rechner vergleicht Ihr Vermögen mit dem Nisab und zeigt Ihre Zakat von 2,5 %. Ihre Eingaben werden weder gespeichert noch gesendet.",
+    "sections": {
+      "nisab": "Nisab und Preise",
+      "assets": "Was Sie besitzen",
+      "deductions": "Was Sie jetzt schulden"
+    },
+    "nisab": {
+      "label": "Nisab-Maßstab",
+      "silver": {
+        "title": "Silber-Nisab (612,36 g)",
+        "description": "Die niedrigere Grenze. Viele Gelehrte in Bangladesch empfehlen sie, weil so mehr Menschen Zakat zahlen und mehr Bedürftigen geholfen wird.",
+        "metal": "Silber"
+      },
+      "gold": {
+        "title": "Gold-Nisab (87,48 g)",
+        "description": "Eine höhere Grenze. Manche Gelehrte verwenden sie, besonders wenn Ihr Vermögen überwiegend aus Gold besteht.",
+        "metal": "Gold"
+      }
+    },
+    "fields": {
+      "goldPrice": "Goldpreis pro Gramm (22 Karat)",
+      "silverPrice": "Silberpreis pro Gramm",
+      "cash": "Bargeld und Bankguthaben",
+      "gold": "Ihr Gold",
+      "silver": "Ihr Silber",
+      "investments": "Ersparnisse und Anlagen",
+      "businessStock": "Warenbestand",
+      "receivables": "Geld, das andere Ihnen schulden",
+      "otherAssets": "Sonstiges zakatpflichtiges Vermögen",
+      "debtsDue": "Jetzt fällige Schulden und Rechnungen"
+    },
+    "hints": {
+      "cash": "Bargeld zu Hause, Bankkonten sowie bKash, Nagad oder andere mobile Geldbörsen.",
+      "gold": "Schmuck, Münzen und Barren nach Gewicht. 1 Vori sind {{grams}} Gramm.",
+      "silver": "Schmuck, Münzen und Gegenstände nach Gewicht.",
+      "investments": "Aktien, Sparbriefe (Sanchayapatra), DPS, Festgeld und ähnliche Ersparnisse.",
+      "businessStock": "Zum Verkauf gehaltene Waren zum aktuellen Verkaufspreis.",
+      "receivables": "Verliehenes Geld, dessen Rückzahlung Sie erwarten.",
+      "otherAssets": "Fremdwährung oder zum Weiterverkauf gekaufte Immobilien und Grundstücke.",
+      "debtsDue": "Kreditraten, Miete, Rechnungen und andere jetzt fällige Zahlungen. Nicht den vollen Betrag eines langfristigen Kredits angeben."
+    },
+    "units": {
+      "label": "Einheit",
+      "vori": "Vori",
+      "gram": "Gramm"
+    },
+    "prices": {
+      "updated": "Preise von Alokayon am {{date}} festgelegt. Sie können sie auf den heutigen Kurs ändern.",
+      "missing": "Geben Sie die heutigen Gold- und Silberpreise ein, um den Nisab zu berechnen.",
+      "bajusLink": "BAJUS-Preisliste ansehen"
+    },
+    "summary": {
+      "title": "Ihre Zakat",
+      "totalAssets": "Gesamtvermögen",
+      "deductions": "Jetzt fällige Schulden",
+      "netWealth": "Zakatpflichtiges Nettovermögen",
+      "nisab": "Nisab ({{grams}} g {{metal}})"
+    },
+    "result": {
+      "needPrice": "Geben Sie den {{metal}}preis pro Gramm ein, um zu sehen, ob Sie den Nisab erreichen.",
+      "empty": "Geben Sie Ihr Vermögen ein, um Ihre Zakat zu sehen.",
+      "dueLabel": "Fällige Zakat",
+      "dueNote": "Das sind 2,5 % Ihres Nettovermögens, fällig, wenn es ein Mondjahr lang mindestens den Nisab erreicht hat.",
+      "payButton": "{{amount}} als Zakat zahlen",
+      "largeAmount": "Beträge über ৳5,00,000 zahlen Sie bitte per Banküberweisung. Die Bankdaten finden Sie auf der Spendenseite.",
+      "belowNisab": "Ihr Nettovermögen liegt unter dem Nisab, daher ist keine Zakat fällig. Sadaqah können Sie jederzeit geben."
+    },
+    "explainer": {
+      "title": "So wird Zakat berechnet",
+      "items": [
+        {
+          "title": "Nisab",
+          "text": "Zakat wird fällig, sobald Ihr Nettovermögen den Nisab erreicht: den Wert von 87,48 Gramm Gold oder 612,36 Gramm Silber."
+        },
+        {
+          "title": "Ein Mondjahr (Hawl)",
+          "text": "Ihr Vermögen muss ein volles Hidschra-Jahr mindestens den Nisab erreichen. Viele wählen dafür jedes Jahr ein festes Datum, etwa im Ramadan."
+        },
+        {
+          "title": "2,5 % des Nettovermögens",
+          "text": "Zählen Sie Ihr zakatpflichtiges Vermögen zusammen, ziehen Sie jetzt fällige Schulden ab und zahlen Sie 2,5 % des Rests."
+        },
+        {
+          "title": "Was nicht zählt",
+          "text": "Ihr Wohnhaus, Ihr privates Auto, Möbel, Kleidung und Arbeitsgeräte werden nicht gezählt."
+        }
+      ]
+    },
+    "disclaimer": "Dieser Rechner ist eine Orientierungshilfe. Bei manchen Punkten, etwa getragenem Schmuck und langfristigen Schulden, gibt es unterschiedliche Auffassungen. Fragen Sie für Ihre Situation bitte einen Gelehrten Ihres Vertrauens."
   }
 }

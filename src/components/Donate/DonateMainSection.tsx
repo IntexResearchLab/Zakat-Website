@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import Reveal from '../reusables/Reveal'
 
 const policyLinkClass =
@@ -13,7 +13,8 @@ const labelClass = 'text-[0.88rem] font-semibold text-[#14324d]'
 const MIN_DONATION_BDT = 10
 const MAX_DONATION_BDT = 500000
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-const categoryKeys = ['default', 'education', 'healthcare', 'livelihood'] as const
+const categoryKeys = ['default', 'zakat', 'education', 'healthcare', 'livelihood'] as const
+type CategoryKey = (typeof categoryKeys)[number]
 
 // Amount labels are translated text such as "৳1000" or "৳১০০০"; options without digits are "custom".
 const parseAmountLabel = (label: string) => {
@@ -35,12 +36,22 @@ function DonateMainSection() {
   const trustItems = t('donate.main.trustItems', { returnObjects: true }) as string[]
   const paymentMethods = t('donate.main.paymentMethods', { returnObjects: true }) as string[]
 
-  const [selectedOption, setSelectedOption] = useState(1)
-  const [customAmount, setCustomAmount] = useState('')
+  // The zakat calculator links here with ?amount=…&category=zakat to prefill the form.
+  const [searchParams] = useSearchParams()
+  const presetAmount = Number(searchParams.get('amount'))
+  const hasPresetAmount =
+    Number.isFinite(presetAmount) && presetAmount >= MIN_DONATION_BDT && presetAmount <= MAX_DONATION_BDT
+  const customOptionIndex = amountOptions.findIndex((option) => parseAmountLabel(option.amount) === null)
+  const presetCategory = categoryKeys.find((key) => key === searchParams.get('category'))
+
+  const [selectedOption, setSelectedOption] = useState(
+    hasPresetAmount && customOptionIndex >= 0 ? customOptionIndex : 1,
+  )
+  const [customAmount, setCustomAmount] = useState(hasPresetAmount ? String(presetAmount) : '')
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
-  const [category, setCategory] = useState<(typeof categoryKeys)[number]>('default')
+  const [category, setCategory] = useState<CategoryKey>(presetCategory ?? 'default')
   // Payment gateway compliance: donors must actively agree to the policies before paying.
   const [hasAgreedToPolicies, setHasAgreedToPolicies] = useState(false)
   const [wantsSignedReceipt, setWantsSignedReceipt] = useState(false)
@@ -188,6 +199,13 @@ function DonateMainSection() {
               </label>
             ) : null}
 
+            <p className="mt-4 text-[0.92rem] leading-[1.6] text-[#4f6170]">
+              {t('donate.main.calculatorPrompt')}{' '}
+              <Link className={policyLinkClass} to="/zakat-calculator">
+                {t('donate.main.calculatorLink')}
+              </Link>
+            </p>
+
             <div className="mt-7 grid gap-4">
               <label className="grid gap-2">
                 <span className={labelClass}>{t('common.form.nameLabel')}</span>
@@ -234,7 +252,7 @@ function DonateMainSection() {
                   className={fieldClass}
                   id="donate-category"
                   onChange={(event) =>
-                    setCategory(event.target.value as (typeof categoryKeys)[number])
+                    setCategory(event.target.value as CategoryKey)
                   }
                   value={category}
                 >

@@ -17,6 +17,7 @@ const organisation = {
 
 export const categoryLabels: Record<string, string> = {
   default: 'Where most needed',
+  zakat: 'Zakat',
   education: 'Education',
   healthcare: 'Healthcare',
   livelihood: 'Livelihood',

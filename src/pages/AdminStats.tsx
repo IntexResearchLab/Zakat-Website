@@ -52,22 +52,25 @@ function AdminStats() {
   const [errorMessage, setErrorMessage] = useState('')
   const [successMessage, setSuccessMessage] = useState('')
 
-  const sourceRows = useMemo(
-    () =>
-      rows.length
-        ? rows
-        : defaultRows.map((row, index) => ({
-            id: `${row.groupName}-${row.key}-${index}`,
-            key: row.key,
-            value: row.value,
-            description: row.description,
-            group_name: row.groupName,
-            sort_order: row.sortOrder,
-            is_active: row.isActive,
-            updated_at: null,
-          })),
-    [rows],
-  )
+  // Database rows, plus any figure from the built-in list that has no row yet (for example
+  // a newly added figure, or every figure when the table is empty). Those get a "new:" id
+  // and are inserted, rather than updated, when saved.
+  const sourceRows = useMemo(() => {
+    const savedKeys = new Set(rows.map((row) => row.key))
+    const missingRows = defaultRows
+      .filter((row) => !savedKeys.has(row.key))
+      .map((row) => ({
+        id: `new:${row.key}`,
+        key: row.key,
+        value: row.value,
+        description: row.description,
+        group_name: row.groupName,
+        sort_order: row.sortOrder,
+        is_active: row.isActive,
+        updated_at: null,
+      }))
+    return [...rows, ...missingRows]
+  }, [rows])
 
   const groupedRows = useMemo(
     () =>
@@ -171,40 +174,33 @@ function AdminStats() {
 
     const timestamp = new Date().toISOString()
 
-    // An empty table shows the built-in defaults, which have no database rows to update yet.
-    // Saving then creates every row, so the figures can be edited from now on.
-    if (!rows.length) {
-      if (!hasLoaded) {
-        setErrorMessage(t('admin.errors.network'))
-        setIsSavingAll(false)
-        return
-      }
+    const newRows = changedRows.filter((row) => row.id.startsWith('new:'))
+    const existingRows = changedRows.filter((row) => !row.id.startsWith('new:'))
 
-      const { error } = await supabase.from('public_stats').insert(
-        sourceRows.map((row) => ({
-          key: row.key,
-          value: (draftValues[row.key] ?? row.value).trim(),
-          description: row.description,
-          group_name: row.group_name,
-          sort_order: row.sort_order,
-          is_active: row.is_active,
-          updated_at: timestamp,
-        })),
-      )
-
-      if (error) {
-        setErrorMessage(getFriendlyErrorMessage(t, error))
-      } else {
-        invalidatePublicStatsCache()
-        await loadStats()
-        setSuccessMessage(t('admin.stats.saveSuccess', { count: changedRows.length }))
-      }
-
+    // Only create rows after a successful load, never because loading failed.
+    if (newRows.length && !hasLoaded) {
+      setErrorMessage(t('admin.errors.network'))
       setIsSavingAll(false)
       return
     }
 
-    const updates = changedRows.map((row) =>
+    const insertError = newRows.length
+      ? (
+          await supabase.from('public_stats').insert(
+            newRows.map((row) => ({
+              key: row.key,
+              value: draftValues[row.key].trim(),
+              description: row.description,
+              group_name: row.group_name,
+              sort_order: row.sort_order,
+              is_active: row.is_active,
+              updated_at: timestamp,
+            })),
+          )
+        ).error
+      : null
+
+    const updates = existingRows.map((row) =>
       supabase
         .from('public_stats')
         .update({
@@ -217,8 +213,17 @@ function AdminStats() {
 
     const results = (await Promise.all(updates)).map(requireChangedRows)
     // Updates run independently, so keep the ones that succeeded even if another failed.
-    const savedRows = changedRows.filter((_, index) => !results[index])
-    const firstError = results.find(Boolean)
+    const savedRows = [
+      ...existingRows.filter((_, index) => !results[index]),
+      ...(insertError ? [] : newRows),
+    ]
+    const firstError = insertError ?? results.find(Boolean)
+
+    if (newRows.length && !insertError) {
+      // Reload so the new rows get their real ids.
+      invalidatePublicStatsCache()
+      await loadStats()
+    }
 
     if (savedRows.length) {
       invalidatePublicStatsCache()
