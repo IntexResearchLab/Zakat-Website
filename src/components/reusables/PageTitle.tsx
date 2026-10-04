@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useLocation } from 'react-router-dom'
+import pageMeta from '../../content/pageMeta.json'
 
 const siteName = 'Alokayon Charity'
 const siteUrl = (import.meta.env.VITE_SITE_URL || 'https://alokayoncharity.com').replace(/\/+$/, '')
@@ -12,77 +13,8 @@ type PageInfo = {
   noIndex?: boolean
 }
 
-const pagesByPath: Record<string, PageInfo> = {
-  '/': { descriptionKey: 'seo.descriptions.home' },
-  '/about': { titleKey: 'common.breadcrumb.aboutUs', descriptionKey: 'seo.descriptions.about' },
-  '/donate': { titleKey: 'common.breadcrumb.donate', descriptionKey: 'seo.descriptions.donate' },
-  '/donate/success': {
-    titleKey: 'common.breadcrumb.donate',
-    descriptionKey: 'seo.descriptions.donate',
-    noIndex: true,
-  },
-  '/donate/failed': {
-    titleKey: 'common.breadcrumb.donate',
-    descriptionKey: 'seo.descriptions.donate',
-    noIndex: true,
-  },
-  '/donate/cancelled': {
-    titleKey: 'common.breadcrumb.donate',
-    descriptionKey: 'seo.descriptions.donate',
-    noIndex: true,
-  },
-  '/donate/receipt': {
-    titleKey: 'common.breadcrumb.donate',
-    descriptionKey: 'seo.descriptions.donate',
-    noIndex: true,
-  },
-  '/gallery': { titleKey: 'common.breadcrumb.gallery', descriptionKey: 'seo.descriptions.gallery' },
-  '/opinions-of-beneficiaries': {
-    titleKey: 'common.breadcrumb.opinions',
-    descriptionKey: 'seo.descriptions.opinions',
-  },
-  '/our-donors': {
-    titleKey: 'common.breadcrumb.donors',
-    descriptionKey: 'seo.descriptions.donors',
-  },
-  '/programs': {
-    titleKey: 'common.breadcrumb.programs',
-    descriptionKey: 'seo.descriptions.programs',
-  },
-  '/programs/alokayon-school': {
-    titleKey: 'common.breadcrumb.school',
-    descriptionKey: 'seo.descriptions.school',
-  },
-  '/programs/madrasa': {
-    titleKey: 'common.breadcrumb.madrasah',
-    descriptionKey: 'seo.descriptions.madrasa',
-  },
-  '/transparency': {
-    titleKey: 'common.breadcrumb.transparency',
-    descriptionKey: 'seo.descriptions.transparency',
-  },
-  '/contact': { titleKey: 'common.breadcrumb.contact', descriptionKey: 'seo.descriptions.contact' },
-  '/campaigns': {
-    titleKey: 'common.breadcrumb.campaigns',
-    descriptionKey: 'seo.descriptions.campaigns',
-  },
-  '/zakat-calculator': {
-    titleKey: 'common.breadcrumb.zakatCalculator',
-    descriptionKey: 'seo.descriptions.zakatCalculator',
-  },
-  '/terms-and-conditions': {
-    titleKey: 'common.breadcrumb.terms',
-    descriptionKey: 'seo.descriptions.terms',
-  },
-  '/privacy-policy': {
-    titleKey: 'common.breadcrumb.privacy',
-    descriptionKey: 'seo.descriptions.privacy',
-  },
-  '/refund-policy': {
-    titleKey: 'common.breadcrumb.refund',
-    descriptionKey: 'seo.descriptions.refund',
-  },
-}
+// Shared with scripts/prerender-meta.mjs, which writes per-page link previews at build time.
+const pagesByPath = pageMeta as Record<string, PageInfo>
 
 const setMeta = (attribute: 'name' | 'property', key: string, content: string) => {
   let element = document.head.querySelector<HTMLMetaElement>(`meta[${attribute}="${key}"]`)

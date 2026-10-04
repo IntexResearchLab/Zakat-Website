@@ -36,7 +36,7 @@ Copy `.env.example` to `.env.local` and fill in the values. Variables starting w
 | Command | What it does |
 |---|---|
 | `npm run dev` | Start the dev server with the API functions |
-| `npm run build` | Type-check and build for production into `dist/` |
+| `npm run build` | Type-check, build for production into `dist/`, and write per-page link previews |
 | `npm run lint` | Run ESLint |
 | `npm run preview` | Serve the production build locally |
 
@@ -64,4 +64,5 @@ supabase/migrations/ SQL to run in Supabase
 - **Icons** use a subset of the Material Symbols font that only contains the icons the site uses. When you add a new icon, add its name to `icon_names` in both `index.html` and `src/index.css`, in alphabetical order. Otherwise it shows as text.
 - **Images** go in `public/assets/` as WebP, at most 1600px wide.
 - **Text** belongs in `src/locales/*/common.json`, not in components, so it can be translated.
-- **New pages** need a description in `seo.descriptions` and an entry in `src/components/reusables/PageTitle.tsx`, and public pages should be added to `public/sitemap.xml`.
+- **New pages** need a description in `seo.descriptions` and an entry in `src/content/pageMeta.json`, and public pages should be added to `public/sitemap.xml`.
+- **Link previews:** `npm run build` also runs `scripts/prerender-meta.mjs`, which writes one HTML file per public page (for example `dist/donate.html`) with that page's title and description, so WhatsApp and Facebook show the right preview. Appeal pages get theirs from `api/campaign-page.ts` when they are requested.

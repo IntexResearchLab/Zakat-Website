@@ -1,5 +1,15 @@
 {
+  "cleanUrls": true,
+  "functions": {
+    "api/campaign-page.ts": {
+      "includeFiles": "dist/index.html"
+    }
+  },
   "rewrites": [
+    {
+      "source": "/campaigns/:slug",
+      "destination": "/api/campaign-page?slug=:slug"
+    },
     {
       "source": "/((?!api/).*)",
       "destination": "/index.html"

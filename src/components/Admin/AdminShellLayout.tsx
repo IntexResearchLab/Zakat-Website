@@ -19,13 +19,13 @@ const navIconMap = {
   stats: 'monitoring',
   pages: 'article',
   programs: 'volunteer_activism',
-  stories: 'forum',
   gallery: 'photo_library',
   transparency: 'verified',
   donations: 'payments',
   campaigns: 'campaign',
   messages: 'mail',
   testimonials: 'forum',
+  stories: 'auto_stories',
   settings: 'settings',
 } as const
 

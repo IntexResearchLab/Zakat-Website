@@ -2536,6 +2536,11 @@
         "icon": "testimonials"
       },
       {
+        "label": "Stories",
+        "href": "/admin/stories",
+        "icon": "stories"
+      },
+      {
         "label": "Executives",
         "href": "/admin/executives",
         "icon": "executives"
@@ -3094,6 +3099,64 @@
       "empty": "No quotes of this type yet.",
       "errors": {
         "required": "Please enter at least the English name and quote."
+      }
+    },
+    "stories": {
+      "eyebrow": "Stories",
+      "title": "Long-form stories",
+      "description": "The featured beneficiary story on Voices of Impact and the donor stories on Our Donors. Write them in English and Bangla.",
+      "new": "Add a story",
+      "newTitle": "Add a story",
+      "editTitle": "Edit story",
+      "import": "Import the current stories",
+      "importing": "Importing...",
+      "importConfirm": "Copy the stories that are on the website today (English and Bangla) into this list so you can edit them?",
+      "imported": "{{count}} stories imported. You can now edit, hide or reorder them.",
+      "tabs": {
+        "beneficiary": "Featured beneficiary story",
+        "donor": "Donor stories"
+      },
+      "kinds": {
+        "beneficiary": "Beneficiary (featured story)",
+        "donor": "Donor story"
+      },
+      "where": {
+        "beneficiary": "Voices of Impact shows the first visible story from this list as its featured story. Move another to the top to feature it instead.",
+        "donor": "Shown on Our Donors under \"How donors became involved\", in this order."
+      },
+      "fields": {
+        "kind": "Type of story",
+        "titleEn": "Title (English)",
+        "titleBn": "Title (Bangla)",
+        "summaryEn": "Introduction (English)",
+        "summaryBn": "Introduction (Bangla)",
+        "bodyEn": "Full story (English)",
+        "bodyBn": "Full story (Bangla)",
+        "name": "Name (English)",
+        "nameBn": "Name (Bangla)",
+        "roleEn": "Role or description (English)",
+        "roleBn": "Role or description (Bangla)",
+        "badgesEn": "Highlights, separated by commas (English)",
+        "badgesBn": "Highlights, separated by commas (Bangla)",
+        "image": "Photo"
+      },
+      "help": "Only the English title and introduction are required. Leave a blank line between paragraphs. Visitors see the introduction first and can open the full story. Highlights appear as badges on the featured story.",
+      "save": "Save story",
+      "saving": "Saving...",
+      "cancel": "Cancel",
+      "edit": "Edit",
+      "delete": "Delete",
+      "featured": "Featured now",
+      "hidden": "Hidden",
+      "noBangla": "No Bangla yet",
+      "created": "Story \"{{title}}\" added.",
+      "updated": "Story \"{{title}}\" updated.",
+      "deleted": "Story \"{{title}}\" deleted.",
+      "deleteConfirm": "Delete the story \"{{title}}\"? This cannot be undone.",
+      "loading": "Loading stories...",
+      "empty": "No stories of this type yet.",
+      "errors": {
+        "required": "Please enter at least the English title and introduction."
       }
     }
   },

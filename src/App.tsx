@@ -22,6 +22,7 @@ const AdminMagazines = lazy(() => import('./pages/AdminMagazines'))
 const AdminMessages = lazy(() => import('./pages/AdminMessages'))
 const AdminResetPassword = lazy(() => import('./pages/AdminResetPassword'))
 const AdminStats = lazy(() => import('./pages/AdminStats'))
+const AdminStories = lazy(() => import('./pages/AdminStories'))
 const AdminTestimonials = lazy(() => import('./pages/AdminTestimonials'))
 const AlokayonSchool = lazy(() => import('./pages/AlokayonSchool'))
 const CampaignDetail = lazy(() => import('./pages/CampaignDetail'))
@@ -136,6 +137,14 @@ function App() {
                 element={
                   <AdminRouteGuard mode="protected">
                     <AdminTestimonials />
+                  </AdminRouteGuard>
+                }
+              />
+              <Route
+                path="/admin/stories"
+                element={
+                  <AdminRouteGuard mode="protected">
+                    <AdminStories />
                   </AdminRouteGuard>
                 }
               />
