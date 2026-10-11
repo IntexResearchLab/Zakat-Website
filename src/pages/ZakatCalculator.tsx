@@ -79,7 +79,7 @@ function NumberField({ label, hint, value, onChange, prefix = '৳', suffix }: N
 function ZakatCalculator() {
   const { t, i18n } = useTranslation()
   const { stats } = usePublicStats()
-  const numberLocale = i18n.language === 'bn' ? 'bn-BD' : 'en-IN'
+  const numberLocale = i18n.language === 'bn' ? 'bn-BD' : i18n.language === 'de' ? 'de-DE' : 'en-IN'
   const formatTaka = (value: number) =>
     `৳${value.toLocaleString(numberLocale, { maximumFractionDigits: 0 })}`
 

@@ -62,9 +62,9 @@
       "programs": "Programme",
       "school": "Schule",
       "transparency": "Magazin",
-      "terms": "Allgemeine Geschäftsbedingungen",
+      "terms": "Nutzungs- und Spendenbedingungen",
       "privacy": "Datenschutzerklärung",
-      "refund": "Rückgabe- und Erstattungsrichtlinie",
+      "refund": "Erstattungsrichtlinie",
       "zakatCalculator": "Zakat-Rechner",
       "campaigns": "Spendenaufrufe",
       "contact": "Kontakt"
@@ -88,7 +88,7 @@
   "footer": {
     "brand": {
       "description": "Alokayon unterstützt benachteiligte Gemeinschaften durch Bildung, Nothilfe, Gesundheitsversorgung und würdevolle Unterstützung.",
-      "trustLine": "Eingetragene Wohltätigkeitsorganisation • Transparentes Spenden • Seit 2011"
+      "trustLine": "In Bangladesch registrierte Wohltätigkeitsorganisation • Transparentes Spenden • Seit 2011"
     },
     "explore": {
       "title": "Entdecken",
@@ -168,7 +168,7 @@
           "external": true
         }
       ],
-      "addressLabel": "Eingetragene Adresse"
+      "addressLabel": "Anschrift"
     },
     "bottom": {
       "copyright": "© {{year}} Alokayon",
@@ -182,7 +182,7 @@
           "href": "/about"
         },
         {
-          "label": "Allgemeine Geschäftsbedingungen",
+          "label": "Nutzungs- und Spendenbedingungen",
           "href": "/terms-and-conditions"
         },
         {
@@ -190,7 +190,7 @@
           "href": "/privacy-policy"
         },
         {
-          "label": "Rückgabe- und Erstattungsrichtlinie",
+          "label": "Erstattungsrichtlinie",
           "href": "/refund-policy"
         }
       ]
@@ -212,7 +212,7 @@
         {
           "image": "/assets/home/celebration.webp",
           "eyebrow": "Glaube in Aktion",
-          "titleTop": "Geben Sie Ihre Zakat.",
+          "titleTop": "Entrichten Sie Ihre Zakat.",
           "titleBottom": "Verändern Sie Leben.",
           "description": "Alokayon sorgt dafür, dass Ihre Spende mit Würde, Transparenz und Fürsorge Studierende, Witwen, ältere Menschen und bedürftige Familien erreicht.",
           "versePrefix": "Verrichtet das Gebet und entrichtet die Zakat, und was ihr Gutes für euch vorausschickt,",
@@ -236,8 +236,8 @@
         {
           "image": "/assets/school/School_3.webp",
           "eyebrow": "Mitgefühl, das bleibt",
-          "titleTop": "Stehen Sie an der Seite",
-          "titleBottom": "derer, die in Not sind.",
+          "titleTop": "Stehen Sie Menschen",
+          "titleBottom": "in Not zur Seite.",
           "description": "Wir unterstützen benachteiligte Gemeinschaften durch kleine, aufrichtige Maßnahmen, die langfristige Stabilität und Hoffnung schaffen.",
           "versePrefix": "Und sie geben Speise, so lieb sie ihnen auch ist, an",
           "verseHighlight": "den Bedürftigen, die Waise und den Gefangenen.",
@@ -258,7 +258,7 @@
           "label": "Unterstützte Schüler"
         },
         {
-          "value": "1.3M+ BDT",
+          "value": "1,3 Mio.+ BDT",
           "label": "Jährlich verteilt"
         },
         {
@@ -267,7 +267,7 @@
         },
         {
           "value": "500+",
-          "label": "Verteilte Existenzgrundlagen"
+          "label": "Verteilte Hilfsmittel zur Existenzsicherung"
         }
       ],
       "programsTitle": "Leitprogramme",
@@ -296,7 +296,7 @@
       "eyebrow": "Unsere heilige Mission",
       "title": "Gemeinschaften stärken durch spirituelle Verantwortung",
       "paragraphOne": "Bei Alokayon glauben wir, dass Wohltätigkeit nicht mit dem Geben endet. Sie muss vielmehr verantwortungsvoll und mit Integrität eingesetzt werden, um nachhaltige Wirkung zu schaffen und Menschen zu einem Leben in Würde zu verhelfen",
-      "paragraphTwo": "Unsere Arbeit unterstützt nachhaltigen Wandel durch Bildung, Nothilfe, Gesundheitsversorgung und Existenzsicherung, verwurzelt in Mitgefühl, Rechenschaftspflicht und Fürsorge.",
+      "paragraphTwo": "Unsere Arbeit unterstützt nachhaltigen Wandel durch Bildung, Nothilfe, Gesundheitsversorgung und Existenzsicherung, verwurzelt in Mitgefühl, Verantwortung und Fürsorge.",
       "quote": "Schützt euch vor dem Feuer, und sei es mit einer halben Dattel als Spende.",
       "quoteReminder": "Eine Erinnerung aus dem Islam",
       "quotePrefix": "Schützt euch vor dem Feuer, und sei es mit",
@@ -311,7 +311,7 @@
       "context": "Seit 2011 • Von der Gemeinschaft getragen • Glaubensgeleitet",
       "title": "Eine Botschaft des Gründungsvorsitzenden",
       "excerptOne": "Alokayon begann mit einer einfachen, aber dringenden Erkenntnis: Trotz nationalen Fortschritts sind viele Menschen in unserer Gesellschaft weiterhin ohne grundlegende Dinge wie Nahrung, Bildung, Gesundheitsversorgung und sicheres Obdach.",
-      "excerptTwo": "Was 2011 als kleine Initiative unter dem Namen „Dushtho Sheba“ begann, wurde später zu Alokayon und 2019 offiziell eingetragen. Mit Zakat und Spenden mitfühlender Menschen stehen wir – im Rahmen unserer begrenzten Möglichkeiten – weiterhin Witwen, Waisen, älteren Menschen, Studierenden und bedürftigen Familien mit Aufrichtigkeit, Würde und Rechenschaftspflicht zur Seite.",
+      "excerptTwo": "Was 2011 als kleine Initiative unter dem Namen „Dushtho Sheba“ begann, wurde später zu Alokayon und 2019 offiziell registriert. Mit Zakat und Spenden mitfühlender Menschen stehen wir – im Rahmen unserer begrenzten Möglichkeiten – weiterhin Witwen, Waisen, älteren Menschen, Studierenden und bedürftigen Familien mit Aufrichtigkeit, Würde und Verantwortung zur Seite.",
       "name": "A.K.M. Fazlul Kader",
       "role": "Gründungsvorsitzender, Alokayon",
       "imageAlt": "Gründungsvorsitzender von Alokayon",
@@ -331,7 +331,7 @@
             "title": "Warum diese Arbeit begann",
             "paragraphs": [
               "Wenn ein Tagelöhner – oder jemand, der von Tageseinkommen lebt – verstirbt und drei oder vier Kinder hinterlässt, gleicht die Lage seiner jungen Witwe der eines Menschen, der in einem weiten Ozean ertrinkt, ohne schwimmen zu können. Aus Scham, Sorge um die Familienehre und Angst vor Belästigung können viele Witwen nicht einmal um Hilfe bitten. In vielen Fällen ist ihre Lage noch schwieriger als die städtischer Slumbewohner.",
-              "Mit dem Ziel, diesen bitterarmen Menschen zu dienen, begann diese Organisation ihre Reise 2011 informell und in sehr kleinem Rahmen unter dem Namen „Dushtho Sheba“. Nach einem langen Weg wurde sie 2019 offiziell beim Department of Social Services des Ministeriums für Soziales unter dem Namen „Alokayon“ eingetragen."
+              "Mit dem Ziel, diesen bitterarmen Menschen zu dienen, begann diese Organisation ihre Reise 2011 informell und in sehr kleinem Rahmen unter dem Namen „Dushtho Sheba“. Nach einem langen Weg wurde sie 2019 offiziell beim Department of Social Services des Ministeriums für Soziales unter dem Namen „Alokayon“ registriert."
             ]
           },
           {
@@ -346,7 +346,7 @@
             "paragraphs": [
               "Im Vergleich zu den immensen Bedürfnissen der Benachteiligten bleibt unser Beitrag bescheiden. Dennoch glauben wir, dass auch begrenzte Hilfe einen bedeutsamen Unterschied machen kann. Ohne gemeinsame Anstrengung hätten wir vielleicht nicht einmal so viel erreichen können.",
               "Wir danken allen, die mit unserer Arbeit verbunden sind, von Herzen. Vier Menschen, die regelmäßig finanziell zu Alokayon beigetragen haben, sind bereits verstorben. Wir beten, dass ihre Beiträge im Jenseits zu einem Mittel der Erlösung werden.",
-              "Lasst uns gemeinsam mit Alokayon den Benachteiligten zur Seite stehen. Möge unser aufrichtiges Bemühen, so Allah will, eine Quelle des Wohlergehens in dieser Welt und der Erlösung im Jenseits sein."
+              "Lassen Sie uns gemeinsam mit Alokayon den Benachteiligten zur Seite stehen. Möge unser aufrichtiges Bemühen, so Allah will, eine Quelle des Wohlergehens in dieser Welt und der Erlösung im Jenseits sein."
             ]
           }
         ]
@@ -366,7 +366,7 @@
         },
         {
           "title": "Witwenunterstützung",
-          "description": "Zuwendungen, Existenzgrundlagen und praktische Fürsorge für verwitwete Frauen."
+          "description": "Monatliche Beihilfen, Existenzsicherung und praktische Fürsorge für verwitwete Frauen."
         },
         {
           "title": "Nothilfe",
@@ -374,10 +374,10 @@
         },
         {
           "title": "Existenzsicherung",
-          "description": "Enten, Ziegen, Nähmaschinen und Kleinunternehmenshilfe für Selbstständigkeit."
+          "description": "Enten, Ziegen, Nähmaschinen und Kleinunternehmenshilfe für Eigenständigkeit."
         },
         {
-          "title": "Altenpflege",
+          "title": "Hilfe für ältere Menschen",
           "description": "Direkte Unterstützung für ältere Männer und Frauen ohne festes Einkommen."
         },
         {
@@ -386,7 +386,7 @@
         },
         {
           "title": "Madrasa",
-          "description": "Integrierte arabische und allgemeine Bildung durch disziplinierten, rechenschaftspflichtigen Unterricht."
+          "description": "Integrierte arabische und allgemeine Bildung durch disziplinierten, verantwortungsvollen Unterricht."
         },
         {
           "title": "Schule",
@@ -404,7 +404,7 @@
         "eyebrow": "Kontaktieren Sie Alokayon",
         "title": "Kontaktieren Sie uns direkt für Zakat, Spenden und Partnerschaftsanfragen.",
         "description": "Sie können Alokayon per E-Mail kontaktieren oder dieselben bKash- und Nagad-Nummern anrufen, die auch für Direktspenden verwendet werden.",
-        "note": "Bankunterstützung ist über die Islami Bank Bangladesh PLC, Filiale Banasree, verfügbar.",
+        "note": "Spenden per Banküberweisung sind über die Islami Bank Bangladesh PLC, Filiale Banasree, möglich.",
         "methods": [
           {
             "label": "E-Mail",
@@ -434,9 +434,9 @@
       "eyebrow": "Stimmen der Wirkung",
       "title": "Echte Geschichten aus unserer Gemeinschaft",
       "cta": "Lesen Sie weitere echte Geschichten in unserem Magazin →",
-      "previous": "Vorheriges Zeugnis anzeigen",
-      "next": "Nächstes Zeugnis anzeigen",
-      "showTestimonial": "Zeugnis {{index}} anzeigen",
+      "previous": "Vorherigen Erfahrungsbericht anzeigen",
+      "next": "Nächsten Erfahrungsbericht anzeigen",
+      "showTestimonial": "Erfahrungsbericht {{index}} anzeigen",
       "testimonials": [
         {
           "category": "Wirkungsgeschichte",
@@ -447,7 +447,7 @@
         },
         {
           "category": "Transparenz",
-          "quote": "Ich war von der Transparenz und Rechenschaftspflicht von Alokayon beeindruckt. Zu sehen, wie Spenden aufrichtig für Bedürftige eingesetzt werden, hat mich ermutigt, mit ihrer Arbeit verbunden zu bleiben.",
+          "quote": "Ich war von der Transparenz und Verantwortung von Alokayon beeindruckt. Zu sehen, wie Spenden aufrichtig für Bedürftige eingesetzt werden, hat mich ermutigt, mit ihrer Arbeit verbunden zu bleiben.",
           "name": "Spezialist für Monitoring und Evaluation",
           "role": "Weltbank",
           "location": ""
@@ -466,15 +466,15 @@
     "hero": {
       "eyebrow": "Über Alokayon",
       "title": "Eine Wohltätigkeitsorganisation, verwurzelt in Mitgefühl, Würde und verantwortungsvollem Geben.",
-      "description": "Alokayon ist eine gemeinnützige, unpolitische Wohltätigkeitsorganisation in Bangladesch, die benachteiligte Gemeinschaften durch Bildung, Gesundheitsversorgung und mitfühlende Nothilfe unterstützt.",
+      "description": "Alokayon ist eine nicht gewinnorientierte, unpolitische Wohltätigkeitsorganisation in Bangladesch, die benachteiligte Gemeinschaften durch Bildung, Gesundheitsversorgung und mitfühlende Nothilfe unterstützt.",
       "imageAlt": "Über Alokayon durchgeführte Hilfsaktivitäten",
       "logoAlt": "Alokayon-Logo"
     },
     "journey": {
       "eyebrow": "Unser Werdegang",
       "title": "Ein stiller Anfang, eine offizielle Gründung und ein wachsendes Engagement für den Dienst.",
-      "description": "Von einer kleinen Initiative zu einer vertrauenswürdigen Wohltätigkeitsorganisation. Wir sind heute eine eingetragene NGO",
-      "badge": "Eingetragene NGO (2019)",
+      "description": "Von einer kleinen Initiative zu einer vertrauenswürdigen Wohltätigkeitsorganisation. Wir sind heute eine registrierte NGO",
+      "badge": "In Bangladesch registrierte NGO (2019)",
       "registrationTitle": "Offizielle Registrierung",
       "registrationDescription": "Die offizielle Registrierung wurde 2019 beim Department of Social Services abgeschlossen.",
       "certificateAlt": "Registrierungsurkunde von Alokayon",
@@ -485,7 +485,7 @@
         },
         {
           "year": "2019",
-          "title": "Offiziell als Alokayon eingetragen"
+          "title": "Offiziell als Alokayon registriert"
         },
         {
           "year": "Heute",
@@ -516,20 +516,20 @@
             "title": "Von bescheidenem Einsatz zur offiziellen Gründung",
             "paragraphs": [
               "Inspiriert von gemeinschaftsgetriebener Entwicklung und geleitet von den Werten des Mitgefühls und der gemeinsamen Verantwortung, wuchs dieser bescheidene Einsatz allmählich durch Vertrauen, Beständigkeit und Dienst.",
-              "Nach Jahren der Hingabe und des Vertrauensaufbaus wurde die Organisation 2019 offiziell unter dem Namen Alokayon eingetragen – der Beginn ihres strukturierten Weges."
+              "Nach Jahren der Hingabe und des Vertrauensaufbaus wurde die Organisation 2019 offiziell unter dem Namen Alokayon registriert – der Beginn ihres strukturierten Weges."
             ]
           },
           {
             "title": "Eine von der Gemeinschaft getragene Mission",
             "paragraphs": [
-              "Was Alokayon einzigartig macht, ist sein Fundament: Es ist unpolitisch und gemeinnützig, erhält keine bedeutende institutionelle oder ausländische Finanzierung und wird durch Zakat, Spenden und Beiträge Einzelner getragen.",
-              "Jeder Beitrag – so klein er auch sein mag – wird als anvertrautes Gut behandelt, das mit Aufrichtigkeit und Rechenschaftspflicht an diejenigen weitergegeben wird, die es am dringendsten benötigen."
+              "Was Alokayon einzigartig macht, ist sein Fundament: Es ist unpolitisch und nicht gewinnorientiert, erhält keine bedeutende institutionelle oder ausländische Finanzierung und wird durch Zakat, Spenden und Beiträge Einzelner getragen.",
+              "Jeder Beitrag – so klein er auch sein mag – wird als anvertrautes Gut behandelt, das mit Aufrichtigkeit und Verantwortung an diejenigen weitergegeben wird, die es am dringendsten benötigen."
             ]
           },
           {
             "title": "Von kleinen Bemühungen zu echter Wirkung",
             "paragraphs": [
-              "Im Laufe der Jahre hat Alokayon Mitgefühl in bedeutungsvolles Handeln verwandelt: Witwen und Arbeitslose dabei zu unterstützen, selbstständig zu werden, medizinische Hilfe für ältere und behinderte Menschen zu leisten, Bildung für benachteiligte Schüler zu finanzieren, Schulen für Kinder in Slumgemeinden zu gründen, Nahrung, Kleidung und Nothilfe in Krisenzeiten zu verteilen und zinsfreie finanzielle Unterstützung beim Wiederaufbau von Leben anzubieten.",
+              "Im Laufe der Jahre hat Alokayon Mitgefühl in bedeutungsvolles Handeln verwandelt: Witwen und Arbeitslose dabei zu unterstützen, eigenständig zu werden, medizinische Hilfe für ältere und behinderte Menschen zu leisten, Bildung für benachteiligte Schüler zu finanzieren, Schulen für Kinder in Slumgemeinden zu gründen, Nahrung, Kleidung und Nothilfe in Krisenzeiten zu verteilen und zinsfreie finanzielle Unterstützung beim Wiederaufbau von Leben anzubieten.",
               "Jede Initiative folgt einem Grundsatz: nicht nur zu geben, sondern zu stärken."
             ]
           },
@@ -607,7 +607,7 @@
         {
           "eyebrow": "Unsere Mission",
           "title": "Bedürftigen Menschen durch mitfühlende, direkte Unterstützung zu dienen.",
-          "text": "Alokayon steht bitterarmen Gemeinschaften durch Zakat- und spendenfinanzierte Unterstützung in den Bereichen Bildung, Gesundheitsversorgung, Witwen- und Altenpflege, Behindertenhilfe und würdevolle Nothilfe zur Seite.",
+          "text": "Alokayon steht bitterarmen Gemeinschaften durch Zakat- und spendenfinanzierte Unterstützung in den Bereichen Bildung, Gesundheitsversorgung, Witwen- und Seniorenhilfe, Behindertenhilfe und würdevolle Nothilfe zur Seite.",
           "bullets": [
             "Bildungsunterstützung für benachteiligte und leistungsstarke Schüler",
             "Gesundheitsversorgung und dringende finanzielle Hilfe",
@@ -618,7 +618,7 @@
         {
           "eyebrow": "Unsere Vision",
           "title": "Eine menschliche Gesellschaft, in der niemand in Not im Stich gelassen wird.",
-          "text": "Wir stellen uns Gemeinschaften vor, in denen bedürftige Familien Zugang zu Bildung, Fürsorge und einem Weg zur Stabilität haben – und in denen wohltätige Unterstützung mit Vertrauen, Aufrichtigkeit und Rechenschaftspflicht geleistet wird.",
+          "text": "Wir stellen uns Gemeinschaften vor, in denen bedürftige Familien Zugang zu Bildung, Fürsorge und einem Weg zur Stabilität haben – und in denen wohltätige Unterstützung mit Vertrauen, Aufrichtigkeit und Verantwortung geleistet wird.",
           "bullets": [
             "Eine Gesellschaft, verwurzelt in Würde und Mitgefühl",
             "Langfristige Bildungschancen für die Armen",
@@ -629,11 +629,11 @@
         {
           "eyebrow": "Unser Ziel",
           "title": "Praktische Unterstützung, die Würde schützt und dauerhaften Wandel schafft.",
-          "text": "Alokayon arbeitet daran, unmittelbare Not zu lindern und gleichzeitig Menschen dabei zu helfen, ein unabhängiges Leben wiederaufzubauen. Unser Ansatz konzentriert sich auf echte Bedürfnisse, sorgfältige Auswahl und Unterstützung, die Selbstständigkeit statt Abhängigkeit fördert.",
+          "text": "Alokayon arbeitet daran, unmittelbare Not zu lindern und gleichzeitig Menschen dabei zu helfen, ein unabhängiges Leben wiederaufzubauen. Unser Ansatz konzentriert sich auf echte Bedürfnisse, sorgfältige Auswahl und Unterstützung, die Eigenständigkeit statt Abhängigkeit fördert.",
           "bullets": [
             "Die wirklich Bedürftigen unvoreingenommen erreichen",
             "Nothilfe, Bildung und Existenzsicherung bieten",
-            "Selbstständigkeit durch menschliche Hilfe fördern"
+            "Eigenständigkeit durch menschliche Hilfe fördern"
           ],
           "imageAlt": "Alokayons zielorientierte Unterstützung"
         }
@@ -660,18 +660,18 @@
         "Transparenter Spendenprozess und dokumentierte Berichterstattung",
         "Direkte Unterstützung für Begünstigte und bedürftige Familien",
         "Gemeinschaftsgetriebene Initiativen, verwurzelt in echter Not",
-        "Diszipliniertes Management, geprägt von Fürsorge und Rechenschaftspflicht"
+        "Diszipliniertes Management, geprägt von Fürsorge und Verantwortung"
       ]
     },
     "executive": {
       "eyebrow": "Vorstand",
       "title": "Der Vorstand von Alokayon",
-      "description": "Ein Team engagierter Menschen, das die Ausrichtung, Rechenschaftspflicht und den langfristigen Dienst von Alokayon für die Gemeinschaft leitet.",
-      "badge": "{{count}}-köpfiges Komitee",
-      "footer": "Durchsuchen Sie die Komiteemitglieder, die die Ausrichtung und den langfristigen Dienst von Alokayon leiten.",
+      "description": "Ein Team engagierter Menschen, das die Ausrichtung, Verantwortung und den langfristigen Dienst von Alokayon für die Gemeinschaft leitet.",
+      "badge": "{{count}}-köpfiger Vorstand",
+      "footer": "Durchsuchen Sie die Vorstandsmitglieder, die die Ausrichtung und den langfristigen Dienst von Alokayon leiten.",
       "viewAll": "Alle Vorstandsmitglieder ansehen",
       "modalTitle": "Alle Vorstandsmitglieder",
-      "modalDescription": "Eine vollständige Übersicht der Komiteemitglieder, die derzeit die Rechenschaftspflicht, den Dienst und die langfristige Ausrichtung von Alokayon leiten.",
+      "modalDescription": "Eine vollständige Übersicht der Vorstandsmitglieder, die derzeit die Verantwortung, den Dienst und die langfristige Ausrichtung von Alokayon leiten.",
       "closeModal": "Vorstandsansicht schließen",
       "officeContactLabel": "Kontakt über das Alokayon-Büro",
       "contactLabel": "Direkter Kontakt",
@@ -679,17 +679,17 @@
       "phoneLabel": "Telefon",
       "officeEmail": "alokayon2019@gmail.com",
       "officePhone": "01925124019",
-      "previous": "Vorherige Komiteemitglieder",
-      "next": "Nächste Komiteemitglieder",
-      "showSlide": "Komitee-Folie {{index}} anzeigen",
+      "previous": "Vorherige Vorstandsmitglieder",
+      "next": "Nächste Vorstandsmitglieder",
+      "showSlide": "Vorstands-Folie {{index}} anzeigen",
       "members": [
         {
           "name": "Vorstandsmitglied 01",
-          "role": "Komiteevorsitzender"
+          "role": "Vorstandsvorsitz"
         },
         {
           "name": "Vorstandsmitglied 02",
-          "role": "Exekutivberater"
+          "role": "Berater des Vorstands"
         },
         {
           "name": "Vorstandsmitglied 03",
@@ -751,26 +751,26 @@
   },
   "donate": {
     "hero": {
-      "eyebrow": "Mit einem Zweck geben",
-      "title": "Stärken Sie Leben mit Ihrer Zakat und Ihren Spenden",
-      "description": "100 % transparent. Direkte Wirkung. Unterstützung für Bildung, Gesundheitsversorgung und Existenzgrundlagen benachteiligter Gemeinschaften durch aufrichtigen, rechenschaftspflichtigen Dienst.",
+      "eyebrow": "Gezielt helfen",
+      "title": "Verändern Sie Leben mit Ihrer Zakat und Spende",
+      "description": "100 % transparent. Direkte Wirkung. Unterstützung für Bildung, Gesundheitsversorgung und Existenzgrundlagen benachteiligter Gemeinschaften durch aufrichtigen, verantwortungsvollen Dienst.",
       "secondaryCta": "Transparenz ansehen",
       "imageAlt": "Ein Alokayon-Hilfsmoment mit einer Familie, die direkte Fürsorge erhält",
       "logoAlt": "Alokayon-Logo",
       "floatingCard": {
         "eyebrow": "Direkte Wirkung",
         "value": "100+",
-        "text": "Begünstigte, erreicht durch Unterstützung, geprägt von Fürsorge, Vertrauen und Rechenschaftspflicht."
+        "text": "Begünstigte, erreicht durch Unterstützung, geprägt von Fürsorge, Vertrauen und Verantwortung."
       },
       "trustItems": [
-        "Eingetragene NGO",
+        "In Bangladesch registrierte NGO",
         "100+ Begünstigte",
         "100 % transparente Abläufe",
         "Seit 2011"
       ]
     },
     "main": {
-      "formEyebrow": "Eine Spende tätigen",
+      "formEyebrow": "Jetzt spenden",
       "formTitle": "Einmal geben. Ein Leben verändern.",
       "impactEyebrow": "Ihre Spende in Aktion",
       "impactTitle": "Sehen Sie, wie eine einmalige Gabe zu praktischer Unterstützung wird.",
@@ -793,7 +793,7 @@
           "label": "Komplettes Unterstützungspaket"
         },
         {
-          "amount": "Custom",
+          "amount": "Eigener Betrag",
           "label": "Anderen Betrag wählen"
         }
       ],
@@ -833,14 +833,14 @@
         "Transparente Berichterstattung"
       ],
       "agreement": {
-        "text": "Ich habe die <terms>Allgemeinen Geschäftsbedingungen</terms>, die <privacy>Datenschutzerklärung</privacy> und die <refund>Rückgabe- und Erstattungsrichtlinie</refund> gelesen und stimme ihnen zu.",
+        "text": "Ich habe die <terms>Nutzungs- und Spendenbedingungen</terms>, die <privacy>Datenschutzerklärung</privacy> und die <refund>Erstattungsrichtlinie</refund> gelesen und stimme ihnen zu.",
         "required": "Bitte setzen Sie das Häkchen, um unseren Richtlinien vor der Spende zuzustimmen."
       },
       "amountGroupLabel": "Spendenbetrag",
       "customAmountLabel": "Ihren Betrag eingeben (BDT)",
       "customAmountPlaceholder": "Zum Beispiel 1500",
       "categoryLabel": "Wofür soll Ihre Spende verwendet werden?",
-      "donateAmount": "৳{{amount}} spenden",
+      "donateAmount": "{{amount}} spenden",
       "redirecting": "Sichere Zahlung wird geöffnet...",
       "secureNote": "Sie schließen die Zahlung auf der sicheren SSLCommerz-Seite ab.",
       "errors": {
@@ -852,7 +852,7 @@
         "generic": "Etwas ist schiefgelaufen, die Zahlung wurde nicht gestartet. Bitte versuchen Sie es erneut."
       },
       "receipt": {
-        "note": "Eine offizielle Quittung wird Ihnen als PDF per E-Mail zugesendet. Bitte schreiben Sie Ihren Namen in lateinischen Buchstaben, so wie er auf der Quittung stehen soll.",
+        "note": "Eine offizielle Quittung wird Ihnen als PDF per E-Mail zugesendet. Bitte schreiben Sie Ihren Namen in lateinischen Buchstaben, so wie er auf der Quittung stehen soll. Die Quittung ist keine steuerlich absetzbare Zuwendungsbestätigung nach deutschem Recht.",
         "signedOption": "Ich möchte zusätzlich eine handschriftlich unterschriebene Quittung (unser Team unterschreibt sie und sendet sie per E-Mail)."
       },
       "calculatorPrompt": "Sie wissen nicht, wie viel Zakat Sie schulden?",
@@ -866,11 +866,11 @@
       "breakdownTitle": "Momentaufnahme der Programmzuweisung",
       "summary": [
         {
-          "value": "1.02M BDT",
+          "value": "1,02 Mio. BDT",
           "label": "Erhalten 2024–25"
         },
         {
-          "value": "1.13M BDT",
+          "value": "1,13 Mio. BDT",
           "label": "Verteilt 2024–25"
         },
         {
@@ -932,7 +932,7 @@
         {
           "icon": "content_cut",
           "title": "Existenzsicherung",
-          "text": "Nähmaschinen, Vieh und zinsfreie Unterstützung für Selbstständigkeit."
+          "text": "Nähmaschinen, Vieh und zinsfreie Unterstützung für Eigenständigkeit."
         },
         {
           "icon": "ac_unit",
@@ -962,18 +962,18 @@
           "role": "Begünstigte Schülerin"
         },
         {
-          "quote": "Als ich die Transparenz und Rechenschaftspflicht von Alokayon beobachtete, fühlte ich mich versichert, dass meine Spenden richtig eingesetzt werden.",
+          "quote": "Als ich die Transparenz und Verantwortung von Alokayon beobachtete, war ich mir sicher, dass meine Spenden richtig eingesetzt werden.",
           "name": "Md. Abdul Momen",
           "role": "Weltbank-Fachmann und Spender"
         }
       ]
     },
     "donorTrust": {
-      "eyebrow": "Weltweit von Spendern vertraut",
-      "title": "Vertrauen wächst, wenn Großzügigkeit auf Rechenschaftspflicht trifft.",
+      "eyebrow": "Spender weltweit vertrauen uns",
+      "title": "Vertrauen wächst, wenn Großzügigkeit auf Verantwortung trifft.",
       "items": [
         {
-          "quote": "Als ich die Transparenz und Rechenschaftspflicht von Alokayon beobachtete, fühlte ich mich versichert, dass meine Zakat und Spenden richtig eingesetzt würden.",
+          "quote": "Als ich die Transparenz und Verantwortung von Alokayon beobachtete, war ich mir sicher, dass meine Zakat und Spenden richtig eingesetzt würden.",
           "name": "Md. Abdul Momen",
           "role": "Spezialist für Monitoring und Evaluation, Weltbank, Dhaka"
         },
@@ -990,8 +990,8 @@
       ]
     },
     "gallery": {
-      "eyebrow": "Visuelles Vertrauen",
-      "title": "Echte Momente hinter jeder Spendenhandlung.",
+      "eyebrow": "Einblicke vor Ort",
+      "title": "Echte Momente hinter jeder Spende.",
       "items": [
         {
           "image": "/assets/about/book-distribution.webp",
@@ -1006,7 +1006,7 @@
         {
           "image": "/assets/about/winter-relief-sunamganj.webp",
           "title": "Nothilfe & Würde",
-          "caption": "Nothilfe erreicht Familien durch stille, rechenschaftspflichtige Verteilung vor Ort."
+          "caption": "Nothilfe erreicht Familien durch stille, verantwortungsvolle Verteilung vor Ort."
         }
       ]
     },
@@ -1061,26 +1061,26 @@
         ]
       },
       "trust": [
-        "Eingetragen beim Department of Social Services (2019)",
+        "Registriert beim Department of Social Services (2019)",
         "Keine externe Finanzierung — vollständig spendenfinanziert",
         "Direkte Verteilung an Begünstigte",
-        "Volle Rechenschaftspflicht und transparente Berichterstattung"
+        "Volle Verantwortung und transparente Berichterstattung"
       ]
     },
     "trustBlock": {
       "eyebrow": "Warum Alokayon vertrauen?",
-      "title": "Aufgebaut auf Rechenschaftspflicht, getragen von aufrichtigem Geben.",
+      "title": "Aufgebaut auf Verantwortung, getragen von aufrichtigem Geben.",
       "description": "Alokayon verbindet spendenfinanzierten Dienst, transparente Berichterstattung und sorgfältige Auswahl der Begünstigten, damit Unterstützung Menschen mit Würde und ohne Verschwendung erreicht.",
       "points": [
-        "2019 beim Department of Social Services eingetragen",
+        "2019 beim Department of Social Services registriert",
         "Keine externe Finanzierung — vollständig durch Zakat und Spenden getragen",
         "Direkte Unterstützung für Begünstigte in Bildung, Gesundheitsversorgung und Nothilfe",
-        "Transparente Abläufe, verwurzelt in Rechenschaftspflicht und Gemeinschaftsvertrauen"
+        "Transparente Abläufe, verwurzelt in Verantwortung und Gemeinschaftsvertrauen"
       ]
     },
     "cta": {
       "eyebrow": "Letzter Schritt",
-      "title": "Seien Sie heute der Grund für jemandes Lächeln.",
+      "title": "Schenken Sie heute einem Menschen ein Lächeln.",
       "description": "Ihre Zakat und Spende können durch rechtzeitige, transparente und würdezentrierte Unterstützung ein Leben verändern."
     },
     "result": {
@@ -1188,9 +1188,9 @@
           "id": "livelihood",
           "icon": "trending_up",
           "title": "Existenzsicherung",
-          "description": "Witwen und bedürftigen Familien helfen, durch praktische einkommensschaffende Unterstützung selbstständig zu werden.",
+          "description": "Witwen und bedürftigen Familien helfen, durch praktische einkommensschaffende Unterstützung eigenständig zu werden.",
           "highlights": [
-            "Enten-, Ziegen-, Kuh- und Geflügelunterstützung",
+            "Enten, Ziegen, Kühe und Geflügel für Familien",
             "Nähmaschinen für Witwen",
             "Bargeld und Werkzeuge für Kleinunternehmen"
           ]
@@ -1201,7 +1201,7 @@
           "title": "Gesundheitsversorgung",
           "description": "Medizinische Unterstützung für Menschen, die sich Behandlung nicht leisten können, einschließlich dringender und schwerer Fälle.",
           "highlights": [
-            "Jährliche medizinische Zuwendung",
+            "Jährliche Beihilfe für Behandlungskosten",
             "Unterstützung für ältere und behinderte Menschen",
             "Nothilfe bei Behandlungen"
           ]
@@ -1258,7 +1258,7 @@
     "featuredMadrasa": {
       "eyebrow": "Vorgestellte Einrichtung",
       "title": "Abdul Karim Miazi Hafezi Madrasa",
-      "description": "Eine strukturierte Madrasa-Initiative, die koranische, arabische und bengalische Bildung in einem disziplinierten, rechenschaftspflichtigen Lernumfeld vereint.",
+      "description": "Eine strukturierte Madrasa-Initiative, die koranische, arabische und bengalische Bildung in einem disziplinierten, verantwortungsvollen Lernumfeld vereint.",
       "points": [
         "Mehr als 100 eingeschriebene Schüler aus benachteiligten Verhältnissen",
         "Integrierter Unterricht in Arabisch, Bengalisch, Englisch und Mathematik",
@@ -1275,7 +1275,7 @@
         },
         {
           "value": "2019",
-          "label": "Zeitraum der eingetragenen Unterstützung"
+          "label": "Gefördert seit"
         }
       ],
       "cta": "Die Geschichte der Madrasa entdecken"
@@ -1320,11 +1320,11 @@
         },
         {
           "icon": "pets",
-          "title": "Viehunterstützung"
+          "title": "Nutztiere für Familien"
         },
         {
           "icon": "egg",
-          "title": "Geflügelunterstützung"
+          "title": "Geflügel für Familien"
         },
         {
           "icon": "ac_unit",
@@ -1387,7 +1387,7 @@
         },
         {
           "program": "livelihood",
-          "title": "Werkzeuge für Selbstständigkeit",
+          "title": "Werkzeuge für Eigenständigkeit",
           "location": "Einkommensschaffende Unterstützung für Witwen und Familien"
         },
         {
@@ -1428,7 +1428,7 @@
         },
         {
           "value": "60+",
-          "label": "Ältere Menschen mit Zuwendung"
+          "label": "Ältere Menschen mit regelmäßiger Beihilfe"
         },
         {
           "value": "70+",
@@ -1649,22 +1649,22 @@
     "leadership": {
       "eyebrow": "Führung & Integrität",
       "title": "Führung, aufgebaut auf Opferbereitschaft und Integrität",
-      "description": "Die Einrichtung wird unter der Aufsicht von Herrn Abdul Matin (B.Sc.), Vizepräsident von Alokayon, geleitet. Was diese Madrasa einzigartig macht, ist nicht nur ihre Bildungsstruktur, sondern die Aufrichtigkeit und Rechenschaftspflicht, die in ihrem Kern liegen.",
+      "description": "Die Einrichtung wird unter der Aufsicht von Herrn Abdul Matin (B.Sc.), Vizepräsident von Alokayon, geleitet. Was diese Madrasa einzigartig macht, ist nicht nur ihre Bildungsstruktur, sondern die Aufrichtigkeit und Verantwortung, die in ihrem Kern liegen.",
       "cardOneLabel": "Führungsmodell",
-      "cardOneTitle": "Der Direktor nimmt kein Gehalt oder Honorar",
+      "cardOneTitle": "Der Leiter bezieht weder Gehalt noch Honorar",
       "cardTwoLabel": "Finanzielle Integrität",
-      "cardTwoTitle": "Persönliche Pensionsunterstützung hilft, Betriebskosten zu decken",
+      "cardTwoTitle": "Ein Teil seiner eigenen Pension deckt laufende Kosten",
       "points": [
-        "Der Direktor nimmt kein Gehalt oder Honorar",
+        "Der Leiter bezieht weder Gehalt noch Honorar",
         "Ein Teil der persönlichen Pension wird der Einrichtung gespendet",
         "Betriebskosten und Gäste werden mit persönlicher Fürsorge unterstützt",
-        "Volle Transparenz und Rechenschaftspflicht werden gewahrt"
+        "Volle Transparenz und Verantwortung werden gewahrt"
       ],
       "imageAlt": "Eine disziplinierte Madrasa-Lernumgebung"
     },
     "features": {
       "eyebrow": "Was diese Madrasa anders macht",
-      "title": "Strukturiert, rechenschaftspflichtig und verwurzelt in Din und Lernen zugleich.",
+      "title": "Strukturiert, verantwortungsvoll und verwurzelt im Glauben (Din) und Lernen zugleich.",
       "items": [
         {
           "icon": "menu_book",
@@ -1679,7 +1679,7 @@
         {
           "icon": "checklist",
           "title": "Strukturiertes Lernsystem",
-          "text": "Tägliche Überwachung und Lehrerberatung halten den Lernprozess diszipliniert und klar."
+          "text": "Tägliche Lernkontrolle und Betreuung durch die Lehrkräfte halten den Lernprozess diszipliniert und klar."
         },
         {
           "icon": "mosque",
@@ -1689,7 +1689,7 @@
         {
           "icon": "verified",
           "title": "Transparente Verwaltung",
-          "text": "Die Madrasa wird mit sichtbarer Rechenschaftspflicht in ihren Abläufen und Entscheidungen geführt."
+          "text": "Die Madrasa wird mit sichtbarer Verantwortung in ihren Abläufen und Entscheidungen geführt."
         },
         {
           "icon": "volunteer_activism",
@@ -1744,7 +1744,7 @@
       },
       "statThree": {
         "value": "2",
-        "label": "Kürzliche Absolventen: 1 männlicher und 1 weiblicher Hafiz"
+        "label": "Neue Absolventen: ein Hafiz und eine Hafiza"
       }
     },
     "gallery": {
@@ -1764,7 +1764,7 @@
           "title": "Mahlzeiten und tägliche Schülerunterstützung"
         },
         {
-          "title": "Lernen, geprägt von Din und Disziplin zugleich"
+          "title": "Lernen, geprägt von Glauben und Disziplin zugleich"
         }
       ]
     },
@@ -1781,14 +1781,14 @@
     "cta": {
       "eyebrow": "Werden Sie Teil einer dauerhaften Wirkung",
       "title": "Unterstützen Sie eine Zukunft, in der Wissen, Glaube und Würde gemeinsam wachsen.",
-      "description": "Unterstützen Sie diese Einrichtung mit Zakat und Spenden und helfen Sie, disziplinierte, rechenschaftspflichtige islamische Bildung aufrechtzuerhalten."
+      "description": "Unterstützen Sie diese Einrichtung mit Zakat und Spenden und helfen Sie, disziplinierte, verantwortungsvolle islamische Bildung aufrechtzuerhalten."
     }
   },
   "opinions": {
     "hero": {
       "eyebrow": "Stimmen der Wirkung",
       "title": "Echte Geschichten aus Leben, die durch Alokayon verändert wurden",
-      "description": "Von Bildung bis zum Überleben – dies sind keine Zeugnisse, sondern Lebenswege."
+      "description": "Von Bildung bis zum Überleben – dies sind keine bloßen Erfahrungsberichte, sondern Lebenswege."
     },
     "featuredStory": {
       "eyebrow": "Vorgestellte Geschichte",
@@ -1932,7 +1932,7 @@
       }
     },
     "quote": {
-      "text": "Alokayon ist in mein Leben getreten wie ein Leuchtturm des Lichts.",
+      "text": "Alokayon ist wie ein Licht in mein Leben getreten.",
       "author": "Md. Nasim Uddin"
     },
     "impactSummary": {
@@ -1969,7 +1969,7 @@
       "eyebrow": "Transparenz & Publikationen",
       "title": "Transparenz, Berichte und Magazin",
       "description": "Entdecken Sie die jährlichen Publikationen, Finanzberichte und wichtigen Dokumente von Alokayon mit voller Transparenz.",
-      "trustLine": "Eingetragene Organisation • Spendenfinanziert • Veröffentlichte Berichterstattung",
+      "trustLine": "In Bangladesch registrierte Organisation • Spendenfinanziert • Veröffentlichte Berichterstattung",
       "primaryCta": "Neuestes Magazin lesen",
       "secondaryCta": "PDF herunterladen",
       "floatingLabel": "Neueste Ausgabe",
@@ -1985,12 +1985,12 @@
         {
           "icon": "account_balance",
           "title": "Finanzbericht enthalten",
-          "description": "Spendenquittungen und Ausgabendetails sind für das Vertrauen der Spender enthalten."
+          "description": "Spendeneinnahmen und Ausgaben sind detailliert aufgeführt, damit Spender nachvollziehen können, wie die Mittel verwendet werden."
         },
         {
           "icon": "fact_check",
           "title": "Prüfbericht enthalten",
-          "description": "Veröffentlichte Dokumentation unterstützt Rechenschaftspflicht und transparente Abläufe."
+          "description": "Veröffentlichte Dokumentation unterstützt Verantwortung und transparente Abläufe."
         },
         {
           "icon": "verified",
@@ -2007,8 +2007,8 @@
       "items": [
         {
           "icon": "verified",
-          "title": "Gegründet und eingetragen",
-          "description": "Begonnen 2011 und 2019 offiziell als unpolitische, gemeinnützige Organisation eingetragen."
+          "title": "Gegründet und registriert",
+          "description": "Begonnen 2011 und 2019 offiziell als unpolitische, nicht gewinnorientierte Organisation registriert."
         },
         {
           "icon": "volunteer_activism",
@@ -2093,11 +2093,11 @@
       "description": "Detaillierte Finanzberichte sind im Jahresmagazin und in herunterladbaren Unterlagen verfügbar. Diese Zahlen helfen Besuchern, das Ausmaß des Gebens und der Verteilung zu verstehen.",
       "numbers": [
         {
-          "value": "1.02M BDT",
+          "value": "1,02 Mio. BDT",
           "label": "Ungefähre Einnahmen für 2024–25"
         },
         {
-          "value": "1.13M BDT",
+          "value": "1,13 Mio. BDT",
           "label": "Ungefähre Ausgaben und Verteilung"
         }
       ],
@@ -2157,7 +2157,7 @@
       "items": [
         {
           "icon": "verified",
-          "label": "Eingetragene NGO (2019)"
+          "label": "In Bangladesch registrierte NGO (2019)"
         },
         {
           "icon": "monitoring",
@@ -2176,7 +2176,7 @@
     "featured": {
       "eyebrow": "Vorgestellte Spenderstimme",
       "title": "Vertrauen, geformt durch Transparenz",
-      "quote": "Als ich die Transparenz und Rechenschaftspflicht in den Abläufen von Alokayon beobachtete, fühlte ich mich inspiriert, mich der Organisation anzuschließen.",
+      "quote": "Als ich die Transparenz und Verantwortung in den Abläufen von Alokayon beobachtete, fühlte ich mich inspiriert, mich der Organisation anzuschließen.",
       "name": "Professor Harunur Rashid Sikder",
       "role": "Freiheitskämpfer, ehemaliger Vorsitzender, Dhaka Education Board",
       "location": "Dallas, USA"
@@ -2190,7 +2190,7 @@
           "location": "Dhaka"
         },
         {
-          "quote": "Ich fühlte mich versichert, dass meine Zakat und Spenden durch Alokayon richtig eingesetzt würden und tatsächlich die Bedürftigen erreichen.",
+          "quote": "Ich war mir sicher, dass meine Zakat und Spenden durch Alokayon richtig eingesetzt würden und tatsächlich die Bedürftigen erreichen.",
           "name": "Md. Abdul Momen",
           "role": "Spezialist für Monitoring und Evaluation, Weltbank",
           "location": "Dhaka"
@@ -2204,7 +2204,7 @@
         {
           "quote": "Sozialer Dienst ist für diejenigen, die dazu in der Lage sind, keine Option; es ist eine Verantwortung, und Alokayon trägt diese Verantwortung mit Sorgfalt.",
           "name": "Kamrul Hasan",
-          "role": "Pensionierter Verteidigungssekretär",
+          "role": "Ehemaliger Staatssekretär im Verteidigungsministerium",
           "location": "Bangladesch"
         }
       ]
@@ -2242,7 +2242,7 @@
           "title": "Wie ich mich Alokayon anschloss",
           "summary": "Die Beziehung eines Spenders zu Alokayon beginnt oft mit Vertrauen in die Menschen hinter der Arbeit und wächst, wenn man die Aufrichtigkeit in der Praxis erlebt.",
           "paragraphs": [
-            "Md. Mohiuddin Babu beschrieb, wie er direkt von Fazlul Kader von Alokayon erfuhr und sich entschied, sich zu engagieren, nachdem er verstanden hatte, dass es sich um eine eingetragene, unpolitische, gemeinnützige Organisation zur Unterstützung bedürftiger Menschen handelt.",
+            "Md. Mohiuddin Babu beschrieb, wie er direkt von Fazlul Kader von Alokayon erfuhr und sich entschied, sich zu engagieren, nachdem er verstanden hatte, dass es sich um eine registrierte, unpolitische, nicht gewinnorientierte Organisation zur Unterstützung bedürftiger Menschen handelt.",
             "Aus den USA leistet er weiterhin monatliche finanzielle Beiträge und bietet zudem Anleitung und Ratschläge, motiviert durch sein Vertrauen in die Bildungs- und Armutsbekämpfungsarbeit der Organisation."
           ],
           "name": "Md. Mohiuddin Babu",
@@ -2273,9 +2273,9 @@
     "whyTrust": {
       "eyebrow": "Warum Spender sich für Alokayon entscheiden",
       "title": "Vertrauen wächst, wenn Aufrichtigkeit durch Struktur gestützt wird.",
-      "description": "In diesen Spenderreflexionen tauchen immer wieder dieselben Themen auf: Transparenz, Zakat-Rechenschaftspflicht, sichtbare Wirkung und glaubensgeleiteter Dienst ohne politische oder kommerzielle Motive.",
+      "description": "In diesen Spenderreflexionen tauchen immer wieder dieselben Themen auf: Transparenz, verantwortungsvoller Umgang mit Zakat, sichtbare Wirkung und glaubensgeleiteter Dienst ohne politische oder kommerzielle Motive.",
       "points": [
-        "Transparente Finanzpraktiken und sichtbare Rechenschaftspflicht",
+        "Transparente Finanzpraktiken und sichtbare Verantwortung",
         "Direkte Unterstützung für echte Begünstigte in echter Not",
         "Glaubensorientierte Wohltätigkeitsarbeit, verwurzelt in Aufrichtigkeit",
         "Keine politische oder kommerzielle Agenda",
@@ -2352,7 +2352,7 @@
         },
         {
           "category": "Existenzsicherung",
-          "title": "Praktische Werkzeuge für Selbstständigkeit",
+          "title": "Praktische Werkzeuge für Eigenständigkeit",
           "description": "Programme, die Familien helfen, mit stabilen Einkommensquellen wiederaufzubauen.",
           "story": "Existenzsicherung ist darauf ausgelegt, Unabhängigkeit durch praktische Werkzeuge und würdevolle Chancen wiederherzustellen.",
           "location": "Gemeinschaftsprogramm",
@@ -2369,8 +2369,8 @@
         {
           "category": "Madrasa",
           "title": "Koranisches und allgemeines Lernen zusammen",
-          "description": "Ein diszipliniertes Umfeld für Din und Bildung zugleich.",
-          "story": "Die Madrasa spiegelt ein ruhiges, rechenschaftspflichtiges Lernumfeld wider, in dem Charakter und Wissen gemeinsam wachsen.",
+          "description": "Ein diszipliniertes Umfeld für Glauben und Bildung zugleich.",
+          "story": "Die Madrasa spiegelt ein ruhiges, verantwortungsvolles Lernumfeld wider, in dem Charakter und Wissen gemeinsam wachsen.",
           "location": "Chatkhil, Noakhali",
           "year": "2025"
         },
@@ -2387,7 +2387,7 @@
           "title": "Freiwillige in Aktion",
           "description": "Gemeinschaftshilfe, geprägt von Menschen, die beständig präsent sind.",
           "story": "Bedeutungsvoller Dienst wird nicht nur durch Spenden aufrechterhalten, sondern durch Freiwillige und engagierte Unterstützer, die vor Ort arbeiten.",
-          "location": "Feldarbeit",
+          "location": "Einsatz vor Ort",
           "year": "2025"
         },
         {
@@ -2430,12 +2430,12 @@
           "label": "Unterstützte Schüler"
         },
         {
-          "value": "1.3M+ BDT",
+          "value": "1,3 Mio.+ BDT",
           "label": "Jährlich verteilt"
         },
         {
           "value": "500+",
-          "label": "Verteilte Existenzgrundlagen"
+          "label": "Verteilte Hilfsmittel zur Existenzsicherung"
         },
         {
           "value": "Seit 2011",
@@ -2454,17 +2454,17 @@
     "descriptions": {
       "home": "Alokayon ist eine registrierte Hilfsorganisation in Bangladesch. Geben Sie Ihre Zakat und Spenden für Schüler, Witwen, ältere Menschen und bedürftige Familien.",
       "about": "Die Geschichte von Alokayon: 2011 als Dushtho Sheba gegründet, 2019 registriert und mit Würde und Verantwortung im Dienst benachteiligter Gemeinschaften in Bangladesch.",
-      "programs": "Die Programme von Alokayon: Bildung, Gesundheit, Witwenhilfe, Nothilfe, Lebensunterhalt, Altenhilfe, die Schule Alokayon Pathshala und die Hafezi-Madrasa.",
+      "programs": "Die Programme von Alokayon: Bildung, Gesundheit, Witwenhilfe, Nothilfe, Existenzsicherung, Hilfe für ältere Menschen, die Schule Alokayon Pathshala und die Hafezi-Madrasa.",
       "school": "Alokayon Pathshala bietet Kindern aus den Slums von Dhaka kostenlose Bildung.",
       "madrasa": "Die Abdul Karim Miazi Hafezi Madrasa verbindet Koran-, Arabisch- und Bengalischunterricht.",
-      "gallery": "Fotos aus der Arbeit von Alokayon: Schulalltag, Hilfsverteilungen, Unterstützung für den Lebensunterhalt und Gemeinschaftshilfe.",
+      "gallery": "Fotos aus der Arbeit von Alokayon: Schulalltag, Hilfsverteilungen, Unterstützung für den Existenzsicherung und Gemeinschaftshilfe.",
       "opinions": "Schüler, Familien und Witwen erzählen, wie die Hilfe von Alokayon ihr Leben verändert hat.",
       "donors": "Spender aus Bangladesch und dem Ausland erklären, warum sie ihre Zakat und Spenden über Alokayon geben.",
       "transparency": "Lesen Sie die Jahresmagazine und Finanzberichte von Alokayon und sehen Sie, wie Spenden eingehen und verwendet werden.",
       "donate": "Spenden Sie sicher per Karte, bKash oder Nagad an Alokayon und erhalten Sie eine Quittung per E-Mail. Ihre Zakat erreicht Schüler, Witwen und bedürftige Familien.",
-      "terms": "Allgemeine Bedingungen für Spenden an Alokayon.",
+      "terms": "Nutzungs- und Spendenbedingungen von Alokayon.",
       "privacy": "Wie Alokayon Ihre persönlichen Daten erhebt, verwendet und schützt.",
-      "refund": "Rückgabe- und Erstattungsrichtlinie von Alokayon für Spenden.",
+      "refund": "Erstattungsrichtlinie von Alokayon für Spenden.",
       "zakatCalculator": "Berechnen Sie Ihre Zakat. Geben Sie Bargeld, Gold, Silber, Ersparnisse und Schulden ein und sehen Sie Ihre Zakat von 2,5 % anhand des aktuellen Nisab in BDT.",
       "campaigns": "Unterstützen Sie die aktuellen Spendenaufrufe von Alokayon. Sehen Sie Ziel und Spendenstand jedes Aufrufs und spenden Sie für das Anliegen, das Ihnen wichtig ist.",
       "contact": "Kontaktieren Sie Alokayon zu Spenden, Zakat, Quittungen, Ehrenamt oder Partnerschaften. Schreiben Sie uns oder rufen Sie uns in Dhaka an."
@@ -2548,8 +2548,8 @@
       "dueLabel": "Fällige Zakat",
       "dueNote": "Das sind 2,5 % Ihres Nettovermögens, fällig, wenn es ein Mondjahr lang mindestens den Nisab erreicht hat.",
       "payButton": "{{amount}} als Zakat zahlen",
-      "largeAmount": "Beträge über ৳5,00,000 zahlen Sie bitte per Banküberweisung. Die Bankdaten finden Sie auf der Spendenseite.",
-      "belowNisab": "Ihr Nettovermögen liegt unter dem Nisab, daher ist keine Zakat fällig. Sadaqah können Sie jederzeit geben."
+      "largeAmount": "Beträge über ৳500.000 zahlen Sie bitte per Banküberweisung. Die Bankdaten finden Sie auf der Spendenseite.",
+      "belowNisab": "Ihr Nettovermögen liegt unter dem Nisab, daher ist keine Zakat fällig. Sadaqa können Sie jederzeit geben."
     },
     "explainer": {
       "title": "So wird Zakat berechnet",
@@ -2668,18 +2668,18 @@
       "intro": "Wenn Sie Fragen zu dieser Richtlinie haben, kontaktieren Sie uns bitte über die folgenden Angaben.",
       "organizationLabel": "Organisation",
       "organization": "Alokayon, registriert beim Department of Social Services, Ministerium für Soziales, Regierung von Bangladesch (2019)",
-      "addressLabel": "Eingetragene Adresse",
+      "addressLabel": "Anschrift",
       "emailLabel": "E-Mail",
       "phoneLabel": "Telefon"
     },
     "terms": {
-      "title": "Allgemeine Geschäftsbedingungen",
-      "intro": "Diese Allgemeinen Geschäftsbedingungen gelten für alle, die die Website von Alokayon besuchen oder darüber spenden. Mit der Nutzung dieser Website oder einer Spende stimmen Sie diesen Bedingungen zu. Bitte lesen Sie sie sorgfältig.",
+      "title": "Nutzungs- und Spendenbedingungen",
+      "intro": "Diese Nutzungs- und Spendenbedingungen gelten für alle, die die Website von Alokayon besuchen oder darüber spenden. Mit der Nutzung dieser Website oder einer Spende stimmen Sie diesen Bedingungen zu. Bitte lesen Sie sie sorgfältig.",
       "sections": [
         {
           "heading": "Über Alokayon",
           "paragraphs": [
-            "Alokayon ist eine gemeinnützige, parteipolitisch unabhängige Hilfsorganisation in Bangladesch. Sie begann 2011 informell und wurde 2019 beim Department of Social Services des Ministeriums für Soziales offiziell registriert. Alokayon unterstützt benachteiligte Kinder, Witwen, ältere Menschen und bedürftige Familien durch Programme in den Bereichen Bildung, Nothilfe, Gesundheit und Lebensunterhalt."
+            "Alokayon ist eine nicht gewinnorientierte, parteipolitisch unabhängige Hilfsorganisation in Bangladesch. Sie begann 2011 informell und wurde 2019 beim Department of Social Services des Ministeriums für Soziales offiziell registriert. Alokayon unterstützt benachteiligte Kinder, Witwen, ältere Menschen und bedürftige Familien durch Programme in den Bereichen Bildung, Nothilfe, Gesundheit und Existenzsicherung."
           ]
         },
         {
@@ -2693,8 +2693,8 @@
         {
           "heading": "Spenden",
           "paragraphs": [
-            "Alle Spenden, einschließlich Zakat und Sadaqah, sind freiwillig. Beträge werden in Bangladesch-Taka (BDT) abgewickelt, sofern nicht anders angegeben.",
-            "Alokayon verwendet Spenden für seine gemeinnützigen Programme. Wenn Sie ein bestimmtes Programm wählen, verwenden wir Ihre Spende für dieses Programm. Ist dieses Programm bereits vollständig finanziert oder kann es nicht mehr durchgeführt werden, können wir die Spende für ein ähnliches Programm mit dem größten Bedarf verwenden."
+            "Alle Spenden, einschließlich Zakat und Sadaqa, sind freiwillig. Beträge werden in Bangladesch-Taka (BDT) abgewickelt, sofern nicht anders angegeben.",
+            "Alokayon verwendet Spenden für seine wohltätigen Programme. Wenn Sie ein bestimmtes Programm wählen, verwenden wir Ihre Spende für dieses Programm. Ist dieses Programm bereits vollständig finanziert oder kann es nicht mehr durchgeführt werden, können wir die Spende für ein ähnliches Programm mit dem größten Bedarf verwenden."
           ]
         },
         {
@@ -2713,7 +2713,7 @@
         {
           "heading": "Erstattungen",
           "paragraphs": [
-            "Erstattungen werden gemäß unserer Rückgabe- und Erstattungsrichtlinie behandelt, die Bestandteil dieser Allgemeinen Geschäftsbedingungen ist."
+            "Erstattungen werden gemäß unserer Erstattungsrichtlinie behandelt, die Bestandteil dieser Nutzungs- und Spendenbedingungen ist."
           ]
         },
         {
@@ -2743,7 +2743,7 @@
         {
           "heading": "Änderungen dieser Bedingungen",
           "paragraphs": [
-            "Wir können diese Allgemeinen Geschäftsbedingungen von Zeit zu Zeit aktualisieren. Die aktualisierte Fassung wird auf dieser Seite mit einem neuen Datum unter „Zuletzt aktualisiert“ veröffentlicht."
+            "Wir können diese Nutzungs- und Spendenbedingungen von Zeit zu Zeit aktualisieren. Die aktualisierte Fassung wird auf dieser Seite mit einem neuen Datum unter „Zuletzt aktualisiert“ veröffentlicht."
           ]
         }
       ]
@@ -2821,7 +2821,7 @@
       ]
     },
     "refund": {
-      "title": "Rückgabe- und Erstattungsrichtlinie",
+      "title": "Erstattungsrichtlinie",
       "intro": "Alokayon verkauft keine physischen Produkte. Diese Richtlinie betrifft daher die Erstattung von Spenden über unsere Website. Da Spenden in der Regel schnell Programmen zugewiesen werden, sind sie grundsätzlich nicht erstattungsfähig, außer in den unten beschriebenen Fällen.",
       "sections": [
         {
@@ -2855,7 +2855,7 @@
         {
           "heading": "Zakat-Spenden",
           "paragraphs": [
-            "Wird eine Zakat-Spende erstattet, wurde dieser Betrag nicht als Zakat in Ihrem Namen verteilt. Bitte bedenken Sie dies, bevor Sie eine Erstattung beantragen."
+            "Wird eine Zakat-Spende erstattet, gilt dieser Betrag nicht als in Ihrem Namen entrichtete Zakat. Bitte bedenken Sie dies, bevor Sie eine Erstattung beantragen."
           ]
         },
         {

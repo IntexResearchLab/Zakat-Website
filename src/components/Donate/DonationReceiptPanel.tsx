@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useDateFormatter, useTakaFormatter } from '../../lib/useTakaFormatter'
 
 type ReceiptDetails = {
   status: 'paid' | 'review'
@@ -21,6 +22,8 @@ type DonationReceiptPanelProps = {
 // thank-you page and on the page linked from the receipt email.
 function DonationReceiptPanel({ receiptRef }: DonationReceiptPanelProps) {
   const { t } = useTranslation()
+  const formatTaka = useTakaFormatter()
+  const formatDate = useDateFormatter()
   const [details, setDetails] = useState<ReceiptDetails | null>(null)
   const [loadState, setLoadState] = useState<'loading' | 'ready' | 'error'>('loading')
   const [isRequesting, setIsRequesting] = useState(false)
@@ -98,9 +101,7 @@ function DonationReceiptPanel({ receiptRef }: DonationReceiptPanelProps) {
   }
 
   const isPaid = details.status === 'paid'
-  const paidDate = details.paidAt
-    ? new Date(details.paidAt).toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' })
-    : null
+  const paidDate = details.paidAt ? formatDate(details.paidAt) : null
 
   return (
     <div className="mt-7 space-y-4 text-left">
@@ -113,7 +114,7 @@ function DonationReceiptPanel({ receiptRef }: DonationReceiptPanelProps) {
         ) : null}
         <div className="flex justify-between gap-4">
           <dt className="text-[#5d6d78]">{t('donate.result.amountLabel')}</dt>
-          <dd className="font-semibold text-[#14324d]">৳{details.amount.toLocaleString('en-US')}</dd>
+          <dd className="font-semibold text-[#14324d]">{formatTaka(details.amount)}</dd>
         </div>
         {paidDate ? (
           <div className="flex justify-between gap-4">

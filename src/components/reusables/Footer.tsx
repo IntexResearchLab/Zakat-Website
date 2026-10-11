@@ -132,7 +132,7 @@ function Footer() {
           </div>
 
           <div className="self-start sm:self-auto">
-            <LanguageSwitcher />
+            <LanguageSwitcher tone="dark" />
           </div>
         </div>
       </div>

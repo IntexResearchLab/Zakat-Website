@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
+import { useTakaFormatter } from '../../lib/useTakaFormatter'
 import { Link, useSearchParams } from 'react-router-dom'
 import { isCampaignOpen, localizedCampaignText } from '../../lib/campaigns'
 import { useCampaigns } from '../../lib/useCampaigns'
@@ -29,6 +30,7 @@ type DonateErrorKey = 'amount' | 'name' | 'email' | 'phone' | 'gateway' | 'gener
 
 function DonateMainSection() {
   const { t, i18n } = useTranslation()
+  const formatTaka = useTakaFormatter()
   const amountOptions = t('donate.main.amounts', {
     returnObjects: true,
   }) as Array<{ amount: string; label: string }>
@@ -402,7 +404,7 @@ function DonateMainSection() {
               {isSubmitting
                 ? t('donate.main.redirecting')
                 : Number.isFinite(amount) && amount >= MIN_DONATION_BDT
-                  ? t('donate.main.donateAmount', { amount: amount.toLocaleString('en-US') })
+                  ? t('donate.main.donateAmount', { amount: formatTaka(amount) })
                   : t('common.actions.donateNow')}
             </button>
             <p className="mt-3 text-center text-[0.82rem] leading-[1.6] text-[#5d6d78]">

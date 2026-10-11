@@ -27,7 +27,8 @@ function MissionSection() {
             </p>
             <div className="relative my-4 h-px w-16 bg-[#cfa94a]" />
             <p className="relative font-serif text-[1.02rem] italic leading-[1.55] text-[#5c4a1c] sm:text-[1.12rem]">
-              “{t('home.mission.quotePrefix')}{' '}
+              {/* Bangla word order puts the highlight first, so its prefix is empty. */}
+              “{t('home.mission.quotePrefix') ? `${t('home.mission.quotePrefix')} ` : ''}
               <span className="font-semibold text-[#2f6a52]">
                 {t('home.mission.quoteHighlight')}
               </span>{' '}

@@ -208,7 +208,7 @@ function Header() {
             id="mobile-navigation"
           >
             <div className="px-1 pb-2">
-              <LanguageSwitcher />
+              <LanguageSwitcher variant="buttons" />
             </div>
 
             <NavLink className={mobileLinkClass} to="/" onClick={() => setIsMenuOpen(false)}>

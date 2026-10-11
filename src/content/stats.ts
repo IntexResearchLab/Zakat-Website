@@ -1,4 +1,4 @@
-import type { TFunction } from 'i18next'
+import i18n, { type TFunction } from 'i18next'
 
 export type StatInventoryEntry = {
   value: string
@@ -185,8 +185,31 @@ export const resetCurrentStatsMap = () => {
   currentStatsMap = { ...defaultStatsMap }
 }
 
+const banglaDigits = (text: string) => text.replace(/\d/g, (digit) => '০১২৩৪৫৬৭৮৯'[Number(digit)])
+
+// Admins type figures once, in English ("200+", "1.3M+ BDT"). Show them in the reader's
+// language: Bangla digits and lakh for Bangla, a decimal comma and "Mio." for German.
+const localizeStatValue = (value: string) => {
+  const language = i18n.language
+  const millions = /^(\d+(?:\.\d+)?)M(\+?) BDT$/.exec(value.trim())
+
+  if (language === 'bn') {
+    if (millions) {
+      const lakh = Math.round(Number(millions[1]) * 100) / 10
+      return `${banglaDigits(String(lakh))} লক্ষ${millions[2]} টাকা`
+    }
+    return banglaDigits(value)
+  }
+
+  if (language === 'de' && millions) {
+    return `${millions[1].replace('.', ',')} Mio.${millions[2]} BDT`
+  }
+
+  return value
+}
+
 export const getStatValue = (key: PublicStatsKey) =>
-  currentStatsMap[key] ?? defaultStatsMap[key]
+  localizeStatValue(currentStatsMap[key] ?? defaultStatsMap[key])
 
 export type PublicStatAdminRow = {
   key: PublicStatsKey

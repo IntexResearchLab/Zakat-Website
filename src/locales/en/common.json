@@ -553,7 +553,7 @@
       "customAmountLabel": "Enter your amount (BDT)",
       "customAmountPlaceholder": "For example 1500",
       "categoryLabel": "Where should your donation go?",
-      "donateAmount": "Donate ৳{{amount}}",
+      "donateAmount": "Donate {{amount}}",
       "redirecting": "Opening secure payment...",
       "secureNote": "You will complete your payment on the secure SSLCommerz page.",
       "errors": {
