@@ -56,7 +56,8 @@ _About 15 minutes_
   where schemaname = 'storage' and tablename = 'objects';
   ```
   - Older rules made in the dashboard may let any signed-in user (or anyone) open every storage folder, including the private signed receipts. Every rule should name a specific folder (`bucket_id`). Claude will tell you which ones to remove.
-- [ ] **(new)** If the site or admin shows "permission denied" after the SQL, tell Claude
+- [x] **(new)** If the site or admin shows "permission denied" after the SQL, tell Claude
+  - Not needed: no permission errors after the SQL (11 October 2026).
   - Some newer Supabase projects do not open new tables automatically. Claude will give you one more line of SQL to run.
 - [x] **(new)** Open **Advisors → Security Advisor** and send Claude anything marked as an error or warning.
   - Done 11 October 2026: no errors. The `campaign_totals`, `is_admin` and leaked-password warnings are expected and can be ignored.
@@ -77,7 +78,8 @@ _About 15 minutes_
 ## 3. Fill in the executive committee, quotes, stories and figures
 _When you have the details_
 
-- [ ] Add the real committee members in **Admin → Executives**, with names, roles and photos.
+- [x] Add the real committee members in **Admin → Executives**, with names, roles and photos.
+  - All 11 members added with photos on 11 October 2026, from the client's committee list. Confirm spellings: Quader/Kader, Sattar/Satter, Bhyiyan/Bhuiyan.
   - The About page shows placeholders until this is done, and SSLCommerz wants management details on the site.
 - [ ] In **Admin → Testimonials**, press **Import the current quotes**, then review them
   - This copies the quotes already on the site so they can be edited. Hide or remove any the people quoted have not agreed to share.
@@ -144,9 +146,9 @@ _About 5 minutes_
 ## 8. Set up Vercel
 _Project → Settings → Environment Variables → Production_
 
-- [ ] `SSLCOMMERZ_STORE_ID`: the Store ID from the SSLCommerz "Integration Credentials" email
-- [ ] `SSLCOMMERZ_STORE_PASSWORD`: the Store Password from the same email (never paste it anywhere else)
-- [ ] `SSLCOMMERZ_SANDBOX`: `false`
+- [x] `SSLCOMMERZ_STORE_ID`: the Store ID from the SSLCommerz "Integration Credentials" email
+- [x] `SSLCOMMERZ_STORE_PASSWORD`: the Store Password from the same email (never paste it anywhere else)
+- [x] `SSLCOMMERZ_SANDBOX`: `false`
 - [x] `SITE_URL`: `https://alokayoncharity.com`
   - Set to `https://zakat-website-hazel.vercel.app` for now. Change it to `https://alokayoncharity.com` when the domain moves, then redeploy.
 - [x] `SUPABASE_SERVICE_ROLE_KEY`: from Supabase → **Project Settings → API Keys** (secret; never put `VITE_` in front of it)
@@ -154,21 +156,29 @@ _Project → Settings → Environment Variables → Production_
 - [ ] `RECEIPT_FROM_EMAIL`: e.g. `Alokayon <receipts@alokayoncharity.com>`
 - [ ] `RECEIPT_REPLY_TO`: `alokayon2019@gmail.com`
 - [ ] `ADMIN_NOTIFY_EMAIL`: the inbox that is told about new contact messages and signed receipt requests
-- [ ] Redeploy the site after saving all nine settings.
-- [ ] **(new)** Back up the old WordPress site before switching the domain
-  - alokayoncharity.com still shows the old WordPress site on its current host (LiteSpeed, 139.99.9.21). Download a full backup from that host first.
-- [ ] Connect **alokayoncharity.com** to this Vercel project
-  - Add the domain in Vercel → **Settings → Domains**, then change the DNS records at your domain provider to the ones Vercel shows.
-  - Only change the website records (A, and CNAME for www). Leave the MX and email records alone, or email for the domain stops working.
-  - Until this is done, visitors still see the old WordPress site. Live payments only work on alokayoncharity.com, not on a vercel.app address.
-- [ ] **(new)** Under **Settings → Domains**, make `alokayoncharity.com` the main domain and set `www.alokayoncharity.com` to redirect to it
-  - SSLCommerz checks the exact address. If it is the other way round, payments started on www can fail.
-- [ ] Change the Supabase **Site URL** to `https://alokayoncharity.com` (**Authentication → URL Configuration**) once the domain shows the new site
+- [ ] Redeploy the site after saving the Resend settings.
+- Moving the domain is in the "Switch from the Vercel address to alokayoncharity.com" section below.
+
+## Switch from the Vercel address to alokayoncharity.com (new)
+_Do this once the domain points at Vercel. Until then everything runs on `https://zakat-website-hazel.vercel.app`._
+
+As of 11 October 2026 these use the temporary vercel.app address and must be changed:
+
+- [ ] **Vercel → Settings → Domains:** add `alokayoncharity.com`, make it the main domain, and redirect `www.alokayoncharity.com` to it. Change only the A and CNAME records at the domain provider, never MX or email records. Back up the old WordPress site first.
+- [ ] **Vercel → Environment Variables:** change `SITE_URL` from `https://zakat-website-hazel.vercel.app` to `https://alokayoncharity.com`, then **redeploy**.
+- [ ] **Supabase → Authentication → URL Configuration:** change the **Site URL** to `https://alokayoncharity.com`. Keep `https://alokayoncharity.com/admin/reset-password` in Redirect URLs (it is already there).
+- [ ] **SSLCommerz Merchant Panel → My Store → IPN Settings:** change the IPN URL from `https://zakat-website-hazel.vercel.app/api/payment/ipn` to `https://alokayoncharity.com/api/payment/ipn`, and Save.
+- [ ] **SSLCommerz:** check the store's registered website address is `https://alokayoncharity.com` (ask SSLCommerz support if it can't be edited in the panel).
+- [ ] **Resend** (when set up): the sending domain is `alokayoncharity.com`, so DNS records go at the same domain provider. `RECEIPT_FROM_EMAIL` should use `@alokayoncharity.com`.
+- [ ] **After the switch, re-test on alokayoncharity.com:** a ৳10 payment (then refund), the receipt PDF, the contact form, the admin sign-in and "Forgot password" link, and link previews on WhatsApp.
+- [ ] **Tell the client** the new address is live, and update any printed material or social links that used the old one.
+- Nothing in the code needs changing: link previews, the sitemap and robots.txt already use `alokayoncharity.com`.
 
 ## 9. Set up SSLCommerz
 _Merchant Panel_
 
-- [ ] Under **My Store → IPN Settings**, set the IPN URL to `https://alokayoncharity.com/api/payment/ipn`
+- [x] Under **My Store → IPN Settings**, set the IPN URL to `https://alokayoncharity.com/api/payment/ipn`
+  - Set to `https://zakat-website-hazel.vercel.app/api/payment/ipn` for now (11 October 2026); change it in the domain switch section below.
   - This lets SSLCommerz confirm a payment and send the receipt even if the donor closes the browser.
 
 ## 10. Test a real payment
