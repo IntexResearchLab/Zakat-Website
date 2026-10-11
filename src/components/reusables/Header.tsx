@@ -152,7 +152,7 @@ function Header() {
 
         <nav
           aria-label={t('common.aria.mainNavigation')}
-          className="hidden items-center gap-6 whitespace-nowrap xl:flex 2xl:gap-9"
+          className="hidden items-center gap-5 whitespace-nowrap xl:flex 2xl:gap-9"
         >
           <NavLink className={linkClass} to="/">
             {t('nav.home')}
@@ -175,11 +175,14 @@ function Header() {
           <NavLink className={linkClass} to="/transparency">
             {t('nav.transparency')}
           </NavLink>
+          <NavLink className={linkClass} to="/contact">
+            {t('nav.contact')}
+          </NavLink>
         </nav>
 
         <div className="flex shrink-0 items-center gap-3">
           <div className="hidden xl:block">
-            <LanguageSwitcher />
+            <LanguageSwitcher compact />
           </div>
 
           <button
@@ -293,6 +296,9 @@ function Header() {
               onClick={() => setIsMenuOpen(false)}
             >
               {t('nav.transparency')}
+            </NavLink>
+            <NavLink className={mobileLinkClass} to="/contact" onClick={() => setIsMenuOpen(false)}>
+              {t('nav.contact')}
             </NavLink>
           </nav>
         </div>

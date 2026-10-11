@@ -20,7 +20,8 @@
     "transparency": "Magazine",
     "voices": "Voices",
     "zakatCalculator": "Zakat Calculator",
-    "updates": "Updates"
+    "updates": "Updates",
+    "contact": "Contact"
   },
   "common": {
     "actions": {
@@ -470,6 +471,12 @@
           "location": "Chattogram"
         }
       ]
+    },
+    "suggestionInvite": {
+      "eyebrow": "Suggestion box",
+      "title": "Have an idea for Alokayon?",
+      "text": "Members and supporters in Bangladesh and abroad help shape our work. Tell us how we could do more or do better. Your name is optional.",
+      "button": "Share a suggestion"
     }
   },
   "donate": {

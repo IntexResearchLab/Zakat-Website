@@ -17,12 +17,14 @@ type LanguageSwitcherProps = {
   variant?: 'dropdown' | 'buttons'
   // dark: for the footer's dark background; the menu then opens upwards.
   tone?: 'light' | 'dark'
+  // Shows only the globe below the 2xl breakpoint, where the header menu needs the room.
+  compact?: boolean
 }
 
 const currentLanguage = (language: string): LanguageCode =>
   languages.find((item) => language.startsWith(item.code))?.code ?? 'en'
 
-function LanguageSwitcher({ variant = 'dropdown', tone = 'light' }: LanguageSwitcherProps) {
+function LanguageSwitcher({ variant = 'dropdown', tone = 'light', compact = false }: LanguageSwitcherProps) {
   const { i18n, t } = useTranslation()
   const [isOpen, setIsOpen] = useState(false)
   const menuId = useId()
@@ -93,7 +95,9 @@ function LanguageSwitcher({ variant = 'dropdown', tone = 'light' }: LanguageSwit
         <span aria-hidden="true" className="material-symbols-outlined text-[1.15rem]">
           language
         </span>
-        <span lang={active}>{activeName}</span>
+        <span className={compact ? 'hidden 2xl:inline' : undefined} lang={active}>
+          {activeName}
+        </span>
         <span aria-hidden="true" className="material-symbols-outlined text-[1rem]">
           {isDark ? 'expand_less' : 'expand_more'}
         </span>

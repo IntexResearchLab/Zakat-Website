@@ -20,7 +20,8 @@
     "transparency": "Magazin",
     "voices": "Stimmen",
     "zakatCalculator": "Zakat-Rechner",
-    "updates": "Aktuelles"
+    "updates": "Aktuelles",
+    "contact": "Kontakt"
   },
   "common": {
     "actions": {
@@ -470,6 +471,12 @@
           "location": "Chattogram"
         }
       ]
+    },
+    "suggestionInvite": {
+      "eyebrow": "Vorschläge",
+      "title": "Haben Sie eine Idee für Alokayon?",
+      "text": "Mitglieder und Unterstützer in Bangladesch und im Ausland gestalten unsere Arbeit mit. Sagen Sie uns, wie wir mehr oder Besseres bewirken können. Ihr Name ist freiwillig.",
+      "button": "Vorschlag teilen"
     }
   },
   "about": {

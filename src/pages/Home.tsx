@@ -5,6 +5,7 @@ import HeroCarousel from '../components/Home/HeroCarousel'
 import ImpactSection from '../components/Home/ImpactSection'
 import MissionSection from '../components/Home/MissionSection'
 import ProgramsSection from '../components/Home/ProgramsSection'
+import SuggestionInviteSection from '../components/Home/SuggestionInviteSection'
 import SupportOptionsSection from '../components/Home/SupportOptionsSection'
 import VoiceOfChangeSection from '../components/Home/VoiceOfChangeSection'
 import LatestUpdatesSection from '../components/Updates/LatestUpdatesSection'
@@ -23,6 +24,7 @@ function Home() {
       <LatestUpdatesSection />
       <SupportOptionsSection />
       <VoiceOfChangeSection />
+      <SuggestionInviteSection />
     </>
   )
 }
