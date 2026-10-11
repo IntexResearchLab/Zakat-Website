@@ -4,7 +4,7 @@ import { getServiceClient } from './_lib/db.js'
 import { escapeHtml, layout, sendEmail } from './_lib/email.js'
 import { getSiteUrl, readBody, sendJson, type ApiRequest } from './_lib/sslcommerz.js'
 
-const topics = ['general', 'donation', 'zakat', 'volunteer', 'partnership', 'other']
+const topics = ['general', 'donation', 'zakat', 'volunteer', 'partnership', 'other', 'suggestion']
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 const maxPerHourFromOneSender = 5
 // Above this many messages an hour from everyone together, messages are still saved for the
@@ -30,6 +30,8 @@ const hashIp = (req: ApiRequest) => {
 }
 
 // Saves a contact form message for the admin inbox and emails the team about it.
+// Suggestion box entries use the same path with the "suggestion" topic: the name is optional,
+// a country can be given, and they are only kept in the inbox (nobody is emailed).
 export default async function handler(req: ApiRequest, res: ServerResponse) {
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST')
@@ -54,16 +56,18 @@ export default async function handler(req: ApiRequest, res: ServerResponse) {
     return sendJson(res, 200, { sent: true })
   }
 
+  const topic = topics.includes(String(body.topic)) ? String(body.topic) : 'general'
+  const isSuggestion = topic === 'suggestion'
   const name = clean(body.name, 80)
   const email = clean(body.email, 120)
   const phone = clean(body.phone, 20)
-  const topic = topics.includes(String(body.topic)) ? String(body.topic) : 'general'
+  const country = isSuggestion ? clean(body.country, 60) : ''
   const message = String(body.message ?? '')
     .trim()
     .slice(0, 4000)
   const language = clean(body.language, 5)
 
-  if (!name || !emailPattern.test(email) || message.length < 10) {
+  if ((!name && !isSuggestion) || !emailPattern.test(email) || message.length < 10) {
     return sendJson(res, 400, { error: 'invalid_message' })
   }
 
@@ -83,10 +87,12 @@ export default async function handler(req: ApiRequest, res: ServerResponse) {
     }
 
     const { error } = await client.from('contact_messages').insert({
-      name,
+      name: name || null,
       email,
       phone: phone || null,
       topic,
+      // Only suggestions send a country, so the contact form doesn't depend on that column.
+      ...(isSuggestion ? { country: country || null } : {}),
       message,
       language: language || null,
       ip_hash: ipHash,
@@ -103,7 +109,7 @@ export default async function handler(req: ApiRequest, res: ServerResponse) {
       .select('id', { count: 'exact', head: true })
       .gte('created_at', oneHourAgo)
 
-    if (notifyTo && (recentTotal ?? 0) <= maxNoticesPerHour) {
+    if (notifyTo && !isSuggestion && (recentTotal ?? 0) <= maxNoticesPerHour) {
       await sendEmail({
         to: notifyTo,
         replyTo: email,

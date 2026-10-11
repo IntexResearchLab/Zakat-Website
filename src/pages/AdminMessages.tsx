@@ -8,10 +8,12 @@ type MessageStatus = 'new' | 'replied' | 'archived'
 
 type ContactMessage = {
   id: string
-  name: string
+  // Suggestions may be sent without a name.
+  name: string | null
   email: string
   phone: string | null
   topic: string
+  country: string | null
   message: string
   language: string | null
   status: MessageStatus
@@ -45,6 +47,7 @@ function AdminMessages() {
   const [messages, setMessages] = useState<ContactMessage[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [filter, setFilter] = useState<Filter>('new')
+  const [suggestionsOnly, setSuggestionsOnly] = useState(false)
   const [busyId, setBusyId] = useState<string | null>(null)
   const [errorMessage, setErrorMessage] = useState('')
 
@@ -53,7 +56,7 @@ function AdminMessages() {
     setErrorMessage('')
     const { data, error } = await supabase
       .from('contact_messages')
-      .select('id, name, email, phone, topic, message, language, status, handled_at, created_at')
+      .select('*')
       .order('created_at', { ascending: false })
       .limit(500)
 
@@ -71,20 +74,25 @@ function AdminMessages() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  // The suggestion box shares this inbox; the toggle narrows every status tab to suggestions.
+  const scoped = useMemo(
+    () =>
+      suggestionsOnly ? messages.filter((message) => message.topic === 'suggestion') : messages,
+    [messages, suggestionsOnly],
+  )
   const counts = useMemo(
     () =>
       Object.fromEntries(
         filters.map((key) => [
           key,
-          key === 'all'
-            ? messages.length
-            : messages.filter((message) => message.status === key).length,
+          key === 'all' ? scoped.length : scoped.filter((message) => message.status === key).length,
         ]),
       ) as Record<Filter, number>,
-    [messages],
+    [scoped],
   )
-  const visible =
-    filter === 'all' ? messages : messages.filter((message) => message.status === filter)
+  const visible = filter === 'all' ? scoped : scoped.filter((message) => message.status === filter)
+  const displayName = (message: ContactMessage) =>
+    message.name?.trim() || t('admin.messages.anonymous')
 
   const setStatus = async (message: ContactMessage, status: MessageStatus) => {
     setBusyId(message.id)
@@ -111,7 +119,7 @@ function AdminMessages() {
   }
 
   const handleDelete = async (message: ContactMessage) => {
-    if (!window.confirm(t('admin.messages.deleteConfirm', { name: message.name }))) {
+    if (!window.confirm(t('admin.messages.deleteConfirm', { name: displayName(message) }))) {
       return
     }
 
@@ -134,7 +142,11 @@ function AdminMessages() {
       .map((line) => `> ${line}`)
       .join('\n')
     return `mailto:${message.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
-      `${t('admin.messages.replyGreeting', { name: message.name })}\n\n\n\n${quoted}`,
+      `${
+        message.name?.trim()
+          ? t('admin.messages.replyGreeting', { name: message.name.trim() })
+          : t('admin.messages.replyGreetingAnonymous')
+      }\n\n\n\n${quoted}`,
     )}`
   }
 
@@ -166,6 +178,18 @@ function AdminMessages() {
                 {t(`admin.messages.filters.${key}`)} ({counts[key]})
               </button>
             ))}
+            <button
+              aria-pressed={suggestionsOnly}
+              className={`rounded-full border px-4 py-2 text-[0.82rem] font-semibold transition ${
+                suggestionsOnly
+                  ? 'border-[#13703e] bg-[#13703e] text-white'
+                  : 'border-[#dbe7ee] bg-white text-[#4f6473] hover:border-[#bfd5e4]'
+              }`}
+              onClick={() => setSuggestionsOnly((value) => !value)}
+              type="button"
+            >
+              {t('admin.messages.suggestionsOnly')}
+            </button>
           </div>
           <button className={actionClass} onClick={() => void loadMessages()} type="button">
             <span aria-hidden="true" className="material-symbols-outlined text-[1rem]">
@@ -203,7 +227,7 @@ function AdminMessages() {
                 >
                   <div className="flex flex-wrap items-center gap-2">
                     <p className="font-serif text-[1.25rem] leading-tight text-[#14324d]">
-                      {message.name}
+                      {displayName(message)}
                     </p>
                     <span
                       className={`rounded-full border px-3 py-1 text-[0.72rem] font-bold uppercase tracking-[0.12em] ${statusClass[message.status]}`}
@@ -216,7 +240,11 @@ function AdminMessages() {
                   </div>
                   <p className="mt-1 break-all text-[0.9rem] text-[#5d6d78]">
                     {message.email}
-                    {message.phone ? ` · ${message.phone}` : ''} · {formatDate(message.created_at)}
+                    {message.phone ? ` · ${message.phone}` : ''}
+                    {message.country
+                      ? ` · ${t('admin.messages.country', { country: message.country })}`
+                      : ''}{' '}
+                    · {formatDate(message.created_at)}
                   </p>
                   <p className="mt-4 whitespace-pre-wrap break-words text-[0.98rem] leading-[1.75] text-[#14324d]">
                     {message.message}

@@ -66,6 +66,10 @@
     "titleKey": "common.breadcrumb.campaigns",
     "descriptionKey": "seo.descriptions.campaigns"
   },
+  "/updates": {
+    "titleKey": "common.breadcrumb.updates",
+    "descriptionKey": "seo.descriptions.updates"
+  },
   "/zakat-calculator": {
     "titleKey": "common.breadcrumb.zakatCalculator",
     "descriptionKey": "seo.descriptions.zakatCalculator"

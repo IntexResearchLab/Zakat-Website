@@ -11,6 +11,10 @@
       "destination": "/api/campaign-page?slug=:slug"
     },
     {
+      "source": "/updates/:slug",
+      "destination": "/api/campaign-page?type=update&slug=:slug"
+    },
+    {
       "source": "/((?!api/).*)",
       "destination": "/"
     }

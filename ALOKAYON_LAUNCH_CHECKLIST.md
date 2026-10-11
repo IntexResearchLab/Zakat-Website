@@ -227,32 +227,34 @@ Both fit the Vercel free plan: the site uses 9 of its 12 functions, and neither 
 
 ### Suggestion box for international members
 
-- [ ] Ask Alokayon:
+- [x] Decide how it works (11 October 2026): name optional, email required, country optional; saved in **Admin → Messages** only (no email), with a "Suggestions only" filter.
+- [ ] ~~Ask Alokayon~~ (decided by Intex; confirm with Alokayon at handover):
   - Which inbox should suggestions go to? (`ADMIN_NOTIFY_EMAIL`, or a separate address)
   - Can people send a suggestion without giving their name?
   - Should we ask for the member's country?
-- [ ] Claude builds it:
+- [x] Claude builds it (11 October 2026), and run [`supabase/migrations/20261012010000_suggestion_box.sql`](supabase/migrations/20261012010000_suggestion_box.sql) (done):
   - A "Suggestion box" form on the Contact page, with a link from the footer. Fields: name (optional), email, country, suggestion.
   - It goes through the existing contact form endpoint as a new "Suggestion" topic, so it gets the same spam protection.
   - Each suggestion is emailed to the chosen inbox and also kept in **Admin → Messages**, with a filter to show suggestions only.
   - Labels in English, Bangla and German.
-- [ ] Test: send a suggestion from the live site and check it arrives by email and in the admin.
+- [ ] Test: send a suggestion from the live site and check it appears in **Admin → Messages** (suggestions are not emailed).
 
 ### News and updates posts from the admin
 
 For monthly programmes and events: a short update with photos and an optional YouTube video.
 
-- [ ] Ask Alokayon:
+- [x] Decide how it works (11 October 2026): an **Updates** page (in the Impact menu and footer) plus the latest three on the home page; English required, Bangla optional; up to 6 photos.
+- [ ] ~~Ask Alokayon~~ (decided by Intex; confirm with Alokayon at handover):
   - Where should posts appear? Suggested: a new **Updates** page, plus the latest three on the home page.
   - Will they write posts in Bangla, English or both? (The site can show one language for everyone, or let them add a translation.)
   - How many photos per post? Suggested: up to 6, shrunk automatically like the gallery photos.
-- [ ] Claude builds it:
+- [x] Claude builds it (11 October 2026):
   - **Admin → Updates**: title, short text, date, optional programme (e.g. School, Madrasa), photos, YouTube link, and publish / hide.
   - A public **Updates** page with the newest posts first, and a page for each post.
   - YouTube links play on the page (in privacy mode). Only the link is stored, so videos use no storage space.
   - Each post shows its own title and first photo when shared on WhatsApp or Facebook.
   - A new database table and photo folder, with a SQL file to run in **SQL Editor** like step 1.
-- [ ] Run the SQL file Claude provides, then test: create a post with photos and a YouTube link, check it on the site and on a phone, then delete it.
+- [x] Run [`supabase/migrations/20261012000000_updates.sql`](supabase/migrations/20261012000000_updates.sql) (done), then test (done in the local admin: post with 2 photos and a YouTube link, Bangla title, edit with a photo swap, hide, delete; removed photos were deleted from storage): create a post with photos and a YouTube link, check it on the site and on a phone, then delete it.
 - [ ] Show the admins how to post an update (add it to the step 12 walkthrough).
 - [ ] Keep an eye on storage: Supabase's free plan includes 1 GB. A shrunk photo (2000 px, like the gallery) is roughly 300 to 500 KB, so about 2,000 photos fit alongside the magazines and receipts.
 

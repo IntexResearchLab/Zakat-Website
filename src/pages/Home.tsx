@@ -7,6 +7,7 @@ import MissionSection from '../components/Home/MissionSection'
 import ProgramsSection from '../components/Home/ProgramsSection'
 import SupportOptionsSection from '../components/Home/SupportOptionsSection'
 import VoiceOfChangeSection from '../components/Home/VoiceOfChangeSection'
+import LatestUpdatesSection from '../components/Updates/LatestUpdatesSection'
 
 function Home() {
   return (
@@ -18,6 +19,8 @@ function Home() {
       <DonationSection />
       <FounderMessageSection />
       <ProgramsSection />
+      {/* News from the programmes above; hidden until a post is published. */}
+      <LatestUpdatesSection />
       <SupportOptionsSection />
       <VoiceOfChangeSection />
     </>

@@ -19,7 +19,8 @@
     "programsOverview": "All Programs",
     "transparency": "Magazine",
     "voices": "Voices",
-    "zakatCalculator": "Zakat Calculator"
+    "zakatCalculator": "Zakat Calculator",
+    "updates": "Updates"
   },
   "common": {
     "actions": {
@@ -67,7 +68,8 @@
       "refund": "Return and Refund Policy",
       "zakatCalculator": "Zakat Calculator",
       "campaigns": "Appeals",
-      "contact": "Contact"
+      "contact": "Contact",
+      "updates": "News & Updates"
     },
     "form": {
       "emailPlaceholder": "Enter your email",
@@ -130,6 +132,10 @@
           "href": "/campaigns"
         },
         {
+          "label": "Updates",
+          "href": "/updates"
+        },
+        {
           "label": "Donate",
           "href": "/donate"
         },
@@ -140,6 +146,10 @@
         {
           "label": "Contact",
           "href": "/contact"
+        },
+        {
+          "label": "Suggestion box",
+          "href": "/contact#suggestion-box"
         }
       ]
     },
@@ -2519,6 +2529,11 @@
         "icon": "campaigns"
       },
       {
+        "label": "Updates",
+        "href": "/admin/updates",
+        "icon": "updates"
+      },
+      {
         "label": "Messages",
         "href": "/admin/messages",
         "icon": "messages"
@@ -3042,7 +3057,11 @@
       "delete": "Delete",
       "deleteConfirm": "Delete the message from {{name}}? This cannot be undone.",
       "replySubject": "Re: your message to Alokayon",
-      "replyGreeting": "Dear {{name}},"
+      "replyGreeting": "Dear {{name}},",
+      "suggestionsOnly": "Suggestions only",
+      "anonymous": "Anonymous",
+      "country": "Country: {{country}}",
+      "replyGreetingAnonymous": "Assalamu alaikum,"
     },
     "testimonials": {
       "eyebrow": "Testimonials",
@@ -3160,6 +3179,75 @@
       "empty": "No stories of this type yet.",
       "errors": {
         "required": "Please enter at least the English title and introduction."
+      }
+    },
+    "updates": {
+      "navLabel": "Updates",
+      "eyebrow": "News & Updates",
+      "title": "News and updates",
+      "description": "Post short updates about monthly programmes and events. The newest posts appear on the Updates page and the latest three on the home page.",
+      "new": "New update",
+      "newTitle": "New update",
+      "editTitle": "Edit update",
+      "formIntro": "English is required. If you add Bangla, visitors reading in Bangla see it; otherwise they see the English text.",
+      "fields": {
+        "titleEn": "Title (English)",
+        "titleBn": "Title (Bangla, optional)",
+        "bodyEn": "Text (English)",
+        "bodyBn": "Text (Bangla, optional)",
+        "publishedOn": "Date",
+        "program": "Programme (optional)",
+        "youtubeUrl": "YouTube link (optional)",
+        "slug": "Web address",
+        "photos": "Photos"
+      },
+      "bodyHelp": "Keep it short. Leave an empty line between paragraphs.",
+      "noProgram": "No programme",
+      "youtubeHelp": "Paste a link to a single YouTube video (a normal, youtu.be, Shorts or embed link). It plays on the post's page.",
+      "slugHelp": "Lowercase letters, numbers and hyphens. Changing it later breaks links that were already shared.",
+      "save": "Save update",
+      "saving": "Saving...",
+      "cancel": "Cancel",
+      "edit": "Edit",
+      "delete": "Delete",
+      "view": "View",
+      "publish": "Publish",
+      "hide": "Hide",
+      "created": "Update \"{{title}}\" posted.",
+      "updated": "Update \"{{title}}\" saved.",
+      "deleted": "Update \"{{title}}\" and its photos deleted.",
+      "publishedSuccess": "\"{{title}}\" is now visible on the website.",
+      "hiddenSuccess": "\"{{title}}\" is now hidden from the website.",
+      "deleteConfirm": "Delete \"{{title}}\"? Its photos are deleted too. This cannot be undone.",
+      "listTitle": "All updates",
+      "listIntro": "Newest first, by date. Hidden updates stay private and their links show \"page not found\".",
+      "loading": "Loading updates...",
+      "empty": "No updates yet. Post one after your next programme or event, for example a food distribution or a school prize day.",
+      "state": {
+        "published": "Published",
+        "hidden": "Hidden"
+      },
+      "noBangla": "No Bangla",
+      "photoCount_one": "{{count}} photo",
+      "photoCount_other": "{{count}} photos",
+      "hasVideo": "Video",
+      "errors": {
+        "required": "Please enter an English title and text.",
+        "slug": "Please enter a web address using lowercase letters, numbers and hyphens.",
+        "slugTaken": "Another update already uses this web address. Please choose a different one.",
+        "date": "Please choose a date.",
+        "youtube": "This doesn't look like a YouTube video link. Use a link such as https://www.youtube.com/watch?v=… or https://youtu.be/…, or leave the field empty."
+      },
+      "photos": {
+        "add": "Add photos",
+        "help": "{{current}} of {{max}} photos. The first photo is the cover and is shown when the link is shared. Use the arrows to change the order.",
+        "tooMany": "You can add up to {{max}} photos.",
+        "alt": "Photo {{number}} for {{title}}",
+        "cover": "Cover",
+        "new": "New",
+        "moveEarlier": "Move photo {{number}} earlier",
+        "moveLater": "Move photo {{number}} later",
+        "remove": "Remove photo {{number}}"
       }
     }
   },
@@ -3389,7 +3477,8 @@
       "refund": "Alokayon's return and refund policy for donations.",
       "zakatCalculator": "Work out how much zakat you owe. Enter your cash, gold, silver, savings and debts, and see your zakat at 2.5% using the current nisab in BDT.",
       "campaigns": "Support Alokayon's current appeals. See each appeal's goal, how much has been raised, and give to the cause you care about.",
-      "contact": "Contact Alokayon about donations, zakat, receipts, volunteering or partnerships. Send a message or call us in Dhaka."
+      "contact": "Contact Alokayon about donations, zakat, receipts, volunteering or partnerships. Send a message or call us in Dhaka.",
+      "updates": "News from Alokayon: monthly programmes, relief distributions, school and madrasa events, with photos and videos from the field."
     },
     "notFoundTitle": "Page not found"
   },
@@ -3556,7 +3645,8 @@
       "zakat": "Zakat question",
       "volunteer": "Volunteering",
       "partnership": "Partnership",
-      "other": "Something else"
+      "other": "Something else",
+      "suggestion": "Suggestion"
     },
     "send": "Send message",
     "sending": "Sending...",
@@ -3578,6 +3668,52 @@
       "phone": "Phone (bKash)",
       "phoneAlt": "Phone (Nagad)",
       "address": "Office address"
+    }
+  },
+  "suggestionBox": {
+    "eyebrow": "Suggestion box",
+    "title": "Share an idea with Alokayon",
+    "intro": "Members and supporters abroad: tell us how we could do more or do better. Your name is optional, but please leave an email so we can follow up.",
+    "optional": "(optional)",
+    "fields": {
+      "name": "Your name",
+      "email": "Email",
+      "country": "Country",
+      "message": "Your suggestion"
+    },
+    "send": "Send suggestion",
+    "sent": {
+      "title": "Thank you for your suggestion",
+      "message": "It has reached the Alokayon team, who read every suggestion."
+    }
+  },
+  "updates": {
+    "section": {
+      "eyebrow": "News & Updates",
+      "title": "Latest from our work",
+      "viewAll": "See all updates"
+    },
+    "page": {
+      "eyebrow": "News & Updates",
+      "title": "What we've been doing",
+      "intro": "Short reports from our monthly programmes and events, with photos and videos, so you can see where your support goes.",
+      "loading": "Loading updates...",
+      "error": "Updates could not be loaded right now. Please try again in a moment.",
+      "emptyTitle": "No updates yet",
+      "emptyText": "News from our programmes will appear here soon. In the meantime, you can read about the work we do.",
+      "emptyLink": "Explore our programmes"
+    },
+    "card": {
+      "readMore": "Read more",
+      "video": "Video"
+    },
+    "detail": {
+      "videoTitle": "Video: {{title}}",
+      "photosLabel": "Photos",
+      "photoAlt": "Photo {{number}} of {{total}}: {{title}}",
+      "openPhoto": "(opens the full-size photo in a new tab)",
+      "backToAll": "All updates",
+      "donate": "Support our work"
     }
   }
 }

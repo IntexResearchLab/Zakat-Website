@@ -24,6 +24,7 @@ const AdminResetPassword = lazy(() => import('./pages/AdminResetPassword'))
 const AdminStats = lazy(() => import('./pages/AdminStats'))
 const AdminStories = lazy(() => import('./pages/AdminStories'))
 const AdminTestimonials = lazy(() => import('./pages/AdminTestimonials'))
+const AdminUpdates = lazy(() => import('./pages/AdminUpdates'))
 const AlokayonSchool = lazy(() => import('./pages/AlokayonSchool'))
 const CampaignDetail = lazy(() => import('./pages/CampaignDetail'))
 const Contact = lazy(() => import('./pages/Contact'))
@@ -39,6 +40,8 @@ const OurDonors = lazy(() => import('./pages/OurDonors'))
 const Programs = lazy(() => import('./pages/Programs'))
 const Transparency = lazy(() => import('./pages/Transparency'))
 const TransparencyReader = lazy(() => import('./pages/TransparencyReader'))
+const UpdateDetail = lazy(() => import('./pages/UpdateDetail'))
+const Updates = lazy(() => import('./pages/Updates'))
 const ZakatCalculator = lazy(() => import('./pages/ZakatCalculator'))
 
 function App() {
@@ -89,6 +92,14 @@ function App() {
                 element={
                   <AdminRouteGuard mode="protected">
                     <AdminCampaigns />
+                  </AdminRouteGuard>
+                }
+              />
+              <Route
+                path="/admin/updates"
+                element={
+                  <AdminRouteGuard mode="protected">
+                    <AdminUpdates />
                   </AdminRouteGuard>
                 }
               />
@@ -173,6 +184,8 @@ function App() {
               <Route path="/zakat-calculator" element={<ZakatCalculator />} />
             <Route path="/campaigns" element={<Campaigns />} />
             <Route path="/campaigns/:slug" element={<CampaignDetail />} />
+            <Route path="/updates" element={<Updates />} />
+            <Route path="/updates/:slug" element={<UpdateDetail />} />
             <Route path="/contact" element={<Contact />} />
               <Route path="/terms-and-conditions" element={<LegalPage policy="terms" />} />
               <Route path="/privacy-policy" element={<LegalPage policy="privacy" />} />

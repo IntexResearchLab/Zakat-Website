@@ -19,7 +19,8 @@
     "programsOverview": "Alle Programme",
     "transparency": "Magazin",
     "voices": "Stimmen",
-    "zakatCalculator": "Zakat-Rechner"
+    "zakatCalculator": "Zakat-Rechner",
+    "updates": "Aktuelles"
   },
   "common": {
     "actions": {
@@ -67,7 +68,8 @@
       "refund": "Erstattungsrichtlinie",
       "zakatCalculator": "Zakat-Rechner",
       "campaigns": "Spendenaufrufe",
-      "contact": "Kontakt"
+      "contact": "Kontakt",
+      "updates": "Aktuelles"
     },
     "form": {
       "emailPlaceholder": "E-Mail-Adresse eingeben",
@@ -130,6 +132,10 @@
           "href": "/campaigns"
         },
         {
+          "label": "Aktuelles",
+          "href": "/updates"
+        },
+        {
           "label": "Spenden",
           "href": "/donate"
         },
@@ -140,6 +146,10 @@
         {
           "label": "Kontakt",
           "href": "/contact"
+        },
+        {
+          "label": "Vorschläge",
+          "href": "/contact#suggestion-box"
         }
       ]
     },
@@ -2470,7 +2480,8 @@
       "refund": "Erstattungsrichtlinie von Alokayon für Spenden.",
       "zakatCalculator": "Berechnen Sie Ihre Zakat. Geben Sie Bargeld, Gold, Silber, Ersparnisse und Schulden ein und sehen Sie Ihre Zakat von 2,5 % anhand des aktuellen Nisab in BDT.",
       "campaigns": "Unterstützen Sie die aktuellen Spendenaufrufe von Alokayon. Sehen Sie Ziel und Spendenstand jedes Aufrufs und spenden Sie für das Anliegen, das Ihnen wichtig ist.",
-      "contact": "Kontaktieren Sie Alokayon zu Spenden, Zakat, Quittungen, Ehrenamt oder Partnerschaften. Schreiben Sie uns oder rufen Sie uns in Dhaka an."
+      "contact": "Kontaktieren Sie Alokayon zu Spenden, Zakat, Quittungen, Ehrenamt oder Partnerschaften. Schreiben Sie uns oder rufen Sie uns in Dhaka an.",
+      "updates": "Neuigkeiten von Alokayon: monatliche Programme, Hilfsverteilungen, Veranstaltungen in Schule und Madrasa – mit Fotos und Videos aus der Arbeit vor Ort."
     },
     "notFoundTitle": "Seite nicht gefunden"
   },
@@ -2637,7 +2648,8 @@
       "zakat": "Frage zur Zakat",
       "volunteer": "Ehrenamt",
       "partnership": "Partnerschaft",
-      "other": "Etwas anderes"
+      "other": "Etwas anderes",
+      "suggestion": "Vorschlag"
     },
     "send": "Nachricht senden",
     "sending": "Wird gesendet...",
@@ -2868,6 +2880,52 @@
           ]
         }
       ]
+    }
+  },
+  "suggestionBox": {
+    "eyebrow": "Vorschläge",
+    "title": "Teilen Sie Ihre Idee mit Alokayon",
+    "intro": "Mitglieder und Unterstützer im Ausland: Sagen Sie uns, wie wir mehr oder Besseres bewirken können. Ihr Name ist freiwillig, bitte hinterlassen Sie aber eine E-Mail-Adresse für Rückfragen.",
+    "optional": "(freiwillig)",
+    "fields": {
+      "name": "Ihr Name",
+      "email": "E-Mail",
+      "country": "Land",
+      "message": "Ihr Vorschlag"
+    },
+    "send": "Vorschlag senden",
+    "sent": {
+      "title": "Vielen Dank für Ihren Vorschlag",
+      "message": "Er ist beim Alokayon-Team angekommen, das jeden Vorschlag liest."
+    }
+  },
+  "updates": {
+    "section": {
+      "eyebrow": "Aktuelles",
+      "title": "Neues aus unserer Arbeit",
+      "viewAll": "Alle Neuigkeiten ansehen"
+    },
+    "page": {
+      "eyebrow": "Aktuelles",
+      "title": "Was wir zuletzt getan haben",
+      "intro": "Kurze Berichte aus unseren monatlichen Programmen und Veranstaltungen, mit Fotos und Videos – damit Sie sehen, wo Ihre Unterstützung ankommt.",
+      "loading": "Neuigkeiten werden geladen...",
+      "error": "Die Neuigkeiten können gerade nicht geladen werden. Bitte versuchen Sie es gleich noch einmal.",
+      "emptyTitle": "Noch keine Neuigkeiten",
+      "emptyText": "Berichte aus unseren Programmen erscheinen bald hier. Bis dahin können Sie mehr über unsere Arbeit lesen.",
+      "emptyLink": "Unsere Programme entdecken"
+    },
+    "card": {
+      "readMore": "Weiterlesen",
+      "video": "Video"
+    },
+    "detail": {
+      "videoTitle": "Video: {{title}}",
+      "photosLabel": "Fotos",
+      "photoAlt": "Foto {{number}} von {{total}}: {{title}}",
+      "openPhoto": "(öffnet das Foto in voller Größe in einem neuen Tab)",
+      "backToAll": "Alle Neuigkeiten",
+      "donate": "Unsere Arbeit unterstützen"
     }
   }
 }

@@ -93,6 +93,8 @@ function Header() {
 
   const impactItems = useMemo(
     () => [
+      // Updates lives here because the desktop bar has no room for another top-level link.
+      { label: t('nav.updates'), to: '/updates' },
       { label: t('nav.voices'), to: '/opinions-of-beneficiaries' },
       { label: t('nav.donors'), to: '/our-donors' },
     ],
@@ -127,7 +129,9 @@ function Header() {
 
   const programsActive = location.pathname.startsWith('/programs')
   const impactActive =
-    location.pathname === '/opinions-of-beneficiaries' || location.pathname === '/our-donors'
+    location.pathname === '/opinions-of-beneficiaries' ||
+    location.pathname === '/our-donors' ||
+    location.pathname.startsWith('/updates')
 
   return (
     <header className="sticky top-0 z-40 border-b border-[#c5d8e5] bg-[rgba(247,252,255,0.88)] px-4 py-3 backdrop-blur-xl shadow-[0_6px_24px_rgba(15,23,42,0.04)] sm:px-8">
@@ -252,6 +256,13 @@ function Header() {
                 {t('nav.impact')}
               </div>
               <div className="grid gap-1 pl-3">
+                <NavLink
+                  className={mobileLinkClass}
+                  to="/updates"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {t('nav.updates')}
+                </NavLink>
                 <NavLink
                   className={mobileLinkClass}
                   to="/opinions-of-beneficiaries"

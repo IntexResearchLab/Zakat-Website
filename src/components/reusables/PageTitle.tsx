@@ -57,6 +57,7 @@ function PageTitle() {
     const isAdmin = normalizedPath.startsWith('/admin')
     const transparencyYear = normalizedPath.match(/^\/transparency\/([^/]+)$/)?.[1]
     const isCampaignPage = /^\/campaigns\/[^/]+$/.test(normalizedPath)
+    const isUpdatePage = /^\/updates\/[^/]+$/.test(normalizedPath)
     const page: PageInfo | null =
       pagesByPath[normalizedPath] ??
       (transparencyYear
@@ -66,7 +67,9 @@ function PageTitle() {
           }
         : isCampaignPage
           ? { titleKey: 'common.breadcrumb.campaigns', descriptionKey: 'seo.descriptions.campaigns' }
-          : null)
+          : isUpdatePage
+            ? { titleKey: 'common.breadcrumb.updates', descriptionKey: 'seo.descriptions.updates' }
+            : null)
 
     let pageLabel: string | null
     if (isAdmin) {

@@ -23,6 +23,7 @@ const navIconMap = {
   transparency: 'verified',
   donations: 'payments',
   campaigns: 'campaign',
+  updates: 'article',
   messages: 'mail',
   testimonials: 'forum',
   stories: 'auto_stories',

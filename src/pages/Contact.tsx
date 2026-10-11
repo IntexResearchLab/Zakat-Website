@@ -1,14 +1,11 @@
 import { useState, type FormEvent } from 'react'
 import { useTranslation } from 'react-i18next'
+import { emailPattern, fieldClass, labelClass } from '../components/Contact/formStyles'
+import SuggestionBox from '../components/Contact/SuggestionBox'
 import Breadcrumb from '../components/reusables/Breadcrumb'
 
 const topics = ['general', 'donation', 'zakat', 'volunteer', 'partnership', 'other'] as const
 type Topic = (typeof topics)[number]
-
-const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-const fieldClass =
-  'w-full rounded-[1rem] border border-[#d7e6ef] bg-white px-4 py-3 text-[1rem] text-[#14324d] outline-none transition placeholder:text-[#627581] focus:border-[#115b82]'
-const labelClass = 'grid gap-2 text-[0.9rem] font-semibold text-[#14324d]'
 
 type ErrorKey = 'name' | 'email' | 'message' | 'tooMany' | 'generic'
 
@@ -246,6 +243,8 @@ function Contact() {
           </dl>
         </aside>
       </div>
+
+      <SuggestionBox />
     </div>
   )
 }
