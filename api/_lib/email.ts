@@ -63,7 +63,7 @@ export const layout = (body: string) => `<!doctype html>
 <tr><td style="background:#14324d;padding:24px 28px;color:#ffffff;font-family:Georgia,serif;font-size:26px">Alokayon</td></tr>
 <tr><td style="padding:28px;font-size:15px;line-height:1.7;color:#3f5462">${body}</td></tr>
 <tr><td style="padding:18px 28px;border-top:1px solid #e4edf3;font-size:12px;line-height:1.6;color:#627581">
-Alokayon &middot; Registered with the Department of Social Services, Bangladesh (2019)<br>
+Alokayon &middot; Registered with the Department of Social Services, Bangladesh &middot; Reg. No. DHA-09710<br>
 alokayon2019@gmail.com &middot; 01925124019
 </td></tr>
 </table>

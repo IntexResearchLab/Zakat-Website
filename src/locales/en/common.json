@@ -196,7 +196,7 @@
       ]
     },
     "organization": {
-      "registration": "Registered with the Department of Social Services, Ministry of Social Welfare, Bangladesh (2019)",
+      "registration": "Registered with the Department of Social Services, Ministry of Social Welfare, Bangladesh · Reg. No. DHA-09710 (2019)",
       "management": "Founder Chairman: A.K.M. Fazlul Kader"
     },
     "paymentsAlt": "Pay with Visa, Mastercard, American Express, bKash, Nagad, Rocket, internet banking and other channels. Verified by SSLCommerz."
@@ -774,7 +774,7 @@
         ]
       },
       "trust": [
-        "Registered under the Social Welfare Department (2019)",
+        "Registered with the Department of Social Services · Reg. No. DHA-09710 (2019)",
         "No external funding — fully donor-supported",
         "Direct distribution to beneficiaries",
         "Full accountability and transparent reporting"
@@ -785,7 +785,7 @@
       "title": "Built on accountability, sustained by sincere giving.",
       "description": "Alokayon combines donor-funded service, transparent reporting, and careful beneficiary selection so that support reaches people with dignity and without waste.",
       "points": [
-        "Registered under the Social Welfare Department in 2019",
+        "Registered with the Department of Social Services in 2019 (Reg. No. DHA-09710)",
         "No external funding — fully supported through zakat and donations",
         "Direct support to beneficiaries across education, healthcare, and relief",
         "Transparent operations rooted in accountability and community trust"
@@ -852,7 +852,7 @@
       "description": "From a small initiative to a trusted charitable organization. We are now a Registered NGO",
       "badge": "Registered NGO (2019)",
       "registrationTitle": "Official Registration",
-      "registrationDescription": "Formal registration completed in 2019 under the Department of Social Services.",
+      "registrationDescription": "Registered on 19 February 2019 with the Department of Social Services, Dhaka. Registration No. DHA-09710.",
       "certificateAlt": "Registration certificate of Alokayon",
       "timeline": [
         {
@@ -867,7 +867,10 @@
           "year": "Today",
           "title": "Supporting communities across Bangladesh"
         }
-      ]
+      ],
+      "certificateOriginal": "Original (Bangla)",
+      "certificateTranslation": "English translation",
+      "certificateTranslationAlt": "Certified English translation of Alokayon's registration certificate"
     },
     "purpose": {
       "eyebrow": "Our Purpose",
@@ -3169,7 +3172,7 @@
       "title": "Contact us",
       "intro": "If you have any questions about this policy, please contact us using the details below.",
       "organizationLabel": "Organization",
-      "organization": "Alokayon, registered with the Department of Social Services, Ministry of Social Welfare, Government of Bangladesh (2019)",
+      "organization": "Alokayon, registered with the Department of Social Services, Ministry of Social Welfare, Government of Bangladesh · Registration No. DHA-09710 (19 February 2019)",
       "addressLabel": "Registered address",
       "emailLabel": "Email",
       "phoneLabel": "Phone"
@@ -3181,7 +3184,7 @@
         {
           "heading": "About Alokayon",
           "paragraphs": [
-            "Alokayon is a non-profit, non-political charitable organization in Bangladesh. It began informally in 2011 and was formally registered with the Department of Social Services, Ministry of Social Welfare, in 2019. Alokayon supports underprivileged children, widows, elderly people, and vulnerable families through education, relief, healthcare, and livelihood programs."
+            "Alokayon is a non-profit, non-political charitable organization in Bangladesh. It began informally in 2011 and was formally registered with the Department of Social Services, Ministry of Social Welfare, on 19 February 2019 (registration no. DHA-09710). Alokayon supports underprivileged children, widows, elderly people, and vulnerable families through education, relief, healthcare, and livelihood programs."
           ]
         },
         {

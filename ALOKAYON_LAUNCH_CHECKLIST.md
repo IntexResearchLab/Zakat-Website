@@ -93,7 +93,8 @@ _Needs someone from Alokayon_
 
 - [ ] Compare the footer address with the **trade license**, word for word. Send Claude the exact wording if anything differs.
   - The same address is printed on every receipt PDF, so it must be correct.
-- [ ] **(new)** Get Alokayon's registration number from the Department of Social Services and send it to Claude
+- [x] **(new)** Get Alokayon's registration number from the Department of Social Services and send it to Claude
+  - Found on the certificate (11 October 2026): **DHA-09710** (ঢ-০৯৭১০), registered 19 February 2019. Now on the policy pages, footer, About page, receipt PDF and emails. The certificate's address is 33/A Bipanon Area, Banglamotor, which differs from the Khilgaon address on the site: confirm which is current.
   - The policy pages and receipt PDF only say "Registered with the Department of Social Services (2019)". Donors and SSLCommerz expect the number itself.
 - [ ] Have the Terms, Privacy and Refund pages reviewed and approved. Confirm:
   - the 7-day window to request a refund

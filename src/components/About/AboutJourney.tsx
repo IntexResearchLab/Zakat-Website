@@ -8,6 +8,16 @@ function AboutJourney() {
   const { t } = useTranslation()
   const timeline = getTimeline(t)
   const [isCertificateOpen, setIsCertificateOpen] = useState(false)
+  // The Bangla original is the legal document; the certified English translation sits beside it.
+  const [certificateVersion, setCertificateVersion] = useState<'original' | 'translation'>('original')
+  const certificates = {
+    original: { src: '/assets/about/Certificate.webp', alt: t('about.journey.certificateAlt') },
+    translation: {
+      src: '/assets/about/Certificate-English.webp',
+      alt: t('about.journey.certificateTranslationAlt'),
+    },
+  }
+  const certificate = certificates[certificateVersion]
 
   const dialogRef = useModalDialog(isCertificateOpen, () => setIsCertificateOpen(false))
 
@@ -107,12 +117,35 @@ function AboutJourney() {
             </button>
 
             <div className="overflow-hidden rounded-[1.35rem] border border-white/20 bg-white p-4 shadow-[0_24px_60px_rgba(15,23,42,0.25)] sm:p-6">
+              <div
+                aria-label={t('about.journey.certificateAlt')}
+                className="mb-4 inline-flex gap-1 rounded-full border border-[#d8e5ec] bg-[#f4f8fb] p-1"
+                role="group"
+              >
+                {(['original', 'translation'] as const).map((version) => (
+                  <button
+                    aria-pressed={certificateVersion === version}
+                    className={`rounded-full px-4 py-2 text-[0.86rem] font-semibold transition ${
+                      certificateVersion === version
+                        ? 'bg-white text-[#115b82] shadow-[0_2px_8px_rgba(15,23,42,0.08)]'
+                        : 'text-[#5d6d78] hover:text-[#115b82]'
+                    }`}
+                    key={version}
+                    onClick={() => setCertificateVersion(version)}
+                    type="button"
+                  >
+                    {version === 'original'
+                      ? t('about.journey.certificateOriginal')
+                      : t('about.journey.certificateTranslation')}
+                  </button>
+                ))}
+              </div>
               <img
-                alt={t('about.journey.certificateAlt')}
-                className="max-h-[80vh] w-full object-contain"
+                alt={certificate.alt}
+                className="max-h-[74vh] w-full object-contain"
                 decoding="async"
-                loading="lazy"
-                src="/assets/about/Certificate.webp"
+                key={certificate.src}
+                src={certificate.src}
               />
             </div>
           </div>

@@ -196,7 +196,7 @@
       ]
     },
     "organization": {
-      "registration": "Registriert beim Department of Social Services, Ministerium für Soziales, Bangladesch (2019)",
+      "registration": "Registriert beim Department of Social Services, Ministerium für Soziales, Bangladesch · Reg.-Nr. DHA-09710 (2019)",
       "management": "Gründungsvorsitzender: A.K.M. Fazlul Kader"
     },
     "paymentsAlt": "Bezahlen mit Visa, Mastercard, American Express, bKash, Nagad, Rocket, Online-Banking und weiteren Kanälen. Verifiziert durch SSLCommerz."
@@ -476,7 +476,7 @@
       "description": "Von einer kleinen Initiative zu einer vertrauenswürdigen Wohltätigkeitsorganisation. Wir sind heute eine registrierte NGO",
       "badge": "In Bangladesch registrierte NGO (2019)",
       "registrationTitle": "Offizielle Registrierung",
-      "registrationDescription": "Die offizielle Registrierung wurde 2019 beim Department of Social Services abgeschlossen.",
+      "registrationDescription": "Am 19. Februar 2019 beim Department of Social Services in Dhaka registriert. Registrierungsnummer DHA-09710.",
       "certificateAlt": "Registrierungsurkunde von Alokayon",
       "timeline": [
         {
@@ -491,7 +491,10 @@
           "year": "Heute",
           "title": "Unterstützt Gemeinschaften in ganz Bangladesch"
         }
-      ]
+      ],
+      "certificateOriginal": "Original (Bengalisch)",
+      "certificateTranslation": "Englische Übersetzung",
+      "certificateTranslationAlt": "Beglaubigte englische Übersetzung der Registrierungsurkunde von Alokayon"
     },
     "purpose": {
       "eyebrow": "Unser Zweck",
@@ -1061,7 +1064,7 @@
         ]
       },
       "trust": [
-        "Registriert beim Department of Social Services (2019)",
+        "Registriert beim Department of Social Services · Reg.-Nr. DHA-09710 (2019)",
         "Keine externe Finanzierung — vollständig spendenfinanziert",
         "Direkte Verteilung an Begünstigte",
         "Volle Verantwortung und transparente Berichterstattung"
@@ -1072,7 +1075,7 @@
       "title": "Aufgebaut auf Verantwortung, getragen von aufrichtigem Geben.",
       "description": "Alokayon verbindet spendenfinanzierten Dienst, transparente Berichterstattung und sorgfältige Auswahl der Begünstigten, damit Unterstützung Menschen mit Würde und ohne Verschwendung erreicht.",
       "points": [
-        "2019 beim Department of Social Services registriert",
+        "2019 beim Department of Social Services registriert (Reg.-Nr. DHA-09710)",
         "Keine externe Finanzierung — vollständig durch Zakat und Spenden getragen",
         "Direkte Unterstützung für Begünstigte in Bildung, Gesundheitsversorgung und Nothilfe",
         "Transparente Abläufe, verwurzelt in Verantwortung und Gemeinschaftsvertrauen"
@@ -2667,7 +2670,7 @@
       "title": "Kontakt",
       "intro": "Wenn Sie Fragen zu dieser Richtlinie haben, kontaktieren Sie uns bitte über die folgenden Angaben.",
       "organizationLabel": "Organisation",
-      "organization": "Alokayon, registriert beim Department of Social Services, Ministerium für Soziales, Regierung von Bangladesch (2019)",
+      "organization": "Alokayon, registriert beim Department of Social Services, Ministerium für Soziales, Regierung von Bangladesch · Registrierungsnummer DHA-09710 (19. Februar 2019)",
       "addressLabel": "Anschrift",
       "emailLabel": "E-Mail",
       "phoneLabel": "Telefon"
@@ -2679,7 +2682,7 @@
         {
           "heading": "Über Alokayon",
           "paragraphs": [
-            "Alokayon ist eine nicht gewinnorientierte, parteipolitisch unabhängige Hilfsorganisation in Bangladesch. Sie begann 2011 informell und wurde 2019 beim Department of Social Services des Ministeriums für Soziales offiziell registriert. Alokayon unterstützt benachteiligte Kinder, Witwen, ältere Menschen und bedürftige Familien durch Programme in den Bereichen Bildung, Nothilfe, Gesundheit und Existenzsicherung."
+            "Alokayon ist eine nicht gewinnorientierte, parteipolitisch unabhängige Hilfsorganisation in Bangladesch. Sie begann 2011 informell und wurde am 19. Februar 2019 beim Department of Social Services des Ministeriums für Soziales offiziell registriert (Registrierungsnummer DHA-09710). Alokayon unterstützt benachteiligte Kinder, Witwen, ältere Menschen und bedürftige Familien durch Programme in den Bereichen Bildung, Nothilfe, Gesundheit und Existenzsicherung."
           ]
         },
         {

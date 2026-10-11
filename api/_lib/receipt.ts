@@ -6,7 +6,7 @@ import type { Donation, PaymentMethod } from './db.js'
 
 const organisation = {
   name: 'Alokayon',
-  registration: 'Registered with the Department of Social Services, Ministry of Social Welfare, Bangladesh (2019)',
+  registration: 'Registered with the Department of Social Services, Ministry of Social Welfare, Bangladesh. Reg. No. DHA-09710 (2019)',
   address: [
     'Holding No. 02, Road No. 10/1, Avenue 07, Block G, Ward 02,',
     'P.S. Khilgaon, Dhaka South City Corporation, Dhaka, Bangladesh',
