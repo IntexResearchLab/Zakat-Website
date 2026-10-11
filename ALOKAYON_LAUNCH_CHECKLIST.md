@@ -209,8 +209,8 @@ _About 1 hour with the client_
   - Do not share one login. Remove any test or developer logins they do not need.
 - [ ] Walk the admins through the dashboard
   - Recording bKash, Nagad, bank and cash donations; sending signed receipts; reading messages; adding appeals; updating gold and silver prices; uploading magazines and gallery photos.
-- [ ] Save a copy of the database layout to the project (ask Claude)
-  - The magazines, gallery, executives and stats tables were made in the dashboard and are not saved in the code, so the site cannot be rebuilt from the code alone.
+- [x] Save a copy of the database layout to the project (ask Claude)
+  - Done 11 October 2026: `supabase/migrations/20260501000000_content_tables.sql` records the four dashboard-made tables, and `supabase/README.md` lists the order to run every file on a new project.
 - [ ] Check Supabase backups are on (**Project Settings → Database → Backups**) and that someone at Alokayon can download the donations list (CSV) from **Admin → Donations**
 - [ ] Agree what support Intex provides after launch, and who Alokayon contacts when something breaks.
 - [ ] Tell Alokayon about the known limitations below.
