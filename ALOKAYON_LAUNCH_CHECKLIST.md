@@ -237,7 +237,7 @@ Both fit the Vercel free plan: the site uses 9 of its 12 functions, and neither 
   - It goes through the existing contact form endpoint as a new "Suggestion" topic, so it gets the same spam protection.
   - Each suggestion is emailed to the chosen inbox and also kept in **Admin → Messages**, with a filter to show suggestions only.
   - Labels in English, Bangla and German.
-- [ ] Test: send a suggestion from the live site and check it appears in **Admin → Messages** (suggestions are not emailed).
+- [x] Test: send a suggestion from the live site and check it appears in **Admin → Messages** (suggestions are not emailed). Done 11 October 2026.
 
 ### News and updates posts from the admin
 
