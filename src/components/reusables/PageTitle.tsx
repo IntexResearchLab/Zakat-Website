@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom'
 import pageMeta from '../../content/pageMeta.json'
 
 const siteName = 'Alokayon Charity'
-const siteUrl = (import.meta.env.VITE_SITE_URL || 'https://alokayoncharity.com').replace(/\/+$/, '')
+const siteUrl = (import.meta.env.VITE_SITE_URL || 'https://alokayon.org.bd').replace(/\/+$/, '')
 
 type PageInfo = {
   // Reuses the breadcrumb labels so tab titles follow the selected language.

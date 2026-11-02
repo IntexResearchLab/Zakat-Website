@@ -115,7 +115,7 @@ _Needs someone from Alokayon_
 _About 15 minutes, plus waiting for DNS_
 
 - [ ] Create an account at https://resend.com
-- [ ] Add and verify **alokayoncharity.com** under **Domains** (add the DNS records Resend shows at your domain provider).
+- [ ] Add and verify **alokayon.org.bd** under **Domains** (add the DNS records Resend shows in **Vercel → Domains → alokayon.org.bd → DNS Records**, since Vercel runs this domain's DNS).
 - [ ] Create an API key under **API Keys** and keep it for step 8.
 - [ ] **(new)** Use Resend for Supabase's own emails too: **Supabase → Authentication → Emails → SMTP Settings**
   - Supabase's built-in sender only allows a few emails an hour and often lands in spam, so admin password reset emails may not arrive. Resend's guide: https://resend.com/docs/send-with-supabase-smtp
@@ -149,49 +149,49 @@ _Project → Settings → Environment Variables → Production_
 - [x] `SSLCOMMERZ_STORE_ID`: the Store ID from the SSLCommerz "Integration Credentials" email
 - [x] `SSLCOMMERZ_STORE_PASSWORD`: the Store Password from the same email (never paste it anywhere else)
 - [x] `SSLCOMMERZ_SANDBOX`: `false`
-- [x] `SITE_URL`: `https://alokayoncharity.com`
-  - Set to `https://zakat-website-hazel.vercel.app` for now. Change it to `https://alokayoncharity.com` when the domain moves, then redeploy.
+- [x] `SITE_URL`: `https://alokayon.org.bd`
+  - Set to `https://zakat-website-hazel.vercel.app` for now. Change it to `https://alokayon.org.bd` when the domain moves, then redeploy.
 - [x] `SUPABASE_SERVICE_ROLE_KEY`: from Supabase → **Project Settings → API Keys** (secret; never put `VITE_` in front of it)
 - [ ] `RESEND_API_KEY`: the key from step 5
-- [ ] `RECEIPT_FROM_EMAIL`: e.g. `Alokayon <receipts@alokayoncharity.com>`
+- [ ] `RECEIPT_FROM_EMAIL`: e.g. `Alokayon <receipts@alokayon.org.bd>`
 - [ ] `RECEIPT_REPLY_TO`: `alokayon2019@gmail.com`
 - [ ] `ADMIN_NOTIFY_EMAIL`: the inbox that is told about new contact messages and signed receipt requests
 - [ ] Redeploy the site after saving the Resend settings.
-- Moving the domain is in the "Switch from the Vercel address to alokayoncharity.com" section below.
+- Moving the domain is in the "Switch from the Vercel address to alokayon.org.bd" section below.
 
-## Switch from the Vercel address to alokayoncharity.com (new)
-_Do this once the domain points at Vercel. Until then everything runs on `https://zakat-website-hazel.vercel.app`._
+## Switch from the Vercel address to alokayon.org.bd (new)
+_The domain alokayon.org.bd was bought on 2 November 2026 with its nameservers set to `ns1.vercel-dns.com` and `ns2.vercel-dns.com`. Do this once Vercel shows it as "Valid Configuration". Until then everything runs on `https://zakat-website-hazel.vercel.app`._
 
 As of 11 October 2026 these use the temporary vercel.app address and must be changed:
 
-- [ ] **Vercel → Settings → Domains:** add `alokayoncharity.com`, make it the main domain, and redirect `www.alokayoncharity.com` to it. Change only the A and CNAME records at the domain provider, never MX or email records. Back up the old WordPress site first.
-- [ ] **Vercel → Environment Variables:** change `SITE_URL` from `https://zakat-website-hazel.vercel.app` to `https://alokayoncharity.com`, then **redeploy**.
-- [ ] **Supabase → Authentication → URL Configuration:** change the **Site URL** to `https://alokayoncharity.com`. Keep `https://alokayoncharity.com/admin/reset-password` in Redirect URLs (it is already there).
-- [ ] **SSLCommerz Merchant Panel → My Store → IPN Settings:** change the IPN URL from `https://zakat-website-hazel.vercel.app/api/payment/ipn` to `https://alokayoncharity.com/api/payment/ipn`, and Save.
-- [ ] **SSLCommerz:** check the store's registered website address is `https://alokayoncharity.com` (ask SSLCommerz support if it can't be edited in the panel).
-- [ ] **Resend** (when set up): the sending domain is `alokayoncharity.com`, so DNS records go at the same domain provider. `RECEIPT_FROM_EMAIL` should use `@alokayoncharity.com`.
-- [ ] **After the switch, re-test on alokayoncharity.com:** a ৳10 payment (then refund), the receipt PDF, the contact form, the admin sign-in and "Forgot password" link, and link previews on WhatsApp.
+- [ ] **Vercel → Settings → Domains:** add `alokayon.org.bd`, make it the main domain, and redirect `www.alokayon.org.bd` to it. Vercel creates the DNS records itself; don't add A or CNAME records by hand. If alokayoncharity.com is kept, add it too and redirect it to `alokayon.org.bd`.
+- [ ] **Vercel → Environment Variables:** change `SITE_URL` from `https://zakat-website-hazel.vercel.app` to `https://alokayon.org.bd`, then **redeploy**.
+- [ ] **Supabase → Authentication → URL Configuration:** change the **Site URL** to `https://alokayon.org.bd`. Add `https://alokayon.org.bd/admin/reset-password` to Redirect URLs.
+- [ ] **SSLCommerz Merchant Panel → My Store → IPN Settings:** change the IPN URL from `https://zakat-website-hazel.vercel.app/api/payment/ipn` to `https://alokayon.org.bd/api/payment/ipn`, and Save.
+- [ ] **SSLCommerz:** check the store's registered website address is `https://alokayon.org.bd` (ask SSLCommerz support if it can't be edited in the panel).
+- [ ] **Resend** (when set up): the sending domain is `alokayon.org.bd`, so add its DNS records in **Vercel → Domains → alokayon.org.bd → DNS Records**. `RECEIPT_FROM_EMAIL` should use `@alokayon.org.bd`.
+- [ ] **After the switch, re-test on alokayon.org.bd:** a ৳10 payment (then refund), the receipt PDF, the contact form, the admin sign-in and "Forgot password" link, and link previews on WhatsApp.
 - [ ] **Tell the client** the new address is live, and update any printed material or social links that used the old one.
-- Nothing in the code needs changing: link previews, the sitemap and robots.txt already use `alokayoncharity.com`.
+- Nothing in the code needs changing: link previews, the sitemap and robots.txt were moved to `alokayon.org.bd` on 2 November 2026.
 
 ## 9. Set up SSLCommerz
 _Merchant Panel_
 
-- [x] Under **My Store → IPN Settings**, set the IPN URL to `https://alokayoncharity.com/api/payment/ipn`
+- [x] Under **My Store → IPN Settings**, set the IPN URL to `https://alokayon.org.bd/api/payment/ipn`
   - Set to `https://zakat-website-hazel.vercel.app/api/payment/ipn` for now (11 October 2026); change it in the domain switch section below.
   - This lets SSLCommerz confirm a payment and send the receipt even if the donor closes the browser.
 
 ## 10. Test a real payment
 _About 15 minutes_
 
-- [ ] Donate **৳10** on alokayoncharity.com with your own bKash or card, and tick **"I would also like a hand-signed receipt"**.
+- [ ] Donate **৳10** on alokayon.org.bd with your own bKash or card, and tick **"I would also like a hand-signed receipt"**.
 - [ ] Check you see the "Thank you" page and the payment in the Merchant Panel.
 - [ ] Check the receipt email arrives (not in spam) with the PDF attached, and that the notice reaches `ADMIN_NOTIFY_EMAIL`.
   - The notice only arrives once the step 6 payment fixes are live.
 - [ ] In **Admin → Donations**, find the ৳10 donation, upload a signed copy, and check the donor email receives it.
 - [ ] Send a test message from the Contact page and check it arrives at `ADMIN_NOTIFY_EMAIL` and in **Admin → Messages**.
-- [ ] **(new)** On the admin sign-in page, press "Forgot password" and check the reset email arrives and its link opens `alokayoncharity.com/admin/reset-password`.
-- [ ] Check link previews: paste `https://alokayoncharity.com/donate` and an appeal link into https://www.opengraph.xyz (or send them to yourself on WhatsApp) and confirm each shows its own title, and the appeal shows its photo.
+- [ ] **(new)** On the admin sign-in page, press "Forgot password" and check the reset email arrives and its link opens `alokayon.org.bd/admin/reset-password`.
+- [ ] Check link previews: paste `https://alokayon.org.bd/donate` and an appeal link into https://www.opengraph.xyz (or send them to yourself on WhatsApp) and confirm each shows its own title, and the appeal shows its photo.
 - [ ] **(new)** Open the live site on a phone and switch the language to Bangla and German. Check the home, Donate and Zakat Calculator pages.
 - [ ] Refund the ৳10 from the Merchant Panel.
 

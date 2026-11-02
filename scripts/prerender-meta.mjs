@@ -11,7 +11,7 @@ import { dirname, join } from 'node:path'
 const root = join(dirname(new URL(import.meta.url).pathname), '..')
 const dist = join(root, 'dist')
 const siteName = 'Alokayon Charity'
-const siteUrl = (process.env.VITE_SITE_URL || 'https://alokayoncharity.com').replace(/\/+$/, '')
+const siteUrl = (process.env.VITE_SITE_URL || 'https://alokayon.org.bd').replace(/\/+$/, '')
 
 const shell = readFileSync(join(dist, 'index.html'), 'utf8')
 const pages = JSON.parse(readFileSync(join(root, 'src/content/pageMeta.json'), 'utf8'))

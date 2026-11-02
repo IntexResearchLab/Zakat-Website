@@ -7,4 +7,4 @@ Disallow: /donate/failed
 Disallow: /donate/cancelled
 Disallow: /donate/receipt
 
-Sitemap: https://alokayoncharity.com/sitemap.xml
+Sitemap: https://alokayon.org.bd/sitemap.xml
